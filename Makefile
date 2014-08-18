@@ -51,6 +51,7 @@ SOURCES = $(FIXOS_FILES) $(EDITAVEIS_FILES)
 
 all: 
 	@make $(TARGET)
+	pdfinfo $(TARGET)
      
 $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	# $(LATEX) $(MAIN_FILE) $(SOURCES)
