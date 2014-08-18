@@ -62,8 +62,8 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	# @cp $(PDF_FILE) $(TARGET)
 	$(LATEX) $(MAIN_FILE)
 	$(BIBTEX) $(AUX_FILE) -ters
-	# makeglossaries tcc
-	# makeindex tcc.glo -s tcc.ist -t tcc.glg -o tcc.gls
+	# makeglossaries relatorio
+	# makeindex relatorio.glo -s relatorio.ist -t relatorio.glg -o relatorio.gls
 	$(LATEX) -interaction=batchmode $(MAIN_FILE)
 	$(LATEX) -interaction=batchmode $(MAIN_FILE)
 	@mv $(PDF_FILE) $(TARGET)
