@@ -1,7 +1,7 @@
 TARGET = START-X_Oculus.pdf
 
 BIBTEX = bibtex
-LATEX = latex
+LATEX = pdflatex
 DVIPS = dvips
 PS2PDF = ps2pdf
 
@@ -53,18 +53,25 @@ all:
 	@make $(TARGET)
      
 $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(BIBTEX) $(AUX_FILE)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(DVIPS) $(DVI_FILE)
-	$(PS2PDF) $(PS_FILE)
-	@cp $(PDF_FILE) $(TARGET)
+	# $(LATEX) $(MAIN_FILE) $(SOURCES)
+	# $(BIBTEX) $(AUX_FILE)
+	# $(LATEX) $(MAIN_FILE) $(SOURCES)
+	# $(LATEX) $(MAIN_FILE) $(SOURCES)
+	# $(DVIPS) $(DVI_FILE)
+	# $(PS2PDF) $(PS_FILE)
+	# @cp $(PDF_FILE) $(TARGET)
+	$(LATEX) $(MAIN_FILE)
+	$(BIBTEX) $(AUX_FILE) -ters
+	# makeglossaries tcc
+	# makeindex tcc.glo -s tcc.ist -t tcc.glg -o tcc.gls
+	$(LATEX) -interaction=batchmode $(MAIN_FILE)
+	$(LATEX) -interaction=batchmode $(MAIN_FILE)
+	@mv $(PDF_FILE) $(TARGET)
 
 clean:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log
 	rm -f *.lof *.lot *.bbl *.blg *.brf *.toc *.idx
-	rm -f *.pdf
+	#rm -f *.pdf
 	
 dist: clean
 	tar vczf start-x_latex-$(VERSION).tar.gz *
