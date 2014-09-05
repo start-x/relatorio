@@ -21,7 +21,7 @@ EDITAVEIS_SOURCES = abreviaturas.tex anexos.tex  consideracoes.tex divisoes.tex 
 					epigrafe.tex  impactos.tex introducao.tex metas.tex proposta.tex \
 					simbolos.tex agradecimentos.tex aspectosgerais.tex dedicatoria.tex \
 					elementosdopostexto.tex errata.tex informacoes.tex logistica.tex \
-					problema.tex conclusao.tex textoepostexto.tex figura.tex requisitos.tex
+					problema.tex conclusao.tex textoepostexto.tex figura.tex requisitos.tex contracapa.tex
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
@@ -49,7 +49,7 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 
 clean:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log
-	rm -f *.lof *.lot *.bbl *.blg *.brf *.toc *.idx
+	rm -f *.lof *.lot *.bbl *.blg *.brf *.toc *.idx *.ps
 	rm -f *.pdf
 	
 dist: clean
