@@ -51,20 +51,3 @@ Para a construção do produto, a equipe designou a divisão de tarefas por áre
 \item Bibliotecas para uso de comunicação e coleta de dados no microcontrolador
 \end{itemize}
 
-\subsubsection{Energia}
-
-\begin{itemize}
-\item Armazenamento de energia
-\item Dimensionamento dos dispositivos responsáveis conversão eletromecânica de energia
-\item Dimensionamento do circuito de distribuição da energia e do circuito de proteção da malha
-\item Verificação da eficiência energética
-\end{itemize}
-
-\subsubsection{Software}
-
-\begin{itemize}
-\item Construção do Ambiente Virtual
-\item Interface de comunicação com sensores
-\end{itemize}
-
-

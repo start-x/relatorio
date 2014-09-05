@@ -7,4 +7,9 @@ Para gerir o projeto dividimos o projeto em 3 grandes releases que correspondem 
 Para organizar as tarefas do projeto criamos histórias que são macrotarefas onde são posteriormente quebradas em tarefas menores. Essas tarefas são colocadas em um quadro de tarefas.
 
 
+\begin{figure}[h] 
+\includegraphics[keepaspectratio=true,scale=2] {figuras/backlogs.png} 
+\caption[{Backlog}] 
+\label{paraUsarEmReferencia} 
+\end{figure}
   

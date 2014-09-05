@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2014.9.3)  4 SEP 2014 21:17
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2014.9.3)  4 SEP 2014 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -973,7 +973,7 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 16.
 
 
 Writing index file tcc.idx 
-(./tcc.aux)
+No file tcc.aux.
 \openout1 = `tcc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
@@ -991,7 +991,7 @@ LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
 LaTeX Font Info:    ... okay on input line 9.
 LaTeX Font Info:    Try loading font information for T1+lmr on input line 9.
- (/usr/share/texmf/tex/latex/lm/t1lmr.fd
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box31
@@ -1011,6 +1011,9 @@ LaTeX Info: Redefining \nameref on input line 9.
 LaTeX Info: Redefining \ref on input line 9.
 LaTeX Info: Redefining \pageref on input line 9.
 LaTeX Info: Redefining \nameref on input line 9.
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
 LaTeX Info: Redefining \degres on input line 9.
 
 Package frenchb.ldf Warning: The definition of \@makecaption has been changed,
@@ -1074,6 +1077,10 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 ] (./fixos/fichaCatalografica.tex
+
+LaTeX Warning: Reference `LastPage' on page 2 undefined on input line 12.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
@@ -1109,81 +1116,78 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 30.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 30.
-) (./editaveis/epigrafe.tex [2]) (./fixos/indiceAutomatico.tex (./tcc.toc)
-[3
+) (./editaveis/epigrafe.tex [2]) (./fixos/indiceAutomatico.tex
+\tf@toc=\write5
+\openout5 = `tcc.toc'.
+
+ [3
 
 ] [4
 
-]) (./editaveis/problema.tex) (./editaveis/proposta.tex [5
+])
+(./editaveis/problema.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [6
+ [5
 
 ])
-(./editaveis/projeto.tex [7] [8
+(./editaveis/proposta.tex [6]) (./editaveis/projeto.tex [7
 
-]) (./editaveis/divisoes.tex [9] [10
-
-])
-(./editaveis/materiais.tex [11] [12
-
-]) (./editaveis/interacoes.tex [13] [14
+] [8
 
 ])
-(./editaveis/logistica.tex [15] [16
-
-]) (./editaveis/cronograma.tex [17] [18
-
-])
-(./editaveis/metas.tex [19] [20
-
-]) (./editaveis/financeiro.tex [21] [22
-
-])
-(./editaveis/resultados.tex [23] [24
-
-]) (./editaveis/impactos.tex [25] [26
-
-])
-(./editaveis/eap.tex [27] [28
-
-]) (./tcc.bbl (./tcc.brf)
-\tf@brf=\write5
-\openout5 = `tcc.brf'.
-
- [29] [30
+(./editaveis/divisoes.tex [9] [10
 
 ]
-bibitemlist
-
-LaTeX Warning: Empty `thebibliography' environment on input line 8.
-
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 8.
+ (/usr/share/texmf/tex/latex/lm/omslmr.fd
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-No file tcc.ind.
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 8.
 
-AED: lastpage setting LastPage
-[31]
-\tf@toc=\write6
-\openout6 = `tcc.toc'.
+[11]) (./editaveis/materiais.tex [12] [13
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 45.
-\BKM@file=\write7
-\openout7 = `tcc.out.ps'.
+]
+Overfull \hbox (2.03523pt too wide) in paragraph at lines 36--37
+[]\T1/lmr/m/n/12 MSP430 - mi-cro-con-tro-la-dor res-pon-sá-vel por co-le-tar os
+ da-dos dos sen-so-res e transmiti-
+ []
 
- (./tcc.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 45.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
-Package rerunfilecheck Info: File `tcc.brf' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
- ) 
+[14]) (./editaveis/interacoes.tex [15] [16
+
+]) (./editaveis/logistica.tex
+[17] [18
+
+]) (./editaveis/cronograma.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+[20]
+
+! LaTeX Error: Cannot determine size of graphic in figuras/backlogs.png (no Bou
+ndingBox).
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 ...ratio=true,scale=2] {figuras/backlogs.png}
+                                                  
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.11 ...ratio=true,scale=2] {figuras/backlogs.png}
+                                                  
+? x
+ 
 Here is how much of TeX's memory you used:
- 11555 strings out of 493486
- 167175 string characters out of 3143550
- 288232 words of memory out of 3000000
- 14608 multiletter control sequences out of 15000+200000
- 62720 words of font info for 48 fonts, out of 3000000 for 9000
+ 11551 strings out of 493486
+ 167026 string characters out of 3143550
+ 289211 words of memory out of 3000000
+ 14627 multiletter control sequences out of 15000+200000
+ 69978 words of font info for 50 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 44i,12n,50p,882b,473s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on tcc.dvi (33 pages, 38796 bytes).
+ 44i,13n,50p,1877b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+Output written on tcc.dvi (22 pages, 43880 bytes).

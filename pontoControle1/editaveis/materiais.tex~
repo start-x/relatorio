@@ -36,13 +36,3 @@ Os materiais relacionados às cargas que serão conectadas ao circuito elétrico
 \item MSP430 - microcontrolador responsável por coletar os dados dos sensores e transmiti-los para o computador.
 \end{itemize}
 
-\subsubsection{Software}
-
-Unity 4 – será responsável pela modelagem do ambiente virtual que será exibido ao usuário através do óculos rift.
-
-No tocante à metodologia para o desenvolvimento do protótipo desse projeto, esta consistirá na formação de equipes menores a partir do grupo geral de participantes do mesmo.  Para a formação das equipes proceder-se-á de acordo com os conhecimentos comuns das diversas engenharias existentes no projeto. 
-
-Desse modo, durante o curso do projeto, cada equipe responsabilizará-se em executar tarefas definidas de acordo com a área de abrangência na qual se encontra, sendo que as decisões tomadas por cada equipe serão comunicadas para todos os participantes do projeto. O objetivo dessa comunicação visa cientizar os integrantes do projeto, bem como detectar possíveis impactos dessas decisões no escopo de atuação das outras equipes, a fim de solucioná-los ou minimizá-los.
-
-A comunicação citada acima será executada por intermédio de ferramentas online e também por meio de reuniões presenciais com a presença de todos os membros do projeto. Sendo que essas reuniões presenciais terão por objetivo discutir a respeito do andamento dos trabalhos das equipes formadas, bem como para integrar, interagir e discutir as tarefas que estão sendo desempenhadas e as que possam depender de outra(s) equipe(s). 
-
