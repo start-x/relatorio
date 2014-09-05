@@ -1,0 +1,33 @@
+  
+  \def\firstcircle{(0:3.75cm)  circle (3.85cm)}
+  \def\secondcircle{(90:3.75cm) circle (3.85cm)}
+  \def\thirdcircle{(180:3.75cm) circle (3.85cm)}
+  \def\fourdcircle{(270:3.75cm) circle (3.85cm)}
+
+\tikzstyle{int}=[draw, fill=blue!20, minimum size=2em]
+\tikzstyle{init} = [pin edge={to-,thin,black}]
+
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+  thick]
+
+    % The last trick is to cheat and use transparency
+    \begin{scope}[shift={(3cm,3cm)}, fill opacity=0.5]
+        \fill[red] \firstcircle;
+        \fill[green] \secondcircle;
+        \fill[blue] \thirdcircle;
+        \fill[yellow] \fourdcircle;
+  %       \foreach \A in {left,above} {
+  %       	\draw \firstcircle node[below] {$A$};
+		% 	\draw[thick] (0.2+\A,2.0-\A) -- (0.2+\A,2.01-\A) arc (-70:70:0.5+\A) ;
+		% }
+        \draw \firstcircle node[below] (a) {$Software$};
+        \draw \secondcircle node [above] (b) {$Eletrônica$};
+        \draw \thirdcircle node [below] (c) {$Energia$};
+        \draw \fourdcircle node [below] (d) {$Automotiva$};
+    \end{scope}
+
+    \path[every node/.style={font=\sffamily\small}]
+    	(a) edge node [left] {} (b);
+
+
+\end{tikzpicture}
