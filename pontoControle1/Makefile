@@ -15,12 +15,13 @@ FIXOS_SOURCES = informacoes.tex novosComandos.tex fichaCatalografica.tex \
 FIXOS_FILES = $(addprefix $(FIXOS_DIR)/, $(FIXOS_SOURCES))
 
 EDITAVEIS_DIR = editaveis
-EDITAVEIS_SOURCES = informacoes.tex errata.tex dedicatoria.tex \
-					agradecimentos.tex epigrafe.tex resumo.tex abstract.tex \
-					abreviaturas.tex simbolos.tex introducao.tex \
-					aspectosgerais.tex consideracoes.tex textoepostexto.tex \
-					elementosdotexto.tex elementosdopostexto.tex \
-					apendices.tex anexos.tex
+EDITAVEIS_SOURCES = abreviaturas.tex anexos.tex  consideracoes.tex divisoes.tex  \
+					elementosdotexto.tex financeiro.tex interacoes.tex materiais.tex projeto.tex \
+					resumo.tex abstract.tex apendices.tex cronograma.tex eap.tex   \
+					epigrafe.tex  impactos.tex introducao.tex metas.tex proposta.tex \
+					simbolos.tex agradecimentos.tex aspectosgerais.tex dedicatoria.tex \
+					elementosdopostexto.tex errata.tex informacoes.tex logistica.tex \
+					problema.tex resultados.tex textoepostexto.tex
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
