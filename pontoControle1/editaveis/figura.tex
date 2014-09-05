@@ -18,12 +18,9 @@
         \fill[green] \secondcircle;
         \fill[blue] \thirdcircle;
         \fill[yellow] \fourdcircle;
-  %       \foreach \A in {left,above} {
-  %       	\draw \firstcircle node[below] {$A$};
-		% 	\draw[thick] (0.2+\A,2.0-\A) -- (0.2+\A,2.01-\A) arc (-70:70:0.5+\A) ;
-		% }
-        \draw \firstcircle node[below] (a) {$Software$}
-        	[clockwise from=30,level distance=170,sibling angle=43]
+
+        \draw \firstcircle node[right] (a) {$Software$}
+        	[clockwise from=30,level distance=140,sibling angle=43]
 			child { node[concept,text width=3cm,align=center] {Gerenciamento} }
 			child {node[concept,text width=3cm,align=center] {Modelagem} }
 			child { node[concept,text width=3cm,align=center] {Óculos de Realidade Virtual} }
@@ -32,15 +29,15 @@
         [clockwise from=90,level distance=170,sibling angle=30]
         	child { node[concept,text width=3cm,align=center] {Sensores} }
         ;
-        \draw \thirdcircle node [below] (c) {$Energia$}
-        [clockwise from=240,level distance=170,sibling angle=45]
+        \draw \thirdcircle node [left] (c) {$Energia$}
+        [clockwise from=240,level distance=140,sibling angle=45]
         	child { node[concept,text width=3cm,align=center] {Armazenamento de Energia} }
         	child { node[concept,text width=3cm,align=center] {Conversão Electromecânica} }
         	child { node[concept,text width=3cm,align=center] {Eficiência Energética} }
         	child { node[concept,text width=3cm,align=center] {Distribuição} }
         ;
         \draw \fourdcircle node [below] (d) {$Automotiva$}
-        [clockwise from=295,level distance=170,sibling angle=45]
+        [clockwise from=295,level distance=170,sibling angle=40]
         	child { node[concept,text width=3cm,align=center] {Ergonomia} }
         	child { node[concept,text width=3cm,align=center] {Analise Estrutural} }
         ;
