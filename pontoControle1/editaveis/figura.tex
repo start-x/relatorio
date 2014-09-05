@@ -1,16 +1,16 @@
   
-  \def\firstcircle{(0:3.75cm)  circle (3.85cm)}
-  \def\secondcircle{(90:3.75cm) circle (3.85cm)}
-  \def\thirdcircle{(180:3.75cm) circle (3.85cm)}
-  \def\fourdcircle{(270:3.75cm) circle (3.85cm)}
+  \def\firstcircle{(0:2.75cm)  circle (2.85cm)}
+  \def\secondcircle{(90:2.75cm) circle (2.85cm)}
+  \def\thirdcircle{(180:2.75cm) circle (2.85cm)}
+  \def\fourdcircle{(270:2.75cm) circle (2.85cm)}
 
 \tikzstyle{sensor}=[draw, fill=blue!20, text width=5em, 
     text centered, minimum height=2.5em,drop shadow]
 \tikzstyle{wa} = [sensor, text width=10em, fill=red!20, 
     minimum height=6em, rounded corners, drop shadow]
 
-  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
-  thick]
+  \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=5cm,
+  thick,scale=0.8]
 
     % The last trick is to cheat and use transparency
     \begin{scope}[shift={(3cm,3cm)}, fill opacity=0.5]
@@ -23,26 +23,26 @@
 		% 	\draw[thick] (0.2+\A,2.0-\A) -- (0.2+\A,2.01-\A) arc (-70:70:0.5+\A) ;
 		% }
         \draw \firstcircle node[below] (a) {$Software$}
-        	[clockwise from=0,concept/.append style={level distance=3cm,sibling angle=30}]
-			child { node[concept] {Gerenciamento} }
-			child {node[concept] {Modelagem} }
-			child { node[concept] {Óculos de Realidade Virtual} }
+        	[clockwise from=30,level distance=170,sibling angle=43]
+			child { node[concept,text width=3cm,align=center] {Gerenciamento} }
+			child {node[concept,text width=3cm,align=center] {Modelagem} }
+			child { node[concept,text width=3cm,align=center] {Óculos de Realidade Virtual} }
         ;
         \draw \secondcircle node [above] (b) {$Eletrônica$}
-        [clockwise from=90,concept/.append style={level distance=3cm,sibling angle=30}]
-        	child { node[concept] {Sensores} }
+        [clockwise from=90,level distance=170,sibling angle=30]
+        	child { node[concept,text width=3cm,align=center] {Sensores} }
         ;
         \draw \thirdcircle node [below] (c) {$Energia$}
-        [clockwise from=180,concept/.append style={level distance=3cm,sibling angle=30}]
-        	child { node[concept] {Armazenamento de Energia} }
-        	child { node[concept] {Conversão Electromecânica} }
-        	child { node[concept] {Eficiência Energética} }
-        	child { node[concept] {Distribuição} }
+        [clockwise from=240,level distance=170,sibling angle=45]
+        	child { node[concept,text width=3cm,align=center] {Armazenamento de Energia} }
+        	child { node[concept,text width=3cm,align=center] {Conversão Electromecânica} }
+        	child { node[concept,text width=3cm,align=center] {Eficiência Energética} }
+        	child { node[concept,text width=3cm,align=center] {Distribuição} }
         ;
         \draw \fourdcircle node [below] (d) {$Automotiva$}
-        [clockwise from=270,concept/.append style={level distance=3cm,sibling angle=30}]
-        	child { node[concept] {Ergonomia($Percentil$)} }
-        	child { node[concept] {Analise Estrutural} }
+        [clockwise from=295,level distance=170,sibling angle=45]
+        	child { node[concept,text width=3cm,align=center] {Ergonomia} }
+        	child { node[concept,text width=3cm,align=center] {Analise Estrutural} }
         ;
     \end{scope}
 
