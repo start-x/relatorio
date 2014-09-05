@@ -1,7 +1,7 @@
 TARGET = TCC_FGA.pdf
 
 BIBTEX = bibtex
-LATEX = latex
+LATEX = pdflatex
 DVIPS = dvips
 PS2PDF = ps2pdf
 
@@ -39,13 +39,20 @@ all:
 	@make $(TARGET)
      
 $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(BIBTEX) $(AUX_FILE)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(LATEX) $(MAIN_FILE) $(SOURCES)
-	$(DVIPS) $(DVI_FILE)
-	$(PS2PDF) $(PS_FILE)
-	@cp $(PDF_FILE) $(TARGET)
+	# $(LATEX) $(MAIN_FILE) $(SOURCES)
+	# $(BIBTEX) $(AUX_FILE)
+	# $(LATEX) $(MAIN_FILE) $(SOURCES)
+	# $(LATEX) $(MAIN_FILE) $(SOURCES)
+	# $(DVIPS) $(DVI_FILE)
+	# $(PS2PDF) $(PS_FILE)
+	# @cp $(PDF_FILE) $(TARGET)
+	$(LATEX) $(MAIN_FILE)
+	$(BIBTEX) $(AUX_FILE) -ters
+	# makeglossaries relatorio
+	# makeindex relatorio.glo -s relatorio.ist -t relatorio.glg -o relatorio.gls
+	$(LATEX) -interaction=batchmode $(MAIN_FILE)
+	$(LATEX) -interaction=batchmode $(MAIN_FILE)
+	@mv $(PDF_FILE) $(TARGET)
 
 clean:
 	rm -f *~ *.dvi *.ps *.backup *.aux *.log
