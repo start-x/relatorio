@@ -49,8 +49,8 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	# @cp $(PDF_FILE) $(TARGET)
 	$(LATEX) $(MAIN_FILE)
 	$(BIBTEX) $(AUX_FILE) -ters
-	# makeglossaries $(basename $(MAIN_FILE))
-	# makeindex relatorio.glo -s relatorio.ist -t relatorio.glg -o relatorio.gls
+	makeglossaries $(basename $(MAIN_FILE))
+	makeindex $(addsuffix .glo, $(basename $(MAIN_FILE))) -s $(addsuffix .ist, $(basename $(MAIN_FILE))) -t $(addsuffix .glg, $(basename $(MAIN_FILE))) -o $(addsuffix .gls, $(basename $(MAIN_FILE)))
 	$(LATEX) -interaction=batchmode $(MAIN_FILE)
 	$(LATEX) -interaction=batchmode $(MAIN_FILE)
 	@mv $(PDF_FILE) $(TARGET)

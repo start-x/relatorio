@@ -5,6 +5,8 @@
 \input{editaveis/informacoes}
 \input{fixos/informacoes}
 \input{fixos/setup}
+\input{editaveis/glossary}
+\makeglossaries
 
 \begin{document}
 
@@ -44,6 +46,21 @@
 \bibliography{bibliografia} 
 
 \printindex
+
+\glsaddall
+\part*{Gloss\'ario}
+\providetranslation{Notation (glossaries)}{Notação}
+\providetranslation{Description (glossaries)}{Descrição}
+\phantomsection
+\addcontentsline{toc}{part}{Gloss\'ario}
+\glossarystyle{altlisthypergroup}
+\printglossary[title= ]
+
+% \newpage
+% \phantomsection
+% \addcontentsline{toc}{chapter}{Lista de Termos}\label{acrom}
+% \printglossary[type=\acronymtype,title=Lista de Termos,toctitle=Lista de Termos]
+
 
 \end{document}
 
