@@ -15,27 +15,13 @@ FIXOS_SOURCES = informacoes.tex novosComandos.tex fichaCatalografica.tex \
 FIXOS_FILES = $(addprefix $(FIXOS_DIR)/, $(FIXOS_SOURCES))
 
 EDITAVEIS_DIR = editaveis
-EDITAVEIS_SOURCES = analisefinanceira.tex \
-					anexos.tex \
-					apendices.tex \
-					conclusao.tex \
-					confiabilidade.tex \
-					contracapa.tex \
-					desenvolvimento.tex \
-					errata.tex \
-					financeiro.tex \
-					futuros.tex \
-					gerenciamentoproduto.tex \
-					gerenciamento.tex \
-					impactos.tex \
-					informacoes.tex \
-					introducao.tex \
-					marketing.tex \
-					registro.tex \
-					resultados.tex \
-					resumo.tex \
-					solucao.tex \
-					testes.tex
+EDITAVEIS_SOURCES = abreviaturas.tex anexos.tex  consideracoes.tex divisoes.tex  \
+					elementosdotexto.tex financeiro.tex interacoes.tex materiais.tex projeto.tex \
+					resumo.tex abstract.tex apendices.tex cronograma.tex eap.tex   \
+					epigrafe.tex  impactos.tex introducao.tex metas.tex proposta.tex \
+					simbolos.tex agradecimentos.tex aspectosgerais.tex dedicatoria.tex \
+					elementosdopostexto.tex errata.tex informacoes.tex logistica.tex \
+					problema.tex conclusao.tex textoepostexto.tex figura.tex requisitos.tex contracapa.tex
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
@@ -63,7 +49,7 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	# @cp $(PDF_FILE) $(TARGET)
 	$(LATEX) $(MAIN_FILE)
 	$(BIBTEX) $(AUX_FILE) -ters
-	# makeglossaries relatorio
+	# makeglossaries $(basename $(MAIN_FILE))
 	# makeindex relatorio.glo -s relatorio.ist -t relatorio.glg -o relatorio.gls
 	$(LATEX) -interaction=batchmode $(MAIN_FILE)
 	$(LATEX) -interaction=batchmode $(MAIN_FILE)

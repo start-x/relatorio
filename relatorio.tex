@@ -5,37 +5,36 @@
 \input{editaveis/informacoes}
 \input{fixos/informacoes}
 \input{fixos/setup}
-\usepackage{epstopdf}
-\usepackage{pdflscape}
-\usepackage{multirow}
-\usepackage{amsmath,amssymb,exscale}
-\usepackage{longtable}
-\usepackage{float}
-\begin{document}
 
+\begin{document}
 
 \frenchspacing 
 \imprimircapa
+\imprimirfolhaderosto*
+
 \input{editaveis/contracapa}
-\input{editaveis/resumo}
-\input{fixos/listasAutomaticas}
+% \input{fixos/fichaCatalografica}
+% \input{editaveis/epigrafe}
 \input{fixos/indiceAutomatico}
 
 \textual
 
-\input{editaveis/introducao}
-\input{editaveis/gerenciamento}
-\input{editaveis/gerenciamentoproduto}
-\input{editaveis/solucao}
-\input{editaveis/desenvolvimento}
-\input{editaveis/testes}
-\input{editaveis/confiabilidade}
-\input{editaveis/registro}
+\part{Escopo do produto}
+\input{editaveis/problema}
+\input{editaveis/proposta}
+\input{editaveis/projeto}
+\input{editaveis/requisitos}
 \input{editaveis/impactos}
+\part{Planejamento}
+\input{editaveis/divisoes}
+\input{editaveis/materiais}
+\input{editaveis/interacoes}
+% \input{editaveis/figura}
+\input{editaveis/logistica}
+\input{editaveis/cronograma}
+\input{editaveis/metas}
 \input{editaveis/financeiro}
-\input{editaveis/marketing}
-\input{editaveis/resultados}
-\input{editaveis/futuros}
+\part{Conclusões}
 \input{editaveis/conclusao}
 
 \bookmarksetup{startatroot} 
@@ -43,8 +42,7 @@
 \postextual
 
 \bibliography{bibliografia} 
-\input{editaveis/apendices}
-\input{editaveis/anexos}
+
 \printindex
 
 \end{document}
