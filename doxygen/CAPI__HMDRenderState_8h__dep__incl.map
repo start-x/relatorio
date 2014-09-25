@@ -1,0 +1,12 @@
+<map id="ovr/sdk/src/CAPI/CAPI_HMDRenderState.h" name="ovr/sdk/src/CAPI/CAPI_HMDRenderState.h">
+<area shape="rect" id="node2" href="$CAPI__DistortionRenderer_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_DistortionRenderer.h" alt="" coords="314,97,472,138"/>
+<area shape="rect" id="node6" href="$CAPI__HMDState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.h" alt="" coords="431,187,589,229"/>
+<area shape="rect" id="node11" href="$CAPI__HMDRenderState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDRenderState.cpp" alt="" coords="549,97,707,138"/>
+<area shape="rect" id="node3" href="$CAPI__DistortionRenderer_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_DistortionRenderer.cpp" alt="" coords="252,278,415,319"/>
+<area shape="rect" id="node4" href="$CAPI__GL__DistortionRenderer_8h.html" title="ovr/sdk/src/CAPI/GL\l/CAPI_GL_DistortionRenderer.h" alt="" coords="146,187,355,229"/>
+<area shape="rect" id="node5" href="$CAPI__GL__DistortionRenderer_8cpp.html" title="ovr/sdk/src/CAPI/GL\l/CAPI_GL_DistortionRenderer.cpp" alt="" coords="5,278,227,319"/>
+<area shape="rect" id="node7" href="$CAPI__GlobalState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.h" alt="" coords="490,278,648,319"/>
+<area shape="rect" id="node9" href="$CAPI__HMDState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.cpp" alt="" coords="673,369,831,410"/>
+<area shape="rect" id="node10" href="$OVR__CAPI_8cpp.html" title="ovr/sdk/src/OVR_CAPI.cpp" alt="" coords="281,376,465,403"/>
+<area shape="rect" id="node8" href="$CAPI__GlobalState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.cpp" alt="" coords="490,369,648,410"/>
+</map>

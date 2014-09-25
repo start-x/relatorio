@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>pFile</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L71'>pFile</a>              71 ovr/sdk/src/Kernel/OVR_File.cpp     if (pFile)
+<a href='../S/172.html#L107'>pFile</a>             107 ovr/sdk/src/Kernel/OVR_File.cpp     if ((mode==WriteBuffer) &amp;&amp; (!pFile || !pFile-&gt;IsWritable()) )
+<a href='../S/172.html#L124'>pFile</a>             124 ovr/sdk/src/Kernel/OVR_File.cpp             FilePos += pFile-&gt;Write(pBuffer,Pos);
+<a href='../S/172.html#L131'>pFile</a>             131 ovr/sdk/src/Kernel/OVR_File.cpp                 FilePos = pFile-&gt;LSeek(-(int)(DataSize-Pos), Seek_Cur);
+<a href='../S/172.html#L150'>pFile</a>             150 ovr/sdk/src/Kernel/OVR_File.cpp         int sz   = pFile-&gt;Read(pBuffer,FILEBUFFER_SIZE);
+<a href='../S/172.html#L169'>pFile</a>             169 ovr/sdk/src/Kernel/OVR_File.cpp     int pos = pFile-&gt;Tell();
+<a href='../S/172.html#L185'>pFile</a>             185 ovr/sdk/src/Kernel/OVR_File.cpp     SInt64 pos = pFile-&gt;LTell();
+<a href='../S/172.html#L197'>pFile</a>             197 ovr/sdk/src/Kernel/OVR_File.cpp     int len = pFile-&gt;GetLength();
+<a href='../S/172.html#L201'>pFile</a>             201 ovr/sdk/src/Kernel/OVR_File.cpp         int currPos = pFile-&gt;Tell() + Pos;
+<a href='../S/172.html#L209'>pFile</a>             209 ovr/sdk/src/Kernel/OVR_File.cpp     SInt64 len = pFile-&gt;LGetLength();
+<a href='../S/172.html#L213'>pFile</a>             213 ovr/sdk/src/Kernel/OVR_File.cpp         SInt64 currPos = pFile-&gt;LTell() + Pos;
+<a href='../S/172.html#L253'>pFile</a>             253 ovr/sdk/src/Kernel/OVR_File.cpp                 int sz = pFile-&gt;Write(psourceBuffer,numBytes);
+<a href='../S/172.html#L265'>pFile</a>             265 ovr/sdk/src/Kernel/OVR_File.cpp     int sz = pFile-&gt;Write(psourceBuffer,numBytes);
+<a href='../S/172.html#L294'>pFile</a>             294 ovr/sdk/src/Kernel/OVR_File.cpp             numBytes = pFile-&gt;Read(pdestBuffer,numBytes);
+<a href='../S/172.html#L337'>pFile</a>             337 ovr/sdk/src/Kernel/OVR_File.cpp     int sz = pFile-&gt;Read(pdestBuffer,numBytes);
+<a href='../S/172.html#L358'>pFile</a>             358 ovr/sdk/src/Kernel/OVR_File.cpp         numBytes = pFile-&gt;SkipBytes(numBytes);
+<a href='../S/172.html#L374'>pFile</a>             374 ovr/sdk/src/Kernel/OVR_File.cpp     int available = pFile-&gt;BytesAvailable();
+<a href='../S/172.html#L395'>pFile</a>             395 ovr/sdk/src/Kernel/OVR_File.cpp     return pFile-&gt;Flush();
+<a href='../S/172.html#L460'>pFile</a>             460 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos = pFile-&gt;Seek(offset,origin);
+<a href='../S/172.html#L520'>pFile</a>             520 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos = pFile-&gt;LSeek(offset,origin);
+<a href='../S/172.html#L565'>pFile</a>             565 ovr/sdk/src/Kernel/OVR_File.cpp     return pFile-&gt;Close();
+<a href='../S/186.html#L279'>pFile</a>             279 ovr/sdk/src/Kernel/OVR_File.h     Ptr&lt;File&gt;     pFile;
+<a href='../S/186.html#L282'>pFile</a>             282 ovr/sdk/src/Kernel/OVR_File.h     DelegatedFile() : pFile(0)                             { }
+<a href='../S/186.html#L286'>pFile</a>             286 ovr/sdk/src/Kernel/OVR_File.h     DelegatedFile(File *pfile) : pFile(pfile)     { }
+<a href='../S/186.html#L289'>pFile</a>             289 ovr/sdk/src/Kernel/OVR_File.h     virtual const char* GetFilePath()                               { return pFile-&gt;GetFilePath(); }    
+<a href='../S/186.html#L292'>pFile</a>             292 ovr/sdk/src/Kernel/OVR_File.h     virtual bool        IsValid()                                   { return pFile &amp;&amp; pFile-&gt;IsValid(); }   
+<a href='../S/186.html#L293'>pFile</a>             293 ovr/sdk/src/Kernel/OVR_File.h     virtual bool        IsWritable()                                { return pFile-&gt;IsWritable(); }
+<a href='../S/186.html#L296'>pFile</a>             296 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Tell()                                      { return pFile-&gt;Tell(); }
+<a href='../S/186.html#L297'>pFile</a>             297 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LTell()                                     { return pFile-&gt;LTell(); }
+<a href='../S/186.html#L299'>pFile</a>             299 ovr/sdk/src/Kernel/OVR_File.h     virtual int         GetLength()                                 { return pFile-&gt;GetLength(); }
+<a href='../S/186.html#L300'>pFile</a>             300 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LGetLength()                                { return pFile-&gt;LGetLength(); }
+<a href='../S/186.html#L304'>pFile</a>             304 ovr/sdk/src/Kernel/OVR_File.h     virtual int         GetErrorCode()                              { return pFile-&gt;GetErrorCode(); }
+<a href='../S/186.html#L307'>pFile</a>             307 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Write(const UByte *pbuffer, int numBytes)   { return pFile-&gt;Write(pbuffer,numBytes); }  
+<a href='../S/186.html#L308'>pFile</a>             308 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Read(UByte *pbuffer, int numBytes)          { return pFile-&gt;Read(pbuffer,numBytes); }   
+<a href='../S/186.html#L310'>pFile</a>             310 ovr/sdk/src/Kernel/OVR_File.h     virtual int         SkipBytes(int numBytes)                     { return pFile-&gt;SkipBytes(numBytes); }      
+<a href='../S/186.html#L312'>pFile</a>             312 ovr/sdk/src/Kernel/OVR_File.h     virtual int         BytesAvailable()                            { return pFile-&gt;BytesAvailable(); } 
+<a href='../S/186.html#L314'>pFile</a>             314 ovr/sdk/src/Kernel/OVR_File.h     virtual bool        Flush()                                     { return pFile-&gt;Flush(); }
+<a href='../S/186.html#L317'>pFile</a>             317 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Seek(int offset, int origin=Seek_Set)       { return pFile-&gt;Seek(offset,origin); }
+<a href='../S/186.html#L318'>pFile</a>             318 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LSeek(SInt64 offset, int origin=Seek_Set)   { return pFile-&gt;LSeek(offset,origin); }
+<a href='../S/186.html#L320'>pFile</a>             320 ovr/sdk/src/Kernel/OVR_File.h     virtual int         CopyFromStream(File *pstream, int byteSize) { return pFile-&gt;CopyFromStream(pstream,byteSize); }
+<a href='../S/186.html#L323'>pFile</a>             323 ovr/sdk/src/Kernel/OVR_File.h     virtual bool        Close()                                     { return pFile-&gt;Close(); }    
+<a href='../S/156.html#L84'>pFile</a>              84 ovr/sdk/src/Kernel/OVR_SysFile.cpp     pFile = *new UnopenedFile;
+<a href='../S/156.html#L100'>pFile</a>             100 ovr/sdk/src/Kernel/OVR_SysFile.cpp     pFile = FileFILEOpen(path, flags, mode);
+<a href='../S/156.html#L101'>pFile</a>             101 ovr/sdk/src/Kernel/OVR_SysFile.cpp     if ((!pFile) || (!pFile-&gt;IsValid()))
+<a href='../S/156.html#L103'>pFile</a>             103 ovr/sdk/src/Kernel/OVR_SysFile.cpp         pFile = *new UnopenedFile;
+<a href='../S/156.html#L109'>pFile</a>             109 ovr/sdk/src/Kernel/OVR_SysFile.cpp         pFile = *new BufferedFile(pFile);
+<a href='../S/156.html#L118'>pFile</a>             118 ovr/sdk/src/Kernel/OVR_SysFile.cpp     return pFile ? pFile-&gt;GetErrorCode() : Error_FileNotFound;
+<a href='../S/156.html#L125'>pFile</a>             125 ovr/sdk/src/Kernel/OVR_SysFile.cpp     return pFile &amp;&amp; pFile-&gt;IsValid();
+<a href='../S/156.html#L132'>pFile</a>             132 ovr/sdk/src/Kernel/OVR_SysFile.cpp         pFile = *new UnopenedFile;
+</pre>
+</body>
+</html>

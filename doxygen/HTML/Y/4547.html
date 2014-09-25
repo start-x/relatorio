@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>tanEyeAngle</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/142.html#L65'>tanEyeAngle</a>        65 ovr/sdk/src/OVR_CAPI.cpp Vector2f FovPort::TanAngleToRendertargetNDC(Vector2f const &amp;tanEyeAngle)
+<a href='../S/142.html#L68'>tanEyeAngle</a>        68 ovr/sdk/src/OVR_CAPI.cpp     return tanEyeAngle * eyeToSourceNDC.Scale + eyeToSourceNDC.Offset;
+<a href='../S/88.html#L1436'>tanEyeAngle</a>      1436 ovr/sdk/src/OVR_Stereo.cpp                 Vector2f tanEyeAngle = TransformScreenNDCToTanFovSpace ( distortion, sample );
+<a href='../S/88.html#L1438'>tanEyeAngle</a>      1438 ovr/sdk/src/OVR_Stereo.cpp                 result.LeftTan  = Alg::Max ( result.LeftTan,  -tanEyeAngle.x );
+<a href='../S/88.html#L1439'>tanEyeAngle</a>      1439 ovr/sdk/src/OVR_Stereo.cpp                 result.RightTan = Alg::Max ( result.RightTan,  tanEyeAngle.x );
+<a href='../S/88.html#L1440'>tanEyeAngle</a>      1440 ovr/sdk/src/OVR_Stereo.cpp                 result.UpTan    = Alg::Max ( result.UpTan,    -tanEyeAngle.y );
+<a href='../S/88.html#L1441'>tanEyeAngle</a>      1441 ovr/sdk/src/OVR_Stereo.cpp                 result.DownTan  = Alg::Max ( result.DownTan,   tanEyeAngle.y );
+<a href='../S/88.html#L1683'>tanEyeAngle</a>      1683 ovr/sdk/src/OVR_Stereo.cpp     Vector2f tanEyeAngle;
+<a href='../S/88.html#L1684'>tanEyeAngle</a>      1684 ovr/sdk/src/OVR_Stereo.cpp     tanEyeAngle.x = tanEyeAngleDistorted.x * distortionScale;
+<a href='../S/88.html#L1685'>tanEyeAngle</a>      1685 ovr/sdk/src/OVR_Stereo.cpp     tanEyeAngle.y = tanEyeAngleDistorted.y * distortionScale;
+<a href='../S/88.html#L1687'>tanEyeAngle</a>      1687 ovr/sdk/src/OVR_Stereo.cpp     return tanEyeAngle;
+<a href='../S/88.html#L1710'>tanEyeAngle</a>      1710 ovr/sdk/src/OVR_Stereo.cpp                                                   Vector2f const &amp;tanEyeAngle )
+<a href='../S/88.html#L1713'>tanEyeAngle</a>      1713 ovr/sdk/src/OVR_Stereo.cpp     textureUV.x = tanEyeAngle.x * eyeParams.EyeToSourceUV.Scale.x + eyeParams.EyeToSourceUV.Offset.x;
+<a href='../S/88.html#L1714'>tanEyeAngle</a>      1714 ovr/sdk/src/OVR_Stereo.cpp     textureUV.y = tanEyeAngle.y * eyeParams.EyeToSourceUV.Scale.y + eyeParams.EyeToSourceUV.Offset.y;
+<a href='../S/88.html#L1719'>tanEyeAngle</a>      1719 ovr/sdk/src/OVR_Stereo.cpp                                                 Vector2f const &amp;tanEyeAngle )
+<a href='../S/88.html#L1722'>tanEyeAngle</a>      1722 ovr/sdk/src/OVR_Stereo.cpp     textureNDC.x = tanEyeAngle.x * eyeParams.EyeToSourceNDC.Scale.x + eyeParams.EyeToSourceNDC.Offset.x;
+<a href='../S/88.html#L1723'>tanEyeAngle</a>      1723 ovr/sdk/src/OVR_Stereo.cpp     textureNDC.y = tanEyeAngle.y * eyeParams.EyeToSourceNDC.Scale.y + eyeParams.EyeToSourceNDC.Offset.y;
+<a href='../S/88.html#L1767'>tanEyeAngle</a>      1767 ovr/sdk/src/OVR_Stereo.cpp                                           const Vector2f &amp;tanEyeAngle, bool usePolyApprox /*= false*/ )
+<a href='../S/88.html#L1769'>tanEyeAngle</a>      1769 ovr/sdk/src/OVR_Stereo.cpp     float tanEyeAngleRadius = tanEyeAngle.Length();
+<a href='../S/88.html#L1775'>tanEyeAngle</a>      1775 ovr/sdk/src/OVR_Stereo.cpp     Vector2f tanEyeAngleDistorted = tanEyeAngle;
+<a href='../S/88.html#L1778'>tanEyeAngle</a>      1778 ovr/sdk/src/OVR_Stereo.cpp         tanEyeAngleDistorted = tanEyeAngle * ( tanEyeAngleDistortedRadius / tanEyeAngleRadius );
+<a href='../S/88.html#L1791'>tanEyeAngle</a>      1791 ovr/sdk/src/OVR_Stereo.cpp     Vector2f tanEyeAngle = (textureNDC - eyeToSourceNDC.Offset) / eyeToSourceNDC.Scale;
+<a href='../S/88.html#L1792'>tanEyeAngle</a>      1792 ovr/sdk/src/OVR_Stereo.cpp     return tanEyeAngle;
+<a href='../S/131.html#L113'>tanEyeAngle</a>       113 ovr/sdk/src/OVR_Stereo.h     Vector2f TanAngleToRendertargetNDC(Vector2f const &amp;tanEyeAngle);
+<a href='../S/131.html#L435'>tanEyeAngle</a>       435 ovr/sdk/src/OVR_Stereo.h                                                    Vector2f const &amp;tanEyeAngle );
+<a href='../S/131.html#L437'>tanEyeAngle</a>       437 ovr/sdk/src/OVR_Stereo.h                                                  Vector2f const &amp;tanEyeAngle );
+<a href='../S/131.html#L454'>tanEyeAngle</a>       454 ovr/sdk/src/OVR_Stereo.h                                           const Vector2f &amp;tanEyeAngle, bool usePolyApprox = false );
+<a href='../S/117.html#L871'>tanEyeAngle</a>       871 ovr/sdk/src/Util/Util_Render_Stereo.cpp             Vector2f tanEyeAngle = TransformRendertargetNDCToTanFovSpace ( eyeToSourceNDC, sourceCoordNDC );
+<a href='../S/117.html#L874'>tanEyeAngle</a>       874 ovr/sdk/src/Util/Util_Render_Stereo.cpp             Vector2f screenNDC = TransformTanFovSpaceToScreenNDC ( distortion, tanEyeAngle, false );
+<a href='../S/117.html#L1089'>tanEyeAngle</a>      1089 ovr/sdk/src/Util/Util_Render_Stereo.cpp             Vector2f tanEyeAngle = TransformRendertargetNDCToTanFovSpace ( eyeToSourceNDC, sourceCoordNDC );
+<a href='../S/117.html#L1091'>tanEyeAngle</a>      1091 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;TanEyeAngles = tanEyeAngle;
+</pre>
+</body>
+</html>

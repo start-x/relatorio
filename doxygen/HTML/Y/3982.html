@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>pStr</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/161.html#L360'>pStr</a>              360 ovr/sdk/src/Kernel/OVR_String.h         const String* pStr;
+<a href='../S/161.html#L361'>pStr</a>              361 ovr/sdk/src/Kernel/OVR_String.h         NoCaseKey(const String &amp;str) : pStr(&amp;str){};
+<a href='../S/161.html#L366'>pStr</a>              366 ovr/sdk/src/Kernel/OVR_String.h         return (CompareNoCase(ToCStr(), strKey.pStr-&gt;ToCStr()) == 0);
+<a href='../S/161.html#L370'>pStr</a>              370 ovr/sdk/src/Kernel/OVR_String.h         return !(CompareNoCase(ToCStr(), strKey.pStr-&gt;ToCStr()) == 0);
+<a href='../S/161.html#L393'>pStr</a>              393 ovr/sdk/src/Kernel/OVR_String.h             UPInt  size = data.pStr-&gt;GetSize();
+<a href='../S/161.html#L394'>pStr</a>              394 ovr/sdk/src/Kernel/OVR_String.h             return String::BernsteinHashFunctionCIS((const char*)data.pStr-&gt;ToCStr(), size);
+<a href='../S/161.html#L520'>pStr</a>              520 ovr/sdk/src/Kernel/OVR_String.h     StringDataPtr() : pStr(NULL), Size(0) {}
+<a href='../S/161.html#L522'>pStr</a>              522 ovr/sdk/src/Kernel/OVR_String.h         : pStr(p.pStr), Size(p.Size) {}
+<a href='../S/161.html#L524'>pStr</a>              524 ovr/sdk/src/Kernel/OVR_String.h         : pStr(pstr), Size(sz) {}
+<a href='../S/161.html#L526'>pStr</a>              526 ovr/sdk/src/Kernel/OVR_String.h         : pStr(pstr), Size((pstr != NULL) ? OVR_strlen(pstr) : 0) {}
+<a href='../S/161.html#L528'>pStr</a>              528 ovr/sdk/src/Kernel/OVR_String.h         : pStr(str.ToCStr()), Size(str.GetSize()) {}
+<a href='../S/161.html#L531'>pStr</a>              531 ovr/sdk/src/Kernel/OVR_String.h         : pStr(v), Size(N) {}
+<a href='../S/161.html#L534'>pStr</a>              534 ovr/sdk/src/Kernel/OVR_String.h     const char* ToCStr() const { return pStr; }
+<a href='../S/161.html#L556'>pStr</a>              556 ovr/sdk/src/Kernel/OVR_String.h             if (pStr[i] == c)
+<a href='../S/161.html#L572'>pStr</a>              572 ovr/sdk/src/Kernel/OVR_String.h             if (pStr[i - 1] == c)
+<a href='../S/161.html#L618'>pStr</a>              618 ovr/sdk/src/Kernel/OVR_String.h         pStr += size;
+<a href='../S/161.html#L647'>pStr</a>              647 ovr/sdk/src/Kernel/OVR_String.h         return (OVR_strncmp(pStr, data.pStr, data.Size) == 0);
+<a href='../S/161.html#L651'>pStr</a>              651 ovr/sdk/src/Kernel/OVR_String.h     const char* pStr;
+</pre>
+</body>
+</html>

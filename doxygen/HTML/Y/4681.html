@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>u</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/102.html#L367'>u</a>                 367 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             Uniform u;
+<a href='../S/102.html#L368'>u</a>                 368 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             u.Name = name;
+<a href='../S/102.html#L369'>u</a>                 369 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             u.Location = l;
+<a href='../S/102.html#L370'>u</a>                 370 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             u.Size = size;
+<a href='../S/102.html#L373'>u</a>                 373 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case GL_FLOAT:      u.Type = 1; break;
+<a href='../S/102.html#L374'>u</a>                 374 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case GL_FLOAT_VEC2: u.Type = 2; break;
+<a href='../S/102.html#L375'>u</a>                 375 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case GL_FLOAT_VEC3: u.Type = 3; break;
+<a href='../S/102.html#L376'>u</a>                 376 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case GL_FLOAT_VEC4: u.Type = 4; break;
+<a href='../S/102.html#L377'>u</a>                 377 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case GL_FLOAT_MAT3: u.Type = 12; break;
+<a href='../S/102.html#L378'>u</a>                 378 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case GL_FLOAT_MAT4: u.Type = 16; break;
+<a href='../S/102.html#L382'>u</a>                 382 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             UniformInfo.PushBack(u);
+<a href='../S/147.html#L859'>u</a>                 859 ovr/sdk/src/Kernel/OVR_Alg.h         } u;
+<a href='../S/147.html#L860'>u</a>                 860 ovr/sdk/src/Kernel/OVR_Alg.h         u.p = p;
+<a href='../S/147.html#L861'>u</a>                 861 ovr/sdk/src/Kernel/OVR_Alg.h         u.v = SwapOrder(u.v);
+<a href='../S/147.html#L862'>u</a>                 862 ovr/sdk/src/Kernel/OVR_Alg.h         return u.p;
+<a href='../S/147.html#L870'>u</a>                 870 ovr/sdk/src/Kernel/OVR_Alg.h         } u;
+<a href='../S/147.html#L871'>u</a>                 871 ovr/sdk/src/Kernel/OVR_Alg.h         u.p = p;
+<a href='../S/147.html#L872'>u</a>                 872 ovr/sdk/src/Kernel/OVR_Alg.h         u.v = SwapOrder(u.v);
+<a href='../S/147.html#L873'>u</a>                 873 ovr/sdk/src/Kernel/OVR_Alg.h         return u.p;
+<a href='../S/145.html#L576'>u</a>                 576 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Sync(volatile C* p, C val)             { C2T_union u; u.c = val; u.t = Ops::Exchange_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L577'>u</a>                 577 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Release(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L578'>u</a>                 578 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Acquire(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L579'>u</a>                 579 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_NoSync(volatile C* p, C val)           { C2T_union u; u.c = val; u.t = Ops::Exchange_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L580'>u</a>                 580 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Sync(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L581'>u</a>                 581 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Release(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L582'>u</a>                 582 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Acquire(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L583'>u</a>                 583 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_NoSync(volatile C* p, C val)        { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L584'>u</a>                 584 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile C* p, C c, C val)   { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Sync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L585'>u</a>                 585 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Release(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Release((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L586'>u</a>                 586 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Relse(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Acquire((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L587'>u</a>                 587 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile C* p, C c, C val) { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_NoSync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L589'>u</a>                 589 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile C* p, C val)             { C2T_union u; u.c = val; Ops::Store_Release((PT)p, u.t); }    
+<a href='../S/145.html#L590'>u</a>                 590 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Load_Acquire(const volatile C* p)               { C2T_union u; u.t = Ops::Load_Acquire((PT)p); return u.c; }
+<a href='../S/177.html#L2418'>u</a>                2418 ovr/sdk/src/Kernel/OVR_Math.h 	Angle(T a_, AngularUnits u = Radians) : a((u == Radians) ? a_ : a_*Math&lt;T&gt;::DegreeToRadFactor) { FixRange(); }
+<a href='../S/177.html#L2420'>u</a>                2420 ovr/sdk/src/Kernel/OVR_Math.h 	T    Get(AngularUnits u = Radians) const       { return (u == Radians) ? a : a*Math&lt;T&gt;::RadToDegreeFactor; }
+<a href='../S/177.html#L2421'>u</a>                2421 ovr/sdk/src/Kernel/OVR_Math.h 	void Set(const T&amp; x, AngularUnits u = Radians) { a = (u == Radians) ? x : x*Math&lt;T&gt;::DegreeToRadFactor; FixRange(); }
+<a href='../S/161.html#L123'>u</a>                 123 ovr/sdk/src/Kernel/OVR_String.h         DataDescUnion u;
+<a href='../S/161.html#L124'>u</a>                 124 ovr/sdk/src/Kernel/OVR_String.h         u.pData    = pData;
+<a href='../S/161.html#L125'>u</a>                 125 ovr/sdk/src/Kernel/OVR_String.h         u.HeapTypeBits = (u.HeapTypeBits &amp; ~(UPInt)HT_Mask);
+<a href='../S/161.html#L126'>u</a>                 126 ovr/sdk/src/Kernel/OVR_String.h         return u.pData;
+<a href='../S/128.html#L321'>u</a>                 321 ovr/sdk/src/OVR_SensorCalibration.cpp     int u = l + 1;
+<a href='../S/128.html#L324'>u</a>                 324 ovr/sdk/src/OVR_SensorCalibration.cpp     if (Temperatures[u] - Temperatures[l] &lt; minInterpolationDist)
+<a href='../S/128.html#L327'>u</a>                 327 ovr/sdk/src/OVR_SensorCalibration.cpp             &amp;&amp; (u == count - 1 || Temperatures[u] - Temperatures[l - 1] &lt; Temperatures[u + 1] - Temperatures[l]))
+<a href='../S/128.html#L329'>u</a>                 329 ovr/sdk/src/OVR_SensorCalibration.cpp         else if (u &lt; count - 1)
+<a href='../S/128.html#L330'>u</a>                 330 ovr/sdk/src/OVR_SensorCalibration.cpp             u++;
+<a href='../S/128.html#L334'>u</a>                 334 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT(l &gt;= 0 &amp;&amp; u &lt; count);
+<a href='../S/128.html#L336'>u</a>                 336 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT(u == count - 1 || targetTemperature &lt; Temperatures[u]);
+<a href='../S/128.html#L337'>u</a>                 337 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT((l == 0 &amp;&amp; u == count - 1) || Temperatures[u] - Temperatures[l] &gt; minInterpolationDist);
+<a href='../S/128.html#L338'>u</a>                 338 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT(Temperatures[l] &lt;= Temperatures[u]);
+<a href='../S/128.html#L342'>u</a>                 342 ovr/sdk/src/OVR_SensorCalibration.cpp     if (Temperatures[u] - Temperatures[l] &gt;= minInterpolationDist)
+<a href='../S/128.html#L343'>u</a>                 343 ovr/sdk/src/OVR_SensorCalibration.cpp         slope = (Values[u] - Values[l]) / (Temperatures[u] - Temperatures[l]);
+<a href='../S/128.html#L347'>u</a>                 347 ovr/sdk/src/OVR_SensorCalibration.cpp     if (adjustedDeltaT &lt; Abs(Temperatures[u] - targetTemperature))
+<a href='../S/128.html#L351'>u</a>                 351 ovr/sdk/src/OVR_SensorCalibration.cpp         return Values[u] + slope * (targetTemperature - Temperatures[u]);
+<a href='../S/131.html#L74'>u</a>                  74 ovr/sdk/src/OVR_Stereo.h     FovPort ( float u, float d, float l, float r ) :
+<a href='../S/131.html#L75'>u</a>                  75 ovr/sdk/src/OVR_Stereo.h         UpTan(u), DownTan(d), LeftTan(l), RightTan(r) { }
+</pre>
+</body>
+</html>

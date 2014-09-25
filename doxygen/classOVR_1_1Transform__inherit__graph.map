@@ -1,0 +1,4 @@
+<map id="OVR::Transform&lt; T &gt;" name="OVR::Transform&lt; T &gt;">
+<area shape="rect" id="node2" href="$classOVR_1_1Transform.html" title="{OVR::Transform\&lt; double \&gt;\n|+ Rotation\l+ Translation\l|+ Transform()\l+ Transform()\l+ Transform()\l+ Transform()\l+ Transform()\l+ operator typename Compatible\lTypes\&lt; Transform\&lt; double\l \&gt; \&gt;::Type()\l+ Rotate()\l+ Translate()\l+ Apply()\l+ operator*()\l+ operator*()\l+ Inverted()\l}" alt="" coords="5,339,216,621"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Transform.html" title="{OVR::Transform\&lt; float \&gt;\n|+ Rotation\l+ Translation\l|+ Transform()\l+ Transform()\l+ Transform()\l+ Transform()\l+ Transform()\l+ operator typename Compatible\lTypes\&lt; Transform\&lt; float\l \&gt; \&gt;::Type()\l+ Rotate()\l+ Translate()\l+ Apply()\l+ operator*()\l+ operator*()\l+ Inverted()\l}" alt="" coords="241,339,452,621"/>
+</map>

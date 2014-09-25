@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>bits</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L768'>bits</a>              768 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator &gt;&gt;= (unsigned bits)
+<a href='../S/145.html#L773'>bits</a>              773 ovr/sdk/src/Kernel/OVR_Atomic.h             newVal = comp &gt;&gt; bits;
+<a href='../S/145.html#L778'>bits</a>              778 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator &lt;&lt;= (unsigned bits)
+<a href='../S/145.html#L783'>bits</a>              783 ovr/sdk/src/Kernel/OVR_Atomic.h             newVal = comp &lt;&lt; bits;
+<a href='../S/179.html#L852'>bits</a>              852 ovr/sdk/src/Kernel/OVR_Hash.h             int bits = Alg::UpperBit(newSize-1) + 1; // Chop( Log2f((float)(newSize-1)) + 1);
+<a href='../S/179.html#L853'>bits</a>              853 ovr/sdk/src/Kernel/OVR_Hash.h             OVR_ASSERT((UPInt(1) &lt;&lt; bits) &gt;= newSize);
+<a href='../S/179.html#L854'>bits</a>              854 ovr/sdk/src/Kernel/OVR_Hash.h             newSize = UPInt(1) &lt;&lt; bits;
+<a href='../S/184.html#L610'>bits</a>              610 ovr/sdk/src/Kernel/OVR_String.cpp         UByte bits = Alg::UpperBit(UInt32(growSize-1));
+<a href='../S/184.html#L611'>bits</a>              611 ovr/sdk/src/Kernel/OVR_String.cpp         UPInt size = 1&lt;&lt;bits;
+<a href='../S/199.html#L108'>bits</a>              108 ovr/sdk/third_party/edid/edid.cpp         int bits = get_bits(edid[0x14], 4, 6);
+<a href='../S/199.html#L109'>bits</a>              109 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.digital.bits_per_primary = bit_depth[bits];
+<a href='../S/199.html#L111'>bits</a>              111 ovr/sdk/third_party/edid/edid.cpp         bits = get_bits(edid[0x14], 0, 3);
+<a href='../S/199.html#L112'>bits</a>              112 ovr/sdk/third_party/edid/edid.cpp         if (bits &lt;= 5)
+<a href='../S/199.html#L113'>bits</a>              113 ovr/sdk/third_party/edid/edid.cpp             info-&gt;connector.digital.interface = interfaces[bits];
+<a href='../S/199.html#L117'>bits</a>              117 ovr/sdk/third_party/edid/edid.cpp         int bits = get_bits(edid[0x14], 5, 6);
+<a href='../S/199.html#L125'>bits</a>              125 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.video_signal_level = levels[bits][0];
+<a href='../S/199.html#L126'>bits</a>              126 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.sync_signal_level = levels[bits][1];
+<a href='../S/199.html#L127'>bits</a>              127 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.total_signal_level = levels[bits][2];
+<a href='../S/199.html#L172'>bits</a>              172 ovr/sdk/third_party/edid/edid.cpp         int bits = get_bits(edid[0x18], 3, 4);
+<a href='../S/199.html#L175'>bits</a>              175 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.color_type = color_type[bits];
+<a href='../S/199.html#L320'>bits</a>              320 ovr/sdk/third_party/edid/edid.cpp     int bits;
+<a href='../S/199.html#L345'>bits</a>              345 ovr/sdk/third_party/edid/edid.cpp     bits = get_bits(timing[0x11], 5, 6) &lt;&lt; 1 | get_bit(timing[0x11], 0);
+<a href='../S/199.html#L346'>bits</a>              346 ovr/sdk/third_party/edid/edid.cpp     detailed-&gt;stereo = stereo[bits];
+<a href='../S/199.html#L349'>bits</a>              349 ovr/sdk/third_party/edid/edid.cpp     bits = timing[0x11];
+<a href='../S/199.html#L351'>bits</a>              351 ovr/sdk/third_party/edid/edid.cpp     detailed-&gt;digital_sync = get_bit(bits, 4);
+<a href='../S/199.html#L353'>bits</a>              353 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.digital.composite = !get_bit(bits, 3);
+<a href='../S/199.html#L355'>bits</a>              355 ovr/sdk/third_party/edid/edid.cpp             detailed-&gt;connector.digital.serrations = get_bit(bits, 2);
+<a href='../S/199.html#L359'>bits</a>              359 ovr/sdk/third_party/edid/edid.cpp             detailed-&gt;connector.digital.negative_vsync = !get_bit(bits, 2);
+<a href='../S/199.html#L361'>bits</a>              361 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.digital.negative_hsync = !get_bit(bits, 0);
+<a href='../S/199.html#L363'>bits</a>              363 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.analog.bipolar = get_bit(bits, 3);
+<a href='../S/199.html#L364'>bits</a>              364 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.analog.serrations = get_bit(bits, 2);
+<a href='../S/199.html#L365'>bits</a>              365 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.analog.sync_on_green = !get_bit(bits, 1);
+</pre>
+</body>
+</html>

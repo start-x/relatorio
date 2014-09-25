@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Translation</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L1102'>Translation</a>      1102 ovr/sdk/src/Kernel/OVR_Math.h         : Rotation(orientation), Translation(pos) {  }
+<a href='../S/177.html#L1104'>Translation</a>      1104 ovr/sdk/src/Kernel/OVR_Math.h         : Rotation(s.Rotation), Translation(s.Translation) {  }
+<a href='../S/177.html#L1106'>Translation</a>      1106 ovr/sdk/src/Kernel/OVR_Math.h         : Rotation(s.Orientation), Translation(s.Position) {  }
+<a href='../S/177.html#L1108'>Translation</a>      1108 ovr/sdk/src/Kernel/OVR_Math.h         : Rotation(s.Rotation), Translation(s.Translation) {  }
+<a href='../S/177.html#L1114'>Translation</a>      1114 ovr/sdk/src/Kernel/OVR_Math.h         result.Position = Translation;
+<a href='../S/177.html#L1119'>Translation</a>      1119 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Translation;
+<a href='../S/177.html#L1128'>Translation</a>      1128 ovr/sdk/src/Kernel/OVR_Math.h         return v + Translation;
+<a href='../S/177.html#L1138'>Translation</a>      1138 ovr/sdk/src/Kernel/OVR_Math.h         return Transform(Rotation * other.Rotation, Apply(other.Translation));
+<a href='../S/177.html#L1155'>Translation</a>      1155 ovr/sdk/src/Kernel/OVR_Math.h         return Transform(inv, inv.Rotate(-Translation));
+<a href='../S/177.html#L1247'>Translation</a>      1247 ovr/sdk/src/Kernel/OVR_Math.h         result.SetTranslation(p.Translation);
+<a href='../S/177.html#L1473'>Translation</a>      1473 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix4 tinv = Matrix4::Translation(tvinv);
+<a href='../S/177.html#L1588'>Translation</a>      1588 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Translation(const Vector3&lt;T&gt;&amp; v)
+<a href='../S/177.html#L1598'>Translation</a>      1598 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Translation(T x, T y, T z = 0.0f)
+<a href='../S/177.html#L1922'>Translation</a>      1922 ovr/sdk/src/Kernel/OVR_Math.h 		result.SetTranslation(p.Translation);
+<a href='../S/189.html#L209'>Translation</a>       209 ovr/sdk/src/OVR_SensorFusion.cpp         Vector3d visionVelocityInImuFrame = (cameraFromImu.Translation - cameraFromImuPrev.Translation) /
+<a href='../S/189.html#L214'>Translation</a>       214 ovr/sdk/src/OVR_SensorFusion.cpp             LastVisionExposureRecord.ImuOnlyDelta.Pose.Translation / LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds;
+<a href='../S/189.html#L233'>Translation</a>       233 ovr/sdk/src/OVR_SensorFusion.cpp     err.Pose.Translation = worldFromImuVision.Pose.Translation - 
+<a href='../S/189.html#L234'>Translation</a>       234 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord.WorldFromImu.Pose.Translation;
+<a href='../S/189.html#L277'>Translation</a>       277 ovr/sdk/src/OVR_SensorFusion.cpp                 CameraFromImu.Pose.Translation + CameraFromImu.LinearVelocity * delta.TimeInSeconds +
+<a href='../S/189.html#L278'>Translation</a>       278 ovr/sdk/src/OVR_SensorFusion.cpp                 WorldFromCamera.Inverted().Rotate(delta.Pose.Translation)
+<a href='../S/189.html#L448'>Translation</a>       448 ovr/sdk/src/OVR_SensorFusion.cpp     if (VisionError.Pose.Translation.LengthSq() &gt; (snapThreshold * snapThreshold) ||
+<a href='../S/189.html#L460'>Translation</a>       460 ovr/sdk/src/OVR_SensorFusion.cpp         correctionPos = worldFromImuVision.Pose.Translation - WorldFromImu.Pose.Translation;
+<a href='../S/189.html#L466'>Translation</a>       466 ovr/sdk/src/OVR_SensorFusion.cpp         correctionPos = VisionError.Pose.Translation.EntrywiseMultiply(gainPos) * deltaT;
+<a href='../S/189.html#L467'>Translation</a>       467 ovr/sdk/src/OVR_SensorFusion.cpp         correctionVel = VisionError.Pose.Translation.EntrywiseMultiply(gainVel) * deltaT;
+<a href='../S/189.html#L468'>Translation</a>       468 ovr/sdk/src/OVR_SensorFusion.cpp         AccelOffset  += VisionError.Pose.Translation.EntrywiseMultiply(gainAccel) * deltaT;
+<a href='../S/189.html#L471'>Translation</a>       471 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose.Translation += correctionPos;
+<a href='../S/189.html#L475'>Translation</a>       475 ovr/sdk/src/OVR_SensorFusion.cpp     LastVisionExposureRecord.WorldFromImu.Pose.Translation += correctionPos;
+<a href='../S/189.html#L480'>Translation</a>       480 ovr/sdk/src/OVR_SensorFusion.cpp         state.Pose.Translation += correctionPos;
+<a href='../S/189.html#L668'>Translation</a>       668 ovr/sdk/src/OVR_SensorFusion.cpp     newWorldFromCamera.Translation += (WorldFromCamera * CameraFromImu.Pose).Translation -
+<a href='../S/189.html#L669'>Translation</a>       669 ovr/sdk/src/OVR_SensorFusion.cpp         (newWorldFromCamera * CameraFromImu.Pose).Translation;
+<a href='../S/189.html#L672'>Translation</a>       672 ovr/sdk/src/OVR_SensorFusion.cpp     if (newWorldFromCamera.Translation.DistanceSq(DefaultWorldFromCamera.Translation) &gt; maxCameraPositionOffset * maxCameraPositionOffset)
+<a href='../S/189.html#L673'>Translation</a>       673 ovr/sdk/src/OVR_SensorFusion.cpp         newWorldFromCamera.Translation = DefaultWorldFromCamera.Translation;
+<a href='../S/189.html#L783'>Translation</a>       783 ovr/sdk/src/OVR_SensorFusion.cpp     return (Vector3f)CpfFromNeck.Inverted().Translation;
+<a href='../S/189.html#L846'>Translation</a>       846 ovr/sdk/src/OVR_SensorFusion.cpp     pose.Translation += poseState.LinearVelocity * dynamicDt;
+<a href='../S/127.html#L566'>Translation</a>       566 ovr/sdk/src/OVR_SensorFusion.h     Pose.Translation  += LinearVelocity * dt + LinearAcceleration * (dt * dt * 0.5);
+<a href='../S/127.html#L576'>Translation</a>       576 ovr/sdk/src/OVR_SensorFusion.h     Pose.Translation += delta.Pose.Translation + LinearVelocity * delta.TimeInSeconds;
+<a href='../S/117.html#L208'>Translation</a>       208 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.ViewAdjust           = Matrix4f::Translation(virtualCameraOffset);
+</pre>
+</body>
+</html>

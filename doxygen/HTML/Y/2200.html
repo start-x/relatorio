@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Temperatures</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/128.html#L273'>Temperatures</a>      273 ovr/sdk/src/OVR_SensorCalibration.cpp     Temperatures.Clear();
+<a href='../S/128.html#L274'>Temperatures</a>      274 ovr/sdk/src/OVR_SensorCalibration.cpp     Temperatures.Reserve(bins);
+<a href='../S/128.html#L284'>Temperatures</a>      284 ovr/sdk/src/OVR_SensorCalibration.cpp             Temperatures.PushBack(report.ActualTemperature);
+<a href='../S/128.html#L298'>Temperatures</a>      298 ovr/sdk/src/OVR_SensorCalibration.cpp     int count = (int) Temperatures.GetSize();
+<a href='../S/128.html#L304'>Temperatures</a>      304 ovr/sdk/src/OVR_SensorCalibration.cpp         if (adjustedDeltaT &lt; Abs(Temperatures[0] - targetTemperature))
+<a href='../S/128.html#L313'>Temperatures</a>      313 ovr/sdk/src/OVR_SensorCalibration.cpp     if (targetTemperature &lt; Temperatures[1])
+<a href='../S/128.html#L315'>Temperatures</a>      315 ovr/sdk/src/OVR_SensorCalibration.cpp     else if (targetTemperature &gt;= Temperatures[count - 2])
+<a href='../S/128.html#L319'>Temperatures</a>      319 ovr/sdk/src/OVR_SensorCalibration.cpp             if (Temperatures[l] &lt;= targetTemperature &amp;&amp; targetTemperature &lt; Temperatures[l+1])
+<a href='../S/128.html#L324'>Temperatures</a>      324 ovr/sdk/src/OVR_SensorCalibration.cpp     if (Temperatures[u] - Temperatures[l] &lt; minInterpolationDist)
+<a href='../S/128.html#L327'>Temperatures</a>      327 ovr/sdk/src/OVR_SensorCalibration.cpp             &amp;&amp; (u == count - 1 || Temperatures[u] - Temperatures[l - 1] &lt; Temperatures[u + 1] - Temperatures[l]))
+<a href='../S/128.html#L335'>Temperatures</a>      335 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT(l == 0 || Temperatures[l] &lt;= targetTemperature);
+<a href='../S/128.html#L336'>Temperatures</a>      336 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT(u == count - 1 || targetTemperature &lt; Temperatures[u]);
+<a href='../S/128.html#L337'>Temperatures</a>      337 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT((l == 0 &amp;&amp; u == count - 1) || Temperatures[u] - Temperatures[l] &gt; minInterpolationDist);
+<a href='../S/128.html#L338'>Temperatures</a>      338 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT(Temperatures[l] &lt;= Temperatures[u]);
+<a href='../S/128.html#L342'>Temperatures</a>      342 ovr/sdk/src/OVR_SensorCalibration.cpp     if (Temperatures[u] - Temperatures[l] &gt;= minInterpolationDist)
+<a href='../S/128.html#L343'>Temperatures</a>      343 ovr/sdk/src/OVR_SensorCalibration.cpp         slope = (Values[u] - Values[l]) / (Temperatures[u] - Temperatures[l]);
+<a href='../S/128.html#L347'>Temperatures</a>      347 ovr/sdk/src/OVR_SensorCalibration.cpp     if (adjustedDeltaT &lt; Abs(Temperatures[u] - targetTemperature))
+<a href='../S/128.html#L351'>Temperatures</a>      351 ovr/sdk/src/OVR_SensorCalibration.cpp         return Values[u] + slope * (targetTemperature - Temperatures[u]);
+<a href='../S/141.html#L41'>Temperatures</a>       41 ovr/sdk/src/OVR_SensorCalibration.h     Array&lt;double&gt; Temperatures;
+</pre>
+</body>
+</html>

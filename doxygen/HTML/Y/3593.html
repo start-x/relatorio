@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>lowMks</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/188.html#L968'>lowMks</a>            968 ovr/sdk/src/OVR_Sensor2Impl.cpp         UInt32 lowMks = (UInt32)timestamps[i]-&gt;TimestampMks;  // Low 32-bits are raw old timestamp.
+<a href='../S/188.html#L970'>lowMks</a>            970 ovr/sdk/src/OVR_Sensor2Impl.cpp         if (rawValues[i] != lowMks)
+<a href='../S/188.html#L975'>lowMks</a>            975 ovr/sdk/src/OVR_Sensor2Impl.cpp                 if (rawValues[i] &lt; lowMks)
+<a href='../S/188.html#L977'>lowMks</a>            977 ovr/sdk/src/OVR_Sensor2Impl.cpp                     LogText("Timestamp %d rollover, was: %u, now: %u\n", i, lowMks, rawValues[i]);
+</pre>
+</body>
+</html>

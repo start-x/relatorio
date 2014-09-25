@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>t</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/101.html#L239'>t</a>                 239 ovr/sdk/src/CAPI/CAPI_HMDState.h             HmdTypeEnum t = HmdType_None;
+<a href='../S/101.html#L241'>t</a>                 241 ovr/sdk/src/CAPI/CAPI_HMDState.h                 t = HmdType_DK1;
+<a href='../S/101.html#L243'>t</a>                 243 ovr/sdk/src/CAPI/CAPI_HMDState.h                 t = HmdType_CrystalCoveProto;
+<a href='../S/101.html#L245'>t</a>                 245 ovr/sdk/src/CAPI/CAPI_HMDState.h                 t = HmdType_DK2;
+<a href='../S/101.html#L246'>t</a>                 246 ovr/sdk/src/CAPI/CAPI_HMDState.h             h = CreateDebugHMDInfo(t);
+<a href='../S/152.html#L457'>t</a>                 457 ovr/sdk/src/Kernel/OVR_Array.h         ValueType t = Back();
+<a href='../S/152.html#L459'>t</a>                 459 ovr/sdk/src/Kernel/OVR_Array.h         return t;
+<a href='../S/145.html#L298'>t</a>                 298 ovr/sdk/src/Kernel/OVR_Atomic.h             : "+m" (*i), [r] "=&amp;r" (ret), [t] "=&amp;r" (dummy) : [i] "r" (i), [j] "r" (j) : "cc", "memory");
+<a href='../S/145.html#L313'>t</a>                 313 ovr/sdk/src/Kernel/OVR_Atomic.h             : "+m" (*i), [r] "=&amp;r" (ret), [o] "=&amp;r" (dummy), [t] "=&amp;r" (test)  : [i] "r" (i), [j] "r" (j) : "cc", "memory");
+<a href='../S/145.html#L330'>t</a>                 330 ovr/sdk/src/Kernel/OVR_Atomic.h             : "+m" (*i),[r] "=&amp;r" (ret), [o] "=&amp;r" (dummy), [t] "=&amp;r" (test) : [i] "r" (i), [c] "r" (c), [v] "r" (value)
+<a href='../S/145.html#L572'>t</a>                 572 ovr/sdk/src/Kernel/OVR_Atomic.h     union C2T_union { C c; T t; };
+<a href='../S/145.html#L576'>t</a>                 576 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Sync(volatile C* p, C val)             { C2T_union u; u.c = val; u.t = Ops::Exchange_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L577'>t</a>                 577 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Release(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L578'>t</a>                 578 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Acquire(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L579'>t</a>                 579 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_NoSync(volatile C* p, C val)           { C2T_union u; u.c = val; u.t = Ops::Exchange_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L580'>t</a>                 580 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Sync(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L581'>t</a>                 581 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Release(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L582'>t</a>                 582 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Acquire(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L583'>t</a>                 583 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_NoSync(volatile C* p, C val)        { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L584'>t</a>                 584 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile C* p, C c, C val)   { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Sync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L585'>t</a>                 585 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Release(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Release((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L586'>t</a>                 586 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Relse(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Acquire((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L587'>t</a>                 587 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile C* p, C c, C val) { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_NoSync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L589'>t</a>                 589 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile C* p, C val)             { C2T_union u; u.c = val; Ops::Store_Release((PT)p, u.t); }    
+<a href='../S/145.html#L590'>t</a>                 590 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Load_Acquire(const volatile C* p)               { C2T_union u; u.t = Ops::Load_Acquire((PT)p); return u.c; }
+<a href='../S/177.html#L1590'>t</a>                1590 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1591'>t</a>                1591 ovr/sdk/src/Kernel/OVR_Math.h         t.M[0][3] = v.x;
+<a href='../S/177.html#L1592'>t</a>                1592 ovr/sdk/src/Kernel/OVR_Math.h         t.M[1][3] = v.y;
+<a href='../S/177.html#L1593'>t</a>                1593 ovr/sdk/src/Kernel/OVR_Math.h         t.M[2][3] = v.z;
+<a href='../S/177.html#L1594'>t</a>                1594 ovr/sdk/src/Kernel/OVR_Math.h         return t;
+<a href='../S/177.html#L1600'>t</a>                1600 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1601'>t</a>                1601 ovr/sdk/src/Kernel/OVR_Math.h         t.M[0][3] = x;
+<a href='../S/177.html#L1602'>t</a>                1602 ovr/sdk/src/Kernel/OVR_Math.h         t.M[1][3] = y;
+<a href='../S/177.html#L1603'>t</a>                1603 ovr/sdk/src/Kernel/OVR_Math.h         t.M[2][3] = z;
+<a href='../S/177.html#L1604'>t</a>                1604 ovr/sdk/src/Kernel/OVR_Math.h         return t;
+<a href='../S/177.html#L1623'>t</a>                1623 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1624'>t</a>                1624 ovr/sdk/src/Kernel/OVR_Math.h         t.M[0][0] = v.x;
+<a href='../S/177.html#L1625'>t</a>                1625 ovr/sdk/src/Kernel/OVR_Math.h         t.M[1][1] = v.y;
+<a href='../S/177.html#L1626'>t</a>                1626 ovr/sdk/src/Kernel/OVR_Math.h         t.M[2][2] = v.z;
+<a href='../S/177.html#L1627'>t</a>                1627 ovr/sdk/src/Kernel/OVR_Math.h         return t;
+<a href='../S/177.html#L1633'>t</a>                1633 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1634'>t</a>                1634 ovr/sdk/src/Kernel/OVR_Math.h         t.M[0][0] = x;
+<a href='../S/177.html#L1635'>t</a>                1635 ovr/sdk/src/Kernel/OVR_Math.h         t.M[1][1] = y;
+<a href='../S/177.html#L1636'>t</a>                1636 ovr/sdk/src/Kernel/OVR_Math.h         t.M[2][2] = z;
+<a href='../S/177.html#L1637'>t</a>                1637 ovr/sdk/src/Kernel/OVR_Math.h         return t;
+<a href='../S/177.html#L1643'>t</a>                1643 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1644'>t</a>                1644 ovr/sdk/src/Kernel/OVR_Math.h         t.M[0][0] = s;
+<a href='../S/177.html#L1645'>t</a>                1645 ovr/sdk/src/Kernel/OVR_Math.h         t.M[1][1] = s;
+<a href='../S/177.html#L1646'>t</a>                1646 ovr/sdk/src/Kernel/OVR_Math.h         t.M[2][2] = s;
+<a href='../S/177.html#L1647'>t</a>                1647 ovr/sdk/src/Kernel/OVR_Math.h         return t;
+<a href='../S/188.html#L749'>t</a>                 749 ovr/sdk/src/OVR_Sensor2Impl.cpp     TemperatureReport t;
+<a href='../S/188.html#L750'>t</a>                 750 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result = getTemperatureReport(&amp;t);
+<a href='../S/188.html#L754'>t</a>                 754 ovr/sdk/src/OVR_Sensor2Impl.cpp     int bins = t.NumBins, samples = t.NumSamples;
+<a href='../S/188.html#L763'>t</a>                 763 ovr/sdk/src/OVR_Sensor2Impl.cpp             result = getTemperatureReport(&amp;t);
+<a href='../S/188.html#L766'>t</a>                 766 ovr/sdk/src/OVR_Sensor2Impl.cpp             OVR_ASSERT(t.NumBins == bins &amp;&amp; t.NumSamples == samples);
+<a href='../S/188.html#L768'>t</a>                 768 ovr/sdk/src/OVR_Sensor2Impl.cpp             (*data)[t.Bin][t.Sample] = t;
+<a href='../S/88.html#L92'>t</a>                  92 ovr/sdk/src/OVR_Stereo.cpp     float t = scaledVal - scaledValFloor;
+<a href='../S/88.html#L129'>t</a>                 129 ovr/sdk/src/OVR_Stereo.cpp     float omt = 1.0f - t;
+<a href='../S/88.html#L130'>t</a>                 130 ovr/sdk/src/OVR_Stereo.cpp     float res  = ( p0 * ( 1.0f + 2.0f *   t ) + m0 *   t ) * omt * omt
+<a href='../S/88.html#L131'>t</a>                 131 ovr/sdk/src/OVR_Stereo.cpp                + ( p1 * ( 1.0f + 2.0f * omt ) - m1 * omt ) *   t *   t;
+<a href='../S/197.html#L1237'>t</a>                1237 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const char* t = FirstChild()-&gt;ToText()-&gt;Value();
+<a href='../S/197.html#L1238'>t</a>                1238 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::ToInt( t, ival ) ) {
+<a href='../S/197.html#L1250'>t</a>                1250 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const char* t = FirstChild()-&gt;ToText()-&gt;Value();
+<a href='../S/197.html#L1251'>t</a>                1251 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::ToUnsigned( t, uval ) ) {
+<a href='../S/197.html#L1263'>t</a>                1263 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const char* t = FirstChild()-&gt;ToText()-&gt;Value();
+<a href='../S/197.html#L1264'>t</a>                1264 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::ToBool( t, bval ) ) {
+<a href='../S/197.html#L1276'>t</a>                1276 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const char* t = FirstChild()-&gt;ToText()-&gt;Value();
+<a href='../S/197.html#L1277'>t</a>                1277 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::ToDouble( t, dval ) ) {
+<a href='../S/197.html#L1289'>t</a>                1289 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const char* t = FirstChild()-&gt;ToText()-&gt;Value();
+<a href='../S/197.html#L1290'>t</a>                1290 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::ToFloat( t, fval ) ) {
+<a href='../S/196.html#L203'>t</a>                 203 ovr/sdk/third_party/tinyxml/tinyxml2.h     void Push( T t ) {
+<a href='../S/196.html#L205'>t</a>                 205 ovr/sdk/third_party/tinyxml/tinyxml2.h         _mem[_size++] = t;
+</pre>
+</body>
+</html>

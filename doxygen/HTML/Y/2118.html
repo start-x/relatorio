@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>State</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/151.html#L144'>State</a>             144 ovr/sdk/src/Kernel/OVR_Threads.h     volatile bool   State;
+<a href='../S/151.html#L152'>State</a>             152 ovr/sdk/src/Kernel/OVR_Threads.h     Event(bool setInitially = 0) : State(setInitially), Temporary(false) { }
+<a href='../S/181.html#L200'>State</a>             200 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         while(!State)
+<a href='../S/181.html#L205'>State</a>             205 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         if (!State)
+<a href='../S/181.html#L209'>State</a>             209 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     bool state = State;
+<a href='../S/181.html#L214'>State</a>             214 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         State       = false;
+<a href='../S/181.html#L222'>State</a>             222 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     State       = newState;
+<a href='../S/189.html#L392'>State</a>             392 ovr/sdk/src/OVR_SensorFusion.cpp     lstate.State        = WorldFromImu;
+<a href='../S/189.html#L863'>State</a>             863 ovr/sdk/src/OVR_SensorFusion.cpp      const double pdt = absoluteTime - lstate.State.TimeInSeconds;
+<a href='../S/189.html#L866'>State</a>             866 ovr/sdk/src/OVR_SensorFusion.cpp      ss.Recorded     = PoseStatef(lstate.State);
+<a href='../S/189.html#L875'>State</a>             875 ovr/sdk/src/OVR_SensorFusion.cpp      ss.Recorded.Pose  = Transformf(lstate.State.Pose * ImuFromCpf);
+<a href='../S/189.html#L876'>State</a>             876 ovr/sdk/src/OVR_SensorFusion.cpp      ss.Predicted.Pose = Transformf(calcPredictedPose(lstate.State, pdt) * ImuFromCpf);
+<a href='../S/127.html#L331'>State</a>             331 ovr/sdk/src/OVR_SensorFusion.h         PoseState&lt;double&gt;  State;
+<a href='../S/114.html#L105'>State</a>             105 ovr/sdk/src/Util/Util_LatencyTest.cpp      if (State == State_WaitingForButton)
+<a href='../S/114.html#L110'>State</a>             110 ovr/sdk/src/Util/Util_LatencyTest.cpp         State = State_WaitingForSettlePreCalibrationColorBlack;
+<a href='../S/114.html#L142'>State</a>             142 ovr/sdk/src/Util/Util_LatencyTest.cpp         if (State == State_WaitingForSettlePreCalibrationColorBlack)
+<a href='../S/114.html#L147'>State</a>             147 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForSettlePostCalibrationColorBlack;
+<a href='../S/114.html#L152'>State</a>             152 ovr/sdk/src/Util/Util_LatencyTest.cpp         else if (State == State_WaitingForSettlePostCalibrationColorBlack)
+<a href='../S/114.html#L157'>State</a>             157 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForSettlePreCalibrationColorWhite;
+<a href='../S/114.html#L162'>State</a>             162 ovr/sdk/src/Util/Util_LatencyTest.cpp         else if (State == State_WaitingForSettlePreCalibrationColorWhite)
+<a href='../S/114.html#L167'>State</a>             167 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForSettlePostCalibrationColorWhite;
+<a href='../S/114.html#L172'>State</a>             172 ovr/sdk/src/Util/Util_LatencyTest.cpp         else if (State == State_WaitingForSettlePostCalibrationColorWhite)
+<a href='../S/114.html#L177'>State</a>             177 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForSettlePostMeasurement;
+<a href='../S/114.html#L183'>State</a>             183 ovr/sdk/src/Util/Util_LatencyTest.cpp         else if (State == State_WaitingForSettlePostMeasurement)
+<a href='../S/114.html#L191'>State</a>             191 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingToTakeMeasurement;
+<a href='../S/114.html#L194'>State</a>             194 ovr/sdk/src/Util/Util_LatencyTest.cpp         else if (State == State_WaitingForTestStarted)
+<a href='../S/114.html#L199'>State</a>             199 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForSettlePostMeasurement;
+<a href='../S/114.html#L206'>State</a>             206 ovr/sdk/src/Util/Util_LatencyTest.cpp         else if (State == State_WaitingForColorDetected)
+<a href='../S/114.html#L211'>State</a>             211 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForSettlePostMeasurement;
+<a href='../S/114.html#L221'>State</a>             221 ovr/sdk/src/Util/Util_LatencyTest.cpp         if (State == State_WaitingToTakeMeasurement)
+<a href='../S/114.html#L246'>State</a>             246 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForTestStarted;
+<a href='../S/114.html#L261'>State</a>             261 ovr/sdk/src/Util/Util_LatencyTest.cpp         if (State == State_WaitingForTestStarted)
+<a href='../S/114.html#L268'>State</a>             268 ovr/sdk/src/Util/Util_LatencyTest.cpp             State = State_WaitingForColorDetected;
+<a href='../S/114.html#L276'>State</a>             276 ovr/sdk/src/Util/Util_LatencyTest.cpp         if (State == State_WaitingForColorDetected)
+<a href='../S/114.html#L294'>State</a>             294 ovr/sdk/src/Util/Util_LatencyTest.cpp                 State = State_WaitingForSettlePostMeasurement;
+<a href='../S/114.html#L330'>State</a>             330 ovr/sdk/src/Util/Util_LatencyTest.cpp     State = State_WaitingForButton;
+<a href='../S/114.html#L366'>State</a>             366 ovr/sdk/src/Util/Util_LatencyTest.cpp     if (State == State_WaitingForButton)
+<a href='../S/113.html#L83'>State</a>              83 ovr/sdk/src/Util/Util_LatencyTest.h     bool		IsMeasuringNow() const { return (State != State_WaitingForButton); }
+<a href='../S/113.html#L133'>State</a>             133 ovr/sdk/src/Util/Util_LatencyTest.h     TesterState                 State;
+</pre>
+</body>
+</html>

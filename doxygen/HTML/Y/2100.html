@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>SizeMask</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/179.html#L213'>SizeMask</a>          213 ovr/sdk/src/Kernel/OVR_Hash.h             for (UPInt i = 0, n = pTable-&gt;SizeMask; i &lt;= n; i++)
+<a href='../S/179.html#L247'>SizeMask</a>          247 ovr/sdk/src/Kernel/OVR_Hash.h             for (UPInt i = 0, n = pTable-&gt;SizeMask; i &lt;= n; i++)
+<a href='../S/179.html#L276'>SizeMask</a>          276 ovr/sdk/src/Kernel/OVR_Hash.h             index = findIndexCore(key, hashValue &amp; pTable-&gt;SizeMask);
+<a href='../S/179.html#L304'>SizeMask</a>          304 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index     = hashValue &amp; pTable-&gt;SizeMask;
+<a href='../S/179.html#L309'>SizeMask</a>          309 ovr/sdk/src/Kernel/OVR_Hash.h         if (e-&gt;IsEmpty() || (e-&gt;GetCachedHash(pTable-&gt;SizeMask) != (UPInt)index))
+<a href='../S/179.html#L316'>SizeMask</a>          316 ovr/sdk/src/Kernel/OVR_Hash.h         while ((e-&gt;GetCachedHash(pTable-&gt;SizeMask) != (UPInt)naturalIndex) || !(e-&gt;Value == key))
+<a href='../S/179.html#L427'>SizeMask</a>          427 ovr/sdk/src/Kernel/OVR_Hash.h         else if (pTable-&gt;EntryCount * 5 &gt; (pTable-&gt;SizeMask + 1) * 4)
+<a href='../S/179.html#L430'>SizeMask</a>          430 ovr/sdk/src/Kernel/OVR_Hash.h             setRawCapacity((pTable-&gt;SizeMask + 1) * 2);
+<a href='../S/179.html#L469'>SizeMask</a>          469 ovr/sdk/src/Kernel/OVR_Hash.h             OVR_ASSERT(Index &gt;= 0 &amp;&amp; Index &lt;= (SPInt)pHash-&gt;pTable-&gt;SizeMask);
+<a href='../S/179.html#L475'>SizeMask</a>          475 ovr/sdk/src/Kernel/OVR_Hash.h             OVR_ASSERT(Index &gt;= 0 &amp;&amp; Index &lt;= (SPInt)pHash-&gt;pTable-&gt;SizeMask);
+<a href='../S/179.html#L482'>SizeMask</a>          482 ovr/sdk/src/Kernel/OVR_Hash.h             if (Index &lt;= (SPInt)pHash-&gt;pTable-&gt;SizeMask)
+<a href='../S/179.html#L485'>SizeMask</a>          485 ovr/sdk/src/Kernel/OVR_Hash.h                 while ((UPInt)Index &lt;= pHash-&gt;pTable-&gt;SizeMask &amp;&amp;
+<a href='../S/179.html#L515'>SizeMask</a>          515 ovr/sdk/src/Kernel/OVR_Hash.h                 (Index &gt; (SPInt)pHash-&gt;pTable-&gt;SizeMask);
+<a href='../S/179.html#L554'>SizeMask</a>          554 ovr/sdk/src/Kernel/OVR_Hash.h             OVR_ASSERT(ConstIterator::Index &gt;= 0 &amp;&amp; ConstIterator::Index &lt;= (SPInt)ConstIterator::pHash-&gt;pTable-&gt;SizeMask);
+<a href='../S/179.html#L581'>SizeMask</a>          581 ovr/sdk/src/Kernel/OVR_Hash.h             SPInt       index     = hashValue &amp; phash-&gt;pTable-&gt;SizeMask;
+<a href='../S/179.html#L586'>SizeMask</a>          586 ovr/sdk/src/Kernel/OVR_Hash.h             if (e-&gt;IsEmpty() || (e-&gt;GetCachedHash(phash-&gt;pTable-&gt;SizeMask) != (UPInt)index))
+<a href='../S/179.html#L593'>SizeMask</a>          593 ovr/sdk/src/Kernel/OVR_Hash.h             while ((e-&gt;GetCachedHash(phash-&gt;pTable-&gt;SizeMask) != (UPInt)naturalIndex) || !(e-&gt;Value == key))
+<a href='../S/179.html#L650'>SizeMask</a>          650 ovr/sdk/src/Kernel/OVR_Hash.h         while (i0 &lt;= pTable-&gt;SizeMask &amp;&amp; E(i0).IsEmpty())
+<a href='../S/179.html#L692'>SizeMask</a>          692 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt hashValue = HashF()(key) &amp; pTable-&gt;SizeMask;
+<a href='../S/179.html#L701'>SizeMask</a>          701 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt hashValue = AltHashF()(key) &amp; pTable-&gt;SizeMask;
+<a href='../S/179.html#L712'>SizeMask</a>          712 ovr/sdk/src/Kernel/OVR_Hash.h         OVR_ASSERT((hashValue &amp; ~pTable-&gt;SizeMask) == 0);
+<a href='../S/179.html#L718'>SizeMask</a>          718 ovr/sdk/src/Kernel/OVR_Hash.h         if (e-&gt;IsEmpty() || (e-&gt;GetCachedHash(pTable-&gt;SizeMask) != index))
+<a href='../S/179.html#L723'>SizeMask</a>          723 ovr/sdk/src/Kernel/OVR_Hash.h             OVR_ASSERT(e-&gt;GetCachedHash(pTable-&gt;SizeMask) == hashValue);
+<a href='../S/179.html#L725'>SizeMask</a>          725 ovr/sdk/src/Kernel/OVR_Hash.h             if (e-&gt;GetCachedHash(pTable-&gt;SizeMask) == hashValue &amp;&amp; e-&gt;Value == key)
+<a href='../S/179.html#L751'>SizeMask</a>          751 ovr/sdk/src/Kernel/OVR_Hash.h         hashValue &amp;= pTable-&gt;SizeMask;
+<a href='../S/179.html#L768'>SizeMask</a>          768 ovr/sdk/src/Kernel/OVR_Hash.h                 blankIndex = (blankIndex + 1) &amp; pTable-&gt;SizeMask;
+<a href='../S/179.html#L773'>SizeMask</a>          773 ovr/sdk/src/Kernel/OVR_Hash.h             if (naturalEntry-&gt;GetCachedHash(pTable-&gt;SizeMask) == (UPInt)index)
+<a href='../S/179.html#L791'>SizeMask</a>          791 ovr/sdk/src/Kernel/OVR_Hash.h                 SPInt collidedIndex = naturalEntry-&gt;GetCachedHash(pTable-&gt;SizeMask);
+<a href='../S/179.html#L792'>SizeMask</a>          792 ovr/sdk/src/Kernel/OVR_Hash.h                 OVR_ASSERT(collidedIndex &gt;= 0 &amp;&amp; collidedIndex &lt;= (SPInt)pTable-&gt;SizeMask);
+<a href='../S/179.html#L804'>SizeMask</a>          804 ovr/sdk/src/Kernel/OVR_Hash.h                     OVR_ASSERT(collidedIndex &gt;= 0 &amp;&amp; collidedIndex &lt;= (SPInt)pTable-&gt;SizeMask);
+<a href='../S/179.html#L821'>SizeMask</a>          821 ovr/sdk/src/Kernel/OVR_Hash.h         OVR_ASSERT(index &lt;= pTable-&gt;SizeMask);
+<a href='../S/179.html#L826'>SizeMask</a>          826 ovr/sdk/src/Kernel/OVR_Hash.h         OVR_ASSERT(index &lt;= pTable-&gt;SizeMask);
+<a href='../S/179.html#L865'>SizeMask</a>          865 ovr/sdk/src/Kernel/OVR_Hash.h         newHash.pTable-&gt;SizeMask = newSize - 1;
+<a href='../S/179.html#L875'>SizeMask</a>          875 ovr/sdk/src/Kernel/OVR_Hash.h             for (i = 0, n = pTable-&gt;SizeMask; i &lt;= n; i++)
+<a href='../S/179.html#L899'>SizeMask</a>          899 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt SizeMask;
+</pre>
+</body>
+</html>

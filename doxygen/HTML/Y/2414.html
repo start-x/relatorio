@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>VisionError</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L133'>VisionError</a>       133 ovr/sdk/src/OVR_SensorFusion.cpp     VisionError                         = PoseState&lt;double&gt;();
+<a href='../S/189.html#L311'>VisionError</a>       311 ovr/sdk/src/OVR_SensorFusion.cpp     VisionError = computeVisionError();
+<a href='../S/189.html#L448'>VisionError</a>       448 ovr/sdk/src/OVR_SensorFusion.cpp     if (VisionError.Pose.Translation.LengthSq() &gt; (snapThreshold * snapThreshold) ||
+<a href='../S/189.html#L466'>VisionError</a>       466 ovr/sdk/src/OVR_SensorFusion.cpp         correctionPos = VisionError.Pose.Translation.EntrywiseMultiply(gainPos) * deltaT;
+<a href='../S/189.html#L467'>VisionError</a>       467 ovr/sdk/src/OVR_SensorFusion.cpp         correctionVel = VisionError.Pose.Translation.EntrywiseMultiply(gainVel) * deltaT;
+<a href='../S/189.html#L468'>VisionError</a>       468 ovr/sdk/src/OVR_SensorFusion.cpp         AccelOffset  += VisionError.Pose.Translation.EntrywiseMultiply(gainAccel) * deltaT;
+<a href='../S/189.html#L490'>VisionError</a>       490 ovr/sdk/src/OVR_SensorFusion.cpp     Quatd yawError = extractYawRotation(VisionError.Pose.Rotation);
+<a href='../S/189.html#L618'>VisionError</a>       618 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImu = WorldFromCamera.Inverted() * VisionError.Pose * WorldFromImu.Pose;
+<a href='../S/127.html#L396'>VisionError</a>       396 ovr/sdk/src/OVR_SensorFusion.h     PoseState&lt;double&gt;       VisionError;
+</pre>
+</body>
+</html>

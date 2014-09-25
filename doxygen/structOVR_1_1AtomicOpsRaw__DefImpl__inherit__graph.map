@@ -1,0 +1,6 @@
+<map id="OVR::AtomicOpsRaw_DefImpl&lt; O &gt;" name="OVR::AtomicOpsRaw_DefImpl&lt; O &gt;">
+<area shape="rect" id="node3" href="$structOVR_1_1AtomicOpsRaw__DefImpl.html" title="{OVR::AtomicOpsRaw_DefImpl\l\&lt; AtomicOpsRaw_4ByteImpl \&gt;\n||+ Exchange_Sync()\l+ Exchange_Release()\l+ Exchange_Acquire()\l+ ExchangeAdd_Sync()\l+ ExchangeAdd_Release()\l+ ExchangeAdd_Acquire()\l+ CompareAndSet_Sync()\l+ CompareAndSet_Release()\l+ CompareAndSet_Acquire()\l+ Store_Release()\l+ Load_Acquire()\l}" alt="" coords="5,422,208,661"/>
+<area shape="rect" id="node5" href="$structOVR_1_1AtomicOpsRaw__DefImpl.html" title="{OVR::AtomicOpsRaw_DefImpl\l\&lt; AtomicOpsRaw_8ByteImpl \&gt;\n||+ Exchange_Sync()\l+ Exchange_Release()\l+ Exchange_Acquire()\l+ ExchangeAdd_Sync()\l+ ExchangeAdd_Release()\l+ ExchangeAdd_Acquire()\l+ CompareAndSet_Sync()\l+ CompareAndSet_Release()\l+ CompareAndSet_Acquire()\l+ Store_Release()\l+ Load_Acquire()\l}" alt="" coords="233,422,436,661"/>
+<area shape="rect" id="node4" href="$structOVR_1_1AtomicOpsRaw_3_014_01_4.html" title="{OVR::AtomicOpsRaw\&lt; 4 \&gt;\n||+ AtomicOpsRaw()\l}" alt="" coords="15,712,197,789"/>
+<area shape="rect" id="node6" href="$structOVR_1_1AtomicOpsRaw_3_018_01_4.html" title="{OVR::AtomicOpsRaw\&lt; 8 \&gt;\n||+ AtomicOpsRaw()\l}" alt="" coords="243,712,425,789"/>
+</map>

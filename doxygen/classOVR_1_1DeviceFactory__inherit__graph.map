@@ -1,0 +1,8 @@
+<map id="OVR::DeviceFactory" name="OVR::DeviceFactory">
+<area shape="rect" id="node5" href="$classOVR_1_1LatencyTestDeviceFactory.html" title="{OVR::LatencyTestDeviceFactory\n||+ EnumerateDevices()\l+ MatchVendorProduct()\l+ DetectHIDDevice()\l+ GetInstance()\l# getManager()\l}" alt="" coords="5,656,221,792"/>
+<area shape="rect" id="node6" href="$classOVR_1_1Linux_1_1HMDDeviceFactory.html" title="{OVR::Linux::HMDDeviceFactory\n||+ EnumerateDevices()\l+ GetInstance()\l# getManager()\l}" alt="" coords="246,671,460,777"/>
+<area shape="rect" id="node7" href="$classOVR_1_1SensorDeviceFactory.html" title="{OVR::SensorDeviceFactory\n||+ EnumerateDevices()\l+ MatchVendorProduct()\l+ DetectHIDDevice()\l+ GetInstance()\l# getManager()\l}" alt="" coords="485,656,669,792"/>
+<area shape="rect" id="node2" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; DeviceFactory \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="81,222,300,373"/>
+<area shape="rect" id="node3" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; T \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="117,6,264,157"/>
+<area shape="rect" id="node4" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="325,259,489,336"/>
+</map>

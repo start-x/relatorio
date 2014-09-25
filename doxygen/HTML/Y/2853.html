@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>clockDeltaDiff</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/136.html#L251'>clockDeltaDiff</a>    251 ovr/sdk/src/OVR_SensorTimeFilter.cpp     double    clockDeltaDiff    = MinWindowClockDelta - ClockDelta;
+<a href='../S/136.html#L252'>clockDeltaDiff</a>    252 ovr/sdk/src/OVR_SensorTimeFilter.cpp     double    absClockDeltaDiff = fabs(clockDeltaDiff);
+<a href='../S/136.html#L338'>clockDeltaDiff</a>    338 ovr/sdk/src/OVR_SensorTimeFilter.cpp                 if (clockDeltaDiff &gt; 0)
+<a href='../S/136.html#L339'>clockDeltaDiff</a>    339 ovr/sdk/src/OVR_SensorTimeFilter.cpp                     ClockDelta += (clockDeltaDiff - 0.00175);
+<a href='../S/136.html#L341'>clockDeltaDiff</a>    341 ovr/sdk/src/OVR_SensorTimeFilter.cpp                     ClockDelta += (clockDeltaDiff + 0.00175);
+<a href='../S/136.html#L343'>clockDeltaDiff</a>    343 ovr/sdk/src/OVR_SensorTimeFilter.cpp                 clockDeltaDiff = MinWindowClockDelta - ClockDelta;
+<a href='../S/136.html#L346'>clockDeltaDiff</a>    346 ovr/sdk/src/OVR_SensorTimeFilter.cpp             ClockDeltaCorrectPerSecond   = clockDeltaDiff;
+<a href='../S/136.html#L351'>clockDeltaDiff</a>    351 ovr/sdk/src/OVR_SensorTimeFilter.cpp             ClockDeltaCorrectPerSecond   = clockDeltaDiff / 8.0;
+<a href='../S/136.html#L356'>clockDeltaDiff</a>    356 ovr/sdk/src/OVR_SensorTimeFilter.cpp             ClockDeltaCorrectPerSecond   = clockDeltaDiff / 15.0;
+</pre>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>pBuffer</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L49'>pBuffer</a>            49 ovr/sdk/src/Kernel/OVR_File.cpp     pBuffer     = (UByte*)OVR_ALLOC(FILEBUFFER_SIZE);
+<a href='../S/172.html#L59'>pBuffer</a>            59 ovr/sdk/src/Kernel/OVR_File.cpp     pBuffer     = (UByte*)OVR_ALLOC(FILEBUFFER_SIZE);
+<a href='../S/172.html#L74'>pBuffer</a>            74 ovr/sdk/src/Kernel/OVR_File.cpp     if (pBuffer)
+<a href='../S/172.html#L75'>pBuffer</a>            75 ovr/sdk/src/Kernel/OVR_File.cpp         OVR_FREE(pBuffer);
+<a href='../S/172.html#L99'>pBuffer</a>            99 ovr/sdk/src/Kernel/OVR_File.cpp     if (!pBuffer)
+<a href='../S/172.html#L124'>pBuffer</a>           124 ovr/sdk/src/Kernel/OVR_File.cpp             FilePos += pFile-&gt;Write(pBuffer,Pos);
+<a href='../S/172.html#L150'>pBuffer</a>           150 ovr/sdk/src/Kernel/OVR_File.cpp         int sz   = pFile-&gt;Read(pBuffer,FILEBUFFER_SIZE);
+<a href='../S/172.html#L261'>pBuffer</a>           261 ovr/sdk/src/Kernel/OVR_File.cpp         memcpy(pBuffer+Pos, psourceBuffer, numBytes);
+<a href='../S/172.html#L278'>pBuffer</a>           278 ovr/sdk/src/Kernel/OVR_File.cpp             memcpy(pdestBuffer, pBuffer+Pos, numBytes);
+<a href='../S/172.html#L285'>pBuffer</a>           285 ovr/sdk/src/Kernel/OVR_File.cpp         memcpy(pdestBuffer, pBuffer+Pos, readBytes);
+<a href='../S/172.html#L309'>pBuffer</a>           309 ovr/sdk/src/Kernel/OVR_File.cpp         memcpy(pdestBuffer, pBuffer+Pos, numBytes);
+<a href='../S/186.html#L345'>pBuffer</a>           345 ovr/sdk/src/Kernel/OVR_File.h     UByte*          pBuffer;
+<a href='../S/186.html#L494'>pBuffer</a>           494 ovr/sdk/src/Kernel/OVR_File.h     MemoryFile (const String&amp; fileName, const UByte *pBuffer, int buffSize)
+<a href='../S/186.html#L497'>pBuffer</a>           497 ovr/sdk/src/Kernel/OVR_File.h         FileData  = pBuffer;
+<a href='../S/186.html#L500'>pBuffer</a>           500 ovr/sdk/src/Kernel/OVR_File.h         Valid     = (!fileName.IsEmpty() &amp;&amp; pBuffer &amp;&amp; buffSize &gt; 0) ? true : false;
+<a href='../S/186.html#L504'>pBuffer</a>           504 ovr/sdk/src/Kernel/OVR_File.h     MemoryFile (const char* pfileName, const UByte *pBuffer, int buffSize)
+<a href='../S/186.html#L507'>pBuffer</a>           507 ovr/sdk/src/Kernel/OVR_File.h         FileData  = pBuffer;
+<a href='../S/186.html#L510'>pBuffer</a>           510 ovr/sdk/src/Kernel/OVR_File.h         Valid     = (pfileName &amp;&amp; pBuffer &amp;&amp; buffSize &gt; 0) ? true : false;
+<a href='../S/137.html#L46'>pBuffer</a>            46 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     UByte*  pBuffer;
+<a href='../S/137.html#L60'>pBuffer</a>            60 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         pBuffer = (UByte*)OVR_ALLOC_ALIGNED(roundUpSize(size), AlignSize);
+<a href='../S/137.html#L66'>pBuffer</a>            66 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         OVR_FREE_ALIGNED(pBuffer);
+<a href='../S/137.html#L77'>pBuffer</a>            77 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     { return (Head != Tail) ? (pBuffer + Tail) : 0; }
+<a href='../S/137.html#L99'>pBuffer</a>            99 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p    = pBuffer + Head;
+<a href='../S/137.html#L104'>pBuffer</a>           104 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p    = pBuffer;
+<a href='../S/137.html#L116'>pBuffer</a>           116 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p    = pBuffer + Head;
+</pre>
+</body>
+</html>

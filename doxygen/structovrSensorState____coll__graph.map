@@ -1,0 +1,6 @@
+<map id="ovrSensorState_" name="ovrSensorState_">
+<area shape="rect" id="node2" href="$OVR__CAPI_8h.html#structovrPoseStatef__" title="{ovrPoseStatef_\n|+ TimeInSeconds\l|}" alt="" coords="11,333,136,411"/>
+<area shape="rect" id="node3" href="$OVR__CAPI_8h.html#structovrVector3f__" title="{ovrVector3f_\n|+ x\l+ y\l+ z\l|}" alt="" coords="5,13,101,120"/>
+<area shape="rect" id="node4" href="$OVR__CAPI_8h.html#structovrPosef__" title="{ovrPosef_\n||}" alt="" coords="165,192,245,269"/>
+<area shape="rect" id="node5" href="$OVR__CAPI_8h.html#structovrQuatf__" title="{ovrQuatf_\n|+ x\l+ y\l+ z\l+ w\l|}" alt="" coords="166,6,244,127"/>
+</map>

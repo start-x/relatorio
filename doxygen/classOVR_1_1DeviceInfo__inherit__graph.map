@@ -1,0 +1,4 @@
+<map id="OVR::DeviceInfo" name="OVR::DeviceInfo">
+<area shape="rect" id="node2" href="$classOVR_1_1HMDInfo.html" title="{OVR::HMDInfo\n|+ HmdType\l+ ResolutionInPixels\l+ ScreenSizeInMeters\l+ ScreenGapSizeInMeters\l+ CenterFromTopInMeters\l+ LensSeparationInMeters\l+ Shutter\l+ DesktopX\l+ DesktopY\l+ DisplayDeviceName\l+ DisplayId\l|+ HMDInfo()\l+ operator=()\l+ IsSameDisplay()\l}" alt="" coords="5,219,181,472"/>
+<area shape="rect" id="node3" href="$classOVR_1_1SensorInfo.html" title="{OVR::SensorInfo\n|+ VendorId\l+ ProductId\l+ MaxRanges\l+ SerialNumber\l|+ SensorInfo()\l&#45; operator=()\l}" alt="" coords="205,277,328,413"/>
+</map>

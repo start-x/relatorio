@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Alloc</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/175.html#L46'>Alloc</a>              46 ovr/sdk/src/Kernel/OVR_Allocator.cpp     UPInt p = (UPInt)Alloc(size+align);
+<a href='../S/182.html#L187'>Alloc</a>             187 ovr/sdk/src/Kernel/OVR_Allocator.h     virtual void*   Alloc(UPInt size) = 0;
+<a href='../S/182.html#L190'>Alloc</a>             190 ovr/sdk/src/Kernel/OVR_Allocator.h     { OVR_UNUSED2(file, line); return Alloc(size); }
+<a href='../S/182.html#L298'>Alloc</a>             298 ovr/sdk/src/Kernel/OVR_Allocator.h     virtual void*   Alloc(UPInt size);
+<a href='../S/182.html#L321'>Alloc</a>             321 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_ALLOC(s)            OVR::Allocator::GetInstance()-&gt;Alloc((s))
+<a href='../S/182.html#L322'>Alloc</a>             322 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_ALLOC_DEBUG(s,f,l)  OVR::Allocator::GetInstance()-&gt;Alloc((s))
+<a href='../S/152.html#L150'>Alloc</a>             150 ovr/sdk/src/Kernel/OVR_Array.h                     T* newData = (T*)Allocator::Alloc(sizeof(T) * newCapacity);
+<a href='../S/152.html#L168'>Alloc</a>             168 ovr/sdk/src/Kernel/OVR_Array.h                 Data = (T*)Allocator::Alloc(sizeof(T) * newCapacity);
+<a href='../S/163.html#L48'>Alloc</a>              48 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void* Alloc(UPInt size)                { return OVR_ALLOC(size); }
+<a href='../S/179.html#L859'>Alloc</a>             859 ovr/sdk/src/Kernel/OVR_Hash.h             Allocator::Alloc(                
+<a href='../S/197.html#L533'>Alloc</a>             533 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         returnNode = new (_commentPool.Alloc()) XMLDeclaration( this );
+<a href='../S/197.html#L538'>Alloc</a>             538 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         returnNode = new (_commentPool.Alloc()) XMLComment( this );
+<a href='../S/197.html#L543'>Alloc</a>             543 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLText* text = new (_textPool.Alloc()) XMLText( this );
+<a href='../S/197.html#L550'>Alloc</a>             550 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         returnNode = new (_commentPool.Alloc()) XMLUnknown( this );
+<a href='../S/197.html#L555'>Alloc</a>             555 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         returnNode = new (_elementPool.Alloc()) XMLElement( this );
+<a href='../S/197.html#L560'>Alloc</a>             560 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         returnNode = new (_textPool.Alloc()) XMLText( this );
+<a href='../S/197.html#L1312'>Alloc</a>            1312 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         attrib = new (_document-&gt;_attributePool.Alloc() ) XMLAttribute();
+<a href='../S/197.html#L1361'>Alloc</a>            1361 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             XMLAttribute* attrib = new (_document-&gt;_attributePool.Alloc() ) XMLAttribute();
+<a href='../S/197.html#L1541'>Alloc</a>            1541 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLElement* ele = new (_elementPool.Alloc()) XMLElement( this );
+<a href='../S/197.html#L1550'>Alloc</a>            1550 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLComment* comment = new (_commentPool.Alloc()) XMLComment( this );
+<a href='../S/197.html#L1559'>Alloc</a>            1559 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLText* text = new (_textPool.Alloc()) XMLText( this );
+<a href='../S/197.html#L1568'>Alloc</a>            1568 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLDeclaration* dec = new (_commentPool.Alloc()) XMLDeclaration( this );
+<a href='../S/197.html#L1577'>Alloc</a>            1577 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUnknown* unk = new (_commentPool.Alloc()) XMLUnknown( this );
+<a href='../S/196.html#L286'>Alloc</a>             286 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual void* Alloc() = 0;
+<a href='../S/196.html#L314'>Alloc</a>             314 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual void* Alloc() {
+</pre>
+</body>
+</html>

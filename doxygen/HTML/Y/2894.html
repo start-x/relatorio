@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>connector</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/199.html#L109'>connector</a>         109 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.digital.bits_per_primary = bit_depth[bits];
+<a href='../S/199.html#L113'>connector</a>         113 ovr/sdk/third_party/edid/edid.cpp             info-&gt;connector.digital.interface = interfaces[bits];
+<a href='../S/199.html#L115'>connector</a>         115 ovr/sdk/third_party/edid/edid.cpp             info-&gt;connector.digital.interface = UNDEFINED;
+<a href='../S/199.html#L125'>connector</a>         125 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.video_signal_level = levels[bits][0];
+<a href='../S/199.html#L126'>connector</a>         126 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.sync_signal_level = levels[bits][1];
+<a href='../S/199.html#L127'>connector</a>         127 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.total_signal_level = levels[bits][2];
+<a href='../S/199.html#L128'>connector</a>         128 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.blank_to_black = get_bit(edid[0x14], 4);
+<a href='../S/199.html#L129'>connector</a>         129 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.separate_hv_sync = get_bit(edid[0x14], 3);
+<a href='../S/199.html#L130'>connector</a>         130 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.composite_sync_on_h = get_bit(edid[0x14], 2);
+<a href='../S/199.html#L131'>connector</a>         131 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.composite_sync_on_green = get_bit(edid[0x14], 1);
+<a href='../S/199.html#L132'>connector</a>         132 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.serration_on_vsync = get_bit(edid[0x14], 0);
+<a href='../S/199.html#L166'>connector</a>         166 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.digital.rgb444 = 1;
+<a href='../S/199.html#L168'>connector</a>         168 ovr/sdk/third_party/edid/edid.cpp             info-&gt;connector.digital.ycrcb444 = 1;
+<a href='../S/199.html#L170'>connector</a>         170 ovr/sdk/third_party/edid/edid.cpp             info-&gt;connector.digital.ycrcb422 = 1;
+<a href='../S/199.html#L175'>connector</a>         175 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.color_type = color_type[bits];
+<a href='../S/199.html#L353'>connector</a>         353 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.digital.composite = !get_bit(bits, 3);
+<a href='../S/199.html#L354'>connector</a>         354 ovr/sdk/third_party/edid/edid.cpp         if (detailed-&gt;connector.digital.composite) {
+<a href='../S/199.html#L355'>connector</a>         355 ovr/sdk/third_party/edid/edid.cpp             detailed-&gt;connector.digital.serrations = get_bit(bits, 2);
+<a href='../S/199.html#L356'>connector</a>         356 ovr/sdk/third_party/edid/edid.cpp             detailed-&gt;connector.digital.negative_vsync = 0;
+<a href='../S/199.html#L358'>connector</a>         358 ovr/sdk/third_party/edid/edid.cpp             detailed-&gt;connector.digital.serrations = 0;
+<a href='../S/199.html#L359'>connector</a>         359 ovr/sdk/third_party/edid/edid.cpp             detailed-&gt;connector.digital.negative_vsync = !get_bit(bits, 2);
+<a href='../S/199.html#L361'>connector</a>         361 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.digital.negative_hsync = !get_bit(bits, 0);
+<a href='../S/199.html#L363'>connector</a>         363 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.analog.bipolar = get_bit(bits, 3);
+<a href='../S/199.html#L364'>connector</a>         364 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.analog.serrations = get_bit(bits, 2);
+<a href='../S/199.html#L365'>connector</a>         365 ovr/sdk/third_party/edid/edid.cpp         detailed-&gt;connector.analog.sync_on_green = !get_bit(bits, 1);
+<a href='../S/198.html#L91'>connector</a>          91 ovr/sdk/third_party/edid/edid.h     } connector;
+<a href='../S/198.html#L131'>connector</a>         131 ovr/sdk/third_party/edid/edid.h     } connector;
+</pre>
+</body>
+</html>

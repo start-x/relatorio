@@ -1,0 +1,25 @@
+var classOVR_1_1DeviceHandle =
+[
+    [ "DeviceHandle", "classOVR_1_1DeviceHandle.html#a149b1dfb382041ebdc60702f6e09a613", null ],
+    [ "DeviceHandle", "classOVR_1_1DeviceHandle.html#ae31d675854914bba1f8085ecf439717d", null ],
+    [ "~DeviceHandle", "classOVR_1_1DeviceHandle.html#a7958b9c835c08e0b654d0d0770292a51", null ],
+    [ "DeviceHandle", "classOVR_1_1DeviceHandle.html#aa0855ff1aa9b7edb5bfec5a7506a410e", null ],
+    [ "Clear", "classOVR_1_1DeviceHandle.html#a1b7c6439713dcf8171cb21336710438c", null ],
+    [ "CreateDevice", "classOVR_1_1DeviceHandle.html#a9cd32857b24e7a99b5b59c5a3da1f76b", null ],
+    [ "CreateDeviceTyped", "classOVR_1_1DeviceHandle.html#a2edb09a1d31c56aa18c1236529f5e272", null ],
+    [ "enumerateNext", "classOVR_1_1DeviceHandle.html#a59e205698fd8bee2bdd35059f6dda650", null ],
+    [ "GetDevice_AddRef", "classOVR_1_1DeviceHandle.html#aecf2f555bd84a641522b5263fe59c055", null ],
+    [ "GetDeviceInfo", "classOVR_1_1DeviceHandle.html#af8d3b302557aa4462c141856c9a1c225", null ],
+    [ "GetType", "classOVR_1_1DeviceHandle.html#a00d4b731983b565435c2c8b42ca5d779", null ],
+    [ "IsAvailable", "classOVR_1_1DeviceHandle.html#a3d8f0daf6fcb275130ab9cead8ff98b0", null ],
+    [ "IsCreated", "classOVR_1_1DeviceHandle.html#a8c8bd8deb7781f684968c00d124639e6", null ],
+    [ "IsDevice", "classOVR_1_1DeviceHandle.html#af3ee71f720b46ee3fcb74c9406035a8c", null ],
+    [ "operator bool", "classOVR_1_1DeviceHandle.html#ac16828764d833217e0042b3e29b9d76c", null ],
+    [ "operator!=", "classOVR_1_1DeviceHandle.html#a584b17a03345415d23bc0243479e43cb", null ],
+    [ "operator=", "classOVR_1_1DeviceHandle.html#a8f06801d19909b641ec65597dc34ff56", null ],
+    [ "operator==", "classOVR_1_1DeviceHandle.html#a6ab4cd31286c3a641e1ba2cb12f30e8e", null ],
+    [ "DeviceManager", "classOVR_1_1DeviceHandle.html#aead9a9546ea765538d3f95894afea912", null ],
+    [ "DeviceManagerImpl", "classOVR_1_1DeviceHandle.html#acb2028f64a41c6bc3601f6dccc437aa7", null ],
+    [ "HIDDeviceImpl", "classOVR_1_1DeviceHandle.html#a62584928195a74045aaad09c95263452", null ],
+    [ "pImpl", "classOVR_1_1DeviceHandle.html#a4a39932c6c9835af3e3ac4fe0ac5ff6d", null ]
+];

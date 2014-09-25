@@ -1,0 +1,640 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_FileFILE.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_FileFILE.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L51'>[^]</a><a href='#L571'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L51' title='Defined at 51.'>SFerror</a>
+<li><a href='#L185' title='Defined at 185.'>OpenFlags</a>
+<li><a href='#L193' title='Defined at 193.'>OpenFlags</a>
+<li><a href='#L199' title='Defined at 199.'>init</a>
+<li><a href='#L265' title='Defined at 265.'>GetFilePath</a>
+<li><a href='#L272' title='Defined at 272.'>IsValid</a>
+<li><a href='#L276' title='Defined at 276.'>IsWritable</a>
+<li><a href='#L288' title='Defined at 288.'>Tell</a>
+<li><a href='#L296' title='Defined at 296.'>LTell</a>
+<li><a href='#L304' title='Defined at 304.'>GetLength</a>
+<li><a href='#L316' title='Defined at 316.'>LGetLength</a>
+<li><a href='#L329' title='Defined at 329.'>GetErrorCode</a>
+<li><a href='#L335' title='Defined at 335.'>Write</a>
+<li><a href='#L352' title='Defined at 352.'>Read</a>
+<li><a href='#L381' title='Defined at 381.'>SkipBytes</a>
+<li><a href='#L397' title='Defined at 397.'>BytesAvailable</a>
+<li><a href='#L415' title='Defined at 415.'>Flush</a>
+<li><a href='#L420' title='Defined at 420.'>Seek</a>
+<li><a href='#L455' title='Defined at 455.'>LSeek</a>
+<li><a href='#L460' title='Defined at 460.'>CopyFromStream</a>
+<li><a href='#L484' title='Defined at 484.'>Close</a>
+<li><a href='#L564' title='Defined at 564.'>FileFILEOpen</a>
+<li><a href='#L571' title='Defined at 571.'>GetFileStat</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/**************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_FileFILE.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   File wrapper class implementation (Win32)</font></i>
+<a name='L5'>   5 <i><font color='green'></font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   April 5, 1999</font></i>
+<a name='L7'>   7 <i><font color='green'>Authors     :   Michael Antonov</font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>**************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#define</font>  GFILE_CXX
+<a name='L29'>  29 
+<a name='L30'>  30 <font color='darkred'>#include</font> "<a href='168.html'>OVR_Types.h</a>"
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='155.html'>OVR_Log.h</a>"
+<a name='L32'>  32 
+<a name='L33'>  33 <i><font color='green'>// Standard C library (Captain Obvious guarantees!)</font></i>
+<a name='L34'>  34 <font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L35'>  35 <font color='darkred'>#ifndef</font> <a href='../Y/1502.html' title='Multiple used in 6 places.'>OVR_OS_WINCE</a>
+<a name='L36'>  36 <font color='darkred'>#include</font> &lt;sys/stat.h&gt;
+<a name='L37'>  37 <font color='darkred'>#endif</font>
+<a name='L38'>  38 
+<a name='L39'>  39 <font color='darkred'>#include</font> "<a href='146.html'>OVR_SysFile.h</a>"
+<a name='L40'>  40 
+<a name='L41'>  41 <font color='darkred'>#ifndef</font> <a href='../Y/1502.html' title='Multiple used in 6 places.'>OVR_OS_WINCE</a>
+<a name='L42'>  42 <font color='darkred'>#include</font> &lt;errno.h&gt;
+<a name='L43'>  43 <font color='darkred'>#endif</font>
+<a name='L44'>  44 
+<a name='L45'>  45 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font>
+<a name='L46'>  46 
+<a name='L47'>  47 <i><font color='green'>// ***** File interface</font></i>
+<a name='L48'>  48 
+<a name='L49'>  49 <i><font color='green'>// ***** FILEFile - C streams file</font></i>
+<a name='L50'>  50 
+<a name='L51'>  51 <b>static</b> <b>int</b> <a href='../R/917.html' title='Multiple refered from 7 places.'>SFerror</a> ()
+<a name='L52'>  52 <font color='red'>{</font>
+<a name='L53'>  53     <b>if</b> (<a href='../Y/3130.html' title='Multiple used in 4 places.'>errno</a> == ENOENT)
+<a name='L54'>  54         <b>return</b> <a href='../Y/587.html' title='Multiple used in 7 places.'>FileConstants</a>::<a href='../Y/519.html' title='Multiple used in 4 places.'>Error_FileNotFound</a>;
+<a name='L55'>  55     <b>else</b> <b>if</b> (<a href='../Y/3130.html' title='Multiple used in 4 places.'>errno</a> == EACCES || <a href='../Y/3130.html' title='Multiple used in 4 places.'>errno</a> == EPERM)
+<a name='L56'>  56         <b>return</b> <a href='../Y/587.html' title='Multiple used in 7 places.'>FileConstants</a>::<a href='../Y/517.html' title='Multiple used in 2 places.'>Error_Access</a>;
+<a name='L57'>  57     <b>else</b> <b>if</b> (<a href='../Y/3130.html' title='Multiple used in 4 places.'>errno</a> == ENOSPC)
+<a name='L58'>  58         <b>return</b> <a href='../Y/587.html' title='Multiple used in 7 places.'>FileConstants</a>::<a href='../Y/518.html' title='Multiple used in 2 places.'>Error_DiskFull</a>;
+<a name='L59'>  59     <b>else</b>
+<a name='L60'>  60         <b>return</b> <a href='../Y/587.html' title='Multiple used in 7 places.'>FileConstants</a>::<a href='../Y/520.html' title='Multiple used in 2 places.'>Error_IOError</a>;
+<a name='L61'>  61 <font color='red'>}</font>;
+<a name='L62'>  62 
+<a name='L63'>  63 <font color='darkred'>#ifdef</font> <a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>
+<a name='L64'>  64 <font color='darkred'>#include</font> "windows.h"
+<a name='L65'>  65 <i><font color='green'>// A simple helper class to disable/enable system error mode, if necessary</font></i>
+<a name='L66'>  66 <i><font color='green'>// Disabling happens conditionally only if a drive name is involved</font></i>
+<a name='L67'>  67 <b>class</b> <a href='../S/149.html#L222' title='Refered from 222 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SysErrorModeDisabler</a>
+<a name='L68'>  68 <font color='red'>{</font>
+<a name='L69'>  69     <a href='../Y/109.html' title='Multiple used in 3 places.'>BOOL</a>    <a href='../Y/416.html' title='Multiple used in 4 places.'>Disabled</a>;
+<a name='L70'>  70     <a href='../Y/2323.html' title='Multiple used in 2 places.'>UINT</a>    <a href='../Y/1539.html' title='Multiple used in 3 places.'>OldMode</a>;
+<a name='L71'>  71 <b>public</b>:
+<a name='L72'>  72     SysErrorModeDisabler(<b>const</b> <b>char</b>* <a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>)
+<a name='L73'>  73     <font color='red'>{</font>
+<a name='L74'>  74         <b>if</b> (<a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a> &amp;&amp; (<a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>[0]!=0) &amp;&amp; <a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>[1]==':')
+<a name='L75'>  75         <font color='red'>{</font>
+<a name='L76'>  76             <a href='../Y/416.html' title='Multiple used in 4 places.'>Disabled</a> = 1;
+<a name='L77'>  77             <a href='../Y/1539.html' title='Multiple used in 3 places.'>OldMode</a> = ::<a href='../Y/2033.html' title='Multiple used in 2 places.'>SetErrorMode</a>(SEM_FAILCRITICALERRORS);
+<a name='L78'>  78         <font color='red'>}</font>
+<a name='L79'>  79         <b>else</b>
+<a name='L80'>  80             <a href='../Y/416.html' title='Multiple used in 4 places.'>Disabled</a> = 0;
+<a name='L81'>  81     <font color='red'>}</font>
+<a name='L82'>  82 
+<a name='L83'>  83     ~SysErrorModeDisabler()
+<a name='L84'>  84     <font color='red'>{</font>
+<a name='L85'>  85         <b>if</b> (<a href='../Y/416.html' title='Multiple used in 4 places.'>Disabled</a>) ::<a href='../Y/2033.html' title='Multiple used in 2 places.'>SetErrorMode</a>(<a href='../Y/1539.html' title='Multiple used in 3 places.'>OldMode</a>);
+<a name='L86'>  86     <font color='red'>}</font>
+<a name='L87'>  87 <font color='red'>}</font>;
+<a name='L88'>  88 <font color='darkred'>#else</font>
+<a name='L89'>  89 <b>class</b> <a href='../S/149.html#L222' title='Refered from 222 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SysErrorModeDisabler</a>
+<a name='L90'>  90 <font color='red'>{</font>
+<a name='L91'>  91 <b>public</b>:
+<a name='L92'>  92     SysErrorModeDisabler(<b>const</b> <b>char</b>* <a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>) <font color='red'>{</font> <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>); <font color='red'>}</font>
+<a name='L93'>  93 <font color='red'>}</font>;
+<a name='L94'>  94 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_OS_WIN32</font></i>
+<a name='L95'>  95 
+<a name='L96'>  96 
+<a name='L97'>  97 <i><font color='green'>// This macro enables verification of I/O results after seeks against a pre-loaded</font></i>
+<a name='L98'>  98 <i><font color='green'>// full file buffer copy. This is generally not necessary, but can been used to debug</font></i>
+<a name='L99'>  99 <i><font color='green'>// memory corruptions; we've seen this fail due to EAX2/DirectSound corrupting memory</font></i>
+<a name='L100'> 100 <i><font color='green'>// under FMOD with XP64 (32-bit) and Realtek HA Audio driver.</font></i>
+<a name='L101'> 101 <i><font color='green'>//#define GFILE_VERIFY_SEEK_ERRORS</font></i>
+<a name='L102'> 102 
+<a name='L103'> 103 
+<a name='L104'> 104 <i><font color='green'>// This is the simplest possible file implementation, it wraps around the descriptor</font></i>
+<a name='L105'> 105 <i><font color='green'>// This file is delegated to by SysFile.</font></i>
+<a name='L106'> 106 
+<a name='L107'> 107 <b>class</b> <a href='../R/241.html' title='Multiple refered from 23 places.'>FILEFile</a> : <b>public</b> File
+<a name='L108'> 108 <font color='red'>{</font>
+<a name='L109'> 109 <b>protected</b>:
+<a name='L110'> 110 
+<a name='L111'> 111     <i><font color='green'>// Allocated filename</font></i>
+<a name='L112'> 112     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>      <a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>;
+<a name='L113'> 113 
+<a name='L114'> 114     <i><font color='green'>// File handle &amp; open mode</font></i>
+<a name='L115'> 115     <b>bool</b>        <a href='../Y/1551.html' title='Multiple used in 7 places.'>Opened</a>;
+<a name='L116'> 116     <a href='../Y/574.html' title='Multiple used in 12 places.'>FILE</a>*       <a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>;
+<a name='L117'> 117     <b>int</b>         <a href='../D/858.html' title='Multiple defined in 3 places.'>OpenFlags</a>;
+<a name='L118'> 118     <i><font color='green'>// Error code for last request</font></i>
+<a name='L119'> 119     <b>int</b>         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a>;
+<a name='L120'> 120 
+<a name='L121'> 121     <b>int</b>         <a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a>;
+<a name='L122'> 122 
+<a name='L123'> 123 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>
+<a name='L124'> 124     <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>*      <a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a>;
+<a name='L125'> 125     <b>unsigned</b>    <a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a>;
+<a name='L126'> 126     <b>unsigned</b>    <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a>; <i><font color='green'>// File pointer position during tests.</font></i>
+<a name='L127'> 127 <font color='darkred'>#endif</font>
+<a name='L128'> 128 
+<a name='L129'> 129 <b>public</b>:
+<a name='L130'> 130 
+<a name='L131'> 131     FILEFile()
+<a name='L132'> 132     <font color='red'>{</font>
+<a name='L133'> 133         <a href='../Y/1551.html' title='Multiple used in 7 places.'>Opened</a> = 0; <a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a> = "";
+<a name='L134'> 134 
+<a name='L135'> 135 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>
+<a name='L136'> 136         <a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a> =0;
+<a name='L137'> 137         <a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a>  =0;
+<a name='L138'> 138         <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a>         =0;
+<a name='L139'> 139 <font color='darkred'>#endif</font>
+<a name='L140'> 140     <font color='red'>}</font>
+<a name='L141'> 141     <i><font color='green'>// Initialize file by opening it</font></i>
+<a name='L142'> 142     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>(<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/3205.html' title='Multiple used in 6 places.'>fileName</a>, <b>int</b> <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>, <b>int</b> <a href='../Y/1433.html' title='Multiple used in 11 places.'>Mode</a>);
+<a name='L143'> 143     <i><font color='green'>// The 'pfileName' should be encoded as UTF-8 to support international file names.</font></i>
+<a name='L144'> 144     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>(<b>const</b> <b>char</b>* <a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>, <b>int</b> <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>, <b>int</b> <a href='../Y/1433.html' title='Multiple used in 11 places.'>Mode</a>);
+<a name='L145'> 145 
+<a name='L146'> 146     ~FILEFile()
+<a name='L147'> 147     <font color='red'>{</font>
+<a name='L148'> 148         <b>if</b> (<a href='../Y/1551.html' title='Multiple used in 7 places.'>Opened</a>)
+<a name='L149'> 149             <a href='../D/117.html' title='Multiple defined in 5 places.'>Close</a>();
+<a name='L150'> 150     <font color='red'>}</font>
+<a name='L151'> 151 
+<a name='L152'> 152     <b>virtual</b> <b>const</b> <b>char</b>* <a href='../D/343.html' title='Multiple defined in 2 places.'>GetFilePath</a>();
+<a name='L153'> 153 
+<a name='L154'> 154     <i><font color='green'>// ** File Information</font></i>
+<a name='L155'> 155     <b>virtual</b> <b>bool</b>        <a href='../D/500.html' title='Multiple defined in 3 places.'>IsValid</a>();
+<a name='L156'> 156     <b>virtual</b> <b>bool</b>        <a href='../D/501.html' title='Multiple defined in 2 places.'>IsWritable</a>();
+<a name='L157'> 157 
+<a name='L158'> 158     <i><font color='green'>// Return position / file size</font></i>
+<a name='L159'> 159     <b>virtual</b> <b>int</b>         <a href='../D/1154.html' title='Multiple defined in 3 places.'>Tell</a>();
+<a name='L160'> 160     <b>virtual</b> <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>      <a href='../D/523.html' title='Multiple defined in 3 places.'>LTell</a>();
+<a name='L161'> 161     <b>virtual</b> <b>int</b>         <a href='../D/366.html' title='Multiple defined in 6 places.'>GetLength</a>();
+<a name='L162'> 162     <b>virtual</b> <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>      <a href='../D/517.html' title='Multiple defined in 3 places.'>LGetLength</a>();
+<a name='L163'> 163 
+<a name='L164'> 164 <i><font color='green'>//  virtual bool        Stat(FileStats *pfs);</font></i>
+<a name='L165'> 165     <b>virtual</b> <b>int</b>         <a href='../D/334.html' title='Multiple defined in 3 places.'>GetErrorCode</a>();
+<a name='L166'> 166 
+<a name='L167'> 167     <i><font color='green'>// ** Stream implementation &amp; I/O</font></i>
+<a name='L168'> 168     <b>virtual</b> <b>int</b>         <a href='../D/1270.html' title='Multiple defined in 4 places.'>Write</a>(<b>const</b> <a href='../Y/2313.html' title='Multiple used in 28 places.'>UByte</a> *<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, <b>int</b> <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>);
+<a name='L169'> 169     <b>virtual</b> <b>int</b>         <a href='../D/935.html' title='Multiple defined in 3 places.'>Read</a>(<a href='../Y/2313.html' title='Multiple used in 28 places.'>UByte</a> *<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, <b>int</b> <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>);
+<a name='L170'> 170     <b>virtual</b> <b>int</b>         <a href='../D/1116.html' title='Multiple defined in 3 places.'>SkipBytes</a>(<b>int</b> <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>);
+<a name='L171'> 171     <b>virtual</b> <b>int</b>         <a href='../D/82.html' title='Multiple defined in 3 places.'>BytesAvailable</a>();
+<a name='L172'> 172     <b>virtual</b> <b>bool</b>        <a href='../D/277.html' title='Multiple defined in 3 places.'>Flush</a>();
+<a name='L173'> 173     <b>virtual</b> <b>int</b>         <a href='../D/1005.html' title='Multiple defined in 3 places.'>Seek</a>(<b>int</b> <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>, <b>int</b> <a href='../Y/3821.html' title='Multiple used in 29 places.'>origin</a>);
+<a name='L174'> 174     <b>virtual</b> <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>      <a href='../D/518.html' title='Multiple defined in 3 places.'>LSeek</a>(<a href='../Y/1912.html' title='Multiple used in 4 places.'>SInt64</a> <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>, <b>int</b> <a href='../Y/3821.html' title='Multiple used in 29 places.'>origin</a>);
+<a name='L175'> 175     
+<a name='L176'> 176     <b>virtual</b> <b>int</b>         <a href='../D/135.html' title='Multiple defined in 3 places.'>CopyFromStream</a>(<a href='../Y/586.html' title='Multiple used in 23 places.'>File</a> *pStream, <b>int</b> <a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a>);
+<a name='L177'> 177     <b>virtual</b> <b>bool</b>        <a href='../D/117.html' title='Multiple defined in 5 places.'>Close</a>();    
+<a name='L178'> 178 <b>private</b>:
+<a name='L179'> 179     <b>void</b>                <a href='../S/149.html#L199' title='Defined at 199 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>init</a>();
+<a name='L180'> 180 <font color='red'>}</font>;
+<a name='L181'> 181 
+<a name='L182'> 182 
+<a name='L183'> 183 <i><font color='green'>// Initialize file by opening it</font></i>
+<a name='L184'> 184 <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>(<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/3205.html' title='Multiple used in 6 places.'>fileName</a>, <b>int</b> <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>, <b>int</b> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>)
+<a name='L185'> 185   : <a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>(<a href='../Y/3205.html' title='Multiple used in 6 places.'>fileName</a>), <a href='../R/802.html' title='Multiple refered from 7 places.'>OpenFlags</a>(<a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>)
+<a name='L186'> 186 <font color='red'>{</font>
+<a name='L187'> 187     <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>);
+<a name='L188'> 188     <a href='../S/149.html#L199' title='Defined at 199 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>init</a>();
+<a name='L189'> 189 <font color='red'>}</font>
+<a name='L190'> 190 
+<a name='L191'> 191 <i><font color='green'>// The 'pfileName' should be encoded as UTF-8 to support international file names.</font></i>
+<a name='L192'> 192 <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>(<b>const</b> <b>char</b>* <a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>, <b>int</b> <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>, <b>int</b> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>)
+<a name='L193'> 193   : <a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>(<a href='../Y/4041.html' title='Multiple used in 9 places.'>pfileName</a>), <a href='../R/802.html' title='Multiple refered from 7 places.'>OpenFlags</a>(<a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>)
+<a name='L194'> 194 <font color='red'>{</font>
+<a name='L195'> 195     <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>);
+<a name='L196'> 196     <a href='../S/149.html#L199' title='Defined at 199 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>init</a>();
+<a name='L197'> 197 <font color='red'>}</font>
+<a name='L198'> 198 
+<a name='L199'> 199 <b>void</b> <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/1315.html' title='Multiple refered from 6 places.'>init</a>()
+<a name='L200'> 200 <font color='red'>{</font>
+<a name='L201'> 201     <i><font color='green'>// Open mode for file's open</font></i>
+<a name='L202'> 202     <b>const</b> <b>char</b> *<a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a> = "rb";
+<a name='L203'> 203 
+<a name='L204'> 204     <b>if</b> (<a href='../D/858.html' title='Multiple defined in 3 places.'>OpenFlags</a> &amp; <a href='../Y/1549.html' title='Multiple used in 3 places.'>Open_Truncate</a>)
+<a name='L205'> 205     <font color='red'>{</font>
+<a name='L206'> 206         <b>if</b> (<a href='../D/858.html' title='Multiple defined in 3 places.'>OpenFlags</a> &amp; <a href='../Y/1547.html' title='Multiple used in 8 places.'>Open_Read</a>)
+<a name='L207'> 207             <a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a> = "w+b";
+<a name='L208'> 208         <b>else</b>
+<a name='L209'> 209             <a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a> = "wb";
+<a name='L210'> 210     <font color='red'>}</font>
+<a name='L211'> 211     <b>else</b> <b>if</b> (<a href='../D/858.html' title='Multiple defined in 3 places.'>OpenFlags</a> &amp; <a href='../Y/1545.html' title='Multiple used in 4 places.'>Open_Create</a>)
+<a name='L212'> 212     <font color='red'>{</font>
+<a name='L213'> 213         <b>if</b> (<a href='../D/858.html' title='Multiple defined in 3 places.'>OpenFlags</a> &amp; <a href='../Y/1547.html' title='Multiple used in 8 places.'>Open_Read</a>)
+<a name='L214'> 214             <a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a> = "a+b";
+<a name='L215'> 215         <b>else</b>
+<a name='L216'> 216             <a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a> = "ab";
+<a name='L217'> 217     <font color='red'>}</font>
+<a name='L218'> 218     <b>else</b> <b>if</b> (<a href='../D/858.html' title='Multiple defined in 3 places.'>OpenFlags</a> &amp; <a href='../Y/1550.html' title='Multiple used in 6 places.'>Open_Write</a>)
+<a name='L219'> 219         <a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a> = "r+b";
+<a name='L220'> 220 
+<a name='L221'> 221 <font color='darkred'>#ifdef</font> <a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>
+<a name='L222'> 222     <a href='../D/1141.html' title='Multiple defined in 2 places.'>SysErrorModeDisabler</a> disabler(<a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>());
+<a name='L223'> 223 <font color='darkred'>#endif</font>
+<a name='L224'> 224 
+<a name='L225'> 225 <font color='darkred'>#if</font> <b>defined</b>(<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a>) &amp;&amp; (<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a> &gt;= 1400)
+<a name='L226'> 226     <b>wchar_t</b> <a href='../Y/4861.html' title='Multiple used in 4 places.'>womode</a>[16];
+<a name='L227'> 227     <b>wchar_t</b> *<a href='../Y/4202.html' title='Multiple used in 4 places.'>pwFileName</a> = (<b>wchar_t</b>*)<a href='../D/657.html' title='Multiple defined in 2 places.'>OVR_ALLOC</a>((<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../D/366.html' title='Multiple defined in 6 places.'>GetLength</a>(<a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>())+1) * <b>sizeof</b>(<b>wchar_t</b>));
+<a name='L228'> 228     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L332' title='Defined at 332 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>DecodeString</a>(<a href='../Y/4202.html' title='Multiple used in 4 places.'>pwFileName</a>, <a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>());
+<a name='L229'> 229     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4500.html' title='Multiple used in 11 places.'>strlen</a>(<a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a>) &lt; <b>sizeof</b>(<a href='../Y/4861.html' title='Multiple used in 4 places.'>womode</a>)/<b>sizeof</b>(<a href='../Y/4861.html' title='Multiple used in 4 places.'>womode</a>[0]));
+<a name='L230'> 230     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L332' title='Defined at 332 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>DecodeString</a>(<a href='../Y/4861.html' title='Multiple used in 4 places.'>womode</a>, <a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a>);
+<a name='L231'> 231     _wfopen_s(&amp;<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>, <a href='../Y/4202.html' title='Multiple used in 4 places.'>pwFileName</a>, <a href='../Y/4861.html' title='Multiple used in 4 places.'>womode</a>);
+<a name='L232'> 232     <a href='../S/182.html#L313' title='Defined at 313 in ovr/sdk/src/Kernel/OVR_Allocator.h.'>OVR_FREE</a>(<a href='../Y/4202.html' title='Multiple used in 4 places.'>pwFileName</a>);
+<a name='L233'> 233 <font color='darkred'>#else</font>
+<a name='L234'> 234     <a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a> = <a href='../Y/3232.html' title='Multiple used in 5 places.'>fopen</a>(<a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>(), <a href='../Y/3813.html' title='Multiple used in 9 places.'>omode</a>);
+<a name='L235'> 235 <font color='darkred'>#endif</font>
+<a name='L236'> 236     <b>if</b> (<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>)
+<a name='L237'> 237         rewind (<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L238'> 238     <a href='../Y/1551.html' title='Multiple used in 7 places.'>Opened</a> = (<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a> != <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>);
+<a name='L239'> 239     <i><font color='green'>// Set error code</font></i>
+<a name='L240'> 240     <b>if</b> (!<a href='../Y/1551.html' title='Multiple used in 7 places.'>Opened</a>)
+<a name='L241'> 241         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = <a href='../S/149.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SFerror</a>();
+<a name='L242'> 242     <b>else</b>
+<a name='L243'> 243     <font color='red'>{</font>
+<a name='L244'> 244         <i><font color='green'>// If we are testing file seek correctness, pre-load the entire file so</font></i>
+<a name='L245'> 245         <i><font color='green'>// that we can do comparison tests later.</font></i>
+<a name='L246'> 246 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>        
+<a name='L247'> 247         <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a>         = 0;
+<a name='L248'> 248         <a href='../Y/3270.html' title='Multiple used in 5 places.'>fseek</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>, 0, <a href='../Y/1902.html' title='Multiple used in 3 places.'>SEEK_END</a>);
+<a name='L249'> 249         <a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a>  = <a href='../Y/3271.html' title='Multiple used in 5 places.'>ftell</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L250'> 250         <a href='../Y/3270.html' title='Multiple used in 5 places.'>fseek</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>, 0, <a href='../Y/1903.html' title='Multiple used in 4 places.'>SEEK_SET</a>);
+<a name='L251'> 251         <a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a> = (<a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>*)<a href='../D/657.html' title='Multiple defined in 2 places.'>OVR_ALLOC</a>(<a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a>);
+<a name='L252'> 252         <b>if</b> (<a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a>)
+<a name='L253'> 253         <font color='red'>{</font>
+<a name='L254'> 254             <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a> == (<b>unsigned</b>)<a href='../D/935.html' title='Multiple defined in 3 places.'>Read</a>(<a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a>, <a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a>));
+<a name='L255'> 255             <a href='../D/1005.html' title='Multiple defined in 3 places.'>Seek</a>(0, <a href='../Y/1981.html' title='Multiple used in 19 places.'>Seek_Set</a>);
+<a name='L256'> 256         <font color='red'>}</font>        
+<a name='L257'> 257 <font color='darkred'>#endif</font>
+<a name='L258'> 258 
+<a name='L259'> 259         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = 0;
+<a name='L260'> 260     <font color='red'>}</font>
+<a name='L261'> 261     <a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a> = 0;
+<a name='L262'> 262 <font color='red'>}</font>
+<a name='L263'> 263 
+<a name='L264'> 264 
+<a name='L265'> 265 <b>const</b> <b>char</b>* <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/326.html' title='Multiple refered from 4 places.'>GetFilePath</a>()
+<a name='L266'> 266 <font color='red'>{</font>
+<a name='L267'> 267     <b>return</b> <a href='../Y/590.html' title='Multiple used in 9 places.'>FileName</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>();
+<a name='L268'> 268 <font color='red'>}</font>
+<a name='L269'> 269 
+<a name='L270'> 270 
+<a name='L271'> 271 <i><font color='green'>// ** File Information</font></i>
+<a name='L272'> 272 <b>bool</b>    <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/483.html' title='Multiple refered from 13 places.'>IsValid</a>()
+<a name='L273'> 273 <font color='red'>{</font>
+<a name='L274'> 274     <b>return</b> <a href='../Y/1551.html' title='Multiple used in 7 places.'>Opened</a>;
+<a name='L275'> 275 <font color='red'>}</font>
+<a name='L276'> 276 <b>bool</b>    <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/484.html' title='Multiple refered from 5 places.'>IsWritable</a>()
+<a name='L277'> 277 <font color='red'>{</font>
+<a name='L278'> 278     <b>return</b> <a href='../D/500.html' title='Multiple defined in 3 places.'>IsValid</a>() &amp;&amp; (<a href='../D/858.html' title='Multiple defined in 3 places.'>OpenFlags</a>&amp;<a href='../Y/1550.html' title='Multiple used in 6 places.'>Open_Write</a>);
+<a name='L279'> 279 <font color='red'>}</font>
+<a name='L280'> 280 <i><font color='green'>/*</font></i>
+<a name='L281'> 281 <i><font color='green'>bool    FILEFile::IsRecoverable()</font></i>
+<a name='L282'> 282 <i><font color='green'>{</font></i>
+<a name='L283'> 283 <i><font color='green'>    return IsValid() &amp;&amp; ((OpenFlags&amp;OVR_FO_SAFETRUNC) == OVR_FO_SAFETRUNC);</font></i>
+<a name='L284'> 284 <i><font color='green'>}</font></i>
+<a name='L285'> 285 <i><font color='green'>*/</font></i>
+<a name='L286'> 286 
+<a name='L287'> 287 <i><font color='green'>// Return position / file size</font></i>
+<a name='L288'> 288 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/1081.html' title='Multiple refered from 13 places.'>Tell</a>()
+<a name='L289'> 289 <font color='red'>{</font>
+<a name='L290'> 290     <b>int</b> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> = (<b>int</b>)<a href='../Y/3271.html' title='Multiple used in 5 places.'>ftell</a> (<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L291'> 291     <b>if</b> (<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> &lt; 0)
+<a name='L292'> 292         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = <a href='../S/149.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SFerror</a>();
+<a name='L293'> 293     <b>return</b> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>;
+<a name='L294'> 294 <font color='red'>}</font>
+<a name='L295'> 295 
+<a name='L296'> 296 <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>  <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/503.html' title='Multiple refered from 12 places.'>LTell</a>()
+<a name='L297'> 297 <font color='red'>{</font>
+<a name='L298'> 298     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> = <a href='../Y/3271.html' title='Multiple used in 5 places.'>ftell</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L299'> 299     <b>if</b> (<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> &lt; 0)
+<a name='L300'> 300         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = <a href='../S/149.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SFerror</a>();
+<a name='L301'> 301     <b>return</b> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>;
+<a name='L302'> 302 <font color='red'>}</font>
+<a name='L303'> 303 
+<a name='L304'> 304 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/349.html' title='Multiple refered from 20 places.'>GetLength</a>()
+<a name='L305'> 305 <font color='red'>{</font>
+<a name='L306'> 306     <b>int</b> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> = <a href='../D/1154.html' title='Multiple defined in 3 places.'>Tell</a>();
+<a name='L307'> 307     <b>if</b> (<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> &gt;= 0)
+<a name='L308'> 308     <font color='red'>{</font>
+<a name='L309'> 309         <a href='../D/1005.html' title='Multiple defined in 3 places.'>Seek</a> (0, <a href='../Y/1980.html' title='Multiple used in 7 places.'>Seek_End</a>);
+<a name='L310'> 310         <b>int</b> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../D/1154.html' title='Multiple defined in 3 places.'>Tell</a>();
+<a name='L311'> 311         <a href='../D/1005.html' title='Multiple defined in 3 places.'>Seek</a> (<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>, <a href='../Y/1981.html' title='Multiple used in 19 places.'>Seek_Set</a>);
+<a name='L312'> 312         <b>return</b> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>;
+<a name='L313'> 313     <font color='red'>}</font>
+<a name='L314'> 314     <b>return</b> -1;
+<a name='L315'> 315 <font color='red'>}</font>
+<a name='L316'> 316 <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>  <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/497.html' title='Multiple refered from 7 places.'>LGetLength</a>()
+<a name='L317'> 317 <font color='red'>{</font>
+<a name='L318'> 318     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> = <a href='../D/523.html' title='Multiple defined in 3 places.'>LTell</a>();
+<a name='L319'> 319     <b>if</b> (<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a> &gt;= 0)
+<a name='L320'> 320     <font color='red'>{</font>
+<a name='L321'> 321         <a href='../D/518.html' title='Multiple defined in 3 places.'>LSeek</a> (0, <a href='../Y/1980.html' title='Multiple used in 7 places.'>Seek_End</a>);
+<a name='L322'> 322         <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../D/523.html' title='Multiple defined in 3 places.'>LTell</a>();
+<a name='L323'> 323         <a href='../D/518.html' title='Multiple defined in 3 places.'>LSeek</a> (<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>, <a href='../Y/1981.html' title='Multiple used in 19 places.'>Seek_Set</a>);
+<a name='L324'> 324         <b>return</b> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>;
+<a name='L325'> 325     <font color='red'>}</font>
+<a name='L326'> 326     <b>return</b> -1;
+<a name='L327'> 327 <font color='red'>}</font>
+<a name='L328'> 328 
+<a name='L329'> 329 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/317.html' title='Multiple refered from 6 places.'>GetErrorCode</a>()
+<a name='L330'> 330 <font color='red'>{</font>
+<a name='L331'> 331     <b>return</b> <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a>;
+<a name='L332'> 332 <font color='red'>}</font>
+<a name='L333'> 333 
+<a name='L334'> 334 <i><font color='green'>// ** Stream implementation &amp; I/O</font></i>
+<a name='L335'> 335 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/1187.html' title='Multiple refered from 21 places.'>Write</a>(<b>const</b> <a href='../Y/2313.html' title='Multiple used in 28 places.'>UByte</a> *<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, <b>int</b> <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>)
+<a name='L336'> 336 <font color='red'>{</font>
+<a name='L337'> 337     <b>if</b> (<a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a> &amp;&amp; <a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a> != <a href='../Y/1550.html' title='Multiple used in 6 places.'>Open_Write</a>)
+<a name='L338'> 338         <a href='../Y/3201.html' title='Multiple used in 3 places.'>fflush</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L339'> 339     <a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a> = <a href='../Y/1550.html' title='Multiple used in 6 places.'>Open_Write</a>;
+<a name='L340'> 340     <b>int</b> <a href='../Y/4872.html' title='Multiple used in 5 places.'>written</a> = (<b>int</b>) fwrite(<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, 1, <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>, <a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L341'> 341     <b>if</b> (<a href='../Y/4872.html' title='Multiple used in 5 places.'>written</a> &lt; <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>)
+<a name='L342'> 342         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = <a href='../S/149.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SFerror</a>();
+<a name='L343'> 343 
+<a name='L344'> 344 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>
+<a name='L345'> 345     <b>if</b> (<a href='../Y/4872.html' title='Multiple used in 5 places.'>written</a> &gt; 0)
+<a name='L346'> 346         <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a> += <a href='../Y/4872.html' title='Multiple used in 5 places.'>written</a>;
+<a name='L347'> 347 <font color='darkred'>#endif</font>
+<a name='L348'> 348 
+<a name='L349'> 349     <b>return</b> <a href='../Y/4872.html' title='Multiple used in 5 places.'>written</a>;
+<a name='L350'> 350 <font color='red'>}</font>
+<a name='L351'> 351 
+<a name='L352'> 352 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/876.html' title='Multiple refered from 20 places.'>Read</a>(<a href='../Y/2313.html' title='Multiple used in 28 places.'>UByte</a> *<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, <b>int</b> <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>)
+<a name='L353'> 353 <font color='red'>{</font>
+<a name='L354'> 354     <b>if</b> (<a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a> &amp;&amp; <a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a> != <a href='../Y/1547.html' title='Multiple used in 8 places.'>Open_Read</a>)
+<a name='L355'> 355         <a href='../Y/3201.html' title='Multiple used in 3 places.'>fflush</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L356'> 356     <a href='../Y/1219.html' title='Multiple used in 6 places.'>LastOp</a> = <a href='../Y/1547.html' title='Multiple used in 8 places.'>Open_Read</a>;
+<a name='L357'> 357     <b>int</b> <a href='../Y/4237.html' title='Multiple used in 10 places.'>read</a> = (<b>int</b>) <a href='../Y/3262.html' title='Multiple used in 2 places.'>fread</a>(<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, 1, <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>, <a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L358'> 358     <b>if</b> (<a href='../Y/4237.html' title='Multiple used in 10 places.'>read</a> &lt; <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>)
+<a name='L359'> 359         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = <a href='../S/149.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SFerror</a>();
+<a name='L360'> 360 
+<a name='L361'> 361 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>
+<a name='L362'> 362     <b>if</b> (<a href='../Y/4237.html' title='Multiple used in 10 places.'>read</a> &gt; 0)
+<a name='L363'> 363     <font color='red'>{</font>
+<a name='L364'> 364         <i><font color='green'>// Read-in data must match our pre-loaded buffer data!</font></i>
+<a name='L365'> 365         <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>* <a href='../Y/4016.html' title='Multiple used in 2 places.'>pcompareBuffer</a> = <a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a> + <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a>;
+<a name='L366'> 366         <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>=0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>&lt; <a href='../Y/4237.html' title='Multiple used in 10 places.'>read</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L367'> 367         <font color='red'>{</font>
+<a name='L368'> 368             <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4016.html' title='Multiple used in 2 places.'>pcompareBuffer</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>] == <a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>]);
+<a name='L369'> 369         <font color='red'>}</font>
+<a name='L370'> 370 
+<a name='L371'> 371         <i><font color='green'>//OVR_ASSERT(!memcmp(pFileTestBuffer + TestPos, pbuffer, read));</font></i>
+<a name='L372'> 372         <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a> += <a href='../Y/4237.html' title='Multiple used in 10 places.'>read</a>;
+<a name='L373'> 373         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3271.html' title='Multiple used in 5 places.'>ftell</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>) == (<b>int</b>)<a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a>);
+<a name='L374'> 374     <font color='red'>}</font>
+<a name='L375'> 375 <font color='darkred'>#endif</font>
+<a name='L376'> 376 
+<a name='L377'> 377     <b>return</b> <a href='../Y/4237.html' title='Multiple used in 10 places.'>read</a>;
+<a name='L378'> 378 <font color='red'>}</font>
+<a name='L379'> 379 
+<a name='L380'> 380 <i><font color='green'>// Seeks ahead to skip bytes</font></i>
+<a name='L381'> 381 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/1047.html' title='Multiple refered from 6 places.'>SkipBytes</a>(<b>int</b> <a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>)
+<a name='L382'> 382 <font color='red'>{</font>
+<a name='L383'> 383     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>    = <a href='../D/523.html' title='Multiple defined in 3 places.'>LTell</a>();
+<a name='L384'> 384     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a> <a href='../Y/3741.html' title='Multiple used in 3 places.'>newPos</a> = <a href='../D/518.html' title='Multiple defined in 3 places.'>LSeek</a>(<a href='../Y/3776.html' title='Multiple used in 71 places.'>numBytes</a>, <a href='../Y/1979.html' title='Multiple used in 9 places.'>Seek_Cur</a>);
+<a name='L385'> 385 
+<a name='L386'> 386     <i><font color='green'>// Return -1 for major error</font></i>
+<a name='L387'> 387     <b>if</b> ((<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>==-1) || (<a href='../Y/3741.html' title='Multiple used in 3 places.'>newPos</a>==-1))
+<a name='L388'> 388     <font color='red'>{</font>
+<a name='L389'> 389         <b>return</b> -1;
+<a name='L390'> 390     <font color='red'>}</font>
+<a name='L391'> 391     <i><font color='green'>//ErrorCode = ((NewPos-Pos)&lt;numBytes) ? errno : 0;</font></i>
+<a name='L392'> 392 
+<a name='L393'> 393     <b>return</b> <b>int</b> (<a href='../Y/3741.html' title='Multiple used in 3 places.'>newPos</a>-(<b>int</b>)<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>);
+<a name='L394'> 394 <font color='red'>}</font>
+<a name='L395'> 395 
+<a name='L396'> 396 <i><font color='green'>// Return # of bytes till EOF</font></i>
+<a name='L397'> 397 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/76.html' title='Multiple refered from 7 places.'>BytesAvailable</a>()
+<a name='L398'> 398 <font color='red'>{</font>
+<a name='L399'> 399     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a> <a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>    = <a href='../D/523.html' title='Multiple defined in 3 places.'>LTell</a>();
+<a name='L400'> 400     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a> <a href='../Y/3115.html' title='Multiple used in 3 places.'>endPos</a> = <a href='../D/517.html' title='Multiple defined in 3 places.'>LGetLength</a>();
+<a name='L401'> 401 
+<a name='L402'> 402     <i><font color='green'>// Return -1 for major error</font></i>
+<a name='L403'> 403     <b>if</b> ((<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>==-1) || (<a href='../Y/3115.html' title='Multiple used in 3 places.'>endPos</a>==-1))
+<a name='L404'> 404     <font color='red'>{</font>
+<a name='L405'> 405         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = <a href='../S/149.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SFerror</a>();
+<a name='L406'> 406         <b>return</b> 0;
+<a name='L407'> 407     <font color='red'>}</font>
+<a name='L408'> 408     <b>else</b>
+<a name='L409'> 409         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = 0;
+<a name='L410'> 410 
+<a name='L411'> 411     <b>return</b> <b>int</b> (<a href='../Y/3115.html' title='Multiple used in 3 places.'>endPos</a>-(<b>int</b>)<a href='../Y/4086.html' title='Multiple used in 34 places.'>pos</a>);
+<a name='L412'> 412 <font color='red'>}</font>
+<a name='L413'> 413 
+<a name='L414'> 414 <i><font color='green'>// Flush file contents</font></i>
+<a name='L415'> 415 <b>bool</b>    <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/261.html' title='Multiple refered from 8 places.'>Flush</a>()
+<a name='L416'> 416 <font color='red'>{</font>
+<a name='L417'> 417     <b>return</b> !<a href='../Y/3201.html' title='Multiple used in 3 places.'>fflush</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L418'> 418 <font color='red'>}</font>
+<a name='L419'> 419 
+<a name='L420'> 420 <b>int</b>     <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/944.html' title='Multiple refered from 14 places.'>Seek</a>(<b>int</b> <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>, <b>int</b> <a href='../Y/3821.html' title='Multiple used in 29 places.'>origin</a>)
+<a name='L421'> 421 <font color='red'>{</font>
+<a name='L422'> 422     <b>int</b> <a href='../Y/3740.html' title='Multiple used in 6 places.'>newOrigin</a> = 0;
+<a name='L423'> 423     <b>switch</b>(<a href='../Y/3821.html' title='Multiple used in 29 places.'>origin</a>)
+<a name='L424'> 424     <font color='red'>{</font>
+<a name='L425'> 425     <b>case</b> <a href='../Y/1981.html' title='Multiple used in 19 places.'>Seek_Set</a>: <a href='../Y/3740.html' title='Multiple used in 6 places.'>newOrigin</a> = <a href='../Y/1903.html' title='Multiple used in 4 places.'>SEEK_SET</a>; <b>break</b>;
+<a name='L426'> 426     <b>case</b> <a href='../Y/1979.html' title='Multiple used in 9 places.'>Seek_Cur</a>: <a href='../Y/3740.html' title='Multiple used in 6 places.'>newOrigin</a> = SEEK_CUR; <b>break</b>;
+<a name='L427'> 427     <b>case</b> <a href='../Y/1980.html' title='Multiple used in 7 places.'>Seek_End</a>: <a href='../Y/3740.html' title='Multiple used in 6 places.'>newOrigin</a> = <a href='../Y/1902.html' title='Multiple used in 3 places.'>SEEK_END</a>; <b>break</b>;
+<a name='L428'> 428     <font color='red'>}</font>
+<a name='L429'> 429 
+<a name='L430'> 430     <b>if</b> (<a href='../Y/3740.html' title='Multiple used in 6 places.'>newOrigin</a> == <a href='../Y/1903.html' title='Multiple used in 4 places.'>SEEK_SET</a> &amp;&amp; <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a> == <a href='../D/1154.html' title='Multiple defined in 3 places.'>Tell</a>())
+<a name='L431'> 431         <b>return</b> <a href='../D/1154.html' title='Multiple defined in 3 places.'>Tell</a>();
+<a name='L432'> 432 
+<a name='L433'> 433     <b>if</b> (<a href='../Y/3270.html' title='Multiple used in 5 places.'>fseek</a> (<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>, <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>, <a href='../Y/3740.html' title='Multiple used in 6 places.'>newOrigin</a>))
+<a name='L434'> 434     <font color='red'>{</font>
+<a name='L435'> 435 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>
+<a name='L436'> 436         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(0);
+<a name='L437'> 437 <font color='darkred'>#endif</font>
+<a name='L438'> 438         <b>return</b> -1;
+<a name='L439'> 439     <font color='red'>}</font>
+<a name='L440'> 440     
+<a name='L441'> 441 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>
+<a name='L442'> 442     <i><font color='green'>// Track file position after seeks for read verification later.</font></i>
+<a name='L443'> 443     <b>switch</b>(<a href='../Y/3821.html' title='Multiple used in 29 places.'>origin</a>)
+<a name='L444'> 444     <font color='red'>{</font>
+<a name='L445'> 445     <b>case</b> <a href='../Y/1981.html' title='Multiple used in 19 places.'>Seek_Set</a>:  <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a> = <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>;       <b>break</b>;
+<a name='L446'> 446     <b>case</b> <a href='../Y/1979.html' title='Multiple used in 9 places.'>Seek_Cur</a>:  <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a> += <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>;      <b>break</b>;    
+<a name='L447'> 447     <b>case</b> <a href='../Y/1980.html' title='Multiple used in 7 places.'>Seek_End</a>:  <a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a> = <a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a> + <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>; <b>break</b>;
+<a name='L448'> 448     <font color='red'>}</font>
+<a name='L449'> 449     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>((<b>int</b>)<a href='../Y/2206.html' title='Multiple used in 11 places.'>TestPos</a> == <a href='../D/1154.html' title='Multiple defined in 3 places.'>Tell</a>());
+<a name='L450'> 450 <font color='darkred'>#endif</font>
+<a name='L451'> 451 
+<a name='L452'> 452     <b>return</b> (<b>int</b>)<a href='../D/1154.html' title='Multiple defined in 3 places.'>Tell</a>();
+<a name='L453'> 453 <font color='red'>}</font>
+<a name='L454'> 454 
+<a name='L455'> 455 <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>  <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/498.html' title='Multiple refered from 10 places.'>LSeek</a>(<a href='../Y/1912.html' title='Multiple used in 4 places.'>SInt64</a> <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>, <b>int</b> <a href='../Y/3821.html' title='Multiple used in 29 places.'>origin</a>)
+<a name='L456'> 456 <font color='red'>{</font>
+<a name='L457'> 457     <b>return</b> <a href='../D/1005.html' title='Multiple defined in 3 places.'>Seek</a>((<b>int</b>)<a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>,<a href='../Y/3821.html' title='Multiple used in 29 places.'>origin</a>);
+<a name='L458'> 458 <font color='red'>}</font>
+<a name='L459'> 459 
+<a name='L460'> 460 <b>int</b> <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/128.html' title='Multiple refered from 5 places.'>CopyFromStream</a>(<a href='../Y/586.html' title='Multiple used in 23 places.'>File</a> *<a href='../Y/4162.html' title='Multiple used in 10 places.'>pstream</a>, <b>int</b> <a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a>)
+<a name='L461'> 461 <font color='red'>{</font>
+<a name='L462'> 462     <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>   <a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>[0x4000];
+<a name='L463'> 463     <b>int</b>     <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a> = 0;
+<a name='L464'> 464     <b>int</b>     <a href='../Y/4533.html' title='Multiple used in 8 places.'>szRequest</a>, <a href='../Y/4532.html' title='Multiple used in 8 places.'>szRead</a>, <a href='../Y/4534.html' title='Multiple used in 12 places.'>szWritten</a>;
+<a name='L465'> 465 
+<a name='L466'> 466     <b>while</b> (<a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a>)
+<a name='L467'> 467     <font color='red'>{</font>
+<a name='L468'> 468         <a href='../Y/4533.html' title='Multiple used in 8 places.'>szRequest</a> = (<a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a> &gt; <b>int</b>(<b>sizeof</b>(<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>))) ? <b>int</b>(<b>sizeof</b>(<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>)) : <a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a>;
+<a name='L469'> 469 
+<a name='L470'> 470         <a href='../Y/4532.html' title='Multiple used in 8 places.'>szRead</a>    = <a href='../Y/4162.html' title='Multiple used in 10 places.'>pstream</a>-&gt;<a href='../D/935.html' title='Multiple defined in 3 places.'>Read</a>(<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, <a href='../Y/4533.html' title='Multiple used in 8 places.'>szRequest</a>);
+<a name='L471'> 471         <a href='../Y/4534.html' title='Multiple used in 12 places.'>szWritten</a> = 0;
+<a name='L472'> 472         <b>if</b> (<a href='../Y/4532.html' title='Multiple used in 8 places.'>szRead</a> &gt; 0)
+<a name='L473'> 473             <a href='../Y/4534.html' title='Multiple used in 12 places.'>szWritten</a> = <a href='../D/1270.html' title='Multiple defined in 4 places.'>Write</a>(<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, <a href='../Y/4532.html' title='Multiple used in 8 places.'>szRead</a>);
+<a name='L474'> 474 
+<a name='L475'> 475         <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a>    += <a href='../Y/4534.html' title='Multiple used in 12 places.'>szWritten</a>;
+<a name='L476'> 476         <a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a> -= <a href='../Y/4534.html' title='Multiple used in 12 places.'>szWritten</a>;
+<a name='L477'> 477         <b>if</b> (<a href='../Y/4534.html' title='Multiple used in 12 places.'>szWritten</a> &lt; <a href='../Y/4533.html' title='Multiple used in 8 places.'>szRequest</a>)
+<a name='L478'> 478             <b>break</b>;
+<a name='L479'> 479     <font color='red'>}</font>
+<a name='L480'> 480     <b>return</b> <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a>;
+<a name='L481'> 481 <font color='red'>}</font>
+<a name='L482'> 482 
+<a name='L483'> 483 
+<a name='L484'> 484 <b>bool</b> <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>::<a href='../R/110.html' title='Multiple refered from 12 places.'>Close</a>()
+<a name='L485'> 485 <font color='red'>{</font>
+<a name='L486'> 486 <font color='darkred'>#ifdef</font> <a href='../Y/1497.html' title='Multiple used in 8 places.'>OVR_FILE_VERIFY_SEEK_ERRORS</a>
+<a name='L487'> 487     <b>if</b> (<a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a>)
+<a name='L488'> 488     <font color='red'>{</font>
+<a name='L489'> 489         <a href='../S/182.html#L313' title='Defined at 313 in ovr/sdk/src/Kernel/OVR_Allocator.h.'>OVR_FREE</a>(<a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a>);
+<a name='L490'> 490         <a href='../Y/3932.html' title='Multiple used in 9 places.'>pFileTestBuffer</a> = 0;
+<a name='L491'> 491         <a href='../Y/595.html' title='Multiple used in 7 places.'>FileTestLength</a>  = 0;
+<a name='L492'> 492     <font color='red'>}</font>
+<a name='L493'> 493 <font color='darkred'>#endif</font>
+<a name='L494'> 494 
+<a name='L495'> 495     <b>bool</b> <a href='../Y/2856.html' title='Multiple used in 2 places.'>closeRet</a> = !<a href='../Y/3199.html' title='Multiple used in 4 places.'>fclose</a>(<a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>);
+<a name='L496'> 496 
+<a name='L497'> 497     <b>if</b> (!<a href='../Y/2856.html' title='Multiple used in 2 places.'>closeRet</a>)
+<a name='L498'> 498     <font color='red'>{</font>
+<a name='L499'> 499         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = <a href='../S/149.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>SFerror</a>();
+<a name='L500'> 500         <b>return</b> 0;
+<a name='L501'> 501     <font color='red'>}</font>
+<a name='L502'> 502     <b>else</b>
+<a name='L503'> 503     <font color='red'>{</font>
+<a name='L504'> 504         <a href='../Y/1551.html' title='Multiple used in 7 places.'>Opened</a>    = 0;
+<a name='L505'> 505         <a href='../Y/3269.html' title='Multiple used in 20 places.'>fs</a>        = 0;
+<a name='L506'> 506         <a href='../Y/515.html' title='Multiple used in 12 places.'>ErrorCode</a> = 0;
+<a name='L507'> 507     <font color='red'>}</font>
+<a name='L508'> 508 
+<a name='L509'> 509     <i><font color='green'>// Handle safe truncate</font></i>
+<a name='L510'> 510     <i><font color='green'>/*</font></i>
+<a name='L511'> 511 <i><font color='green'>    if ((OpenFlags &amp; OVR_FO_SAFETRUNC) == OVR_FO_SAFETRUNC)</font></i>
+<a name='L512'> 512 <i><font color='green'>    {</font></i>
+<a name='L513'> 513 <i><font color='green'>        // Delete original file (if it existed)</font></i>
+<a name='L514'> 514 <i><font color='green'>        DWORD oldAttributes = FileUtilWin32::GetFileAttributes(FileName);</font></i>
+<a name='L515'> 515 <i><font color='green'>        if (oldAttributes!=0xFFFFFFFF)</font></i>
+<a name='L516'> 516 <i><font color='green'>            if (!FileUtilWin32::DeleteFile(FileName))</font></i>
+<a name='L517'> 517 <i><font color='green'>            {</font></i>
+<a name='L518'> 518 <i><font color='green'>                // Try to remove the readonly attribute</font></i>
+<a name='L519'> 519 <i><font color='green'>                FileUtilWin32::SetFileAttributes(FileName, oldAttributes &amp; (~FILE_ATTRIBUTE_READONLY) );</font></i>
+<a name='L520'> 520 <i><font color='green'>                // And delete the file again</font></i>
+<a name='L521'> 521 <i><font color='green'>                if (!FileUtilWin32::DeleteFile(FileName))</font></i>
+<a name='L522'> 522 <i><font color='green'>                    return 0;</font></i>
+<a name='L523'> 523 <i><font color='green'>            }</font></i>
+<a name='L524'> 524 <i><font color='green'></font></i>
+<a name='L525'> 525 <i><font color='green'>        // Rename temp file to real filename</font></i>
+<a name='L526'> 526 <i><font color='green'>        if (!FileUtilWin32::MoveFile(TempName, FileName))</font></i>
+<a name='L527'> 527 <i><font color='green'>        {</font></i>
+<a name='L528'> 528 <i><font color='green'>            //ErrorCode = errno;</font></i>
+<a name='L529'> 529 <i><font color='green'>            return 0;</font></i>
+<a name='L530'> 530 <i><font color='green'>        }</font></i>
+<a name='L531'> 531 <i><font color='green'>    }</font></i>
+<a name='L532'> 532 <i><font color='green'>    */</font></i>
+<a name='L533'> 533     <b>return</b> 1;
+<a name='L534'> 534 <font color='red'>}</font>
+<a name='L535'> 535 
+<a name='L536'> 536 <i><font color='green'>/*</font></i>
+<a name='L537'> 537 <i><font color='green'>bool    FILEFile::CloseCancel()</font></i>
+<a name='L538'> 538 <i><font color='green'>{</font></i>
+<a name='L539'> 539 <i><font color='green'>    bool closeRet = (bool)::CloseHandle(fd);</font></i>
+<a name='L540'> 540 <i><font color='green'></font></i>
+<a name='L541'> 541 <i><font color='green'>    if (!closeRet)</font></i>
+<a name='L542'> 542 <i><font color='green'>    {</font></i>
+<a name='L543'> 543 <i><font color='green'>        //ErrorCode = errno;</font></i>
+<a name='L544'> 544 <i><font color='green'>        return 0;</font></i>
+<a name='L545'> 545 <i><font color='green'>    }</font></i>
+<a name='L546'> 546 <i><font color='green'>    else</font></i>
+<a name='L547'> 547 <i><font color='green'>    {</font></i>
+<a name='L548'> 548 <i><font color='green'>        Opened    = 0;</font></i>
+<a name='L549'> 549 <i><font color='green'>        fd        = INVALID_HANDLE_VALUE;</font></i>
+<a name='L550'> 550 <i><font color='green'>        ErrorCode = 0;</font></i>
+<a name='L551'> 551 <i><font color='green'>    }</font></i>
+<a name='L552'> 552 <i><font color='green'></font></i>
+<a name='L553'> 553 <i><font color='green'>    // Handle safe truncate (delete tmp file, leave original unchanged)</font></i>
+<a name='L554'> 554 <i><font color='green'>    if ((OpenFlags&amp;OVR_FO_SAFETRUNC) == OVR_FO_SAFETRUNC)</font></i>
+<a name='L555'> 555 <i><font color='green'>        if (!FileUtilWin32::DeleteFile(TempName))</font></i>
+<a name='L556'> 556 <i><font color='green'>        {</font></i>
+<a name='L557'> 557 <i><font color='green'>            //ErrorCode = errno;</font></i>
+<a name='L558'> 558 <i><font color='green'>            return 0;</font></i>
+<a name='L559'> 559 <i><font color='green'>        }</font></i>
+<a name='L560'> 560 <i><font color='green'>    return 1;</font></i>
+<a name='L561'> 561 <i><font color='green'>}</font></i>
+<a name='L562'> 562 <i><font color='green'>*/</font></i>
+<a name='L563'> 563 
+<a name='L564'> 564 <a href='../Y/1725.html' title='Multiple used in 115 places.'>Ptr</a>&lt;<a href='../Y/586.html' title='Multiple used in 23 places.'>File</a>&gt; <a href='../R/246.html' title='Multiple refered from 2 places.'>FileFILEOpen</a>(<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, <b>int</b> <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>, <b>int</b> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>)
+<a name='L565'> 565 <font color='red'>{</font>
+<a name='L566'> 566     <a href='../Y/1725.html' title='Multiple used in 115 places.'>Ptr</a>&lt;<a href='../Y/586.html' title='Multiple used in 23 places.'>File</a>&gt; <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = *<b>new</b> <a href='../S/149.html#L107' title='Defined at 107 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>FILEFile</a>(<a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a>, <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>);
+<a name='L567'> 567         <b>return</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L568'> 568 <font color='red'>}</font>
+<a name='L569'> 569 
+<a name='L570'> 570 <i><font color='green'>// Helper function: obtain file information time.</font></i>
+<a name='L571'> 571 <b>bool</b>    <a href='../D/1142.html' title='Multiple defined in 2 places.'>SysFile</a>::<a href='../S/146.html#L91' title='Refered from 91 in ovr/sdk/src/Kernel/OVR_SysFile.h.'>GetFileStat</a>(FileStat* <a href='../Y/4042.html' title='Multiple used in 4 places.'>pfileStat</a>, <b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>)
+<a name='L572'> 572 <font color='red'>{</font>
+<a name='L573'> 573 <font color='darkred'>#if</font> <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L574'> 574     <i><font color='green'>// 64-bit implementation on Windows.</font></i>
+<a name='L575'> 575     <b>struct</b> __stat64 <a href='../Y/3206.html' title='Multiple used in 7 places.'>fileStat</a>;
+<a name='L576'> 576     <i><font color='green'>// Stat returns 0 for success.</font></i>
+<a name='L577'> 577     <b>wchar_t</b> *<a href='../Y/4205.html' title='Multiple used in 4 places.'>pwpath</a> = (<b>wchar_t</b>*)<a href='../D/657.html' title='Multiple defined in 2 places.'>OVR_ALLOC</a>((<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../D/366.html' title='Multiple defined in 6 places.'>GetLength</a>(<a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>())+1)*<b>sizeof</b>(<b>wchar_t</b>));
+<a name='L578'> 578     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L332' title='Defined at 332 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>DecodeString</a>(<a href='../Y/4205.html' title='Multiple used in 4 places.'>pwpath</a>, <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>());
+<a name='L579'> 579 
+<a name='L580'> 580     <b>int</b> <a href='../Y/4298.html' title='Multiple used in 89 places.'>ret</a> = _wstat64(<a href='../Y/4205.html' title='Multiple used in 4 places.'>pwpath</a>, &amp;<a href='../Y/3206.html' title='Multiple used in 7 places.'>fileStat</a>);
+<a name='L581'> 581     <a href='../S/182.html#L313' title='Defined at 313 in ovr/sdk/src/Kernel/OVR_Allocator.h.'>OVR_FREE</a>(<a href='../Y/4205.html' title='Multiple used in 4 places.'>pwpath</a>);
+<a name='L582'> 582     <b>if</b> (<a href='../Y/4298.html' title='Multiple used in 89 places.'>ret</a>) <b>return</b> <b>false</b>;
+<a name='L583'> 583 <font color='darkred'>#else</font>
+<a name='L584'> 584     <b>struct</b> <a href='../Y/4466.html' title='Multiple used in 6 places.'>stat</a> <a href='../Y/3206.html' title='Multiple used in 7 places.'>fileStat</a>;
+<a name='L585'> 585     <i><font color='green'>// Stat returns 0 for success.</font></i>
+<a name='L586'> 586     <b>if</b> (<a href='../Y/4466.html' title='Multiple used in 6 places.'>stat</a>(<a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, &amp;<a href='../Y/3206.html' title='Multiple used in 7 places.'>fileStat</a>) != 0)
+<a name='L587'> 587         <b>return</b> <b>false</b>;
+<a name='L588'> 588 <font color='darkred'>#endif</font>
+<a name='L589'> 589     <a href='../Y/4042.html' title='Multiple used in 4 places.'>pfileStat</a>-&gt;<a href='../Y/26.html' title='Multiple used in 3 places.'>AccessTime</a> = <a href='../Y/3206.html' title='Multiple used in 7 places.'>fileStat</a>.st_atime;
+<a name='L590'> 590     <a href='../Y/4042.html' title='Multiple used in 4 places.'>pfileStat</a>-&gt;<a href='../Y/1438.html' title='Multiple used in 3 places.'>ModifyTime</a> = <a href='../Y/3206.html' title='Multiple used in 7 places.'>fileStat</a>.st_mtime;
+<a name='L591'> 591     <a href='../Y/4042.html' title='Multiple used in 4 places.'>pfileStat</a>-&gt;<a href='../Y/593.html' title='Multiple used in 14 places.'>FileSize</a>   = <a href='../Y/3206.html' title='Multiple used in 7 places.'>fileStat</a>.st_size;
+<a name='L592'> 592     <b>return</b> <b>true</b>;
+<a name='L593'> 593 <font color='red'>}</font>
+<a name='L594'> 594 
+<a name='L595'> 595 <font color='red'>}</font> <i><font color='green'>// Namespace OVR</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L51'>[^]</a><a href='#L571'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

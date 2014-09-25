@@ -1,0 +1,10 @@
+<map id="OVR::CAPI::GL::Shader" name="OVR::CAPI::GL::Shader">
+<area shape="rect" id="node9" href="$classOVR_1_1CAPI_1_1GL_1_1ShaderBase.html" title="{OVR::CAPI::GL::ShaderBase\n|+ pParams\l+ UniformData\l+ UniformsSize\l+ UniformRefl\l+ UniformReflSize\l|+ ShaderBase()\l+ ~ShaderBase()\l+ InitUniforms()\l+ SetUniform()\l+ SetUniformBool()\l}" alt="" coords="132,995,327,1189"/>
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l Shader \&gt;\n||+ RefCountBase()\l}" alt="" coords="153,635,305,727"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="105,350,300,442"/>
+<area shape="rect" id="node8" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="224,493,403,571"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+<area shape="rect" id="node10" href="$classOVR_1_1CAPI_1_1GL_1_1ShaderImpl.html" title="{OVR::CAPI::GL::ShaderImpl\l\&lt; SStage, SType \&gt;\n|&#45; GLShader\l|+ ShaderImpl()\l+ ~ShaderImpl()\l+ Compile()\l+ GLStage()\l}" alt="" coords="134,1240,324,1376"/>
+</map>

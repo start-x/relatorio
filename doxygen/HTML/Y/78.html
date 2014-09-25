@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>AtomicOps</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/159.html#L116'>AtomicOps</a>         116 ovr/sdk/src/Kernel/OVR_Atomic.cpp             if (AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, 0, LockInitMarker))
+<a href='../S/159.html#L120'>AtomicOps</a>         120 ovr/sdk/src/Kernel/OVR_Atomic.cpp                 while (!AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, LockInitMarker, 1));
+<a href='../S/159.html#L126'>AtomicOps</a>         126 ovr/sdk/src/Kernel/OVR_Atomic.cpp     } while (!AtomicOps&lt;int&gt;::CompareAndSet_NoSync(&amp;UseCount, oldUseCount, oldUseCount + 1));
+<a href='../S/159.html#L145'>AtomicOps</a>         145 ovr/sdk/src/Kernel/OVR_Atomic.cpp             if (AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, 1, LockInitMarker))
+<a href='../S/159.html#L150'>AtomicOps</a>         150 ovr/sdk/src/Kernel/OVR_Atomic.cpp                 while (!AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, LockInitMarker, 0));
+<a href='../S/159.html#L157'>AtomicOps</a>         157 ovr/sdk/src/Kernel/OVR_Atomic.cpp     } while (!AtomicOps&lt;int&gt;::CompareAndSet_NoSync(&amp;UseCount, oldUseCount, oldUseCount - 1));
+<a href='../S/145.html#L49'>AtomicOps</a>          49 ovr/sdk/src/Kernel/OVR_Atomic.h template&lt;class C&gt; class AtomicOps;
+<a href='../S/145.html#L565'>AtomicOps</a>         565 ovr/sdk/src/Kernel/OVR_Atomic.h class AtomicOps
+<a href='../S/145.html#L600'>AtomicOps</a>         600 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef AtomicOps&lt;T&gt; Ops;
+<a href='../S/183.html#L81'>AtomicOps</a>          81 ovr/sdk/src/Kernel/OVR_RefCount.cpp     AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, 1);
+<a href='../S/183.html#L85'>AtomicOps</a>          85 ovr/sdk/src/Kernel/OVR_RefCount.cpp     if ((AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, -1) - 1) == 0)
+<a href='../S/183.html#L93'>AtomicOps</a>          93 ovr/sdk/src/Kernel/OVR_RefCount.cpp     AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, 1);
+<a href='../S/183.html#L97'>AtomicOps</a>          97 ovr/sdk/src/Kernel/OVR_RefCount.cpp     if ((AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, -1) - 1) == 0)
+<a href='../S/161.html#L77'>AtomicOps</a>          77 ovr/sdk/src/Kernel/OVR_String.h             AtomicOps&lt;SInt32&gt;::ExchangeAdd_NoSync(&amp;RefCount, 1);
+<a href='../S/161.html#L91'>AtomicOps</a>          91 ovr/sdk/src/Kernel/OVR_String.h             if ((AtomicOps&lt;SInt32&gt;::ExchangeAdd_NoSync(&amp;RefCount, -1) - 1) == 0)
+</pre>
+</body>
+</html>

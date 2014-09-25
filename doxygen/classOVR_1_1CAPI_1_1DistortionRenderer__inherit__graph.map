@@ -1,0 +1,9 @@
+<map id="OVR::CAPI::DistortionRenderer" name="OVR::CAPI::DistortionRenderer">
+<area shape="rect" id="node9" href="$classOVR_1_1CAPI_1_1GL_1_1DistortionRenderer.html" title="{OVR::CAPI::GL::Distortion\lRenderer\n|# DistortionCaps\l# eachEye\l# RParams\l# pEyeTextures\l# DistortionMeshVBs\l# DistortionMeshIBs\l# DistortionMeshVAOs\l# DistortionShader\l# StdUniforms\l# LatencyVAO\land 14 more...\l|+ DistortionRenderer()\l+ ~DistortionRenderer()\l+ Initialize()\l+ SubmitEye()\l+ EndFrame()\l+ WaitUntilGpuIdle()\l+ FlushGpuAndWaitTillTime()\l+ Create()\l# initBuffersAndShaders()\l# initShaders()\l# initFullscreenQuad()\l# destroy()\l# setViewport()\l# renderDistortion()\l# renderPrimitives()\l# createDrawQuad()\l# renderLatencyQuad()\l# renderLatencyPixel()\l}" alt="" coords="132,1099,327,1587"/>
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l DistortionRenderer \&gt;\n||+ RefCountBase()\l}" alt="" coords="153,635,305,727"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="105,350,300,442"/>
+<area shape="rect" id="node8" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="224,493,403,571"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+</map>

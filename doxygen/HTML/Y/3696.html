@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>mmTimeMs</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/153.html#L170'>mmTimeMs</a>          170 ovr/sdk/src/Kernel/OVR_Timer.cpp     DWORD           mmTimeMs;
+<a href='../S/153.html#L178'>mmTimeMs</a>          178 ovr/sdk/src/Kernel/OVR_Timer.cpp     mmTimeMs = timeGetTime();
+<a href='../S/153.html#L181'>mmTimeMs</a>          181 ovr/sdk/src/Kernel/OVR_Timer.cpp     if (OldMMTimeMs &gt; mmTimeMs)
+<a href='../S/153.html#L183'>mmTimeMs</a>          183 ovr/sdk/src/Kernel/OVR_Timer.cpp     OldMMTimeMs = mmTimeMs;
+<a href='../S/153.html#L186'>mmTimeMs</a>          186 ovr/sdk/src/Kernel/OVR_Timer.cpp     UInt64  mmCounterNanos     = ((UInt64(MMTimeWrapCounter) &lt;&lt; 32) | mmTimeMs) * 1000000;
+</pre>
+</body>
+</html>

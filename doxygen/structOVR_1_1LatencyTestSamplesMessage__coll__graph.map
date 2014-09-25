@@ -1,0 +1,4 @@
+<map id="OVR::LatencyTestSamplesMessage" name="OVR::LatencyTestSamplesMessage">
+<area shape="rect" id="node2" href="$structOVR_1_1LatencyTestSamples.html" title="{OVR::LatencyTestSamples\n|+ SampleCount\l+ Timestamp\l|+ Decode()\l}" alt="" coords="30,147,212,239"/>
+<area shape="rect" id="node3" href="$namespaceOVR.html#structOVR_1_1LatencyTestSample" title="{OVR::LatencyTestSample\n|+ Value\l|}" alt="" coords="34,5,208,83"/>
+</map>

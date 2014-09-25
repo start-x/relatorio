@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>buff</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L529'>buff</a>              529 ovr/sdk/src/Kernel/OVR_File.cpp     UByte   buff[0x4000];
+<a href='../S/172.html#L535'>buff</a>              535 ovr/sdk/src/Kernel/OVR_File.cpp         szRequest = (byteSize &gt; int(sizeof(buff))) ? int(sizeof(buff)) : byteSize;
+<a href='../S/172.html#L537'>buff</a>              537 ovr/sdk/src/Kernel/OVR_File.cpp         szRead    = pstream-&gt;Read(buff,szRequest);
+<a href='../S/172.html#L540'>buff</a>              540 ovr/sdk/src/Kernel/OVR_File.cpp             szWritten = Write(buff,szRead);
+<a href='../S/149.html#L462'>buff</a>              462 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     UByte   buff[0x4000];
+<a href='../S/149.html#L468'>buff</a>              468 ovr/sdk/src/Kernel/OVR_FileFILE.cpp         szRequest = (byteSize &gt; int(sizeof(buff))) ? int(sizeof(buff)) : byteSize;
+<a href='../S/149.html#L470'>buff</a>              470 ovr/sdk/src/Kernel/OVR_FileFILE.cpp         szRead    = pstream-&gt;Read(buff, szRequest);
+<a href='../S/149.html#L473'>buff</a>              473 ovr/sdk/src/Kernel/OVR_FileFILE.cpp             szWritten = Write(buff, szRead);
+<a href='../S/184.html#L218'>buff</a>              218 ovr/sdk/src/Kernel/OVR_String.cpp     char        buff[8];
+<a href='../S/184.html#L222'>buff</a>              222 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buff, &amp;encodeSize, ch);
+<a href='../S/184.html#L226'>buff</a>              226 ovr/sdk/src/Kernel/OVR_String.cpp                            pdata-&gt;Data, size, buff, (UPInt)encodeSize));
+<a href='../S/184.html#L665'>buff</a>              665 ovr/sdk/src/Kernel/OVR_String.cpp     char    buff[8];
+<a href='../S/184.html#L671'>buff</a>              671 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buff, &amp;srcSize, ch);
+<a href='../S/184.html#L676'>buff</a>              676 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData + origSize, buff, srcSize);
+<a href='../S/84.html#L413'>buff</a>              413 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::Parse(const char* buff, const char** perror)
+<a href='../S/84.html#L424'>buff</a>              424 ovr/sdk/src/OVR_JSON.cpp 	end = json-&gt;parseValue(skip(buff), perror);
+<a href='../S/84.html#L436'>buff</a>              436 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::ParseBuffer(const char *buff, int len, const char** perror)
+<a href='../S/84.html#L441'>buff</a>              441 ovr/sdk/src/OVR_JSON.cpp 	memcpy(termStr, buff, len);
+<a href='../S/84.html#L453'>buff</a>              453 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseValue(const char* buff, const char** perror)
+<a href='../S/84.html#L458'>buff</a>              458 ovr/sdk/src/OVR_JSON.cpp 	if (!buff)
+<a href='../S/84.html#L461'>buff</a>              461 ovr/sdk/src/OVR_JSON.cpp 	if (!strncmp(buff,"null",4))
+<a href='../S/84.html#L464'>buff</a>              464 ovr/sdk/src/OVR_JSON.cpp         return buff+4;
+<a href='../S/84.html#L466'>buff</a>              466 ovr/sdk/src/OVR_JSON.cpp 	if (!strncmp(buff,"false",5))
+<a href='../S/84.html#L471'>buff</a>              471 ovr/sdk/src/OVR_JSON.cpp         return buff+5;
+<a href='../S/84.html#L473'>buff</a>              473 ovr/sdk/src/OVR_JSON.cpp 	if (!strncmp(buff,"true",4))
+<a href='../S/84.html#L478'>buff</a>              478 ovr/sdk/src/OVR_JSON.cpp         return buff+4;
+<a href='../S/84.html#L480'>buff</a>              480 ovr/sdk/src/OVR_JSON.cpp 	if (*buff=='\"')
+<a href='../S/84.html#L482'>buff</a>              482 ovr/sdk/src/OVR_JSON.cpp         return parseString(buff, perror);
+<a href='../S/84.html#L484'>buff</a>              484 ovr/sdk/src/OVR_JSON.cpp 	if (*buff=='-' || (*buff&gt;='0' &amp;&amp; *buff&lt;='9'))
+<a href='../S/84.html#L486'>buff</a>              486 ovr/sdk/src/OVR_JSON.cpp         return parseNumber(buff);
+<a href='../S/84.html#L488'>buff</a>              488 ovr/sdk/src/OVR_JSON.cpp 	if (*buff=='[')
+<a href='../S/84.html#L490'>buff</a>              490 ovr/sdk/src/OVR_JSON.cpp         return parseArray(buff, perror);
+<a href='../S/84.html#L492'>buff</a>              492 ovr/sdk/src/OVR_JSON.cpp 	if (*buff=='{')
+<a href='../S/84.html#L494'>buff</a>              494 ovr/sdk/src/OVR_JSON.cpp         return parseObject(buff, perror);
+<a href='../S/84.html#L528'>buff</a>              528 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseArray(const char* buff, const char** perror)
+<a href='../S/84.html#L531'>buff</a>              531 ovr/sdk/src/OVR_JSON.cpp 	if (*buff!='[')
+<a href='../S/84.html#L537'>buff</a>              537 ovr/sdk/src/OVR_JSON.cpp 	buff=skip(buff+1);
+<a href='../S/84.html#L539'>buff</a>              539 ovr/sdk/src/OVR_JSON.cpp     if (*buff==']')
+<a href='../S/84.html#L540'>buff</a>              540 ovr/sdk/src/OVR_JSON.cpp         return buff+1;	// empty array.
+<a href='../S/84.html#L547'>buff</a>              547 ovr/sdk/src/OVR_JSON.cpp     buff=skip(child-&gt;parseValue(skip(buff), perror));	// skip any spacing, get the buff. 
+<a href='../S/84.html#L548'>buff</a>              548 ovr/sdk/src/OVR_JSON.cpp 	if (!buff)
+<a href='../S/84.html#L551'>buff</a>              551 ovr/sdk/src/OVR_JSON.cpp 	while (*buff==',')
+<a href='../S/84.html#L559'>buff</a>              559 ovr/sdk/src/OVR_JSON.cpp 		buff=skip(new_item-&gt;parseValue(skip(buff+1), perror));
+<a href='../S/84.html#L560'>buff</a>              560 ovr/sdk/src/OVR_JSON.cpp 		if (!buff)
+<a href='../S/84.html#L564'>buff</a>              564 ovr/sdk/src/OVR_JSON.cpp 	if (*buff==']')
+<a href='../S/84.html#L565'>buff</a>              565 ovr/sdk/src/OVR_JSON.cpp         return buff+1;	// end of array
+<a href='../S/84.html#L657'>buff</a>              657 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseObject(const char* buff, const char** perror)
+<a href='../S/84.html#L659'>buff</a>              659 ovr/sdk/src/OVR_JSON.cpp 	if (*buff!='{')
+<a href='../S/84.html#L665'>buff</a>              665 ovr/sdk/src/OVR_JSON.cpp 	buff=skip(buff+1);
+<a href='../S/84.html#L666'>buff</a>              666 ovr/sdk/src/OVR_JSON.cpp 	if (*buff=='}')
+<a href='../S/84.html#L667'>buff</a>              667 ovr/sdk/src/OVR_JSON.cpp         return buff+1;	// empty array.
+<a href='../S/84.html#L672'>buff</a>              672 ovr/sdk/src/OVR_JSON.cpp 	buff=skip(child-&gt;parseString(skip(buff), perror));
+<a href='../S/84.html#L673'>buff</a>              673 ovr/sdk/src/OVR_JSON.cpp 	if (!buff) 
+<a href='../S/84.html#L678'>buff</a>              678 ovr/sdk/src/OVR_JSON.cpp     if (*buff!=':')
+<a href='../S/84.html#L683'>buff</a>              683 ovr/sdk/src/OVR_JSON.cpp 	buff=skip(child-&gt;parseValue(skip(buff+1), perror));	// skip any spacing, get the value.
+<a href='../S/84.html#L684'>buff</a>              684 ovr/sdk/src/OVR_JSON.cpp 	if (!buff)
+<a href='../S/84.html#L687'>buff</a>              687 ovr/sdk/src/OVR_JSON.cpp 	while (*buff==',')
+<a href='../S/84.html#L695'>buff</a>              695 ovr/sdk/src/OVR_JSON.cpp 		buff=skip(child-&gt;parseString(skip(buff+1), perror));
+<a href='../S/84.html#L696'>buff</a>              696 ovr/sdk/src/OVR_JSON.cpp 		if (!buff)
+<a href='../S/84.html#L702'>buff</a>              702 ovr/sdk/src/OVR_JSON.cpp         if (*buff!=':')
+<a href='../S/84.html#L708'>buff</a>              708 ovr/sdk/src/OVR_JSON.cpp         buff=skip(child-&gt;parseValue(skip(buff+1), perror));
+<a href='../S/84.html#L709'>buff</a>              709 ovr/sdk/src/OVR_JSON.cpp 		if (!buff)
+<a href='../S/84.html#L713'>buff</a>              713 ovr/sdk/src/OVR_JSON.cpp 	if (*buff=='}')
+<a href='../S/84.html#L714'>buff</a>              714 ovr/sdk/src/OVR_JSON.cpp         return buff+1;	// end of array 
+<a href='../S/84.html#L1142'>buff</a>             1142 ovr/sdk/src/OVR_JSON.cpp     UByte* buff  = (UByte*)OVR_ALLOC(len + 1);
+<a href='../S/84.html#L1143'>buff</a>             1143 ovr/sdk/src/OVR_JSON.cpp     int    bytes = f.Read(buff, len);
+<a href='../S/84.html#L1148'>buff</a>             1148 ovr/sdk/src/OVR_JSON.cpp         OVR_FREE(buff);
+<a href='../S/84.html#L1153'>buff</a>             1153 ovr/sdk/src/OVR_JSON.cpp 	buff[len] = '\0';
+<a href='../S/84.html#L1155'>buff</a>             1155 ovr/sdk/src/OVR_JSON.cpp     JSON* json = JSON::Parse((char*)buff, perror);
+<a href='../S/84.html#L1156'>buff</a>             1156 ovr/sdk/src/OVR_JSON.cpp     OVR_FREE(buff);
+<a href='../S/78.html#L83'>buff</a>               83 ovr/sdk/src/OVR_JSON.h     static JSON*    Parse(const char* buff, const char** perror = 0);
+<a href='../S/78.html#L86'>buff</a>               86 ovr/sdk/src/OVR_JSON.h 	static JSON*	ParseBuffer(const char *buff, int len, const char** perror = 0);
+<a href='../S/78.html#L150'>buff</a>              150 ovr/sdk/src/OVR_JSON.h     const char*     parseValue(const char *buff, const char** perror);
+</pre>
+</body>
+</html>

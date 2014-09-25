@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>A3</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L976'>A3</a>                976 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, Axis A3, RotateDirection D, HandedSystem S&gt;
+<a href='../S/177.html#L979'>A3</a>                979 ovr/sdk/src/Kernel/OVR_Math.h         OVR_COMPILER_ASSERT((A1 != A2) &amp;&amp; (A2 != A3) &amp;&amp; (A1 != A3));
+<a href='../S/177.html#L986'>A3</a>                986 ovr/sdk/src/Kernel/OVR_Math.h         T Q33 = Q[A3]*Q[A3];
+<a href='../S/177.html#L990'>A3</a>                990 ovr/sdk/src/Kernel/OVR_Math.h         if (((A1 + 1) % 3 == A2) &amp;&amp; ((A2 + 1) % 3 == A3))
+<a href='../S/177.html#L993'>A3</a>                993 ovr/sdk/src/Kernel/OVR_Math.h         T s2 = psign * T(2) * (psign*w*Q[A2] + Q[A1]*Q[A3]);
+<a href='../S/177.html#L999'>A3</a>                999 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(psign*Q[A1]*Q[A2] + w*Q[A3]),
+<a href='../S/177.html#L1006'>A3</a>               1006 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(psign*Q[A1]*Q[A2] + w*Q[A3]),
+<a href='../S/177.html#L1011'>A3</a>               1011 ovr/sdk/src/Kernel/OVR_Math.h             *a = -S*D*atan2(T(-2)*(w*Q[A1] - psign*Q[A2]*Q[A3]),
+<a href='../S/177.html#L1014'>A3</a>               1014 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(w*Q[A3] - psign*Q[A1]*Q[A2]),
+<a href='../S/177.html#L1020'>A3</a>               1020 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, Axis A3, RotateDirection D&gt;
+<a href='../S/177.html#L1022'>A3</a>               1022 ovr/sdk/src/Kernel/OVR_Math.h     { GetEulerAngles&lt;A1, A2, A3, D, Handed_R&gt;(a, b, c); }
+<a href='../S/177.html#L1024'>A3</a>               1024 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, Axis A3&gt;
+<a href='../S/177.html#L1026'>A3</a>               1026 ovr/sdk/src/Kernel/OVR_Math.h     { GetEulerAngles&lt;A1, A2, A3, Rotate_CCW, Handed_R&gt;(a, b, c); }
+<a href='../S/177.html#L1490'>A3</a>               1490 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, Axis A3, RotateDirection D, HandedSystem S&gt;
+<a href='../S/177.html#L1493'>A3</a>               1493 ovr/sdk/src/Kernel/OVR_Math.h         OVR_COMPILER_ASSERT((A1 != A2) &amp;&amp; (A2 != A3) &amp;&amp; (A1 != A3));
+<a href='../S/177.html#L1496'>A3</a>               1496 ovr/sdk/src/Kernel/OVR_Math.h         if (((A1 + 1) % 3 == A2) &amp;&amp; ((A2 + 1) % 3 == A3)) // Determine whether even permutation
+<a href='../S/177.html#L1499'>A3</a>               1499 ovr/sdk/src/Kernel/OVR_Math.h         T pm = psign*M[A1][A3];
+<a href='../S/177.html#L1514'>A3</a>               1514 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( -psign*M[A2][A3], M[A3][A3] );
+</pre>
+</body>
+</html>

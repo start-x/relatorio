@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>States</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/150.html#L185'>States</a>            185 ovr/sdk/src/Kernel/OVR_KeyCodes.h     unsigned char States;
+<a href='../S/150.html#L187'>States</a>            187 ovr/sdk/src/Kernel/OVR_KeyCodes.h     KeyModifiers() : States(0) { }
+<a href='../S/150.html#L188'>States</a>            188 ovr/sdk/src/Kernel/OVR_KeyCodes.h         KeyModifiers(unsigned char st) : States((unsigned char)(st | Initialized_Bit)) { }
+<a href='../S/150.html#L190'>States</a>            190 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void Reset() { States = 0; }
+<a href='../S/150.html#L192'>States</a>            192 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsShiftPressed() const { return (States &amp; Key_ShiftPressed) != 0; }
+<a href='../S/150.html#L193'>States</a>            193 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsCtrlPressed() const  { return (States &amp; Key_CtrlPressed) != 0; }
+<a href='../S/150.html#L194'>States</a>            194 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsAltPressed() const   { return (States &amp; Key_AltPressed) != 0; }
+<a href='../S/150.html#L195'>States</a>            195 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsMetaPressed() const  { return (States &amp; Key_MetaPressed) != 0; }
+<a href='../S/150.html#L196'>States</a>            196 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsCapsToggled() const  { return (States &amp; Key_CapsToggled) != 0; }
+<a href='../S/150.html#L197'>States</a>            197 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsNumToggled() const   { return (States &amp; Key_NumToggled) != 0; }
+<a href='../S/150.html#L198'>States</a>            198 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsScrollToggled() const{ return (States &amp; Key_ScrollToggled) != 0; }
+<a href='../S/150.html#L200'>States</a>            200 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetShiftPressed(bool v = true)  { (v) ? States |= Key_ShiftPressed : States &amp;= ~Key_ShiftPressed; }
+<a href='../S/150.html#L201'>States</a>            201 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetCtrlPressed(bool v = true)   { (v) ? States |= Key_CtrlPressed  : States &amp;= ~Key_CtrlPressed; }
+<a href='../S/150.html#L202'>States</a>            202 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetAltPressed(bool v = true)    { (v) ? States |= Key_AltPressed   : States &amp;= ~Key_AltPressed; }
+<a href='../S/150.html#L203'>States</a>            203 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetMetaPressed(bool v = true)   { (v) ? States |= Key_MetaPressed  : States &amp;= ~Key_MetaPressed; }
+<a href='../S/150.html#L204'>States</a>            204 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetCapsToggled(bool v = true)   { (v) ? States |= Key_CapsToggled  : States &amp;= ~Key_CapsToggled; }
+<a href='../S/150.html#L205'>States</a>            205 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetNumToggled(bool v = true)    { (v) ? States |= Key_NumToggled   : States &amp;= ~Key_NumToggled; }
+<a href='../S/150.html#L206'>States</a>            206 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetScrollToggled(bool v = true) { (v) ? States |= Key_ScrollToggled: States &amp;= ~Key_ScrollToggled; }
+<a href='../S/150.html#L208'>States</a>            208 ovr/sdk/src/Kernel/OVR_KeyCodes.h     bool IsInitialized() const { return (States &amp; Initialized_Mask) != 0; }
+</pre>
+</body>
+</html>

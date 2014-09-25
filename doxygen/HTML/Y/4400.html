@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>si</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L360'>si</a>                360 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         OVR::SensorInfo si;
+<a href='../S/97.html#L361'>si</a>                361 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         pSensor-&gt;GetDeviceInfo(&amp;si);
+<a href='../S/97.html#L362'>si</a>                362 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         descOut-&gt;VendorId  = si.VendorId;
+<a href='../S/97.html#L363'>si</a>                363 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         descOut-&gt;ProductId = si.ProductId;
+<a href='../S/97.html#L364'>si</a>                364 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         OVR_ASSERT(si.SerialNumber.GetSize() &lt;= sizeof(descOut-&gt;SerialNumber));
+<a href='../S/97.html#L365'>si</a>                365 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         OVR_strcpy(descOut-&gt;SerialNumber, sizeof(descOut-&gt;SerialNumber), si.SerialNumber.ToCStr());
+</pre>
+</body>
+</html>

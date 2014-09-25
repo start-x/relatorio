@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>devCommon</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/191.html#L405'>devCommon</a>         405 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceCommon*          devCommon = device-&gt;getDeviceCommon();
+<a href='../S/191.html#L409'>devCommon</a>         409 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 refCount = devCommon-&gt;RefCount;
+<a href='../S/191.html#L413'>devCommon</a>         413 ovr/sdk/src/OVR_DeviceImpl.cpp             if (devCommon-&gt;RefCount.CompareAndSet_NoSync(refCount, refCount-1))
+<a href='../S/191.html#L420'>devCommon</a>         420 ovr/sdk/src/OVR_DeviceImpl.cpp         else if (devCommon-&gt;RefCount.CompareAndSet_NoSync(1, 0))
+<a href='../S/191.html#L432'>devCommon</a>         432 ovr/sdk/src/OVR_DeviceImpl.cpp     descKeepAlive = devCommon-&gt;pCreateDesc;
+<a href='../S/191.html#L434'>devCommon</a>         434 ovr/sdk/src/OVR_DeviceImpl.cpp     devCommon-&gt;Shutdown();
+</pre>
+</body>
+</html>

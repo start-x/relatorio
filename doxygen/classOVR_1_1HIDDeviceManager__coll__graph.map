@@ -1,0 +1,8 @@
+<map id="OVR::HIDDeviceManager" name="OVR::HIDDeviceManager">
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l HIDDeviceManager \&gt;\n||+ RefCountBase()\l}" alt="" coords="153,635,305,727"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="105,350,300,442"/>
+<area shape="rect" id="node8" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="224,493,403,571"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+</map>

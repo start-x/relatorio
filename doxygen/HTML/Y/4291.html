@@ -1,0 +1,424 @@
+<html>
+<head>
+<title>result</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L615'>result</a>            615 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     bool result = false;
+<a href='../S/97.html#L625'>result</a>            625 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             result = LatencyUtil.DisplayScreenColor(colorToDisplay);
+<a href='../S/97.html#L652'>result</a>            652 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     return result;
+<a href='../S/149.html#L566'>result</a>            566 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     Ptr&lt;File&gt; result = *new FILEFile(path, flags, mode);
+<a href='../S/149.html#L567'>result</a>            567 ovr/sdk/src/Kernel/OVR_FileFILE.cpp 	return result;
+<a href='../S/177.html#L333'>result</a>            333 ovr/sdk/src/Kernel/OVR_Math.h 		T result = Acos((this-&gt;Dot(b))/sqrt(div));
+<a href='../S/177.html#L334'>result</a>            334 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L501'>result</a>            501 ovr/sdk/src/Kernel/OVR_Math.h 		T result = Acos((this-&gt;Dot(b))/sqrt(div));
+<a href='../S/177.html#L502'>result</a>            502 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L710'>result</a>            710 ovr/sdk/src/Kernel/OVR_Math.h         typename CompatibleTypes&lt;Quat&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L711'>result</a>            711 ovr/sdk/src/Kernel/OVR_Math.h         result.x = x;
+<a href='../S/177.html#L712'>result</a>            712 ovr/sdk/src/Kernel/OVR_Math.h         result.y = y;
+<a href='../S/177.html#L713'>result</a>            713 ovr/sdk/src/Kernel/OVR_Math.h         result.z = z;
+<a href='../S/177.html#L714'>result</a>            714 ovr/sdk/src/Kernel/OVR_Math.h         result.w = w;
+<a href='../S/177.html#L715'>result</a>            715 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1112'>result</a>           1112 ovr/sdk/src/Kernel/OVR_Math.h         typename CompatibleTypes&lt;Transform&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L1113'>result</a>           1113 ovr/sdk/src/Kernel/OVR_Math.h         result.Orientation = Rotation;
+<a href='../S/177.html#L1114'>result</a>           1114 ovr/sdk/src/Kernel/OVR_Math.h         result.Position = Translation;
+<a href='../S/177.html#L1115'>result</a>           1115 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1143'>result</a>           1143 ovr/sdk/src/Kernel/OVR_Math.h         PoseState&lt;T&gt; result;
+<a href='../S/177.html#L1144'>result</a>           1144 ovr/sdk/src/Kernel/OVR_Math.h         result.Pose                = (*this) * poseState.Pose;
+<a href='../S/177.html#L1145'>result</a>           1145 ovr/sdk/src/Kernel/OVR_Math.h         result.LinearVelocity      = this-&gt;Rotate(poseState.LinearVelocity);
+<a href='../S/177.html#L1146'>result</a>           1146 ovr/sdk/src/Kernel/OVR_Math.h         result.LinearAcceleration  = this-&gt;Rotate(poseState.LinearAcceleration);
+<a href='../S/177.html#L1147'>result</a>           1147 ovr/sdk/src/Kernel/OVR_Math.h         result.AngularVelocity     = this-&gt;Rotate(poseState.AngularVelocity);
+<a href='../S/177.html#L1148'>result</a>           1148 ovr/sdk/src/Kernel/OVR_Math.h         result.AngularAcceleration = this-&gt;Rotate(poseState.AngularAcceleration);
+<a href='../S/177.html#L1149'>result</a>           1149 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1246'>result</a>           1246 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(p.Rotation);
+<a href='../S/177.html#L1247'>result</a>           1247 ovr/sdk/src/Kernel/OVR_Math.h         result.SetTranslation(p.Translation);
+<a href='../S/177.html#L1248'>result</a>           1248 ovr/sdk/src/Kernel/OVR_Math.h         *this = result;
+<a href='../S/177.html#L1268'>result</a>           1268 ovr/sdk/src/Kernel/OVR_Math.h         typename CompatibleTypes&lt;Matrix4&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L1269'>result</a>           1269 ovr/sdk/src/Kernel/OVR_Math.h         OVR_COMPILER_ASSERT(sizeof(result) == sizeof(Matrix4));
+<a href='../S/177.html#L1270'>result</a>           1270 ovr/sdk/src/Kernel/OVR_Math.h         memcpy(result.M, M, sizeof(M));
+<a href='../S/177.html#L1271'>result</a>           1271 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1284'>result</a>           1284 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result;
+<a href='../S/177.html#L1288'>result</a>           1288 ovr/sdk/src/Kernel/OVR_Math.h                 result.M[r][c] = (T)atof(src);
+<a href='../S/177.html#L1294'>result</a>           1294 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1319'>result</a>           1319 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1320'>result</a>           1320 ovr/sdk/src/Kernel/OVR_Math.h         result += b;
+<a href='../S/177.html#L1321'>result</a>           1321 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1334'>result</a>           1334 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1335'>result</a>           1335 ovr/sdk/src/Kernel/OVR_Math.h         result -= b;
+<a href='../S/177.html#L1336'>result</a>           1336 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1364'>result</a>           1364 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(Matrix4::NoInit);
+<a href='../S/177.html#L1365'>result</a>           1365 ovr/sdk/src/Kernel/OVR_Math.h         Multiply(&amp;result, *this, b);
+<a href='../S/177.html#L1366'>result</a>           1366 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1376'>result</a>           1376 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1377'>result</a>           1377 ovr/sdk/src/Kernel/OVR_Math.h         result *= s;
+<a href='../S/177.html#L1378'>result</a>           1378 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1392'>result</a>           1392 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1393'>result</a>           1393 ovr/sdk/src/Kernel/OVR_Math.h         result /= s;
+<a href='../S/177.html#L1394'>result</a>           1394 ovr/sdk/src/Kernel/OVR_Math.h         return result;
+<a href='../S/177.html#L1921'>result</a>           1921 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(p.Rotation);
+<a href='../S/177.html#L1922'>result</a>           1922 ovr/sdk/src/Kernel/OVR_Math.h 		result.SetTranslation(p.Translation);
+<a href='../S/177.html#L1923'>result</a>           1923 ovr/sdk/src/Kernel/OVR_Math.h 		*this = result;
+<a href='../S/177.html#L1943'>result</a>           1943 ovr/sdk/src/Kernel/OVR_Math.h 		typename CompatibleTypes&lt;Matrix3&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L1944'>result</a>           1944 ovr/sdk/src/Kernel/OVR_Math.h 		OVR_COMPILER_ASSERT(sizeof(result) == sizeof(Matrix3));
+<a href='../S/177.html#L1945'>result</a>           1945 ovr/sdk/src/Kernel/OVR_Math.h 		memcpy(result.M, M, sizeof(M));
+<a href='../S/177.html#L1946'>result</a>           1946 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L1959'>result</a>           1959 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result;
+<a href='../S/177.html#L1963'>result</a>           1963 ovr/sdk/src/Kernel/OVR_Math.h 				result.M[r][c] = (T)atof(src);
+<a href='../S/177.html#L1969'>result</a>           1969 ovr/sdk/src/Kernel/OVR_Math.h 			return result;
+<a href='../S/177.html#L1993'>result</a>           1993 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4&lt;T&gt; result(*this);
+<a href='../S/177.html#L1994'>result</a>           1994 ovr/sdk/src/Kernel/OVR_Math.h 		result += b;
+<a href='../S/177.html#L1995'>result</a>           1995 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L2032'>result</a>           2032 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(*this);
+<a href='../S/177.html#L2033'>result</a>           2033 ovr/sdk/src/Kernel/OVR_Math.h 		result -= b;
+<a href='../S/177.html#L2034'>result</a>           2034 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L2061'>result</a>           2061 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(Matrix3::NoInit);
+<a href='../S/177.html#L2062'>result</a>           2062 ovr/sdk/src/Kernel/OVR_Math.h 		Multiply(&amp;result, *this, b);
+<a href='../S/177.html#L2063'>result</a>           2063 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L2073'>result</a>           2073 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(*this);
+<a href='../S/177.html#L2074'>result</a>           2074 ovr/sdk/src/Kernel/OVR_Math.h 		result *= s;
+<a href='../S/177.html#L2075'>result</a>           2075 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L2088'>result</a>           2088 ovr/sdk/src/Kernel/OVR_Math.h 		Vector3&lt;T&gt; result;
+<a href='../S/177.html#L2089'>result</a>           2089 ovr/sdk/src/Kernel/OVR_Math.h 		result.x = M[0][0]*b.x + M[0][1]*b.y + M[0][2]*b.z;
+<a href='../S/177.html#L2090'>result</a>           2090 ovr/sdk/src/Kernel/OVR_Math.h 		result.y = M[1][0]*b.x + M[1][1]*b.y + M[1][2]*b.z;
+<a href='../S/177.html#L2091'>result</a>           2091 ovr/sdk/src/Kernel/OVR_Math.h 		result.z = M[2][0]*b.x + M[2][1]*b.y + M[2][2]*b.z;
+<a href='../S/177.html#L2093'>result</a>           2093 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/177.html#L2098'>result</a>           2098 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(*this);
+<a href='../S/177.html#L2099'>result</a>           2099 ovr/sdk/src/Kernel/OVR_Math.h 		result /= s;
+<a href='../S/177.html#L2100'>result</a>           2100 ovr/sdk/src/Kernel/OVR_Math.h 		return result;
+<a href='../S/158.html#L43'>result</a>             43 ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp     UPInt result = OVR_vsprintf(buffer, size+1, format, argList);
+<a href='../S/158.html#L44'>result</a>             44 ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp     OVR_UNUSED1(result);
+<a href='../S/158.html#L46'>result</a>             46 ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp     OVR_ASSERT_LOG(result == size, ("Error in OVR_vsprintf"));
+<a href='../S/181.html#L268'>result</a>            268 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     bool            result = 1;
+<a href='../S/181.html#L314'>result</a>            314 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp             result = 0;
+<a href='../S/181.html#L324'>result</a>            324 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     return result;
+<a href='../S/181.html#L651'>result</a>            651 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     int     result = pthread-&gt;PRun();
+<a href='../S/181.html#L657'>result</a>            657 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     return reinterpret_cast&lt;void*&gt;(result);
+<a href='../S/181.html#L700'>result</a>            700 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     int result;
+<a href='../S/181.html#L711'>result</a>            711 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         result = pthread_create(&amp;ThreadHandle, &amp;attr, Thread_PthreadStartFn, this);
+<a href='../S/181.html#L715'>result</a>            715 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         result = pthread_create(&amp;ThreadHandle, &amp;Attr, Thread_PthreadStartFn, this);
+<a href='../S/181.html#L717'>result</a>            717 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     if (result)
+<a href='../S/153.html#L92'>result</a>             92 ovr/sdk/src/Kernel/OVR_Timer.cpp     const UInt64 result = (UInt64)tp.tv_sec * (UInt64)(1000 * 1000 * 1000) + UInt64(tp.tv_nsec);
+<a href='../S/153.html#L93'>result</a>             93 ovr/sdk/src/Kernel/OVR_Timer.cpp     return result;
+<a href='../S/153.html#L269'>result</a>            269 ovr/sdk/src/Kernel/OVR_Timer.cpp 	UInt64 result;
+<a href='../S/153.html#L276'>result</a>            276 ovr/sdk/src/Kernel/OVR_Timer.cpp     result = (UInt64)tv.tv_sec * 1000000;
+<a href='../S/153.html#L277'>result</a>            277 ovr/sdk/src/Kernel/OVR_Timer.cpp     result += tv.tv_usec;
+<a href='../S/153.html#L279'>result</a>            279 ovr/sdk/src/Kernel/OVR_Timer.cpp     return result * 1000;
+<a href='../S/142.html#L56'>result</a>             56 ovr/sdk/src/OVR_CAPI.cpp     ovrFovPort result;
+<a href='../S/142.html#L57'>result</a>             57 ovr/sdk/src/OVR_CAPI.cpp     result.LeftTan  = LeftTan;
+<a href='../S/142.html#L58'>result</a>             58 ovr/sdk/src/OVR_CAPI.cpp     result.RightTan = RightTan;
+<a href='../S/142.html#L59'>result</a>             59 ovr/sdk/src/OVR_CAPI.cpp     result.UpTan    = UpTan;
+<a href='../S/142.html#L60'>result</a>             60 ovr/sdk/src/OVR_CAPI.cpp     result.DownTan  = DownTan;
+<a href='../S/142.html#L61'>result</a>             61 ovr/sdk/src/OVR_CAPI.cpp     return result;
+<a href='../S/142.html#L84'>result</a>             84 ovr/sdk/src/OVR_CAPI.cpp     ovrSensorState result;
+<a href='../S/142.html#L85'>result</a>             85 ovr/sdk/src/OVR_CAPI.cpp     result.Predicted    = Predicted;
+<a href='../S/142.html#L86'>result</a>             86 ovr/sdk/src/OVR_CAPI.cpp     result.Recorded     = Recorded;
+<a href='../S/142.html#L87'>result</a>             87 ovr/sdk/src/OVR_CAPI.cpp     result.Temperature  = Temperature;
+<a href='../S/142.html#L88'>result</a>             88 ovr/sdk/src/OVR_CAPI.cpp     result.StatusFlags  = StatusFlags;
+<a href='../S/142.html#L89'>result</a>             89 ovr/sdk/src/OVR_CAPI.cpp     return result;
+<a href='../S/108.html#L792'>result</a>            792 ovr/sdk/src/OVR_Device.h                             UInt32 result)
+<a href='../S/108.html#L794'>result</a>            794 ovr/sdk/src/OVR_Device.h                 StageVersion(version), StageLocation(stageLocation), StageTime(stageTime), Result(result)
+<a href='../S/123.html#L142'>result</a>            142 ovr/sdk/src/OVR_HIDDeviceImpl.h         bool result = false;
+<a href='../S/123.html#L145'>result</a>            145 ovr/sdk/src/OVR_HIDDeviceImpl.h         if (!pQueue-&gt;PushCallAndWaitResult(this, &amp;HIDDeviceImpl::setFeatureReport, &amp;result, data, length))
+<a href='../S/123.html#L148'>result</a>            148 ovr/sdk/src/OVR_HIDDeviceImpl.h         return result;
+<a href='../S/123.html#L158'>result</a>            158 ovr/sdk/src/OVR_HIDDeviceImpl.h         bool result = false;
+<a href='../S/123.html#L161'>result</a>            161 ovr/sdk/src/OVR_HIDDeviceImpl.h         if (!pQueue-&gt;PushCallAndWaitResult(this, &amp;HIDDeviceImpl::getFeatureReport, &amp;result, data, length))
+<a href='../S/123.html#L164'>result</a>            164 ovr/sdk/src/OVR_HIDDeviceImpl.h         return result;
+<a href='../S/87.html#L557'>result</a>            557 ovr/sdk/src/OVR_LatencyTestImpl.cpp     bool                result = false;
+<a href='../S/87.html#L569'>result</a>            569 ovr/sdk/src/OVR_LatencyTestImpl.cpp             &amp;result, 
+<a href='../S/87.html#L578'>result</a>            578 ovr/sdk/src/OVR_LatencyTestImpl.cpp     return result;
+<a href='../S/87.html#L589'>result</a>            589 ovr/sdk/src/OVR_LatencyTestImpl.cpp     bool result = false;
+<a href='../S/87.html#L592'>result</a>            592 ovr/sdk/src/OVR_LatencyTestImpl.cpp     if (!pQueue-&gt;PushCallAndWaitResult(this, &amp;LatencyTestDeviceImpl::getConfiguration, &amp;result, configuration))
+<a href='../S/87.html#L595'>result</a>            595 ovr/sdk/src/OVR_LatencyTestImpl.cpp     return result;
+<a href='../S/87.html#L613'>result</a>            613 ovr/sdk/src/OVR_LatencyTestImpl.cpp     bool                result = false;
+<a href='../S/87.html#L623'>result</a>            623 ovr/sdk/src/OVR_LatencyTestImpl.cpp                                         &amp;result, 
+<a href='../S/87.html#L629'>result</a>            629 ovr/sdk/src/OVR_LatencyTestImpl.cpp     return result;
+<a href='../S/87.html#L640'>result</a>            640 ovr/sdk/src/OVR_LatencyTestImpl.cpp     bool                result = false;
+<a href='../S/87.html#L650'>result</a>            650 ovr/sdk/src/OVR_LatencyTestImpl.cpp                                         &amp;result, 
+<a href='../S/87.html#L656'>result</a>            656 ovr/sdk/src/OVR_LatencyTestImpl.cpp     return result;
+<a href='../S/87.html#L667'>result</a>            667 ovr/sdk/src/OVR_LatencyTestImpl.cpp     bool                 result = false;
+<a href='../S/87.html#L677'>result</a>            677 ovr/sdk/src/OVR_LatencyTestImpl.cpp                                         &amp;result, 
+<a href='../S/87.html#L683'>result</a>            683 ovr/sdk/src/OVR_LatencyTestImpl.cpp     return result;
+<a href='../S/193.html#L135'>result</a>            135 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     int result = pipe(CommandFd);
+<a href='../S/193.html#L136'>result</a>            136 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     OVR_ASSERT(!result);
+<a href='../S/193.html#L137'>result</a>            137 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     OVR_UNUSED(result);
+<a href='../S/132.html#L176'>result</a>            176 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     SInt32 result;
+<a href='../S/132.html#L177'>result</a>            177 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (getIntProperty(device, "idVendor", &amp;result))
+<a href='../S/132.html#L178'>result</a>            178 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         pDevDesc-&gt;VendorId = result;
+<a href='../S/132.html#L182'>result</a>            182 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (getIntProperty(device, "idProduct", &amp;result))
+<a href='../S/132.html#L183'>result</a>            183 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         pDevDesc-&gt;ProductId = result;
+<a href='../S/132.html#L187'>result</a>            187 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (getIntProperty(device, "bcdDevice", &amp;result))
+<a href='../S/132.html#L188'>result</a>            188 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         pDevDesc-&gt;VersionNumber = result;
+<a href='../S/188.html#L254'>result</a>            254 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L256'>result</a>            256 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setTrackingReport, &amp;result, data))
+<a href='../S/188.html#L261'>result</a>            261 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L272'>result</a>            272 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L274'>result</a>            274 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getTrackingReport, &amp;result, data))
+<a href='../S/188.html#L279'>result</a>            279 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L297'>result</a>            297 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L299'>result</a>            299 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setDisplayReport, &amp;result, data))
+<a href='../S/188.html#L304'>result</a>            304 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L315'>result</a>            315 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L317'>result</a>            317 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getDisplayReport, &amp;result, data))
+<a href='../S/188.html#L322'>result</a>            322 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L340'>result</a>            340 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L342'>result</a>            342 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setMagCalibrationReport, &amp;result, data))
+<a href='../S/188.html#L347'>result</a>            347 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L364'>result</a>            364 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L366'>result</a>            366 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getMagCalibrationReport, &amp;result, data))
+<a href='../S/188.html#L371'>result</a>            371 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L389'>result</a>            389 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result;
+<a href='../S/188.html#L391'>result</a>            391 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setPositionCalibrationReport, &amp;result, data))
+<a href='../S/188.html#L396'>result</a>            396 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L441'>result</a>            441 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result;
+<a href='../S/188.html#L443'>result</a>            443 ovr/sdk/src/OVR_Sensor2Impl.cpp         PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getAllPositionCalibrationReports, &amp;result, data))
+<a href='../S/188.html#L448'>result</a>            448 ovr/sdk/src/OVR_Sensor2Impl.cpp     return result;
+<a href='../S/188.html#L454'>result</a>            454 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result = getPositionCalibrationReport(&amp;pc);
+<a href='../S/188.html#L455'>result</a>            455 ovr/sdk/src/OVR_Sensor2Impl.cpp     if (!result)
+<a href='../S/188.html#L464'>result</a>            464 ovr/sdk/src/OVR_Sensor2Impl.cpp         result = getPositionCalibrationReport(&amp;pc);
+<a href='../S/188.html#L465'>result</a>            465 ovr/sdk/src/OVR_Sensor2Impl.cpp         if (!result)
+<a href='../S/188.html#L479'>result</a>            479 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L481'>result</a>            481 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setCustomPatternReport, &amp;result, data))
+<a href='../S/188.html#L486'>result</a>            486 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L497'>result</a>            497 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L499'>result</a>            499 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getCustomPatternReport, &amp;result, data))
+<a href='../S/188.html#L504'>result</a>            504 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L522'>result</a>            522 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L524'>result</a>            524 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setManufacturingReport, &amp;result, data))
+<a href='../S/188.html#L529'>result</a>            529 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L540'>result</a>            540 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L542'>result</a>            542 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getManufacturingReport, &amp;result, data))
+<a href='../S/188.html#L547'>result</a>            547 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L565'>result</a>            565 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L567'>result</a>            567 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setLensDistortionReport, &amp;result, data))
+<a href='../S/188.html#L572'>result</a>            572 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L583'>result</a>            583 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L585'>result</a>            585 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getLensDistortionReport, &amp;result, data))
+<a href='../S/188.html#L590'>result</a>            590 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L608'>result</a>            608 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L610'>result</a>            610 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setUUIDReport, &amp;result, data))
+<a href='../S/188.html#L615'>result</a>            615 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L626'>result</a>            626 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L628'>result</a>            628 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getUUIDReport, &amp;result, data))
+<a href='../S/188.html#L633'>result</a>            633 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L651'>result</a>            651 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L653'>result</a>            653 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setKeepAliveMuxReport, &amp;result, data))
+<a href='../S/188.html#L658'>result</a>            658 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L669'>result</a>            669 ovr/sdk/src/OVR_Sensor2Impl.cpp 	bool result;
+<a href='../S/188.html#L671'>result</a>            671 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getKeepAliveMuxReport, &amp;result, data))
+<a href='../S/188.html#L676'>result</a>            676 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L700'>result</a>            700 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result;
+<a href='../S/188.html#L702'>result</a>            702 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setTemperatureReport, &amp;result, data))
+<a href='../S/188.html#L707'>result</a>            707 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/188.html#L737'>result</a>            737 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result;
+<a href='../S/188.html#L739'>result</a>            739 ovr/sdk/src/OVR_Sensor2Impl.cpp         PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getAllTemperatureReports, &amp;result, data))
+<a href='../S/188.html#L744'>result</a>            744 ovr/sdk/src/OVR_Sensor2Impl.cpp     return result;
+<a href='../S/188.html#L750'>result</a>            750 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result = getTemperatureReport(&amp;t);
+<a href='../S/188.html#L751'>result</a>            751 ovr/sdk/src/OVR_Sensor2Impl.cpp     if (!result)
+<a href='../S/188.html#L763'>result</a>            763 ovr/sdk/src/OVR_Sensor2Impl.cpp             result = getTemperatureReport(&amp;t);
+<a href='../S/188.html#L764'>result</a>            764 ovr/sdk/src/OVR_Sensor2Impl.cpp             if (!result)
+<a href='../S/188.html#L781'>result</a>            781 ovr/sdk/src/OVR_Sensor2Impl.cpp     bool result;
+<a href='../S/188.html#L783'>result</a>            783 ovr/sdk/src/OVR_Sensor2Impl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getGyroOffsetReport, &amp;result, data))
+<a href='../S/188.html#L788'>result</a>            788 ovr/sdk/src/OVR_Sensor2Impl.cpp 	return result;
+<a href='../S/128.html#L52'>result</a>             52 ovr/sdk/src/OVR_SensorCalibration.cpp     bool result = pSensor-&gt;GetGyroOffsetReport(&amp;gyroReport);
+<a href='../S/128.html#L53'>result</a>             53 ovr/sdk/src/OVR_SensorCalibration.cpp     if (result &amp;&amp; gyroReport.Version != GyroOffsetReport::Version_NoOffset)
+<a href='../S/128.html#L60'>result</a>             60 ovr/sdk/src/OVR_SensorCalibration.cpp     result = pSensor-&gt;GetAllTemperatureReports(&amp;TemperatureReports);
+<a href='../S/128.html#L61'>result</a>             61 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT(result);
+<a href='../S/128.html#L67'>result</a>             67 ovr/sdk/src/OVR_SensorCalibration.cpp     result = pSensor-&gt;GetMagCalibrationReport(&amp;report);
+<a href='../S/128.html#L68'>result</a>             68 ovr/sdk/src/OVR_SensorCalibration.cpp     MagCalibrated = result &amp;&amp; report.Version &gt; 0;
+<a href='../S/128.html#L105'>result</a>            105 ovr/sdk/src/OVR_SensorCalibration.cpp     bool result;
+<a href='../S/128.html#L128'>result</a>            128 ovr/sdk/src/OVR_SensorCalibration.cpp 			result = pSensor-&gt;SetTemperatureReport(tr);
+<a href='../S/128.html#L129'>result</a>            129 ovr/sdk/src/OVR_SensorCalibration.cpp 			OVR_ASSERT(result);
+<a href='../S/143.html#L35'>result</a>             35 ovr/sdk/src/OVR_SensorFilter.cpp     Vector3&lt;T&gt; result;
+<a href='../S/143.html#L42'>result</a>             42 ovr/sdk/src/OVR_SensorFilter.cpp         result[coord] = Alg::Median(ArrayAdaptor(slice, this-&gt;ElemCount));
+<a href='../S/143.html#L46'>result</a>             46 ovr/sdk/src/OVR_SensorFilter.cpp     return result;
+<a href='../S/119.html#L185'>result</a>            185 ovr/sdk/src/OVR_SensorFilter.h         T result = T();
+<a href='../S/119.html#L190'>result</a>            190 ovr/sdk/src/OVR_SensorFilter.h             result += (this-&gt;PeekBack(ind1) - this-&gt;PeekBack(ind2)) * (float) k;
+<a href='../S/119.html#L193'>result</a>            193 ovr/sdk/src/OVR_SensorFilter.h         result = result*coef;
+<a href='../S/119.html#L194'>result</a>            194 ovr/sdk/src/OVR_SensorFilter.h         return result;
+<a href='../S/119.html#L200'>result</a>            200 ovr/sdk/src/OVR_SensorFilter.h         T result = Alg::Median(ArrayAdaptor(copy));
+<a href='../S/119.html#L202'>result</a>            202 ovr/sdk/src/OVR_SensorFilter.h         return result;
+<a href='../S/189.html#L89'>result</a>             89 ovr/sdk/src/OVR_SensorFusion.cpp         bool result = sensor-&gt;GetAllPositionCalibrationReports(&amp;reports);
+<a href='../S/189.html#L90'>result</a>             90 ovr/sdk/src/OVR_SensorFusion.cpp         if (result)
+<a href='../S/189.html#L259'>result</a>            259 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd result;
+<a href='../S/189.html#L264'>result</a>            264 ovr/sdk/src/OVR_SensorFusion.cpp         result = CameraFromImu.Pose *
+<a href='../S/189.html#L274'>result</a>            274 ovr/sdk/src/OVR_SensorFusion.cpp         result = Transform&lt;double&gt;
+<a href='../S/189.html#L282'>result</a>            282 ovr/sdk/src/OVR_SensorFusion.cpp     return result;
+<a href='../S/127.html#L81'>result</a>             81 ovr/sdk/src/OVR_SensorFusion.h         typename CompatibleTypes&lt;PoseState&lt;T&gt; &gt;::Type result;
+<a href='../S/127.html#L82'>result</a>             82 ovr/sdk/src/OVR_SensorFusion.h         result.Pose		            = Pose;
+<a href='../S/127.html#L83'>result</a>             83 ovr/sdk/src/OVR_SensorFusion.h         result.AngularVelocity      = AngularVelocity;
+<a href='../S/127.html#L84'>result</a>             84 ovr/sdk/src/OVR_SensorFusion.h         result.LinearVelocity       = LinearVelocity;
+<a href='../S/127.html#L85'>result</a>             85 ovr/sdk/src/OVR_SensorFusion.h         result.AngularAcceleration  = AngularAcceleration;
+<a href='../S/127.html#L86'>result</a>             86 ovr/sdk/src/OVR_SensorFusion.h         result.LinearAcceleration   = LinearAcceleration;
+<a href='../S/127.html#L87'>result</a>             87 ovr/sdk/src/OVR_SensorFusion.h         result.TimeInSeconds        = TimeInSeconds;
+<a href='../S/127.html#L88'>result</a>             88 ovr/sdk/src/OVR_SensorFusion.h         return result;
+<a href='../S/190.html#L446'>result</a>            446 ovr/sdk/src/OVR_SensorImpl.cpp     bool                 result = 0;
+<a href='../S/190.html#L456'>result</a>            456 ovr/sdk/src/OVR_SensorImpl.cpp                                             &amp;result, 
+<a href='../S/190.html#L462'>result</a>            462 ovr/sdk/src/OVR_SensorImpl.cpp     return result;
+<a href='../S/190.html#L1124'>result</a>           1124 ovr/sdk/src/OVR_SensorImpl.cpp 	bool result;
+<a href='../S/190.html#L1126'>result</a>           1126 ovr/sdk/src/OVR_SensorImpl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::setSerialReport, &amp;result, data))
+<a href='../S/190.html#L1131'>result</a>           1131 ovr/sdk/src/OVR_SensorImpl.cpp 	return result;
+<a href='../S/190.html#L1142'>result</a>           1142 ovr/sdk/src/OVR_SensorImpl.cpp 	bool result;
+<a href='../S/190.html#L1144'>result</a>           1144 ovr/sdk/src/OVR_SensorImpl.cpp             PushCallAndWaitResult(this, &amp;Sensor2DeviceImpl::getSerialReport, &amp;result, data))
+<a href='../S/190.html#L1149'>result</a>           1149 ovr/sdk/src/OVR_SensorImpl.cpp 	return result;
+<a href='../S/136.html#L99'>result</a>             99 ovr/sdk/src/OVR_SensorTimeFilter.cpp     double result;
+<a href='../S/136.html#L112'>result</a>            112 ovr/sdk/src/OVR_SensorTimeFilter.cpp             result = sampleDeviceTime + ClockDelta;
+<a href='../S/136.html#L114'>result</a>            114 ovr/sdk/src/OVR_SensorTimeFilter.cpp             if (result &gt; (prevResult - 0.00001))
+<a href='../S/136.html#L178'>result</a>            178 ovr/sdk/src/OVR_SensorTimeFilter.cpp     result = sampleDeviceTime + ClockDelta;
+<a href='../S/136.html#L183'>result</a>            183 ovr/sdk/src/OVR_SensorTimeFilter.cpp     OVR_TIMEFILTER_LOG_CODE( double savedResult = result; )
+<a href='../S/136.html#L188'>result</a>            188 ovr/sdk/src/OVR_SensorTimeFilter.cpp     if (result &lt; prevResult)
+<a href='../S/136.html#L190'>result</a>            190 ovr/sdk/src/OVR_SensorTimeFilter.cpp         result = prevResult;
+<a href='../S/136.html#L192'>result</a>            192 ovr/sdk/src/OVR_SensorTimeFilter.cpp     if (result &gt; (systemTime + FilterSettings.FutureClamp))
+<a href='../S/136.html#L194'>result</a>            194 ovr/sdk/src/OVR_SensorTimeFilter.cpp         result = (systemTime + FilterSettings.FutureClamp);
+<a href='../S/136.html#L209'>result</a>            209 ovr/sdk/src/OVR_SensorTimeFilter.cpp         if (fabs(deviceTimeDelta - (result - prevResult)) &gt;= 0.00002)
+<a href='../S/136.html#L215'>result</a>            215 ovr/sdk/src/OVR_SensorTimeFilter.cpp                             debugTag, result, result - prevResult, ClockDelta,
+<a href='../S/136.html#L217'>result</a>            217 ovr/sdk/src/OVR_SensorTimeFilter.cpp                             -(systemTime - result),  // Negatives in the past, positive &gt; now.
+<a href='../S/136.html#L226'>result</a>            226 ovr/sdk/src/OVR_SensorTimeFilter.cpp     return result;    
+<a href='../S/88.html#L465'>result</a>            465 ovr/sdk/src/OVR_Stereo.cpp             LensConfig result;
+<a href='../S/88.html#L466'>result</a>            466 ovr/sdk/src/OVR_Stereo.cpp             result.Eqn = Distortion_CatmullRom10;
+<a href='../S/88.html#L470'>result</a>            470 ovr/sdk/src/OVR_Stereo.cpp                 result.K[i] = DecodeFixedPointUInt16 ( lcs.K[i], 0, 14 );
+<a href='../S/88.html#L474'>result</a>            474 ovr/sdk/src/OVR_Stereo.cpp             result.MaxR = DecodeFixedPointUInt16 ( lcs.MaxR, 0, 14 );
+<a href='../S/88.html#L477'>result</a>            477 ovr/sdk/src/OVR_Stereo.cpp             result.MetersPerTanAngleAtCenter = DecodeFixedPointUInt16 ( lcs.MetersPerTanAngleAtCenter, 0, 16+3 );
+<a href='../S/88.html#L481'>result</a>            481 ovr/sdk/src/OVR_Stereo.cpp                 result.ChromaticAberration[i] = DecodeFixedPointUInt16 ( lcs.ChromaticAberration[i], 0x8000, 16+3 );
+<a href='../S/88.html#L483'>result</a>            483 ovr/sdk/src/OVR_Stereo.cpp             result.MaxInvR = result.DistortionFn ( result.MaxR );
+<a href='../S/88.html#L484'>result</a>            484 ovr/sdk/src/OVR_Stereo.cpp             result.SetUpInverseApprox();
+<a href='../S/88.html#L488'>result</a>            488 ovr/sdk/src/OVR_Stereo.cpp             *presult = result;
+<a href='../S/88.html#L1145'>result</a>           1145 ovr/sdk/src/OVR_Stereo.cpp     LensConfig result;
+<a href='../S/88.html#L1148'>result</a>           1148 ovr/sdk/src/OVR_Stereo.cpp     result.MaxR = maxValidRadius;
+<a href='../S/88.html#L1172'>result</a>           1172 ovr/sdk/src/OVR_Stereo.cpp         result.Eqn = Distortion_RecipPoly4;
+<a href='../S/88.html#L1173'>result</a>           1173 ovr/sdk/src/OVR_Stereo.cpp         bool bSuccess = FitCubicPolynomial ( result.K, fitX, fitY );
+<a href='../S/88.html#L1178'>result</a>           1178 ovr/sdk/src/OVR_Stereo.cpp         float maxRDist = result.DistortionFn ( maxValidRadius );
+<a href='../S/88.html#L1179'>result</a>           1179 ovr/sdk/src/OVR_Stereo.cpp         result.MaxInvR = maxRDist;
+<a href='../S/88.html#L1180'>result</a>           1180 ovr/sdk/src/OVR_Stereo.cpp         result.SetUpInverseApprox();
+<a href='../S/88.html#L1188'>result</a>           1188 ovr/sdk/src/OVR_Stereo.cpp         result.MaxR = maxValidRadius;
+<a href='../S/88.html#L1190'>result</a>           1190 ovr/sdk/src/OVR_Stereo.cpp         result.K[0] = invLerpVal * pLower-&gt;Config.K[0] + lerpVal * pUpper-&gt;Config.K[0];
+<a href='../S/88.html#L1199'>result</a>           1199 ovr/sdk/src/OVR_Stereo.cpp             result.K[ctrlPt] = fitLerp;
+<a href='../S/88.html#L1202'>result</a>           1202 ovr/sdk/src/OVR_Stereo.cpp         result.Eqn = Distortion_CatmullRom10;
+<a href='../S/88.html#L1207'>result</a>           1207 ovr/sdk/src/OVR_Stereo.cpp             float val = result.DistortionFnScaleRadiusSquared ( radiusSq );            
+<a href='../S/88.html#L1208'>result</a>           1208 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( Alg::Abs ( val - result.K[ctrlPt] ) &lt; 0.0001f );
+<a href='../S/88.html#L1213'>result</a>           1213 ovr/sdk/src/OVR_Stereo.cpp         float maxRDist = result.DistortionFn ( maxValidRadius );
+<a href='../S/88.html#L1214'>result</a>           1214 ovr/sdk/src/OVR_Stereo.cpp         result.MaxInvR = maxRDist;
+<a href='../S/88.html#L1215'>result</a>           1215 ovr/sdk/src/OVR_Stereo.cpp         result.SetUpInverseApprox();
+<a href='../S/88.html#L1224'>result</a>           1224 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[0] = invLerpVal * pLower-&gt;Config.ChromaticAberration[0] + lerpVal * pUpper-&gt;Config.ChromaticAberration[0];
+<a href='../S/88.html#L1225'>result</a>           1225 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[1] = invLerpVal * pLower-&gt;Config.ChromaticAberration[1] + lerpVal * pUpper-&gt;Config.ChromaticAberration[1];
+<a href='../S/88.html#L1226'>result</a>           1226 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[2] = invLerpVal * pLower-&gt;Config.ChromaticAberration[2] + lerpVal * pUpper-&gt;Config.ChromaticAberration[2];
+<a href='../S/88.html#L1227'>result</a>           1227 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[3] = invLerpVal * pLower-&gt;Config.ChromaticAberration[3] + lerpVal * pUpper-&gt;Config.ChromaticAberration[3];
+<a href='../S/88.html#L1230'>result</a>           1230 ovr/sdk/src/OVR_Stereo.cpp     result.MetersPerTanAngleAtCenter =  pLower-&gt;Config.MetersPerTanAngleAtCenter * invLerpVal +
+<a href='../S/88.html#L1241'>result</a>           1241 ovr/sdk/src/OVR_Stereo.cpp     return result;
+<a href='../S/88.html#L1425'>result</a>           1425 ovr/sdk/src/OVR_Stereo.cpp             FovPort result;
+<a href='../S/88.html#L1426'>result</a>           1426 ovr/sdk/src/OVR_Stereo.cpp             result.UpTan    = 0.0f;
+<a href='../S/88.html#L1427'>result</a>           1427 ovr/sdk/src/OVR_Stereo.cpp             result.DownTan  = 0.0f;
+<a href='../S/88.html#L1428'>result</a>           1428 ovr/sdk/src/OVR_Stereo.cpp             result.LeftTan  = 0.0f;
+<a href='../S/88.html#L1429'>result</a>           1429 ovr/sdk/src/OVR_Stereo.cpp             result.RightTan = 0.0f;
+<a href='../S/88.html#L1438'>result</a>           1438 ovr/sdk/src/OVR_Stereo.cpp                 result.LeftTan  = Alg::Max ( result.LeftTan,  -tanEyeAngle.x );
+<a href='../S/88.html#L1439'>result</a>           1439 ovr/sdk/src/OVR_Stereo.cpp                 result.RightTan = Alg::Max ( result.RightTan,  tanEyeAngle.x );
+<a href='../S/88.html#L1440'>result</a>           1440 ovr/sdk/src/OVR_Stereo.cpp                 result.UpTan    = Alg::Max ( result.UpTan,    -tanEyeAngle.y );
+<a href='../S/88.html#L1441'>result</a>           1441 ovr/sdk/src/OVR_Stereo.cpp                 result.DownTan  = Alg::Max ( result.DownTan,   tanEyeAngle.y );
+<a href='../S/88.html#L1443'>result</a>           1443 ovr/sdk/src/OVR_Stereo.cpp             return result;
+<a href='../S/88.html#L1478'>result</a>           1478 ovr/sdk/src/OVR_Stereo.cpp     Sizei result;    
+<a href='../S/88.html#L1480'>result</a>           1480 ovr/sdk/src/OVR_Stereo.cpp     result.w  = (int)(0.5f + pixelsPerDisplayPixel * distortion.PixelsPerTanAngleAtCenter.x * ( tanHalfFov.LeftTan + tanHalfFov.RightTan ) );
+<a href='../S/88.html#L1481'>result</a>           1481 ovr/sdk/src/OVR_Stereo.cpp     result.h = (int)(0.5f + pixelsPerDisplayPixel * distortion.PixelsPerTanAngleAtCenter.y * ( tanHalfFov.UpTan   + tanHalfFov.DownTan  ) );
+<a href='../S/88.html#L1482'>result</a>           1482 ovr/sdk/src/OVR_Stereo.cpp     return result;
+<a href='../S/88.html#L1487'>result</a>           1487 ovr/sdk/src/OVR_Stereo.cpp     Recti result;
+<a href='../S/88.html#L1488'>result</a>           1488 ovr/sdk/src/OVR_Stereo.cpp     result.w = hmd.ResolutionInPixels.w/2;
+<a href='../S/88.html#L1489'>result</a>           1489 ovr/sdk/src/OVR_Stereo.cpp     result.h = hmd.ResolutionInPixels.h;
+<a href='../S/88.html#L1490'>result</a>           1490 ovr/sdk/src/OVR_Stereo.cpp     result.x = 0;
+<a href='../S/88.html#L1491'>result</a>           1491 ovr/sdk/src/OVR_Stereo.cpp     result.y = 0;
+<a href='../S/88.html#L1494'>result</a>           1494 ovr/sdk/src/OVR_Stereo.cpp         result.x = (hmd.ResolutionInPixels.w+1)/2;      // Round up, not down.
+<a href='../S/88.html#L1496'>result</a>           1496 ovr/sdk/src/OVR_Stereo.cpp     return result;
+<a href='../S/88.html#L1507'>result</a>           1507 ovr/sdk/src/OVR_Stereo.cpp     ScaleAndOffset2D result;
+<a href='../S/88.html#L1508'>result</a>           1508 ovr/sdk/src/OVR_Stereo.cpp     result.Scale    = Vector2f(projXScale, projYScale);
+<a href='../S/88.html#L1509'>result</a>           1509 ovr/sdk/src/OVR_Stereo.cpp     result.Offset   = Vector2f(projXOffset, projYOffset);
+<a href='../S/88.html#L1514'>result</a>           1514 ovr/sdk/src/OVR_Stereo.cpp     return result;
+<a href='../S/88.html#L1525'>result</a>           1525 ovr/sdk/src/OVR_Stereo.cpp     ScaleAndOffset2D result;
+<a href='../S/88.html#L1527'>result</a>           1527 ovr/sdk/src/OVR_Stereo.cpp     result.Scale  = scaleAndOffsetNDC.Scale * 0.5f;
+<a href='../S/88.html#L1528'>result</a>           1528 ovr/sdk/src/OVR_Stereo.cpp     result.Offset = scaleAndOffsetNDC.Offset * 0.5f + Vector2f(0.5f);
+<a href='../S/88.html#L1536'>result</a>           1536 ovr/sdk/src/OVR_Stereo.cpp 	result.Scale  = result.Scale.EntrywiseMultiply(scale);
+<a href='../S/88.html#L1537'>result</a>           1537 ovr/sdk/src/OVR_Stereo.cpp     result.Offset  = result.Offset.EntrywiseMultiply(scale) + offset;
+<a href='../S/88.html#L1538'>result</a>           1538 ovr/sdk/src/OVR_Stereo.cpp     return result;
+<a href='../S/131.html#L84'>result</a>             84 ovr/sdk/src/OVR_Stereo.h         FovPort result;
+<a href='../S/131.html#L85'>result</a>             85 ovr/sdk/src/OVR_Stereo.h         result.UpTan    = tanf (   verticalFov * 0.5f );
+<a href='../S/131.html#L86'>result</a>             86 ovr/sdk/src/OVR_Stereo.h         result.DownTan  = tanf (   verticalFov * 0.5f );
+<a href='../S/131.html#L87'>result</a>             87 ovr/sdk/src/OVR_Stereo.h         result.LeftTan  = tanf ( horizontalFov * 0.5f );
+<a href='../S/131.html#L88'>result</a>             88 ovr/sdk/src/OVR_Stereo.h         result.RightTan = tanf ( horizontalFov * 0.5f );
+<a href='../S/131.html#L89'>result</a>             89 ovr/sdk/src/OVR_Stereo.h         return result;
+<a href='../S/131.html#L329'>result</a>            329 ovr/sdk/src/OVR_Stereo.h         EyeConfig result;
+<a href='../S/131.html#L330'>result</a>            330 ovr/sdk/src/OVR_Stereo.h         result.ReliefInMeters = 0.5f * ( EyeLeft.ReliefInMeters + EyeRight.ReliefInMeters );
+<a href='../S/131.html#L331'>result</a>            331 ovr/sdk/src/OVR_Stereo.h         result.NoseToPupilInMeters = 0.0f;
+<a href='../S/131.html#L332'>result</a>            332 ovr/sdk/src/OVR_Stereo.h         result.Distortion.SetToIdentity();
+<a href='../S/131.html#L333'>result</a>            333 ovr/sdk/src/OVR_Stereo.h         return result;
+<a href='../S/111.html#L236'>result</a>            236 ovr/sdk/src/Util/Util_ImageWindow.cpp 			HRESULT result = tmpTarget-&gt;CreateBitmap( size, bitmapProps, &amp;greyBitmap );
+<a href='../S/111.html#L237'>result</a>            237 ovr/sdk/src/Util/Util_ImageWindow.cpp 			if( result != S_OK )
+<a href='../S/111.html#L243'>result</a>            243 ovr/sdk/src/Util/Util_ImageWindow.cpp 			result = tmpTarget-&gt;CreateBitmap( size, colorBitmapProps, &amp;colorBitmap );
+<a href='../S/111.html#L244'>result</a>            244 ovr/sdk/src/Util/Util_ImageWindow.cpp 			if( result != S_OK )
+<a href='../S/117.html#L106'>result</a>            106 ovr/sdk/src/Util/Util_Render_Stereo.cpp     DistortionAndFov result;
+<a href='../S/117.html#L107'>result</a>            107 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Distortion = localDistortion;
+<a href='../S/117.html#L108'>result</a>            108 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Fov        = fov;
+<a href='../S/117.html#L110'>result</a>            110 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return result;
+<a href='../S/117.html#L169'>result</a>            169 ovr/sdk/src/Util/Util_Render_Stereo.cpp     ViewportScaleAndOffset result;
+<a href='../S/117.html#L170'>result</a>            170 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.RenderedViewport = renderedViewport;
+<a href='../S/117.html#L171'>result</a>            171 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.EyeToSourceUV = CreateUVScaleAndOffsetfromNDCScaleandOffset(
+<a href='../S/117.html#L173'>result</a>            173 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return result;
+<a href='../S/117.html#L206'>result</a>            206 ovr/sdk/src/Util/Util_Render_Stereo.cpp     StereoEyeParams result;
+<a href='../S/117.html#L207'>result</a>            207 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Eye                  = eyeType;
+<a href='../S/117.html#L208'>result</a>            208 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.ViewAdjust           = Matrix4f::Translation(virtualCameraOffset);
+<a href='../S/117.html#L209'>result</a>            209 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Distortion           = distortion;
+<a href='../S/117.html#L210'>result</a>            210 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.DistortionViewport   = distortedViewport;
+<a href='../S/117.html#L211'>result</a>            211 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Fov                  = fov;
+<a href='../S/117.html#L212'>result</a>            212 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.RenderedProjection   = projection;
+<a href='../S/117.html#L213'>result</a>            213 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.EyeToSourceNDC       = eyeToSourceNDC;
+<a href='../S/117.html#L215'>result</a>            215 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.RenderedViewport     = vsao.RenderedViewport;
+<a href='../S/117.html#L216'>result</a>            216 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.EyeToSourceUV        = vsao.EyeToSourceUV;
+<a href='../S/117.html#L218'>result</a>            218 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return result;
+<a href='../S/117.html#L267'>result</a>            267 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Sizei result;
+<a href='../S/117.html#L268'>result</a>            268 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.w = Alg::Max ( idealPixelSize[0].w, idealPixelSize[1].w );
+<a href='../S/117.html#L269'>result</a>            269 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.h = Alg::Max ( idealPixelSize[0].h, idealPixelSize[1].h );
+<a href='../S/117.html#L272'>result</a>            272 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.w *= 2;
+<a href='../S/117.html#L274'>result</a>            274 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return result;
+<a href='../S/117.html#L726'>result</a>            726 ovr/sdk/src/Util/Util_Render_Stereo.cpp     ViewportScaleAndOffsetBothEyes result;
+<a href='../S/117.html#L727'>result</a>            727 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Left.EyeToSourceUV     = EyeRenderParams[0].StereoEye.EyeToSourceUV;
+<a href='../S/117.html#L728'>result</a>            728 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Left.RenderedViewport  = EyeRenderParams[0].StereoEye.RenderedViewport;
+<a href='../S/117.html#L729'>result</a>            729 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Right.EyeToSourceUV    = EyeRenderParams[1].StereoEye.EyeToSourceUV;
+<a href='../S/117.html#L730'>result</a>            730 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.Right.RenderedViewport = EyeRenderParams[1].StereoEye.RenderedViewport;
+<a href='../S/117.html#L731'>result</a>            731 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return result;
+<a href='../S/117.html#L1213'>result</a>           1213 ovr/sdk/src/Util/Util_Render_Stereo.cpp     PredictionValues result;
+<a href='../S/117.html#L1215'>result</a>           1215 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.WithTimewarp = withTimewarp;
+<a href='../S/117.html#L1216'>result</a>           1216 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.WithVsync = withVsync;
+<a href='../S/117.html#L1227'>result</a>           1227 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene  = extraFramesOfBufferingKludge * hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1229'>result</a>           1229 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.VsyncToFirstScanline + 0.5f * hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1231'>result</a>           1231 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.PixelSettleTime * 0.5f;
+<a href='../S/117.html#L1233'>result</a>           1233 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.PixelPersistence * 0.5f;
+<a href='../S/117.html#L1236'>result</a>           1236 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart  = extraFramesOfBufferingKludge * hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1238'>result</a>           1238 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.VsyncToFirstScanline;
+<a href='../S/117.html#L1240'>result</a>           1240 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.PixelSettleTime * 0.5f;
+<a href='../S/117.html#L1242'>result</a>           1242 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.PixelPersistence * 0.5f;
+<a href='../S/117.html#L1245'>result</a>           1245 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpEnd    = result.PresentFlushToTimewarpStart + hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1248'>result</a>           1248 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToPresentFlush   = hmdRenderInfo.Shutter.VsyncToNextVsync;
+<a href='../S/117.html#L1260'>result</a>           1260 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene  = hmdRenderInfo.Shutter.PixelSettleTime * 0.5f;
+<a href='../S/117.html#L1262'>result</a>           1262 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.PixelPersistence * 0.5f;
+<a href='../S/117.html#L1265'>result</a>           1265 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart  = result.PresentFlushToRenderedScene;
+<a href='../S/117.html#L1266'>result</a>           1266 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpEnd    = result.PresentFlushToRenderedScene;
+<a href='../S/117.html#L1269'>result</a>           1269 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToPresentFlush   = 0.0f;
+<a href='../S/117.html#L1272'>result</a>           1272 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return result;
+<a href='../S/199.html#L189'>result</a>            189 ovr/sdk/third_party/edid/edid.cpp     double result = 0.0;
+<a href='../S/199.html#L192'>result</a>            192 ovr/sdk/third_party/edid/edid.cpp         result += get_bit(high, i) * pow(2, i - 10);
+<a href='../S/199.html#L193'>result</a>            193 ovr/sdk/third_party/edid/edid.cpp     return result;
+<a href='../S/199.html#L270'>result</a>            270 ovr/sdk/third_party/edid/edid.cpp static void decode_lf_string(const uint8_t *s, int n_chars, char *result) {
+<a href='../S/199.html#L274'>result</a>            274 ovr/sdk/third_party/edid/edid.cpp             *result++ = '\0';
+<a href='../S/199.html#L278'>result</a>            278 ovr/sdk/third_party/edid/edid.cpp             *result++ = ' ';
+<a href='../S/199.html#L280'>result</a>            280 ovr/sdk/third_party/edid/edid.cpp             *result++ = s[i];
+<a href='../S/199.html#L413'>result</a>            413 ovr/sdk/third_party/edid/edid.cpp     uint8_t *result = NULL;
+<a href='../S/199.html#L419'>result</a>            419 ovr/sdk/third_party/edid/edid.cpp         result = new uint8_t[nitems];
+<a href='../S/199.html#L420'>result</a>            420 ovr/sdk/third_party/edid/edid.cpp         memcpy(result, prop, nitems);
+<a href='../S/199.html#L425'>result</a>            425 ovr/sdk/third_party/edid/edid.cpp     return result;
+<a href='../S/199.html#L437'>result</a>            437 ovr/sdk/third_party/edid/edid.cpp     MonitorInfo * result = 0;
+<a href='../S/199.html#L440'>result</a>            440 ovr/sdk/third_party/edid/edid.cpp             result = decode_edid(edid);
+<a href='../S/199.html#L445'>result</a>            445 ovr/sdk/third_party/edid/edid.cpp     return result;
+<a href='../S/196.html#L89'>result</a>             89 ovr/sdk/third_party/tinyxml/tinyxml2.h     int result = vsnprintf_s( buffer, size, _TRUNCATE, format, va );
+<a href='../S/196.html#L91'>result</a>             91 ovr/sdk/third_party/tinyxml/tinyxml2.h     return result;
+<a href='../S/196.html#L326'>result</a>            326 ovr/sdk/third_party/tinyxml/tinyxml2.h         void* result = _root;
+<a href='../S/196.html#L335'>result</a>            335 ovr/sdk/third_party/tinyxml/tinyxml2.h         return result;
+</pre>
+</body>
+</html>

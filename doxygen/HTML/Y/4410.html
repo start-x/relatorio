@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>sinfo</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/129.html#L98'>sinfo</a>              98 ovr/sdk/src/OVR_Common_HMDDevice.cpp                 SensorInfo sinfo;
+<a href='../S/129.html#L99'>sinfo</a>              99 ovr/sdk/src/OVR_Common_HMDDevice.cpp                 if (sensor &amp;&amp; sensor-&gt;GetDeviceInfo(&amp;sinfo))
+<a href='../S/129.html#L101'>sinfo</a>             101 ovr/sdk/src/OVR_Common_HMDDevice.cpp                     if (sinfo.ProductId == 1)
+<a href='../S/129.html#L107'>sinfo</a>             107 ovr/sdk/src/OVR_Common_HMDDevice.cpp                         int firm_major = Alg::DecodeBCD((sinfo.Version &gt;&gt; 8) &amp; 0x00ff);
+<a href='../S/129.html#L108'>sinfo</a>             108 ovr/sdk/src/OVR_Common_HMDDevice.cpp                         int firm_minor = Alg::DecodeBCD(sinfo.Version &amp; 0xff);
+<a href='../S/87.html#L469'>sinfo</a>             469 ovr/sdk/src/OVR_LatencyTestImpl.cpp         SensorInfo* sinfo = (SensorInfo*)info;
+<a href='../S/87.html#L470'>sinfo</a>             470 ovr/sdk/src/OVR_LatencyTestImpl.cpp         sinfo-&gt;VendorId  = HIDDesc.VendorId;
+<a href='../S/87.html#L471'>sinfo</a>             471 ovr/sdk/src/OVR_LatencyTestImpl.cpp         sinfo-&gt;ProductId = HIDDesc.ProductId;
+<a href='../S/87.html#L472'>sinfo</a>             472 ovr/sdk/src/OVR_LatencyTestImpl.cpp         sinfo-&gt;SerialNumber = HIDDesc.SerialNumber;
+<a href='../S/139.html#L152'>sinfo</a>             152 ovr/sdk/src/OVR_Profile.cpp             SensorInfo sinfo;
+<a href='../S/139.html#L153'>sinfo</a>             153 ovr/sdk/src/OVR_Profile.cpp             sensor-&gt;GetDeviceInfo(&amp;sinfo);
+<a href='../S/139.html#L154'>sinfo</a>             154 ovr/sdk/src/OVR_Profile.cpp             serial = sinfo.SerialNumber;    // get the serial number
+<a href='../S/139.html#L165'>sinfo</a>             165 ovr/sdk/src/OVR_Profile.cpp                 product_name = sinfo.ProductName.ToCStr();
+<a href='../S/139.html#L1086'>sinfo</a>            1086 ovr/sdk/src/OVR_Profile.cpp         SensorInfo sinfo;
+<a href='../S/139.html#L1087'>sinfo</a>            1087 ovr/sdk/src/OVR_Profile.cpp         sensor-&gt;GetDeviceInfo(&amp;sinfo);
+<a href='../S/139.html#L1089'>sinfo</a>            1089 ovr/sdk/src/OVR_Profile.cpp         int dev_major = BCDByte((sinfo.Version &gt;&gt; 8) &amp; 0x00ff);
+<a href='../S/139.html#L1091'>sinfo</a>            1091 ovr/sdk/src/OVR_Profile.cpp         int dev_minor = BCDByte(sinfo.Version &amp; 0xff);
+<a href='../S/139.html#L1102'>sinfo</a>            1102 ovr/sdk/src/OVR_Profile.cpp             success = LoadDeviceFile(sinfo.ProductId, sinfo.SerialNumber);
+<a href='../S/190.html#L291'>sinfo</a>             291 ovr/sdk/src/OVR_SensorImpl.cpp         SensorInfo* sinfo = (SensorInfo*)info;
+<a href='../S/190.html#L292'>sinfo</a>             292 ovr/sdk/src/OVR_SensorImpl.cpp         sinfo-&gt;VendorId  = HIDDesc.VendorId;
+<a href='../S/190.html#L293'>sinfo</a>             293 ovr/sdk/src/OVR_SensorImpl.cpp         sinfo-&gt;ProductId = HIDDesc.ProductId;
+<a href='../S/190.html#L294'>sinfo</a>             294 ovr/sdk/src/OVR_SensorImpl.cpp         sinfo-&gt;MaxRanges = SensorRangeImpl::GetMaxSensorRange();
+<a href='../S/190.html#L295'>sinfo</a>             295 ovr/sdk/src/OVR_SensorImpl.cpp         sinfo-&gt;SerialNumber = HIDDesc.SerialNumber;
+<a href='../S/190.html#L857'>sinfo</a>             857 ovr/sdk/src/OVR_SensorImpl.cpp     SensorInfo sinfo;
+<a href='../S/190.html#L858'>sinfo</a>             858 ovr/sdk/src/OVR_SensorImpl.cpp     GetDeviceInfo(&amp;sinfo);
+<a href='../S/190.html#L936'>sinfo</a>             936 ovr/sdk/src/OVR_SensorImpl.cpp                 if (item &amp;&amp; item-&gt;Value == sinfo.SerialNumber)
+<a href='../S/190.html#L981'>sinfo</a>             981 ovr/sdk/src/OVR_SensorImpl.cpp         device-&gt;AddStringItem("Product", sinfo.ProductName);
+<a href='../S/190.html#L982'>sinfo</a>             982 ovr/sdk/src/OVR_SensorImpl.cpp         device-&gt;AddNumberItem("ProductID", sinfo.ProductId);
+<a href='../S/190.html#L983'>sinfo</a>             983 ovr/sdk/src/OVR_SensorImpl.cpp         device-&gt;AddStringItem("Serial", sinfo.SerialNumber);
+<a href='../S/190.html#L1002'>sinfo</a>            1002 ovr/sdk/src/OVR_SensorImpl.cpp     SensorInfo sinfo;
+<a href='../S/190.html#L1003'>sinfo</a>            1003 ovr/sdk/src/OVR_SensorImpl.cpp     GetDeviceInfo(&amp;sinfo);
+<a href='../S/190.html#L1037'>sinfo</a>            1037 ovr/sdk/src/OVR_SensorImpl.cpp             if (item &amp;&amp; item-&gt;Value == sinfo.SerialNumber)
+</pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Scale</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/142.html#L68'>Scale</a>              68 ovr/sdk/src/OVR_CAPI.cpp     return tanEyeAngle * eyeToSourceNDC.Scale + eyeToSourceNDC.Offset;
+<a href='../S/142.html#L766'>Scale</a>             766 ovr/sdk/src/OVR_CAPI.cpp     uvScaleOffsetOut[0] = eyeToSourceUV.Scale;
+<a href='../S/88.html#L1508'>Scale</a>            1508 ovr/sdk/src/OVR_Stereo.cpp     result.Scale    = Vector2f(projXScale, projYScale);
+<a href='../S/88.html#L1527'>Scale</a>            1527 ovr/sdk/src/OVR_Stereo.cpp     result.Scale  = scaleAndOffsetNDC.Scale * 0.5f;
+<a href='../S/88.html#L1536'>Scale</a>            1536 ovr/sdk/src/OVR_Stereo.cpp 	result.Scale  = result.Scale.EntrywiseMultiply(scale);
+<a href='../S/88.html#L1557'>Scale</a>            1557 ovr/sdk/src/OVR_Stereo.cpp     projection.M[0][0] = scaleAndOffset.Scale.x;
+<a href='../S/88.html#L1567'>Scale</a>            1567 ovr/sdk/src/OVR_Stereo.cpp     projection.M[1][1] = scaleAndOffset.Scale.y;
+<a href='../S/88.html#L1713'>Scale</a>            1713 ovr/sdk/src/OVR_Stereo.cpp     textureUV.x = tanEyeAngle.x * eyeParams.EyeToSourceUV.Scale.x + eyeParams.EyeToSourceUV.Offset.x;
+<a href='../S/88.html#L1714'>Scale</a>            1714 ovr/sdk/src/OVR_Stereo.cpp     textureUV.y = tanEyeAngle.y * eyeParams.EyeToSourceUV.Scale.y + eyeParams.EyeToSourceUV.Offset.y;
+<a href='../S/88.html#L1722'>Scale</a>            1722 ovr/sdk/src/OVR_Stereo.cpp     textureNDC.x = tanEyeAngle.x * eyeParams.EyeToSourceNDC.Scale.x + eyeParams.EyeToSourceNDC.Offset.x;
+<a href='../S/88.html#L1723'>Scale</a>            1723 ovr/sdk/src/OVR_Stereo.cpp     textureNDC.y = tanEyeAngle.y * eyeParams.EyeToSourceNDC.Scale.y + eyeParams.EyeToSourceNDC.Offset.y;
+<a href='../S/88.html#L1791'>Scale</a>            1791 ovr/sdk/src/OVR_Stereo.cpp     Vector2f tanEyeAngle = (textureNDC - eyeToSourceNDC.Offset) / eyeToSourceNDC.Scale;
+<a href='../S/131.html#L143'>Scale</a>             143 ovr/sdk/src/OVR_Stereo.h     Vector2f Scale;
+<a href='../S/131.html#L147'>Scale</a>             147 ovr/sdk/src/OVR_Stereo.h       : Scale(sx, sy), Offset(ox, oy)        
+<a href='../S/117.html#L657'>Scale</a>             657 ovr/sdk/src/Util/Util_Render_Stereo.cpp         OVR_ASSERT ( EyeRenderParams[0].StereoEye.EyeToSourceUV.Scale         == EyeRenderParams[1].StereoEye.EyeToSourceUV.Scale   );
+<a href='../S/117.html#L659'>Scale</a>             659 ovr/sdk/src/Util/Util_Render_Stereo.cpp         OVR_ASSERT ( EyeRenderParams[0].StereoEye.EyeToSourceNDC.Scale        == EyeRenderParams[1].StereoEye.EyeToSourceNDC.Scale  );
+</pre>
+</body>
+</html>

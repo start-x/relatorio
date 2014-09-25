@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>deviceTimeDelta</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/136.html#L98'>deviceTimeDelta</a>    98 ovr/sdk/src/OVR_SensorTimeFilter.cpp     double deviceTimeDelta = sampleDeviceTime - LastLargestDeviceTime;       
+<a href='../S/136.html#L110'>deviceTimeDelta</a>   110 ovr/sdk/src/OVR_SensorTimeFilter.cpp         if (deviceTimeDelta &lt; 0.0)
+<a href='../S/136.html#L137'>deviceTimeDelta</a>   137 ovr/sdk/src/OVR_SensorTimeFilter.cpp         else if ( (deviceTimeDelta &lt; 1.0f) &amp;&amp;
+<a href='../S/136.html#L160'>deviceTimeDelta</a>   160 ovr/sdk/src/OVR_SensorTimeFilter.cpp     ClockDelta += ClockDeltaDriftPerSecond  * deviceTimeDelta;
+<a href='../S/136.html#L165'>deviceTimeDelta</a>   165 ovr/sdk/src/OVR_SensorTimeFilter.cpp         double correctTimeDelta = deviceTimeDelta;
+<a href='../S/136.html#L166'>deviceTimeDelta</a>   166 ovr/sdk/src/OVR_SensorTimeFilter.cpp         if (deviceTimeDelta &gt; ClockDeltaCorrectSecondsLeft)        
+<a href='../S/136.html#L209'>deviceTimeDelta</a>   209 ovr/sdk/src/OVR_SensorTimeFilter.cpp         if (fabs(deviceTimeDelta - (result - prevResult)) &gt;= 0.00002)
+<a href='../S/136.html#L218'>deviceTimeDelta</a>   218 ovr/sdk/src/OVR_SensorTimeFilter.cpp                             sampleDeviceTime,  deviceTimeDelta, rangeClamp, resultDeltaFar);
+</pre>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>Version</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/129.html#L107'>Version</a>           107 ovr/sdk/src/OVR_Common_HMDDevice.cpp                         int firm_major = Alg::DecodeBCD((sinfo.Version &gt;&gt; 8) &amp; 0x00ff);
+<a href='../S/129.html#L108'>Version</a>           108 ovr/sdk/src/OVR_Common_HMDDevice.cpp                         int firm_minor = Alg::DecodeBCD(sinfo.Version &amp; 0xff);
+<a href='../S/129.html#L152'>Version</a>           152 ovr/sdk/src/OVR_Common_HMDDevice.cpp     info-&gt;Version = 0;
+<a href='../S/108.html#L143'>Version</a>           143 ovr/sdk/src/OVR_Device.h     DeviceInfo() : InfoClassType(Device_None), Type(Device_None), Version(0)
+<a href='../S/108.html#L156'>Version</a>           156 ovr/sdk/src/OVR_Device.h     unsigned            Version;
+<a href='../S/108.html#L159'>Version</a>           159 ovr/sdk/src/OVR_Device.h     DeviceInfo(DeviceType type) : InfoClassType(type), Type(type), Version(0)
+<a href='../S/108.html#L678'>Version</a>           678 ovr/sdk/src/OVR_Device.h         :	    CommandId(0), Version(0), Calibration()
+<a href='../S/108.html#L684'>Version</a>           684 ovr/sdk/src/OVR_Device.h         :	    CommandId(commandId), Version(version), Calibration(calibration)
+<a href='../S/108.html#L688'>Version</a>           688 ovr/sdk/src/OVR_Device.h 	UByte	    Version;            // Version of the calibration procedure used to generate the calibration matrix.
+<a href='../S/108.html#L703'>Version</a>           703 ovr/sdk/src/OVR_Device.h       :	CommandId(0), Version(0), 
+<a href='../S/108.html#L716'>Version</a>           716 ovr/sdk/src/OVR_Device.h         :	    CommandId(commandId), Version(version), 
+<a href='../S/108.html#L723'>Version</a>           723 ovr/sdk/src/OVR_Device.h 	UByte			Version;            // The version of the calibration procedure used to generate the stored positions.
+<a href='../S/108.html#L841'>Version</a>           841 ovr/sdk/src/OVR_Device.h         Version(0),
+<a href='../S/108.html#L863'>Version</a>           863 ovr/sdk/src/OVR_Device.h 				Version(version),
+<a href='../S/108.html#L877'>Version</a>           877 ovr/sdk/src/OVR_Device.h 	UInt16		Version;
+<a href='../S/108.html#L889'>Version</a>           889 ovr/sdk/src/OVR_Device.h       :	CommandId(0), Version(0), 
+<a href='../S/108.html#L905'>Version</a>           905 ovr/sdk/src/OVR_Device.h         :	    CommandId(commandId), Version(version), 
+<a href='../S/108.html#L912'>Version</a>           912 ovr/sdk/src/OVR_Device.h     UByte	    Version;          // See 'DK2 Firmware Specification' document for a description of
+<a href='../S/108.html#L935'>Version</a>           935 ovr/sdk/src/OVR_Device.h       :	CommandId(0), Version(Version_NoOffset), 
+<a href='../S/108.html#L943'>Version</a>           943 ovr/sdk/src/OVR_Device.h 		:		CommandId(commandId), Version(version), 
+<a href='../S/108.html#L948'>Version</a>           948 ovr/sdk/src/OVR_Device.h     VersionEnum Version;
+<a href='../S/87.html#L465'>Version</a>           465 ovr/sdk/src/OVR_LatencyTestImpl.cpp     info-&gt;Version =         HIDDesc.VersionNumber;
+<a href='../S/193.html#L113'>Version</a>           113 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     info-&gt;Version = 0;
+<a href='../S/139.html#L1089'>Version</a>          1089 ovr/sdk/src/OVR_Profile.cpp         int dev_major = BCDByte((sinfo.Version &gt;&gt; 8) &amp; 0x00ff);
+<a href='../S/139.html#L1091'>Version</a>          1091 ovr/sdk/src/OVR_Profile.cpp         int dev_minor = BCDByte(sinfo.Version &amp; 0xff);
+<a href='../S/192.html#L186'>Version</a>           186 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.Version;
+<a href='../S/192.html#L199'>Version</a>           199 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Version = Buffer[3];
+<a href='../S/192.html#L242'>Version</a>           242 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Buffer[3] = Settings.Version;
+<a href='../S/192.html#L265'>Version</a>           265 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Version = Buffer[3];
+<a href='../S/192.html#L312'>Version</a>           312 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Buffer[3] = Settings.Version;
+<a href='../S/192.html#L328'>Version</a>           328 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Version = Buffer[3];
+<a href='../S/192.html#L494'>Version</a>           494 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+8, Settings.Version);
+<a href='../S/192.html#L515'>Version</a>           515 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Version = DecodeUInt16(Buffer+8);
+<a href='../S/192.html#L590'>Version</a>           590 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.Version;
+<a href='../S/192.html#L609'>Version</a>           609 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Version = Buffer[3];
+<a href='../S/192.html#L653'>Version</a>           653 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = UByte(Settings.Version);
+<a href='../S/192.html#L664'>Version</a>           664 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Version     = GyroOffsetReport::VersionEnum(Buffer[3]);
+<a href='../S/128.html#L53'>Version</a>            53 ovr/sdk/src/OVR_SensorCalibration.cpp     if (result &amp;&amp; gyroReport.Version != GyroOffsetReport::Version_NoOffset)
+<a href='../S/128.html#L68'>Version</a>            68 ovr/sdk/src/OVR_SensorCalibration.cpp     MagCalibrated = result &amp;&amp; report.Version &gt; 0;
+<a href='../S/128.html#L90'>Version</a>            90 ovr/sdk/src/OVR_SensorCalibration.cpp 					"Time=%d\n",	i, j, tr.Version,
+<a href='../S/128.html#L117'>Version</a>           117 ovr/sdk/src/OVR_SensorCalibration.cpp 	tr.Version = 0;
+<a href='../S/128.html#L200'>Version</a>           200 ovr/sdk/src/OVR_SensorCalibration.cpp         if (TemperatureReports[binIdx][i].Version &gt; VERSION)
+<a href='../S/128.html#L209'>Version</a>           209 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT((oldestReport.Sample == 0 &amp;&amp; newestReport.Sample == 0 &amp;&amp; newestReport.Version == 0) || 
+<a href='../S/128.html#L222'>Version</a>           222 ovr/sdk/src/OVR_SensorCalibration.cpp             oldestReport.Version = VERSION;
+<a href='../S/128.html#L236'>Version</a>           236 ovr/sdk/src/OVR_SensorCalibration.cpp             newestReport.Version = VERSION;
+<a href='../S/128.html#L282'>Version</a>           282 ovr/sdk/src/OVR_SensorCalibration.cpp         if (report.Version &gt; 0 &amp;&amp; report.Version &lt;= MAX_COMPAT_VERSION)
+<a href='../S/190.html#L287'>Version</a>           287 ovr/sdk/src/OVR_SensorImpl.cpp     info-&gt;Version =         HIDDesc.VersionNumber;
+<a href='../S/190.html#L391'>Version</a>           391 ovr/sdk/src/OVR_SensorImpl.cpp     if (res &amp;&amp; report.Version &gt; 0)
+<a href='../S/190.html#L998'>Version</a>           998 ovr/sdk/src/OVR_SensorImpl.cpp     data-&gt;Version = 0;
+<a href='../S/190.html#L1062'>Version</a>          1062 ovr/sdk/src/OVR_SensorImpl.cpp                             if (major &gt; data-&gt;Version &amp;&amp; major &lt;= 2)
+<a href='../S/190.html#L1103'>Version</a>          1103 ovr/sdk/src/OVR_SensorImpl.cpp                                     data-&gt;Version = (UByte)major;
+</pre>
+</body>
+</html>

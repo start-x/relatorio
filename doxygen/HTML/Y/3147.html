@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>exposureCounter</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L172'>exposureCounter</a>   172 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter)
+<a href='../S/189.html#L184'>exposureCounter</a>   184 ovr/sdk/src/OVR_SensorFusion.cpp            (ExposureRecordHistory.PeekFront().ExposureCounter &lt;= exposureCounter))
+<a href='../S/189.html#L192'>exposureCounter</a>   192 ovr/sdk/src/OVR_SensorFusion.cpp     if (LastVisionExposureRecord.ExposureCounter != exposureCounter)
+<a href='../S/189.html#L193'>exposureCounter</a>   193 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord = ExposureRecord(exposureCounter, GetTime(), WorldFromImu, PoseState&lt;double&gt;());
+<a href='../S/189.html#L240'>exposureCounter</a>   240 ovr/sdk/src/OVR_SensorFusion.cpp Transform&lt;double&gt; SensorFusion::GetVisionPrediction(UInt32 exposureCounter)
+<a href='../S/189.html#L250'>exposureCounter</a>   250 ovr/sdk/src/OVR_SensorFusion.cpp            (ExposureRecordHistory.PeekFront().ExposureCounter &lt;= exposureCounter))
+<a href='../S/127.html#L165'>exposureCounter</a>   165 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter) = 0;
+<a href='../S/127.html#L170'>exposureCounter</a>   170 ovr/sdk/src/OVR_SensorFusion.h     virtual Transform&lt;double&gt; GetVisionPrediction(UInt32 exposureCounter) = 0;
+<a href='../S/127.html#L263'>exposureCounter</a>   263 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter);
+<a href='../S/127.html#L268'>exposureCounter</a>   268 ovr/sdk/src/OVR_SensorFusion.h     virtual Transform&lt;double&gt; GetVisionPrediction(UInt32 exposureCounter);
+<a href='../S/127.html#L357'>exposureCounter</a>   357 ovr/sdk/src/OVR_SensorFusion.h         ExposureRecord(UInt32 exposureCounter, double exposureTime, 
+<a href='../S/127.html#L359'>exposureCounter</a>   359 ovr/sdk/src/OVR_SensorFusion.h             : ExposureCounter(exposureCounter), ExposureTime(exposureTime),
+</pre>
+</body>
+</html>

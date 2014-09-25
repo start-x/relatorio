@@ -1,0 +1,411 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_SensorTimeFilter.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_SensorTimeFilter.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L50'>[^]</a><a href='#L247'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L50' title='Defined at 50.'>OVR_TIMEFILTER_LOG_CODE</a>
+<li><a href='#L94' title='Defined at 94.'>SampleToSystemTime</a>
+<li><a href='#L230' title='Defined at 230.'>initClockSampling</a>
+<li><a href='#L247' title='Defined at 247.'>processFinishedMinWindow</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   None</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_SensorTimeFilter.cpp</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Class to filter HMD time and convert it to system time</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   December 20, 2013</font></i>
+<a name='L7'>   7 <i><font color='green'>Author      :   Michael Antonov</font></i>
+<a name='L8'>   8 <i><font color='green'>Notes       :</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L11'>  11 <i><font color='green'></font></i>
+<a name='L12'>  12 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L13'>  13 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L14'>  14 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L15'>  15 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L20'>  20 <i><font color='green'></font></i>
+<a name='L21'>  21 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L22'>  22 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L23'>  23 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L24'>  24 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L25'>  25 <i><font color='green'>limitations under the License.</font></i>
+<a name='L26'>  26 <i><font color='green'></font></i>
+<a name='L27'>  27 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L28'>  28 
+<a name='L29'>  29 <font color='darkred'>#include</font> "<a href='134.html'>OVR_SensorTimeFilter.h</a>"
+<a name='L30'>  30 <font color='darkred'>#include</font> "<a href='155.html'>Kernel/OVR_Log.h</a>"
+<a name='L31'>  31 
+<a name='L32'>  32 
+<a name='L33'>  33 <font color='darkred'>#include</font> &lt;stdio.h&gt;
+<a name='L34'>  34 <font color='darkred'>#include</font> &lt;math.h&gt;
+<a name='L35'>  35 
+<a name='L36'>  36 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font>  
+<a name='L37'>  37 
+<a name='L38'>  38 <i><font color='green'>// Comment out for debug logging to file</font></i>
+<a name='L39'>  39 <i><font color='green'>//#define OVR_TIMEFILTER_LOG_CODE( code )  code</font></i>
+<a name='L40'>  40 <font color='darkred'>#define</font> <a href='../R/753.html' title='Multiple refered from 5 places.'>OVR_TIMEFILTER_LOG_CODE</a>( code )
+<a name='L41'>  41 
+<a name='L42'>  42 <font color='darkred'>#if</font> <b>defined</b>(<a href='../S/168.html#L61' title='Defined at 61 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_OS_ANDROID</a>)
+<a name='L43'>  43 <font color='darkred'>    #define</font> <a href='../S/136.html#L90' title='Refered from 90 in ovr/sdk/src/OVR_SensorTimeFilter.cpp.'>OVR_TIMEFILTER_LOG_FILENAME</a> "/sdcard/TimeFilterLog.txt"
+<a name='L44'>  44 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L45'>  45 <font color='darkred'>    #define</font> <a href='../S/136.html#L90' title='Refered from 90 in ovr/sdk/src/OVR_SensorTimeFilter.cpp.'>OVR_TIMEFILTER_LOG_FILENAME</a> "C:\\TimeFilterLog.txt"
+<a name='L46'>  46 <font color='darkred'>#else</font>
+<a name='L47'>  47 <font color='darkred'>    #define</font> <a href='../S/136.html#L90' title='Refered from 90 in ovr/sdk/src/OVR_SensorTimeFilter.cpp.'>OVR_TIMEFILTER_LOG_FILENAME</a> "TimeFilterLog.txt"
+<a name='L48'>  48 <font color='darkred'>#endif</font>
+<a name='L49'>  49 
+<a name='L50'>  50 <a href='../R/753.html' title='Multiple refered from 5 places.'>OVR_TIMEFILTER_LOG_CODE</a>( <a href='../Y/574.html' title='Multiple used in 12 places.'>FILE</a>* <a href='../Y/3984.html' title='Multiple used in 5 places.'>pTFLogFile</a> = 0; )
+<a name='L51'>  51 
+<a name='L52'>  52 
+<a name='L53'>  53 <i><font color='green'>// Ideally, the following would always be true:</font></i>
+<a name='L54'>  54 <i><font color='green'>//  - NewSampleTime &gt; PrevSample</font></i>
+<a name='L55'>  55 <i><font color='green'>//  - NewSampleTime &lt; now systemTime</font></i>
+<a name='L56'>  56 <i><font color='green'>//  - (NewSampleTime - PrevSampleTime) == integration delta, matching</font></i>
+<a name='L57'>  57 <i><font color='green'>//    HW sample time difference + drift</font></i>
+<a name='L58'>  58 <i><font color='green'>//</font></i>
+<a name='L59'>  59 <i><font color='green'>// In practice, these issues affect us:</font></i>
+<a name='L60'>  60 <i><font color='green'>//  - System thread can be suspended for a while</font></i>
+<a name='L61'>  61 <i><font color='green'>//  - System de-buffering of recorded samples cause deviceTime to advance up</font></i>
+<a name='L62'>  62 <i><font color='green'>//    much faster then system time for ~100+ samples</font></i>
+<a name='L63'>  63 <i><font color='green'>//  - Device (DK1) and system clock granularities are high; this can</font></i>
+<a name='L64'>  64 <i><font color='green'>//    lead to potentially having estimations in the future</font></i>
+<a name='L65'>  65 <i><font color='green'>//</font></i>
+<a name='L66'>  66 
+<a name='L67'>  67 
+<a name='L68'>  68 <i><font color='green'>// ***** TimerFilter</font></i>
+<a name='L69'>  69 
+<a name='L70'>  70 <a href='../Y/2004.html' title='Multiple used in 9 places.'>SensorTimeFilter</a>::<a href='../Y/2004.html' title='Multiple used in 9 places.'>SensorTimeFilter</a>(<b>const</b> Settings&amp; <a href='../Y/4390.html' title='Multiple used in 30 places.'>settings</a>)
+<a name='L71'>  71 <font color='red'>{</font>
+<a name='L72'>  72     <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a> = <a href='../Y/4390.html' title='Multiple used in 30 places.'>settings</a>;
+<a name='L73'>  73 
+<a name='L74'>  74     <a href='../Y/210.html' title='Multiple used in 4 places.'>ClockInitialized</a>             = <b>false</b>;
+<a name='L75'>  75     <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>                   = 0;       
+<a name='L76'>  76     <a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a>     = 0;
+<a name='L77'>  77     <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>   = 0;
+<a name='L78'>  78     <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> = 0;
+<a name='L79'>  79     <a href='../Y/1536.html' title='Multiple used in 8 places.'>OldClockDeltaDriftExpire</a>     = 0;
+<a name='L80'>  80 
+<a name='L81'>  81     <a href='../Y/1215.html' title='Multiple used in 6 places.'>LastLargestDeviceTime</a> = 0;
+<a name='L82'>  82     <a href='../Y/1701.html' title='Multiple used in 4 places.'>PrevSystemTime</a>        = 0;    
+<a name='L83'>  83     <a href='../Y/1652.html' title='Multiple used in 6 places.'>PastSampleResetTime</a>   = 0;
+<a name='L84'>  84 
+<a name='L85'>  85     <a href='../Y/1432.html' title='Multiple used in 6 places.'>MinWindowsCollected</a>  = 0;
+<a name='L86'>  86     <a href='../Y/1429.html' title='Multiple used in 7 places.'>MinWindowDuration</a>    = 0; <i><font color='green'>// assigned later</font></i>
+<a name='L87'>  87     <a href='../Y/1430.html' title='Multiple used in 5 places.'>MinWindowLastTime</a>    = 0;
+<a name='L88'>  88     <a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a>     = <a href='../Y/4390.html' title='Multiple used in 30 places.'>settings</a>.<a href='../Y/1427.html' title='Multiple used in 5 places.'>MinSamples</a>; <i><font color='green'>// Force initialization</font></i>
+<a name='L89'>  89 
+<a name='L90'>  90     <a href='../D/804.html' title='Multiple defined in 2 places.'>OVR_TIMEFILTER_LOG_CODE</a>( <a href='../Y/3984.html' title='Multiple used in 5 places.'>pTFLogFile</a> = <a href='../Y/3232.html' title='Multiple used in 5 places.'>fopen</a>(<a href='../D/805.html' title='Multiple defined in 3 places.'>OVR_TIMEFILTER_LOG_FILENAME</a>, "w+"); )
+<a name='L91'>  91 <font color='red'>}</font>
+<a name='L92'>  92 
+<a name='L93'>  93 
+<a name='L94'>  94 <b>double</b> <a href='../Y/2004.html' title='Multiple used in 9 places.'>SensorTimeFilter</a>::<a href='../R/930.html' title='Multiple refered from 4 places.'>SampleToSystemTime</a>(<b>double</b> <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>, <b>double</b> <a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a>,
+<a name='L95'>  95                                             <b>double</b> <a href='../Y/4109.html' title='Multiple used in 8 places.'>prevResult</a>, <b>const</b> <b>char</b>* <a href='../Y/2961.html' title='Multiple used in 6 places.'>debugTag</a>)
+<a name='L96'>  96 <font color='red'>{</font>
+<a name='L97'>  97     <b>double</b> <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>      = <a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> - <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> + <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/206.html' title='Multiple used in 3 places.'>ClockDeltaAdjust</a>;
+<a name='L98'>  98     <b>double</b> <a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a> = <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> - <a href='../Y/1215.html' title='Multiple used in 6 places.'>LastLargestDeviceTime</a>;       
+<a name='L99'>  99     <b>double</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L100'> 100 
+<a name='L101'> 101     <i><font color='green'>// Collect a sample ClockDelta for a "MinimumWindow" or process</font></i>
+<a name='L102'> 102     <i><font color='green'>// the window by adjusting drift rates if it's full of samples.</font></i>
+<a name='L103'> 103     <i><font color='green'>//   - (deviceTimeDelta &lt; 1.0f) is a corner cases, as it would imply timestamp skip/wrap.</font></i>
+<a name='L104'> 104 
+<a name='L105'> 105     <b>if</b> (<a href='../Y/210.html' title='Multiple used in 4 places.'>ClockInitialized</a>)
+<a name='L106'> 106     <font color='red'>{</font>
+<a name='L107'> 107         <i><font color='green'>// Samples in the past commonly occur if they come from separately incrementing</font></i>
+<a name='L108'> 108         <i><font color='green'>// data channels. Just adjust them with ClockDelta.</font></i>
+<a name='L109'> 109 
+<a name='L110'> 110         <b>if</b> (<a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a> &lt; 0.0)
+<a name='L111'> 111         <font color='red'>{</font>
+<a name='L112'> 112             <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> + <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>;
+<a name='L113'> 113 
+<a name='L114'> 114             <b>if</b> (<a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> &gt; (<a href='../Y/4109.html' title='Multiple used in 8 places.'>prevResult</a> - 0.00001))
+<a name='L115'> 115                 <b>goto</b> <a href='../Y/2848.html' title='Multiple used in 4 places.'>clamp_and_log_result</a>;
+<a name='L116'> 116 
+<a name='L117'> 117             <i><font color='green'>// Consistent samples less then prevResult for indicate a back-jump or bad input.</font></i>
+<a name='L118'> 118             <i><font color='green'>// In this case we return prevResult for a while, then reset filter if it keeps going.</font></i>
+<a name='L119'> 119             <b>if</b> (<a href='../Y/1652.html' title='Multiple used in 6 places.'>PastSampleResetTime</a> &lt; 0.0001)
+<a name='L120'> 120             <font color='red'>{</font>
+<a name='L121'> 121                 <a href='../Y/1652.html' title='Multiple used in 6 places.'>PastSampleResetTime</a> = <a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> + <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/1651.html' title='Multiple used in 3 places.'>PastSampleResetSeconds</a>;
+<a name='L122'> 122                 <b>goto</b> <a href='../Y/2848.html' title='Multiple used in 4 places.'>clamp_and_log_result</a>;
+<a name='L123'> 123             <font color='red'>}</font>
+<a name='L124'> 124             <b>else</b> <b>if</b> (<a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> &gt; <a href='../Y/1652.html' title='Multiple used in 6 places.'>PastSampleResetTime</a>) 
+<a name='L125'> 125             <font color='red'>{</font>
+<a name='L126'> 126                 <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("SensorTimeFilter - Filtering reset due to samples in the past!\n"));
+<a name='L127'> 127                 <a href='../S/136.html#L230' title='Defined at 230 in ovr/sdk/src/OVR_SensorTimeFilter.cpp.'>initClockSampling</a>(<a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>, <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>);
+<a name='L128'> 128                 <i><font color='green'>// Fall through to below, to ' PastSampleResetTime = 0.0; '</font></i>
+<a name='L129'> 129             <font color='red'>}</font>
+<a name='L130'> 130             <b>else</b>
+<a name='L131'> 131             <font color='red'>{</font>
+<a name='L132'> 132                 <b>goto</b> <a href='../Y/2848.html' title='Multiple used in 4 places.'>clamp_and_log_result</a>;
+<a name='L133'> 133             <font color='red'>}</font>
+<a name='L134'> 134         <font color='red'>}</font>
+<a name='L135'> 135 
+<a name='L136'> 136         <i><font color='green'>// Most common case: Record window sample.</font></i>
+<a name='L137'> 137         <b>else</b> <b>if</b> ( (<a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a> &lt; 1.0f) &amp;&amp;
+<a name='L138'> 138                   ( (<a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> &lt; <a href='../Y/1430.html' title='Multiple used in 5 places.'>MinWindowLastTime</a>) ||
+<a name='L139'> 139                   (<a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a> &lt; <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/1427.html' title='Multiple used in 5 places.'>MinSamples</a>) ) )
+<a name='L140'> 140         <font color='red'>{</font>
+<a name='L141'> 141             <i><font color='green'>// Pick minimum ClockDelta sample.</font></i>
+<a name='L142'> 142             <b>if</b> (<a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a> &lt; <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>)
+<a name='L143'> 143                 <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a> = <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>;
+<a name='L144'> 144             <a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a>++;        
+<a name='L145'> 145         <font color='red'>}</font>
+<a name='L146'> 146         <b>else</b>
+<a name='L147'> 147         <font color='red'>{</font>
+<a name='L148'> 148             <a href='../S/136.html#L247' title='Defined at 247 in ovr/sdk/src/OVR_SensorTimeFilter.cpp.'>processFinishedMinWindow</a>(<a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>, <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>);
+<a name='L149'> 149         <font color='red'>}</font>
+<a name='L150'> 150 
+<a name='L151'> 151         <a href='../Y/1652.html' title='Multiple used in 6 places.'>PastSampleResetTime</a> = 0.0;
+<a name='L152'> 152     <font color='red'>}</font>
+<a name='L153'> 153     <b>else</b>
+<a name='L154'> 154     <font color='red'>{</font>
+<a name='L155'> 155         <a href='../S/136.html#L230' title='Defined at 230 in ovr/sdk/src/OVR_SensorTimeFilter.cpp.'>initClockSampling</a>(<a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>, <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>);
+<a name='L156'> 156     <font color='red'>}</font>
+<a name='L157'> 157         
+<a name='L158'> 158 
+<a name='L159'> 159     <i><font color='green'>// Clock adjustment for drift.</font></i>
+<a name='L160'> 160     <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a> += <a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a>  * <a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a>;
+<a name='L161'> 161 
+<a name='L162'> 162     <i><font color='green'>// ClockDelta "nudging" towards last known MinWindowClockDelta.</font></i>
+<a name='L163'> 163     <b>if</b> (<a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> &gt; 0.000001)
+<a name='L164'> 164     <font color='red'>{</font>
+<a name='L165'> 165         <b>double</b> <a href='../Y/2909.html' title='Multiple used in 4 places.'>correctTimeDelta</a> = <a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a>;
+<a name='L166'> 166         <b>if</b> (<a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a> &gt; <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a>)        
+<a name='L167'> 167             <a href='../Y/2909.html' title='Multiple used in 4 places.'>correctTimeDelta</a> = <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a>;
+<a name='L168'> 168         <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> -= <a href='../Y/2909.html' title='Multiple used in 4 places.'>correctTimeDelta</a>;
+<a name='L169'> 169         
+<a name='L170'> 170         <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a> += <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>  * <a href='../Y/2909.html' title='Multiple used in 4 places.'>correctTimeDelta</a>;
+<a name='L171'> 171     <font color='red'>}</font>
+<a name='L172'> 172 
+<a name='L173'> 173     <i><font color='green'>// Record largest device time, so we know what samples to use in accumulation</font></i>
+<a name='L174'> 174     <i><font color='green'>// of min-window in the future.</font></i>
+<a name='L175'> 175     <a href='../Y/1215.html' title='Multiple used in 6 places.'>LastLargestDeviceTime</a> = <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>;
+<a name='L176'> 176 
+<a name='L177'> 177     <i><font color='green'>// Compute our resulting sample time after ClockDelta adjustment.</font></i>
+<a name='L178'> 178     <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> + <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>;
+<a name='L179'> 179 
+<a name='L180'> 180     
+<a name='L181'> 181 <a href='../Y/2848.html' title='Multiple used in 4 places.'>clamp_and_log_result</a>:
+<a name='L182'> 182 
+<a name='L183'> 183     <a href='../D/804.html' title='Multiple defined in 2 places.'>OVR_TIMEFILTER_LOG_CODE</a>( <b>double</b> <a href='../Y/4341.html' title='Multiple used in 3 places.'>savedResult</a> = <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>; )
+<a name='L184'> 184 
+<a name='L185'> 185     <i><font color='green'>// Clamp to ensure that result &gt;= PrevResult, or not to far in the future.</font></i>
+<a name='L186'> 186     <i><font color='green'>// Future clamp primarily happens in the very beginning if we are de-queuing</font></i>
+<a name='L187'> 187     <i><font color='green'>// system buffer full of samples.</font></i>
+<a name='L188'> 188     <b>if</b> (<a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> &lt; <a href='../Y/4109.html' title='Multiple used in 8 places.'>prevResult</a>)
+<a name='L189'> 189     <font color='red'>{</font>
+<a name='L190'> 190         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <a href='../Y/4109.html' title='Multiple used in 8 places.'>prevResult</a>;
+<a name='L191'> 191     <font color='red'>}</font>    
+<a name='L192'> 192     <b>if</b> (<a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> &gt; (<a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> + <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/654.html' title='Multiple used in 4 places.'>FutureClamp</a>))
+<a name='L193'> 193     <font color='red'>{</font>
+<a name='L194'> 194         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = (<a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> + <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/654.html' title='Multiple used in 4 places.'>FutureClamp</a>);
+<a name='L195'> 195     <font color='red'>}</font>
+<a name='L196'> 196 
+<a name='L197'> 197     <a href='../D/804.html' title='Multiple defined in 2 places.'>OVR_TIMEFILTER_LOG_CODE</a>(
+<a name='L198'> 198 
+<a name='L199'> 199         <i><font color='green'>// Tag lines that were outside desired range, with '&lt;' or '&gt;'.</font></i>
+<a name='L200'> 200         <b>char</b> <a href='../Y/4231.html' title='Multiple used in 4 places.'>rangeClamp</a>         = ' '; 
+<a name='L201'> 201         <b>char</b> <a href='../Y/4293.html' title='Multiple used in 3 places.'>resultDeltaFar</a>     = ' ';
+<a name='L202'> 202 
+<a name='L203'> 203         <b>if</b> (<a href='../Y/4341.html' title='Multiple used in 3 places.'>savedResult</a> &gt; (<a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> + 0.0000001))
+<a name='L204'> 204             <a href='../Y/4231.html' title='Multiple used in 4 places.'>rangeClamp</a> = '&gt;';
+<a name='L205'> 205         <b>if</b> (<a href='../Y/4341.html' title='Multiple used in 3 places.'>savedResult</a> &lt; <a href='../Y/4109.html' title='Multiple used in 8 places.'>prevResult</a>)
+<a name='L206'> 206             <a href='../Y/4231.html' title='Multiple used in 4 places.'>rangeClamp</a> = '&lt;';
+<a name='L207'> 207 
+<a name='L208'> 208         <i><font color='green'>// Tag any result delta outside desired threshold with a '*'.</font></i>
+<a name='L209'> 209         <b>if</b> (<a href='../Y/3190.html' title='Multiple used in 29 places.'>fabs</a>(<a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a> - (<a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> - <a href='../Y/4109.html' title='Multiple used in 8 places.'>prevResult</a>)) &gt;= 0.00002)
+<a name='L210'> 210             <a href='../Y/4293.html' title='Multiple used in 3 places.'>resultDeltaFar</a> = '*';
+<a name='L211'> 211     
+<a name='L212'> 212         <a href='../Y/3249.html' title='Multiple used in 6 places.'>fprintf</a>(<a href='../Y/3984.html' title='Multiple used in 5 places.'>pTFLogFile</a>, "Res%s = %13.7f, dt = % 8.7f,  ClkD = %13.6f  "
+<a name='L213'> 213                             "sysT = %13.6f, sysDt = %f,  "
+<a name='L214'> 214                             "sysDiff = % f, devT = %11.6f,  ddevT = %9.6f %c%c\n",
+<a name='L215'> 215                             <a href='../Y/2961.html' title='Multiple used in 6 places.'>debugTag</a>, <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>, <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> - <a href='../Y/4109.html' title='Multiple used in 8 places.'>prevResult</a>, <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>,
+<a name='L216'> 216                             <a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a>, <a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> - <a href='../Y/1701.html' title='Multiple used in 4 places.'>PrevSystemTime</a>,
+<a name='L217'> 217                             -(<a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a> - <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>),  <i><font color='green'>// Negatives in the past, positive &gt; now.</font></i>
+<a name='L218'> 218                             <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>,  <a href='../Y/3012.html' title='Multiple used in 8 places.'>deviceTimeDelta</a>, <a href='../Y/4231.html' title='Multiple used in 4 places.'>rangeClamp</a>, <a href='../Y/4293.html' title='Multiple used in 3 places.'>resultDeltaFar</a>);
+<a name='L219'> 219 
+<a name='L220'> 220         ) <i><font color='green'>// OVR_TIMEFILTER_LOG_CODE()</font></i>
+<a name='L221'> 221     <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/2961.html' title='Multiple used in 6 places.'>debugTag</a>);
+<a name='L222'> 222 
+<a name='L223'> 223     <i><font color='green'>// Record prior values. Useful or logging and clamping.</font></i>
+<a name='L224'> 224     <a href='../Y/1701.html' title='Multiple used in 4 places.'>PrevSystemTime</a> = <a href='../Y/4530.html' title='Multiple used in 12 places.'>systemTime</a>;    
+<a name='L225'> 225 
+<a name='L226'> 226     <b>return</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;    
+<a name='L227'> 227 <font color='red'>}</font>
+<a name='L228'> 228 
+<a name='L229'> 229 
+<a name='L230'> 230 <b>void</b> <a href='../Y/2004.html' title='Multiple used in 9 places.'>SensorTimeFilter</a>::<a href='../R/1317.html' title='Multiple refered from 3 places.'>initClockSampling</a>(<b>double</b> <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>, <b>double</b> <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>)
+<a name='L231'> 231 <font color='red'>{</font>
+<a name='L232'> 232     <a href='../Y/210.html' title='Multiple used in 4 places.'>ClockInitialized</a>             = <b>true</b>;
+<a name='L233'> 233     <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>                   = <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>;
+<a name='L234'> 234     <a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a>     = 0;
+<a name='L235'> 235     <a href='../Y/1536.html' title='Multiple used in 8 places.'>OldClockDeltaDriftExpire</a>     = 0;
+<a name='L236'> 236     <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> = 0;
+<a name='L237'> 237     <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>   = 0;
+<a name='L238'> 238 
+<a name='L239'> 239     <a href='../Y/1432.html' title='Multiple used in 6 places.'>MinWindowsCollected</a>          = 0;
+<a name='L240'> 240     <a href='../Y/1429.html' title='Multiple used in 7 places.'>MinWindowDuration</a>            = 0.25;
+<a name='L241'> 241     <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>          = <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>;
+<a name='L242'> 242     <a href='../Y/1430.html' title='Multiple used in 5 places.'>MinWindowLastTime</a>            = <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> + <a href='../Y/1429.html' title='Multiple used in 7 places.'>MinWindowDuration</a>;
+<a name='L243'> 243     <a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a>             = 0;
+<a name='L244'> 244 <font color='red'>}</font>
+<a name='L245'> 245 
+<a name='L246'> 246 
+<a name='L247'> 247 <b>void</b> <a href='../Y/2004.html' title='Multiple used in 9 places.'>SensorTimeFilter</a>::<a href='../R/1417.html' title='Multiple refered from 2 places.'>processFinishedMinWindow</a>(<b>double</b> <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>, <b>double</b> <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>)
+<a name='L248'> 248 <font color='red'>{</font>
+<a name='L249'> 249     <a href='../S/134.html#L144' title='Defined at 144 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>MinRecord</a> <a href='../Y/3743.html' title='Multiple used in 2 places.'>newRec</a> = <font color='red'>{</font> <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>, <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> <font color='red'>}</font>;
+<a name='L250'> 250     
+<a name='L251'> 251     <b>double</b>    <a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a>    = <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a> - <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>;
+<a name='L252'> 252     <b>double</b>    <a href='../Y/2670.html' title='Multiple used in 5 places.'>absClockDeltaDiff</a> = <a href='../Y/3190.html' title='Multiple used in 29 places.'>fabs</a>(<a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a>);
+<a name='L253'> 253 
+<a name='L254'> 254 
+<a name='L255'> 255     <i><font color='green'>// Abrupt change causes Reset of minClockDelta collection.</font></i>
+<a name='L256'> 256     <i><font color='green'>//  &gt; 8 ms would a Large jump in a minimum sample, as those are usually stable.</font></i>
+<a name='L257'> 257     <i><font color='green'>//  &gt; 1 second intantaneous jump would land us here as well, as that would imply</font></i>
+<a name='L258'> 258     <i><font color='green'>//    device being suspended, clock wrap or some other unexpected issue.</font></i>
+<a name='L259'> 259     <b>if</b> ((<a href='../Y/2670.html' title='Multiple used in 5 places.'>absClockDeltaDiff</a> &gt; 0.008) ||
+<a name='L260'> 260         ((<a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> - <a href='../Y/1215.html' title='Multiple used in 6 places.'>LastLargestDeviceTime</a>) &gt;= 1.0))
+<a name='L261'> 261     <font color='red'>{</font>            
+<a name='L262'> 262         <a href='../D/804.html' title='Multiple defined in 2 places.'>OVR_TIMEFILTER_LOG_CODE</a>(
+<a name='L263'> 263             <a href='../Y/3249.html' title='Multiple used in 6 places.'>fprintf</a>(<a href='../Y/3984.html' title='Multiple used in 5 places.'>pTFLogFile</a>,
+<a name='L264'> 264                     "\nMinWindow Finished:  %d Samples, MinWindowClockDelta=%f, MW-CD=%f,"
+<a name='L265'> 265                     "  ** ClockDelta Reset **\n\n",
+<a name='L266'> 266                     <a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a>, <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>, <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>-<a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>);
+<a name='L267'> 267             )
+<a name='L268'> 268 
+<a name='L269'> 269         <i><font color='green'>// Use old collected ClockDeltaDriftPerSecond drift value </font></i>
+<a name='L270'> 270         <i><font color='green'>// up to 1 minute until we collect better samples.</font></i>
+<a name='L271'> 271         <b>if</b> (!<a href='../Y/1426.html' title='Multiple used in 8 places.'>MinRecords</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>())
+<a name='L272'> 272         <font color='red'>{</font>
+<a name='L273'> 273             <a href='../Y/1536.html' title='Multiple used in 8 places.'>OldClockDeltaDriftExpire</a> = <a href='../Y/1426.html' title='Multiple used in 8 places.'>MinRecords</a>.<a href='../Y/790.html' title='Multiple used in 2 places.'>GetNewest</a>().<a href='../Y/1225.html' title='Multiple used in 4 places.'>LastSampleDeviceTime</a> -
+<a name='L274'> 274                                        <a href='../Y/1426.html' title='Multiple used in 8 places.'>MinRecords</a>.<a href='../Y/797.html' title='Multiple used in 3 places.'>GetOldest</a>().<a href='../Y/1225.html' title='Multiple used in 4 places.'>LastSampleDeviceTime</a>;
+<a name='L275'> 275             <b>if</b> (<a href='../Y/1536.html' title='Multiple used in 8 places.'>OldClockDeltaDriftExpire</a> &gt; 60.0)
+<a name='L276'> 276                 <a href='../Y/1536.html' title='Multiple used in 8 places.'>OldClockDeltaDriftExpire</a> = 60.0;
+<a name='L277'> 277             <a href='../Y/1536.html' title='Multiple used in 8 places.'>OldClockDeltaDriftExpire</a> += <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a>;           
+<a name='L278'> 278         <font color='red'>}</font>
+<a name='L279'> 279 
+<a name='L280'> 280         <i><font color='green'>// Jump to new ClockDelta value.</font></i>
+<a name='L281'> 281         <b>if</b> ((<a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> - <a href='../Y/1215.html' title='Multiple used in 6 places.'>LastLargestDeviceTime</a>) &gt; 1.0)
+<a name='L282'> 282             <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a> = <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>;
+<a name='L283'> 283         <b>else</b>
+<a name='L284'> 284             <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a> = <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>;
+<a name='L285'> 285 
+<a name='L286'> 286         <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> = 0;
+<a name='L287'> 287         <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>   = 0;
+<a name='L288'> 288 
+<a name='L289'> 289         <i><font color='green'>// Reset buffers, we'll be collecting a new MinWindow.</font></i>
+<a name='L290'> 290         <a href='../Y/1426.html' title='Multiple used in 8 places.'>MinRecords</a>.<a href='../D/965.html' title='Multiple defined in 4 places.'>Reset</a>();
+<a name='L291'> 291         <a href='../Y/1432.html' title='Multiple used in 6 places.'>MinWindowsCollected</a> = 0;
+<a name='L292'> 292         <a href='../Y/1429.html' title='Multiple used in 7 places.'>MinWindowDuration</a>   = 0.25;
+<a name='L293'> 293         <a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a>    = 0;
+<a name='L294'> 294     <font color='red'>}</font>
+<a name='L295'> 295     <b>else</b>
+<a name='L296'> 296     <font color='red'>{</font>        
+<a name='L297'> 297         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a> &gt;= <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/1427.html' title='Multiple used in 5 places.'>MinSamples</a>);
+<a name='L298'> 298 
+<a name='L299'> 299         <b>double</b> <a href='../Y/4601.html' title='Multiple used in 5 places.'>timeElapsed</a> = 0;
+<a name='L300'> 300 
+<a name='L301'> 301         <i><font color='green'>// If we have older values, use them to update clock drift in </font></i>
+<a name='L302'> 302         <i><font color='green'>// ClockDeltaDriftPerSecond</font></i>
+<a name='L303'> 303         <b>if</b> (!<a href='../Y/1426.html' title='Multiple used in 8 places.'>MinRecords</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>() &amp;&amp; (<a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> &gt; <a href='../Y/1536.html' title='Multiple used in 8 places.'>OldClockDeltaDriftExpire</a>))
+<a name='L304'> 304         <font color='red'>{</font>
+<a name='L305'> 305             <a href='../S/134.html#L144' title='Defined at 144 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>MinRecord</a> <a href='../Y/4245.html' title='Multiple used in 5 places.'>rec</a> = <a href='../Y/1426.html' title='Multiple used in 8 places.'>MinRecords</a>.<a href='../Y/797.html' title='Multiple used in 3 places.'>GetOldest</a>();
+<a name='L306'> 306 
+<a name='L307'> 307             <i><font color='green'>// Compute clock rate of drift.            </font></i>
+<a name='L308'> 308             <a href='../Y/4601.html' title='Multiple used in 5 places.'>timeElapsed</a> = <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> - <a href='../Y/4245.html' title='Multiple used in 5 places.'>rec</a>.<a href='../Y/1225.html' title='Multiple used in 4 places.'>LastSampleDeviceTime</a>;
+<a name='L309'> 309 
+<a name='L310'> 310             <i><font color='green'>// Check for divide by zero shouldn't be necessary here, but just be be safe...</font></i>
+<a name='L311'> 311             <b>if</b> (<a href='../Y/4601.html' title='Multiple used in 5 places.'>timeElapsed</a> &gt; 0.000001)
+<a name='L312'> 312             <font color='red'>{</font>
+<a name='L313'> 313                 <a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a> = (<a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a> - <a href='../Y/4245.html' title='Multiple used in 5 places.'>rec</a>.<a href='../Y/1423.html' title='Multiple used in 2 places.'>MinClockDelta</a>) / <a href='../Y/4601.html' title='Multiple used in 5 places.'>timeElapsed</a>;
+<a name='L314'> 314                 <a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a> = <a href='../Y/2847.html' title='Multiple used in 3 places.'>clampRate</a>(<a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a>,
+<a name='L315'> 315                                                       <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/1372.html' title='Multiple used in 3 places.'>MaxChangeRate</a>);
+<a name='L316'> 316             <font color='red'>}</font>
+<a name='L317'> 317             <b>else</b>
+<a name='L318'> 318             <font color='red'>{</font>
+<a name='L319'> 319                 <a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a> = 0.0;
+<a name='L320'> 320             <font color='red'>}</font>
+<a name='L321'> 321         <font color='red'>}</font>
+<a name='L322'> 322 
+<a name='L323'> 323         <a href='../Y/1426.html' title='Multiple used in 8 places.'>MinRecords</a>.<a href='../Y/42.html' title='Multiple used in 2 places.'>AddRecord</a>(<a href='../Y/3743.html' title='Multiple used in 2 places.'>newRec</a>);
+<a name='L324'> 324 
+<a name='L325'> 325 
+<a name='L326'> 326         <i><font color='green'>// Catchup correction nudges ClockDelta towards MinWindowClockDelta.</font></i>
+<a name='L327'> 327         <i><font color='green'>// These are needed because clock drift correction alone is not enough</font></i>
+<a name='L328'> 328         <i><font color='green'>// for past accumulated error/high-granularity clock delta changes.</font></i>
+<a name='L329'> 329         <i><font color='green'>// The further away we are, the stronger correction we apply.</font></i>
+<a name='L330'> 330         <i><font color='green'>// Correction has timeout, as we don't want it to overshoot in case</font></i>
+<a name='L331'> 331         <i><font color='green'>// of a large delay between samples.</font></i>
+<a name='L332'> 332        
+<a name='L333'> 333         <b>if</b> (<a href='../Y/2670.html' title='Multiple used in 5 places.'>absClockDeltaDiff</a> &gt;= 0.00125)
+<a name='L334'> 334         <font color='red'>{</font>
+<a name='L335'> 335             <i><font color='green'>// Correct large discrepancy immediately.</font></i>
+<a name='L336'> 336             <b>if</b> (<a href='../Y/2670.html' title='Multiple used in 5 places.'>absClockDeltaDiff</a> &gt; 0.00175)
+<a name='L337'> 337             <font color='red'>{</font>
+<a name='L338'> 338                 <b>if</b> (<a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a> &gt; 0)
+<a name='L339'> 339                     <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a> += (<a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a> - 0.00175);
+<a name='L340'> 340                 <b>else</b>
+<a name='L341'> 341                     <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a> += (<a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a> + 0.00175);
+<a name='L342'> 342 
+<a name='L343'> 343                 <a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a> = <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a> - <a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>;
+<a name='L344'> 344             <font color='red'>}</font>
+<a name='L345'> 345 
+<a name='L346'> 346             <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>   = <a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a>;
+<a name='L347'> 347             <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> = 1.0;
+<a name='L348'> 348         <font color='red'>}</font>            
+<a name='L349'> 349         <b>else</b> <b>if</b> (<a href='../Y/2670.html' title='Multiple used in 5 places.'>absClockDeltaDiff</a> &gt; 0.0005)
+<a name='L350'> 350         <font color='red'>{</font>                
+<a name='L351'> 351             <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>   = <a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a> / 8.0;
+<a name='L352'> 352             <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> = 8.0;
+<a name='L353'> 353         <font color='red'>}</font>
+<a name='L354'> 354         <b>else</b>
+<a name='L355'> 355         <font color='red'>{</font>                
+<a name='L356'> 356             <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>   = <a href='../Y/2853.html' title='Multiple used in 9 places.'>clockDeltaDiff</a> / 15.0;
+<a name='L357'> 357             <a href='../Y/208.html' title='Multiple used in 11 places.'>ClockDeltaCorrectSecondsLeft</a> = 15.0;
+<a name='L358'> 358         <font color='red'>}</font>
+<a name='L359'> 359 
+<a name='L360'> 360         <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a> = <a href='../Y/2847.html' title='Multiple used in 3 places.'>clampRate</a>(<a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>,
+<a name='L361'> 361                                                <a href='../Y/598.html' title='Multiple used in 10 places.'>FilterSettings</a>.<a href='../Y/1373.html' title='Multiple used in 3 places.'>MaxCorrectRate</a>);
+<a name='L362'> 362 
+<a name='L363'> 363         <a href='../D/804.html' title='Multiple defined in 2 places.'>OVR_TIMEFILTER_LOG_CODE</a>(
+<a name='L364'> 364             <a href='../Y/3249.html' title='Multiple used in 6 places.'>fprintf</a>(<a href='../Y/3984.html' title='Multiple used in 5 places.'>pTFLogFile</a>,
+<a name='L365'> 365                     "\nMinWindow Finished:  %d Samples, MinWindowClockDelta=%f, MW-CD=%f,"
+<a name='L366'> 366                     " tileElapsed=%f, ClockChange=%f, ClockCorrect=%f\n\n",
+<a name='L367'> 367                     <a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a>, <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>, <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a>-<a href='../Y/205.html' title='Multiple used in 17 places.'>ClockDelta</a>,
+<a name='L368'> 368                     <a href='../Y/4601.html' title='Multiple used in 5 places.'>timeElapsed</a>, <a href='../Y/209.html' title='Multiple used in 9 places.'>ClockDeltaDriftPerSecond</a>, <a href='../Y/207.html' title='Multiple used in 10 places.'>ClockDeltaCorrectPerSecond</a>);
+<a name='L369'> 369             )                           
+<a name='L370'> 370     <font color='red'>}</font>
+<a name='L371'> 371 
+<a name='L372'> 372     <i><font color='green'>// New MinClockDelta collection window.</font></i>
+<a name='L373'> 373     <i><font color='green'>// Switch to longer duration after first few windows.</font></i>
+<a name='L374'> 374     <a href='../Y/1432.html' title='Multiple used in 6 places.'>MinWindowsCollected</a> ++;
+<a name='L375'> 375     <b>if</b> (<a href='../Y/1432.html' title='Multiple used in 6 places.'>MinWindowsCollected</a> &gt; 5)
+<a name='L376'> 376         <a href='../Y/1429.html' title='Multiple used in 7 places.'>MinWindowDuration</a> = 0.5; 
+<a name='L377'> 377 
+<a name='L378'> 378     <a href='../Y/1428.html' title='Multiple used in 12 places.'>MinWindowClockDelta</a> = <a href='../Y/2851.html' title='Multiple used in 13 places.'>clockDelta</a>;
+<a name='L379'> 379     <a href='../Y/1430.html' title='Multiple used in 5 places.'>MinWindowLastTime</a>   = <a href='../Y/4333.html' title='Multiple used in 24 places.'>sampleDeviceTime</a> + <a href='../Y/1429.html' title='Multiple used in 7 places.'>MinWindowDuration</a>;
+<a name='L380'> 380     <a href='../Y/1431.html' title='Multiple used in 10 places.'>MinWindowSamples</a>    = 0;
+<a name='L381'> 381 <font color='red'>}</font>
+<a name='L382'> 382 
+<a name='L383'> 383 
+<a name='L384'> 384 <font color='red'>}</font> <i><font color='green'>// namespace OVR</font></i>
+<a name='L385'> 385 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L50'>[^]</a><a href='#L247'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

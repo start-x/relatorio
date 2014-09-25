@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>offset</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L584'>offset</a>            584 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp                           int offset, int count,
+<a href='../S/104.html#L644'>offset</a>            644 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[0], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, Pos));
+<a href='../S/104.html#L645'>offset</a>            645 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[1], 4, GL_UNSIGNED_BYTE, true, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, Col));
+<a href='../S/104.html#L646'>offset</a>            646 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[2], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, TexR));
+<a href='../S/104.html#L647'>offset</a>            647 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[3], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, TexG));
+<a href='../S/104.html#L648'>offset</a>            648 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[4], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, TexB));
+<a href='../S/104.html#L654'>offset</a>            654 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[0], 3, GL_FLOAT, false, sizeof(LatencyVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(LatencyVertex, Pos));
+<a href='../S/106.html#L136'>offset</a>            136 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h                           int offset, int count,
+<a href='../S/172.html#L399'>offset</a>            399 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::Seek(int offset, int origin)
+<a href='../S/172.html#L407'>offset</a>            407 ovr/sdk/src/Kernel/OVR_File.cpp             if (((unsigned(offset) + Pos)) &lt;= DataSize)
+<a href='../S/172.html#L409'>offset</a>            409 ovr/sdk/src/Kernel/OVR_File.cpp                 Pos += offset;
+<a href='../S/172.html#L416'>offset</a>            416 ovr/sdk/src/Kernel/OVR_File.cpp             OVR_ASSERT(((FilePos - DataSize + Pos) + (UInt64)offset) &lt; ~(UInt64)0);
+<a href='../S/172.html#L417'>offset</a>            417 ovr/sdk/src/Kernel/OVR_File.cpp             offset = (int)(FilePos - DataSize + Pos) + offset;
+<a href='../S/172.html#L422'>offset</a>            422 ovr/sdk/src/Kernel/OVR_File.cpp             if (((unsigned)offset - (FilePos-DataSize)) &lt;= DataSize)
+<a href='../S/172.html#L425'>offset</a>            425 ovr/sdk/src/Kernel/OVR_File.cpp                 Pos = (unsigned)offset - (unsigned)(FilePos-DataSize);
+<a href='../S/172.html#L426'>offset</a>            426 ovr/sdk/src/Kernel/OVR_File.cpp                 return offset;
+<a href='../S/172.html#L460'>offset</a>            460 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos = pFile-&gt;Seek(offset,origin);
+<a href='../S/172.html#L464'>offset</a>            464 ovr/sdk/src/Kernel/OVR_File.cpp SInt64  BufferedFile::LSeek(SInt64 offset, int origin)
+<a href='../S/172.html#L472'>offset</a>            472 ovr/sdk/src/Kernel/OVR_File.cpp             if (((unsigned(offset) + Pos)) &lt;= DataSize)
+<a href='../S/172.html#L474'>offset</a>            474 ovr/sdk/src/Kernel/OVR_File.cpp                 Pos += (unsigned)offset;
+<a href='../S/172.html#L481'>offset</a>            481 ovr/sdk/src/Kernel/OVR_File.cpp             offset = (SInt64)(FilePos - DataSize + Pos) + offset;
+<a href='../S/172.html#L486'>offset</a>            486 ovr/sdk/src/Kernel/OVR_File.cpp             if (((UInt64)offset - (FilePos-DataSize)) &lt;= DataSize)
+<a href='../S/172.html#L488'>offset</a>            488 ovr/sdk/src/Kernel/OVR_File.cpp                 Pos = (unsigned)((UInt64)offset - (FilePos-DataSize));
+<a href='../S/172.html#L489'>offset</a>            489 ovr/sdk/src/Kernel/OVR_File.cpp                 return offset;
+<a href='../S/172.html#L520'>offset</a>            520 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos = pFile-&gt;LSeek(offset,origin);
+<a href='../S/186.html#L185'>offset</a>            185 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Seek(int offset, int origin=Seek_Set) = 0;
+<a href='../S/186.html#L186'>offset</a>            186 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LSeek(SInt64 offset, int origin=Seek_Set) = 0;
+<a href='../S/186.html#L317'>offset</a>            317 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Seek(int offset, int origin=Seek_Set)       { return pFile-&gt;Seek(offset,origin); }
+<a href='../S/186.html#L318'>offset</a>            318 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LSeek(SInt64 offset, int origin=Seek_Set)   { return pFile-&gt;LSeek(offset,origin); }
+<a href='../S/186.html#L395'>offset</a>            395 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Seek(int offset, int origin=Seek_Set);
+<a href='../S/186.html#L396'>offset</a>            396 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LSeek(SInt64 offset, int origin=Seek_Set);
+<a href='../S/186.html#L475'>offset</a>            475 ovr/sdk/src/Kernel/OVR_File.h     int         Seek(int offset, int origin = Seek_Set)
+<a href='../S/186.html#L479'>offset</a>            479 ovr/sdk/src/Kernel/OVR_File.h         case Seek_Set : FileIndex  = offset;               break;
+<a href='../S/186.html#L480'>offset</a>            480 ovr/sdk/src/Kernel/OVR_File.h         case Seek_Cur : FileIndex += offset;               break;
+<a href='../S/186.html#L481'>offset</a>            481 ovr/sdk/src/Kernel/OVR_File.h         case Seek_End : FileIndex  = FileSize - offset;  break;
+<a href='../S/186.html#L487'>offset</a>            487 ovr/sdk/src/Kernel/OVR_File.h     SInt64      LSeek(SInt64 offset, int origin = Seek_Set)
+<a href='../S/186.html#L489'>offset</a>            489 ovr/sdk/src/Kernel/OVR_File.h         return (SInt64) Seek((int) offset, origin);
+<a href='../S/149.html#L173'>offset</a>            173 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual int         Seek(int offset, int origin);
+<a href='../S/149.html#L174'>offset</a>            174 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual SInt64      LSeek(SInt64 offset, int origin);
+<a href='../S/149.html#L420'>offset</a>            420 ovr/sdk/src/Kernel/OVR_FileFILE.cpp int     FILEFile::Seek(int offset, int origin)
+<a href='../S/149.html#L430'>offset</a>            430 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     if (newOrigin == SEEK_SET &amp;&amp; offset == Tell())
+<a href='../S/149.html#L433'>offset</a>            433 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     if (fseek (fs, offset, newOrigin))
+<a href='../S/149.html#L445'>offset</a>            445 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     case Seek_Set:  TestPos = offset;       break;
+<a href='../S/149.html#L446'>offset</a>            446 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     case Seek_Cur:  TestPos += offset;      break;    
+<a href='../S/149.html#L447'>offset</a>            447 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     case Seek_End:  TestPos = FileTestLength + offset; break;
+<a href='../S/149.html#L455'>offset</a>            455 ovr/sdk/src/Kernel/OVR_FileFILE.cpp SInt64  FILEFile::LSeek(SInt64 offset, int origin)
+<a href='../S/149.html#L457'>offset</a>            457 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     return Seek((int)offset,origin);
+<a href='../S/173.html#L381'>offset</a>            381 ovr/sdk/src/Kernel/OVR_Std.h     unsigned offset = table[charCode &gt;&gt; 8];
+<a href='../S/173.html#L382'>offset</a>            382 ovr/sdk/src/Kernel/OVR_Std.h     if (offset == 0) return 0;
+<a href='../S/173.html#L383'>offset</a>            383 ovr/sdk/src/Kernel/OVR_Std.h     if (offset == 1) return 1;
+<a href='../S/173.html#L384'>offset</a>            384 ovr/sdk/src/Kernel/OVR_Std.h     return (table[offset + ((charCode &gt;&gt; 4) &amp; 15)] &amp; (1 &lt;&lt; (charCode &amp; 15))) != 0;
+<a href='../S/184.html#L181'>offset</a>            181 ovr/sdk/src/Kernel/OVR_String.cpp UInt32 String::GetFirstCharAt(UPInt index, const char** offset) const
+<a href='../S/184.html#L202'>offset</a>            202 ovr/sdk/src/Kernel/OVR_String.cpp     *offset = buf;
+<a href='../S/184.html#L207'>offset</a>            207 ovr/sdk/src/Kernel/OVR_String.cpp UInt32 String::GetNextChar(const char** offset) const
+<a href='../S/184.html#L209'>offset</a>            209 ovr/sdk/src/Kernel/OVR_String.cpp     return UTF8Util::DecodeNextChar(offset);
+<a href='../S/161.html#L198'>offset</a>            198 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetFirstCharAt(UPInt index, const char** offset) const;
+<a href='../S/161.html#L199'>offset</a>            199 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetNextChar(const char** offset) const;
+<a href='../S/161.html#L449'>offset</a>            449 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetFirstCharAt(UPInt index, const char** offset) const;
+<a href='../S/161.html#L450'>offset</a>            450 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetNextChar(const char** offset) const;
+<a href='../S/156.html#L67'>offset</a>             67 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual int         Seek(int offset, int origin)                  { return -1; OVR_UNUSED2(offset, origin); }
+<a href='../S/156.html#L68'>offset</a>             68 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual SInt64      LSeek(SInt64 offset, int origin)              { return -1; OVR_UNUSED2(offset, origin); }
+<a href='../S/108.html#L904'>offset</a>            904 ovr/sdk/src/OVR_Device.h                         Vector3d offset)
+<a href='../S/108.html#L908'>offset</a>            908 ovr/sdk/src/OVR_Device.h                 Time(time), Offset(offset)
+<a href='../S/108.html#L941'>offset</a>            941 ovr/sdk/src/OVR_Device.h 						Vector3d	offset,
+<a href='../S/108.html#L944'>offset</a>            944 ovr/sdk/src/OVR_Device.h 				Offset(offset), Temperature(temperature)
+<a href='../S/192.html#L602'>offset</a>            602 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Vector3d offset = Settings.Offset * 1e4;
+<a href='../S/192.html#L603'>offset</a>            603 ovr/sdk/src/OVR_Sensor2ImplUtil.h         PackSensor(Buffer + 16, (SInt16) offset.x, (SInt16) offset.y, (SInt16) offset.z);
+<a href='../S/192.html#L655'>offset</a>            655 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Vector3d offset = Settings.Offset * 1e4;
+<a href='../S/192.html#L656'>offset</a>            656 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		PackSensor(Buffer + 4, (SInt32) offset.x, (SInt32) offset.y, (SInt32) offset.z);
+<a href='../S/88.html#L1533'>offset</a>           1533 ovr/sdk/src/OVR_Stereo.cpp     Vector2f offset( (float)renderedViewport.x / (float)renderTargetSize.w,
+<a href='../S/88.html#L1537'>offset</a>           1537 ovr/sdk/src/OVR_Stereo.cpp     result.Offset  = result.Offset.EntrywiseMultiply(scale) + offset;
+</pre>
+</body>
+</html>

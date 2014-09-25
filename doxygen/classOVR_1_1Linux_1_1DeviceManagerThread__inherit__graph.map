@@ -1,0 +1,9 @@
+<map id="OVR::Linux::DeviceManagerThread" name="OVR::Linux::DeviceManagerThread">
+<area shape="rect" id="node2" href="$classOVR_1_1Thread.html" title="{OVR::Thread\n|+ ThreadFunction\l+ UserHandle\l# ThreadFlags\l# SuspendCount\l# StackSize\l# Processor\l# Priority\l# ThreadHandle\l# ExitCode\l&#45; InitAttr\l&#45; Attr\l|+ Thread()\l+ Thread()\l+ Thread()\l+ ~Thread()\l+ Run()\l+ OnExit()\l+ Start()\l+ Exit()\l+ Suspend()\l+ Resume()\land 9 more...\l+ FinishAllThreads()\l+ GetCPUCount()\l+ GetOSPriority()\l+ Sleep()\l+ MSleep()\l# PRun()\l# FinishAndRelease()\l# Init()\l# Thread()\l}" alt="" coords="56,779,203,1282"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l Thread \&gt;\n||+ RefCountBase()\l}" alt="" coords="53,635,205,727"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="51,350,245,442"/>
+<area shape="rect" id="node9" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="145,493,324,571"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node7" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+</map>

@@ -1,0 +1,38 @@
+var Util__Render__Stereo_8cpp =
+[
+    [ "DistortionAndFov", "namespaceOVR_1_1Util_1_1Render.html#structOVR_1_1Util_1_1Render_1_1DistortionAndFov", [
+      [ "Distortion", "namespaceOVR_1_1Util_1_1Render.html#a8a14a80f7ca775068a6d269e1d4e393b", null ],
+      [ "Fov", "namespaceOVR_1_1Util_1_1Render.html#a8574faee8710a743ac1f83dcfa8d0a24", null ]
+    ] ],
+    [ "CalculateDistortionAndFovInternal", "Util__Render__Stereo_8cpp.html#ae35bc955605a520f30a2e979bba015a9", null ],
+    [ "CalculateEyeVirtualCameraOffset", "Util__Render__Stereo_8cpp.html#aaa246c217a877409789d7496d6321aaa", null ],
+    [ "CalculateRecommendedFov", "Util__Render__Stereo_8cpp.html#a10337502c538d4fa6232b15ba1d79ad5", null ],
+    [ "CalculateRecommendedTextureSize", "Util__Render__Stereo_8cpp.html#a9aad9329f1a10c521295599807593b42", null ],
+    [ "CalculateStereoEyeParams", "Util__Render__Stereo_8cpp.html#ad6b1dddd48b44385ffc63997a4b3e8d1", null ],
+    [ "CalculateStereoEyeParamsInternal", "Util__Render__Stereo_8cpp.html#ae6cb7f94b0668c6a7c5640ef9053c975", null ],
+    [ "CalculateViewportDensityInternal", "Util__Render__Stereo_8cpp.html#a2056e83957017a2e92d4fcbdef04ba16", null ],
+    [ "CalculateViewportInternal", "Util__Render__Stereo_8cpp.html#a01f2b71630c8eec04efa1806584b6488", null ],
+    [ "CalculateViewportScaleAndOffsetInternal", "Util__Render__Stereo_8cpp.html#a2910d94424da0d91817337bfba680c28", null ],
+    [ "DistortionMeshCreate", "Util__Render__Stereo_8cpp.html#a10ae49a33dfe851029e9a70c0ee8140c", null ],
+    [ "DistortionMeshCreate", "Util__Render__Stereo_8cpp.html#abedb1f3757e8d7cd7d7bd1a28a7b3df5", null ],
+    [ "DistortionMeshDestroy", "Util__Render__Stereo_8cpp.html#af39f5b39543bd3c228e585877aada43c", null ],
+    [ "GetDebugNameEyeCupType", "Util__Render__Stereo_8cpp.html#ac9111867d0f8f2ea7a46ca3d64f9804a", null ],
+    [ "GetDebugNameHmdType", "Util__Render__Stereo_8cpp.html#ad3b5ef035a0491ccc4ec17f2ca918e4b", null ],
+    [ "HeightmapMeshCreate", "Util__Render__Stereo_8cpp.html#a9bfb80b63cf1f517938ac127c035ec26", null ],
+    [ "HeightmapMeshCreate", "Util__Render__Stereo_8cpp.html#abfb7e283a5b3cc23015e6e3e8621fd47", null ],
+    [ "HeightmapMeshDestroy", "Util__Render__Stereo_8cpp.html#ac3754cc321919c893b1745095be35402", null ],
+    [ "ModifyRenderDensity", "Util__Render__Stereo_8cpp.html#af427071d18c25cf32be98a53b5718fe9", null ],
+    [ "ModifyRenderSize", "Util__Render__Stereo_8cpp.html#adc36934b50911698d5b2595f58a321dd", null ],
+    [ "ModifyRenderViewport", "Util__Render__Stereo_8cpp.html#a6e3e5c6600c3f04c13a75da1a13a8b90", null ],
+    [ "PredictionGetDeviceValues", "Util__Render__Stereo_8cpp.html#ab078410d3677f386d16c5d0a2de53fab", null ],
+    [ "TimewarpComputePoseDelta", "Util__Render__Stereo_8cpp.html#a6b81dd20ecd05287297e4f0cc07a654d", null ],
+    [ "TimewarpComputePoseDeltaPosition", "Util__Render__Stereo_8cpp.html#ade107aa43c8bb504d9d77d59f41141d0", null ],
+    [ "DMA_GridSize", "Util__Render__Stereo_8cpp.html#a54dda3d53039097378c8d8a616802555", null ],
+    [ "DMA_GridSizeLog2", "Util__Render__Stereo_8cpp.html#aba83468fe323c21002ed209a07064279", null ],
+    [ "DMA_NumTrisPerEye", "Util__Render__Stereo_8cpp.html#a6d767ef16d0d417cf6d6ff6611da2081", null ],
+    [ "DMA_NumVertsPerEye", "Util__Render__Stereo_8cpp.html#a2912a681cd5cd553f9acf13bd4f89e34", null ],
+    [ "HMA_GridSize", "Util__Render__Stereo_8cpp.html#a6217e192d6621d81072e1a51706c959f", null ],
+    [ "HMA_GridSizeLog2", "Util__Render__Stereo_8cpp.html#aacb5aa2c960f7ca5cbaf26dbb505686c", null ],
+    [ "HMA_NumTrisPerEye", "Util__Render__Stereo_8cpp.html#a5a2837a7848553b634b9d0b00fe3ad57", null ],
+    [ "HMA_NumVertsPerEye", "Util__Render__Stereo_8cpp.html#a4ad456f464a3f2de56f3fa061ab524ac", null ]
+];

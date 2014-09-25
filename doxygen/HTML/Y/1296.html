@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Locker</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/95.html#L73'>Locker</a>             73 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     Lock::Locker lock(&amp;EnumerationLock);
+<a href='../S/95.html#L90'>Locker</a>             90 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     Lock::Locker lock(&amp;EnumerationLock);
+<a href='../S/95.html#L100'>Locker</a>            100 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     Lock::Locker lock(pManager-&gt;GetHandlerLock());
+<a href='../S/95.html#L105'>Locker</a>            105 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     Lock::Locker lock(pManager-&gt;GetHandlerLock());
+<a href='../S/95.html#L111'>Locker</a>            111 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     Lock::Locker lock(pManager-&gt;GetHandlerLock());
+<a href='../S/97.html#L116'>Locker</a>            116 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     Lock::Locker lockScope(&amp;DevicesLock);
+<a href='../S/97.html#L222'>Locker</a>            222 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     Lock::Locker lockScope(&amp;DevicesLock);
+<a href='../S/97.html#L271'>Locker</a>            271 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             Lock::Locker lockScope(&amp;DevicesLock);
+<a href='../S/97.html#L313'>Locker</a>            313 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     Lock::Locker lockScope(&amp;DevicesLock);
+<a href='../S/97.html#L355'>Locker</a>            355 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     Lock::Locker lockScope(&amp;DevicesLock);
+<a href='../S/97.html#L426'>Locker</a>            426 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     Lock::Locker lockScope(&amp;DevicesLock);
+<a href='../S/145.html#L856'>Locker</a>            856 ovr/sdk/src/Kernel/OVR_Atomic.h     class Locker
+<a href='../S/145.html#L860'>Locker</a>            860 ovr/sdk/src/Kernel/OVR_Atomic.h         inline Locker(Lock *plock)
+<a href='../S/145.html#L862'>Locker</a>            862 ovr/sdk/src/Kernel/OVR_Atomic.h         inline ~Locker()
+<a href='../S/151.html#L86'>Locker</a>             86 ovr/sdk/src/Kernel/OVR_Threads.h     class Locker
+<a href='../S/151.html#L90'>Locker</a>             90 ovr/sdk/src/Kernel/OVR_Threads.h         Locker(Mutex *pmutex)
+<a href='../S/151.html#L92'>Locker</a>             92 ovr/sdk/src/Kernel/OVR_Threads.h         ~Locker()
+<a href='../S/181.html#L195'>Locker</a>            195 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     Mutex::Locker lock(&amp;StateMutex);
+<a href='../S/181.html#L221'>Locker</a>            221 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     Mutex::Locker lock(&amp;StateMutex);
+<a href='../S/181.html#L494'>Locker</a>            494 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         Mutex::Locker lock(&amp;ThreadMutex);
+<a href='../S/181.html#L500'>Locker</a>            500 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         Mutex::Locker lock(&amp;ThreadMutex);
+<a href='../S/181.html#L511'>Locker</a>            511 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         Mutex::Locker lock(&amp;ThreadMutex);
+<a href='../S/89.html#L114'>Locker</a>            114 ovr/sdk/src/OVR_DeviceHandle.cpp         Lock::Locker deviceLockScope(pImpl-&gt;GetLock());
+<a href='../S/89.html#L155'>Locker</a>            155 ovr/sdk/src/OVR_DeviceHandle.cpp     Lock::Locker           lockScope(pImpl-&gt;GetLock());
+<a href='../S/191.html#L90'>Locker</a>             90 ovr/sdk/src/OVR_DeviceImpl.cpp         Lock::Locker lockScope(pLock);
+<a href='../S/191.html#L101'>Locker</a>            101 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker lockScope(pLock);
+<a href='../S/191.html#L111'>Locker</a>            111 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker lockScope(pLock);
+<a href='../S/191.html#L137'>Locker</a>            137 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker lockScope(pLock);
+<a href='../S/191.html#L183'>Locker</a>            183 ovr/sdk/src/OVR_DeviceImpl.cpp         Lock::Locker lockedScope(handlerImpl-&gt;pLock);
+<a href='../S/191.html#L194'>Locker</a>            194 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker lockedScope(handlerImpl-&gt;pLock);
+<a href='../S/191.html#L202'>Locker</a>            202 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker lockedScope(handlerImpl-&gt;pLock);
+<a href='../S/191.html#L367'>Locker</a>            367 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker devicesLock(GetLock());
+<a href='../S/191.html#L404'>Locker</a>            404 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker           devicesLock(GetLock());
+<a href='../S/191.html#L448'>Locker</a>            448 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker deviceLock(GetLock());
+<a href='../S/191.html#L547'>Locker</a>            547 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker deviceLock(GetLock());
+<a href='../S/191.html#L562'>Locker</a>            562 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker deviceLock(GetLock());
+<a href='../S/191.html#L584'>Locker</a>            584 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker deviceLock(GetLock());
+<a href='../S/191.html#L623'>Locker</a>            623 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker deviceLock(GetLock());
+<a href='../S/191.html#L706'>Locker</a>            706 ovr/sdk/src/OVR_DeviceImpl.cpp             Lock::Locker            deviceLockScope(GetLock());
+<a href='../S/191.html#L759'>Locker</a>            759 ovr/sdk/src/OVR_DeviceImpl.cpp                     Lock::Locker lock(Desc-&gt;GetLock());
+<a href='../S/80.html#L367'>Locker</a>            367 ovr/sdk/src/OVR_DeviceImpl.h         Lock::Locker scopeLock(GetLock());
+<a href='../S/87.html#L701'>Locker</a>            701 ovr/sdk/src/OVR_LatencyTestImpl.cpp     Lock::Locker scopeLock(HandlerRef.GetLock());
+<a href='../S/87.html#L723'>Locker</a>            723 ovr/sdk/src/OVR_LatencyTestImpl.cpp     Lock::Locker scopeLock(HandlerRef.GetLock());
+<a href='../S/87.html#L744'>Locker</a>            744 ovr/sdk/src/OVR_LatencyTestImpl.cpp     Lock::Locker scopeLock(HandlerRef.GetLock());
+<a href='../S/87.html#L763'>Locker</a>            763 ovr/sdk/src/OVR_LatencyTestImpl.cpp     Lock::Locker scopeLock(HandlerRef.GetLock());
+<a href='../S/139.html#L281'>Locker</a>            281 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L323'>Locker</a>            323 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L518'>Locker</a>            518 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L536'>Locker</a>            536 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L599'>Locker</a>            599 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L631'>Locker</a>            631 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L749'>Locker</a>            749 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L789'>Locker</a>            789 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/139.html#L921'>Locker</a>            921 ovr/sdk/src/OVR_Profile.cpp     Lock::Locker lockScope(&amp;ProfileLock);
+<a href='../S/189.html#L127'>Locker</a>            127 ovr/sdk/src/OVR_SensorFusion.cpp     Lock::Locker lockScope(pHandler-&gt;GetHandlerLock());
+<a href='../S/189.html#L174'>Locker</a>            174 ovr/sdk/src/OVR_SensorFusion.cpp     Lock::Locker lockScope(pHandler-&gt;GetHandlerLock());
+<a href='../S/189.html#L242'>Locker</a>            242 ovr/sdk/src/OVR_SensorFusion.cpp     Lock::Locker lockScope(pHandler-&gt;GetHandlerLock());
+<a href='../S/189.html#L788'>Locker</a>            788 ovr/sdk/src/OVR_SensorFusion.cpp     Lock::Locker lockScope(pHandler-&gt;GetHandlerLock());
+<a href='../S/190.html#L467'>Locker</a>            467 ovr/sdk/src/OVR_SensorImpl.cpp     Lock::Locker lockScope(GetLock());
+<a href='../S/190.html#L477'>Locker</a>            477 ovr/sdk/src/OVR_SensorImpl.cpp         Lock::Locker lockScope(GetLock());
+<a href='../S/137.html#L202'>Locker</a>            202 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             Lock::Locker lock(&amp;pImpl-&gt;QueueLock);
+<a href='../S/137.html#L249'>Locker</a>            249 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     Lock::Locker lock(&amp;QueueLock);
+<a href='../S/137.html#L263'>Locker</a>            263 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             Lock::Locker lock(&amp;QueueLock);
+<a href='../S/137.html#L301'>Locker</a>            301 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         Lock::Locker lock(&amp;QueueLock);
+<a href='../S/137.html#L312'>Locker</a>            312 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     Lock::Locker lock(&amp;QueueLock);
+<a href='../S/137.html#L365'>Locker</a>            365 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         Lock::Locker lock(&amp;pImpl-&gt;QueueLock);
+<a href='../S/111.html#L170'>Locker</a>            170 ovr/sdk/src/Util/Util_ImageWindow.cpp 		Mutex::Locker locker( frontBufferMutex  );
+<a href='../S/111.html#L269'>Locker</a>            269 ovr/sdk/src/Util/Util_ImageWindow.cpp 	Mutex::Locker locker( frontBufferMutex  );
+<a href='../S/111.html#L284'>Locker</a>            284 ovr/sdk/src/Util/Util_ImageWindow.cpp 	Mutex::Locker locker( frontBufferMutex  );
+<a href='../S/111.html#L443'>Locker</a>            443 ovr/sdk/src/Util/Util_ImageWindow.cpp 		Mutex::Locker locker( frontBufferMutex );
+<a href='../S/111.html#L457'>Locker</a>            457 ovr/sdk/src/Util/Util_ImageWindow.cpp 		Mutex::Locker locker( frontBufferMutex );
+<a href='../S/111.html#L482'>Locker</a>            482 ovr/sdk/src/Util/Util_ImageWindow.cpp 		Mutex::Locker locker( frontBufferMutex );
+<a href='../S/111.html#L503'>Locker</a>            503 ovr/sdk/src/Util/Util_ImageWindow.cpp 		Mutex::Locker locker( frontBufferMutex );
+<a href='../S/118.html#L65'>Locker</a>             65 ovr/sdk/src/Util/Util_LatencyTest2.cpp     Lock::Locker devLocker(&amp;TesterLock);
+<a href='../S/118.html#L85'>Locker</a>             85 ovr/sdk/src/Util/Util_LatencyTest2.cpp     Lock::Locker devLocker(&amp;TesterLock);
+<a href='../S/118.html#L103'>Locker</a>            103 ovr/sdk/src/Util/Util_LatencyTest2.cpp     Lock::Locker devLocker(&amp;TesterLock);
+<a href='../S/118.html#L125'>Locker</a>            125 ovr/sdk/src/Util/Util_LatencyTest2.cpp     Lock::Locker devLocker(&amp;TesterLock);
+<a href='../S/118.html#L185'>Locker</a>            185 ovr/sdk/src/Util/Util_LatencyTest2.cpp     Lock::Locker devLocker(&amp;TesterLock);
+</pre>
+</body>
+</html>

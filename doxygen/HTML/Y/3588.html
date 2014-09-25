@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>locs</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L630'>locs</a>              630 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 			int* locs = new int[attributeCount];
+<a href='../S/104.html#L638'>locs</a>              638 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				locs[0] = glGetAttribLocation(prog, "Position");
+<a href='../S/104.html#L639'>locs</a>              639 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				locs[1] = glGetAttribLocation(prog, "Color");
+<a href='../S/104.html#L640'>locs</a>              640 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				locs[2] = glGetAttribLocation(prog, "TexCoord0");
+<a href='../S/104.html#L641'>locs</a>              641 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				locs[3] = glGetAttribLocation(prog, "TexCoord1");
+<a href='../S/104.html#L642'>locs</a>              642 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				locs[4] = glGetAttribLocation(prog, "TexCoord2");
+<a href='../S/104.html#L644'>locs</a>              644 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[0], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, Pos));
+<a href='../S/104.html#L645'>locs</a>              645 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[1], 4, GL_UNSIGNED_BYTE, true, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, Col));
+<a href='../S/104.html#L646'>locs</a>              646 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[2], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, TexR));
+<a href='../S/104.html#L647'>locs</a>              647 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[3], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, TexG));
+<a href='../S/104.html#L648'>locs</a>              648 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[4], 2, GL_FLOAT, false, sizeof(DistortionVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(DistortionVertex, TexB));
+<a href='../S/104.html#L652'>locs</a>              652 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				locs[0] = glGetAttribLocation(prog, "Position");
+<a href='../S/104.html#L654'>locs</a>              654 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[0], 3, GL_FLOAT, false, sizeof(LatencyVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(LatencyVertex, Pos));
+<a href='../S/104.html#L658'>locs</a>              658 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp                 glEnableVertexAttribArray(locs[i]);
+<a href='../S/104.html#L669'>locs</a>              669 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp                     glDisableVertexAttribArray(locs[i]);
+<a href='../S/104.html#L672'>locs</a>              672 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 			delete[] locs;
+</pre>
+</body>
+</html>

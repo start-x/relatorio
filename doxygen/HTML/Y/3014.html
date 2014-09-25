@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>device_handle</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/132.html#L262'>device_handle</a>     262 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                     int device_handle = open(dev_path, O_RDWR);
+<a href='../S/132.html#L263'>device_handle</a>     263 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                     if (device_handle &gt;= 0)
+<a href='../S/132.html#L266'>device_handle</a>     266 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                         Linux::HIDDevice device(this, device_handle);
+<a href='../S/132.html#L269'>device_handle</a>     269 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                         close(device_handle);  // close the file handle
+<a href='../S/132.html#L445'>device_handle</a>     445 ovr/sdk/src/OVR_Linux_HIDDevice.cpp HIDDevice::HIDDevice(HIDDeviceManager* manager, int device_handle)
+<a href='../S/132.html#L446'>device_handle</a>     446 ovr/sdk/src/OVR_Linux_HIDDevice.cpp :   InMinimalMode(true), HIDManager(manager), DeviceHandle(device_handle)
+<a href='../S/81.html#L50'>device_handle</a>      50 ovr/sdk/src/OVR_Linux_HIDDevice.h     HIDDevice(HIDDeviceManager* manager, int device_handle);
+</pre>
+</body>
+</html>

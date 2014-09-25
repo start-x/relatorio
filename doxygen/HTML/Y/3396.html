@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>handlerImpl</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/191.html#L127'>handlerImpl</a>       127 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(handler);
+<a href='../S/191.html#L128'>handlerImpl</a>       128 ovr/sdk/src/OVR_DeviceImpl.cpp     OVR_ASSERT(handlerImpl-&gt;HandlerRefsCount &lt; MessageHandlerImpl::MaxHandlerRefsCount);
+<a href='../S/191.html#L129'>handlerImpl</a>       129 ovr/sdk/src/OVR_DeviceImpl.cpp     handlerImpl-&gt;pHandlerRefs[handlerImpl-&gt;HandlerRefsCount] = this;
+<a href='../S/191.html#L130'>handlerImpl</a>       130 ovr/sdk/src/OVR_DeviceImpl.cpp     handlerImpl-&gt;HandlerRefsCount++;
+<a href='../S/191.html#L151'>handlerImpl</a>       151 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(pHandlers[idx]);
+<a href='../S/191.html#L152'>handlerImpl</a>       152 ovr/sdk/src/OVR_DeviceImpl.cpp     for (int i = 0; i &lt; handlerImpl-&gt;HandlerRefsCount; i++)
+<a href='../S/191.html#L153'>handlerImpl</a>       153 ovr/sdk/src/OVR_DeviceImpl.cpp         if (handlerImpl-&gt;pHandlerRefs[i] == this)
+<a href='../S/191.html#L155'>handlerImpl</a>       155 ovr/sdk/src/OVR_DeviceImpl.cpp             handlerImpl-&gt;pHandlerRefs[i] = handlerImpl-&gt;pHandlerRefs[handlerImpl-&gt;HandlerRefsCount - 1];
+<a href='../S/191.html#L156'>handlerImpl</a>       156 ovr/sdk/src/OVR_DeviceImpl.cpp             handlerImpl-&gt;HandlerRefsCount--;
+<a href='../S/191.html#L181'>handlerImpl</a>       181 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);
+<a href='../S/191.html#L183'>handlerImpl</a>       183 ovr/sdk/src/OVR_DeviceImpl.cpp         Lock::Locker lockedScope(handlerImpl-&gt;pLock);
+<a href='../S/191.html#L184'>handlerImpl</a>       184 ovr/sdk/src/OVR_DeviceImpl.cpp         OVR_ASSERT_LOG(handlerImpl-&gt;HandlerRefsCount == 0,
+<a href='../S/191.html#L188'>handlerImpl</a>       188 ovr/sdk/src/OVR_DeviceImpl.cpp     Destruct&lt;MessageHandlerImpl&gt;(handlerImpl);    
+<a href='../S/191.html#L193'>handlerImpl</a>       193 ovr/sdk/src/OVR_DeviceImpl.cpp     const MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);    
+<a href='../S/191.html#L194'>handlerImpl</a>       194 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker lockedScope(handlerImpl-&gt;pLock);
+<a href='../S/191.html#L196'>handlerImpl</a>       196 ovr/sdk/src/OVR_DeviceImpl.cpp     return handlerImpl-&gt;HandlerRefsCount &gt; 0;
+<a href='../S/191.html#L201'>handlerImpl</a>       201 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);
+<a href='../S/191.html#L202'>handlerImpl</a>       202 ovr/sdk/src/OVR_DeviceImpl.cpp     Lock::Locker lockedScope(handlerImpl-&gt;pLock);
+<a href='../S/191.html#L204'>handlerImpl</a>       204 ovr/sdk/src/OVR_DeviceImpl.cpp     while (handlerImpl-&gt;HandlerRefsCount &gt; 0)
+<a href='../S/191.html#L206'>handlerImpl</a>       206 ovr/sdk/src/OVR_DeviceImpl.cpp         MessageHandlerRef* use = handlerImpl-&gt;pHandlerRefs[0];
+<a href='../S/191.html#L213'>handlerImpl</a>       213 ovr/sdk/src/OVR_DeviceImpl.cpp     const MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);
+<a href='../S/191.html#L214'>handlerImpl</a>       214 ovr/sdk/src/OVR_DeviceImpl.cpp     return handlerImpl-&gt;pLock;
+</pre>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<html>
+<head>
+<title>p</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L497'>p</a>                 497 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 		Profile* p = pHMD-&gt;GetProfile();
+<a href='../S/97.html#L498'>p</a>                 498 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 		if (p)
+<a href='../S/97.html#L500'>p</a>                 500 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 			return p-&gt;GetFloatValue(propertyName, defaultVal);
+<a href='../S/97.html#L564'>p</a>                 564 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 			Profile* p = pHMD-&gt;GetProfile();
+<a href='../S/97.html#L568'>p</a>                 568 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 			if (p)
+<a href='../S/97.html#L570'>p</a>                 570 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 				unsigned count = p-&gt;GetFloatValues(propertyName, values, arraySize);
+<a href='../S/97.html#L598'>p</a>                 598 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 		Profile* p = pHMD-&gt;GetProfile();
+<a href='../S/97.html#L601'>p</a>                 601 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 		if (p &amp;&amp; p-&gt;GetValue(propertyName, LastGetStringValue, sizeof(LastGetStringValue)))
+<a href='../S/101.html#L172'>p</a>                 172 ovr/sdk/src/CAPI/CAPI_HMDState.h         const char* p = pLastError;
+<a href='../S/101.html#L174'>p</a>                 174 ovr/sdk/src/CAPI/CAPI_HMDState.h         return p;
+<a href='../S/104.html#L85'>p</a>                  85 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     LatencyVertex (const Vector3f&amp; p) : Pos(p) {}
+<a href='../S/147.html#L841'>p</a>                 841 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SwapOrder(SInt32 p)     { return (SInt32)SwapOrder(UInt32(p)); }
+<a href='../S/147.html#L854'>p</a>                 854 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    SwapOrder(float p)      
+<a href='../S/147.html#L857'>p</a>                 857 ovr/sdk/src/Kernel/OVR_Alg.h             float p;
+<a href='../S/147.html#L860'>p</a>                 860 ovr/sdk/src/Kernel/OVR_Alg.h         u.p = p;
+<a href='../S/147.html#L862'>p</a>                 862 ovr/sdk/src/Kernel/OVR_Alg.h         return u.p;
+<a href='../S/147.html#L865'>p</a>                 865 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   SwapOrder(double p)
+<a href='../S/147.html#L868'>p</a>                 868 ovr/sdk/src/Kernel/OVR_Alg.h             double p;
+<a href='../S/147.html#L871'>p</a>                 871 ovr/sdk/src/Kernel/OVR_Alg.h         u.p = p;
+<a href='../S/147.html#L873'>p</a>                 873 ovr/sdk/src/Kernel/OVR_Alg.h         return u.p;
+<a href='../S/175.html#L46'>p</a>                  46 ovr/sdk/src/Kernel/OVR_Allocator.cpp     UPInt p = (UPInt)Alloc(size+align);
+<a href='../S/175.html#L48'>p</a>                  48 ovr/sdk/src/Kernel/OVR_Allocator.cpp     if (p)
+<a href='../S/175.html#L50'>p</a>                  50 ovr/sdk/src/Kernel/OVR_Allocator.cpp         aligned = (UPInt(p) + align-1) &amp; ~(align-1);
+<a href='../S/175.html#L51'>p</a>                  51 ovr/sdk/src/Kernel/OVR_Allocator.cpp         if (aligned == p) 
+<a href='../S/175.html#L53'>p</a>                  53 ovr/sdk/src/Kernel/OVR_Allocator.cpp         *(((UPInt*)aligned)-1) = aligned-p;
+<a href='../S/175.html#L58'>p</a>                  58 ovr/sdk/src/Kernel/OVR_Allocator.cpp void Allocator::FreeAligned(void* p)
+<a href='../S/175.html#L60'>p</a>                  60 ovr/sdk/src/Kernel/OVR_Allocator.cpp     UPInt src = UPInt(p) - *(((UPInt*)p)-1);
+<a href='../S/175.html#L85'>p</a>                  85 ovr/sdk/src/Kernel/OVR_Allocator.cpp void* DefaultAllocator::Realloc(void* p, UPInt newSize)
+<a href='../S/175.html#L87'>p</a>                  87 ovr/sdk/src/Kernel/OVR_Allocator.cpp     return realloc(p, newSize);
+<a href='../S/175.html#L89'>p</a>                  89 ovr/sdk/src/Kernel/OVR_Allocator.cpp void DefaultAllocator::Free(void *p)
+<a href='../S/175.html#L91'>p</a>                  91 ovr/sdk/src/Kernel/OVR_Allocator.cpp     return free(p);
+<a href='../S/182.html#L75'>p</a>                  75 ovr/sdk/src/Kernel/OVR_Allocator.h     { void *p = OVR_ALLOC_DEBUG(sz, __FILE__, __LINE__); return p; }                                              \
+<a href='../S/182.html#L77'>p</a>                  77 ovr/sdk/src/Kernel/OVR_Allocator.h     { void* p = OVR_ALLOC_DEBUG(sz, file, line); OVR_UNUSED2(file, line); return p; }   \
+<a href='../S/182.html#L78'>p</a>                  78 ovr/sdk/src/Kernel/OVR_Allocator.h     void    operator delete(void *p)                                                    \
+<a href='../S/182.html#L79'>p</a>                  79 ovr/sdk/src/Kernel/OVR_Allocator.h     { check_delete(class_name, p); OVR_FREE(p); }                                       \
+<a href='../S/182.html#L80'>p</a>                  80 ovr/sdk/src/Kernel/OVR_Allocator.h     void    operator delete(void *p, const char*, int)                                  \
+<a href='../S/182.html#L81'>p</a>                  81 ovr/sdk/src/Kernel/OVR_Allocator.h     { check_delete(class_name, p); OVR_FREE(p); }                          
+<a href='../S/182.html#L88'>p</a>                  88 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_MEMORY_CHECK_DELETE_NONE(class_name, p)
+<a href='../S/182.html#L105'>p</a>                 105 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE T*  Construct(void *p)
+<a href='../S/182.html#L107'>p</a>                 107 ovr/sdk/src/Kernel/OVR_Allocator.h     return ::new(p) T();
+<a href='../S/182.html#L111'>p</a>                 111 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE T*  Construct(void *p, const T&amp; source)
+<a href='../S/182.html#L113'>p</a>                 113 ovr/sdk/src/Kernel/OVR_Allocator.h     return ::new(p) T(source);
+<a href='../S/182.html#L118'>p</a>                 118 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE T*  ConstructAlt(void *p, const S&amp; source)
+<a href='../S/182.html#L120'>p</a>                 120 ovr/sdk/src/Kernel/OVR_Allocator.h     return ::new(p) T(source);
+<a href='../S/182.html#L124'>p</a>                 124 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE T*  ConstructAlt(void *p, const S1&amp; src1, const S2&amp; src2)
+<a href='../S/182.html#L126'>p</a>                 126 ovr/sdk/src/Kernel/OVR_Allocator.h     return ::new(p) T(src1, src2);
+<a href='../S/182.html#L130'>p</a>                 130 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE void ConstructArray(void *p, UPInt count)
+<a href='../S/182.html#L132'>p</a>                 132 ovr/sdk/src/Kernel/OVR_Allocator.h     UByte *pdata = (UByte*)p;
+<a href='../S/182.html#L140'>p</a>                 140 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE void ConstructArray(void *p, UPInt count, const T&amp; source)
+<a href='../S/182.html#L142'>p</a>                 142 ovr/sdk/src/Kernel/OVR_Allocator.h     UByte *pdata = (UByte*)p;
+<a href='../S/182.html#L198'>p</a>                 198 ovr/sdk/src/Kernel/OVR_Allocator.h     virtual void*   Realloc(void* p, UPInt newSize) = 0;
+<a href='../S/182.html#L202'>p</a>                 202 ovr/sdk/src/Kernel/OVR_Allocator.h     virtual void    Free(void *p) = 0;
+<a href='../S/182.html#L212'>p</a>                 212 ovr/sdk/src/Kernel/OVR_Allocator.h     virtual void    FreeAligned(void* p);
+<a href='../S/182.html#L300'>p</a>                 300 ovr/sdk/src/Kernel/OVR_Allocator.h     virtual void*   Realloc(void* p, UPInt newSize);
+<a href='../S/182.html#L301'>p</a>                 301 ovr/sdk/src/Kernel/OVR_Allocator.h     virtual void    Free(void *p);
+<a href='../S/182.html#L312'>p</a>                 312 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_REALLOC(p,s)        OVR::Allocator::GetInstance()-&gt;Realloc((p),(s))
+<a href='../S/182.html#L313'>p</a>                 313 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_FREE(p)             OVR::Allocator::GetInstance()-&gt;Free((p))
+<a href='../S/182.html#L315'>p</a>                 315 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_FREE_ALIGNED(p)     OVR::Allocator::GetInstance()-&gt;FreeAligned((p))
+<a href='../S/152.html#L97'>p</a>                  97 ovr/sdk/src/Kernel/OVR_Array.h     ArrayDataBase(const SizePolicy&amp; p)
+<a href='../S/152.html#L98'>p</a>                  98 ovr/sdk/src/Kernel/OVR_Array.h         : Data(0), Size(0), Policy(p) {}
+<a href='../S/152.html#L373'>p</a>                 373 ovr/sdk/src/Kernel/OVR_Array.h     void            SetSizePolicy(const SizePolicyType&amp; p) { Data.Policy = p; }
+<a href='../S/152.html#L758'>p</a>                 758 ovr/sdk/src/Kernel/OVR_Array.h     Array(const SizePolicyType&amp; p) : BaseType() { SetSizePolicy(p); }
+<a href='../S/152.html#L780'>p</a>                 780 ovr/sdk/src/Kernel/OVR_Array.h     ArrayPOD(const SizePolicyType&amp; p) : BaseType() { SetSizePolicy(p); }
+<a href='../S/152.html#L802'>p</a>                 802 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCPP(const SizePolicyType&amp; p) : BaseType() { SetSizePolicy(p); }
+<a href='../S/152.html#L826'>p</a>                 826 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCC(const ValueType&amp; defval, const SizePolicyType&amp; p) : BaseType(defval) { SetSizePolicy(p); }
+<a href='../S/145.html#L151'>p</a>                 151 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     Exchange_NoSync(volatile T* p, T val)            { return InterlockedExchange((InterlockTPtr)p, val); }
+<a href='../S/145.html#L152'>p</a>                 152 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     ExchangeAdd_NoSync(volatile T* p, T val)         { return InterlockedExchangeAdd((InterlockTPtr)p, val); }
+<a href='../S/145.html#L153'>p</a>                 153 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile T* p, T c, T val)  { return InterlockedCompareExchange((InterlockETPtr)p, (ET)val, (ET)c) == (ET)c; }
+<a href='../S/145.html#L407'>p</a>                 407 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     Exchange_NoSync(volatile T* p, T val)            { return InterlockedExchange64((InterlockTPtr)p, val); }
+<a href='../S/145.html#L408'>p</a>                 408 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     ExchangeAdd_NoSync(volatile T* p, T val)         { return InterlockedExchangeAdd64((InterlockTPtr)p, val); }
+<a href='../S/145.html#L409'>p</a>                 409 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile T* p, T c, T val)  { return InterlockedCompareExchange64((InterlockTPtr)p, val, c) == c; }
+<a href='../S/145.html#L506'>p</a>                 506 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_NoSync(volatile O_T* p, O_T val)           { O_T old = *p; *p = val; return old; }
+<a href='../S/145.html#L508'>p</a>                 508 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_NoSync(volatile O_T* p, O_T val)        { O_T old = *p; *p += val; return old; }
+<a href='../S/145.html#L511'>p</a>                 511 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile O_T* p, O_T c, O_T val) { if (*p==c) { *p = val; return 1; } return 0; }
+<a href='../S/145.html#L518'>p</a>                 518 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Sync(volatile O_T* p, O_T val)                { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L519'>p</a>                 519 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Release(volatile O_T* p, O_T val)             { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L520'>p</a>                 520 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Acquire(volatile O_T* p, O_T val)             { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }  
+<a href='../S/145.html#L521'>p</a>                 521 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Sync(volatile O_T* p, O_T val)             { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L522'>p</a>                 522 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Release(volatile O_T* p, O_T val)          { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L523'>p</a>                 523 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Acquire(volatile O_T* p, O_T val)          { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L524'>p</a>                 524 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile O_T* p, O_T c, O_T val)    { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L525'>p</a>                 525 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Release(volatile O_T* p, O_T c, O_T val) { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L526'>p</a>                 526 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Acquire(volatile O_T* p, O_T c, O_T val) { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L532'>p</a>                 532 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile O_T* p, O_T val)  { Exchange_Release(p, val); }
+<a href='../S/145.html#L534'>p</a>                 534 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile O_T* p, O_T val)  { O_ReleaseSync sync; OVR_UNUSED(sync); *p = val; }
+<a href='../S/145.html#L536'>p</a>                 536 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Load_Acquire(const volatile O_T* p)      { O_AcquireSync sync; OVR_UNUSED(sync); return *p; }
+<a href='../S/145.html#L576'>p</a>                 576 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Sync(volatile C* p, C val)             { C2T_union u; u.c = val; u.t = Ops::Exchange_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L577'>p</a>                 577 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Release(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L578'>p</a>                 578 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Acquire(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L579'>p</a>                 579 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_NoSync(volatile C* p, C val)           { C2T_union u; u.c = val; u.t = Ops::Exchange_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L580'>p</a>                 580 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Sync(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L581'>p</a>                 581 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Release(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L582'>p</a>                 582 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Acquire(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L583'>p</a>                 583 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_NoSync(volatile C* p, C val)        { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L584'>p</a>                 584 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile C* p, C c, C val)   { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Sync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L585'>p</a>                 585 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Release(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Release((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L586'>p</a>                 586 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Relse(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Acquire((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L587'>p</a>                 587 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile C* p, C c, C val) { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_NoSync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L589'>p</a>                 589 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile C* p, C val)             { C2T_union u; u.c = val; Ops::Store_Release((PT)p, u.t); }    
+<a href='../S/145.html#L590'>p</a>                 590 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Load_Acquire(const volatile C* p)               { C2T_union u; u.t = Ops::Load_Acquire((PT)p); return u.c; }
+<a href='../S/163.html#L49'>p</a>                  49 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void* Realloc(void* p, UPInt newSize)  { return OVR_REALLOC(p, newSize); }
+<a href='../S/163.html#L50'>p</a>                  50 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void  Free(void *p)                    { OVR_FREE(p); }
+<a href='../S/163.html#L64'>p</a>                  64 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void Construct(void *p, const T&amp; source) 
+<a href='../S/163.html#L66'>p</a>                  66 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         *(T*)p = source;
+<a href='../S/163.html#L71'>p</a>                  71 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructAlt(void *p, const S&amp; source)
+<a href='../S/163.html#L73'>p</a>                  73 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         *(T*)p = source;
+<a href='../S/163.html#L78'>p</a>                  78 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count, const T&amp; source)
+<a href='../S/163.html#L80'>p</a>                  80 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         UByte *pdata = (UByte*)p;
+<a href='../S/163.html#L85'>p</a>                  85 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count, const T* psource)
+<a href='../S/163.html#L87'>p</a>                  87 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         memcpy(p, psource, sizeof(T) * count);
+<a href='../S/163.html#L115'>p</a>                 115 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void Construct(void* p) 
+<a href='../S/163.html#L117'>p</a>                 117 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR::Construct&lt;T&gt;(p);
+<a href='../S/163.html#L120'>p</a>                 120 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void Construct(void* p, const T&amp; source) 
+<a href='../S/163.html#L122'>p</a>                 122 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR::Construct&lt;T&gt;(p, source);
+<a href='../S/163.html#L127'>p</a>                 127 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructAlt(void* p, const S&amp; source)
+<a href='../S/163.html#L129'>p</a>                 129 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR::ConstructAlt&lt;T,S&gt;(p, source);
+<a href='../S/163.html#L132'>p</a>                 132 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count)
+<a href='../S/163.html#L134'>p</a>                 134 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         UByte* pdata = (UByte*)p;
+<a href='../S/163.html#L139'>p</a>                 139 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count, const T&amp; source)
+<a href='../S/163.html#L141'>p</a>                 141 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         UByte* pdata = (UByte*)p;
+<a href='../S/163.html#L146'>p</a>                 146 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count, const T* psource)
+<a href='../S/163.html#L148'>p</a>                 148 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         UByte* pdata = (UByte*)p;
+<a href='../S/163.html#L153'>p</a>                 153 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void Destruct(T* p)
+<a href='../S/163.html#L155'>p</a>                 155 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         p-&gt;~T();
+<a href='../S/163.html#L156'>p</a>                 156 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR_UNUSED(p); // Suppress silly MSVC warning
+<a href='../S/163.html#L159'>p</a>                 159 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void DestructArray(T* p, UPInt count)
+<a href='../S/163.html#L161'>p</a>                 161 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         p += count - 1;
+<a href='../S/163.html#L162'>p</a>                 162 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         for (UPInt i=0; i&lt;count; ++i, --p)
+<a href='../S/163.html#L163'>p</a>                 163 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h             p-&gt;~T();
+<a href='../S/163.html#L188'>p</a>                 188 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void Construct(void* p) 
+<a href='../S/163.html#L190'>p</a>                 190 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR::Construct&lt;T&gt;(p);        
+<a href='../S/163.html#L193'>p</a>                 193 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void Construct(void* p, const T&amp; source) 
+<a href='../S/163.html#L195'>p</a>                 195 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR::Construct&lt;T&gt;(p, source);        
+<a href='../S/163.html#L200'>p</a>                 200 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructAlt(void* p, const S&amp; source)
+<a href='../S/163.html#L202'>p</a>                 202 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR::ConstructAlt&lt;T,S&gt;(p, source);        
+<a href='../S/163.html#L205'>p</a>                 205 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count)
+<a href='../S/163.html#L207'>p</a>                 207 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         UByte* pdata = (UByte*)p;
+<a href='../S/163.html#L212'>p</a>                 212 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count, const T&amp; source)
+<a href='../S/163.html#L214'>p</a>                 214 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         UByte* pdata = (UByte*)p;
+<a href='../S/163.html#L219'>p</a>                 219 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void ConstructArray(void* p, UPInt count, const T* psource)
+<a href='../S/163.html#L221'>p</a>                 221 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         UByte* pdata = (UByte*)p;
+<a href='../S/163.html#L226'>p</a>                 226 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void Destruct(T* p)
+<a href='../S/163.html#L228'>p</a>                 228 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         p-&gt;~T();
+<a href='../S/163.html#L229'>p</a>                 229 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         OVR_UNUSED(p); // Suppress silly MSVC warning
+<a href='../S/163.html#L232'>p</a>                 232 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void DestructArray(T* p, UPInt count)
+<a href='../S/163.html#L234'>p</a>                 234 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         p += count - 1;
+<a href='../S/163.html#L235'>p</a>                 235 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         for (UPInt i=0; i&lt;count; ++i, --p)
+<a href='../S/163.html#L236'>p</a>                 236 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h             p-&gt;~T();
+<a href='../S/179.html#L101'>p</a>                 101 ovr/sdk/src/Kernel/OVR_Hash.h         unsigned char*  p = (unsigned char*) &amp;data;
+<a href='../S/179.html#L104'>p</a>                 104 ovr/sdk/src/Kernel/OVR_Hash.h         return SDBM_Hash(p, size);
+<a href='../S/179.html#L1179'>p</a>                1179 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1180'>p</a>                1180 ovr/sdk/src/Kernel/OVR_Hash.h         if (p)
+<a href='../S/179.html#L1183'>p</a>                1183 ovr/sdk/src/Kernel/OVR_Hash.h                 *pvalue = p-&gt;Second;
+<a href='../S/179.html#L1192'>p</a>                1192 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1193'>p</a>                1193 ovr/sdk/src/Kernel/OVR_Hash.h         if (p)
+<a href='../S/179.html#L1196'>p</a>                1196 ovr/sdk/src/Kernel/OVR_Hash.h                 *pvalue = p-&gt;Second;
+<a href='../S/179.html#L1207'>p</a>                1207 ovr/sdk/src/Kernel/OVR_Hash.h         HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1208'>p</a>                1208 ovr/sdk/src/Kernel/OVR_Hash.h         return p ? &amp;p-&gt;Second : 0;
+<a href='../S/179.html#L1212'>p</a>                1212 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1213'>p</a>                1213 ovr/sdk/src/Kernel/OVR_Hash.h         return p ? &amp;p-&gt;Second : 0;
+<a href='../S/179.html#L1219'>p</a>                1219 ovr/sdk/src/Kernel/OVR_Hash.h         HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1220'>p</a>                1220 ovr/sdk/src/Kernel/OVR_Hash.h         return p ? &amp;p-&gt;Second : 0;
+<a href='../S/179.html#L1225'>p</a>                1225 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1226'>p</a>                1226 ovr/sdk/src/Kernel/OVR_Hash.h         return p ? &amp;p-&gt;Second : 0;
+<a href='../S/180.html#L74'>p</a>                  74 ovr/sdk/src/Kernel/OVR_List.h     void    InsertNodeAfter(T* p)
+<a href='../S/180.html#L76'>p</a>                  76 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          = pNext-&gt;pPrev; // this
+<a href='../S/180.html#L77'>p</a>                  77 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pNext          = pNext;
+<a href='../S/180.html#L78'>p</a>                  78 ovr/sdk/src/Kernel/OVR_List.h         pNext-&gt;pPrev      = p;
+<a href='../S/180.html#L79'>p</a>                  79 ovr/sdk/src/Kernel/OVR_List.h         pNext             = p;
+<a href='../S/180.html#L82'>p</a>                  82 ovr/sdk/src/Kernel/OVR_List.h     void    InsertNodeBefore(T* p)
+<a href='../S/180.html#L84'>p</a>                  84 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pNext          = pNext-&gt;pPrev; // this
+<a href='../S/180.html#L85'>p</a>                  85 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          = pPrev;
+<a href='../S/180.html#L86'>p</a>                  86 ovr/sdk/src/Kernel/OVR_List.h         pPrev-&gt;pNext      = p;
+<a href='../S/180.html#L87'>p</a>                  87 ovr/sdk/src/Kernel/OVR_List.h         pPrev             = p;
+<a href='../S/180.html#L158'>p</a>                 158 ovr/sdk/src/Kernel/OVR_List.h     bool IsFirst(const ValueType* p) const { return p == Root.pNext; }
+<a href='../S/180.html#L159'>p</a>                 159 ovr/sdk/src/Kernel/OVR_List.h     bool IsLast (const ValueType* p) const { return p == Root.pPrev; }
+<a href='../S/180.html#L160'>p</a>                 160 ovr/sdk/src/Kernel/OVR_List.h     bool IsNull (const ValueType* p) const { return p == (const T*)(const B*)&amp;Root; }
+<a href='../S/180.html#L162'>p</a>                 162 ovr/sdk/src/Kernel/OVR_List.h     inline static const ValueType* GetPrev(const ValueType* p) { return (const ValueType*)p-&gt;pPrev; }
+<a href='../S/180.html#L163'>p</a>                 163 ovr/sdk/src/Kernel/OVR_List.h     inline static const ValueType* GetNext(const ValueType* p) { return (const ValueType*)p-&gt;pNext; }
+<a href='../S/180.html#L164'>p</a>                 164 ovr/sdk/src/Kernel/OVR_List.h     inline static       ValueType* GetPrev(      ValueType* p) { return (ValueType*)p-&gt;pPrev; }
+<a href='../S/180.html#L165'>p</a>                 165 ovr/sdk/src/Kernel/OVR_List.h     inline static       ValueType* GetNext(      ValueType* p) { return (ValueType*)p-&gt;pNext; }
+<a href='../S/180.html#L167'>p</a>                 167 ovr/sdk/src/Kernel/OVR_List.h     void PushFront(ValueType* p)
+<a href='../S/180.html#L169'>p</a>                 169 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pNext          =  Root.pNext;
+<a href='../S/180.html#L170'>p</a>                 170 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          = (ValueType*)&amp;Root;
+<a href='../S/180.html#L171'>p</a>                 171 ovr/sdk/src/Kernel/OVR_List.h         Root.pNext-&gt;pPrev =  p;
+<a href='../S/180.html#L172'>p</a>                 172 ovr/sdk/src/Kernel/OVR_List.h         Root.pNext        =  p;
+<a href='../S/180.html#L175'>p</a>                 175 ovr/sdk/src/Kernel/OVR_List.h     void PushBack(ValueType* p)
+<a href='../S/180.html#L177'>p</a>                 177 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          =  Root.pPrev;
+<a href='../S/180.html#L178'>p</a>                 178 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pNext          = (ValueType*)&amp;Root;
+<a href='../S/180.html#L179'>p</a>                 179 ovr/sdk/src/Kernel/OVR_List.h         Root.pPrev-&gt;pNext =  p;
+<a href='../S/180.html#L180'>p</a>                 180 ovr/sdk/src/Kernel/OVR_List.h         Root.pPrev        =  p;
+<a href='../S/180.html#L183'>p</a>                 183 ovr/sdk/src/Kernel/OVR_List.h     static void Remove(ValueType* p)
+<a href='../S/180.html#L185'>p</a>                 185 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev-&gt;pNext = p-&gt;pNext;
+<a href='../S/180.html#L186'>p</a>                 186 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pNext-&gt;pPrev = p-&gt;pPrev;
+<a href='../S/180.html#L189'>p</a>                 189 ovr/sdk/src/Kernel/OVR_List.h     void BringToFront(ValueType* p)
+<a href='../S/180.html#L191'>p</a>                 191 ovr/sdk/src/Kernel/OVR_List.h         Remove(p);
+<a href='../S/180.html#L192'>p</a>                 192 ovr/sdk/src/Kernel/OVR_List.h         PushFront(p);
+<a href='../S/180.html#L195'>p</a>                 195 ovr/sdk/src/Kernel/OVR_List.h     void SendToBack(ValueType* p)
+<a href='../S/180.html#L197'>p</a>                 197 ovr/sdk/src/Kernel/OVR_List.h         Remove(p);
+<a href='../S/180.html#L198'>p</a>                 198 ovr/sdk/src/Kernel/OVR_List.h         PushBack(p);
+<a href='../S/177.html#L934'>p</a>                 934 ovr/sdk/src/Kernel/OVR_Math.h     Quat PowNormalized(T p) const
+<a href='../S/177.html#L939'>p</a>                 939 ovr/sdk/src/Kernel/OVR_Math.h         return Quat(v, a * p);
+<a href='../S/177.html#L1244'>p</a>                1244 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Transform&lt;T&gt;&amp; p)
+<a href='../S/177.html#L1246'>p</a>                1246 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(p.Rotation);
+<a href='../S/177.html#L1247'>p</a>                1247 ovr/sdk/src/Kernel/OVR_Math.h         result.SetTranslation(p.Translation);
+<a href='../S/177.html#L1919'>p</a>                1919 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Transform&lt;T&gt;&amp; p)
+<a href='../S/177.html#L1921'>p</a>                1921 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(p.Rotation);
+<a href='../S/177.html#L1922'>p</a>                1922 ovr/sdk/src/Kernel/OVR_Math.h 		result.SetTranslation(p.Translation);
+<a href='../S/177.html#L2497'>p</a>                2497 ovr/sdk/src/Kernel/OVR_Math.h     Plane(const Vector3&lt;T&gt;&amp; p, const Vector3&lt;T&gt;&amp; n) : N(n), D(-(p * n)) {}
+<a href='../S/177.html#L2500'>p</a>                2500 ovr/sdk/src/Kernel/OVR_Math.h     T TestSide(const Vector3&lt;T&gt;&amp; p) const
+<a href='../S/177.html#L2502'>p</a>                2502 ovr/sdk/src/Kernel/OVR_Math.h         return (N.Dot(p)) + D;
+<a href='../S/183.html#L34'>p</a>                  34 ovr/sdk/src/Kernel/OVR_RefCount.cpp void* ReturnArg0(void* p)
+<a href='../S/183.html#L36'>p</a>                  36 ovr/sdk/src/Kernel/OVR_RefCount.cpp     return p;
+<a href='../S/166.html#L188'>p</a>                 188 ovr/sdk/src/Kernel/OVR_RefCount.h     #define OVR_REFCOUNTALLOC_CHECK_DELETE(class_name, p)   \
+<a href='../S/166.html#L189'>p</a>                 189 ovr/sdk/src/Kernel/OVR_RefCount.h         do {if (p) Base::checkInvalidDelete((class_name*)p); } while(0)
+<a href='../S/166.html#L191'>p</a>                 191 ovr/sdk/src/Kernel/OVR_RefCount.h     #define OVR_REFCOUNTALLOC_CHECK_DELETE(class_name, p)
+<a href='../S/166.html#L221'>p</a>                 221 ovr/sdk/src/Kernel/OVR_RefCount.h #define OVR_REFCOUNTALLOC_CHECK_DELETE(class_name, p)
+<a href='../S/166.html#L293'>p</a>                 293 ovr/sdk/src/Kernel/OVR_RefCount.h     explicit Pickable(T* p) : pV(p) {}
+<a href='../S/166.html#L294'>p</a>                 294 ovr/sdk/src/Kernel/OVR_RefCount.h     Pickable(T* p, PickType) : pV(p) 
+<a href='../S/166.html#L331'>p</a>                 331 ovr/sdk/src/Kernel/OVR_RefCount.h Pickable&lt;T&gt; MakePickable(T* p)
+<a href='../S/166.html#L333'>p</a>                 333 ovr/sdk/src/Kernel/OVR_RefCount.h     return Pickable&lt;T&gt;(p);
+<a href='../S/166.html#L341'>p</a>                 341 ovr/sdk/src/Kernel/OVR_RefCount.h void* ReturnArg0(void* p);
+<a href='../S/166.html#L347'>p</a>                 347 ovr/sdk/src/Kernel/OVR_RefCount.h     static C* ReturnArg(void* p) { return (C*)ReturnArg0(p); }
+<a href='../S/166.html#L550'>p</a>                 550 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; Pick(C* p)
+<a href='../S/166.html#L552'>p</a>                 552 ovr/sdk/src/Kernel/OVR_RefCount.h         if (p != pObject)
+<a href='../S/166.html#L555'>p</a>                 555 ovr/sdk/src/Kernel/OVR_RefCount.h             pObject = p;
+<a href='../S/161.html#L521'>p</a>                 521 ovr/sdk/src/Kernel/OVR_String.h     StringDataPtr(const StringDataPtr&amp; p)
+<a href='../S/161.html#L522'>p</a>                 522 ovr/sdk/src/Kernel/OVR_String.h         : pStr(p.pStr), Size(p.Size) {}
+<a href='../S/181.html#L664'>p</a>                 664 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp int Thread::GetOSPriority(ThreadPriority p)
+<a href='../S/181.html#L667'>p</a>                 667 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     OVR_UNUSED(p);
+<a href='../S/168.html#L381'>p</a>                 381 ovr/sdk/src/Kernel/OVR_Types.h #  define OVR_ASSERT(p)    ((void)0)
+<a href='../S/168.html#L408'>p</a>                 408 ovr/sdk/src/Kernel/OVR_Types.h #define OVR_ASSERT(p)           do { if (!(p))  { OVR_DEBUG_BREAK; } } while(0)
+<a href='../S/157.html#L35'>p</a>                  35 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     const char* p = buf;
+<a href='../S/157.html#L40'>p</a>                  40 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while (p - buf &lt; buflen)
+<a href='../S/157.html#L43'>p</a>                  43 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UTF8Util::DecodeNextChar_Advance0(&amp;p);
+<a href='../S/157.html#L49'>p</a>                  49 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while (UTF8Util::DecodeNextChar_Advance0(&amp;p))
+<a href='../S/157.html#L349'>p</a>                 349 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         const char* p = putf8str;
+<a href='../S/157.html#L350'>p</a>                 350 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while ((p - putf8str) &lt; bytesLen)
+<a href='../S/157.html#L352'>p</a>                 352 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UInt32 ch = DecodeNextChar_Advance0(&amp;p);
+<a href='../S/157.html#L505'>p</a>                 505 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                     const char* p = line_buffer_utf8;
+<a href='../S/157.html#L509'>p</a>                 509 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UInt32  uc = UTF8Util::DecodeNextChar(&amp;p);
+<a href='../S/157.html#L513'>p</a>                 513 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         OVR_ASSERT(p &lt; line_buffer_utf8 + LINE_SIZE);
+<a href='../S/142.html#L317'>p</a>                 317 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L318'>p</a>                 318 ovr/sdk/src/OVR_CAPI.cpp     return p-&gt;GetLastError();
+<a href='../S/142.html#L329'>p</a>                 329 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L330'>p</a>                 330 ovr/sdk/src/OVR_CAPI.cpp     return p ? p-&gt;EnabledHmdCaps : 0;
+<a href='../S/142.html#L337'>p</a>                 337 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L338'>p</a>                 338 ovr/sdk/src/OVR_CAPI.cpp     if (p)
+<a href='../S/142.html#L339'>p</a>                 339 ovr/sdk/src/OVR_CAPI.cpp         p-&gt;SetEnabledHmdCaps(capsBits);
+<a href='../S/142.html#L360'>p</a>                 360 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L362'>p</a>                 362 ovr/sdk/src/OVR_CAPI.cpp     return p-&gt;StartSensor(supportedCaps, requiredCaps);
+<a href='../S/142.html#L367'>p</a>                 367 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L368'>p</a>                 368 ovr/sdk/src/OVR_CAPI.cpp     p-&gt;StopSensor();
+<a href='../S/142.html#L373'>p</a>                 373 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L374'>p</a>                 374 ovr/sdk/src/OVR_CAPI.cpp     p-&gt;ResetSensor();
+<a href='../S/142.html#L379'>p</a>                 379 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L380'>p</a>                 380 ovr/sdk/src/OVR_CAPI.cpp     return p-&gt;PredictedSensorState(absTime);
+<a href='../S/142.html#L386'>p</a>                 386 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L387'>p</a>                 387 ovr/sdk/src/OVR_CAPI.cpp     return p-&gt;GetSensorDesc(descOut) ? 1 : 0;
+<a href='../S/142.html#L776'>p</a>                 776 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L777'>p</a>                 777 ovr/sdk/src/OVR_CAPI.cpp     rgbColorOut[0] = p-&gt;LatencyTestDrawColor[0];
+<a href='../S/142.html#L778'>p</a>                 778 ovr/sdk/src/OVR_CAPI.cpp     rgbColorOut[1] = p-&gt;LatencyTestDrawColor[1];
+<a href='../S/142.html#L779'>p</a>                 779 ovr/sdk/src/OVR_CAPI.cpp     rgbColorOut[2] = p-&gt;LatencyTestDrawColor[2];
+<a href='../S/142.html#L780'>p</a>                 780 ovr/sdk/src/OVR_CAPI.cpp     return p-&gt;LatencyTestActive;
+<a href='../S/142.html#L785'>p</a>                 785 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L786'>p</a>                 786 ovr/sdk/src/OVR_CAPI.cpp     return p-&gt;LatencyUtil.GetResultsString();
+<a href='../S/142.html#L791'>p</a>                 791 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L795'>p</a>                 795 ovr/sdk/src/OVR_CAPI.cpp     p-&gt;TimeManager.GetLatencyTimings(latencies);
+<a href='../S/142.html#L900'>p</a>                 900 ovr/sdk/src/OVR_CAPI.cpp         Profile* p = hmds-&gt;pHMD-&gt;GetProfile();
+<a href='../S/142.html#L902'>p</a>                 902 ovr/sdk/src/OVR_CAPI.cpp         if (p)
+<a href='../S/142.html#L903'>p</a>                 903 ovr/sdk/src/OVR_CAPI.cpp             return p-&gt;GetNumValues(propertyName);
+<a href='../S/142.html#L921'>p</a>                 921 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L922'>p</a>                 922 ovr/sdk/src/OVR_CAPI.cpp     return &amp;p-&gt;SFusion;
+<a href='../S/84.html#L231'>p</a>                 231 ovr/sdk/src/OVR_JSON.cpp     const char* p;
+<a href='../S/84.html#L276'>p</a>                 276 ovr/sdk/src/OVR_JSON.cpp                     p = ParseHex(&amp;uc, 4, ptr + 1);
+<a href='../S/84.html#L277'>p</a>                 277 ovr/sdk/src/OVR_JSON.cpp                     if (ptr != p)
+<a href='../S/84.html#L278'>p</a>                 278 ovr/sdk/src/OVR_JSON.cpp                         ptr = p - 1;
+<a href='../S/84.html#L289'>p</a>                 289 ovr/sdk/src/OVR_JSON.cpp                         p= ParseHex(&amp;uc2, 4, ptr + 3);
+<a href='../S/84.html#L290'>p</a>                 290 ovr/sdk/src/OVR_JSON.cpp                         if (ptr != p)
+<a href='../S/84.html#L291'>p</a>                 291 ovr/sdk/src/OVR_JSON.cpp                             ptr = p - 1;
+<a href='../S/84.html#L867'>p</a>                 867 ovr/sdk/src/OVR_JSON.cpp     for(const JSON* p = Children.GetFirst(); !Children.IsNull(p); p = p-&gt;pNext)
+<a href='../S/139.html#L403'>p</a>                 403 ovr/sdk/src/OVR_Profile.cpp     for (int p=0; p&lt;profileCount; p++)
+<a href='../S/139.html#L699'>p</a>                 699 ovr/sdk/src/OVR_Profile.cpp         Ptr&lt;Profile&gt; p = *GetTaggedProfile(tag_names, tags, 2);
+<a href='../S/139.html#L700'>p</a>                 700 ovr/sdk/src/OVR_Profile.cpp         if (p == NULL)
+<a href='../S/139.html#L702'>p</a>                 702 ovr/sdk/src/OVR_Profile.cpp             p = *GetTaggedProfile(tag_names, tags, 1);
+<a href='../S/139.html#L705'>p</a>                 705 ovr/sdk/src/OVR_Profile.cpp         if (p)
+<a href='../S/139.html#L707'>p</a>                 707 ovr/sdk/src/OVR_Profile.cpp             const char* user = p-&gt;GetValue("DefaultUser");
+<a href='../S/139.html#L738'>p</a>                 738 ovr/sdk/src/OVR_Profile.cpp         Ptr&lt;Profile&gt; p = *CreateProfile();
+<a href='../S/139.html#L739'>p</a>                 739 ovr/sdk/src/OVR_Profile.cpp         p-&gt;SetValue("DefaultUser", user);
+<a href='../S/139.html#L740'>p</a>                 740 ovr/sdk/src/OVR_Profile.cpp         return SetTaggedProfile(tag_names, tags, 2, p);
+<a href='../S/137.html#L87'>p</a>                  87 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     UByte* p = 0;
+<a href='../S/137.html#L99'>p</a>                  99 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p    = pBuffer + Head;
+<a href='../S/137.html#L104'>p</a>                 104 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p    = pBuffer;
+<a href='../S/137.html#L116'>p</a>                 116 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p    = pBuffer + Head;
+<a href='../S/137.html#L122'>p</a>                 122 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     return p;
+<a href='../S/137.html#L205'>p</a>                 205 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         virtual ThreadCommand* CopyConstruct(void* p) const 
+<a href='../S/137.html#L206'>p</a>                 206 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         { return Construct&lt;ExitCommand&gt;(p, *this); }
+<a href='../S/137.html#L212'>p</a>                 212 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         NotifyEvent* p = AvailableEvents.GetFirst();
+<a href='../S/137.html#L214'>p</a>                 214 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         if (!AvailableEvents.IsNull(p))
+<a href='../S/137.html#L215'>p</a>                 215 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p-&gt;RemoveNode();        
+<a href='../S/137.html#L217'>p</a>                 217 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p = new NotifyEvent;
+<a href='../S/137.html#L218'>p</a>                 218 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         return p;
+<a href='../S/137.html#L221'>p</a>                 221 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     void         FreeNotifyEvent_NTS(NotifyEvent* p)
+<a href='../S/137.html#L223'>p</a>                 223 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         AvailableEvents.PushBack(p);
+<a href='../S/137.html#L230'>p</a>                 230 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             NotifyEvent* p = AvailableEvents.GetFirst();
+<a href='../S/137.html#L231'>p</a>                 231 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             p-&gt;RemoveNode();
+<a href='../S/137.html#L232'>p</a>                 232 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             delete p;
+<a href='../S/83.html#L106'>p</a>                 106 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand*  CopyConstruct(void* p) const = 0;
+<a href='../S/83.html#L158'>p</a>                 158 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand* CopyConstruct(void* p) const
+<a href='../S/83.html#L159'>p</a>                 159 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return Construct&lt;ThreadCommandMF0&gt;(p, *this); }
+<a href='../S/83.html#L185'>p</a>                 185 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand* CopyConstruct(void* p) const
+<a href='../S/83.html#L186'>p</a>                 186 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return Construct&lt;ThreadCommandMF1&gt;(p, *this); }
+<a href='../S/83.html#L212'>p</a>                 212 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand* CopyConstruct(void* p) const 
+<a href='../S/83.html#L213'>p</a>                 213 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return Construct&lt;ThreadCommandMF2&gt;(p, *this); }
+<a href='../S/83.html#L274'>p</a>                 274 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(C* p, R (C::*fn)(), bool wait = false)
+<a href='../S/83.html#L275'>p</a>                 275 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF0&lt;C,R&gt;(p, fn, 0, wait)); }
+<a href='../S/83.html#L277'>p</a>                 277 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(C* p, R (C::*fn)(A0), typename SelfType&lt;A0&gt;::Type a0, bool wait = false)
+<a href='../S/83.html#L278'>p</a>                 278 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(p, fn, 0, a0, wait)); }
+<a href='../S/83.html#L280'>p</a>                 280 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(C* p, R (C::*fn)(A0, A1),
+<a href='../S/83.html#L282'>p</a>                 282 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(p, fn, 0, a0, a1, wait)); }
+<a href='../S/83.html#L302'>p</a>                 302 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(C* p, R (C::*fn)(), R* ret)
+<a href='../S/83.html#L303'>p</a>                 303 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF0&lt;C,R&gt;(p, fn, ret, true)); }
+<a href='../S/83.html#L305'>p</a>                 305 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(C* p, R (C::*fn)(A0), R* ret, typename SelfType&lt;A0&gt;::Type a0)
+<a href='../S/83.html#L306'>p</a>                 306 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(p, fn, ret, a0, true)); }
+<a href='../S/83.html#L308'>p</a>                 308 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(C* p, R (C::*fn)(A0, A1), R* ret,
+<a href='../S/83.html#L310'>p</a>                 310 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(p, fn, ret, a0, a1, true)); }
+<a href='../S/197.html#L111'>p</a>                 111 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* StrPair::ParseText( char* p, const char* endTag, int strFlags )
+<a href='../S/197.html#L115'>p</a>                 115 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char* start = p;	// fixme: hides a member
+<a href='../S/197.html#L120'>p</a>                 120 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     while ( *p ) {
+<a href='../S/197.html#L121'>p</a>                 121 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( *p == endChar &amp;&amp; strncmp( p, endTag, length ) == 0 ) {
+<a href='../S/197.html#L122'>p</a>                 122 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             Set( start, p, strFlags );
+<a href='../S/197.html#L123'>p</a>                 123 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return p + length;
+<a href='../S/197.html#L125'>p</a>                 125 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         ++p;
+<a href='../S/197.html#L131'>p</a>                 131 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* StrPair::ParseName( char* p )
+<a href='../S/197.html#L133'>p</a>                 133 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char* start = p;
+<a href='../S/197.html#L139'>p</a>                 139 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     while( *p &amp;&amp; (
+<a href='../S/197.html#L140'>p</a>                 140 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 XMLUtil::IsAlphaNum( (unsigned char) *p )
+<a href='../S/197.html#L141'>p</a>                 141 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 || *p == '_'
+<a href='../S/197.html#L142'>p</a>                 142 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 || *p == ':'
+<a href='../S/197.html#L143'>p</a>                 143 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 || (*p == '-' &amp;&amp; p&gt;start )		// can be in a name, but not lead it.
+<a href='../S/197.html#L144'>p</a>                 144 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 || (*p == '.' &amp;&amp; p&gt;start ) )) {	// can be in a name, but not lead it.
+<a href='../S/197.html#L145'>p</a>                 145 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         ++p;
+<a href='../S/197.html#L148'>p</a>                 148 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( p &gt; start ) {
+<a href='../S/197.html#L149'>p</a>                 149 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         Set( start, p, 0 );
+<a href='../S/197.html#L150'>p</a>                 150 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         return p;
+<a href='../S/197.html#L162'>p</a>                 162 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         char* p = _start;	// the read pointer
+<a href='../S/197.html#L165'>p</a>                 165 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         while( *p ) {
+<a href='../S/197.html#L166'>p</a>                 166 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( XMLUtil::IsWhiteSpace( *p )) {
+<a href='../S/197.html#L167'>p</a>                 167 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L168'>p</a>                 168 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 if ( *p == 0 ) {
+<a href='../S/197.html#L174'>p</a>                 174 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             *q = *p;
+<a href='../S/197.html#L176'>p</a>                 176 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             ++p;
+<a href='../S/197.html#L190'>p</a>                 190 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             char* p = _start;	// the read pointer
+<a href='../S/197.html#L193'>p</a>                 193 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             while( p &lt; _end ) {
+<a href='../S/197.html#L194'>p</a>                 194 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 if ( (_flags &amp; NEEDS_NEWLINE_NORMALIZATION) &amp;&amp; *p == CR ) {
+<a href='../S/197.html#L198'>p</a>                 198 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     if ( *(p+1) == LF ) {
+<a href='../S/197.html#L199'>p</a>                 199 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         p += 2;
+<a href='../S/197.html#L202'>p</a>                 202 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         ++p;
+<a href='../S/197.html#L206'>p</a>                 206 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 else if ( (_flags &amp; NEEDS_NEWLINE_NORMALIZATION) &amp;&amp; *p == LF ) {
+<a href='../S/197.html#L207'>p</a>                 207 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     if ( *(p+1) == CR ) {
+<a href='../S/197.html#L208'>p</a>                 208 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         p += 2;
+<a href='../S/197.html#L211'>p</a>                 211 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         ++p;
+<a href='../S/197.html#L215'>p</a>                 215 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 else if ( (_flags &amp; NEEDS_ENTITY_PROCESSING) &amp;&amp; *p == '&amp;' ) {
+<a href='../S/197.html#L221'>p</a>                 221 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     if ( *(p+1) == '#' ) {
+<a href='../S/197.html#L224'>p</a>                 224 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         p = const_cast&lt;char*&gt;( XMLUtil::GetCharacterRef( p, buf, &amp;len ) );
+<a href='../S/197.html#L228'>p</a>                 228 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         TIXMLASSERT( q &lt;= p );
+<a href='../S/197.html#L233'>p</a>                 233 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                             if (    strncmp( p+1, entities[i].pattern, entities[i].length ) == 0
+<a href='../S/197.html#L234'>p</a>                 234 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                                     &amp;&amp; *(p+entities[i].length+1) == ';' ) {
+<a href='../S/197.html#L238'>p</a>                 238 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                                 p += entities[i].length + 2;
+<a href='../S/197.html#L244'>p</a>                 244 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                             ++p;
+<a href='../S/197.html#L250'>p</a>                 250 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     *q = *p;
+<a href='../S/197.html#L251'>p</a>                 251 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     ++p;
+<a href='../S/197.html#L272'>p</a>                 272 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const char* XMLUtil::ReadBOM( const char* p, bool* bom )
+<a href='../S/197.html#L275'>p</a>                 275 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const unsigned char* pu = reinterpret_cast&lt;const unsigned char*&gt;(p);
+<a href='../S/197.html#L281'>p</a>                 281 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p += 3;
+<a href='../S/197.html#L283'>p</a>                 283 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L335'>p</a>                 335 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const char* XMLUtil::GetCharacterRef( const char* p, char* value, int* length )
+<a href='../S/197.html#L340'>p</a>                 340 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( *(p+1) == '#' &amp;&amp; *(p+2) ) {
+<a href='../S/197.html#L345'>p</a>                 345 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( *(p+2) == 'x' ) {
+<a href='../S/197.html#L347'>p</a>                 347 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !*(p+3) ) {
+<a href='../S/197.html#L351'>p</a>                 351 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             const char* q = p+3;
+<a href='../S/197.html#L358'>p</a>                 358 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             delta = q-p;
+<a href='../S/197.html#L380'>p</a>                 380 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !*(p+2) ) {
+<a href='../S/197.html#L384'>p</a>                 384 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             const char* q = p+2;
+<a href='../S/197.html#L391'>p</a>                 391 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             delta = q-p;
+<a href='../S/197.html#L407'>p</a>                 407 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         return p + delta + 1;
+<a href='../S/197.html#L409'>p</a>                 409 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p+1;
+<a href='../S/197.html#L495'>p</a>                 495 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLDocument::Identify( char* p, XMLNode** node )
+<a href='../S/197.html#L498'>p</a>                 498 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char* start = p;
+<a href='../S/197.html#L499'>p</a>                 499 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L500'>p</a>                 500 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if( !p || !*p ) {
+<a href='../S/197.html#L501'>p</a>                 501 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         return p;
+<a href='../S/197.html#L532'>p</a>                 532 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( XMLUtil::StringEqual( p, xmlHeader, xmlHeaderLen ) ) {
+<a href='../S/197.html#L535'>p</a>                 535 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p += xmlHeaderLen;
+<a href='../S/197.html#L537'>p</a>                 537 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     else if ( XMLUtil::StringEqual( p, commentHeader, commentHeaderLen ) ) {
+<a href='../S/197.html#L540'>p</a>                 540 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p += commentHeaderLen;
+<a href='../S/197.html#L542'>p</a>                 542 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     else if ( XMLUtil::StringEqual( p, cdataHeader, cdataHeaderLen ) ) {
+<a href='../S/197.html#L546'>p</a>                 546 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p += cdataHeaderLen;
+<a href='../S/197.html#L549'>p</a>                 549 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     else if ( XMLUtil::StringEqual( p, dtdHeader, dtdHeaderLen ) ) {
+<a href='../S/197.html#L552'>p</a>                 552 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p += dtdHeaderLen;
+<a href='../S/197.html#L554'>p</a>                 554 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     else if ( XMLUtil::StringEqual( p, elementHeader, elementHeaderLen ) ) {
+<a href='../S/197.html#L557'>p</a>                 557 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p += elementHeaderLen;
+<a href='../S/197.html#L562'>p</a>                 562 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = start;	// Back it up, all the text counts.
+<a href='../S/197.html#L566'>p</a>                 566 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L777'>p</a>                 777 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLNode::ParseDeep( char* p, StrPair* parentEnd )
+<a href='../S/197.html#L796'>p</a>                 796 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     while( p &amp;&amp; *p ) {
+<a href='../S/197.html#L799'>p</a>                 799 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = _document-&gt;Identify( p, &amp;node );
+<a href='../S/197.html#L800'>p</a>                 800 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( p == 0 || node == 0 ) {
+<a href='../S/197.html#L805'>p</a>                 805 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = node-&gt;ParseDeep( p, &amp;endTag );
+<a href='../S/197.html#L806'>p</a>                 806 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( !p ) {
+<a href='../S/197.html#L822'>p</a>                 822 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return p;
+<a href='../S/197.html#L831'>p</a>                 831 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 p = 0;
+<a href='../S/197.html#L835'>p</a>                 835 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 p = 0;
+<a href='../S/197.html#L840'>p</a>                 840 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     p = 0;
+<a href='../S/197.html#L844'>p</a>                 844 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( p == 0 ) {
+<a href='../S/197.html#L856'>p</a>                 856 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLText::ParseDeep( char* p, StrPair* )
+<a href='../S/197.html#L858'>p</a>                 858 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* start = p;
+<a href='../S/197.html#L860'>p</a>                 860 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = _value.ParseText( p, "]]&gt;", StrPair::NEEDS_NEWLINE_NORMALIZATION );
+<a href='../S/197.html#L861'>p</a>                 861 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( !p ) {
+<a href='../S/197.html#L864'>p</a>                 864 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         return p;
+<a href='../S/197.html#L872'>p</a>                 872 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = _value.ParseText( p, "&lt;", flags );
+<a href='../S/197.html#L873'>p</a>                 873 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( !p ) {
+<a href='../S/197.html#L876'>p</a>                 876 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( p &amp;&amp; *p ) {
+<a href='../S/197.html#L877'>p</a>                 877 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return p-1;
+<a href='../S/197.html#L919'>p</a>                 919 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLComment::ParseDeep( char* p, StrPair* )
+<a href='../S/197.html#L922'>p</a>                 922 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* start = p;
+<a href='../S/197.html#L923'>p</a>                 923 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = _value.ParseText( p, "--&gt;", StrPair::COMMENT );
+<a href='../S/197.html#L924'>p</a>                 924 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( p == 0 ) {
+<a href='../S/197.html#L927'>p</a>                 927 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L966'>p</a>                 966 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLDeclaration::ParseDeep( char* p, StrPair* )
+<a href='../S/197.html#L969'>p</a>                 969 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* start = p;
+<a href='../S/197.html#L970'>p</a>                 970 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = _value.ParseText( p, "?&gt;", StrPair::NEEDS_NEWLINE_NORMALIZATION );
+<a href='../S/197.html#L971'>p</a>                 971 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( p == 0 ) {
+<a href='../S/197.html#L974'>p</a>                 974 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L1012'>p</a>                1012 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLUnknown::ParseDeep( char* p, StrPair* )
+<a href='../S/197.html#L1015'>p</a>                1015 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* start = p;
+<a href='../S/197.html#L1017'>p</a>                1017 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = _value.ParseText( p, "&gt;", StrPair::NEEDS_NEWLINE_NORMALIZATION );
+<a href='../S/197.html#L1018'>p</a>                1018 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p ) {
+<a href='../S/197.html#L1021'>p</a>                1021 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L1047'>p</a>                1047 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLAttribute::ParseDeep( char* p, bool processEntities )
+<a href='../S/197.html#L1050'>p</a>                1050 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = _name.ParseName( p );
+<a href='../S/197.html#L1051'>p</a>                1051 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p || !*p ) {
+<a href='../S/197.html#L1056'>p</a>                1056 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L1057'>p</a>                1057 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p || *p != '=' ) {
+<a href='../S/197.html#L1061'>p</a>                1061 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     ++p;	// move up to opening quote
+<a href='../S/197.html#L1062'>p</a>                1062 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L1063'>p</a>                1063 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( *p != '\"' &amp;&amp; *p != '\'' ) {
+<a href='../S/197.html#L1067'>p</a>                1067 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char endTag[2] = { *p, 0 };
+<a href='../S/197.html#L1068'>p</a>                1068 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     ++p;	// move past opening quote
+<a href='../S/197.html#L1070'>p</a>                1070 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = _value.ParseText( p, endTag, processEntities ? StrPair::ATTRIBUTE_VALUE : StrPair::ATTRIBUTE_VALUE_LEAVE_ENTITIES );
+<a href='../S/197.html#L1071'>p</a>                1071 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L1346'>p</a>                1346 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLElement::ParseAttributes( char* p )
+<a href='../S/197.html#L1348'>p</a>                1348 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* start = p;
+<a href='../S/197.html#L1352'>p</a>                1352 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     while( p ) {
+<a href='../S/197.html#L1353'>p</a>                1353 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L1354'>p</a>                1354 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( !p || !(*p) ) {
+<a href='../S/197.html#L1360'>p</a>                1360 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::IsAlpha( *p ) ) {
+<a href='../S/197.html#L1365'>p</a>                1365 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             p = attrib-&gt;ParseDeep( p, _document-&gt;ProcessEntities() );
+<a href='../S/197.html#L1366'>p</a>                1366 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !p || Attribute( attrib-&gt;Name() ) ) {
+<a href='../S/197.html#L1368'>p</a>                1368 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 _document-&gt;SetError( XML_ERROR_PARSING_ATTRIBUTE, start, p );
+<a href='../S/197.html#L1385'>p</a>                1385 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         else if ( *p == '/' &amp;&amp; *(p+1) == '&gt;' ) {
+<a href='../S/197.html#L1387'>p</a>                1387 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return p+2;	// done; sealed element.
+<a href='../S/197.html#L1390'>p</a>                1390 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         else if ( *p == '&gt;' ) {
+<a href='../S/197.html#L1391'>p</a>                1391 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             ++p;
+<a href='../S/197.html#L1395'>p</a>                1395 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             _document-&gt;SetError( XML_ERROR_PARSING_ELEMENT, start, p );
+<a href='../S/197.html#L1399'>p</a>                1399 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L1407'>p</a>                1407 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLElement::ParseDeep( char* p, StrPair* strPair )
+<a href='../S/197.html#L1410'>p</a>                1410 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L1411'>p</a>                1411 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p ) {
+<a href='../S/197.html#L1418'>p</a>                1418 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( *p == '/' ) {
+<a href='../S/197.html#L1420'>p</a>                1420 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         ++p;
+<a href='../S/197.html#L1423'>p</a>                1423 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = _value.ParseName( p );
+<a href='../S/197.html#L1428'>p</a>                1428 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = ParseAttributes( p );
+<a href='../S/197.html#L1429'>p</a>                1429 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p || !*p || _closingType ) {
+<a href='../S/197.html#L1430'>p</a>                1430 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         return p;
+<a href='../S/197.html#L1433'>p</a>                1433 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLNode::ParseDeep( p, strPair );
+<a href='../S/197.html#L1434'>p</a>                1434 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return p;
+<a href='../S/197.html#L1628'>p</a>                1628 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* p = _charBuffer;
+<a href='../S/197.html#L1629'>p</a>                1629 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L1630'>p</a>                1630 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::ReadBOM( p, &amp;_writeBOM );
+<a href='../S/197.html#L1631'>p</a>                1631 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p || !*p ) {
+<a href='../S/197.html#L1636'>p</a>                1636 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     ParseDeep( _charBuffer + (p-_charBuffer), 0 );
+<a href='../S/197.html#L1668'>p</a>                1668 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLDocument::Parse( const char* p, size_t len )
+<a href='../S/197.html#L1673'>p</a>                1673 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p || !*p ) {
+<a href='../S/197.html#L1678'>p</a>                1678 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         len = strlen( p );
+<a href='../S/197.html#L1681'>p</a>                1681 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     memcpy( _charBuffer, p, len );
+<a href='../S/197.html#L1684'>p</a>                1684 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::SkipWhiteSpace( p );
+<a href='../S/197.html#L1685'>p</a>                1685 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLUtil::ReadBOM( p, &amp;_writeBOM );
+<a href='../S/197.html#L1686'>p</a>                1686 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !p || !*p ) {
+<a href='../S/197.html#L1781'>p</a>                1781 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         char* p = _buffer.PushArr( len ) - 1;
+<a href='../S/197.html#L1782'>p</a>                1782 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         memcpy( p, _accumulator.Mem(), len+1 );
+<a href='../S/197.html#L1788'>p</a>                1788 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         char* p = _buffer.PushArr( len ) - 1;
+<a href='../S/197.html#L1789'>p</a>                1789 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         vsnprintf( p, len+1, format, va );
+<a href='../S/197.html#L1804'>p</a>                1804 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PrintString( const char* p, bool restricted )
+<a href='../S/197.html#L1807'>p</a>                1807 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* q = p;
+<a href='../S/197.html#L1818'>p</a>                1818 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     while ( p &lt; q ) {
+<a href='../S/197.html#L1819'>p</a>                1819 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         Print( "%c", *p );
+<a href='../S/197.html#L1820'>p</a>                1820 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         ++p;
+<a href='../S/197.html#L1828'>p</a>                1828 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     ++p;
+<a href='../S/197.html#L1836'>p</a>                1836 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !_processEntities || (q-p &gt; 0) ) {
+<a href='../S/197.html#L1837'>p</a>                1837 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         Print( "%s", p );
+<a href='../S/196.html#L452'>p</a>                 452 ovr/sdk/third_party/tinyxml/tinyxml2.h     static const char* SkipWhiteSpace( const char* p )	{
+<a href='../S/196.html#L453'>p</a>                 453 ovr/sdk/third_party/tinyxml/tinyxml2.h         while( !IsUTF8Continuation(*p) &amp;&amp; isspace( *reinterpret_cast&lt;const unsigned char*&gt;(p) ) ) {
+<a href='../S/196.html#L454'>p</a>                 454 ovr/sdk/third_party/tinyxml/tinyxml2.h             ++p;
+<a href='../S/196.html#L456'>p</a>                 456 ovr/sdk/third_party/tinyxml/tinyxml2.h         return p;
+<a href='../S/196.html#L458'>p</a>                 458 ovr/sdk/third_party/tinyxml/tinyxml2.h     static char* SkipWhiteSpace( char* p )				{
+<a href='../S/196.html#L459'>p</a>                 459 ovr/sdk/third_party/tinyxml/tinyxml2.h         while( !IsUTF8Continuation(*p) &amp;&amp; isspace( *reinterpret_cast&lt;unsigned char*&gt;(p) ) )		{
+<a href='../S/196.html#L460'>p</a>                 460 ovr/sdk/third_party/tinyxml/tinyxml2.h             ++p;
+<a href='../S/196.html#L462'>p</a>                 462 ovr/sdk/third_party/tinyxml/tinyxml2.h         return p;
+<a href='../S/196.html#L464'>p</a>                 464 ovr/sdk/third_party/tinyxml/tinyxml2.h     static bool IsWhiteSpace( char p )					{
+<a href='../S/196.html#L465'>p</a>                 465 ovr/sdk/third_party/tinyxml/tinyxml2.h         return !IsUTF8Continuation(p) &amp;&amp; isspace( static_cast&lt;unsigned char&gt;(p) );
+<a href='../S/196.html#L468'>p</a>                 468 ovr/sdk/third_party/tinyxml/tinyxml2.h     inline static bool StringEqual( const char* p, const char* q, int nChar=INT_MAX )  {
+<a href='../S/196.html#L470'>p</a>                 470 ovr/sdk/third_party/tinyxml/tinyxml2.h         if ( p == q ) {
+<a href='../S/196.html#L473'>p</a>                 473 ovr/sdk/third_party/tinyxml/tinyxml2.h         while( *p &amp;&amp; *q &amp;&amp; *p == *q &amp;&amp; n&lt;nChar ) {
+<a href='../S/196.html#L474'>p</a>                 474 ovr/sdk/third_party/tinyxml/tinyxml2.h             ++p;
+<a href='../S/196.html#L478'>p</a>                 478 ovr/sdk/third_party/tinyxml/tinyxml2.h         if ( (n == nChar) || ( *p == 0 &amp;&amp; *q == 0 ) ) {
+<a href='../S/196.html#L483'>p</a>                 483 ovr/sdk/third_party/tinyxml/tinyxml2.h     inline static int IsUTF8Continuation( const char p ) {
+<a href='../S/196.html#L484'>p</a>                 484 ovr/sdk/third_party/tinyxml/tinyxml2.h         return p &amp; 0x80;
+<a href='../S/196.html#L493'>p</a>                 493 ovr/sdk/third_party/tinyxml/tinyxml2.h     static const char* ReadBOM( const char* p, bool* hasBOM );
+<a href='../S/196.html#L496'>p</a>                 496 ovr/sdk/third_party/tinyxml/tinyxml2.h     static const char* GetCharacterRef( const char* p, char* value, int* length );
+<a href='../S/196.html#L1062'>p</a>                1062 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseDeep( char* p, bool processEntities );
+<a href='../S/196.html#L1323'>p</a>                1323 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseDeep( char* p, StrPair* endTag );
+<a href='../S/196.html#L1336'>p</a>                1336 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseAttributes( char* p );
+<a href='../S/196.html#L1529'>p</a>                1529 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* Identify( char* p, XMLNode** node );
+</pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<map id="OVR::CAPI::GL::Texture" name="OVR::CAPI::GL::Texture">
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l Texture \&gt;\n||+ RefCountBase()\l}" alt="" coords="118,651,271,743"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="51,350,245,442"/>
+<area shape="rect" id="node8" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="145,501,324,579"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+<area shape="rect" id="node9" href="$namespaceOVR_1_1CAPI_1_1GL.html#structOVR_1_1CAPI_1_1GL_1_1RenderParams" title="{OVR::CAPI::GL::RenderParams\n|+ Multisample\l|}" alt="" coords="295,659,504,736"/>
+<area shape="rect" id="node10" href="$OVR__CAPI_8h.html#structovrSizei__" title="{ovrSizei_\n|+ w\l+ h\l|}" alt="" coords="362,494,437,586"/>
+</map>

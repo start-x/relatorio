@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>comment</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L936'>comment</a>           936 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLComment* comment = doc-&gt;NewComment( Value() );	// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L937'>comment</a>           937 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return comment;
+<a href='../S/197.html#L1550'>comment</a>          1550 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLComment* comment = new (_commentPool.Alloc()) XMLComment( this );
+<a href='../S/197.html#L1551'>comment</a>          1551 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     comment-&gt;_memPool = &amp;_commentPool;
+<a href='../S/197.html#L1552'>comment</a>          1552 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     comment-&gt;SetValue( str );
+<a href='../S/197.html#L1553'>comment</a>          1553 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return comment;
+<a href='../S/197.html#L2004'>comment</a>          2004 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushComment( const char* comment )
+<a href='../S/197.html#L2014'>comment</a>          2014 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     Print( "&lt;!--%s--&gt;", comment );
+<a href='../S/197.html#L2081'>comment</a>          2081 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLPrinter::Visit( const XMLComment&amp; comment )
+<a href='../S/197.html#L2083'>comment</a>          2083 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushComment( comment.Value() );
+<a href='../S/196.html#L1473'>comment</a>          1473 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLComment* NewComment( const char* comment );
+<a href='../S/196.html#L1845'>comment</a>          1845 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushComment( const char* comment );
+<a href='../S/196.html#L1859'>comment</a>          1859 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Visit( const XMLComment&amp; comment );
+</pre>
+</body>
+</html>

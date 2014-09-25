@@ -1,0 +1,277 @@
+<html>
+<head>
+<title>value</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L506'>value</a>             506 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::setFloatValue(const char* propertyName, float value)
+<a href='../S/97.html#L510'>value</a>             510 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         SFusion.SetCenterPupilDepth(value);
+<a href='../S/101.html#L228'>value</a>             228 ovr/sdk/src/CAPI/CAPI_HMDState.h     bool     setFloatValue(const char* propertyName, float value);
+<a href='../S/145.html#L184'>value</a>             184 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L196'>value</a>             196 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i), [r] "=&amp;b" (ret) : [i] "b" (i), [cmp] "b" (c), [val] "b" (value) : "cc", "memory");
+<a href='../S/145.html#L233'>value</a>             233 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L246'>value</a>             246 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i),[r] "=&amp;d" (ret), [o] "=&amp;d" (dummy) : [i] "d" (i), [c] "d" (c), [v] "d" (value)
+<a href='../S/145.html#L274'>value</a>             274 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L281'>value</a>             281 ovr/sdk/src/Kernel/OVR_Atomic.h             if (__strex(value, i) == 0)
+<a href='../S/145.html#L318'>value</a>             318 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L330'>value</a>             330 ovr/sdk/src/Kernel/OVR_Atomic.h             : "+m" (*i),[r] "=&amp;r" (ret), [o] "=&amp;r" (dummy), [t] "=&amp;r" (test) : [i] "r" (i), [c] "r" (c), [v] "r" (value)
+<a href='../S/145.html#L355'>value</a>             355 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L360'>value</a>             360 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i), "=a" (ret) : [i] "m" (*i), "1" (c), [v] "q" (value) : "cc", "memory");
+<a href='../S/145.html#L383'>value</a>             383 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile T *i, T c, T value)
+<a href='../S/145.html#L385'>value</a>             385 ovr/sdk/src/Kernel/OVR_Atomic.h         return __sync_bool_compare_and_swap(i, c, value);
+<a href='../S/145.html#L443'>value</a>             443 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt64 *i, UInt64 c, UInt64 value)
+<a href='../S/145.html#L455'>value</a>             455 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i), [r] "=&amp;b" (ret), [o] "=&amp;r" (dummy) : [i] "b" (i), [cmp] "b" (c), [val] "b" (value) : "cc");
+<a href='../S/145.html#L478'>value</a>             478 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile T *i, T c, T value)
+<a href='../S/145.html#L480'>value</a>             480 ovr/sdk/src/Kernel/OVR_Atomic.h         return __sync_bool_compare_and_swap(i, c, value);
+<a href='../S/179.html#L1151'>value</a>            1151 ovr/sdk/src/Kernel/OVR_Hash.h     inline void    Set(const C&amp; key, const U&amp; value)
+<a href='../S/179.html#L1153'>value</a>            1153 ovr/sdk/src/Kernel/OVR_Hash.h         typename HashNode::NodeRef e(key, value);
+<a href='../S/179.html#L1156'>value</a>            1156 ovr/sdk/src/Kernel/OVR_Hash.h     inline void    Add(const C&amp; key, const U&amp; value)
+<a href='../S/179.html#L1158'>value</a>            1158 ovr/sdk/src/Kernel/OVR_Hash.h         typename HashNode::NodeRef e(key, value);
+<a href='../S/161.html#L540'>value</a>             540 ovr/sdk/src/Kernel/OVR_String.h     bool        IsPrefix(const StringDataPtr&amp; value) const
+<a href='../S/161.html#L542'>value</a>             542 ovr/sdk/src/Kernel/OVR_String.h         return ToCStr() == value.ToCStr() &amp;&amp; GetSize() &gt;= value.GetSize();
+<a href='../S/161.html#L546'>value</a>             546 ovr/sdk/src/Kernel/OVR_String.h     bool        IsSuffix(const StringDataPtr&amp; value) const
+<a href='../S/161.html#L548'>value</a>             548 ovr/sdk/src/Kernel/OVR_String.h         return ToCStr() &lt;= value.ToCStr() &amp;&amp; (End()) == (value.End());
+<a href='../S/164.html#L84'>value</a>              84 ovr/sdk/src/Kernel/OVR_StringHash.h     void    SetCaseInsensitive(const String&amp; key, const U&amp; value)
+<a href='../S/164.html#L89'>value</a>              89 ovr/sdk/src/Kernel/OVR_StringHash.h             it-&gt;Second = value;
+<a href='../S/164.html#L93'>value</a>              93 ovr/sdk/src/Kernel/OVR_StringHash.h             BaseType::Add(key, value);
+<a href='../S/142.html#L815'>value</a>             815 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_SetFloat(ovrHmd hmd, const char* propertyName, float value)
+<a href='../S/142.html#L820'>value</a>             820 ovr/sdk/src/OVR_CAPI.cpp         return hmds-&gt;setFloatValue(propertyName, value);
+<a href='../S/187.html#L762'>value</a>             762 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool      ovrHmd_SetFloat(ovrHmd hmd, const char* propertyName, float value);
+<a href='../S/108.html#L1084'>value</a>            1084 ovr/sdk/src/OVR_Device.h     LatencyTestDisplay(UByte mode, UInt32 value)
+<a href='../S/108.html#L1085'>value</a>            1085 ovr/sdk/src/OVR_Device.h         : Mode(mode), Value(value)
+<a href='../S/78.html#L152'>value</a>             152 ovr/sdk/src/OVR_JSON.h     const char*     parseArray(const char* value, const char** perror);
+<a href='../S/78.html#L153'>value</a>             153 ovr/sdk/src/OVR_JSON.h     const char*     parseObject(const char* value, const char** perror);
+<a href='../S/139.html#L826'>value</a>             826 ovr/sdk/src/OVR_Profile.cpp         JSON* value = profile-&gt;Values[i];
+<a href='../S/139.html#L832'>value</a>             832 ovr/sdk/src/OVR_Profile.cpp             if (value-&gt;Name == item-&gt;Name)
+<a href='../S/139.html#L835'>value</a>             835 ovr/sdk/src/OVR_Profile.cpp                 OVR_ASSERT(value-&gt;Type == item-&gt;Type);
+<a href='../S/139.html#L837'>value</a>             837 ovr/sdk/src/OVR_Profile.cpp                 if (value-&gt;Type == item-&gt;Type)
+<a href='../S/139.html#L839'>value</a>             839 ovr/sdk/src/OVR_Profile.cpp                     if (value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L841'>value</a>             841 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;GetArraySize() == value-&gt;GetArraySize())
+<a href='../S/139.html#L843'>value</a>             843 ovr/sdk/src/OVR_Profile.cpp                             JSON* value_element = value-&gt;GetFirstItem();
+<a href='../S/139.html#L863'>value</a>             863 ovr/sdk/src/OVR_Profile.cpp                                 value_element = value-&gt;GetNextItem(value_element);
+<a href='../S/139.html#L872'>value</a>             872 ovr/sdk/src/OVR_Profile.cpp                     else if (value-&gt;Type == JSON_String)
+<a href='../S/139.html#L874'>value</a>             874 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;Value != value-&gt;Value)
+<a href='../S/139.html#L876'>value</a>             876 ovr/sdk/src/OVR_Profile.cpp                             item-&gt;Value = value-&gt;Value;
+<a href='../S/139.html#L881'>value</a>             881 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;dValue != value-&gt;dValue)
+<a href='../S/139.html#L883'>value</a>             883 ovr/sdk/src/OVR_Profile.cpp                             item-&gt;dValue = value-&gt;dValue;
+<a href='../S/139.html#L902'>value</a>             902 ovr/sdk/src/OVR_Profile.cpp             if (value-&gt;Type == JSON_String)
+<a href='../S/139.html#L903'>value</a>             903 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddStringItem(value-&gt;Name, value-&gt;Value);
+<a href='../S/139.html#L904'>value</a>             904 ovr/sdk/src/OVR_Profile.cpp             else if (value-&gt;Type == JSON_Bool)
+<a href='../S/139.html#L905'>value</a>             905 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddBoolItem(value-&gt;Name, (value-&gt;dValue != 0));
+<a href='../S/139.html#L906'>value</a>             906 ovr/sdk/src/OVR_Profile.cpp             else if (value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L907'>value</a>             907 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddItem(value-&gt;Name, value-&gt;Copy());
+<a href='../S/139.html#L909'>value</a>             909 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddNumberItem(value-&gt;Name, value-&gt;dValue);
+<a href='../S/139.html#L1199'>value</a>            1199 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1200'>value</a>            1200 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1202'>value</a>            1202 ovr/sdk/src/OVR_Profile.cpp         OVR_strcpy(val, val_length, value-&gt;Value.ToCStr());
+<a href='../S/139.html#L1217'>value</a>            1217 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1218'>value</a>            1218 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1220'>value</a>            1220 ovr/sdk/src/OVR_Profile.cpp         TempVal = value-&gt;Value;
+<a href='../S/139.html#L1232'>value</a>            1232 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1233'>value</a>            1233 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1235'>value</a>            1235 ovr/sdk/src/OVR_Profile.cpp         if (value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1236'>value</a>            1236 ovr/sdk/src/OVR_Profile.cpp             return value-&gt;GetArraySize();
+<a href='../S/139.html#L1247'>value</a>            1247 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1248'>value</a>            1248 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Bool)
+<a href='../S/139.html#L1249'>value</a>            1249 ovr/sdk/src/OVR_Profile.cpp         return (value-&gt;dValue != 0);
+<a href='../S/139.html#L1257'>value</a>            1257 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1258'>value</a>            1258 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1259'>value</a>            1259 ovr/sdk/src/OVR_Profile.cpp         return (int)(value-&gt;dValue);
+<a href='../S/139.html#L1267'>value</a>            1267 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1268'>value</a>            1268 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1269'>value</a>            1269 ovr/sdk/src/OVR_Profile.cpp         return (float)(value-&gt;dValue);
+<a href='../S/139.html#L1277'>value</a>            1277 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1278'>value</a>            1278 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1280'>value</a>            1280 ovr/sdk/src/OVR_Profile.cpp         int val_count = Alg::Min(value-&gt;GetArraySize(), num_vals);
+<a href='../S/139.html#L1281'>value</a>            1281 ovr/sdk/src/OVR_Profile.cpp         JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1291'>value</a>            1291 ovr/sdk/src/OVR_Profile.cpp             item = value-&gt;GetNextItem(item);
+<a href='../S/139.html#L1305'>value</a>            1305 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1306'>value</a>            1306 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1307'>value</a>            1307 ovr/sdk/src/OVR_Profile.cpp         return value-&gt;dValue;
+<a href='../S/139.html#L1315'>value</a>            1315 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1316'>value</a>            1316 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1318'>value</a>            1318 ovr/sdk/src/OVR_Profile.cpp         int val_count = Alg::Min(value-&gt;GetArraySize(), num_vals);
+<a href='../S/139.html#L1319'>value</a>            1319 ovr/sdk/src/OVR_Profile.cpp         JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1329'>value</a>            1329 ovr/sdk/src/OVR_Profile.cpp             item = value-&gt;GetNextItem(item);
+<a href='../S/139.html#L1355'>value</a>            1355 ovr/sdk/src/OVR_Profile.cpp         JSON* value = val-&gt;Copy();
+<a href='../S/139.html#L1356'>value</a>            1356 ovr/sdk/src/OVR_Profile.cpp         Values.PushBack(value);
+<a href='../S/139.html#L1357'>value</a>            1357 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(value-&gt;Name, value);
+<a href='../S/139.html#L1367'>value</a>            1367 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1368'>value</a>            1368 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1370'>value</a>            1370 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Value = val;
+<a href='../S/139.html#L1374'>value</a>            1374 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateString(val);
+<a href='../S/139.html#L1375'>value</a>            1375 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1377'>value</a>            1377 ovr/sdk/src/OVR_Profile.cpp         Values.PushBack(value);
+<a href='../S/139.html#L1378'>value</a>            1378 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1388'>value</a>            1388 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1389'>value</a>            1389 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1391'>value</a>            1391 ovr/sdk/src/OVR_Profile.cpp         value-&gt;dValue = val;
+<a href='../S/139.html#L1395'>value</a>            1395 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateBool(val);
+<a href='../S/139.html#L1396'>value</a>            1396 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1398'>value</a>            1398 ovr/sdk/src/OVR_Profile.cpp         Values.PushBack(value);
+<a href='../S/139.html#L1399'>value</a>            1399 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1418'>value</a>            1418 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1420'>value</a>            1420 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1422'>value</a>            1422 ovr/sdk/src/OVR_Profile.cpp         if (value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1425'>value</a>            1425 ovr/sdk/src/OVR_Profile.cpp             int num_existing_vals = value-&gt;GetArraySize();
+<a href='../S/139.html#L1427'>value</a>            1427 ovr/sdk/src/OVR_Profile.cpp                 value-&gt;RemoveLast();
+<a href='../S/139.html#L1429'>value</a>            1429 ovr/sdk/src/OVR_Profile.cpp             JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1435'>value</a>            1435 ovr/sdk/src/OVR_Profile.cpp                 item = value-&gt;GetNextItem(item);
+<a href='../S/139.html#L1446'>value</a>            1446 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateArray();
+<a href='../S/139.html#L1447'>value</a>            1447 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1449'>value</a>            1449 ovr/sdk/src/OVR_Profile.cpp         Values.PushBack(value);
+<a href='../S/139.html#L1450'>value</a>            1450 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1454'>value</a>            1454 ovr/sdk/src/OVR_Profile.cpp         value-&gt;AddArrayNumber(vals[val_count]);
+<a href='../S/139.html#L1460'>value</a>            1460 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1461'>value</a>            1461 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1463'>value</a>            1463 ovr/sdk/src/OVR_Profile.cpp         value-&gt;dValue = val;
+<a href='../S/139.html#L1467'>value</a>            1467 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateNumber(val);
+<a href='../S/139.html#L1468'>value</a>            1468 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1470'>value</a>            1470 ovr/sdk/src/OVR_Profile.cpp         Values.PushBack(value);
+<a href='../S/139.html#L1471'>value</a>            1471 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1478'>value</a>            1478 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1480'>value</a>            1480 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1482'>value</a>            1482 ovr/sdk/src/OVR_Profile.cpp         if (value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1485'>value</a>            1485 ovr/sdk/src/OVR_Profile.cpp             int num_existing_vals = value-&gt;GetArraySize();
+<a href='../S/139.html#L1487'>value</a>            1487 ovr/sdk/src/OVR_Profile.cpp                 value-&gt;RemoveLast();
+<a href='../S/139.html#L1489'>value</a>            1489 ovr/sdk/src/OVR_Profile.cpp             JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1495'>value</a>            1495 ovr/sdk/src/OVR_Profile.cpp                 item = value-&gt;GetNextItem(item);
+<a href='../S/139.html#L1506'>value</a>            1506 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateArray();
+<a href='../S/139.html#L1507'>value</a>            1507 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1509'>value</a>            1509 ovr/sdk/src/OVR_Profile.cpp         Values.PushBack(value);
+<a href='../S/139.html#L1510'>value</a>            1510 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1514'>value</a>            1514 ovr/sdk/src/OVR_Profile.cpp         value-&gt;AddArrayNumber(vals[val_count]);
+<a href='../S/192.html#L191'>value</a>             191 ovr/sdk/src/OVR_Sensor2ImplUtil.h                 SInt32 value = SInt32(Settings.Calibration.M[i][j] * 1e4f);
+<a href='../S/192.html#L192'>value</a>             192 ovr/sdk/src/OVR_Sensor2ImplUtil.h                 EncodeSInt32(Buffer + 4 + 4 * (4 * i + j), value);
+<a href='../S/192.html#L204'>value</a>             204 ovr/sdk/src/OVR_Sensor2ImplUtil.h                 SInt32 value = DecodeSInt32(Buffer + 4 + 4 * (4 * i + j));
+<a href='../S/192.html#L205'>value</a>             205 ovr/sdk/src/OVR_Sensor2ImplUtil.h                 Settings.Calibration.M[i][j] = (float)value * 1e-4f;
+<a href='../S/119.html#L279'>value</a>             279 ovr/sdk/src/OVR_SensorFilter.h     void Update(Vector3d value, double deltaT, Quatd deltaQ = Quatd())
+<a href='../S/119.html#L283'>value</a>             283 ovr/sdk/src/OVR_SensorFilter.h             output = value;
+<a href='../S/119.html#L290'>value</a>             290 ovr/sdk/src/OVR_SensorFilter.h             output += (value - output) * gain * deltaT;
+<a href='../S/197.html#L70'>value</a>              70 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char value;
+<a href='../S/197.html#L236'>value</a>             236 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                                 *q = entities[i].value;
+<a href='../S/197.html#L335'>value</a>             335 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const char* XMLUtil::GetCharacterRef( const char* p, char* value, int* length )
+<a href='../S/197.html#L406'>value</a>             406 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         ConvertUTF32ToUTF8( ucs, value, length );
+<a href='../S/197.html#L443'>value</a>             443 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLUtil::ToInt( const char* str, int* value )
+<a href='../S/197.html#L445'>value</a>             445 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( TIXML_SSCANF( str, "%d", value ) == 1 ) {
+<a href='../S/197.html#L451'>value</a>             451 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLUtil::ToUnsigned( const char* str, unsigned *value )
+<a href='../S/197.html#L453'>value</a>             453 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( TIXML_SSCANF( str, "%u", value ) == 1 ) {
+<a href='../S/197.html#L459'>value</a>             459 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLUtil::ToBool( const char* str, bool* value )
+<a href='../S/197.html#L463'>value</a>             463 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         *value = (ival==0) ? false : true;
+<a href='../S/197.html#L467'>value</a>             467 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         *value = true;
+<a href='../S/197.html#L471'>value</a>             471 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         *value = false;
+<a href='../S/197.html#L478'>value</a>             478 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLUtil::ToFloat( const char* str, float* value )
+<a href='../S/197.html#L480'>value</a>             480 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( TIXML_SSCANF( str, "%f", value ) == 1 ) {
+<a href='../S/197.html#L486'>value</a>             486 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLUtil::ToDouble( const char* str, double* value )
+<a href='../S/197.html#L488'>value</a>             488 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( TIXML_SSCANF( str, "%lf", value ) == 1 ) {
+<a href='../S/197.html#L725'>value</a>             725 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::FirstChildElement( const char* value ) const
+<a href='../S/197.html#L730'>value</a>             730 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !value || XMLUtil::StringEqual( element-&gt;Name(), value ) ) {
+<a href='../S/197.html#L739'>value</a>             739 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::LastChildElement( const char* value ) const
+<a href='../S/197.html#L744'>value</a>             744 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !value || XMLUtil::StringEqual( element-&gt;Name(), value ) ) {
+<a href='../S/197.html#L753'>value</a>             753 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::NextSiblingElement( const char* value ) const
+<a href='../S/197.html#L757'>value</a>             757 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 &amp;&amp; (!value || XMLUtil::StringEqual( value, element-&gt;Value() ))) {
+<a href='../S/197.html#L765'>value</a>             765 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::PreviousSiblingElement( const char* value ) const
+<a href='../S/197.html#L769'>value</a>             769 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 &amp;&amp; (!value || XMLUtil::StringEqual( value, element-&gt;Value() ))) {
+<a href='../S/197.html#L1081'>value</a>            1081 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryIntValue( int* value ) const
+<a href='../S/197.html#L1083'>value</a>            1083 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( XMLUtil::ToInt( Value(), value )) {
+<a href='../S/197.html#L1090'>value</a>            1090 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryUnsignedValue( unsigned int* value ) const
+<a href='../S/197.html#L1092'>value</a>            1092 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( XMLUtil::ToUnsigned( Value(), value )) {
+<a href='../S/197.html#L1099'>value</a>            1099 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryBoolValue( bool* value ) const
+<a href='../S/197.html#L1101'>value</a>            1101 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( XMLUtil::ToBool( Value(), value )) {
+<a href='../S/197.html#L1108'>value</a>            1108 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryFloatValue( float* value ) const
+<a href='../S/197.html#L1110'>value</a>            1110 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( XMLUtil::ToFloat( Value(), value )) {
+<a href='../S/197.html#L1117'>value</a>            1117 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryDoubleValue( double* value ) const
+<a href='../S/197.html#L1119'>value</a>            1119 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( XMLUtil::ToDouble( Value(), value )) {
+<a href='../S/197.html#L1212'>value</a>            1212 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const char* XMLElement::Attribute( const char* name, const char* value ) const
+<a href='../S/197.html#L1218'>value</a>            1218 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !value || XMLUtil::StringEqual( a-&gt;Value(), value )) {
+<a href='../S/197.html#L1748'>value</a>            1748 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         TIXMLASSERT( entities[i].value &lt; ENTITY_RANGE );
+<a href='../S/197.html#L1749'>value</a>            1749 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( entities[i].value &lt; ENTITY_RANGE ) {
+<a href='../S/197.html#L1750'>value</a>            1750 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             _entityFlag[ (int)entities[i].value ] = true;
+<a href='../S/197.html#L1823'>value</a>            1823 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         if ( entities[i].value == *q ) {
+<a href='../S/197.html#L1873'>value</a>            1873 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, const char* value )
+<a href='../S/197.html#L1877'>value</a>            1877 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PrintString( value, false );
+<a href='../S/197.html#L1964'>value</a>            1964 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushText( int value )
+<a href='../S/197.html#L1967'>value</a>            1967 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1972'>value</a>            1972 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushText( unsigned value )
+<a href='../S/197.html#L1975'>value</a>            1975 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1980'>value</a>            1980 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushText( bool value )
+<a href='../S/197.html#L1983'>value</a>            1983 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1988'>value</a>            1988 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushText( float value )
+<a href='../S/197.html#L1991'>value</a>            1991 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1996'>value</a>            1996 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushText( double value )
+<a href='../S/197.html#L1999'>value</a>            1999 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L2018'>value</a>            2018 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushDeclaration( const char* value )
+<a href='../S/197.html#L2028'>value</a>            2028 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     Print( "&lt;?%s?&gt;", value );
+<a href='../S/197.html#L2032'>value</a>            2032 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushUnknown( const char* value )
+<a href='../S/197.html#L2042'>value</a>            2042 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     Print( "&lt;!%s&gt;", value );
+<a href='../S/196.html#L496'>value</a>             496 ovr/sdk/third_party/tinyxml/tinyxml2.h     static const char* GetCharacterRef( const char* p, char* value, int* length );
+<a href='../S/196.html#L507'>value</a>             507 ovr/sdk/third_party/tinyxml/tinyxml2.h     static bool	ToInt( const char* str, int* value );
+<a href='../S/196.html#L508'>value</a>             508 ovr/sdk/third_party/tinyxml/tinyxml2.h     static bool ToUnsigned( const char* str, unsigned* value );
+<a href='../S/196.html#L509'>value</a>             509 ovr/sdk/third_party/tinyxml/tinyxml2.h     static bool	ToBool( const char* str, bool* value );
+<a href='../S/196.html#L510'>value</a>             510 ovr/sdk/third_party/tinyxml/tinyxml2.h     static bool	ToFloat( const char* str, float* value );
+<a href='../S/196.html#L511'>value</a>             511 ovr/sdk/third_party/tinyxml/tinyxml2.h     static bool ToDouble( const char* str, double* value );
+<a href='../S/196.html#L643'>value</a>             643 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLElement* FirstChildElement( const char* value=0 ) const;
+<a href='../S/196.html#L645'>value</a>             645 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLElement* FirstChildElement( const char* value=0 )	{
+<a href='../S/196.html#L646'>value</a>             646 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;FirstChildElement( value ));
+<a href='../S/196.html#L661'>value</a>             661 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLElement* LastChildElement( const char* value=0 ) const;
+<a href='../S/196.html#L663'>value</a>             663 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLElement* LastChildElement( const char* value=0 )	{
+<a href='../S/196.html#L664'>value</a>             664 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;LastChildElement(value) );
+<a href='../S/196.html#L677'>value</a>             677 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLElement*	PreviousSiblingElement( const char* value=0 ) const ;
+<a href='../S/196.html#L679'>value</a>             679 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLElement*	PreviousSiblingElement( const char* value=0 ) {
+<a href='../S/196.html#L680'>value</a>             680 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;PreviousSiblingElement( value ) );
+<a href='../S/196.html#L693'>value</a>             693 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLElement*	NextSiblingElement( const char* value=0 ) const;
+<a href='../S/196.html#L695'>value</a>             695 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLElement*	NextSiblingElement( const char* value=0 )	{
+<a href='../S/196.html#L696'>value</a>             696 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;NextSiblingElement( value ) );
+<a href='../S/196.html#L1029'>value</a>            1029 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryIntValue( int* value ) const;
+<a href='../S/196.html#L1031'>value</a>            1031 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryUnsignedValue( unsigned int* value ) const;
+<a href='../S/196.html#L1033'>value</a>            1033 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryBoolValue( bool* value ) const;
+<a href='../S/196.html#L1035'>value</a>            1035 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryDoubleValue( double* value ) const;
+<a href='../S/196.html#L1037'>value</a>            1037 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryFloatValue( float* value ) const;
+<a href='../S/196.html#L1040'>value</a>            1040 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* value );
+<a href='../S/196.html#L1042'>value</a>            1042 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( int value );
+<a href='../S/196.html#L1044'>value</a>            1044 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( unsigned value );
+<a href='../S/196.html#L1046'>value</a>            1046 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( bool value );
+<a href='../S/196.html#L1048'>value</a>            1048 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( double value );
+<a href='../S/196.html#L1050'>value</a>            1050 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( float value );
+<a href='../S/196.html#L1120'>value</a>            1120 ovr/sdk/third_party/tinyxml/tinyxml2.h     const char* Attribute( const char* name, const char* value=0 ) const;
+<a href='../S/196.html#L1170'>value</a>            1170 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryIntAttribute( const char* name, int* value ) const				{
+<a href='../S/196.html#L1175'>value</a>            1175 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryIntValue( value );
+<a href='../S/196.html#L1178'>value</a>            1178 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryUnsignedAttribute( const char* name, unsigned int* value ) const	{
+<a href='../S/196.html#L1183'>value</a>            1183 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryUnsignedValue( value );
+<a href='../S/196.html#L1186'>value</a>            1186 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryBoolAttribute( const char* name, bool* value ) const				{
+<a href='../S/196.html#L1191'>value</a>            1191 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryBoolValue( value );
+<a href='../S/196.html#L1194'>value</a>            1194 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryDoubleAttribute( const char* name, double* value ) const			{
+<a href='../S/196.html#L1199'>value</a>            1199 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryDoubleValue( value );
+<a href='../S/196.html#L1202'>value</a>            1202 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryFloatAttribute( const char* name, float* value ) const			{
+<a href='../S/196.html#L1207'>value</a>            1207 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryFloatValue( value );
+<a href='../S/196.html#L1211'>value</a>            1211 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, const char* value )	{
+<a href='../S/196.html#L1213'>value</a>            1213 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1216'>value</a>            1216 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, int value )			{
+<a href='../S/196.html#L1218'>value</a>            1218 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1221'>value</a>            1221 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, unsigned value )		{
+<a href='../S/196.html#L1223'>value</a>            1223 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1226'>value</a>            1226 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, bool value )			{
+<a href='../S/196.html#L1228'>value</a>            1228 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1231'>value</a>            1231 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, double value )		{
+<a href='../S/196.html#L1233'>value</a>            1233 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1639'>value</a>            1639 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLHandle FirstChildElement( const char* value=0 )						{
+<a href='../S/196.html#L1640'>value</a>            1640 ovr/sdk/third_party/tinyxml/tinyxml2.h         return XMLHandle( _node ? _node-&gt;FirstChildElement( value ) : 0 );
+<a href='../S/196.html#L1718'>value</a>            1718 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLConstHandle FirstChildElement( const char* value=0 ) const				{
+<a href='../S/196.html#L1719'>value</a>            1719 ovr/sdk/third_party/tinyxml/tinyxml2.h         return XMLConstHandle( _node ? _node-&gt;FirstChildElement( value ) : 0 );
+<a href='../S/196.html#L1823'>value</a>            1823 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, const char* value );
+<a href='../S/196.html#L1824'>value</a>            1824 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, int value );
+<a href='../S/196.html#L1825'>value</a>            1825 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, unsigned value );
+<a href='../S/196.html#L1826'>value</a>            1826 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, bool value );
+<a href='../S/196.html#L1827'>value</a>            1827 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, double value );
+<a href='../S/196.html#L1834'>value</a>            1834 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushText( int value );
+<a href='../S/196.html#L1836'>value</a>            1836 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushText( unsigned value );
+<a href='../S/196.html#L1838'>value</a>            1838 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushText( bool value );
+<a href='../S/196.html#L1840'>value</a>            1840 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushText( float value );
+<a href='../S/196.html#L1842'>value</a>            1842 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushText( double value );
+<a href='../S/196.html#L1847'>value</a>            1847 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushDeclaration( const char* value );
+<a href='../S/196.html#L1848'>value</a>            1848 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushUnknown( const char* value );
+</pre>
+</body>
+</html>

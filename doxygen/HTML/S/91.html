@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_HIDDeviceBase.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_HIDDeviceBase.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/98.html' title='Multiple included from 2 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   OVR.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_HIDDeviceBase.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Definition of HID device interface.</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   March 11, 2013</font></i>
+<a name='L7'>   7 <i><font color='green'>Authors     :   Lee Cooper</font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#ifndef</font> <a href='../S/91.html#L29' title='Defined at 29 in ovr/sdk/src/OVR_HIDDeviceBase.h.'>OVR_HIDDeviceBase_h</a>
+<a name='L29'>  29 <font color='darkred'>#define</font> <a href='../S/91.html#L28' title='Refered from 28 in ovr/sdk/src/OVR_HIDDeviceBase.h.'>OVR_HIDDeviceBase_h</a>
+<a name='L30'>  30 
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='168.html'>Kernel/OVR_Types.h</a>"
+<a name='L32'>  32 
+<a name='L33'>  33 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L34'>  34 
+<a name='L35'>  35 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L36'>  36 <i><font color='green'>// ***** HIDDeviceBase</font></i>
+<a name='L37'>  37 
+<a name='L38'>  38 <i><font color='green'>// Base interface for HID devices.</font></i>
+<a name='L39'>  39 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/851.html' title='Multiple used in 5 places.'>HIDDeviceBase</a>
+<a name='L40'>  40 <font color='red'>{</font>
+<a name='L41'>  41 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L42'>  42 
+<a name='L43'>  43     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> ~<a href='../Y/851.html' title='Multiple used in 5 places.'>HIDDeviceBase</a>() <font color='red'>{</font> <font color='red'>}</font>
+<a name='L44'>  44 
+<a name='L45'>  45     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/132.html#L634' title='Defined at 634 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>SetFeatureReport</a>(<a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>) = 0;
+<a name='L46'>  46     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/132.html#L654' title='Defined at 654 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>GetFeatureReport</a>(<a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>) = 0;
+<a name='L47'>  47 <font color='red'>}</font>;
+<a name='L48'>  48 
+<a name='L49'>  49 <font color='red'>}</font> <i><font color='green'>// namespace OVR</font></i>
+<a name='L50'>  50 
+<a name='L51'>  51 <font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

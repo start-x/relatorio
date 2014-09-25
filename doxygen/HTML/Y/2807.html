@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>calibrationColor</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L1118'>calibrationColor</a> 1118 ovr/sdk/src/OVR_Device.h     virtual bool SetCalibrate(const Color&amp; calibrationColor, bool waitFlag = false) = 0;
+<a href='../S/87.html#L309'>calibrationColor</a>  309 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestCalibrateImpl(const Color&amp; calibrationColor)
+<a href='../S/87.html#L310'>calibrationColor</a>  310 ovr/sdk/src/OVR_LatencyTestImpl.cpp         : CalibrationColor(calibrationColor)
+<a href='../S/87.html#L611'>calibrationColor</a>  611 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool LatencyTestDeviceImpl::SetCalibrate(const Color&amp; calibrationColor, bool waitFlag)
+<a href='../S/87.html#L618'>calibrationColor</a>  618 ovr/sdk/src/OVR_LatencyTestImpl.cpp         return queue-&gt;PushCall(this, &amp;LatencyTestDeviceImpl::setCalibrate, calibrationColor);
+<a href='../S/87.html#L624'>calibrationColor</a>  624 ovr/sdk/src/OVR_LatencyTestImpl.cpp                                         calibrationColor))
+<a href='../S/87.html#L632'>calibrationColor</a>  632 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool LatencyTestDeviceImpl::setCalibrate(const Color&amp; calibrationColor)
+<a href='../S/87.html#L634'>calibrationColor</a>  634 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestCalibrateImpl ltc(calibrationColor);
+<a href='../S/122.html#L115'>calibrationColor</a>  115 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual bool SetCalibrate(const Color&amp; calibrationColor, bool waitFlag = false);
+<a href='../S/122.html#L130'>calibrationColor</a>  130 ovr/sdk/src/OVR_LatencyTestImpl.h     bool    setCalibrate(const Color&amp; calibrationColor);
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+var OVR__Profile_8h =
+[
+    [ "ProfileManager", "classOVR_1_1ProfileManager.html", "classOVR_1_1ProfileManager" ],
+    [ "Profile", "classOVR_1_1Profile.html", "classOVR_1_1Profile" ],
+    [ "OVR_DEFAULT_EYE_HEIGHT", "OVR__Profile_8h.html#a05baee745c4ef016c15dda2b2ab9d561", null ],
+    [ "OVR_DEFAULT_EYE_RELIEF_DIAL", "OVR__Profile_8h.html#a5bd3600ee2065fb2fb0e8cae185cf355", null ],
+    [ "OVR_DEFAULT_GENDER", "OVR__Profile_8h.html#a172b6ce818eb44ff09b4afcf2d28066e", null ],
+    [ "OVR_DEFAULT_IPD", "OVR__Profile_8h.html#a7717d0c9497e8396a7b1551a4130ec4a", null ],
+    [ "OVR_DEFAULT_NECK_TO_EYE_HORIZONTAL", "OVR__Profile_8h.html#a1e14f42402b28d850feb9ca246b50510", null ],
+    [ "OVR_DEFAULT_NECK_TO_EYE_VERTICAL", "OVR__Profile_8h.html#af0eff519187dcfeb3aca85b9c68ee805", null ],
+    [ "OVR_DEFAULT_PLAYER_HEIGHT", "OVR__Profile_8h.html#abc6d1e9c7bddf083e9f3a402c9107ac0", null ],
+    [ "OVR_KEY_CUSTOM_EYE_RENDER", "OVR__Profile_8h.html#a039a4bcac46d8275db4684dde65a688f", null ],
+    [ "OVR_KEY_EYE_CUP", "OVR__Profile_8h.html#abfe7eefbe8e42cb5cbab84f51e9117ca", null ],
+    [ "OVR_KEY_EYE_HEIGHT", "OVR__Profile_8h.html#a7cc1479113d6df4682be34febebe5528", null ],
+    [ "OVR_KEY_EYE_RELIEF_DIAL", "OVR__Profile_8h.html#a3d8d83ef11b0634f98dde33b85cd52eb", null ],
+    [ "OVR_KEY_EYE_TO_NOSE_DISTANCE", "OVR__Profile_8h.html#a1e8e3df656c67dd404081f1ac78a7801", null ],
+    [ "OVR_KEY_GENDER", "OVR__Profile_8h.html#a9f5ab9868a92484527980b886737df76", null ],
+    [ "OVR_KEY_IPD", "OVR__Profile_8h.html#ab07afdfb23c1f5e2a8cefd96a15e9032", null ],
+    [ "OVR_KEY_MAX_EYE_TO_PLATE_DISTANCE", "OVR__Profile_8h.html#af9d0e94d6137d908a7ed696220064832", null ],
+    [ "OVR_KEY_NAME", "OVR__Profile_8h.html#a82eea5595c8686cbe554dff52df9ba98", null ],
+    [ "OVR_KEY_NECK_TO_EYE_DISTANCE", "OVR__Profile_8h.html#a02becf302120a1568c16ca8979dfd2ea", null ],
+    [ "OVR_KEY_PLAYER_HEIGHT", "OVR__Profile_8h.html#a16838e6535e46d77c1a02595fae80158", null ],
+    [ "OVR_KEY_USER", "OVR__Profile_8h.html#a54b02913958301d819e1502c5cf8237f", null ],
+    [ "GetBaseOVRPath", "OVR__Profile_8h.html#a877a92ca821f9050fa5c7ac64f421d24", null ]
+];

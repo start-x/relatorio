@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Transform</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L128'>Transform</a>         128 ovr/sdk/src/Kernel/OVR_Math.h template&lt;class T&gt; class Transform;
+<a href='../S/177.html#L153'>Transform</a>         153 ovr/sdk/src/Kernel/OVR_Math.h template&lt;&gt; struct CompatibleTypes&lt;Transform&lt;float&gt; &gt; { typedef ovrPosef Type; };
+<a href='../S/177.html#L156'>Transform</a>         156 ovr/sdk/src/Kernel/OVR_Math.h template&lt;&gt; struct CompatibleTypes&lt;Transform&lt;double&gt; &gt; { typedef ovrPosed Type; };
+<a href='../S/177.html#L1094'>Transform</a>        1094 ovr/sdk/src/Kernel/OVR_Math.h class Transform
+<a href='../S/177.html#L1098'>Transform</a>        1098 ovr/sdk/src/Kernel/OVR_Math.h     typedef typename CompatibleTypes&lt;Transform&lt;T&gt; &gt;::Type CompatibleType;
+<a href='../S/177.html#L1100'>Transform</a>        1100 ovr/sdk/src/Kernel/OVR_Math.h     Transform() { }
+<a href='../S/177.html#L1101'>Transform</a>        1101 ovr/sdk/src/Kernel/OVR_Math.h     Transform(const Quat&lt;T&gt;&amp; orientation, const Vector3&lt;T&gt;&amp; pos)
+<a href='../S/177.html#L1103'>Transform</a>        1103 ovr/sdk/src/Kernel/OVR_Math.h     Transform(const Transform&amp; s)
+<a href='../S/177.html#L1105'>Transform</a>        1105 ovr/sdk/src/Kernel/OVR_Math.h     Transform(const CompatibleType&amp; s)
+<a href='../S/177.html#L1107'>Transform</a>        1107 ovr/sdk/src/Kernel/OVR_Math.h     explicit Transform(const Transform&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;s)
+<a href='../S/177.html#L1110'>Transform</a>        1110 ovr/sdk/src/Kernel/OVR_Math.h     operator typename CompatibleTypes&lt;Transform&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L1112'>Transform</a>        1112 ovr/sdk/src/Kernel/OVR_Math.h         typename CompatibleTypes&lt;Transform&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L1136'>Transform</a>        1136 ovr/sdk/src/Kernel/OVR_Math.h     Transform operator*(const Transform&amp; other) const   
+<a href='../S/177.html#L1138'>Transform</a>        1138 ovr/sdk/src/Kernel/OVR_Math.h         return Transform(Rotation * other.Rotation, Apply(other.Translation));
+<a href='../S/177.html#L1152'>Transform</a>        1152 ovr/sdk/src/Kernel/OVR_Math.h     Transform Inverted() const   
+<a href='../S/177.html#L1155'>Transform</a>        1155 ovr/sdk/src/Kernel/OVR_Math.h         return Transform(inv, inv.Rotate(-Translation));
+<a href='../S/177.html#L1159'>Transform</a>        1159 ovr/sdk/src/Kernel/OVR_Math.h typedef Transform&lt;float&gt;  Transformf;
+<a href='../S/177.html#L1160'>Transform</a>        1160 ovr/sdk/src/Kernel/OVR_Math.h typedef Transform&lt;double&gt; Transformd;
+<a href='../S/177.html#L1244'>Transform</a>        1244 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Transform&lt;T&gt;&amp; p)
+<a href='../S/177.html#L1405'>Transform</a>        1405 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Transform(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L1919'>Transform</a>        1919 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Transform&lt;T&gt;&amp; p)
+<a href='../S/177.html#L2111'>Transform</a>        2111 ovr/sdk/src/Kernel/OVR_Math.h 	Vector3&lt;T&gt; Transform(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/128.html#L147'>Transform</a>         147 ovr/sdk/src/OVR_SensorCalibration.cpp     msg.RotationRate = GyroMatrix.Transform(msg.RotationRate - gyroOffset);
+<a href='../S/128.html#L148'>Transform</a>         148 ovr/sdk/src/OVR_SensorCalibration.cpp     msg.Acceleration = AccelMatrix.Transform(msg.Acceleration - AccelOffset);
+<a href='../S/128.html#L150'>Transform</a>         150 ovr/sdk/src/OVR_SensorCalibration.cpp         msg.MagneticField = MagMatrix.Transform(msg.MagneticField);
+<a href='../S/189.html#L164'>Transform</a>         164 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnVisionPreviousFrame(const Transform&lt;double&gt;&amp; cameraFromImu)
+<a href='../S/189.html#L172'>Transform</a>         172 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter)
+<a href='../S/189.html#L240'>Transform</a>         240 ovr/sdk/src/OVR_SensorFusion.cpp Transform&lt;double&gt; SensorFusion::GetVisionPrediction(UInt32 exposureCounter)
+<a href='../S/189.html#L274'>Transform</a>         274 ovr/sdk/src/OVR_SensorFusion.cpp         result = Transform&lt;double&gt;
+<a href='../S/189.html#L824'>Transform</a>         824 ovr/sdk/src/OVR_SensorFusion.cpp static Transform&lt;double&gt; calcPredictedPose(const PoseState&lt;double&gt;&amp; poseState, double predictionDt)
+<a href='../S/189.html#L826'>Transform</a>         826 ovr/sdk/src/OVR_SensorFusion.cpp     Transform&lt;double&gt; pose   = poseState.Pose;
+<a href='../S/127.html#L60'>Transform</a>          60 ovr/sdk/src/OVR_SensorFusion.h     typedef typename CompatibleTypes&lt;Transform&lt;T&gt; &gt;::Type CompatibleType;
+<a href='../S/127.html#L92'>Transform</a>          92 ovr/sdk/src/OVR_SensorFusion.h     Transform&lt;T&gt; Pose;
+<a href='../S/127.html#L165'>Transform</a>         165 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter) = 0;
+<a href='../S/127.html#L166'>Transform</a>         166 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionPreviousFrame(const Transform&lt;double&gt;&amp; cameraFromImu) = 0;
+<a href='../S/127.html#L170'>Transform</a>         170 ovr/sdk/src/OVR_SensorFusion.h     virtual Transform&lt;double&gt; GetVisionPrediction(UInt32 exposureCounter) = 0;
+<a href='../S/127.html#L263'>Transform</a>         263 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter);
+<a href='../S/127.html#L265'>Transform</a>         265 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionPreviousFrame(const Transform&lt;double&gt;&amp; cameraFromImu);
+<a href='../S/127.html#L268'>Transform</a>         268 ovr/sdk/src/OVR_SensorFusion.h     virtual Transform&lt;double&gt; GetVisionPrediction(UInt32 exposureCounter);
+<a href='../S/190.html#L651'>Transform</a>         651 ovr/sdk/src/OVR_SensorImpl.cpp     return magCalibration.Transform(mag);
+<a href='../S/190.html#L895'>Transform</a>         895 ovr/sdk/src/OVR_SensorImpl.cpp     center = tmp.Inverted().Transform(center);
+</pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>MessageHandlerImpl</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L57'>MessageHandlerImpl</a>   57 ovr/sdk/src/OVR_Device.h     friend class MessageHandlerImpl;
+<a href='../S/191.html#L58'>MessageHandlerImpl</a>   58 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl()
+<a href='../S/191.html#L68'>MessageHandlerImpl</a>   68 ovr/sdk/src/OVR_DeviceImpl.cpp     static MessageHandlerImpl* FromHandler(MessageHandler* handler)
+<a href='../S/191.html#L69'>MessageHandlerImpl</a>   69 ovr/sdk/src/OVR_DeviceImpl.cpp     { return (MessageHandlerImpl*)&amp;handler-&gt;Internal; }
+<a href='../S/191.html#L70'>MessageHandlerImpl</a>   70 ovr/sdk/src/OVR_DeviceImpl.cpp     static const MessageHandlerImpl* FromHandler(const MessageHandler* handler)
+<a href='../S/191.html#L71'>MessageHandlerImpl</a>   71 ovr/sdk/src/OVR_DeviceImpl.cpp     { return (const MessageHandlerImpl*)&amp;handler-&gt;Internal; }
+<a href='../S/191.html#L110'>MessageHandlerImpl</a>  110 ovr/sdk/src/OVR_DeviceImpl.cpp                MessageHandlerImpl::FromHandler(handler)-&gt;pLock == pLock);    
+<a href='../S/191.html#L127'>MessageHandlerImpl</a>  127 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(handler);
+<a href='../S/191.html#L128'>MessageHandlerImpl</a>  128 ovr/sdk/src/OVR_DeviceImpl.cpp     OVR_ASSERT(handlerImpl-&gt;HandlerRefsCount &lt; MessageHandlerImpl::MaxHandlerRefsCount);
+<a href='../S/191.html#L151'>MessageHandlerImpl</a>  151 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(pHandlers[idx]);
+<a href='../S/191.html#L175'>MessageHandlerImpl</a>  175 ovr/sdk/src/OVR_DeviceImpl.cpp     OVR_COMPILER_ASSERT(sizeof(Internal) &gt; sizeof(MessageHandlerImpl));
+<a href='../S/191.html#L176'>MessageHandlerImpl</a>  176 ovr/sdk/src/OVR_DeviceImpl.cpp     Construct&lt;MessageHandlerImpl&gt;(Internal);
+<a href='../S/191.html#L181'>MessageHandlerImpl</a>  181 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);
+<a href='../S/191.html#L188'>MessageHandlerImpl</a>  188 ovr/sdk/src/OVR_DeviceImpl.cpp     Destruct&lt;MessageHandlerImpl&gt;(handlerImpl);    
+<a href='../S/191.html#L193'>MessageHandlerImpl</a>  193 ovr/sdk/src/OVR_DeviceImpl.cpp     const MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);    
+<a href='../S/191.html#L201'>MessageHandlerImpl</a>  201 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);
+<a href='../S/191.html#L213'>MessageHandlerImpl</a>  213 ovr/sdk/src/OVR_DeviceImpl.cpp     const MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(this);
+</pre>
+</body>
+</html>

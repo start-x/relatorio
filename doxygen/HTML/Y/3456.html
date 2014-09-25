@@ -1,0 +1,215 @@
+<html>
+<head>
+<title>index</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L651'>index</a>             651 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         int    index = 0;
+<a href='../S/98.html#L660'>index</a>             660 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                     index = j;
+<a href='../S/98.html#L666'>index</a>             666 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         used[index]   = true;
+<a href='../S/95.html#L88'>index</a>              88 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp HMDDevice* GlobalState::CreateDevice(int index)
+<a href='../S/95.html#L92'>index</a>              92 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     if (index &gt;= (int)EnumeratedDevices.GetSize())
+<a href='../S/95.html#L94'>index</a>              94 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     return EnumeratedDevices[index].CreateDeviceTyped&lt;HMDDevice&gt;();
+<a href='../S/96.html#L53'>index</a>              53 ovr/sdk/src/CAPI/CAPI_GlobalState.h     HMDDevice*  CreateDevice(int index);
+<a href='../S/152.html#L393'>index</a>             393 ovr/sdk/src/Kernel/OVR_Array.h     ValueType&amp; At(UPInt index)
+<a href='../S/152.html#L395'>index</a>             395 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt; Data.Size);
+<a href='../S/152.html#L396'>index</a>             396 ovr/sdk/src/Kernel/OVR_Array.h         return Data.Data[index]; 
+<a href='../S/152.html#L398'>index</a>             398 ovr/sdk/src/Kernel/OVR_Array.h     const ValueType&amp; At(UPInt index) const
+<a href='../S/152.html#L400'>index</a>             400 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt; Data.Size);
+<a href='../S/152.html#L401'>index</a>             401 ovr/sdk/src/Kernel/OVR_Array.h         return Data.Data[index]; 
+<a href='../S/152.html#L404'>index</a>             404 ovr/sdk/src/Kernel/OVR_Array.h     ValueType ValueAt(UPInt index) const
+<a href='../S/152.html#L406'>index</a>             406 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt; Data.Size);
+<a href='../S/152.html#L407'>index</a>             407 ovr/sdk/src/Kernel/OVR_Array.h         return Data.Data[index]; 
+<a href='../S/152.html#L411'>index</a>             411 ovr/sdk/src/Kernel/OVR_Array.h     ValueType&amp; operator [] (UPInt index)
+<a href='../S/152.html#L413'>index</a>             413 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt; Data.Size);
+<a href='../S/152.html#L414'>index</a>             414 ovr/sdk/src/Kernel/OVR_Array.h         return Data.Data[index]; 
+<a href='../S/152.html#L416'>index</a>             416 ovr/sdk/src/Kernel/OVR_Array.h     const ValueType&amp; operator [] (UPInt index) const
+<a href='../S/152.html#L418'>index</a>             418 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt; Data.Size);
+<a href='../S/152.html#L419'>index</a>             419 ovr/sdk/src/Kernel/OVR_Array.h         return Data.Data[index]; 
+<a href='../S/152.html#L482'>index</a>             482 ovr/sdk/src/Kernel/OVR_Array.h     void    RemoveMultipleAt(UPInt index, UPInt num)
+<a href='../S/152.html#L484'>index</a>             484 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index + num &lt;= Data.Size);
+<a href='../S/152.html#L491'>index</a>             491 ovr/sdk/src/Kernel/OVR_Array.h             AllocatorType::DestructArray(Data.Data + index, num);
+<a href='../S/152.html#L493'>index</a>             493 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index, 
+<a href='../S/152.html#L494'>index</a>             494 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index + num,
+<a href='../S/152.html#L495'>index</a>             495 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Size - num - index);
+<a href='../S/152.html#L505'>index</a>             505 ovr/sdk/src/Kernel/OVR_Array.h     void    RemoveAt(UPInt index)
+<a href='../S/152.html#L507'>index</a>             507 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt; Data.Size);
+<a href='../S/152.html#L514'>index</a>             514 ovr/sdk/src/Kernel/OVR_Array.h             AllocatorType::Destruct(Data.Data + index);
+<a href='../S/152.html#L516'>index</a>             516 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index, 
+<a href='../S/152.html#L517'>index</a>             517 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index + 1,
+<a href='../S/152.html#L518'>index</a>             518 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Size - 1 - index);
+<a href='../S/152.html#L526'>index</a>             526 ovr/sdk/src/Kernel/OVR_Array.h     void    RemoveAtUnordered(UPInt index)
+<a href='../S/152.html#L528'>index</a>             528 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt; Data.Size);
+<a href='../S/152.html#L539'>index</a>             539 ovr/sdk/src/Kernel/OVR_Array.h             if (index &lt; lastElemIndex)
+<a href='../S/152.html#L541'>index</a>             541 ovr/sdk/src/Kernel/OVR_Array.h                 AllocatorType::Destruct(Data.Data + index);
+<a href='../S/152.html#L542'>index</a>             542 ovr/sdk/src/Kernel/OVR_Array.h                 AllocatorType::Construct(Data.Data + index, Data.Data[lastElemIndex]);
+<a href='../S/152.html#L550'>index</a>             550 ovr/sdk/src/Kernel/OVR_Array.h     void    InsertAt(UPInt index, const ValueType&amp; val = ValueType())
+<a href='../S/152.html#L552'>index</a>             552 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt;= Data.Size);
+<a href='../S/152.html#L555'>index</a>             555 ovr/sdk/src/Kernel/OVR_Array.h         if (index &lt; Data.Size - 1)
+<a href='../S/152.html#L558'>index</a>             558 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index + 1, 
+<a href='../S/152.html#L559'>index</a>             559 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index, 
+<a href='../S/152.html#L560'>index</a>             560 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Size - 1 - index);
+<a href='../S/152.html#L562'>index</a>             562 ovr/sdk/src/Kernel/OVR_Array.h         AllocatorType::Construct(Data.Data + index, val);
+<a href='../S/152.html#L566'>index</a>             566 ovr/sdk/src/Kernel/OVR_Array.h     void    InsertMultipleAt(UPInt index, UPInt num, const ValueType&amp; val = ValueType())
+<a href='../S/152.html#L568'>index</a>             568 ovr/sdk/src/Kernel/OVR_Array.h         OVR_ASSERT(index &lt;= Data.Size);
+<a href='../S/152.html#L571'>index</a>             571 ovr/sdk/src/Kernel/OVR_Array.h         if (index &lt; Data.Size - num)
+<a href='../S/152.html#L574'>index</a>             574 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index + num,
+<a href='../S/152.html#L575'>index</a>             575 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Data + index,
+<a href='../S/152.html#L576'>index</a>             576 ovr/sdk/src/Kernel/OVR_Array.h                 Data.Size - num - index);
+<a href='../S/152.html#L579'>index</a>             579 ovr/sdk/src/Kernel/OVR_Array.h             AllocatorType::Construct(Data.Data + index + i, val);
+<a href='../S/179.html#L273'>index</a>             273 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt  index     = (SPInt)-1;
+<a href='../S/179.html#L276'>index</a>             276 ovr/sdk/src/Kernel/OVR_Hash.h             index = findIndexCore(key, hashValue &amp; pTable-&gt;SizeMask);
+<a href='../S/179.html#L278'>index</a>             278 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)
+<a href='../S/179.html#L280'>index</a>             280 ovr/sdk/src/Kernel/OVR_Hash.h             E(index).Value = key;
+<a href='../S/179.html#L304'>index</a>             304 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index     = hashValue &amp; pTable-&gt;SizeMask;
+<a href='../S/179.html#L306'>index</a>             306 ovr/sdk/src/Kernel/OVR_Hash.h         Entry*  e = &amp;E(index);
+<a href='../S/179.html#L309'>index</a>             309 ovr/sdk/src/Kernel/OVR_Hash.h         if (e-&gt;IsEmpty() || (e-&gt;GetCachedHash(pTable-&gt;SizeMask) != (UPInt)index))
+<a href='../S/179.html#L313'>index</a>             313 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   naturalIndex = index;
+<a href='../S/179.html#L319'>index</a>             319 ovr/sdk/src/Kernel/OVR_Hash.h             prevIndex   = index;
+<a href='../S/179.html#L320'>index</a>             320 ovr/sdk/src/Kernel/OVR_Hash.h             index       = e-&gt;NextInChain;
+<a href='../S/179.html#L321'>index</a>             321 ovr/sdk/src/Kernel/OVR_Hash.h             if (index == -1)
+<a href='../S/179.html#L323'>index</a>             323 ovr/sdk/src/Kernel/OVR_Hash.h             e = &amp;E(index);
+<a href='../S/179.html#L327'>index</a>             327 ovr/sdk/src/Kernel/OVR_Hash.h         if (naturalIndex == index)
+<a href='../S/179.html#L364'>index</a>             364 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndex(key);
+<a href='../S/179.html#L365'>index</a>             365 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)        
+<a href='../S/179.html#L366'>index</a>             366 ovr/sdk/src/Kernel/OVR_Hash.h             return &amp;E(index).Value;        
+<a href='../S/179.html#L373'>index</a>             373 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndex(key);
+<a href='../S/179.html#L374'>index</a>             374 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)        
+<a href='../S/179.html#L375'>index</a>             375 ovr/sdk/src/Kernel/OVR_Hash.h             return &amp;E(index).Value;        
+<a href='../S/179.html#L383'>index</a>             383 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndexAlt(key);
+<a href='../S/179.html#L384'>index</a>             384 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)        
+<a href='../S/179.html#L385'>index</a>             385 ovr/sdk/src/Kernel/OVR_Hash.h             return &amp;E(index).Value;
+<a href='../S/179.html#L392'>index</a>             392 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndexAlt(key);
+<a href='../S/179.html#L393'>index</a>             393 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)        
+<a href='../S/179.html#L394'>index</a>             394 ovr/sdk/src/Kernel/OVR_Hash.h             return &amp;E(index).Value;
+<a href='../S/179.html#L401'>index</a>             401 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndexAlt(key);
+<a href='../S/179.html#L402'>index</a>             402 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)
+<a href='../S/179.html#L405'>index</a>             405 ovr/sdk/src/Kernel/OVR_Hash.h                 *pval = E(index).Value;
+<a href='../S/179.html#L525'>index</a>             525 ovr/sdk/src/Kernel/OVR_Hash.h         ConstIterator(const SelfType* h, SPInt index)
+<a href='../S/179.html#L526'>index</a>             526 ovr/sdk/src/Kernel/OVR_Hash.h             : pHash(h), Index(index)
+<a href='../S/179.html#L581'>index</a>             581 ovr/sdk/src/Kernel/OVR_Hash.h             SPInt       index     = hashValue &amp; phash-&gt;pTable-&gt;SizeMask;
+<a href='../S/179.html#L583'>index</a>             583 ovr/sdk/src/Kernel/OVR_Hash.h             Entry*      e = &amp;phash-&gt;E(index);
+<a href='../S/179.html#L586'>index</a>             586 ovr/sdk/src/Kernel/OVR_Hash.h             if (e-&gt;IsEmpty() || (e-&gt;GetCachedHash(phash-&gt;pTable-&gt;SizeMask) != (UPInt)index))
+<a href='../S/179.html#L590'>index</a>             590 ovr/sdk/src/Kernel/OVR_Hash.h             SPInt   naturalIndex = index;
+<a href='../S/179.html#L596'>index</a>             596 ovr/sdk/src/Kernel/OVR_Hash.h                 prevIndex   = index;
+<a href='../S/179.html#L597'>index</a>             597 ovr/sdk/src/Kernel/OVR_Hash.h                 index       = e-&gt;NextInChain;
+<a href='../S/179.html#L598'>index</a>             598 ovr/sdk/src/Kernel/OVR_Hash.h                 if (index == -1)
+<a href='../S/179.html#L600'>index</a>             600 ovr/sdk/src/Kernel/OVR_Hash.h                 e = &amp;phash-&gt;E(index);
+<a href='../S/179.html#L603'>index</a>             603 ovr/sdk/src/Kernel/OVR_Hash.h             if (index == (SPInt)ConstIterator::Index)
+<a href='../S/179.html#L606'>index</a>             606 ovr/sdk/src/Kernel/OVR_Hash.h                 if (naturalIndex == index)
+<a href='../S/179.html#L664'>index</a>             664 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt index = findIndex(key);
+<a href='../S/179.html#L665'>index</a>             665 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)        
+<a href='../S/179.html#L666'>index</a>             666 ovr/sdk/src/Kernel/OVR_Hash.h             return Iterator(this, index);        
+<a href='../S/179.html#L673'>index</a>             673 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt index = findIndexAlt(key);
+<a href='../S/179.html#L674'>index</a>             674 ovr/sdk/src/Kernel/OVR_Hash.h         if (index &gt;= 0)        
+<a href='../S/179.html#L675'>index</a>             675 ovr/sdk/src/Kernel/OVR_Hash.h             return Iterator(this, index);        
+<a href='../S/179.html#L714'>index</a>             714 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt           index = hashValue;
+<a href='../S/179.html#L715'>index</a>             715 ovr/sdk/src/Kernel/OVR_Hash.h         const Entry*    e     = &amp;E(index);
+<a href='../S/179.html#L718'>index</a>             718 ovr/sdk/src/Kernel/OVR_Hash.h         if (e-&gt;IsEmpty() || (e-&gt;GetCachedHash(pTable-&gt;SizeMask) != index))
+<a href='../S/179.html#L728'>index</a>             728 ovr/sdk/src/Kernel/OVR_Hash.h                 return index;
+<a href='../S/179.html#L735'>index</a>             735 ovr/sdk/src/Kernel/OVR_Hash.h             index = e-&gt;NextInChain;
+<a href='../S/179.html#L736'>index</a>             736 ovr/sdk/src/Kernel/OVR_Hash.h             if (index == (UPInt)-1)
+<a href='../S/179.html#L739'>index</a>             739 ovr/sdk/src/Kernel/OVR_Hash.h             e = &amp;E(index);
+<a href='../S/179.html#L755'>index</a>             755 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index        = hashValue;
+<a href='../S/179.html#L756'>index</a>             756 ovr/sdk/src/Kernel/OVR_Hash.h         Entry*  naturalEntry = &amp;(E(index));
+<a href='../S/179.html#L766'>index</a>             766 ovr/sdk/src/Kernel/OVR_Hash.h             SPInt blankIndex = index;
+<a href='../S/179.html#L773'>index</a>             773 ovr/sdk/src/Kernel/OVR_Hash.h             if (naturalEntry-&gt;GetCachedHash(pTable-&gt;SizeMask) == (UPInt)index)
+<a href='../S/179.html#L796'>index</a>             796 ovr/sdk/src/Kernel/OVR_Hash.h                     if (e-&gt;NextInChain == index)
+<a href='../S/179.html#L818'>index</a>             818 ovr/sdk/src/Kernel/OVR_Hash.h     Entry&amp; E(UPInt index)
+<a href='../S/179.html#L821'>index</a>             821 ovr/sdk/src/Kernel/OVR_Hash.h         OVR_ASSERT(index &lt;= pTable-&gt;SizeMask);
+<a href='../S/179.html#L822'>index</a>             822 ovr/sdk/src/Kernel/OVR_Hash.h         return *(((Entry*) (pTable + 1)) + index);
+<a href='../S/179.html#L824'>index</a>             824 ovr/sdk/src/Kernel/OVR_Hash.h     const Entry&amp; E(UPInt index) const
+<a href='../S/179.html#L826'>index</a>             826 ovr/sdk/src/Kernel/OVR_Hash.h         OVR_ASSERT(index &lt;= pTable-&gt;SizeMask);
+<a href='../S/179.html#L827'>index</a>             827 ovr/sdk/src/Kernel/OVR_Hash.h         return *(((Entry*) (pTable + 1)) + index);
+<a href='../S/184.html#L163'>index</a>             163 ovr/sdk/src/Kernel/OVR_String.cpp UInt32 String::GetCharAt(UPInt index) const 
+<a href='../S/184.html#L165'>index</a>             165 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt       i = (SPInt) index;
+<a href='../S/184.html#L172'>index</a>             172 ovr/sdk/src/Kernel/OVR_String.cpp         OVR_ASSERT(index &lt; pdata-&gt;GetSize());
+<a href='../S/184.html#L177'>index</a>             177 ovr/sdk/src/Kernel/OVR_String.cpp     c = UTF8Util::GetCharAt(index, buf, pdata-&gt;GetSize());
+<a href='../S/184.html#L181'>index</a>             181 ovr/sdk/src/Kernel/OVR_String.cpp UInt32 String::GetFirstCharAt(UPInt index, const char** offset) const
+<a href='../S/184.html#L184'>index</a>             184 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt       i = (SPInt) index;
+<a href='../S/184.html#L478'>index</a>             478 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt   index = 0;
+<a href='../S/184.html#L479'>index</a>             479 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buf, &amp;index, c);
+<a href='../S/184.html#L480'>index</a>             480 ovr/sdk/src/Kernel/OVR_String.cpp     OVR_ASSERT(index &gt;= 0);
+<a href='../S/184.html#L481'>index</a>             481 ovr/sdk/src/Kernel/OVR_String.cpp     buf[(UPInt)index] = 0;
+<a href='../S/184.html#L483'>index</a>             483 ovr/sdk/src/Kernel/OVR_String.cpp     Insert(buf, posAt, index);
+<a href='../S/184.html#L484'>index</a>             484 ovr/sdk/src/Kernel/OVR_String.cpp     return (UPInt)index;
+<a href='../S/161.html#L197'>index</a>             197 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetCharAt(UPInt index) const;
+<a href='../S/161.html#L198'>index</a>             198 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetFirstCharAt(UPInt index, const char** offset) const;
+<a href='../S/161.html#L239'>index</a>             239 ovr/sdk/src/Kernel/OVR_String.h     UPInt       GetByteIndex(UPInt index) const { return (UPInt)UTF8Util::GetByteIndex(index, GetData()-&gt;Data); }
+<a href='../S/161.html#L344'>index</a>             344 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (int index) const
+<a href='../S/161.html#L346'>index</a>             346 ovr/sdk/src/Kernel/OVR_String.h         OVR_ASSERT(index &gt;= 0 &amp;&amp; (UPInt)index &lt; GetSize());
+<a href='../S/161.html#L347'>index</a>             347 ovr/sdk/src/Kernel/OVR_String.h         return GetData()-&gt;Data[index];
+<a href='../S/161.html#L349'>index</a>             349 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (UPInt index) const
+<a href='../S/161.html#L351'>index</a>             351 ovr/sdk/src/Kernel/OVR_String.h         OVR_ASSERT(index &lt; GetSize());
+<a href='../S/161.html#L352'>index</a>             352 ovr/sdk/src/Kernel/OVR_String.h         return GetData()-&gt;Data[index];
+<a href='../S/161.html#L448'>index</a>             448 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetCharAt(UPInt index) const;
+<a href='../S/161.html#L449'>index</a>             449 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetFirstCharAt(UPInt index, const char** offset) const;
+<a href='../S/161.html#L488'>index</a>             488 ovr/sdk/src/Kernel/OVR_String.h     char&amp;       operator [] (int index)
+<a href='../S/161.html#L490'>index</a>             490 ovr/sdk/src/Kernel/OVR_String.h         OVR_ASSERT(((UPInt)index) &lt; GetSize());
+<a href='../S/161.html#L491'>index</a>             491 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/161.html#L493'>index</a>             493 ovr/sdk/src/Kernel/OVR_String.h     char&amp;       operator [] (UPInt index)
+<a href='../S/161.html#L495'>index</a>             495 ovr/sdk/src/Kernel/OVR_String.h         OVR_ASSERT(index &lt; GetSize());
+<a href='../S/161.html#L496'>index</a>             496 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/161.html#L499'>index</a>             499 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (int index) const 
+<a href='../S/161.html#L501'>index</a>             501 ovr/sdk/src/Kernel/OVR_String.h         OVR_ASSERT(((UPInt)index) &lt; GetSize());
+<a href='../S/161.html#L502'>index</a>             502 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/161.html#L504'>index</a>             504 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (UPInt index) const
+<a href='../S/161.html#L506'>index</a>             506 ovr/sdk/src/Kernel/OVR_String.h         OVR_ASSERT(index &lt; GetSize());
+<a href='../S/161.html#L507'>index</a>             507 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/157.html#L56'>index</a>              56 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp UInt32 OVR_STDCALL GetCharAt(SPInt index, const char* putf8str, SPInt length)
+<a href='../S/157.html#L66'>index</a>              66 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             if (index == 0)
+<a href='../S/157.html#L68'>index</a>              68 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             index--;
+<a href='../S/157.html#L77'>index</a>              77 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         index--;
+<a href='../S/157.html#L82'>index</a>              82 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             OVR_ASSERT(index == 0);
+<a href='../S/157.html#L85'>index</a>              85 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     } while (index &gt;= 0);
+<a href='../S/157.html#L90'>index</a>              90 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp SPInt OVR_STDCALL GetByteIndex(SPInt index, const char *putf8str, SPInt length)
+<a href='../S/157.html#L96'>index</a>              96 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while ((buf - putf8str) &lt; length &amp;&amp; index &gt; 0)
+<a href='../S/157.html#L99'>index</a>              99 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             index--;
+<a href='../S/157.html#L105'>index</a>             105 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     while (index &gt; 0) 
+<a href='../S/157.html#L108'>index</a>             108 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         index--;
+<a href='../S/157.html#L520'>index</a>             520 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                     int index = 0;
+<a href='../S/157.html#L524'>index</a>             524 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         OVR_ASSERT(index &lt; LINE_SIZE * 6 - 6);
+<a href='../S/157.html#L525'>index</a>             525 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         int last_index = index;
+<a href='../S/157.html#L526'>index</a>             526 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UTF8Util::EncodeChar(reencoded_utf8, &amp;index, uc);
+<a href='../S/157.html#L527'>index</a>             527 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         OVR_ASSERT(index &lt;= last_index + 6);
+<a href='../S/154.html#L45'>index</a>              45 ovr/sdk/src/Kernel/OVR_UTF8Util.h UInt32   OVR_STDCALL GetCharAt(SPInt index, const char* putf8str, SPInt length = -1);
+<a href='../S/154.html#L49'>index</a>              49 ovr/sdk/src/Kernel/OVR_UTF8Util.h SPInt    OVR_STDCALL GetByteIndex(SPInt index, const char* putf8str, SPInt length = -1);
+<a href='../S/142.html#L268'>index</a>             268 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrHmd ovrHmd_Create(int index)
+<a href='../S/142.html#L272'>index</a>             272 ovr/sdk/src/OVR_CAPI.cpp     Ptr&lt;HMDDevice&gt; device = *GlobalState::pInstance-&gt;CreateDevice(index);
+<a href='../S/187.html#L429'>index</a>             429 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrHmd   ovrHmd_Create(int index);
+<a href='../S/84.html#L872'>index</a>             872 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::GetItemByIndex(unsigned index)
+<a href='../S/84.html#L881'>index</a>             881 ovr/sdk/src/OVR_JSON.cpp         while (i &lt; index)
+<a href='../S/84.html#L1050'>index</a>            1050 ovr/sdk/src/OVR_JSON.cpp void JSON::InsertArrayElement(int index, JSON *item)
+<a href='../S/84.html#L1055'>index</a>            1055 ovr/sdk/src/OVR_JSON.cpp     if (index == 0)
+<a href='../S/84.html#L1063'>index</a>            1063 ovr/sdk/src/OVR_JSON.cpp     while (iter &amp;&amp; i&lt;index)
+<a href='../S/84.html#L1085'>index</a>            1085 ovr/sdk/src/OVR_JSON.cpp double JSON::GetArrayNumber(int index)
+<a href='../S/84.html#L1089'>index</a>            1089 ovr/sdk/src/OVR_JSON.cpp         JSON* number = GetItemByIndex(index);
+<a href='../S/84.html#L1099'>index</a>            1099 ovr/sdk/src/OVR_JSON.cpp const char* JSON::GetArrayString(int index)
+<a href='../S/84.html#L1103'>index</a>            1103 ovr/sdk/src/OVR_JSON.cpp         JSON* number = GetItemByIndex(index);
+<a href='../S/78.html#L133'>index</a>             133 ovr/sdk/src/OVR_JSON.h     void            InsertArrayElement(int index, JSON* item);
+<a href='../S/78.html#L139'>index</a>             139 ovr/sdk/src/OVR_JSON.h     double          GetArrayNumber(int index);
+<a href='../S/78.html#L140'>index</a>             140 ovr/sdk/src/OVR_JSON.h     const char*     GetArrayString(int index);
+<a href='../S/139.html#L555'>index</a>             555 ovr/sdk/src/OVR_Profile.cpp     int index = 0;
+<a href='../S/139.html#L576'>index</a>             576 ovr/sdk/src/OVR_Profile.cpp         index++;
+<a href='../S/139.html#L588'>index</a>             588 ovr/sdk/src/OVR_Profile.cpp         users-&gt;InsertArrayElement(index, new_user);
+<a href='../S/139.html#L597'>index</a>             597 ovr/sdk/src/OVR_Profile.cpp const char* ProfileManager::GetUser(unsigned int index)
+<a href='../S/139.html#L610'>index</a>             610 ovr/sdk/src/OVR_Profile.cpp     if (users &amp;&amp; index &lt; users-&gt;GetItemCount())
+<a href='../S/139.html#L612'>index</a>             612 ovr/sdk/src/OVR_Profile.cpp         JSON* user_item = users-&gt;GetItemByIndex(index);
+<a href='../S/133.html#L81'>index</a>              81 ovr/sdk/src/OVR_Profile.h     const char*         GetUser(unsigned int index);
+<a href='../S/134.html#L183'>index</a>             183 ovr/sdk/src/OVR_SensorTimeFilter.h         static int advanceIndex(int index)
+<a href='../S/134.html#L185'>index</a>             185 ovr/sdk/src/OVR_SensorTimeFilter.h             index++;
+<a href='../S/134.html#L186'>index</a>             186 ovr/sdk/src/OVR_SensorTimeFilter.h             if (index &gt;= BufferSize)
+<a href='../S/134.html#L187'>index</a>             187 ovr/sdk/src/OVR_SensorTimeFilter.h                 index = 0;
+<a href='../S/134.html#L188'>index</a>             188 ovr/sdk/src/OVR_SensorTimeFilter.h             return index;
+<a href='../S/110.html#L61'>index</a>              61 ovr/sdk/src/Util/Util_LatencyTest2.h         int index        = color / LT2_ColorIncrement;  // Use color without subtraction due to rounding.
+<a href='../S/110.html#L62'>index</a>              62 ovr/sdk/src/Util/Util_LatencyTest2.h         int delta        = compareColor - index * LT2_ColorIncrement;
+<a href='../S/110.html#L66'>index</a>              66 ovr/sdk/src/Util/Util_LatencyTest2.h             *readbackIndex = index;
+<a href='../S/199.html#L372'>index</a>             372 ovr/sdk/third_party/edid/edid.cpp         int index = 0x36 + i * 18;
+<a href='../S/199.html#L373'>index</a>             373 ovr/sdk/third_party/edid/edid.cpp         if (edid[index + 0] == 0x00 &amp;&amp; edid[index + 1] == 0x00) {
+<a href='../S/199.html#L374'>index</a>             374 ovr/sdk/third_party/edid/edid.cpp             decode_display_descriptor(edid + index, info);
+<a href='../S/199.html#L376'>index</a>             376 ovr/sdk/third_party/edid/edid.cpp             decode_detailed_timing(edid + index, &amp;(info-&gt;detailed_timings[timing_idx++]));
+</pre>
+</body>
+</html>

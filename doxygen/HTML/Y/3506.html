@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>item</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/84.html#L921'>item</a>              921 ovr/sdk/src/OVR_JSON.cpp void JSON::AddItem(const char *string, JSON *item)
+<a href='../S/84.html#L923'>item</a>              923 ovr/sdk/src/OVR_JSON.cpp     if (!item)
+<a href='../S/84.html#L926'>item</a>              926 ovr/sdk/src/OVR_JSON.cpp     item-&gt;Name = string;
+<a href='../S/84.html#L927'>item</a>              927 ovr/sdk/src/OVR_JSON.cpp     Children.PushBack(item);
+<a href='../S/84.html#L983'>item</a>              983 ovr/sdk/src/OVR_JSON.cpp     JSON *item = new JSON(itemType);
+<a href='../S/84.html#L984'>item</a>              984 ovr/sdk/src/OVR_JSON.cpp     if (item)
+<a href='../S/84.html#L986'>item</a>              986 ovr/sdk/src/OVR_JSON.cpp         item-&gt;dValue = dval;
+<a href='../S/84.html#L988'>item</a>              988 ovr/sdk/src/OVR_JSON.cpp             item-&gt;Value = strVal;
+<a href='../S/84.html#L990'>item</a>              990 ovr/sdk/src/OVR_JSON.cpp     return item;
+<a href='../S/84.html#L997'>item</a>              997 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L998'>item</a>              998 ovr/sdk/src/OVR_JSON.cpp 	if (!item || item-&gt;Type != JSON_Number) {
+<a href='../S/84.html#L1002'>item</a>             1002 ovr/sdk/src/OVR_JSON.cpp 		return item-&gt;dValue;
+<a href='../S/84.html#L1008'>item</a>             1008 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1009'>item</a>             1009 ovr/sdk/src/OVR_JSON.cpp 	if (!item || item-&gt;Type != JSON_Number) {
+<a href='../S/84.html#L1013'>item</a>             1013 ovr/sdk/src/OVR_JSON.cpp 		return (int)item-&gt;dValue;
+<a href='../S/84.html#L1019'>item</a>             1019 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1020'>item</a>             1020 ovr/sdk/src/OVR_JSON.cpp 	if (!item || item-&gt;Type != JSON_Bool) {
+<a href='../S/84.html#L1024'>item</a>             1024 ovr/sdk/src/OVR_JSON.cpp 		return (int)item-&gt;dValue != 0;
+<a href='../S/84.html#L1030'>item</a>             1030 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1031'>item</a>             1031 ovr/sdk/src/OVR_JSON.cpp 	if (!item || item-&gt;Type != JSON_String) {
+<a href='../S/84.html#L1035'>item</a>             1035 ovr/sdk/src/OVR_JSON.cpp 		return item-&gt;Value;
+<a href='../S/84.html#L1041'>item</a>             1041 ovr/sdk/src/OVR_JSON.cpp void JSON::AddArrayElement(JSON *item)
+<a href='../S/84.html#L1043'>item</a>             1043 ovr/sdk/src/OVR_JSON.cpp     if (!item)
+<a href='../S/84.html#L1046'>item</a>             1046 ovr/sdk/src/OVR_JSON.cpp     Children.PushBack(item);
+<a href='../S/84.html#L1050'>item</a>             1050 ovr/sdk/src/OVR_JSON.cpp void JSON::InsertArrayElement(int index, JSON *item)
+<a href='../S/84.html#L1052'>item</a>             1052 ovr/sdk/src/OVR_JSON.cpp     if (!item)
+<a href='../S/84.html#L1057'>item</a>             1057 ovr/sdk/src/OVR_JSON.cpp         Children.PushFront(item);
+<a href='../S/84.html#L1070'>item</a>             1070 ovr/sdk/src/OVR_JSON.cpp         iter-&gt;InsertNodeBefore(item);
+<a href='../S/84.html#L1072'>item</a>             1072 ovr/sdk/src/OVR_JSON.cpp         Children.PushBack(item);
+<a href='../S/78.html#L115'>item</a>              115 ovr/sdk/src/OVR_JSON.h     JSON*           GetNextItem(JSON* item)  { return Children.IsNull(item-&gt;pNext) ? 0 : item-&gt;pNext; }
+<a href='../S/78.html#L116'>item</a>              116 ovr/sdk/src/OVR_JSON.h     JSON*           GetPrevItem(JSON* item)  { return Children.IsNull(item-&gt;pPrev) ? 0 : item-&gt;pPrev; }
+<a href='../S/78.html#L120'>item</a>              120 ovr/sdk/src/OVR_JSON.h     void            AddItem(const char *string, JSON* item);
+<a href='../S/78.html#L132'>item</a>              132 ovr/sdk/src/OVR_JSON.h     void            AddArrayElement(JSON *item);
+<a href='../S/78.html#L133'>item</a>              133 ovr/sdk/src/OVR_JSON.h     void            InsertArrayElement(int index, JSON* item);
+<a href='../S/139.html#L413'>item</a>              413 ovr/sdk/src/OVR_Profile.cpp             JSON* item = profileItem-&gt;GetFirstItem();
+<a href='../S/139.html#L415'>item</a>              415 ovr/sdk/src/OVR_Profile.cpp             if (item &amp;&amp; (item-&gt;Name == "Name"))
+<a href='../S/139.html#L417'>item</a>              417 ovr/sdk/src/OVR_Profile.cpp                 profileName = item-&gt;Value;
+<a href='../S/139.html#L436'>item</a>              436 ovr/sdk/src/OVR_Profile.cpp                 item = profileItem-&gt;GetNextItem(item);
+<a href='../S/139.html#L437'>item</a>              437 ovr/sdk/src/OVR_Profile.cpp                 while (item)
+<a href='../S/139.html#L439'>item</a>              439 ovr/sdk/src/OVR_Profile.cpp                     if (item-&gt;Type != JSON_Object)
+<a href='../S/139.html#L441'>item</a>              441 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;Name == OVR_KEY_PLAYER_HEIGHT)
+<a href='../S/139.html#L445'>item</a>              445 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;Name == "NeckEyeHori")
+<a href='../S/139.html#L446'>item</a>              446 ovr/sdk/src/OVR_Profile.cpp                             neckeye[0] = (float)item-&gt;dValue;
+<a href='../S/139.html#L447'>item</a>              447 ovr/sdk/src/OVR_Profile.cpp                         else if (item-&gt;Name == "NeckEyeVert")
+<a href='../S/139.html#L448'>item</a>              448 ovr/sdk/src/OVR_Profile.cpp                             neckeye[1] = (float)item-&gt;dValue;
+<a href='../S/139.html#L450'>item</a>              450 ovr/sdk/src/OVR_Profile.cpp                             user_profile-&gt;SetValue(item);
+<a href='../S/139.html#L455'>item</a>              455 ovr/sdk/src/OVR_Profile.cpp                         const char* device_name = item-&gt;Name.ToCStr();
+<a href='../S/139.html#L458'>item</a>              458 ovr/sdk/src/OVR_Profile.cpp                         JSON* device_item = item-&gt;GetFirstItem();
+<a href='../S/139.html#L462'>item</a>              462 ovr/sdk/src/OVR_Profile.cpp                             device_item = item-&gt;GetNextItem(device_item);
+<a href='../S/139.html#L469'>item</a>              469 ovr/sdk/src/OVR_Profile.cpp                     item = profileItem-&gt;GetNextItem(item);
+<a href='../S/139.html#L768'>item</a>              768 ovr/sdk/src/OVR_Profile.cpp         JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L769'>item</a>              769 ovr/sdk/src/OVR_Profile.cpp         while (item)
+<a href='../S/139.html#L773'>item</a>              773 ovr/sdk/src/OVR_Profile.cpp             profile-&gt;SetValue(item);
+<a href='../S/139.html#L774'>item</a>              774 ovr/sdk/src/OVR_Profile.cpp             item = vals-&gt;GetNextItem(item);
+<a href='../S/139.html#L829'>item</a>              829 ovr/sdk/src/OVR_Profile.cpp         JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L830'>item</a>              830 ovr/sdk/src/OVR_Profile.cpp         while (item)
+<a href='../S/139.html#L832'>item</a>              832 ovr/sdk/src/OVR_Profile.cpp             if (value-&gt;Name == item-&gt;Name)
+<a href='../S/139.html#L835'>item</a>              835 ovr/sdk/src/OVR_Profile.cpp                 OVR_ASSERT(value-&gt;Type == item-&gt;Type);
+<a href='../S/139.html#L837'>item</a>              837 ovr/sdk/src/OVR_Profile.cpp                 if (value-&gt;Type == item-&gt;Type)
+<a href='../S/139.html#L841'>item</a>              841 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;GetArraySize() == value-&gt;GetArraySize())
+<a href='../S/139.html#L844'>item</a>              844 ovr/sdk/src/OVR_Profile.cpp                             JSON* item_element = item-&gt;GetFirstItem();
+<a href='../S/139.html#L864'>item</a>              864 ovr/sdk/src/OVR_Profile.cpp                                 item_element = item-&gt;GetNextItem(item_element);
+<a href='../S/139.html#L874'>item</a>              874 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;Value != value-&gt;Value)
+<a href='../S/139.html#L876'>item</a>              876 ovr/sdk/src/OVR_Profile.cpp                             item-&gt;Value = value-&gt;Value;
+<a href='../S/139.html#L881'>item</a>              881 ovr/sdk/src/OVR_Profile.cpp                         if (item-&gt;dValue != value-&gt;dValue)
+<a href='../S/139.html#L883'>item</a>              883 ovr/sdk/src/OVR_Profile.cpp                             item-&gt;dValue = value-&gt;dValue;
+<a href='../S/139.html#L897'>item</a>              897 ovr/sdk/src/OVR_Profile.cpp             item = vals-&gt;GetNextItem(item);
+<a href='../S/139.html#L981'>item</a>              981 ovr/sdk/src/OVR_Profile.cpp     JSON* item = root-&gt;GetFirstItem();
+<a href='../S/139.html#L982'>item</a>              982 ovr/sdk/src/OVR_Profile.cpp     while (item)
+<a href='../S/139.html#L986'>item</a>              986 ovr/sdk/src/OVR_Profile.cpp             item_name = item-&gt;Name;
+<a href='../S/139.html#L988'>item</a>              988 ovr/sdk/src/OVR_Profile.cpp             item_name = prefix + "." + item-&gt;Name;
+<a href='../S/139.html#L990'>item</a>              990 ovr/sdk/src/OVR_Profile.cpp         if (item-&gt;Type == JSON_Object)
+<a href='../S/139.html#L993'>item</a>              993 ovr/sdk/src/OVR_Profile.cpp             CopyItems(item, item_name);
+<a href='../S/139.html#L998'>item</a>              998 ovr/sdk/src/OVR_Profile.cpp             SetValue(item);
+<a href='../S/139.html#L1001'>item</a>             1001 ovr/sdk/src/OVR_Profile.cpp         item = root-&gt;GetNextItem(item);
+<a href='../S/139.html#L1163'>item</a>             1163 ovr/sdk/src/OVR_Profile.cpp                     JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L1164'>item</a>             1164 ovr/sdk/src/OVR_Profile.cpp                     while (item)
+<a href='../S/139.html#L1168'>item</a>             1168 ovr/sdk/src/OVR_Profile.cpp                         SetValue(item);
+<a href='../S/139.html#L1169'>item</a>             1169 ovr/sdk/src/OVR_Profile.cpp                         item = vals-&gt;GetNextItem(item);
+<a href='../S/139.html#L1281'>item</a>             1281 ovr/sdk/src/OVR_Profile.cpp         JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1283'>item</a>             1283 ovr/sdk/src/OVR_Profile.cpp         while (item &amp;&amp; count &lt; val_count)
+<a href='../S/139.html#L1285'>item</a>             1285 ovr/sdk/src/OVR_Profile.cpp             if (item-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1286'>item</a>             1286 ovr/sdk/src/OVR_Profile.cpp                 values[count] = (float)item-&gt;dValue;
+<a href='../S/139.html#L1291'>item</a>             1291 ovr/sdk/src/OVR_Profile.cpp             item = value-&gt;GetNextItem(item);
+<a href='../S/139.html#L1319'>item</a>             1319 ovr/sdk/src/OVR_Profile.cpp         JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1321'>item</a>             1321 ovr/sdk/src/OVR_Profile.cpp         while (item &amp;&amp; count &lt; val_count)
+<a href='../S/139.html#L1323'>item</a>             1323 ovr/sdk/src/OVR_Profile.cpp             if (item-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1324'>item</a>             1324 ovr/sdk/src/OVR_Profile.cpp                 values[count] = item-&gt;dValue;
+<a href='../S/139.html#L1329'>item</a>             1329 ovr/sdk/src/OVR_Profile.cpp             item = value-&gt;GetNextItem(item);
+<a href='../S/139.html#L1429'>item</a>             1429 ovr/sdk/src/OVR_Profile.cpp             JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1430'>item</a>             1430 ovr/sdk/src/OVR_Profile.cpp             while (item &amp;&amp; val_count &lt; num_vals)
+<a href='../S/139.html#L1432'>item</a>             1432 ovr/sdk/src/OVR_Profile.cpp                 if (item-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1433'>item</a>             1433 ovr/sdk/src/OVR_Profile.cpp                     item-&gt;dValue = vals[val_count];
+<a href='../S/139.html#L1435'>item</a>             1435 ovr/sdk/src/OVR_Profile.cpp                 item = value-&gt;GetNextItem(item);
+<a href='../S/139.html#L1489'>item</a>             1489 ovr/sdk/src/OVR_Profile.cpp             JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1490'>item</a>             1490 ovr/sdk/src/OVR_Profile.cpp             while (item &amp;&amp; val_count &lt; num_vals)
+<a href='../S/139.html#L1492'>item</a>             1492 ovr/sdk/src/OVR_Profile.cpp                 if (item-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1493'>item</a>             1493 ovr/sdk/src/OVR_Profile.cpp                     item-&gt;dValue = vals[val_count];
+<a href='../S/139.html#L1495'>item</a>             1495 ovr/sdk/src/OVR_Profile.cpp                 item = value-&gt;GetNextItem(item);
+<a href='../S/190.html#L935'>item</a>              935 ovr/sdk/src/OVR_SensorImpl.cpp                 JSON* item = device-&gt;GetItemByName("Serial");
+<a href='../S/190.html#L936'>item</a>              936 ovr/sdk/src/OVR_SensorImpl.cpp                 if (item &amp;&amp; item-&gt;Value == sinfo.SerialNumber)
+<a href='../S/190.html#L938'>item</a>              938 ovr/sdk/src/OVR_SensorImpl.cpp                     item = device-&gt;GetNextItem(item);
+<a href='../S/190.html#L939'>item</a>              939 ovr/sdk/src/OVR_SensorImpl.cpp                     while (item)
+<a href='../S/190.html#L941'>item</a>              941 ovr/sdk/src/OVR_SensorImpl.cpp                         if (item-&gt;Name == "MagCalibration")
+<a href='../S/190.html#L943'>item</a>              943 ovr/sdk/src/OVR_SensorImpl.cpp                             JSON* name = item-&gt;GetItemByName("Name");
+<a href='../S/190.html#L946'>item</a>              946 ovr/sdk/src/OVR_SensorImpl.cpp                                 item-&gt;RemoveNode();
+<a href='../S/190.html#L947'>item</a>              947 ovr/sdk/src/OVR_SensorImpl.cpp                                 item-&gt;Release();
+<a href='../S/190.html#L951'>item</a>              951 ovr/sdk/src/OVR_SensorImpl.cpp                         item = device-&gt;GetNextItem(item);
+<a href='../S/190.html#L1036'>item</a>             1036 ovr/sdk/src/OVR_SensorImpl.cpp             JSON* item = device-&gt;GetItemByName("Serial");
+<a href='../S/190.html#L1037'>item</a>             1037 ovr/sdk/src/OVR_SensorImpl.cpp             if (item &amp;&amp; item-&gt;Value == sinfo.SerialNumber)
+<a href='../S/190.html#L1047'>item</a>             1047 ovr/sdk/src/OVR_SensorImpl.cpp                 item = device-&gt;GetNextItem(item);
+<a href='../S/190.html#L1048'>item</a>             1048 ovr/sdk/src/OVR_SensorImpl.cpp                 while (item)
+<a href='../S/190.html#L1050'>item</a>             1050 ovr/sdk/src/OVR_SensorImpl.cpp                     if (item-&gt;Name == "MagCalibration")
+<a href='../S/190.html#L1052'>item</a>             1052 ovr/sdk/src/OVR_SensorImpl.cpp                         JSON* calibration = item;
+<a href='../S/190.html#L1108'>item</a>             1108 ovr/sdk/src/OVR_SensorImpl.cpp                     item = device-&gt;GetNextItem(item);
+</pre>
+</body>
+</html>

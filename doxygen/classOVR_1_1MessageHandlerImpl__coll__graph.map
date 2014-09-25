@@ -1,0 +1,10 @@
+<map id="OVR::MessageHandlerImpl" name="OVR::MessageHandlerImpl">
+<area shape="rect" id="node2" href="$classOVR_1_1MessageHandlerRef.html" title="{OVR::MessageHandlerRef\n|&#45; HandlersCount\l|+ MessageHandlerRef()\l+ ~MessageHandlerRef()\l+ HasHandlers()\l+ AddHandler()\l+ RemoveHandler()\l+ AddHandler_NTS()\l+ Call()\l+ GetLock()\l+ GetDevice()\l&#45; removeHandler()\l}" alt="" coords="347,681,525,890"/>
+<area shape="rect" id="node3" href="$classOVR_1_1MessageHandler.html" title="{OVR::MessageHandler\n|&#45; Internal\l|+ MessageHandler()\l+ ~MessageHandler()\l+ IsHandlerInstalled()\l+ RemoveHandlerFromDevices()\l+ GetHandlerLock()\l+ OnMessage()\l+ SupportsMessageType()\l}" alt="" coords="550,421,764,587"/>
+<area shape="rect" id="node4" href="$classOVR_1_1Lock.html" title="{OVR::Lock\n|+ RecursiveAttrInit\l|+ Lock()\l+ ~Lock()\l+ DoLock()\l+ Unlock()\l&#45; operator delete()\l}" alt="" coords="206,436,337,572"/>
+<area shape="rect" id="node5" href="$namespaceOVR.html#unionOVR_1_1pthread__mutexattr__t" title="{OVR::pthread_mutexattr_t\n|+ __size\l+ __align\l|}" alt="" coords="185,235,359,327"/>
+<area shape="rect" id="node6" href="$namespaceOVR.html#unionOVR_1_1pthread__mutex__t" title="{OVR::pthread_mutex_t\n|+ __size\l+ __align\l|}" alt="" coords="5,235,160,327"/>
+<area shape="rect" id="node7" href="$namespaceOVR.html#structOVR_1_1pthread__mutex__t_1_1____pthread__mutex__s" title="{OVR::pthread_mutex\l_t::__pthread_mutex_s\n|+ __lock\l+ __count\l+ __owner\l+ __kind\l+ __nusers\l+ @16\l|}" alt="" coords="5,5,159,171"/>
+<area shape="rect" id="node8" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="363,392,525,616"/>
+<area shape="rect" id="node9" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="384,243,548,320"/>
+</map>

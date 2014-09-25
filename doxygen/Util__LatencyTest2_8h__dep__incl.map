@@ -1,0 +1,14 @@
+<map id="ovr/sdk/src/Util/Util_LatencyTest2.h" name="ovr/sdk/src/Util/Util_LatencyTest2.h">
+<area shape="rect" id="node2" href="$CAPI__FrameTimeManager_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_FrameTimeManager.h" alt="" coords="145,97,303,138"/>
+<area shape="rect" id="node7" href="$CAPI__HMDState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.h" alt="" coords="238,278,396,319"/>
+<area shape="rect" id="node13" href="$Util__LatencyTest2_8cpp.html" title="ovr/sdk/src/Util/Util\l_LatencyTest2.cpp" alt="" coords="327,97,461,138"/>
+<area shape="rect" id="node3" href="$CAPI__DistortionRenderer_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_DistortionRenderer.h" alt="" coords="430,187,588,229"/>
+<area shape="rect" id="node11" href="$OVR__CAPI_8cpp.html" title="ovr/sdk/src/OVR_CAPI.cpp" alt="" coords="5,467,189,493"/>
+<area shape="rect" id="node12" href="$CAPI__FrameTimeManager_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_FrameTimeManager.cpp" alt="" coords="139,187,309,229"/>
+<area shape="rect" id="node4" href="$CAPI__DistortionRenderer_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_DistortionRenderer.cpp" alt="" coords="691,369,853,410"/>
+<area shape="rect" id="node5" href="$CAPI__GL__DistortionRenderer_8h.html" title="ovr/sdk/src/CAPI/GL\l/CAPI_GL_DistortionRenderer.h" alt="" coords="450,278,659,319"/>
+<area shape="rect" id="node6" href="$CAPI__GL__DistortionRenderer_8cpp.html" title="ovr/sdk/src/CAPI/GL\l/CAPI_GL_DistortionRenderer.cpp" alt="" coords="443,369,665,410"/>
+<area shape="rect" id="node8" href="$CAPI__GlobalState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.h" alt="" coords="210,369,368,410"/>
+<area shape="rect" id="node10" href="$CAPI__HMDState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.cpp" alt="" coords="397,459,555,501"/>
+<area shape="rect" id="node9" href="$CAPI__GlobalState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.cpp" alt="" coords="214,459,372,501"/>
+</map>

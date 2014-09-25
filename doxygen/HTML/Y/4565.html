@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>temperatureReportsBin</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/128.html#L250'>temperatureReportsBin</a>  250 ovr/sdk/src/OVR_SensorCalibration.cpp const TemperatureReport&amp; median(const Array&lt;TemperatureReport&gt;&amp; temperatureReportsBin, int coord)
+<a href='../S/128.html#L253'>temperatureReportsBin</a>  253 ovr/sdk/src/OVR_SensorCalibration.cpp     values.Reserve(temperatureReportsBin.GetSize());
+<a href='../S/128.html#L254'>temperatureReportsBin</a>  254 ovr/sdk/src/OVR_SensorCalibration.cpp     for (unsigned i = 0; i &lt; temperatureReportsBin.GetSize(); i++)
+<a href='../S/128.html#L255'>temperatureReportsBin</a>  255 ovr/sdk/src/OVR_SensorCalibration.cpp         if (temperatureReportsBin[i].ActualTemperature != 0)
+<a href='../S/128.html#L256'>temperatureReportsBin</a>  256 ovr/sdk/src/OVR_SensorCalibration.cpp             values.PushBack(temperatureReportsBin[i].Offset[coord]);
+<a href='../S/128.html#L261'>temperatureReportsBin</a>  261 ovr/sdk/src/OVR_SensorCalibration.cpp         for (unsigned i = 0; i &lt; temperatureReportsBin.GetSize(); i++)
+<a href='../S/128.html#L262'>temperatureReportsBin</a>  262 ovr/sdk/src/OVR_SensorCalibration.cpp             if (temperatureReportsBin[i].Offset[coord] == med)
+<a href='../S/128.html#L263'>temperatureReportsBin</a>  263 ovr/sdk/src/OVR_SensorCalibration.cpp                 return temperatureReportsBin[i];
+<a href='../S/128.html#L267'>temperatureReportsBin</a>  267 ovr/sdk/src/OVR_SensorCalibration.cpp     return temperatureReportsBin[0];
+</pre>
+</body>
+</html>

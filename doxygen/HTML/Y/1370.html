@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Max</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/147.html#L49'>Max</a>                49 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt; OVR_FORCE_INLINE const T Max(const T a, const T b)
+<a href='../S/147.html#L53'>Max</a>                53 ovr/sdk/src/Kernel/OVR_Alg.h { return Max&lt;T&gt;(minVal, Min&lt;T&gt;(v, maxVal)); }
+<a href='../S/177.html#L306'>Max</a>               306 ovr/sdk/src/Kernel/OVR_Math.h     static Vector2  Max(const Vector2&amp; a, const Vector2&amp; b) { return Vector2((a.x &gt; b.x) ? a.x : b.x,
+<a href='../S/177.html#L442'>Max</a>               442 ovr/sdk/src/Kernel/OVR_Math.h     static Vector3  Max(const Vector3&amp; a, const Vector3&amp; b)
+<a href='../S/177.html#L626'>Max</a>               626 ovr/sdk/src/Kernel/OVR_Math.h     static Size Max(const Size&amp; a, const Size&amp; b)  { return Size((a.w  &gt; b.w)  ? a.w  : b.w,
+<a href='../S/88.html#L91'>Max</a>                91 ovr/sdk/src/OVR_Stereo.cpp     scaledValFloor = Alg::Max ( 0.0f, Alg::Min ( (float)(NumSegments-1), scaledValFloor ) );
+<a href='../S/88.html#L1343'>Max</a>              1343 ovr/sdk/src/OVR_Stereo.cpp         extraEyeRotationInRadians = Alg::Min ( DegreeToRad ( 30.0f ), Alg::Max ( 0.0f, extraEyeRotationInRadians ) );
+<a href='../S/88.html#L1353'>Max</a>              1353 ovr/sdk/src/OVR_Stereo.cpp         fovPort.UpTan    = Alg::Max ( fovPort.UpTan   , ( halfLensDiameter + offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1354'>Max</a>              1354 ovr/sdk/src/OVR_Stereo.cpp         fovPort.DownTan  = Alg::Max ( fovPort.DownTan , ( halfLensDiameter - offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1355'>Max</a>              1355 ovr/sdk/src/OVR_Stereo.cpp         fovPort.LeftTan  = Alg::Max ( fovPort.LeftTan , ( halfLensDiameter + offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1356'>Max</a>              1356 ovr/sdk/src/OVR_Stereo.cpp         fovPort.RightTan = Alg::Max ( fovPort.RightTan, ( halfLensDiameter - offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1386'>Max</a>              1386 ovr/sdk/src/OVR_Stereo.cpp     eyeReliefInMeters = Alg::Max(eyeReliefInMeters, 0.006f);
+<a href='../S/88.html#L1438'>Max</a>              1438 ovr/sdk/src/OVR_Stereo.cpp                 result.LeftTan  = Alg::Max ( result.LeftTan,  -tanEyeAngle.x );
+<a href='../S/88.html#L1439'>Max</a>              1439 ovr/sdk/src/OVR_Stereo.cpp                 result.RightTan = Alg::Max ( result.RightTan,  tanEyeAngle.x );
+<a href='../S/88.html#L1440'>Max</a>              1440 ovr/sdk/src/OVR_Stereo.cpp                 result.UpTan    = Alg::Max ( result.UpTan,    -tanEyeAngle.y );
+<a href='../S/88.html#L1441'>Max</a>              1441 ovr/sdk/src/OVR_Stereo.cpp                 result.DownTan  = Alg::Max ( result.DownTan,   tanEyeAngle.y );
+<a href='../S/131.html#L109'>Max</a>               109 ovr/sdk/src/OVR_Stereo.h         return Alg::Max(Alg::Max(UpTan, DownTan), Alg::Max(LeftTan, RightTan));
+<a href='../S/131.html#L126'>Max</a>               126 ovr/sdk/src/OVR_Stereo.h     static FovPort Max(const FovPort&amp; a, const FovPort&amp; b)
+<a href='../S/131.html#L128'>Max</a>               128 ovr/sdk/src/OVR_Stereo.h         FovPort fov( Alg::Max( a.UpTan   , b.UpTan    ),   
+<a href='../S/131.html#L129'>Max</a>               129 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.DownTan , b.DownTan  ),
+<a href='../S/131.html#L130'>Max</a>               130 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.LeftTan , b.LeftTan  ),
+<a href='../S/131.html#L131'>Max</a>               131 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.RightTan, b.RightTan ) );
+<a href='../S/114.html#L472'>Max</a>               472 ovr/sdk/src/Util/Util_LatencyTest.cpp                         maxTime1To2 = Alg::Max(elapsed, maxTime1To2);
+<a href='../S/114.html#L486'>Max</a>               486 ovr/sdk/src/Util/Util_LatencyTest.cpp                         maxTime2To1 = Alg::Max(elapsed, maxTime2To1);
+<a href='../S/114.html#L494'>Max</a>               494 ovr/sdk/src/Util/Util_LatencyTest.cpp                 maxUSBTripMilliS = Alg::Max(usbRountripElapsedMilliS, maxUSBTripMilliS);
+<a href='../S/117.html#L268'>Max</a>               268 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.w = Alg::Max ( idealPixelSize[0].w, idealPixelSize[1].w );
+<a href='../S/117.html#L269'>Max</a>               269 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.h = Alg::Max ( idealPixelSize[0].h, idealPixelSize[1].h );
+<a href='../S/117.html#L325'>Max</a>               325 ovr/sdk/src/Util/Util_Render_Stereo.cpp         float fovTanH = Alg::Max ( fov.LeftTan, fov.RightTan );
+<a href='../S/117.html#L326'>Max</a>               326 ovr/sdk/src/Util/Util_Render_Stereo.cpp         float fovTanV = Alg::Max ( fov.UpTan, fov.DownTan );
+<a href='../S/117.html#L597'>Max</a>               597 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.UpTan    = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.UpTan   , EyeRenderParams[1].StereoEye.Fov.UpTan    );
+<a href='../S/117.html#L598'>Max</a>               598 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.DownTan  = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.DownTan , EyeRenderParams[1].StereoEye.Fov.DownTan  );
+<a href='../S/117.html#L599'>Max</a>               599 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.LeftTan  = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.LeftTan , EyeRenderParams[1].StereoEye.Fov.LeftTan  );
+<a href='../S/117.html#L600'>Max</a>               600 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.RightTan = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.RightTan, EyeRenderParams[1].StereoEye.Fov.RightTan );
+<a href='../S/117.html#L918'>Max</a>               918 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                      ( 1.0f - Alg::Max ( Alg::Abs ( sourceCoordNDC.x ), Alg::Abs ( sourceCoordNDC.y ) ) );
+<a href='../S/117.html#L921'>Max</a>               921 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                      ( 1.0f - Alg::Max ( Alg::Abs ( screenNDC.x ), Alg::Abs ( screenNDC.y ) ) );
+<a href='../S/117.html#L925'>Max</a>               925 ovr/sdk/src/Util/Util_Render_Stereo.cpp             screenNDC.x = Alg::Max ( -1.0f, Alg::Min ( screenNDC.x, 1.0f ) );
+<a href='../S/117.html#L926'>Max</a>               926 ovr/sdk/src/Util/Util_Render_Stereo.cpp             screenNDC.y = Alg::Max ( -1.0f, Alg::Min ( screenNDC.y, 1.0f ) );
+<a href='../S/117.html#L928'>Max</a>               928 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;Shade = Alg::Max ( 0.0f, Alg::Min ( edgeFadeIn, 1.0f ) );
+</pre>
+</body>
+</html>

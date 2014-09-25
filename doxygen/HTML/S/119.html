@@ -1,0 +1,326 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_SensorFilter.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_SensorFilter.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/121.html' title='Multiple included from 3 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   OVR.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_SensorFilter.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Basic filtering of sensor data</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   March 7, 2013</font></i>
+<a name='L7'>   7 <i><font color='green'>Authors     :   Steve LaValle, Anna Yershova, Max Katsev</font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#ifndef</font> <a href='../S/119.html#L29' title='Defined at 29 in ovr/sdk/src/OVR_SensorFilter.h.'>OVR_SensorFilter_h</a>
+<a name='L29'>  29 <font color='darkred'>#define</font> <a href='../S/119.html#L28' title='Refered from 28 in ovr/sdk/src/OVR_SensorFilter.h.'>OVR_SensorFilter_h</a>
+<a name='L30'>  30 
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='177.html'>Kernel/OVR_Math.h</a>"
+<a name='L32'>  32 <font color='darkred'>#include</font> "<a href='162.html'>Kernel/OVR_Deque.h</a>"
+<a name='L33'>  33 <font color='darkred'>#include</font> "<a href='147.html'>Kernel/OVR_Alg.h</a>"
+<a name='L34'>  34 
+<a name='L35'>  35 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L36'>  36 
+<a name='L37'>  37 <i><font color='green'>// A base class for filters that maintains a buffer of sensor data taken over time and implements</font></i>
+<a name='L38'>  38 <i><font color='green'>// various simple filters, most of which are linear functions of the data history.</font></i>
+<a name='L39'>  39 <i><font color='green'>// Maintains the running sum of its elements for better performance on large capacity values</font></i>
+<a name='L40'>  40 <a href='../Y/4566.html' title='Multiple used in 260 places.'>template</a> &lt;<a href='../Y/4676.html' title='Multiple used in 92 places.'>typename</a> <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;
+<a name='L41'>  41 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;
+<a name='L42'>  42 <font color='red'>{</font>
+<a name='L43'>  43 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L44'>  44     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a>;               <i><font color='green'>// Cached sum of the elements</font></i>
+<a name='L45'>  45 
+<a name='L46'>  46 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L47'>  47     <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>(<b>int</b> <a href='../Y/2818.html' title='Multiple used in 12 places.'>capacity</a> = <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;::<a href='../Y/356.html' title='Multiple used in 7 places.'>DefaultCapacity</a>)
+<a name='L48'>  48         : <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;(<a href='../Y/2818.html' title='Multiple used in 12 places.'>capacity</a>), <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a>() 
+<a name='L49'>  49     <font color='red'>{</font>
+<a name='L50'>  50         <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L51'>  51     <font color='red'>}</font>;
+<a name='L52'>  52 
+<a name='L53'>  53     <i><font color='green'>// The following methods are augmented to update the cached running sum value</font></i>
+<a name='L54'>  54     <b>void</b> <a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<b>const</b> <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> &amp;<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>)
+<a name='L55'>  55     <font color='red'>{</font>
+<a name='L56'>  56         <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;::<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>);
+<a name='L57'>  57         <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> += <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>;
+<a name='L58'>  58         <b>if</b> (<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/137.html#L58' title='Defined at 58 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>End</a> == 0)
+<a name='L59'>  59         <font color='red'>{</font>
+<a name='L60'>  60             <i><font color='green'>// update the cached total to avoid error accumulation</font></i>
+<a name='L61'>  61             <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> = <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>();
+<a name='L62'>  62             <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/488.html' title='Multiple used in 32 places.'>ElemCount</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L63'>  63                 <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> += <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>];
+<a name='L64'>  64         <font color='red'>}</font> 
+<a name='L65'>  65     <font color='red'>}</font>
+<a name='L66'>  66 
+<a name='L67'>  67     <b>void</b> <a href='../Y/1735.html' title='Multiple used in 11 places.'>PushFront</a>(<b>const</b> <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> &amp;<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>)
+<a name='L68'>  68     <font color='red'>{</font>
+<a name='L69'>  69         <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;::<a href='../Y/1735.html' title='Multiple used in 11 places.'>PushFront</a>(<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>);
+<a name='L70'>  70         <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> += <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>;
+<a name='L71'>  71         <b>if</b> (<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/126.html' title='Multiple used in 16 places.'>Beginning</a> == 0)
+<a name='L72'>  72         <font color='red'>{</font>
+<a name='L73'>  73             <i><font color='green'>// update the cached total to avoid error accumulation</font></i>
+<a name='L74'>  74             <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> = <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>();
+<a name='L75'>  75             <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/488.html' title='Multiple used in 32 places.'>ElemCount</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L76'>  76                 <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> += <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>];
+<a name='L77'>  77         <font color='red'>}</font>
+<a name='L78'>  78     <font color='red'>}</font>
+<a name='L79'>  79 
+<a name='L80'>  80     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/1679.html' title='Multiple used in 8 places.'>PopBack</a>() 
+<a name='L81'>  81     <font color='red'>{</font> 
+<a name='L82'>  82         <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a> = <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;::<a href='../Y/1679.html' title='Multiple used in 8 places.'>PopBack</a>();
+<a name='L83'>  83         <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> -= <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>;
+<a name='L84'>  84         <b>return</b> <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>;
+<a name='L85'>  85     <font color='red'>}</font>
+<a name='L86'>  86 
+<a name='L87'>  87     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/1681.html' title='Multiple used in 9 places.'>PopFront</a>() 
+<a name='L88'>  88     <font color='red'>{</font> 
+<a name='L89'>  89         <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a> = <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;::<a href='../Y/1681.html' title='Multiple used in 9 places.'>PopFront</a>();
+<a name='L90'>  90         <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> -= <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>;
+<a name='L91'>  91         <b>return</b> <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>;
+<a name='L92'>  92     <font color='red'>}</font>
+<a name='L93'>  93 
+<a name='L94'>  94     <b>void</b> <a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>()
+<a name='L95'>  95     <font color='red'>{</font>
+<a name='L96'>  96         <a href='../S/137.html#L39' title='Defined at 39 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>CircularBuffer</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;::<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L97'>  97         <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a> = <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>();
+<a name='L98'>  98     <font color='red'>}</font>
+<a name='L99'>  99 
+<a name='L100'> 100     <i><font color='green'>// Simple statistics</font></i>
+<a name='L101'> 101     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/2284.html' title='Multiple used in 2 places.'>Total</a>() <b>const</b> 
+<a name='L102'> 102     <font color='red'>{</font> 
+<a name='L103'> 103         <b>return</b> <a href='../Y/1896.html' title='Multiple used in 12 places.'>RunningTotal</a>; 
+<a name='L104'> 104     <font color='red'>}</font>
+<a name='L105'> 105 
+<a name='L106'> 106     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/1386.html' title='Multiple used in 7 places.'>Mean</a>() <b>const</b>
+<a name='L107'> 107     <font color='red'>{</font>
+<a name='L108'> 108         <b>return</b> <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>() ? <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>() : (<a href='../Y/2284.html' title='Multiple used in 2 places.'>Total</a>() / (<b>float</b>) <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/488.html' title='Multiple used in 32 places.'>ElemCount</a>);
+<a name='L109'> 109     <font color='red'>}</font>
+<a name='L110'> 110 
+<a name='L111'> 111         <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> MeanN(<b>int</b> <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>) <b>const</b>
+<a name='L112'> 112         <font color='red'>{</font>
+<a name='L113'> 113         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a> &gt; 0);
+<a name='L114'> 114         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a> &gt;= <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>);
+<a name='L115'> 115                 <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/4647.html' title='Multiple used in 20 places.'>total</a> = <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>();
+<a name='L116'> 116         <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++) 
+<a name='L117'> 117         <font color='red'>{</font>
+<a name='L118'> 118                         <a href='../Y/4647.html' title='Multiple used in 20 places.'>total</a> += <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>);
+<a name='L119'> 119                 <font color='red'>}</font>
+<a name='L120'> 120                 <b>return</b> <a href='../Y/4647.html' title='Multiple used in 20 places.'>total</a> / <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>;
+<a name='L121'> 121         <font color='red'>}</font>
+<a name='L122'> 122 
+<a name='L123'> 123     <i><font color='green'>// A popular family of smoothing filters and smoothed derivatives</font></i>
+<a name='L124'> 124 
+<a name='L125'> 125     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> SavitzkyGolaySmooth4() 
+<a name='L126'> 126     <font color='red'>{</font>
+<a name='L127'> 127         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a> &gt;= 4);
+<a name='L128'> 128         <b>return</b> <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(0)*0.7f +
+<a name='L129'> 129                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(1)*0.4f +
+<a name='L130'> 130                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(2)*0.1f -
+<a name='L131'> 131                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(3)*0.2f;
+<a name='L132'> 132     <font color='red'>}</font>
+<a name='L133'> 133 
+<a name='L134'> 134     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> SavitzkyGolaySmooth8() <b>const</b>
+<a name='L135'> 135     <font color='red'>{</font>
+<a name='L136'> 136         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a> &gt;= 8);
+<a name='L137'> 137         <b>return</b> <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(0)*0.41667f +
+<a name='L138'> 138                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(1)*0.33333f +
+<a name='L139'> 139                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(2)*0.25f +
+<a name='L140'> 140                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(3)*0.16667f +
+<a name='L141'> 141                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(4)*0.08333f -
+<a name='L142'> 142                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(6)*0.08333f -
+<a name='L143'> 143                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(7)*0.16667f;
+<a name='L144'> 144     <font color='red'>}</font>
+<a name='L145'> 145 
+<a name='L146'> 146     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> SavitzkyGolayDerivative4() <b>const</b>
+<a name='L147'> 147     <font color='red'>{</font>
+<a name='L148'> 148         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a> &gt;= 4);
+<a name='L149'> 149         <b>return</b> <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(0)*0.3f +
+<a name='L150'> 150                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(1)*0.1f -
+<a name='L151'> 151                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(2)*0.1f -
+<a name='L152'> 152                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(3)*0.3f;
+<a name='L153'> 153     <font color='red'>}</font>
+<a name='L154'> 154 
+<a name='L155'> 155     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> SavitzkyGolayDerivative5() <b>const</b>
+<a name='L156'> 156     <font color='red'>{</font>
+<a name='L157'> 157             <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a> &gt;= 5);
+<a name='L158'> 158             <b>return</b> <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(0)*0.2f +
+<a name='L159'> 159                    <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(1)*0.1f -
+<a name='L160'> 160                    <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(3)*0.1f -
+<a name='L161'> 161                    <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(4)*0.2f;
+<a name='L162'> 162    <font color='red'>}</font>
+<a name='L163'> 163 
+<a name='L164'> 164     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/1956.html' title='Multiple used in 2 places.'>SavitzkyGolayDerivative12</a>() <b>const</b>
+<a name='L165'> 165     <font color='red'>{</font>
+<a name='L166'> 166         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a> &gt;= 12);
+<a name='L167'> 167         <b>return</b> <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(0)*0.03846f +
+<a name='L168'> 168                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(1)*0.03147f +
+<a name='L169'> 169                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(2)*0.02448f +
+<a name='L170'> 170                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(3)*0.01748f +
+<a name='L171'> 171                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(4)*0.01049f +
+<a name='L172'> 172                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(5)*0.0035f -
+<a name='L173'> 173                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(6)*0.0035f -
+<a name='L174'> 174                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(7)*0.01049f -
+<a name='L175'> 175                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(8)*0.01748f -
+<a name='L176'> 176                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(9)*0.02448f -
+<a name='L177'> 177                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(10)*0.03147f -
+<a name='L178'> 178                <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(11)*0.03846f;
+<a name='L179'> 179     <font color='red'>}</font> 
+<a name='L180'> 180 
+<a name='L181'> 181     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> SavitzkyGolayDerivativeN(<b>int</b> <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>) <b>const</b>
+<a name='L182'> 182     <font color='red'>{</font>    
+<a name='L183'> 183         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/2818.html' title='Multiple used in 12 places.'>capacity</a> &gt;= <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>);
+<a name='L184'> 184         <b>int</b> <a href='../Y/3600.html' title='Multiple used in 122 places.'>m</a> = (<a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>-1)/2;
+<a name='L185'> 185         <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>();
+<a name='L186'> 186         <b>for</b> (<b>int</b> <a href='../Y/3522.html' title='Multiple used in 19 places.'>k</a> = 1; <a href='../Y/3522.html' title='Multiple used in 19 places.'>k</a> &lt;= <a href='../Y/3600.html' title='Multiple used in 122 places.'>m</a>; <a href='../Y/3522.html' title='Multiple used in 19 places.'>k</a>++) 
+<a name='L187'> 187         <font color='red'>{</font>
+<a name='L188'> 188             <b>int</b> <a href='../Y/3454.html' title='Multiple used in 2 places.'>ind1</a> = <a href='../Y/3600.html' title='Multiple used in 122 places.'>m</a> - <a href='../Y/3522.html' title='Multiple used in 19 places.'>k</a>;
+<a name='L189'> 189             <b>int</b> <a href='../Y/3455.html' title='Multiple used in 2 places.'>ind2</a> = <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a> - <a href='../Y/3600.html' title='Multiple used in 122 places.'>m</a> + <a href='../Y/3522.html' title='Multiple used in 19 places.'>k</a> - 1;
+<a name='L190'> 190             <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> += (<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(<a href='../Y/3454.html' title='Multiple used in 2 places.'>ind1</a>) - <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1655.html' title='Multiple used in 45 places.'>PeekBack</a>(<a href='../Y/3455.html' title='Multiple used in 2 places.'>ind2</a>)) * (<b>float</b>) <a href='../Y/3522.html' title='Multiple used in 19 places.'>k</a>;
+<a name='L191'> 191         <font color='red'>}</font>
+<a name='L192'> 192         <b>float</b> <a href='../Y/2861.html' title='Multiple used in 2 places.'>coef</a> = 3.0f/(<a href='../Y/3600.html' title='Multiple used in 122 places.'>m</a>*(<a href='../Y/3600.html' title='Multiple used in 122 places.'>m</a>+1.0f)*(2.0f*<a href='../Y/3600.html' title='Multiple used in 122 places.'>m</a>+1.0f));
+<a name='L193'> 193         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>*<a href='../Y/2861.html' title='Multiple used in 2 places.'>coef</a>;
+<a name='L194'> 194         <b>return</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L195'> 195     <font color='red'>}</font>
+<a name='L196'> 196 
+<a name='L197'> 197     <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../S/143.html#L33' title='Defined at 33 in ovr/sdk/src/OVR_SensorFilter.cpp.'>Median</a>() <b>const</b>
+<a name='L198'> 198     <font color='red'>{</font>
+<a name='L199'> 199         <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>* <a href='../Y/2904.html' title='Multiple used in 13 places.'>copy</a> = (<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>*) <a href='../D/657.html' title='Multiple defined in 2 places.'>OVR_ALLOC</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/488.html' title='Multiple used in 32 places.'>ElemCount</a> * <b>sizeof</b>(<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>));
+<a name='L200'> 200         <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../S/143.html#L33' title='Defined at 33 in ovr/sdk/src/OVR_SensorFilter.cpp.'>Median</a>(<a href='../Y/63.html' title='Multiple used in 5 places.'>ArrayAdaptor</a>(<a href='../Y/2904.html' title='Multiple used in 13 places.'>copy</a>));
+<a name='L201'> 201         <a href='../S/182.html#L313' title='Defined at 313 in ovr/sdk/src/Kernel/OVR_Allocator.h.'>OVR_FREE</a>(<a href='../Y/2904.html' title='Multiple used in 13 places.'>copy</a>);
+<a name='L202'> 202         <b>return</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L203'> 203     <font color='red'>}</font>
+<a name='L204'> 204 <font color='red'>}</font>;
+<a name='L205'> 205 
+<a name='L206'> 206 <i><font color='green'>// This class maintains a buffer of sensor data taken over time and implements</font></i>
+<a name='L207'> 207 <i><font color='green'>// various simple filters, most of which are linear functions of the data history.</font></i>
+<a name='L208'> 208 <a href='../Y/4566.html' title='Multiple used in 260 places.'>template</a> &lt;<a href='../Y/4676.html' title='Multiple used in 92 places.'>typename</a> <a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt;
+<a name='L209'> 209 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/1995.html' title='Multiple used in 8 places.'>SensorFilter</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>&lt;<a href='../Y/2396.html' title='Multiple used in 106 places.'>Vector3</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt; &gt;
+<a name='L210'> 210 <font color='red'>{</font>
+<a name='L211'> 211 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L212'> 212         <a href='../Y/1995.html' title='Multiple used in 8 places.'>SensorFilter</a>(<b>int</b> <a href='../Y/2818.html' title='Multiple used in 12 places.'>capacity</a> = <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>&lt;<a href='../Y/2396.html' title='Multiple used in 106 places.'>Vector3</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt; &gt;::<a href='../Y/356.html' title='Multiple used in 7 places.'>DefaultCapacity</a>) : <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>&lt;<a href='../Y/2396.html' title='Multiple used in 106 places.'>Vector3</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt; &gt;(<a href='../Y/2818.html' title='Multiple used in 12 places.'>capacity</a>) <font color='red'>{</font> <font color='red'>}</font>;
+<a name='L213'> 213 
+<a name='L214'> 214     <i><font color='green'>// Simple statistics</font></i>
+<a name='L215'> 215     <a href='../Y/2396.html' title='Multiple used in 106 places.'>Vector3</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt; <a href='../S/143.html#L33' title='Defined at 33 in ovr/sdk/src/OVR_SensorFilter.cpp.'>Median</a>() <b>const</b>;
+<a name='L216'> 216     <a href='../Y/2396.html' title='Multiple used in 106 places.'>Vector3</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt; <a href='../S/143.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_SensorFilter.cpp.'>Variance</a>() <b>const</b>; <i><font color='green'>// The diagonal of covariance matrix</font></i>
+<a name='L217'> 217     <a href='../Y/1366.html' title='Multiple used in 55 places.'>Matrix3</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt; <a href='../S/143.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_SensorFilter.cpp.'>Covariance</a>() <b>const</b>;
+<a name='L218'> 218     <a href='../Y/2396.html' title='Multiple used in 106 places.'>Vector3</a>&lt;<a href='../D/1143.html' title='Multiple defined in 30 places.'>T</a>&gt; <a href='../S/143.html#L88' title='Defined at 88 in ovr/sdk/src/OVR_SensorFilter.cpp.'>PearsonCoefficient</a>() <b>const</b>;
+<a name='L219'> 219 <font color='red'>}</font>;
+<a name='L220'> 220 
+<a name='L221'> 221 <b>typedef</b> <a href='../Y/1995.html' title='Multiple used in 8 places.'>SensorFilter</a>&lt;<b>float</b>&gt; <a href='../S/141.html#L76' title='Refered from 76 in ovr/sdk/src/OVR_SensorCalibration.h.'>SensorFilterf</a>;
+<a name='L222'> 222 <b>typedef</b> <a href='../Y/1995.html' title='Multiple used in 8 places.'>SensorFilter</a>&lt;<b>double</b>&gt; <a href='../S/127.html#L417' title='Refered from 417 in ovr/sdk/src/OVR_SensorFusion.h.'>SensorFilterd</a>;
+<a name='L223'> 223 
+<a name='L224'> 224 <i><font color='green'>// This filter operates on the values that are measured in the body frame and rotate with the device</font></i>
+<a name='L225'> 225 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/1997.html' title='Multiple used in 3 places.'>SensorFilterBodyFrame</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>&lt;<a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a>&gt;
+<a name='L226'> 226 <font color='red'>{</font>
+<a name='L227'> 227 <a href='../Y/4115.html' title='Multiple used in 56 places.'>private</a>:
+<a name='L228'> 228     <i><font color='green'>// low pass filter gain</font></i>
+<a name='L229'> 229     <b>double</b> <a href='../Y/3280.html' title='Multiple used in 9 places.'>gain</a>;
+<a name='L230'> 230     <i><font color='green'>// sum of squared norms of the values</font></i>
+<a name='L231'> 231     <b>double</b> <a href='../Y/4326.html' title='Multiple used in 6 places.'>runningTotalLengthSq</a>;
+<a name='L232'> 232     <i><font color='green'>// cumulative rotation quaternion</font></i>
+<a name='L233'> 233     <a href='../S/177.html#L1086' title='Defined at 1086 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatd</a> <a href='../Y/1740.html' title='Multiple used in 24 places.'>Q</a>;
+<a name='L234'> 234     <i><font color='green'>// current low pass filter output</font></i>
+<a name='L235'> 235     <a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a> <a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a>;
+<a name='L236'> 236 
+<a name='L237'> 237     <i><font color='green'>// make private so it isn't used by accident</font></i>
+<a name='L238'> 238     <i><font color='green'>// in addition to the normal SensorFilterBase::PushBack, keeps track of running sum of LengthSq</font></i>
+<a name='L239'> 239     <i><font color='green'>// for the purpose of variance computations</font></i>
+<a name='L240'> 240     <b>void</b> <a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<b>const</b> <a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a> &amp;<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>)
+<a name='L241'> 241     <font color='red'>{</font>
+<a name='L242'> 242         <a href='../Y/4326.html' title='Multiple used in 6 places.'>runningTotalLengthSq</a> += <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1033.html' title='Multiple used in 6 places.'>IsFull</a>() ? (<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>.<a href='../Y/1268.html' title='Multiple used in 23 places.'>LengthSq</a>() - <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1656.html' title='Multiple used in 12 places.'>PeekFront</a>().<a href='../Y/1268.html' title='Multiple used in 23 places.'>LengthSq</a>()) : <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>.<a href='../Y/1268.html' title='Multiple used in 23 places.'>LengthSq</a>();
+<a name='L243'> 243         <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>&lt;<a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a>&gt;::<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>);
+<a name='L244'> 244         <b>if</b> (<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/137.html#L58' title='Defined at 58 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>End</a> == 0)
+<a name='L245'> 245         <font color='red'>{</font>
+<a name='L246'> 246             <i><font color='green'>// update the cached total to avoid error accumulation</font></i>
+<a name='L247'> 247             <a href='../Y/4326.html' title='Multiple used in 6 places.'>runningTotalLengthSq</a> = 0;
+<a name='L248'> 248             <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/488.html' title='Multiple used in 32 places.'>ElemCount</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L249'> 249                 <a href='../Y/4326.html' title='Multiple used in 6 places.'>runningTotalLengthSq</a> += <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/1268.html' title='Multiple used in 23 places.'>LengthSq</a>();
+<a name='L250'> 250         <font color='red'>}</font> 
+<a name='L251'> 251     <font color='red'>}</font>
+<a name='L252'> 252 
+<a name='L253'> 253 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L254'> 254         <a href='../Y/1997.html' title='Multiple used in 3 places.'>SensorFilterBodyFrame</a>(<b>int</b> <a href='../Y/2818.html' title='Multiple used in 12 places.'>capacity</a> = <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>&lt;<a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a>&gt;::<a href='../Y/356.html' title='Multiple used in 7 places.'>DefaultCapacity</a>) 
+<a name='L255'> 255         : <a href='../Y/1996.html' title='Multiple used in 8 places.'>SensorFilterBase</a>&lt;<a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a>&gt;(<a href='../Y/2818.html' title='Multiple used in 12 places.'>capacity</a>), <a href='../Y/3280.html' title='Multiple used in 9 places.'>gain</a>(2.5), 
+<a name='L256'> 256         <a href='../Y/4326.html' title='Multiple used in 6 places.'>runningTotalLengthSq</a>(0), <a href='../Y/1740.html' title='Multiple used in 24 places.'>Q</a>(), <a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a>()  <font color='red'>{</font> <font color='red'>}</font>;
+<a name='L257'> 257 
+<a name='L258'> 258     <i><font color='green'>// return the scalar variance of the filter values (rotated to be in the same frame)</font></i>
+<a name='L259'> 259     <b>double</b> <a href='../S/143.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_SensorFilter.cpp.'>Variance</a>() <b>const</b>
+<a name='L260'> 260     <font color='red'>{</font>
+<a name='L261'> 261         <b>return</b> <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>() ? 0 : (<a href='../Y/4326.html' title='Multiple used in 6 places.'>runningTotalLengthSq</a> / <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/488.html' title='Multiple used in 32 places.'>ElemCount</a> - <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1386.html' title='Multiple used in 7 places.'>Mean</a>().<a href='../Y/1268.html' title='Multiple used in 23 places.'>LengthSq</a>());
+<a name='L262'> 262     <font color='red'>}</font>
+<a name='L263'> 263     
+<a name='L264'> 264     <i><font color='green'>// return the scalar standard deviation of the filter values (rotated to be in the same frame)</font></i>
+<a name='L265'> 265     <b>double</b> <a href='../Y/2135.html' title='Multiple used in 2 places.'>StdDev</a>() <b>const</b>
+<a name='L266'> 266     <font color='red'>{</font>
+<a name='L267'> 267         <b>return</b> <a href='../Y/4437.html' title='Multiple used in 18 places.'>sqrt</a>(<a href='../S/143.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_SensorFilter.cpp.'>Variance</a>());
+<a name='L268'> 268     <font color='red'>}</font>
+<a name='L269'> 269 
+<a name='L270'> 270     <i><font color='green'>// confidence value based on the stddev of the data (between 0.0 and 1.0, more is better)</font></i>
+<a name='L271'> 271     <b>double</b> <a href='../Y/235.html' title='Multiple used in 4 places.'>Confidence</a>() <b>const</b>
+<a name='L272'> 272     <font color='red'>{</font>
+<a name='L273'> 273         <b>return</b> <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/200.html' title='Multiple used in 2 places.'>Clamp</a>(0.48 - 0.1 * <a href='../Y/3589.html' title='Multiple used in 12 places.'>log</a>(<a href='../Y/2135.html' title='Multiple used in 2 places.'>StdDev</a>()), 0.0, 1.0) * <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/488.html' title='Multiple used in 32 places.'>ElemCount</a> / <a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a>;
+<a name='L274'> 274     <font color='red'>}</font>
+<a name='L275'> 275 
+<a name='L276'> 276     <i><font color='green'>// add a new element to the filter</font></i>
+<a name='L277'> 277     <i><font color='green'>// takes rotation increment since the last update </font></i>
+<a name='L278'> 278     <i><font color='green'>// in order to rotate the previous value to the current body frame</font></i>
+<a name='L279'> 279     <b>void</b> <a href='../Y/2360.html' title='Multiple used in 3 places.'>Update</a>(<a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a> <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>, <b>double</b> <a href='../Y/2978.html' title='Multiple used in 24 places.'>deltaT</a>, <a href='../S/177.html#L1086' title='Defined at 1086 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatd</a> <a href='../Y/2976.html' title='Multiple used in 3 places.'>deltaQ</a> = <a href='../S/177.html#L1086' title='Defined at 1086 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatd</a>())
+<a name='L280'> 280     <font color='red'>{</font>
+<a name='L281'> 281         <b>if</b> (<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>())
+<a name='L282'> 282         <font color='red'>{</font>
+<a name='L283'> 283             <a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a> = <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>;
+<a name='L284'> 284         <font color='red'>}</font>
+<a name='L285'> 285         <b>else</b> 
+<a name='L286'> 286         <font color='red'>{</font>
+<a name='L287'> 287             <i><font color='green'>// rotate by deltaQ</font></i>
+<a name='L288'> 288             <a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a> = <a href='../Y/2976.html' title='Multiple used in 3 places.'>deltaQ</a>.<a href='../Y/1017.html' title='Multiple used in 20 places.'>Inverted</a>().<a href='../Y/1884.html' title='Multiple used in 26 places.'>Rotate</a>(<a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a>);
+<a name='L289'> 289             <i><font color='green'>// apply low-pass filter</font></i>
+<a name='L290'> 290             <a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a> += (<a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a> - <a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a>) * <a href='../Y/3280.html' title='Multiple used in 9 places.'>gain</a> * <a href='../Y/2978.html' title='Multiple used in 24 places.'>deltaT</a>;
+<a name='L291'> 291         <font color='red'>}</font>
+<a name='L292'> 292         
+<a name='L293'> 293         <i><font color='green'>// put the value into the fixed frame for the stddev computation</font></i>
+<a name='L294'> 294         <a href='../Y/1740.html' title='Multiple used in 24 places.'>Q</a> = <a href='../Y/1740.html' title='Multiple used in 24 places.'>Q</a> * <a href='../Y/2976.html' title='Multiple used in 3 places.'>deltaQ</a>;
+<a name='L295'> 295         <a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/1740.html' title='Multiple used in 24 places.'>Q</a>.<a href='../Y/1884.html' title='Multiple used in 26 places.'>Rotate</a>(<a href='../Y/3834.html' title='Multiple used in 22 places.'>output</a>));
+<a name='L296'> 296     <font color='red'>}</font>
+<a name='L297'> 297 
+<a name='L298'> 298     <i><font color='green'>// returns the filter average in the current body frame</font></i>
+<a name='L299'> 299     <a href='../S/177.html#L555' title='Defined at 555 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3d</a> <a href='../Y/757.html' title='Multiple used in 4 places.'>GetFilteredValue</a>() <b>const</b>
+<a name='L300'> 300     <font color='red'>{</font>
+<a name='L301'> 301         <b>return</b> <a href='../Y/1740.html' title='Multiple used in 24 places.'>Q</a>.<a href='../Y/1017.html' title='Multiple used in 20 places.'>Inverted</a>().<a href='../Y/1884.html' title='Multiple used in 26 places.'>Rotate</a>(<a href='../Y/4589.html' title='Multiple used in 303 places.'>this</a>-&gt;<a href='../Y/1386.html' title='Multiple used in 7 places.'>Mean</a>());
+<a name='L302'> 302     <font color='red'>}</font>
+<a name='L303'> 303 <font color='red'>}</font>;
+<a name='L304'> 304 
+<a name='L305'> 305 <font color='red'>}</font> <i><font color='green'>//namespace OVR</font></i>
+<a name='L306'> 306 
+<a name='L307'> 307 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_SensorFilter_h</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>NextFrameTime</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L247'>NextFrameTime</a>     247 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameTiming.NextFrameTime            = 0.0;
+<a href='../S/98.html#L340'>NextFrameTime</a>     340 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     NextFrameTime     = ThisFrameTime + frameDelta;
+<a href='../S/98.html#L341'>NextFrameTime</a>     341 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     nextFrameBase     = NextFrameTime + inputs.ScreenDelay;
+<a href='../S/98.html#L344'>NextFrameTime</a>     344 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                         0.0 : (NextFrameTime + inputs.TimewarpWaitDelta);
+<a href='../S/98.html#L411'>NextFrameTime</a>     411 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     double thisFrameTime = (FrameTiming.NextFrameTime != 0.0) ?
+<a href='../S/98.html#L412'>NextFrameTime</a>     412 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                            FrameTiming.NextFrameTime : ovr_GetTimeInSeconds();
+<a href='../S/98.html#L425'>NextFrameTime</a>     425 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameTiming.NextFrameTime = ovr_GetTimeInSeconds();    
+<a href='../S/98.html#L428'>NextFrameTime</a>     428 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameTimeDeltas.AddTimeDelta(FrameTiming.NextFrameTime - FrameTiming.ThisFrameTime);
+<a href='../S/98.html#L454'>NextFrameTime</a>     454 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         double   thisFrameTime = frameTiming.NextFrameTime +
+<a href='../S/98.html#L605'>NextFrameTime</a>     605 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                                        FrameTiming.NextFrameTime,
+<a href='../S/99.html#L162'>NextFrameTime</a>     162 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h         double              NextFrameTime;        
+<a href='../S/142.html#L540'>NextFrameTime</a>     540 ovr/sdk/src/OVR_CAPI.cpp         f.NextFrameSeconds       = frameTiming.NextFrameTime;
+<a href='../S/142.html#L575'>NextFrameTime</a>     575 ovr/sdk/src/OVR_CAPI.cpp     f.NextFrameSeconds       = frameTiming.NextFrameTime;
+</pre>
+</body>
+</html>

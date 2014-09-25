@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>clockDelta</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/136.html#L97'>clockDelta</a>         97 ovr/sdk/src/OVR_SensorTimeFilter.cpp     double clockDelta      = systemTime - sampleDeviceTime + FilterSettings.ClockDeltaAdjust;
+<a href='../S/136.html#L127'>clockDelta</a>        127 ovr/sdk/src/OVR_SensorTimeFilter.cpp                 initClockSampling(sampleDeviceTime, clockDelta);
+<a href='../S/136.html#L142'>clockDelta</a>        142 ovr/sdk/src/OVR_SensorTimeFilter.cpp             if (clockDelta &lt; MinWindowClockDelta)
+<a href='../S/136.html#L143'>clockDelta</a>        143 ovr/sdk/src/OVR_SensorTimeFilter.cpp                 MinWindowClockDelta = clockDelta;
+<a href='../S/136.html#L148'>clockDelta</a>        148 ovr/sdk/src/OVR_SensorTimeFilter.cpp             processFinishedMinWindow(sampleDeviceTime, clockDelta);
+<a href='../S/136.html#L155'>clockDelta</a>        155 ovr/sdk/src/OVR_SensorTimeFilter.cpp         initClockSampling(sampleDeviceTime, clockDelta);
+<a href='../S/136.html#L230'>clockDelta</a>        230 ovr/sdk/src/OVR_SensorTimeFilter.cpp void SensorTimeFilter::initClockSampling(double sampleDeviceTime, double clockDelta)
+<a href='../S/136.html#L233'>clockDelta</a>        233 ovr/sdk/src/OVR_SensorTimeFilter.cpp     ClockDelta                   = clockDelta;
+<a href='../S/136.html#L241'>clockDelta</a>        241 ovr/sdk/src/OVR_SensorTimeFilter.cpp     MinWindowClockDelta          = clockDelta;
+<a href='../S/136.html#L247'>clockDelta</a>        247 ovr/sdk/src/OVR_SensorTimeFilter.cpp void SensorTimeFilter::processFinishedMinWindow(double sampleDeviceTime, double clockDelta)
+<a href='../S/136.html#L282'>clockDelta</a>        282 ovr/sdk/src/OVR_SensorTimeFilter.cpp             ClockDelta = clockDelta;
+<a href='../S/136.html#L378'>clockDelta</a>        378 ovr/sdk/src/OVR_SensorTimeFilter.cpp     MinWindowClockDelta = clockDelta;
+<a href='../S/134.html#L130'>clockDelta</a>        130 ovr/sdk/src/OVR_SensorTimeFilter.h     void   initClockSampling(double sampleDeviceTime, double clockDelta);
+</pre>
+</body>
+</html>

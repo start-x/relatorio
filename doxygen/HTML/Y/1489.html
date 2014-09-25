@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>O</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L493'>O</a>                 493 ovr/sdk/src/Kernel/OVR_Atomic.h template&lt;class O&gt;
+<a href='../S/145.html#L494'>O</a>                 494 ovr/sdk/src/Kernel/OVR_Atomic.h struct AtomicOpsRaw_DefImpl : public O
+<a href='../S/145.html#L496'>O</a>                 496 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef typename O::T O_T;
+<a href='../S/145.html#L497'>O</a>                 497 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef typename O::FullSync    O_FullSync;
+<a href='../S/145.html#L498'>O</a>                 498 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef typename O::AcquireSync O_AcquireSync;
+<a href='../S/145.html#L499'>O</a>                 499 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef typename O::ReleaseSync O_ReleaseSync;
+<a href='../S/145.html#L518'>O</a>                 518 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Sync(volatile O_T* p, O_T val)                { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L519'>O</a>                 519 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Release(volatile O_T* p, O_T val)             { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L520'>O</a>                 520 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Acquire(volatile O_T* p, O_T val)             { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }  
+<a href='../S/145.html#L521'>O</a>                 521 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Sync(volatile O_T* p, O_T val)             { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L522'>O</a>                 522 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Release(volatile O_T* p, O_T val)          { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L523'>O</a>                 523 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Acquire(volatile O_T* p, O_T val)          { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L524'>O</a>                 524 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile O_T* p, O_T c, O_T val)    { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L525'>O</a>                 525 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Release(volatile O_T* p, O_T c, O_T val) { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L526'>O</a>                 526 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Acquire(volatile O_T* p, O_T c, O_T val) { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+</pre>
+</body>
+</html>

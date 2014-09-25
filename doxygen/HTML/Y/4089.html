@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>poseState</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L1141'>poseState</a>        1141 ovr/sdk/src/Kernel/OVR_Math.h     PoseState&lt;T&gt; operator*(const PoseState&lt;T&gt;&amp; poseState) const   
+<a href='../S/177.html#L1144'>poseState</a>        1144 ovr/sdk/src/Kernel/OVR_Math.h         result.Pose                = (*this) * poseState.Pose;
+<a href='../S/177.html#L1145'>poseState</a>        1145 ovr/sdk/src/Kernel/OVR_Math.h         result.LinearVelocity      = this-&gt;Rotate(poseState.LinearVelocity);
+<a href='../S/177.html#L1146'>poseState</a>        1146 ovr/sdk/src/Kernel/OVR_Math.h         result.LinearAcceleration  = this-&gt;Rotate(poseState.LinearAcceleration);
+<a href='../S/177.html#L1147'>poseState</a>        1147 ovr/sdk/src/Kernel/OVR_Math.h         result.AngularVelocity     = this-&gt;Rotate(poseState.AngularVelocity);
+<a href='../S/177.html#L1148'>poseState</a>        1148 ovr/sdk/src/Kernel/OVR_Math.h         result.AngularAcceleration = this-&gt;Rotate(poseState.AngularAcceleration);
+<a href='../S/189.html#L824'>poseState</a>         824 ovr/sdk/src/OVR_SensorFusion.cpp static Transform&lt;double&gt; calcPredictedPose(const PoseState&lt;double&gt;&amp; poseState, double predictionDt)
+<a href='../S/189.html#L826'>poseState</a>         826 ovr/sdk/src/OVR_SensorFusion.cpp     Transform&lt;double&gt; pose   = poseState.Pose;
+<a href='../S/189.html#L828'>poseState</a>         828 ovr/sdk/src/OVR_SensorFusion.cpp 	Vector3d angularVelocity = poseState.AngularVelocity;
+<a href='../S/189.html#L832'>poseState</a>         832 ovr/sdk/src/OVR_SensorFusion.cpp 	double speed             = angularSpeed + linearCoef * poseState.LinearVelocity.Length();
+<a href='../S/189.html#L846'>poseState</a>         846 ovr/sdk/src/OVR_SensorFusion.cpp     pose.Translation += poseState.LinearVelocity * dynamicDt;
+</pre>
+</body>
+</html>

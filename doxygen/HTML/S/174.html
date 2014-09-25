@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_Math.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_Math.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_Math.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Implementation of 3D primitives such as vectors, matrices.</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   September 4, 2012</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Andrew Reisse, Michael Antonov, Anna Yershova</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='177.html'>OVR_Math.h</a>"
+<a name='L28'>  28 <font color='darkred'>#include</font> "<a href='155.html'>OVR_Log.h</a>"
+<a name='L29'>  29 
+<a name='L30'>  30 <font color='darkred'>#include</font> &lt;float.h&gt;
+<a name='L31'>  31 
+<a name='L32'>  32 
+<a name='L33'>  33 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font>
+<a name='L34'>  34 
+<a name='L35'>  35 
+<a name='L36'>  36 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L37'>  37 <i><font color='green'>// ***** Math</font></i>
+<a name='L38'>  38 
+<a name='L39'>  39 
+<a name='L40'>  40 <i><font color='green'>// Single-precision Math constants class.</font></i>
+<a name='L41'>  41 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/1662.html' title='Multiple used in 16 places.'>Pi</a>      = 3.1415926f;
+<a name='L42'>  42 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/2311.html' title='Multiple used in 15 places.'>TwoPi</a>   = 3.1415926f * 2;
+<a name='L43'>  43 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/1663.html' title='Multiple used in 10 places.'>PiOver2</a> = 3.1415926f / 2.0f;
+<a name='L44'>  44 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/1664.html' title='Multiple used in 4 places.'>PiOver4</a> = 3.1415926f / 4.0f;
+<a name='L45'>  45 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/477.html' title='Multiple used in 38 places.'>E</a>       = 2.7182818f;
+<a name='L46'>  46 
+<a name='L47'>  47 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/1384.html' title='Multiple used in 4 places.'>MaxValue</a>                       = FLT_MAX;
+<a name='L48'>  48 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/1424.html' title='Multiple used in 4 places.'>MinPositiveValue</a>       = FLT_MIN;
+<a name='L49'>  49 
+<a name='L50'>  50 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/1769.html' title='Multiple used in 7 places.'>RadToDegreeFactor</a>      = 360.0f / <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/2311.html' title='Multiple used in 15 places.'>TwoPi</a>;
+<a name='L51'>  51 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/362.html' title='Multiple used in 9 places.'>DegreeToRadFactor</a>      = <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/2311.html' title='Multiple used in 15 places.'>TwoPi</a> / 360.0f;
+<a name='L52'>  52 
+<a name='L53'>  53 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/2283.html' title='Multiple used in 11 places.'>Tolerance</a>                      = 0.00001f;
+<a name='L54'>  54 <b>const</b> <b>float</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/2098.html' title='Multiple used in 12 places.'>SingularityRadius</a>      = 0.0000001f; <i><font color='green'>// Use for Gimbal lock numerical problems</font></i>
+<a name='L55'>  55 
+<a name='L56'>  56 <i><font color='green'>// Double-precision Math constants class.</font></i>
+<a name='L57'>  57 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/1662.html' title='Multiple used in 16 places.'>Pi</a>      = 3.14159265358979;
+<a name='L58'>  58 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/2311.html' title='Multiple used in 15 places.'>TwoPi</a>   = 3.14159265358979 * 2;
+<a name='L59'>  59 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/1663.html' title='Multiple used in 10 places.'>PiOver2</a> = 3.14159265358979 / 2.0;
+<a name='L60'>  60 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/1664.html' title='Multiple used in 4 places.'>PiOver4</a> = 3.14159265358979 / 4.0;
+<a name='L61'>  61 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/477.html' title='Multiple used in 38 places.'>E</a>       = 2.71828182845905;
+<a name='L62'>  62 
+<a name='L63'>  63 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/1384.html' title='Multiple used in 4 places.'>MaxValue</a>                             = DBL_MAX;
+<a name='L64'>  64 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/1424.html' title='Multiple used in 4 places.'>MinPositiveValue</a>             = DBL_MIN;
+<a name='L65'>  65 
+<a name='L66'>  66 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/1769.html' title='Multiple used in 7 places.'>RadToDegreeFactor</a>    = 360.0 / <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/2311.html' title='Multiple used in 15 places.'>TwoPi</a>;
+<a name='L67'>  67 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/362.html' title='Multiple used in 9 places.'>DegreeToRadFactor</a>    = <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/2311.html' title='Multiple used in 15 places.'>TwoPi</a> / 360.0;
+<a name='L68'>  68 
+<a name='L69'>  69 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/2283.html' title='Multiple used in 11 places.'>Tolerance</a>                    = 0.00001;
+<a name='L70'>  70 <b>const</b> <b>double</b> <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>double</b>&gt;::<a href='../Y/2098.html' title='Multiple used in 12 places.'>SingularityRadius</a>    = 0.000000000001; <i><font color='green'>// Use for Gimbal lock numerical problems</font></i>
+<a name='L71'>  71 
+<a name='L72'>  72 
+<a name='L73'>  73 
+<a name='L74'>  74 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L75'>  75 <i><font color='green'>// ***** Matrix4</font></i>
+<a name='L76'>  76 
+<a name='L77'>  77 <b>template</b>&lt;&gt;
+<a name='L78'>  78 <b>const</b> <a href='../Y/1368.html' title='Multiple used in 86 places.'>Matrix4</a>&lt;<b>float</b>&gt; <a href='../Y/1368.html' title='Multiple used in 86 places.'>Matrix4</a>&lt;<b>float</b>&gt;::<a href='../Y/967.html' title='Multiple used in 6 places.'>IdentityValue</a> = <a href='../Y/1368.html' title='Multiple used in 86 places.'>Matrix4</a>&lt;<b>float</b>&gt;(1.0f, 0.0f, 0.0f, 0.0f, 
+<a name='L79'>  79                                                                     0.0f, 1.0f, 0.0f, 0.0f, 
+<a name='L80'>  80                                                                     0.0f, 0.0f, 1.0f, 0.0f,
+<a name='L81'>  81                                                                     0.0f, 0.0f, 0.0f, 1.0f);
+<a name='L82'>  82 
+<a name='L83'>  83 <b>template</b>&lt;&gt;
+<a name='L84'>  84 <b>const</b> <a href='../Y/1368.html' title='Multiple used in 86 places.'>Matrix4</a>&lt;<b>double</b>&gt; <a href='../Y/1368.html' title='Multiple used in 86 places.'>Matrix4</a>&lt;<b>double</b>&gt;::<a href='../Y/967.html' title='Multiple used in 6 places.'>IdentityValue</a> = <a href='../Y/1368.html' title='Multiple used in 86 places.'>Matrix4</a>&lt;<b>double</b>&gt;(1.0, 0.0, 0.0, 0.0, 
+<a name='L85'>  85                                                                        0.0, 1.0, 0.0, 0.0, 
+<a name='L86'>  86                                                                        0.0, 0.0, 1.0, 0.0,
+<a name='L87'>  87                                                                        0.0, 0.0, 0.0, 1.0);
+<a name='L88'>  88 
+<a name='L89'>  89 
+<a name='L90'>  90 
+<a name='L91'>  91 <font color='red'>}</font> <i><font color='green'>// Namespace OVR</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

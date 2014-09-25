@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>UInt32</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/147.html#L840'>UInt32</a>            840 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SwapOrder(UInt32 v)     { return (v&gt;&gt;24)|((v&amp;0x00FF0000)&gt;&gt;8)|((v&amp;0x0000FF00)&lt;&lt;8)|(v&lt;&lt;24); }
+<a href='../S/147.html#L841'>UInt32</a>            841 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SwapOrder(SInt32 p)     { return (SInt32)SwapOrder(UInt32(p)); }
+<a href='../S/147.html#L858'>UInt32</a>            858 ovr/sdk/src/Kernel/OVR_Alg.h             UInt32 v;
+<a href='../S/147.html#L884'>UInt32</a>            884 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   LEToSystem(UInt32 v)    { return v; }
+<a href='../S/147.html#L896'>UInt32</a>            896 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   BEToSystem(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L908'>UInt32</a>            908 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToLE(UInt32 v)    { return v; }
+<a href='../S/147.html#L920'>UInt32</a>            920 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToBE(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L933'>UInt32</a>            933 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   LEToSystem(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L945'>UInt32</a>            945 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   BEToSystem(UInt32 v)    { return v; }
+<a href='../S/147.html#L957'>UInt32</a>            957 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToLE(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L969'>UInt32</a>            969 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToBE(UInt32 v)    { return v; }
+<a href='../S/147.html#L996'>UInt32</a>            996 ovr/sdk/src/Kernel/OVR_Alg.h inline UInt32 DecodeUInt32(const UByte* buffer)
+<a href='../S/147.html#L998'>UInt32</a>            998 ovr/sdk/src/Kernel/OVR_Alg.h     return ByteUtil::LEToSystem ( *(const UInt32*)buffer );
+<a href='../S/147.html#L1009'>UInt32</a>           1009 ovr/sdk/src/Kernel/OVR_Alg.h         UInt32 U;
+<a href='../S/147.html#L1027'>UInt32</a>           1027 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeUInt32(UByte* buffer, UInt32 val)
+<a href='../S/147.html#L1029'>UInt32</a>           1029 ovr/sdk/src/Kernel/OVR_Alg.h     *(UInt32*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1040'>UInt32</a>           1040 ovr/sdk/src/Kernel/OVR_Alg.h         UInt32 U;
+<a href='../S/145.html#L133'>UInt32</a>            133 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef UInt32 T;   
+<a href='../S/145.html#L156'>UInt32</a>            156 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef UInt32 T;
+<a href='../S/145.html#L157'>UInt32</a>            157 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   Exchange_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L159'>UInt32</a>            159 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret;
+<a href='../S/145.html#L170'>UInt32</a>            170 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   ExchangeAdd_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L172'>UInt32</a>            172 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 dummy, ret;
+<a href='../S/145.html#L184'>UInt32</a>            184 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L186'>UInt32</a>            186 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret;
+<a href='../S/145.html#L202'>UInt32</a>            202 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef UInt32 T;
+<a href='../S/145.html#L204'>UInt32</a>            204 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   Exchange_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L206'>UInt32</a>            206 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret;
+<a href='../S/145.html#L218'>UInt32</a>            218 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   ExchangeAdd_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L220'>UInt32</a>            220 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret;
+<a href='../S/145.html#L233'>UInt32</a>            233 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L235'>UInt32</a>            235 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret, dummy;
+<a href='../S/145.html#L253'>UInt32</a>            253 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef UInt32 T;
+<a href='../S/145.html#L255'>UInt32</a>            255 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   Exchange_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L264'>UInt32</a>            264 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   ExchangeAdd_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L274'>UInt32</a>            274 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L287'>UInt32</a>            287 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef UInt32 T;
+<a href='../S/145.html#L289'>UInt32</a>            289 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   Exchange_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L291'>UInt32</a>            291 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret, dummy;
+<a href='../S/145.html#L303'>UInt32</a>            303 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   ExchangeAdd_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L305'>UInt32</a>            305 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret, dummy, test;
+<a href='../S/145.html#L318'>UInt32</a>            318 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L320'>UInt32</a>            320 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret = 1, dummy, test;
+<a href='../S/145.html#L337'>UInt32</a>            337 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef UInt32 T;
+<a href='../S/145.html#L339'>UInt32</a>            339 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   Exchange_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L347'>UInt32</a>            347 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline UInt32   ExchangeAdd_NoSync(volatile UInt32 *i, UInt32 j)
+<a href='../S/145.html#L355'>UInt32</a>            355 ovr/sdk/src/Kernel/OVR_Atomic.h     static inline bool     CompareAndSet_NoSync(volatile UInt32 *i, UInt32 c, UInt32 value)
+<a href='../S/145.html#L357'>UInt32</a>            357 ovr/sdk/src/Kernel/OVR_Atomic.h         UInt32 ret;
+<a href='../S/145.html#L367'>UInt32</a>            367 ovr/sdk/src/Kernel/OVR_Atomic.h     typedef UInt32 T;
+<a href='../S/186.html#L207'>UInt32</a>            207 ovr/sdk/src/Kernel/OVR_File.h     UInt32  PRead32()           { UInt32 v = 0; Read((UByte*)&amp;v, 4); return v; }
+<a href='../S/186.html#L211'>UInt32</a>            211 ovr/sdk/src/Kernel/OVR_File.h     void    PWrite32(UInt32 v)  { Write((UByte*)&amp;v, 4); }
+<a href='../S/186.html#L224'>UInt32</a>            224 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt32(UInt32 v)       { PWrite32((UInt32)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L225'>UInt32</a>            225 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt32(SInt32 v)       { PWrite32((UInt32)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L237'>UInt32</a>            237 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L238'>UInt32</a>            238 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L251'>UInt32</a>            251 ovr/sdk/src/Kernel/OVR_File.h     inline UInt32  ReadUInt32()                { return (UInt32)Alg::ByteUtil::LEToSystem(PRead32());  }
+<a href='../S/186.html#L264'>UInt32</a>            264 ovr/sdk/src/Kernel/OVR_File.h     inline UInt32  ReadUInt32BE()              { return (UInt32)Alg::ByteUtil::BEToSystem(PRead32());  }
+<a href='../S/184.html#L163'>UInt32</a>            163 ovr/sdk/src/Kernel/OVR_String.cpp UInt32 String::GetCharAt(UPInt index) const 
+<a href='../S/184.html#L168'>UInt32</a>            168 ovr/sdk/src/Kernel/OVR_String.cpp     UInt32      c;
+<a href='../S/184.html#L181'>UInt32</a>            181 ovr/sdk/src/Kernel/OVR_String.cpp UInt32 String::GetFirstCharAt(UPInt index, const char** offset) const
+<a href='../S/184.html#L187'>UInt32</a>            187 ovr/sdk/src/Kernel/OVR_String.cpp     UInt32      c;
+<a href='../S/184.html#L207'>UInt32</a>            207 ovr/sdk/src/Kernel/OVR_String.cpp UInt32 String::GetNextChar(const char** offset) const
+<a href='../S/184.html#L396'>UInt32</a>            396 ovr/sdk/src/Kernel/OVR_String.cpp     UInt32      c;
+<a href='../S/184.html#L420'>UInt32</a>            420 ovr/sdk/src/Kernel/OVR_String.cpp     UInt32      c;
+<a href='../S/184.html#L610'>UInt32</a>            610 ovr/sdk/src/Kernel/OVR_String.cpp         UByte bits = Alg::UpperBit(UInt32(growSize-1));
+<a href='../S/161.html#L197'>UInt32</a>            197 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetCharAt(UPInt index) const;
+<a href='../S/161.html#L198'>UInt32</a>            198 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetFirstCharAt(UPInt index, const char** offset) const;
+<a href='../S/161.html#L199'>UInt32</a>            199 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetNextChar(const char** offset) const;
+<a href='../S/161.html#L202'>UInt32</a>            202 ovr/sdk/src/Kernel/OVR_String.h     void        AppendChar(UInt32 ch);
+<a href='../S/161.html#L232'>UInt32</a>            232 ovr/sdk/src/Kernel/OVR_String.h     UPInt       InsertCharAt(UInt32 c, UPInt posAt);
+<a href='../S/161.html#L448'>UInt32</a>            448 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetCharAt(UPInt index) const;
+<a href='../S/161.html#L449'>UInt32</a>            449 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetFirstCharAt(UPInt index, const char** offset) const;
+<a href='../S/161.html#L450'>UInt32</a>            450 ovr/sdk/src/Kernel/OVR_String.h     UInt32      GetNextChar(const char** offset) const;
+<a href='../S/161.html#L458'>UInt32</a>            458 ovr/sdk/src/Kernel/OVR_String.h     void        AppendChar(UInt32 ch);
+<a href='../S/161.html#L471'>UInt32</a>            471 ovr/sdk/src/Kernel/OVR_String.h     UPInt       InsertCharAt(UInt32 c, UPInt posAt);
+<a href='../S/171.html#L42'>UInt32</a>             42 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     UInt32 charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L79'>UInt32</a>             79 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     UInt32 charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L80'>UInt32</a>             80 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     UInt32 charVal2;
+<a href='../S/171.html#L121'>UInt32</a>            121 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     UInt32 charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/151.html#L365'>UInt32</a>            365 ovr/sdk/src/Kernel/OVR_Threads.h     AtomicInt&lt;UInt32&gt;   ThreadFlags;
+<a href='../S/181.html#L461'>UInt32</a>            461 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     ThreadFlags &amp;= (UInt32)~(OVR_THREAD_STARTED);
+<a href='../S/181.html#L575'>UInt32</a>            575 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         ThreadFlags &amp;= (UInt32)~OVR_THREAD_START_SUSPENDED;
+<a href='../S/181.html#L599'>UInt32</a>            599 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         ThreadFlags &amp;= (UInt32) ~OVR_THREAD_EXIT;
+<a href='../S/153.html#L137'>UInt32</a>            137 ovr/sdk/src/Kernel/OVR_Timer.cpp     UInt32          OldMMTimeMs;
+<a href='../S/153.html#L138'>UInt32</a>            138 ovr/sdk/src/Kernel/OVR_Timer.cpp     UInt32          MMTimeWrapCounter;
+<a href='../S/185.html#L64'>UInt32</a>             64 ovr/sdk/src/Kernel/OVR_Timer.h     static UInt32  OVR_STDCALL GetTicksMs()
+<a href='../S/185.html#L65'>UInt32</a>             65 ovr/sdk/src/Kernel/OVR_Timer.h     { return  UInt32(GetTicksNanos() / 1000000); }
+<a href='../S/168.html#L276'>UInt32</a>            276 ovr/sdk/src/Kernel/OVR_Types.h     using OVR::UInt32;
+<a href='../S/157.html#L56'>UInt32</a>             56 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp UInt32 OVR_STDCALL GetCharAt(SPInt index, const char* putf8str, SPInt length)
+<a href='../S/157.html#L59'>UInt32</a>             59 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     UInt32  c = 0;
+<a href='../S/157.html#L107'>UInt32</a>            107 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         UInt32 c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L135'>UInt32</a>            135 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp UInt32 OVR_STDCALL DecodeNextChar_Advance0(const char** putf8Buffer)
+<a href='../S/157.html#L137'>UInt32</a>            137 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     UInt32  uc;
+<a href='../S/157.html#L174'>UInt32</a>            174 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     if ((c &amp; 0x80) == 0) return (UInt32) c; // Conventional 7-bit ASCII.
+<a href='../S/157.html#L339'>UInt32</a>            339 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UInt32 ch = DecodeNextChar_Advance0(&amp;putf8str);
+<a href='../S/157.html#L352'>UInt32</a>            352 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UInt32 ch = DecodeNextChar_Advance0(&amp;p);
+<a href='../S/157.html#L391'>UInt32</a>            391 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         UInt32  next_ucs = *ucs_in++;
+<a href='../S/157.html#L392'>UInt32</a>            392 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         UInt32  next_ucs_from_utf8 = utf8::decode_next_unicode_character(&amp;utf8_in);
+<a href='../S/157.html#L436'>UInt32</a>            436 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         UInt32  uc = *line++;
+<a href='../S/157.html#L461'>UInt32</a>            461 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         const UInt32    test32[] =
+<a href='../S/157.html#L487'>UInt32</a>            487 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UInt32  line_buffer_ucs[LINE_SIZE];
+<a href='../S/157.html#L506'>UInt32</a>            506 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                     UInt32* q = line_buffer_ucs;
+<a href='../S/157.html#L509'>UInt32</a>            509 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UInt32  uc = UTF8Util::DecodeNextChar(&amp;p);
+<a href='../S/157.html#L523'>UInt32</a>            523 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UInt32  uc = *q++;
+<a href='../S/154.html#L45'>UInt32</a>             45 ovr/sdk/src/Kernel/OVR_UTF8Util.h UInt32   OVR_STDCALL GetCharAt(SPInt index, const char* putf8str, SPInt length = -1);
+<a href='../S/154.html#L71'>UInt32</a>             71 ovr/sdk/src/Kernel/OVR_UTF8Util.h int      OVR_STDCALL GetEncodeCharSize(UInt32 ucsCharacter);
+<a href='../S/154.html#L77'>UInt32</a>             77 ovr/sdk/src/Kernel/OVR_UTF8Util.h void     OVR_STDCALL EncodeChar(char* pbuffer, SPInt* poffset, UInt32 ucsCharacter);
+<a href='../S/154.html#L84'>UInt32</a>             84 ovr/sdk/src/Kernel/OVR_UTF8Util.h UInt32   OVR_STDCALL DecodeNextChar_Advance0(const char** putf8Buffer);
+<a href='../S/154.html#L88'>UInt32</a>             88 ovr/sdk/src/Kernel/OVR_UTF8Util.h inline UInt32 DecodeNextChar(const char** putf8Buffer)
+<a href='../S/154.html#L90'>UInt32</a>             90 ovr/sdk/src/Kernel/OVR_UTF8Util.h     UInt32 ch = DecodeNextChar_Advance0(putf8Buffer);
+<a href='../S/108.html#L746'>UInt32</a>            746 ovr/sdk/src/OVR_Device.h                         UInt32 sequence,
+<a href='../S/108.html#L755'>UInt32</a>            755 ovr/sdk/src/OVR_Device.h     UInt32      Sequence;           // LED custom patterns.
+<a href='../S/108.html#L791'>UInt32</a>            791 ovr/sdk/src/OVR_Device.h                             UInt32 stageTime,
+<a href='../S/108.html#L792'>UInt32</a>            792 ovr/sdk/src/OVR_Device.h                             UInt32 result)
+<a href='../S/108.html#L802'>UInt32</a>            802 ovr/sdk/src/OVR_Device.h 	UInt32	    StageTime;
+<a href='../S/108.html#L803'>UInt32</a>            803 ovr/sdk/src/OVR_Device.h     UInt32      Result;
+<a href='../S/108.html#L903'>UInt32</a>            903 ovr/sdk/src/OVR_Device.h                         UInt32 time,
+<a href='../S/108.html#L919'>UInt32</a>            919 ovr/sdk/src/OVR_Device.h     UInt32      Time;             // Better hope nobody tries to use this in 2038
+<a href='../S/108.html#L1084'>UInt32</a>           1084 ovr/sdk/src/OVR_Device.h     LatencyTestDisplay(UByte mode, UInt32 value)
+<a href='../S/108.html#L1090'>UInt32</a>           1090 ovr/sdk/src/OVR_Device.h     UInt32      Value;      // The value to display.
+<a href='../S/191.html#L409'>UInt32</a>            409 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 refCount = devCommon-&gt;RefCount;
+<a href='../S/191.html#L651'>UInt32</a>            651 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 refCount = RefCount;
+<a href='../S/191.html#L698'>UInt32</a>            698 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 handleCount = HandleCount;
+<a href='../S/80.html#L189'>UInt32</a>            189 ovr/sdk/src/OVR_DeviceImpl.h     AtomicInt&lt;UInt32&gt;           HandleCount;
+<a href='../S/80.html#L203'>UInt32</a>            203 ovr/sdk/src/OVR_DeviceImpl.h     AtomicInt&lt;UInt32&gt;      RefCount;
+<a href='../S/121.html#L149'>UInt32</a>            149 ovr/sdk/src/OVR_DeviceMessages.h     UInt32  CameraFrameCount;
+<a href='../S/121.html#L161'>UInt32</a>            161 ovr/sdk/src/OVR_DeviceMessages.h     UInt32  RawSensorTime;
+<a href='../S/121.html#L162'>UInt32</a>            162 ovr/sdk/src/OVR_DeviceMessages.h     UInt32  RawFrameTime;
+<a href='../S/121.html#L232'>UInt32</a>            232 ovr/sdk/src/OVR_DeviceMessages.h     void SetInfo(UInt32 frameNumber, double timeSeconds, UInt32 width, UInt32 height, UInt32 format)
+<a href='../S/121.html#L241'>UInt32</a>            241 ovr/sdk/src/OVR_DeviceMessages.h     void SetData(const UByte* pdata, UInt32 sizeInBytes)
+<a href='../S/121.html#L247'>UInt32</a>            247 ovr/sdk/src/OVR_DeviceMessages.h     UInt32   FrameNumber;			// an index of the frame
+<a href='../S/121.html#L250'>UInt32</a>            250 ovr/sdk/src/OVR_DeviceMessages.h     UInt32   FrameSizeInBytes;		// size of the data in the pFrameData.
+<a href='../S/121.html#L251'>UInt32</a>            251 ovr/sdk/src/OVR_DeviceMessages.h     UInt32   Width, Height;			// width &amp; height in pixels.
+<a href='../S/121.html#L252'>UInt32</a>            252 ovr/sdk/src/OVR_DeviceMessages.h     UInt32   Format;				// format of pixel, see CameraDevice::PixelFormat enum
+<a href='../S/121.html#L253'>UInt32</a>            253 ovr/sdk/src/OVR_DeviceMessages.h     UInt32   LostFrames;			// number of lost frames before this frame
+<a href='../S/121.html#L255'>UInt32</a>            255 ovr/sdk/src/OVR_DeviceMessages.h     UInt32* CameraHandle;			// Identifies the camera object associated with this frame
+<a href='../S/121.html#L265'>UInt32</a>            265 ovr/sdk/src/OVR_DeviceMessages.h     MessageCameraAdded(UInt32* cam)
+<a href='../S/121.html#L268'>UInt32</a>            268 ovr/sdk/src/OVR_DeviceMessages.h     UInt32* CameraHandle;			// Identifies the camera object associated with this frame
+<a href='../S/140.html#L115'>UInt32</a>            115 ovr/sdk/src/OVR_HIDDevice.h     virtual bool SetFeatureReport(UByte* data, UInt32 length) = 0;
+<a href='../S/140.html#L116'>UInt32</a>            116 ovr/sdk/src/OVR_HIDDevice.h     virtual bool GetFeatureReport(UByte* data, UInt32 length) = 0;
+<a href='../S/140.html#L129'>UInt32</a>            129 ovr/sdk/src/OVR_HIDDevice.h         virtual void OnInputReport(UByte* pData, UInt32 length)
+<a href='../S/91.html#L45'>UInt32</a>             45 ovr/sdk/src/OVR_HIDDeviceBase.h     virtual bool SetFeatureReport(UByte* data, UInt32 length) = 0;
+<a href='../S/91.html#L46'>UInt32</a>             46 ovr/sdk/src/OVR_HIDDeviceBase.h     virtual bool GetFeatureReport(UByte* data, UInt32 length) = 0;
+<a href='../S/123.html#L139'>UInt32</a>            139 ovr/sdk/src/OVR_HIDDeviceImpl.h     bool SetFeatureReport(UByte* data, UInt32 length)
+<a href='../S/123.html#L151'>UInt32</a>            151 ovr/sdk/src/OVR_HIDDeviceImpl.h     bool setFeatureReport(UByte* data, UInt32 length)
+<a href='../S/123.html#L156'>UInt32</a>            156 ovr/sdk/src/OVR_HIDDeviceImpl.h     bool GetFeatureReport(UByte* data, UInt32 length)
+<a href='../S/123.html#L167'>UInt32</a>            167 ovr/sdk/src/OVR_HIDDeviceImpl.h     bool getFeatureReport(UByte* data, UInt32 length)
+<a href='../S/122.html#L109'>UInt32</a>            109 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual void OnInputReport(UByte* pData, UInt32 length);
+<a href='../S/132.html#L36'>UInt32</a>             36 ovr/sdk/src/OVR_Linux_HIDDevice.cpp static const UInt32 MAX_QUEUED_INPUT_REPORTS = 5;
+<a href='../S/81.html#L57'>UInt32</a>             57 ovr/sdk/src/OVR_Linux_HIDDevice.h     virtual bool SetFeatureReport(UByte* data, UInt32 length);
+<a href='../S/81.html#L58'>UInt32</a>             58 ovr/sdk/src/OVR_Linux_HIDDevice.h 	virtual bool GetFeatureReport(UByte* data, UInt32 length);
+<a href='../S/82.html#L68'>UInt32</a>             68 ovr/sdk/src/OVR_Recording.h     OVR_FORCE_INLINE void RecordCameraFrameUsed(UInt32) { }
+<a href='../S/82.html#L69'>UInt32</a>             69 ovr/sdk/src/OVR_Recording.h     OVR_FORCE_INLINE void RecordVisionSuccess(UInt32) { }
+<a href='../S/188.html#L65'>UInt32</a>             65 ovr/sdk/src/OVR_Sensor2Impl.cpp 	UInt32	SampleTimestamp;
+<a href='../S/188.html#L69'>UInt32</a>             69 ovr/sdk/src/OVR_Sensor2Impl.cpp 	UInt32	FrameTimestamp;
+<a href='../S/188.html#L73'>UInt32</a>             73 ovr/sdk/src/OVR_Sensor2Impl.cpp 	UInt32	CameraTimestamp;
+<a href='../S/188.html#L817'>UInt32</a>            817 ovr/sdk/src/OVR_Sensor2Impl.cpp         UInt32 runningSampleCountDelta;
+<a href='../S/188.html#L968'>UInt32</a>            968 ovr/sdk/src/OVR_Sensor2Impl.cpp         UInt32 lowMks = (UInt32)timestamps[i]-&gt;TimestampMks;  // Low 32-bits are raw old timestamp.
+<a href='../S/188.html#L1036'>UInt32</a>           1036 ovr/sdk/src/OVR_Sensor2Impl.cpp             UInt32 tsRawMks[3] =
+<a href='../S/90.html#L60'>UInt32</a>             60 ovr/sdk/src/OVR_Sensor2Impl.h     virtual void        OnInputReport(UByte* pData, UInt32 length);
+<a href='../S/90.html#L140'>UInt32</a>            140 ovr/sdk/src/OVR_Sensor2Impl.h     UInt32                  FullCameraFrameCount;
+<a href='../S/90.html#L146'>UInt32</a>            146 ovr/sdk/src/OVR_Sensor2Impl.h     UInt32                  LastFrameTimestamp;
+<a href='../S/128.html#L185'>UInt32</a>            185 ovr/sdk/src/OVR_SensorCalibration.cpp     const UInt32 minDelay = 24 * 3600; // 1 day in seconds
+<a href='../S/128.html#L213'>UInt32</a>            213 ovr/sdk/src/OVR_SensorCalibration.cpp     UInt32 now = (UInt32) time(0);
+<a href='../S/127.html#L165'>UInt32</a>            165 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter) = 0;
+<a href='../S/127.html#L170'>UInt32</a>            170 ovr/sdk/src/OVR_SensorFusion.h     virtual Transform&lt;double&gt; GetVisionPrediction(UInt32 exposureCounter) = 0;
+<a href='../S/127.html#L263'>UInt32</a>            263 ovr/sdk/src/OVR_SensorFusion.h     virtual void        OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter);
+<a href='../S/127.html#L268'>UInt32</a>            268 ovr/sdk/src/OVR_SensorFusion.h     virtual Transform&lt;double&gt; GetVisionPrediction(UInt32 exposureCounter);
+<a href='../S/127.html#L347'>UInt32</a>            347 ovr/sdk/src/OVR_SensorFusion.h 		UInt32            ExposureCounter;
+<a href='../S/127.html#L357'>UInt32</a>            357 ovr/sdk/src/OVR_SensorFusion.h         ExposureRecord(UInt32 exposureCounter, double exposureTime, 
+<a href='../S/135.html#L202'>UInt32</a>            202 ovr/sdk/src/OVR_SensorImpl.h     virtual void OnInputReport(UByte* pData, UInt32 length);
+<a href='../S/135.html#L286'>UInt32</a>            286 ovr/sdk/src/OVR_SensorImpl.h     UInt32		FullTimestamp;
+<a href='../S/114.html#L34'>UInt32</a>             34 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     TIME_TO_WAIT_FOR_SETTLE_PRE_CALIBRATION = 16*10;
+<a href='../S/114.html#L35'>UInt32</a>             35 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     TIME_TO_WAIT_FOR_SETTLE_POST_CALIBRATION = 16*10;
+<a href='../S/114.html#L36'>UInt32</a>             36 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT = 16*5;
+<a href='../S/114.html#L37'>UInt32</a>             37 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS = 16*5;
+<a href='../S/114.html#L38'>UInt32</a>             38 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     DEFAULT_NUMBER_OF_SAMPLES = 10;                 // For both color 1-&gt;2 and color 2-&gt;1 transitions.
+<a href='../S/114.html#L39'>UInt32</a>             39 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     INITIAL_SAMPLES_TO_IGNORE = 4;
+<a href='../S/114.html#L40'>UInt32</a>             40 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     TIMEOUT_WAITING_FOR_TEST_STARTED = 1000;
+<a href='../S/114.html#L41'>UInt32</a>             41 ovr/sdk/src/Util/Util_LatencyTest.cpp static const UInt32     TIMEOUT_WAITING_FOR_COLOR_DETECTED = 4000;
+<a href='../S/114.html#L97'>UInt32</a>             97 ovr/sdk/src/Util/Util_LatencyTest.cpp UInt32 LatencyTest::getRandomComponent(UInt32 range)
+<a href='../S/114.html#L99'>UInt32</a>             99 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 val = rand() % range;
+<a href='../S/114.html#L180'>UInt32</a>            180 ovr/sdk/src/Util/Util_LatencyTest.cpp             UInt32 waitTime = TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT + getRandomComponent(TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS);
+<a href='../S/114.html#L203'>UInt32</a>            203 ovr/sdk/src/Util/Util_LatencyTest.cpp             UInt32 waitTime = TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT + getRandomComponent(TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS);
+<a href='../S/114.html#L215'>UInt32</a>            215 ovr/sdk/src/Util/Util_LatencyTest.cpp             UInt32 waitTime = TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT + getRandomComponent(TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS);
+<a href='../S/114.html#L297'>UInt32</a>            297 ovr/sdk/src/Util/Util_LatencyTest.cpp                 UInt32 waitTime = TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT + getRandomComponent(TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS);
+<a href='../S/114.html#L388'>UInt32</a>            388 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 initialMeasurements = 0;
+<a href='../S/114.html#L390'>UInt32</a>            390 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 measurements1to2 = 0;
+<a href='../S/114.html#L391'>UInt32</a>            391 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 measurements2to1 = 0;
+<a href='../S/114.html#L434'>UInt32</a>            434 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 minTime1To2 = UINT_MAX;
+<a href='../S/114.html#L435'>UInt32</a>            435 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 maxTime1To2 = 0;
+<a href='../S/114.html#L437'>UInt32</a>            437 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 minTime2To1 = UINT_MAX;
+<a href='../S/114.html#L438'>UInt32</a>            438 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 maxTime2To1 = 0;
+<a href='../S/114.html#L444'>UInt32</a>            444 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 countUSBTripTime = 0;
+<a href='../S/114.html#L446'>UInt32</a>            446 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 measurementsCount = 0;
+<a href='../S/114.html#L447'>UInt32</a>            447 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 measurements1to2 = 0;
+<a href='../S/114.html#L448'>UInt32</a>            448 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 measurements2to1 = 0;
+<a href='../S/114.html#L451'>UInt32</a>            451 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 count = 0;
+<a href='../S/114.html#L469'>UInt32</a>            469 ovr/sdk/src/Util/Util_LatencyTest.cpp                         UInt32 elapsed = pCurr-&gt;DeviceMeasuredElapsedMilliS;
+<a href='../S/114.html#L483'>UInt32</a>            483 ovr/sdk/src/Util/Util_LatencyTest.cpp                         UInt32 elapsed = pCurr-&gt;DeviceMeasuredElapsedMilliS;
+<a href='../S/114.html#L543'>UInt32</a>            543 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 newTime = Timer::GetTicksMs();
+<a href='../S/114.html#L544'>UInt32</a>            544 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 elapsedMilliS = newTime - OldTime;
+<a href='../S/114.html#L552'>UInt32</a>            552 ovr/sdk/src/Util/Util_LatencyTest.cpp     elapsedMilliS = Alg::Min(elapsedMilliS, (UInt32) 100);   // Clamp at 100mS in case we're not being called very often.
+<a href='../S/113.html#L98'>UInt32</a>             98 ovr/sdk/src/Util/Util_LatencyTest.h     UInt32 getRandomComponent(UInt32 range);
+<a href='../S/113.html#L101'>UInt32</a>            101 ovr/sdk/src/Util/Util_LatencyTest.h     void setTimer(UInt32 timeMilliS);
+<a href='../S/113.html#L136'>UInt32</a>            136 ovr/sdk/src/Util/Util_LatencyTest.h     UInt32                      OldTime;
+<a href='../S/113.html#L137'>UInt32</a>            137 ovr/sdk/src/Util/Util_LatencyTest.h     UInt32                      ActiveTimerMilliS;
+<a href='../S/113.html#L153'>UInt32</a>            153 ovr/sdk/src/Util/Util_LatencyTest.h         UInt32                  DeviceMeasuredElapsedMilliS;
+<a href='../S/110.html#L223'>UInt32</a>            223 ovr/sdk/src/Util/Util_LatencyTest2.h     UInt32                      RawLatencyMeasured;
+</pre>
+</body>
+</html>

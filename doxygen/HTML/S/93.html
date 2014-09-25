@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/219.html'>CAPI</a>/CAPI_DistortionRenderer.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/30.html' title='Multiple included from 3 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   CAPI_DistortionRenderer.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Abstract interface for platform-specific rendering of distortion</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   February 2, 2014</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Michael Antonov</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#ifndef</font> <a href='../S/93.html#L28' title='Defined at 28 in ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h.'>OVR_CAPI_DistortionRenderer_h</a>
+<a name='L28'>  28 <font color='darkred'>#define</font> <a href='../S/93.html#L27' title='Refered from 27 in ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h.'>OVR_CAPI_DistortionRenderer_h</a>
+<a name='L29'>  29 
+<a name='L30'>  30 <font color='darkred'>#include</font> "<a href='100.html'>CAPI_HMDRenderState.h</a>"
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='99.html'>CAPI_FrameTimeManager.h</a>"
+<a name='L32'>  32 
+<a name='L33'>  33 
+<a name='L34'>  34 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font> <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/85.html' title='Multiple defined in 8 places.'>CAPI</a> <font color='red'>{</font>
+<a name='L35'>  35 
+<a name='L36'>  36 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L37'>  37 <i><font color='green'>// ***** CAPI::DistortionRenderer</font></i>
+<a name='L38'>  38 
+<a name='L39'>  39 <i><font color='green'>// DistortionRenderer implements rendering of distortion and other overlay elements</font></i>
+<a name='L40'>  40 <i><font color='green'>// in platform-independent way.</font></i>
+<a name='L41'>  41 <i><font color='green'>// Platform-specific renderer back ends for CAPI are derived from this class.</font></i>
+<a name='L42'>  42 
+<a name='L43'>  43 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a>  <a href='../S/104.html#L101' title='Defined at 101 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>DistortionRenderer</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1829.html' title='Multiple used in 20 places.'>RefCountBase</a>&lt;<a href='../S/104.html#L101' title='Defined at 101 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>DistortionRenderer</a>&gt;
+<a name='L44'>  44 <font color='red'>{</font>
+<a name='L45'>  45     <i><font color='green'>// Quiet assignment compiler warning.</font></i>
+<a name='L46'>  46     <b>void</b> <a href='../Y/3818.html' title='Multiple used in 298 places.'>operator</a> = (<b>const</b> <a href='../S/104.html#L101' title='Defined at 101 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>DistortionRenderer</a>&amp;) <font color='red'>{</font> <font color='red'>}</font>
+<a name='L47'>  47 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L48'>  48     
+<a name='L49'>  49     <a href='../S/104.html#L101' title='Defined at 101 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>DistortionRenderer</a>(<a href='../S/187.html#L350' title='Defined at 350 in ovr/sdk/src/OVR_CAPI.h.'>ovrRenderAPIType</a> <a href='../Y/2702.html' title='Multiple used in 2 places.'>api</a>, <a href='../S/187.html#L186' title='Defined at 186 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmd</a> <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L50'>  50                        <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>&amp; <a href='../Y/4604.html' title='Multiple used in 9 places.'>timeManager</a>,              
+<a name='L51'>  51                        <b>const</b> <a href='../S/107.html#L49' title='Defined at 49 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDRenderState</a>&amp; <a href='../Y/4267.html' title='Multiple used in 9 places.'>renderState</a>)
+<a name='L52'>  52         : <a href='../Y/1848.html' title='Multiple used in 3 places.'>RenderAPI</a>(<a href='../Y/2702.html' title='Multiple used in 2 places.'>api</a>), <a href='../Y/871.html' title='Multiple used in 6 places.'>HMD</a>(<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>), <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>(<a href='../Y/4604.html' title='Multiple used in 9 places.'>timeManager</a>), <a href='../Y/1766.html' title='Multiple used in 15 places.'>RState</a>(<a href='../Y/4267.html' title='Multiple used in 9 places.'>renderState</a>)
+<a name='L53'>  53     <font color='red'>{</font> <font color='red'>}</font>
+<a name='L54'>  54     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> ~<a href='../S/104.html#L101' title='Defined at 101 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>DistortionRenderer</a>()
+<a name='L55'>  55     <font color='red'>{</font> <font color='red'>}</font>
+<a name='L56'>  56     
+<a name='L57'>  57 
+<a name='L58'>  58     <i><font color='green'>// Configures the Renderer based on externally passed API settings. Must be</font></i>
+<a name='L59'>  59     <i><font color='green'>// called before use.</font></i>
+<a name='L60'>  60     <i><font color='green'>// Under D3D, apiConfig includes D3D Device pointer, back buffer and other</font></i>
+<a name='L61'>  61     <i><font color='green'>// needed structures.</font></i>
+<a name='L62'>  62     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../D/475.html' title='Multiple defined in 10 places.'>Initialize</a>(<b>const</b> <a href='../S/187.html#L365' title='Defined at 365 in ovr/sdk/src/OVR_CAPI.h.'>ovrRenderAPIConfig</a>* <a href='../Y/2703.html' title='Multiple used in 13 places.'>apiConfig</a>,
+<a name='L63'>  63                             <b>unsigned</b> <a href='../Y/3048.html' title='Multiple used in 14 places.'>distortionCaps</a>) = 0;
+<a name='L64'>  64 
+<a name='L65'>  65     <i><font color='green'>// Submits one eye texture for rendering. This is in the separate method to</font></i>
+<a name='L66'>  66     <i><font color='green'>// allow "submit as you render" scenarios on horizontal screens where one</font></i>
+<a name='L67'>  67     <i><font color='green'>// eye can be scanned out before the other.</font></i>
+<a name='L68'>  68     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>void</b> <a href='../S/104.html#L161' title='Defined at 161 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>SubmitEye</a>(<b>int</b> <a href='../Y/3164.html' title='Multiple used in 12 places.'>eyeId</a>, <a href='../S/187.html#L381' title='Defined at 381 in ovr/sdk/src/OVR_CAPI.h.'>ovrTexture</a>* <a href='../Y/3173.html' title='Multiple used in 10 places.'>eyeTexture</a>) = 0;
+<a name='L69'>  69 
+<a name='L70'>  70     <i><font color='green'>// Finish the frame, optionally swapping buffers.</font></i>
+<a name='L71'>  71     <i><font color='green'>// Many implementations may actually apply the distortion here.</font></i>
+<a name='L72'>  72     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>void</b> <a href='../D/227.html' title='Multiple defined in 2 places.'>EndFrame</a>(<a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4520.html' title='Multiple used in 4 places.'>swapBuffers</a>, <b>unsigned</b> <b>char</b>* <a href='../Y/3548.html' title='Multiple used in 10 places.'>latencyTesterDrawColor</a>,
+<a name='L73'>  73                                             <b>unsigned</b> <b>char</b>* <a href='../Y/3547.html' title='Multiple used in 5 places.'>latencyTester2DrawColor</a>) = 0;
+<a name='L74'>  74     
+<a name='L75'>  75         <i><font color='green'>// Stores the current graphics pipeline state so it can be restored later.</font></i>
+<a name='L76'>  76         <b>void</b> <a href='../Y/1946.html' title='Multiple used in 2 places.'>SaveGraphicsState</a>() <font color='red'>{</font> <b>if</b> (!(<a href='../Y/1766.html' title='Multiple used in 15 places.'>RState</a>.<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> &amp; <a href='../S/187.html#L147' title='Defined at 147 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_NoRestore</a>)) <a href='../Y/830.html' title='Multiple used in 8 places.'>GfxState</a>-&gt;<a href='../D/994.html' title='Multiple defined in 2 places.'>Save</a>(); <font color='red'>}</font>
+<a name='L77'>  77 
+<a name='L78'>  78         <i><font color='green'>// Restores the saved graphics pipeline state.</font></i>
+<a name='L79'>  79         <b>void</b> <a href='../Y/1869.html' title='Multiple used in 2 places.'>RestoreGraphicsState</a>() <font color='red'>{</font> <b>if</b> (!(<a href='../Y/1766.html' title='Multiple used in 15 places.'>RState</a>.<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> &amp; <a href='../S/187.html#L147' title='Defined at 147 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_NoRestore</a>)) <a href='../Y/830.html' title='Multiple used in 8 places.'>GfxState</a>-&gt;<a href='../S/104.html#L363' title='Defined at 363 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>Restore</a>(); <font color='red'>}</font>
+<a name='L80'>  80 
+<a name='L81'>  81     <i><font color='green'>// *** Creation Factory logic</font></i>
+<a name='L82'>  82     
+<a name='L83'>  83     <a href='../S/187.html#L350' title='Defined at 350 in ovr/sdk/src/OVR_CAPI.h.'>ovrRenderAPIType</a> <a href='../Y/810.html' title='Multiple used in 2 places.'>GetRenderAPI</a>() <b>const</b> <font color='red'>{</font> <b>return</b> <a href='../Y/1848.html' title='Multiple used in 3 places.'>RenderAPI</a>; <font color='red'>}</font>
+<a name='L84'>  84 
+<a name='L85'>  85     <i><font color='green'>// Creation function for this interface, registered for API.</font></i>
+<a name='L86'>  86     <b>typedef</b> <a href='../S/104.html#L101' title='Defined at 101 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>DistortionRenderer</a>* (*<a href='../Y/275.html' title='Multiple used in 3 places.'>CreateFunc</a>)(<a href='../Y/3840.html' title='Multiple used in 7 places.'>ovrHmd</a> <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L87'>  87                                               <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a> &amp;<a href='../Y/4604.html' title='Multiple used in 9 places.'>timeManager</a>,
+<a name='L88'>  88                                               <b>const</b> <a href='../Y/877.html' title='Multiple used in 3 places.'>HMDRenderState</a>&amp; <a href='../Y/4267.html' title='Multiple used in 9 places.'>renderState</a>);
+<a name='L89'>  89 
+<a name='L90'>  90     <b>static</b> <a href='../Y/275.html' title='Multiple used in 3 places.'>CreateFunc</a> <a href='../Y/10.html' title='Multiple used in 3 places.'>APICreateRegistry</a>[<a href='../S/187.html#L349' title='Defined at 349 in ovr/sdk/src/OVR_CAPI.h.'>ovrRenderAPI_Count</a>];
+<a name='L91'>  91 
+<a name='L92'>  92 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L93'>  93     
+<a name='L94'>  94     <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../S/104.html#L290' title='Defined at 290 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>GraphicsState</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1829.html' title='Multiple used in 20 places.'>RefCountBase</a>&lt;<a href='../S/104.html#L290' title='Defined at 290 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>GraphicsState</a>&gt;
+<a name='L95'>  95     <font color='red'>{</font>
+<a name='L96'>  96     <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L97'>  97         <a href='../S/104.html#L290' title='Defined at 290 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>GraphicsState</a>() : <a href='../D/500.html' title='Multiple defined in 3 places.'>IsValid</a>(<a href='../Y/3198.html' title='Multiple used in 97 places.'>false</a>) <font color='red'>{</font><font color='red'>}</font>
+<a name='L98'>  98         <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> ~<a href='../S/104.html#L290' title='Defined at 290 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>GraphicsState</a>() <font color='red'>{</font><font color='red'>}</font>
+<a name='L99'>  99         <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>void</b> <a href='../D/994.html' title='Multiple defined in 2 places.'>Save</a>() = 0;
+<a name='L100'> 100         <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>void</b> <a href='../S/104.html#L363' title='Defined at 363 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>Restore</a>() = 0;
+<a name='L101'> 101         
+<a name='L102'> 102     <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L103'> 103         <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../D/500.html' title='Multiple defined in 3 places.'>IsValid</a>;
+<a name='L104'> 104     <font color='red'>}</font>;
+<a name='L105'> 105     
+<a name='L106'> 106     <b>const</b> <a href='../S/187.html#L350' title='Defined at 350 in ovr/sdk/src/OVR_CAPI.h.'>ovrRenderAPIType</a>  <a href='../Y/1848.html' title='Multiple used in 3 places.'>RenderAPI</a>;
+<a name='L107'> 107     <b>const</b> <a href='../S/187.html#L186' title='Defined at 186 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmd</a>            <a href='../Y/871.html' title='Multiple used in 6 places.'>HMD</a>;
+<a name='L108'> 108     <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>&amp;       <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>;
+<a name='L109'> 109     <b>const</b> <a href='../S/107.html#L49' title='Defined at 49 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDRenderState</a>&amp;   <a href='../Y/1766.html' title='Multiple used in 15 places.'>RState</a>;
+<a name='L110'> 110     <a href='../Y/1725.html' title='Multiple used in 115 places.'>Ptr</a>&lt;<a href='../S/104.html#L290' title='Defined at 290 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>GraphicsState</a>&gt;      <a href='../Y/830.html' title='Multiple used in 8 places.'>GfxState</a>;
+<a name='L111'> 111 <font color='red'>}</font>;
+<a name='L112'> 112 
+<a name='L113'> 113 <font color='red'>}</font><font color='red'>}</font> <i><font color='green'>// namespace OVR::CAPI</font></i>
+<a name='L114'> 114 
+<a name='L115'> 115 
+<a name='L116'> 116 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_CAPI_DistortionRenderer_h</font></i>
+<a name='L117'> 117 
+<a name='L118'> 118 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

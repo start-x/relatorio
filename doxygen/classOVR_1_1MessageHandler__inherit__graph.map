@@ -1,0 +1,6 @@
+<map id="OVR::MessageHandler" name="OVR::MessageHandler">
+<area shape="rect" id="node2" href="$classOVR_1_1CAPI_1_1GlobalState.html" title="{OVR::CAPI::GlobalState\n|+ pInstance\l# pManager\l# EnumerationLock\l# EnumeratedDevices\l# HMDs\l|+ GlobalState()\l+ ~GlobalState()\l+ EnumerateDevices()\l+ CreateDevice()\l+ OnMessage()\l+ AddHMD()\l+ RemoveHMD()\l+ NotifyHMDs_AddDevice()\l+ GetLastError()\l+ GetManager()\l}" alt="" coords="5,219,192,487"/>
+<area shape="rect" id="node3" href="$classOVR_1_1SensorFusion_1_1BodyFrameHandler.html" title="{OVR::SensorFusion::\lBodyFrameHandler\n|&#45; pFusion\l|+ BodyFrameHandler()\l+ ~BodyFrameHandler()\l+ OnMessage()\l+ SupportsMessageType()\l}" alt="" coords="216,285,392,421"/>
+<area shape="rect" id="node4" href="$classOVR_1_1Util_1_1LatencyTest2_1_1PixelReadHandler.html" title="{OVR::Util::LatencyTest2\l::PixelReadHandler\n|&#45; pLatencyTestUtil\l|+ PixelReadHandler()\l+ ~PixelReadHandler()\l+ OnMessage()\l}" alt="" coords="417,293,583,414"/>
+<area shape="rect" id="node5" href="$classOVR_1_1Util_1_1LatencyTest_1_1LatencyTestHandler.html" title="{OVR::Util::LatencyTest\l::LatencyTestHandler\n|&#45; pLatencyTestUtil\l|+ LatencyTestHandler()\l+ ~LatencyTestHandler()\l+ OnMessage()\l}" alt="" coords="607,293,773,414"/>
+</map>

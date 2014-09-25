@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>runningSampleCountDelta</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/188.html#L817'>runningSampleCountDelta</a>  817 ovr/sdk/src/OVR_Sensor2Impl.cpp         UInt32 runningSampleCountDelta;
+<a href='../S/188.html#L824'>runningSampleCountDelta</a>  824 ovr/sdk/src/OVR_Sensor2Impl.cpp             runningSampleCountDelta = ((((int)s.RunningSampleCount) + 0x10000) - (int)LastRunningSampleCount);
+<a href='../S/188.html#L828'>runningSampleCountDelta</a>  828 ovr/sdk/src/OVR_Sensor2Impl.cpp             runningSampleCountDelta = (s.RunningSampleCount - LastRunningSampleCount);
+<a href='../S/188.html#L835'>runningSampleCountDelta</a>  835 ovr/sdk/src/OVR_Sensor2Impl.cpp         if ((runningSampleCountDelta &gt; LastNumSamples) &amp;&amp; (runningSampleCountDelta &lt;= 254))
+<a href='../S/188.html#L842'>runningSampleCountDelta</a>  842 ovr/sdk/src/OVR_Sensor2Impl.cpp                 sensors.TimeDelta     = (float) ((runningSampleCountDelta - LastNumSamples) * scaledSampleIntervalTimeUnit);
+</pre>
+</body>
+</html>

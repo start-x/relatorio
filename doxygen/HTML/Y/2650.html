@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>a0</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/83.html#L180'>a0</a>                180 ovr/sdk/src/OVR_ThreadCommandQueue.h     ThreadCommandMF1(C* pclass, FnPtr fn, R* ret, A0 a0, bool needsWait)
+<a href='../S/83.html#L182'>a0</a>                182 ovr/sdk/src/OVR_ThreadCommandQueue.h           pClass(pclass), pFn(fn), pRet(ret), AVal0(a0) { }
+<a href='../S/83.html#L207'>a0</a>                207 ovr/sdk/src/OVR_ThreadCommandQueue.h     ThreadCommandMF2(C* pclass, FnPtr fn, R* ret, A0 a0, A1 a1, bool needsWait)
+<a href='../S/83.html#L209'>a0</a>                209 ovr/sdk/src/OVR_ThreadCommandQueue.h           pClass(pclass), pFn(fn), pRet(ret), AVal0(a0), AVal1(a1) { }
+<a href='../S/83.html#L264'>a0</a>                264 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(R (C::*fn)(A0), typename SelfType&lt;A0&gt;::Type a0, bool wait = false)
+<a href='../S/83.html#L265'>a0</a>                265 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(static_cast&lt;C*&gt;(this), fn, 0, a0, wait)); }
+<a href='../S/83.html#L268'>a0</a>                268 ovr/sdk/src/OVR_ThreadCommandQueue.h                   typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1, bool wait = false)
+<a href='../S/83.html#L269'>a0</a>                269 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(static_cast&lt;C*&gt;(this), fn, 0, a0, a1, wait)); }
+<a href='../S/83.html#L277'>a0</a>                277 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(C* p, R (C::*fn)(A0), typename SelfType&lt;A0&gt;::Type a0, bool wait = false)
+<a href='../S/83.html#L278'>a0</a>                278 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(p, fn, 0, a0, wait)); }
+<a href='../S/83.html#L281'>a0</a>                281 ovr/sdk/src/OVR_ThreadCommandQueue.h                   typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1, bool wait = false)
+<a href='../S/83.html#L282'>a0</a>                282 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(p, fn, 0, a0, a1, wait)); }
+<a href='../S/83.html#L293'>a0</a>                293 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(R (C::*fn)(A0), R* ret, typename SelfType&lt;A0&gt;::Type a0)
+<a href='../S/83.html#L294'>a0</a>                294 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(static_cast&lt;C*&gt;(this), fn, ret, a0, true)); }
+<a href='../S/83.html#L297'>a0</a>                297 ovr/sdk/src/OVR_ThreadCommandQueue.h                                typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1)
+<a href='../S/83.html#L298'>a0</a>                298 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(static_cast&lt;C*&gt;(this), fn, ret, a0, a1, true)); }
+<a href='../S/83.html#L305'>a0</a>                305 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(C* p, R (C::*fn)(A0), R* ret, typename SelfType&lt;A0&gt;::Type a0)
+<a href='../S/83.html#L306'>a0</a>                306 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(p, fn, ret, a0, true)); }
+<a href='../S/83.html#L309'>a0</a>                309 ovr/sdk/src/OVR_ThreadCommandQueue.h                                typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1)
+<a href='../S/83.html#L310'>a0</a>                310 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(p, fn, ret, a0, a1, true)); }
+</pre>
+</body>
+</html>

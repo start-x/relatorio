@@ -1,0 +1,274 @@
+<html>
+<head>
+<title>a</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/103.html#L78'>a</a>                  78 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h typedef void (__stdcall *PFNGLCLEARCOLORPROC) (GLfloat r, GLfloat g, GLfloat b, GLfloat a);
+<a href='../S/103.html#L370'>a</a>                 370 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         const float a[] = {v.x,v.y,v.z,1};
+<a href='../S/103.html#L371'>a</a>                 371 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 4, a);
+<a href='../S/147.html#L40'>a</a>                  40 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt; OVR_FORCE_INLINE void Swap(T &amp;a, T &amp;b) 
+<a href='../S/147.html#L41'>a</a>                  41 ovr/sdk/src/Kernel/OVR_Alg.h {  T temp(a); a = b; b = temp; }
+<a href='../S/147.html#L46'>a</a>                  46 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt; OVR_FORCE_INLINE const T Min(const T a, const T b)
+<a href='../S/147.html#L47'>a</a>                  47 ovr/sdk/src/Kernel/OVR_Alg.h { return (a &lt; b) ? a : b; }
+<a href='../S/147.html#L49'>a</a>                  49 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt; OVR_FORCE_INLINE const T Max(const T a, const T b)
+<a href='../S/147.html#L50'>a</a>                  50 ovr/sdk/src/Kernel/OVR_Alg.h { return (b &lt; a) ? a : b; }
+<a href='../S/147.html#L58'>a</a>                  58 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt; OVR_FORCE_INLINE T       Lerp(T a, T b, T f) 
+<a href='../S/147.html#L59'>a</a>                  59 ovr/sdk/src/Kernel/OVR_Alg.h { return (b - a) * f + a; }
+<a href='../S/147.html#L67'>a</a>                  67 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt;   OVR_FORCE_INLINE const T PMin(const T a, const T b)
+<a href='../S/147.html#L70'>a</a>                  70 ovr/sdk/src/Kernel/OVR_Alg.h     return (a &lt; b) ? a : b;
+<a href='../S/147.html#L72'>a</a>                  72 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt;   OVR_FORCE_INLINE const T PMax(const T a, const T b)
+<a href='../S/147.html#L75'>a</a>                  75 ovr/sdk/src/Kernel/OVR_Alg.h     return (b &lt; a) ? a : b;
+<a href='../S/147.html#L88'>a</a>                  88 ovr/sdk/src/Kernel/OVR_Alg.h     static bool Compare(const T&amp; a, const T&amp; b)
+<a href='../S/147.html#L90'>a</a>                  90 ovr/sdk/src/Kernel/OVR_Alg.h         return a &lt; b;
+<a href='../S/182.html#L314'>a</a>                 314 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_ALLOC_ALIGNED(s,a)  OVR::Allocator::GetInstance()-&gt;AllocAligned((s),(a))
+<a href='../S/152.html#L228'>a</a>                 228 ovr/sdk/src/Kernel/OVR_Array.h     ArrayData(const SelfType&amp; a)
+<a href='../S/152.html#L229'>a</a>                 229 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(a.Policy) { Append(a.Data, a.Size); }
+<a href='../S/152.html#L287'>a</a>                 287 ovr/sdk/src/Kernel/OVR_Array.h     ArrayDataCC(const SelfType&amp; a)
+<a href='../S/152.html#L288'>a</a>                 288 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(a.Policy), DefaultValue(a.DefaultValue) { Append(a.Data, a.Size); }
+<a href='../S/152.html#L364'>a</a>                 364 ovr/sdk/src/Kernel/OVR_Array.h     ArrayBase(const SelfType&amp; a)
+<a href='../S/152.html#L365'>a</a>                 365 ovr/sdk/src/Kernel/OVR_Array.h         : Data(a.Data) {}
+<a href='../S/152.html#L472'>a</a>                 472 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator = (const SelfType&amp; a)   
+<a href='../S/152.html#L474'>a</a>                 474 ovr/sdk/src/Kernel/OVR_Array.h         Resize(a.GetSize());
+<a href='../S/152.html#L476'>a</a>                 476 ovr/sdk/src/Kernel/OVR_Array.h             *(Data.Data + i) = a[i];
+<a href='../S/152.html#L759'>a</a>                 759 ovr/sdk/src/Kernel/OVR_Array.h     Array(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L760'>a</a>                 760 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L781'>a</a>                 781 ovr/sdk/src/Kernel/OVR_Array.h     ArrayPOD(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L782'>a</a>                 782 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L803'>a</a>                 803 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCPP(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L804'>a</a>                 804 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L827'>a</a>                 827 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCC(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L828'>a</a>                 828 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/160.html#L42'>a</a>                  42 ovr/sdk/src/Kernel/OVR_Color.h     Color(unsigned char r,unsigned char g,unsigned char b, unsigned char a = 0xFF)
+<a href='../S/160.html#L43'>a</a>                  43 ovr/sdk/src/Kernel/OVR_Color.h         : R(r), G(g), B(b), A(a) { }
+<a href='../S/160.html#L55'>a</a>                  55 ovr/sdk/src/Kernel/OVR_Color.h     void  GetRGBA(float *r, float *g, float *b, float* a) const
+<a href='../S/160.html#L60'>a</a>                  60 ovr/sdk/src/Kernel/OVR_Color.h         *a = A / 255.0f;
+<a href='../S/155.html#L90'>a</a>                  90 ovr/sdk/src/Kernel/OVR_Log.h #  define OVR_LOG_VAARG_ATTRIBUTE(a,b) __attribute__((format (printf, a, b)))
+<a href='../S/155.html#L92'>a</a>                  92 ovr/sdk/src/Kernel/OVR_Log.h #  define OVR_LOG_VAARG_ATTRIBUTE(a,b)
+<a href='../S/177.html#L304'>a</a>                 304 ovr/sdk/src/Kernel/OVR_Math.h     static Vector2  Min(const Vector2&amp; a, const Vector2&amp; b) { return Vector2((a.x &lt; b.x) ? a.x : b.x,
+<a href='../S/177.html#L305'>a</a>                 305 ovr/sdk/src/Kernel/OVR_Math.h                                                                              (a.y &lt; b.y) ? a.y : b.y); }
+<a href='../S/177.html#L306'>a</a>                 306 ovr/sdk/src/Kernel/OVR_Math.h     static Vector2  Max(const Vector2&amp; a, const Vector2&amp; b) { return Vector2((a.x &gt; b.x) ? a.x : b.x,
+<a href='../S/177.html#L307'>a</a>                 307 ovr/sdk/src/Kernel/OVR_Math.h                                                                              (a.y &gt; b.y) ? a.y : b.y); }
+<a href='../S/177.html#L436'>a</a>                 436 ovr/sdk/src/Kernel/OVR_Math.h     static Vector3  Min(const Vector3&amp; a, const Vector3&amp; b)
+<a href='../S/177.html#L438'>a</a>                 438 ovr/sdk/src/Kernel/OVR_Math.h         return Vector3((a.x &lt; b.x) ? a.x : b.x,
+<a href='../S/177.html#L439'>a</a>                 439 ovr/sdk/src/Kernel/OVR_Math.h                        (a.y &lt; b.y) ? a.y : b.y,
+<a href='../S/177.html#L440'>a</a>                 440 ovr/sdk/src/Kernel/OVR_Math.h                        (a.z &lt; b.z) ? a.z : b.z);
+<a href='../S/177.html#L442'>a</a>                 442 ovr/sdk/src/Kernel/OVR_Math.h     static Vector3  Max(const Vector3&amp; a, const Vector3&amp; b)
+<a href='../S/177.html#L444'>a</a>                 444 ovr/sdk/src/Kernel/OVR_Math.h         return Vector3((a.x &gt; b.x) ? a.x : b.x,
+<a href='../S/177.html#L445'>a</a>                 445 ovr/sdk/src/Kernel/OVR_Math.h                        (a.y &gt; b.y) ? a.y : b.y,
+<a href='../S/177.html#L446'>a</a>                 446 ovr/sdk/src/Kernel/OVR_Math.h                        (a.z &gt; b.z) ? a.z : b.z);
+<a href='../S/177.html#L571'>a</a>                 571 ovr/sdk/src/Kernel/OVR_Math.h     Vector4f(float r, float g, float b, float a) : Vector3f(r,g,b), w(a) {}
+<a href='../S/177.html#L624'>a</a>                 624 ovr/sdk/src/Kernel/OVR_Math.h     static Size Min(const Size&amp; a, const Size&amp; b)  { return Size((a.w  &lt; b.w)  ? a.w  : b.w,
+<a href='../S/177.html#L625'>a</a>                 625 ovr/sdk/src/Kernel/OVR_Math.h                                                                  (a.h &lt; b.h) ? a.h : b.h); }
+<a href='../S/177.html#L626'>a</a>                 626 ovr/sdk/src/Kernel/OVR_Math.h     static Size Max(const Size&amp; a, const Size&amp; b)  { return Size((a.w  &gt; b.w)  ? a.w  : b.w,
+<a href='../S/177.html#L627'>a</a>                 627 ovr/sdk/src/Kernel/OVR_Math.h                                                                  (a.h &gt; b.h) ? a.h : b.h); }
+<a href='../S/177.html#L937'>a</a>                 937 ovr/sdk/src/Kernel/OVR_Math.h         T          a;
+<a href='../S/177.html#L938'>a</a>                 938 ovr/sdk/src/Kernel/OVR_Math.h         GetAxisAngle(&amp;v, &amp;a);
+<a href='../S/177.html#L939'>a</a>                 939 ovr/sdk/src/Kernel/OVR_Math.h         return Quat(v, a * p);
+<a href='../S/177.html#L943'>a</a>                 943 ovr/sdk/src/Kernel/OVR_Math.h     Quat Nlerp(const Quat&amp; other, T a)
+<a href='../S/177.html#L946'>a</a>                 946 ovr/sdk/src/Kernel/OVR_Math.h         return (*this * sign * a + other * (1-a)).Normalized();
+<a href='../S/177.html#L977'>a</a>                 977 ovr/sdk/src/Kernel/OVR_Math.h     void GetEulerAngles(T *a, T *b, T *c) const
+<a href='../S/177.html#L997'>a</a>                 997 ovr/sdk/src/Kernel/OVR_Math.h             *a = T(0);
+<a href='../S/177.html#L1004'>a</a>                1004 ovr/sdk/src/Kernel/OVR_Math.h             *a = T(0);
+<a href='../S/177.html#L1011'>a</a>                1011 ovr/sdk/src/Kernel/OVR_Math.h             *a = -S*D*atan2(T(-2)*(w*Q[A1] - psign*Q[A2]*Q[A3]),
+<a href='../S/177.html#L1021'>a</a>                1021 ovr/sdk/src/Kernel/OVR_Math.h     void GetEulerAngles(T *a, T *b, T *c) const
+<a href='../S/177.html#L1022'>a</a>                1022 ovr/sdk/src/Kernel/OVR_Math.h     { GetEulerAngles&lt;A1, A2, A3, D, Handed_R&gt;(a, b, c); }
+<a href='../S/177.html#L1025'>a</a>                1025 ovr/sdk/src/Kernel/OVR_Math.h     void GetEulerAngles(T *a, T *b, T *c) const
+<a href='../S/177.html#L1026'>a</a>                1026 ovr/sdk/src/Kernel/OVR_Math.h     { GetEulerAngles&lt;A1, A2, A3, Rotate_CCW, Handed_R&gt;(a, b, c); }
+<a href='../S/177.html#L1038'>a</a>                1038 ovr/sdk/src/Kernel/OVR_Math.h     void GetEulerAnglesABA(T *a, T *b, T *c) const
+<a href='../S/177.html#L1061'>a</a>                1061 ovr/sdk/src/Kernel/OVR_Math.h             *a = T(0);
+<a href='../S/177.html#L1068'>a</a>                1068 ovr/sdk/src/Kernel/OVR_Math.h             *a = T(0);
+<a href='../S/177.html#L1075'>a</a>                1075 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( psign*w*Q[m] + Q[A1]*Q[A2],
+<a href='../S/177.html#L1348'>a</a>                1348 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4&amp; Multiply(Matrix4* d, const Matrix4&amp; a, const Matrix4&amp; b)
+<a href='../S/177.html#L1350'>a</a>                1350 ovr/sdk/src/Kernel/OVR_Math.h         OVR_ASSERT((d != &amp;a) &amp;&amp; (d != &amp;b));
+<a href='../S/177.html#L1353'>a</a>                1353 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][0] = a.M[i][0] * b.M[0][0] + a.M[i][1] * b.M[1][0] + a.M[i][2] * b.M[2][0] + a.M[i][3] * b.M[3][0];
+<a href='../S/177.html#L1354'>a</a>                1354 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][1] = a.M[i][0] * b.M[0][1] + a.M[i][1] * b.M[1][1] + a.M[i][2] * b.M[2][1] + a.M[i][3] * b.M[3][1];
+<a href='../S/177.html#L1355'>a</a>                1355 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][2] = a.M[i][0] * b.M[0][2] + a.M[i][1] * b.M[1][2] + a.M[i][2] * b.M[2][2] + a.M[i][3] * b.M[3][2];
+<a href='../S/177.html#L1356'>a</a>                1356 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][3] = a.M[i][0] * b.M[0][3] + a.M[i][1] * b.M[1][3] + a.M[i][2] * b.M[2][3] + a.M[i][3] * b.M[3][3];
+<a href='../S/177.html#L1491'>a</a>                1491 ovr/sdk/src/Kernel/OVR_Math.h     void ToEulerAngles(T *a, T *b, T *c)
+<a href='../S/177.html#L1502'>a</a>                1502 ovr/sdk/src/Kernel/OVR_Math.h             *a = 0;
+<a href='../S/177.html#L1508'>a</a>                1508 ovr/sdk/src/Kernel/OVR_Math.h             *a = 0;
+<a href='../S/177.html#L1514'>a</a>                1514 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( -psign*M[A2][A3], M[A3][A3] );
+<a href='../S/177.html#L1529'>a</a>                1529 ovr/sdk/src/Kernel/OVR_Math.h     void ToEulerAnglesABA(T *a, T *b, T *c)
+<a href='../S/177.html#L1543'>a</a>                1543 ovr/sdk/src/Kernel/OVR_Math.h             *a = 0;
+<a href='../S/177.html#L1549'>a</a>                1549 ovr/sdk/src/Kernel/OVR_Math.h             *a = 0;
+<a href='../S/177.html#L1555'>a</a>                1555 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( M[A2][A1],-psign*M[m][A1]);
+<a href='../S/177.html#L2046'>a</a>                2046 ovr/sdk/src/Kernel/OVR_Math.h 	static Matrix3&amp; Multiply(Matrix3* d, const Matrix3&amp; a, const Matrix3&amp; b)
+<a href='../S/177.html#L2048'>a</a>                2048 ovr/sdk/src/Kernel/OVR_Math.h 		OVR_ASSERT((d != &amp;a) &amp;&amp; (d != &amp;b));
+<a href='../S/177.html#L2051'>a</a>                2051 ovr/sdk/src/Kernel/OVR_Math.h 			d-&gt;M[i][0] = a.M[i][0] * b.M[0][0] + a.M[i][1] * b.M[1][0] + a.M[i][2] * b.M[2][0];
+<a href='../S/177.html#L2052'>a</a>                2052 ovr/sdk/src/Kernel/OVR_Math.h 			d-&gt;M[i][1] = a.M[i][0] * b.M[0][1] + a.M[i][1] * b.M[1][1] + a.M[i][2] * b.M[2][1];
+<a href='../S/177.html#L2053'>a</a>                2053 ovr/sdk/src/Kernel/OVR_Math.h 			d-&gt;M[i][2] = a.M[i][0] * b.M[0][2] + a.M[i][1] * b.M[1][2] + a.M[i][2] * b.M[2][2];
+<a href='../S/177.html#L2139'>a</a>                2139 ovr/sdk/src/Kernel/OVR_Math.h 	inline void Rank1Add(const Vector3&lt;T&gt; &amp;a, const Vector3&lt;T&gt; &amp;b)
+<a href='../S/177.html#L2141'>a</a>                2141 ovr/sdk/src/Kernel/OVR_Math.h 		M[0][0] += a.x*b.x;		M[0][1] += a.x*b.y;		M[0][2] += a.x*b.z;
+<a href='../S/177.html#L2142'>a</a>                2142 ovr/sdk/src/Kernel/OVR_Math.h 		M[1][0] += a.y*b.x;		M[1][1] += a.y*b.y;		M[1][2] += a.y*b.z;
+<a href='../S/177.html#L2143'>a</a>                2143 ovr/sdk/src/Kernel/OVR_Math.h 		M[2][0] += a.z*b.x;		M[2][1] += a.z*b.y;		M[2][2] += a.z*b.z;
+<a href='../S/177.html#L2147'>a</a>                2147 ovr/sdk/src/Kernel/OVR_Math.h 	inline void Rank1Sub(const Vector3&lt;T&gt; &amp;a, const Vector3&lt;T&gt; &amp;b)
+<a href='../S/177.html#L2149'>a</a>                2149 ovr/sdk/src/Kernel/OVR_Math.h 		M[0][0] -= a.x*b.x;		M[0][1] -= a.x*b.y;		M[0][2] -= a.x*b.z;
+<a href='../S/177.html#L2150'>a</a>                2150 ovr/sdk/src/Kernel/OVR_Math.h 		M[1][0] -= a.y*b.x;		M[1][1] -= a.y*b.y;		M[1][2] -= a.y*b.z;
+<a href='../S/177.html#L2151'>a</a>                2151 ovr/sdk/src/Kernel/OVR_Math.h 		M[2][0] -= a.z*b.x;		M[2][1] -= a.z*b.y;		M[2][2] -= a.z*b.z;
+<a href='../S/177.html#L2178'>a</a>                2178 ovr/sdk/src/Kernel/OVR_Math.h         Matrix3&lt;T&gt; a;
+<a href='../S/177.html#L2185'>a</a>                2185 ovr/sdk/src/Kernel/OVR_Math.h         a.M[0][0] = s * (m.M[1][1] * m.M[2][2] - m.M[1][2] * m.M[2][1]);   
+<a href='../S/177.html#L2186'>a</a>                2186 ovr/sdk/src/Kernel/OVR_Math.h         a.M[1][0] = s * (m.M[1][2] * m.M[2][0] - m.M[1][0] * m.M[2][2]);   
+<a href='../S/177.html#L2187'>a</a>                2187 ovr/sdk/src/Kernel/OVR_Math.h         a.M[2][0] = s * (m.M[1][0] * m.M[2][1] - m.M[1][1] * m.M[2][0]);   
+<a href='../S/177.html#L2189'>a</a>                2189 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[0][1] = s * (m.M[0][2] * m.M[2][1] - m.M[0][1] * m.M[2][2]);   
+<a href='../S/177.html#L2190'>a</a>                2190 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[1][1] = s * (m.M[0][0] * m.M[2][2] - m.M[0][2] * m.M[2][0]);   
+<a href='../S/177.html#L2191'>a</a>                2191 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[2][1] = s * (m.M[0][1] * m.M[2][0] - m.M[0][0] * m.M[2][1]);   
+<a href='../S/177.html#L2193'>a</a>                2193 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[0][2] = s * (m.M[0][1] * m.M[1][2] - m.M[0][2] * m.M[1][1]);   
+<a href='../S/177.html#L2194'>a</a>                2194 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[1][2] = s * (m.M[0][2] * m.M[1][0] - m.M[0][0] * m.M[1][2]);   
+<a href='../S/177.html#L2195'>a</a>                2195 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[2][2] = s * (m.M[0][0] * m.M[1][1] - m.M[0][1] * m.M[1][0]);   
+<a href='../S/177.html#L2197'>a</a>                2197 ovr/sdk/src/Kernel/OVR_Math.h         return a;
+<a href='../S/177.html#L2298'>a</a>                2298 ovr/sdk/src/Kernel/OVR_Math.h 	static SymMat3&amp; Multiply(SymMat3* d, const SymMat3&amp; a, const SymMat3&amp; b)
+<a href='../S/177.html#L2302'>a</a>                2302 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[0] = a.v[0] * b.v[0];
+<a href='../S/177.html#L2303'>a</a>                2303 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[1] = a.v[0] * b.v[1] + a.v[1] * b.v[3];
+<a href='../S/177.html#L2304'>a</a>                2304 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[2] = a.v[0] * b.v[2] + a.v[1] * b.v[4];
+<a href='../S/177.html#L2306'>a</a>                2306 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[3] = a.v[3] * b.v[3];
+<a href='../S/177.html#L2307'>a</a>                2307 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[4] = a.v[3] * b.v[4] + a.v[4] * b.v[5];
+<a href='../S/177.html#L2309'>a</a>                2309 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[5] = a.v[5] * b.v[5];
+<a href='../S/177.html#L2328'>a</a>                2328 ovr/sdk/src/Kernel/OVR_Math.h 		this_type a;
+<a href='../S/177.html#L2335'>a</a>                2335 ovr/sdk/src/Kernel/OVR_Math.h 		a(0,0) = s * (m(1,1) * m(2,2) - m(1,2) * m(2,1));   
+<a href='../S/177.html#L2337'>a</a>                2337 ovr/sdk/src/Kernel/OVR_Math.h 		a(0,1) = s * (m(0,2) * m(2,1) - m(0,1) * m(2,2));   
+<a href='../S/177.html#L2338'>a</a>                2338 ovr/sdk/src/Kernel/OVR_Math.h 		a(1,1) = s * (m(0,0) * m(2,2) - m(0,2) * m(2,0));   
+<a href='../S/177.html#L2340'>a</a>                2340 ovr/sdk/src/Kernel/OVR_Math.h 		a(0,2) = s * (m(0,1) * m(1,2) - m(0,2) * m(1,1));   
+<a href='../S/177.html#L2341'>a</a>                2341 ovr/sdk/src/Kernel/OVR_Math.h 		a(1,2) = s * (m(0,2) * m(1,0) - m(0,0) * m(1,2));   
+<a href='../S/177.html#L2342'>a</a>                2342 ovr/sdk/src/Kernel/OVR_Math.h 		a(2,2) = s * (m(0,0) * m(1,1) - m(0,1) * m(1,0));   
+<a href='../S/177.html#L2344'>a</a>                2344 ovr/sdk/src/Kernel/OVR_Math.h 		return a;
+<a href='../S/177.html#L2350'>a</a>                2350 ovr/sdk/src/Kernel/OVR_Math.h 	inline void Rank1(const Vector3&lt;T&gt; &amp;a)
+<a href='../S/177.html#L2352'>a</a>                2352 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] = a.x*a.x; v[1] = a.x*a.y; v[2] = a.x*a.z;
+<a href='../S/177.html#L2353'>a</a>                2353 ovr/sdk/src/Kernel/OVR_Math.h 		v[3] = a.y*a.y; v[4] = a.y*a.z;
+<a href='../S/177.html#L2354'>a</a>                2354 ovr/sdk/src/Kernel/OVR_Math.h 		v[5] = a.z*a.z;
+<a href='../S/177.html#L2358'>a</a>                2358 ovr/sdk/src/Kernel/OVR_Math.h 	inline void Rank1Add(const Vector3&lt;T&gt; &amp;a)
+<a href='../S/177.html#L2360'>a</a>                2360 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] += a.x*a.x; v[1] += a.x*a.y; v[2] += a.x*a.z;
+<a href='../S/177.html#L2361'>a</a>                2361 ovr/sdk/src/Kernel/OVR_Math.h 		v[3] += a.y*a.y; v[4] += a.y*a.z;
+<a href='../S/177.html#L2362'>a</a>                2362 ovr/sdk/src/Kernel/OVR_Math.h 		v[5] += a.z*a.z;
+<a href='../S/177.html#L2366'>a</a>                2366 ovr/sdk/src/Kernel/OVR_Math.h 	inline void Rank1Sub(const Vector3&lt;T&gt; &amp;a)
+<a href='../S/177.html#L2368'>a</a>                2368 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] -= a.x*a.x; v[1] -= a.x*a.y; v[2] -= a.x*a.z;
+<a href='../S/177.html#L2369'>a</a>                2369 ovr/sdk/src/Kernel/OVR_Math.h 		v[3] -= a.y*a.y; v[4] -= a.y*a.z;
+<a href='../S/177.html#L2370'>a</a>                2370 ovr/sdk/src/Kernel/OVR_Math.h 		v[5] -= a.z*a.z;
+<a href='../S/177.html#L2378'>a</a>                2378 ovr/sdk/src/Kernel/OVR_Math.h inline Matrix3&lt;T&gt; operator*(const SymMat3&lt;T&gt;&amp; a, const SymMat3&lt;T&gt;&amp; b)
+<a href='../S/177.html#L2380'>a</a>                2380 ovr/sdk/src/Kernel/OVR_Math.h 	#define AJB_ARBC(r,c) (a(r,0)*b(0,c)+a(r,1)*b(1,c)+a(r,2)*b(2,c))
+<a href='../S/177.html#L2389'>a</a>                2389 ovr/sdk/src/Kernel/OVR_Math.h inline Matrix3&lt;T&gt; operator*(const Matrix3&lt;T&gt;&amp; a, const SymMat3&lt;T&gt;&amp; b)
+<a href='../S/177.html#L2391'>a</a>                2391 ovr/sdk/src/Kernel/OVR_Math.h 	#define AJB_ARBC(r,c) (a(r,0)*b(0,c)+a(r,1)*b(1,c)+a(r,2)*b(2,c))
+<a href='../S/177.html#L2415'>a</a>                2415 ovr/sdk/src/Kernel/OVR_Math.h     Angle() : a(0) {}
+<a href='../S/177.html#L2418'>a</a>                2418 ovr/sdk/src/Kernel/OVR_Math.h 	Angle(T a_, AngularUnits u = Radians) : a((u == Radians) ? a_ : a_*Math&lt;T&gt;::DegreeToRadFactor) { FixRange(); }
+<a href='../S/177.html#L2420'>a</a>                2420 ovr/sdk/src/Kernel/OVR_Math.h 	T    Get(AngularUnits u = Radians) const       { return (u == Radians) ? a : a*Math&lt;T&gt;::RadToDegreeFactor; }
+<a href='../S/177.html#L2421'>a</a>                2421 ovr/sdk/src/Kernel/OVR_Math.h 	void Set(const T&amp; x, AngularUnits u = Radians) { a = (u == Radians) ? x : x*Math&lt;T&gt;::DegreeToRadFactor; FixRange(); }
+<a href='../S/177.html#L2422'>a</a>                2422 ovr/sdk/src/Kernel/OVR_Math.h 	int Sign() const                               { if (a == 0) return 0; else return (a &gt; 0) ? 1 : -1; }
+<a href='../S/177.html#L2423'>a</a>                2423 ovr/sdk/src/Kernel/OVR_Math.h 	T   Abs() const                                { return (a &gt; 0) ? a : -a; }
+<a href='../S/177.html#L2425'>a</a>                2425 ovr/sdk/src/Kernel/OVR_Math.h     bool operator== (const Angle&amp; b) const    { return a == b.a; }
+<a href='../S/177.html#L2426'>a</a>                2426 ovr/sdk/src/Kernel/OVR_Math.h     bool operator!= (const Angle&amp; b) const    { return a != b.a; }
+<a href='../S/177.html#L2434'>a</a>                2434 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator+= (const Angle&amp; b)        { a = a + b.a; FastFixRange(); return *this; }
+<a href='../S/177.html#L2435'>a</a>                2435 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator+= (const T&amp; x)            { a = a + x; FixRange(); return *this; }
+<a href='../S/177.html#L2438'>a</a>                2438 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator-= (const Angle&amp; b)        { a = a - b.a; FastFixRange(); return *this; }
+<a href='../S/177.html#L2439'>a</a>                2439 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator-= (const T&amp; x)            { a = a - x; FixRange(); return *this; }
+<a href='../S/177.html#L2443'>a</a>                2443 ovr/sdk/src/Kernel/OVR_Math.h 	T   Distance(const Angle&amp; b)              { T c = fabs(a - b.a); return (c &lt;= Math&lt;T&gt;::Pi) ? c : Math&lt;T&gt;::TwoPi - c; }
+<a href='../S/177.html#L2448'>a</a>                2448 ovr/sdk/src/Kernel/OVR_Math.h 	T a;
+<a href='../S/177.html#L2453'>a</a>                2453 ovr/sdk/src/Kernel/OVR_Math.h 		if (a &lt; -Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2454'>a</a>                2454 ovr/sdk/src/Kernel/OVR_Math.h 			a += Math&lt;T&gt;::TwoPi;
+<a href='../S/177.html#L2455'>a</a>                2455 ovr/sdk/src/Kernel/OVR_Math.h 		else if (a &gt; Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2456'>a</a>                2456 ovr/sdk/src/Kernel/OVR_Math.h 			a -= Math&lt;T&gt;::TwoPi;
+<a href='../S/177.html#L2463'>a</a>                2463 ovr/sdk/src/Kernel/OVR_Math.h         if (a &gt;= -Math&lt;T&gt;::Pi &amp;&amp; a &lt;= Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2465'>a</a>                2465 ovr/sdk/src/Kernel/OVR_Math.h 		a = fmod(a,Math&lt;T&gt;::TwoPi);
+<a href='../S/177.html#L2466'>a</a>                2466 ovr/sdk/src/Kernel/OVR_Math.h 		if (a &lt; -Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2467'>a</a>                2467 ovr/sdk/src/Kernel/OVR_Math.h 			a += Math&lt;T&gt;::TwoPi;
+<a href='../S/177.html#L2468'>a</a>                2468 ovr/sdk/src/Kernel/OVR_Math.h 		else if (a &gt; Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2469'>a</a>                2469 ovr/sdk/src/Kernel/OVR_Math.h 			a -= Math&lt;T&gt;::TwoPi;
+<a href='../S/169.html#L38'>a</a>                  38 ovr/sdk/src/Kernel/OVR_Std.cpp int OVR_CDECL OVR_stricmp(const char* a, const char* b)
+<a href='../S/169.html#L42'>a</a>                  42 ovr/sdk/src/Kernel/OVR_Std.cpp         return ::_stricmp(a, b);
+<a href='../S/169.html#L44'>a</a>                  44 ovr/sdk/src/Kernel/OVR_Std.cpp         return ::stricmp(a, b);
+<a href='../S/169.html#L48'>a</a>                  48 ovr/sdk/src/Kernel/OVR_Std.cpp     return strcasecmp(a, b);
+<a href='../S/169.html#L52'>a</a>                  52 ovr/sdk/src/Kernel/OVR_Std.cpp int OVR_CDECL OVR_strnicmp(const char* a, const char* b, UPInt count)
+<a href='../S/169.html#L56'>a</a>                  56 ovr/sdk/src/Kernel/OVR_Std.cpp     return ::_strnicmp(a, b, count);
+<a href='../S/169.html#L58'>a</a>                  58 ovr/sdk/src/Kernel/OVR_Std.cpp     return ::strnicmp(a, b, count);
+<a href='../S/169.html#L62'>a</a>                  62 ovr/sdk/src/Kernel/OVR_Std.cpp     return strncasecmp(a, b, count);
+<a href='../S/169.html#L135'>a</a>                 135 ovr/sdk/src/Kernel/OVR_Std.cpp int OVR_CDECL OVR_wcscmp(const wchar_t* a, const wchar_t* b)
+<a href='../S/169.html#L138'>a</a>                 138 ovr/sdk/src/Kernel/OVR_Std.cpp     return wcscmp(a, b);
+<a href='../S/169.html#L141'>a</a>                 141 ovr/sdk/src/Kernel/OVR_Std.cpp     const wchar_t *pa = a, *pb = b;
+<a href='../S/169.html#L162'>a</a>                 162 ovr/sdk/src/Kernel/OVR_Std.cpp int OVR_CDECL OVR_wcsicmp(const wchar_t* a, const wchar_t* b)
+<a href='../S/169.html#L166'>a</a>                 166 ovr/sdk/src/Kernel/OVR_Std.cpp     return ::_wcsicmp(a, b);
+<a href='../S/169.html#L168'>a</a>                 168 ovr/sdk/src/Kernel/OVR_Std.cpp     return ::wcsicmp(a, b);
+<a href='../S/169.html#L172'>a</a>                 172 ovr/sdk/src/Kernel/OVR_Std.cpp     const wchar_t *pa = a, *pb = b;
+<a href='../S/169.html#L191'>a</a>                 191 ovr/sdk/src/Kernel/OVR_Std.cpp     return wcscasecmp(a, b);
+<a href='../S/169.html#L801'>a</a>                 801 ovr/sdk/src/Kernel/OVR_Std.cpp static inline bool CmpUnicodeKey(const GUnicodePairType&amp; a, UInt16 key)
+<a href='../S/169.html#L803'>a</a>                 803 ovr/sdk/src/Kernel/OVR_Std.cpp     return a.Key &lt; key;
+<a href='../S/173.html#L350'>a</a>                 350 ovr/sdk/src/Kernel/OVR_Std.h int      OVR_CDECL OVR_wcscmp(const wchar_t* a, const wchar_t* b);
+<a href='../S/173.html#L351'>a</a>                 351 ovr/sdk/src/Kernel/OVR_Std.h int      OVR_CDECL OVR_wcsicmp(const wchar_t* a, const wchar_t* b);
+<a href='../S/173.html#L353'>a</a>                 353 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_wcsicoll(const wchar_t* a, const wchar_t* b)
+<a href='../S/173.html#L357'>a</a>                 357 ovr/sdk/src/Kernel/OVR_Std.h     return ::_wcsicoll(a, b);
+<a href='../S/173.html#L359'>a</a>                 359 ovr/sdk/src/Kernel/OVR_Std.h     return ::wcsicoll(a, b);
+<a href='../S/173.html#L363'>a</a>                 363 ovr/sdk/src/Kernel/OVR_Std.h     return OVR_wcsicmp(a, b);
+<a href='../S/173.html#L367'>a</a>                 367 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_wcscoll(const wchar_t* a, const wchar_t* b)
+<a href='../S/173.html#L370'>a</a>                 370 ovr/sdk/src/Kernel/OVR_Std.h     return wcscoll(a, b);
+<a href='../S/173.html#L373'>a</a>                 373 ovr/sdk/src/Kernel/OVR_Std.h     return OVR_wcscmp(a, b);
+<a href='../S/184.html#L488'>a</a>                 488 ovr/sdk/src/Kernel/OVR_String.cpp int String::CompareNoCase(const char* a, const char* b)
+<a href='../S/184.html#L490'>a</a>                 490 ovr/sdk/src/Kernel/OVR_String.cpp     return OVR_stricmp(a, b);
+<a href='../S/184.html#L493'>a</a>                 493 ovr/sdk/src/Kernel/OVR_String.cpp int String::CompareNoCase(const char* a, const char* b, SPInt len)
+<a href='../S/184.html#L501'>a</a>                 501 ovr/sdk/src/Kernel/OVR_String.cpp             f = (SPInt)OVR_tolower((int)(*(a++)));
+<a href='../S/161.html#L243'>a</a>                 243 ovr/sdk/src/Kernel/OVR_String.h     static int OVR_STDCALL   CompareNoCase(const char* a, const char* b);
+<a href='../S/161.html#L244'>a</a>                 244 ovr/sdk/src/Kernel/OVR_String.h     static int OVR_STDCALL   CompareNoCase(const char* a, const char* b, SPInt len);
+<a href='../S/168.html#L423'>a</a>                 423 ovr/sdk/src/Kernel/OVR_Types.h #  define   OVR_UNUSED(a)   do {__typeof__ (&amp;a) __attribute__ ((unused)) __tmp = &amp;a; } while(0)
+<a href='../S/168.html#L425'>a</a>                 425 ovr/sdk/src/Kernel/OVR_Types.h #  define   OVR_UNUSED(a)   (a)
+<a href='../S/131.html#L117'>a</a>                 117 ovr/sdk/src/OVR_Stereo.h     static FovPort Min(const FovPort&amp; a, const FovPort&amp; b)
+<a href='../S/131.html#L119'>a</a>                 119 ovr/sdk/src/OVR_Stereo.h         FovPort fov( Alg::Min( a.UpTan   , b.UpTan    ),   
+<a href='../S/131.html#L120'>a</a>                 120 ovr/sdk/src/OVR_Stereo.h                      Alg::Min( a.DownTan , b.DownTan  ),
+<a href='../S/131.html#L121'>a</a>                 121 ovr/sdk/src/OVR_Stereo.h                      Alg::Min( a.LeftTan , b.LeftTan  ),
+<a href='../S/131.html#L122'>a</a>                 122 ovr/sdk/src/OVR_Stereo.h                      Alg::Min( a.RightTan, b.RightTan ) );
+<a href='../S/131.html#L126'>a</a>                 126 ovr/sdk/src/OVR_Stereo.h     static FovPort Max(const FovPort&amp; a, const FovPort&amp; b)
+<a href='../S/131.html#L128'>a</a>                 128 ovr/sdk/src/OVR_Stereo.h         FovPort fov( Alg::Max( a.UpTan   , b.UpTan    ),   
+<a href='../S/131.html#L129'>a</a>                 129 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.DownTan , b.DownTan  ),
+<a href='../S/131.html#L130'>a</a>                 130 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.LeftTan , b.LeftTan  ),
+<a href='../S/131.html#L131'>a</a>                 131 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.RightTan, b.RightTan ) );
+<a href='../S/197.html#L1190'>a</a>                1190 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* a = 0;
+<a href='../S/197.html#L1191'>a</a>                1191 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( a=_rootAttribute; a; a = a-&gt;_next ) {
+<a href='../S/197.html#L1192'>a</a>                1192 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::StringEqual( a-&gt;Name(), name ) ) {
+<a href='../S/197.html#L1193'>a</a>                1193 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return a;
+<a href='../S/197.html#L1202'>a</a>                1202 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* a = 0;
+<a href='../S/197.html#L1203'>a</a>                1203 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( a=_rootAttribute; a; a = a-&gt;_next ) {
+<a href='../S/197.html#L1204'>a</a>                1204 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::StringEqual( a-&gt;Name(), name ) ) {
+<a href='../S/197.html#L1205'>a</a>                1205 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return a;
+<a href='../S/197.html#L1214'>a</a>                1214 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const XMLAttribute* a = FindAttribute( name );
+<a href='../S/197.html#L1215'>a</a>                1215 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !a ) {
+<a href='../S/197.html#L1218'>a</a>                1218 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !value || XMLUtil::StringEqual( a-&gt;Value(), value )) {
+<a href='../S/197.html#L1219'>a</a>                1219 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         return a-&gt;Value();
+<a href='../S/197.html#L1330'>a</a>                1330 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLAttribute* a=_rootAttribute; a; a=a-&gt;_next ) {
+<a href='../S/197.html#L1331'>a</a>                1331 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::StringEqual( name, a-&gt;Name() ) ) {
+<a href='../S/197.html#L1333'>a</a>                1333 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 prev-&gt;_next = a-&gt;_next;
+<a href='../S/197.html#L1336'>a</a>                1336 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 _rootAttribute = a-&gt;_next;
+<a href='../S/197.html#L1338'>a</a>                1338 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             DELETE_ATTRIBUTE( a );
+<a href='../S/197.html#L1341'>a</a>                1341 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         prev = a;
+<a href='../S/197.html#L1445'>a</a>                1445 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( const XMLAttribute* a=FirstAttribute(); a; a=a-&gt;Next() ) {
+<a href='../S/197.html#L1446'>a</a>                1446 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         element-&gt;SetAttribute( a-&gt;Name(), a-&gt;Value() );					// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L1457'>a</a>                1457 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const XMLAttribute* a=FirstAttribute();
+<a href='../S/197.html#L1460'>a</a>                1460 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         while ( a &amp;&amp; b ) {
+<a href='../S/197.html#L1461'>a</a>                1461 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !XMLUtil::StringEqual( a-&gt;Value(), b-&gt;Value() ) ) {
+<a href='../S/197.html#L1464'>a</a>                1464 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             a = a-&gt;Next();
+<a href='../S/197.html#L1467'>a</a>                1467 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( a || b ) {
+<a href='../S/196.html#L1171'>a</a>                1171 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1172'>a</a>                1172 ovr/sdk/third_party/tinyxml/tinyxml2.h         if ( !a ) {
+<a href='../S/196.html#L1175'>a</a>                1175 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryIntValue( value );
+<a href='../S/196.html#L1179'>a</a>                1179 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1180'>a</a>                1180 ovr/sdk/third_party/tinyxml/tinyxml2.h         if ( !a ) {
+<a href='../S/196.html#L1183'>a</a>                1183 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryUnsignedValue( value );
+<a href='../S/196.html#L1187'>a</a>                1187 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1188'>a</a>                1188 ovr/sdk/third_party/tinyxml/tinyxml2.h         if ( !a ) {
+<a href='../S/196.html#L1191'>a</a>                1191 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryBoolValue( value );
+<a href='../S/196.html#L1195'>a</a>                1195 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1196'>a</a>                1196 ovr/sdk/third_party/tinyxml/tinyxml2.h         if ( !a ) {
+<a href='../S/196.html#L1199'>a</a>                1199 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryDoubleValue( value );
+<a href='../S/196.html#L1203'>a</a>                1203 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1204'>a</a>                1204 ovr/sdk/third_party/tinyxml/tinyxml2.h         if ( !a ) {
+<a href='../S/196.html#L1207'>a</a>                1207 ovr/sdk/third_party/tinyxml/tinyxml2.h         return a-&gt;QueryFloatValue( value );
+<a href='../S/196.html#L1212'>a</a>                1212 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1213'>a</a>                1213 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1217'>a</a>                1217 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1218'>a</a>                1218 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1222'>a</a>                1222 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1223'>a</a>                1223 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1227'>a</a>                1227 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1228'>a</a>                1228 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+<a href='../S/196.html#L1232'>a</a>                1232 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1233'>a</a>                1233 ovr/sdk/third_party/tinyxml/tinyxml2.h         a-&gt;SetAttribute( value );
+</pre>
+</body>
+</html>

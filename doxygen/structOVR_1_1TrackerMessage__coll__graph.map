@@ -1,0 +1,4 @@
+<map id="OVR::TrackerMessage" name="OVR::TrackerMessage">
+<area shape="rect" id="node2" href="$structOVR_1_1TrackerSensors.html" title="{OVR::TrackerSensors\n|+ SampleCount\l+ Timestamp\l+ LastCommandID\l+ Temperature\l+ MagX\l+ MagY\l+ MagZ\l|+ Decode()\l}" alt="" coords="7,221,157,387"/>
+<area shape="rect" id="node3" href="$namespaceOVR.html#structOVR_1_1TrackerSample" title="{OVR::TrackerSample\n|+ AccelX\l+ AccelY\l+ AccelZ\l+ GyroX\l+ GyroY\l+ GyroZ\l|}" alt="" coords="9,6,156,157"/>
+</map>

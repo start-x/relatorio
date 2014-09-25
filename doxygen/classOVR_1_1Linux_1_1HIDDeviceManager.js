@@ -1,0 +1,26 @@
+var classOVR_1_1Linux_1_1HIDDeviceManager =
+[
+    [ "HIDDeviceManager", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a0beb2a8714e79e846045da50bd4b2c98", null ],
+    [ "~HIDDeviceManager", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a21535c4a2e39dd802f4f7b879fee38b2", null ],
+    [ "AddNotificationDevice", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a7e7ba9b274482400a13762e6acb01027", null ],
+    [ "CreateInternal", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a78a7bb2b06eb32af6e0c83b4c9ff5d14", null ],
+    [ "Enumerate", "classOVR_1_1Linux_1_1HIDDeviceManager.html#ab07bcccef64cb7777ddb0ae93727c796", null ],
+    [ "GetDescriptorFromPath", "classOVR_1_1Linux_1_1HIDDeviceManager.html#ae64815c86f0307fd002f84acd4f26001", null ],
+    [ "getFullDesc", "classOVR_1_1Linux_1_1HIDDeviceManager.html#ada9b825e7ec49d6740dbe0748666b5b0", null ],
+    [ "getIntProperty", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a422405d6b01ab52b6b2847294a1072df", null ],
+    [ "getPath", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a5e5920d3b22165d69acdefa39fe9f455", null ],
+    [ "getStringProperty", "classOVR_1_1Linux_1_1HIDDeviceManager.html#acc3082512f42ebb35756432c4dfbf149", null ],
+    [ "Initialize", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a9e09490fc1e56db4b1db14966378c215", null ],
+    [ "initializeManager", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a29b02dfae97f6e56e5910bf915e2d5e0", null ],
+    [ "initVendorProductVersion", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a2d5d53b09aa0c0259867c312101880f4", null ],
+    [ "OnEvent", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a395460e11c2c5c0041f0063ac63c37c1", null ],
+    [ "Open", "classOVR_1_1Linux_1_1HIDDeviceManager.html#ac937e6850707d463f287e0b5b58add6b", null ],
+    [ "RemoveNotificationDevice", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a81783a2561f46ca06ee07145a51a5850", null ],
+    [ "Shutdown", "classOVR_1_1Linux_1_1HIDDeviceManager.html#ac26a91cc1a126ccde7f3f7d967e3ee97", null ],
+    [ "HIDDevice", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a188efdb19bd91f4d9881e3fd71c82723", null ],
+    [ "DevManager", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a188078d42ee51d0e1c1c684f35ad6338", null ],
+    [ "HIDMonHandle", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a900c457f4127e6e007df35f3d1f4a3d0", null ],
+    [ "HIDMonitor", "classOVR_1_1Linux_1_1HIDDeviceManager.html#a9200bce62321e93582994d4d09556bc7", null ],
+    [ "NotificationDevices", "classOVR_1_1Linux_1_1HIDDeviceManager.html#ad567b0caa3cf08484171652ec5884740", null ],
+    [ "UdevInstance", "classOVR_1_1Linux_1_1HIDDeviceManager.html#af49cbb57b3e6573ffc48fa135a8b8f0f", null ]
+];

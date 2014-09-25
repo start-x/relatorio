@@ -1,0 +1,6 @@
+<map id="OVR::CAPI::HMDState" name="OVR::CAPI::HMDState">
+<area shape="rect" id="node2" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; HMDState \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="5,222,203,373"/>
+<area shape="rect" id="node3" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; T \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="30,6,177,157"/>
+<area shape="rect" id="node4" href="$structovrHmdStruct.html" title="{ovrHmdStruct\n||}" alt="" coords="227,259,329,336"/>
+<area shape="rect" id="node5" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="355,259,519,336"/>
+</map>

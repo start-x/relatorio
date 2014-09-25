@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>ToCStr</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L365'>ToCStr</a>            365 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         OVR_strcpy(descOut-&gt;SerialNumber, sizeof(descOut-&gt;SerialNumber), si.SerialNumber.ToCStr());
+<a href='../S/102.html#L305'>ToCStr</a>            305 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         if (!strcmp(UniformInfo[i].Name.ToCStr(), name))
+<a href='../S/103.html#L436'>ToCStr</a>            436 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h             (strstr(MonitorName.ToCStr(), b.MonitorName.ToCStr()) ||
+<a href='../S/103.html#L437'>ToCStr</a>            437 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h              strstr(b.MonitorName.ToCStr(), MonitorName.ToCStr()));
+<a href='../S/186.html#L411'>ToCStr</a>            411 ovr/sdk/src/Kernel/OVR_File.h     const char* GetFilePath()       { return FilePath.ToCStr(); }
+<a href='../S/149.html#L222'>ToCStr</a>            222 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SysErrorModeDisabler disabler(FileName.ToCStr());
+<a href='../S/149.html#L227'>ToCStr</a>            227 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     wchar_t *pwFileName = (wchar_t*)OVR_ALLOC((UTF8Util::GetLength(FileName.ToCStr())+1) * sizeof(wchar_t));
+<a href='../S/149.html#L228'>ToCStr</a>            228 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     UTF8Util::DecodeString(pwFileName, FileName.ToCStr());
+<a href='../S/149.html#L234'>ToCStr</a>            234 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     fs = fopen(FileName.ToCStr(), omode);
+<a href='../S/149.html#L267'>ToCStr</a>            267 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     return FileName.ToCStr();
+<a href='../S/149.html#L577'>ToCStr</a>            577 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     wchar_t *pwpath = (wchar_t*)OVR_ALLOC((UTF8Util::GetLength(path.ToCStr())+1)*sizeof(wchar_t));
+<a href='../S/149.html#L578'>ToCStr</a>            578 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     UTF8Util::DecodeString(pwpath, path.ToCStr());
+<a href='../S/184.html#L91'>ToCStr</a>             91 ovr/sdk/src/Kernel/OVR_String.cpp     pData = AllocDataCopy1(src.GetSize(), 0, src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L311'>ToCStr</a>            311 ovr/sdk/src/Kernel/OVR_String.cpp     SetData(AllocDataCopy1(src.GetSize(), 0, src.ToCStr(), src.GetSize()));
+<a href='../S/184.html#L584'>ToCStr</a>            584 ovr/sdk/src/Kernel/OVR_String.cpp     AppendString(src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L590'>ToCStr</a>            590 ovr/sdk/src/Kernel/OVR_String.cpp     AppendString(src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L727'>ToCStr</a>            727 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData, src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L733'>ToCStr</a>            733 ovr/sdk/src/Kernel/OVR_String.cpp 	AppendString(src.ToCStr(), src.GetSize());
+<a href='../S/161.html#L186'>ToCStr</a>            186 ovr/sdk/src/Kernel/OVR_String.h     const char* ToCStr() const          { return GetData()-&gt;Data; }
+<a href='../S/161.html#L265'>ToCStr</a>            265 ovr/sdk/src/Kernel/OVR_String.h     bool    HasAbsolutePath() const { return HasAbsolutePath(ToCStr()); }
+<a href='../S/161.html#L266'>ToCStr</a>            266 ovr/sdk/src/Kernel/OVR_String.h     bool    HasExtension() const    { return HasExtension(ToCStr()); }
+<a href='../S/161.html#L267'>ToCStr</a>            267 ovr/sdk/src/Kernel/OVR_String.h     bool    HasProtocol() const     { return HasProtocol(ToCStr()); }
+<a href='../S/161.html#L340'>ToCStr</a>            340 ovr/sdk/src/Kernel/OVR_String.h         return CompareNoCase(GetData()-&gt;Data, str.ToCStr());
+<a href='../S/161.html#L366'>ToCStr</a>            366 ovr/sdk/src/Kernel/OVR_String.h         return (CompareNoCase(ToCStr(), strKey.pStr-&gt;ToCStr()) == 0);
+<a href='../S/161.html#L370'>ToCStr</a>            370 ovr/sdk/src/Kernel/OVR_String.h         return !(CompareNoCase(ToCStr(), strKey.pStr-&gt;ToCStr()) == 0);
+<a href='../S/161.html#L394'>ToCStr</a>            394 ovr/sdk/src/Kernel/OVR_String.h             return String::BernsteinHashFunctionCIS((const char*)data.pStr-&gt;ToCStr(), size);
+<a href='../S/161.html#L437'>ToCStr</a>            437 ovr/sdk/src/Kernel/OVR_String.h     const char* ToCStr() const          { return (pData) ? pData : ""; }
+<a href='../S/161.html#L480'>ToCStr</a>            480 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const String&amp; src)      { AppendString(src.ToCStr(),src.GetSize()); }
+<a href='../S/161.html#L528'>ToCStr</a>            528 ovr/sdk/src/Kernel/OVR_String.h         : pStr(str.ToCStr()), Size(str.GetSize()) {}
+<a href='../S/161.html#L534'>ToCStr</a>            534 ovr/sdk/src/Kernel/OVR_String.h     const char* ToCStr() const { return pStr; }
+<a href='../S/161.html#L542'>ToCStr</a>            542 ovr/sdk/src/Kernel/OVR_String.h         return ToCStr() == value.ToCStr() &amp;&amp; GetSize() &gt;= value.GetSize();
+<a href='../S/161.html#L548'>ToCStr</a>            548 ovr/sdk/src/Kernel/OVR_String.h         return ToCStr() &lt;= value.ToCStr() &amp;&amp; (End()) == (value.End());
+<a href='../S/161.html#L584'>ToCStr</a>            584 ovr/sdk/src/Kernel/OVR_String.h         return StringDataPtr(ToCStr() + size, GetSize() - size);
+<a href='../S/161.html#L592'>ToCStr</a>            592 ovr/sdk/src/Kernel/OVR_String.h         return StringDataPtr(ToCStr(), GetSize() - size);
+<a href='../S/161.html#L600'>ToCStr</a>            600 ovr/sdk/src/Kernel/OVR_String.h         const char* cur_str = ToCStr();
+<a href='../S/161.html#L610'>ToCStr</a>            610 ovr/sdk/src/Kernel/OVR_String.h         return StringDataPtr(ToCStr(), cur_pos);
+<a href='../S/161.html#L633'>ToCStr</a>            633 ovr/sdk/src/Kernel/OVR_String.h     const char* Begin() const { return ToCStr(); }
+<a href='../S/161.html#L634'>ToCStr</a>            634 ovr/sdk/src/Kernel/OVR_String.h     const char* End() const { return ToCStr() + GetSize(); }
+<a href='../S/161.html#L641'>ToCStr</a>            641 ovr/sdk/src/Kernel/OVR_String.h             return String::BernsteinHashFunction(data.ToCStr(), data.GetSize());
+<a href='../S/171.html#L167'>ToCStr</a>            167 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     ScanFilePath(ToCStr(), &amp;filename, 0);
+<a href='../S/171.html#L172'>ToCStr</a>            172 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     return String(ToCStr(), filename ? (filename-ToCStr()) : GetSize());
+<a href='../S/171.html#L177'>ToCStr</a>            177 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     const char* protocolEnd = ScanPathProtocol(ToCStr());
+<a href='../S/171.html#L178'>ToCStr</a>            178 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     return String(ToCStr(), protocolEnd ? (protocolEnd-ToCStr()) : 0);
+<a href='../S/171.html#L184'>ToCStr</a>            184 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     ScanFilePath(ToCStr(), &amp;filename, 0);
+<a href='../S/171.html#L190'>ToCStr</a>            190 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     ScanFilePath(ToCStr(), 0, &amp;ext);
+<a href='../S/171.html#L197'>ToCStr</a>            197 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     ScanFilePath(ToCStr(), 0, &amp;ext);    
+<a href='../S/171.html#L200'>ToCStr</a>            200 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp         *this = String(ToCStr(), ext-ToCStr());
+<a href='../S/171.html#L206'>ToCStr</a>            206 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     const char* protocol = ScanPathProtocol(ToCStr());
+<a href='../S/156.html#L104'>ToCStr</a>            104 ovr/sdk/src/Kernel/OVR_SysFile.cpp         OVR_DEBUG_LOG(("Failed to open file: %s", path.ToCStr()));
+<a href='../S/129.html#L249'>ToCStr</a>            249 ovr/sdk/src/OVR_Common_HMDDevice.cpp                    DisplayDeviceName.ToCStr());
+<a href='../S/129.html#L321'>ToCStr</a>            321 ovr/sdk/src/OVR_Common_HMDDevice.cpp     return ProfileName.ToCStr();
+<a href='../S/87.html#L507'>ToCStr</a>            507 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LogText("OVR::LatencyTestDevice - Closed '%s'\n", getHIDDesc()-&gt;Path.ToCStr());
+<a href='../S/132.html#L462'>ToCStr</a>            462 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     const char* hid_path = path.ToCStr();
+<a href='../S/132.html#L474'>ToCStr</a>            474 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             DevDesc.Path.ToCStr(),
+<a href='../S/132.html#L475'>ToCStr</a>            475 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             DevDesc.Manufacturer.ToCStr(), DevDesc.Product.ToCStr(),
+<a href='../S/132.html#L476'>ToCStr</a>            476 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             DevDesc.SerialNumber.ToCStr());
+<a href='../S/132.html#L608'>ToCStr</a>            608 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     LogText("OVR::Linux::HIDDevice - HIDShutdown '%s'\n", DevDesc.Path.ToCStr());
+<a href='../S/132.html#L623'>ToCStr</a>            623 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     LogText("OVR::Linux::HIDDevice - HID Device Closed '%s'\n", DevDesc.Path.ToCStr());
+<a href='../S/132.html#L629'>ToCStr</a>            629 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     LogText("OVR::Linux::HIDDevice - Lost connection to '%s'\n", DevDesc.Path.ToCStr());
+<a href='../S/132.html#L699'>ToCStr</a>            699 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     const char* device_path = device_info-&gt;Path.ToCStr();
+<a href='../S/139.html#L79'>ToCStr</a>             79 ovr/sdk/src/OVR_Profile.cpp         OVR::UTF8Util::DecodeString(wpath, path.ToCStr());
+<a href='../S/139.html#L165'>ToCStr</a>            165 ovr/sdk/src/OVR_Profile.cpp                 product_name = sinfo.ProductName.ToCStr();
+<a href='../S/139.html#L167'>ToCStr</a>            167 ovr/sdk/src/OVR_Profile.cpp                 product_name = hmdinfo.ProductName.ToCStr();
+<a href='../S/139.html#L353'>ToCStr</a>            353 ovr/sdk/src/OVR_Profile.cpp             int major = atoi(version_item-&gt;Value.ToCStr());
+<a href='../S/139.html#L371'>ToCStr</a>            371 ovr/sdk/src/OVR_Profile.cpp             int major = atoi(version_item-&gt;Value.ToCStr());
+<a href='../S/139.html#L455'>ToCStr</a>            455 ovr/sdk/src/OVR_Profile.cpp                         const char* device_name = item-&gt;Name.ToCStr();
+<a href='../S/139.html#L620'>ToCStr</a>            620 ovr/sdk/src/OVR_Profile.cpp                     return userid-&gt;Value.ToCStr();
+<a href='../S/139.html#L691'>ToCStr</a>            691 ovr/sdk/src/OVR_Profile.cpp     const char* product_str = product.IsEmpty() ? NULL : product.ToCStr();
+<a href='../S/139.html#L692'>ToCStr</a>            692 ovr/sdk/src/OVR_Profile.cpp     const char* serial_str = serial.IsEmpty() ? NULL : serial.ToCStr();
+<a href='../S/139.html#L711'>ToCStr</a>            711 ovr/sdk/src/OVR_Profile.cpp                 return TempBuff.ToCStr();
+<a href='../S/139.html#L730'>ToCStr</a>            730 ovr/sdk/src/OVR_Profile.cpp     const char* product_str = product.IsEmpty() ? NULL : product.ToCStr();
+<a href='../S/139.html#L731'>ToCStr</a>            731 ovr/sdk/src/OVR_Profile.cpp     const char* serial_str = serial.IsEmpty() ? NULL : serial.ToCStr();
+<a href='../S/139.html#L947'>ToCStr</a>            947 ovr/sdk/src/OVR_Profile.cpp         const char* product_str = product.IsEmpty() ? NULL : product.ToCStr();
+<a href='../S/139.html#L948'>ToCStr</a>            948 ovr/sdk/src/OVR_Profile.cpp         const char* serial_str = serial.IsEmpty() ? NULL : serial.ToCStr();
+<a href='../S/139.html#L1023'>ToCStr</a>           1023 ovr/sdk/src/OVR_Profile.cpp         int major = atoi(version-&gt;Value.ToCStr());
+<a href='../S/139.html#L1202'>ToCStr</a>           1202 ovr/sdk/src/OVR_Profile.cpp         OVR_strcpy(val, val_length, value-&gt;Value.ToCStr());
+<a href='../S/139.html#L1221'>ToCStr</a>           1221 ovr/sdk/src/OVR_Profile.cpp         return TempVal.ToCStr();
+<a href='../S/190.html#L400'>ToCStr</a>            400 ovr/sdk/src/OVR_SensorImpl.cpp     LogText("OVR::SensorDevice - Lost connection to '%s'\n", getHIDDesc()-&gt;Path.ToCStr());
+<a href='../S/190.html#L408'>ToCStr</a>            408 ovr/sdk/src/OVR_SensorImpl.cpp     LogText("OVR::SensorDevice - Closed '%s'\n", getHIDDesc()-&gt;Path.ToCStr());
+<a href='../S/190.html#L910'>ToCStr</a>            910 ovr/sdk/src/OVR_SensorImpl.cpp             int major = atoi(version-&gt;Value.ToCStr());
+<a href='../S/190.html#L1021'>ToCStr</a>           1021 ovr/sdk/src/OVR_SensorImpl.cpp         int major = atoi(version-&gt;Value.ToCStr());
+<a href='../S/190.html#L1060'>ToCStr</a>           1060 ovr/sdk/src/OVR_SensorImpl.cpp                                 major = atoi(version-&gt;Value.ToCStr());
+<a href='../S/190.html#L1072'>ToCStr</a>           1072 ovr/sdk/src/OVR_SensorImpl.cpp                                     const char* caltime_str = caltime-&gt;Value.ToCStr();
+<a href='../S/190.html#L1102'>ToCStr</a>           1102 ovr/sdk/src/OVR_SensorImpl.cpp                                     data-&gt;Calibration = Matrix4f::FromString(cal-&gt;Value.ToCStr());
+<a href='../S/114.html#L377'>ToCStr</a>            377 ovr/sdk/src/Util/Util_LatencyTest.cpp 	if (!ResultsString.IsEmpty() &amp;&amp; ReturnedResultString != ResultsString.ToCStr())
+<a href='../S/114.html#L380'>ToCStr</a>            380 ovr/sdk/src/Util/Util_LatencyTest.cpp 		return ReturnedResultString.ToCStr();
+</pre>
+</body>
+</html>

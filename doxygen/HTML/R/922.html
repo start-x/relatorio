@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>SInt16</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L436'>SInt16</a>            436 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp         DistortionMeshIBs[eyeNum]-&gt;Data ( Buffer_Index | Buffer_ReadOnly, meshData.pIndexData, ( sizeof(SInt16) * meshData.IndexCount ) );
+<a href='../S/147.html#L778'>SInt16</a>            778 ovr/sdk/src/Kernel/OVR_Alg.h     SInt16*  pa  = (SInt16*)p1; 
+<a href='../S/147.html#L779'>SInt16</a>            779 ovr/sdk/src/Kernel/OVR_Alg.h     SInt16*  pb  = (SInt16*)p2;
+<a href='../S/147.html#L839'>SInt16</a>            839 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SwapOrder(SInt16 v)     { return SInt16((UInt16(v)&gt;&gt;8)|(v&lt;&lt;8)); }
+<a href='../S/147.html#L883'>SInt16</a>            883 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   LEToSystem(SInt16 v)    { return v; }
+<a href='../S/147.html#L895'>SInt16</a>            895 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   BEToSystem(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L907'>SInt16</a>            907 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToLE(SInt16 v)    { return v; }
+<a href='../S/147.html#L919'>SInt16</a>            919 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToBE(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L932'>SInt16</a>            932 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   LEToSystem(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L944'>SInt16</a>            944 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   BEToSystem(SInt16 v)    { return v; }
+<a href='../S/147.html#L956'>SInt16</a>            956 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToLE(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L968'>SInt16</a>            968 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToBE(SInt16 v)    { return v; }
+<a href='../S/147.html#L991'>SInt16</a>            991 ovr/sdk/src/Kernel/OVR_Alg.h inline SInt16 DecodeSInt16(const UByte* buffer)
+<a href='../S/147.html#L993'>SInt16</a>            993 ovr/sdk/src/Kernel/OVR_Alg.h     return ByteUtil::LEToSystem ( *(const SInt16*)buffer );
+<a href='../S/147.html#L1022'>SInt16</a>           1022 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeSInt16(UByte* buffer, SInt16 val)
+<a href='../S/147.html#L1024'>SInt16</a>           1024 ovr/sdk/src/Kernel/OVR_Alg.h     *(SInt16*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/186.html#L223'>SInt16</a>            223 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16(SInt16 v)       { PWrite16((UInt16)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L234'>SInt16</a>            234 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt8BE(SInt16 v)      { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L250'>SInt16</a>            250 ovr/sdk/src/Kernel/OVR_File.h     inline SInt16  ReadSInt16()                { return (SInt16)Alg::ByteUtil::LEToSystem(PRead16());  }
+<a href='../S/186.html#L263'>SInt16</a>            263 ovr/sdk/src/Kernel/OVR_File.h     inline SInt16  ReadSInt16BE()              { return (SInt16)Alg::ByteUtil::BEToSystem(PRead16());  }
+<a href='../S/168.html#L275'>SInt16</a>            275 ovr/sdk/src/Kernel/OVR_Types.h     using OVR::SInt16;
+<a href='../S/188.html#L64'>SInt16</a>             64 ovr/sdk/src/OVR_Sensor2Impl.cpp     SInt16	Temperature;
+<a href='../S/188.html#L67'>SInt16</a>             67 ovr/sdk/src/OVR_Sensor2Impl.cpp     SInt16	MagX, MagY, MagZ;
+<a href='../S/192.html#L250'>SInt16</a>            250 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeSInt16(Buffer+16, (SInt16) normal.x);
+<a href='../S/192.html#L251'>SInt16</a>            251 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeSInt16(Buffer+18, (SInt16) normal.y);
+<a href='../S/192.html#L252'>SInt16</a>            252 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeSInt16(Buffer+20, (SInt16) normal.z);
+<a href='../S/192.html#L255'>SInt16</a>            255 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeSInt16(Buffer+22, (SInt16) rotation);
+<a href='../S/192.html#L597'>SInt16</a>            597 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeSInt16(Buffer + 8 , SInt16(Settings.TargetTemperature * 1e2));
+<a href='../S/192.html#L598'>SInt16</a>            598 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeSInt16(Buffer + 10, SInt16(Settings.ActualTemperature * 1e2));
+<a href='../S/192.html#L603'>SInt16</a>            603 ovr/sdk/src/OVR_Sensor2ImplUtil.h         PackSensor(Buffer + 16, (SInt16) offset.x, (SInt16) offset.y, (SInt16) offset.z);
+<a href='../S/192.html#L658'>SInt16</a>            658 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeSInt16(Buffer + 16, SInt16(Settings.Temperature * 1e2));
+<a href='../S/190.html#L76'>SInt16</a>             76 ovr/sdk/src/OVR_SensorImpl.cpp     SInt16	Temperature;
+<a href='../S/190.html#L80'>SInt16</a>             80 ovr/sdk/src/OVR_SensorImpl.cpp     SInt16	MagX, MagY, MagZ;
+</pre>
+</body>
+</html>

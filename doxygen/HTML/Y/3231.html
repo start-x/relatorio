@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>focusYawComponent</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L690'>focusYawComponent</a>  690 ovr/sdk/src/OVR_SensorFusion.cpp 	Vector3d focusYawComponent = FocusDirection.ProjectToPlane(up);
+<a href='../S/189.html#L693'>focusYawComponent</a>  693 ovr/sdk/src/OVR_SensorFusion.cpp 	double angle = focusYawComponent.Angle(currentYawComponent);
+<a href='../S/189.html#L700'>focusYawComponent</a>  700 ovr/sdk/src/OVR_SensorFusion.cpp 			Vector3d lFocus = Quatd(up, -FocusFOV).Rotate(focusYawComponent);
+<a href='../S/189.html#L701'>focusYawComponent</a>  701 ovr/sdk/src/OVR_SensorFusion.cpp 			Vector3d rFocus = Quatd(up, FocusFOV).Rotate(focusYawComponent);
+<a href='../S/189.html#L715'>focusYawComponent</a>  715 ovr/sdk/src/OVR_SensorFusion.cpp 			yawError = vectorAlignmentRotation(currentYawComponent, focusYawComponent);
+</pre>
+</body>
+</html>

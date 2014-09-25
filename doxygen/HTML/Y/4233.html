@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>rateHz</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L996'>rateHz</a>            996 ovr/sdk/src/OVR_Device.h     virtual void        SetReportRate(unsigned rateHz) = 0;
+<a href='../S/190.html#L527'>rateHz</a>            527 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::SetReportRate(unsigned rateHz)
+<a href='../S/190.html#L531'>rateHz</a>            531 ovr/sdk/src/OVR_SensorImpl.cpp         PushCall(this, &amp;SensorDeviceImpl::setReportRate, rateHz, true);
+<a href='../S/190.html#L546'>rateHz</a>            546 ovr/sdk/src/OVR_SensorImpl.cpp Void SensorDeviceImpl::setReportRate(unsigned rateHz)
+<a href='../S/190.html#L555'>rateHz</a>            555 ovr/sdk/src/OVR_SensorImpl.cpp     if (rateHz &gt; Sensor_MaxReportRate)
+<a href='../S/190.html#L556'>rateHz</a>            556 ovr/sdk/src/OVR_SensorImpl.cpp         rateHz = Sensor_MaxReportRate;
+<a href='../S/190.html#L557'>rateHz</a>            557 ovr/sdk/src/OVR_SensorImpl.cpp     else if (rateHz == 0)
+<a href='../S/190.html#L558'>rateHz</a>            558 ovr/sdk/src/OVR_SensorImpl.cpp         rateHz = Sensor_DefaultReportRate;
+<a href='../S/190.html#L560'>rateHz</a>            560 ovr/sdk/src/OVR_SensorImpl.cpp     scfg.PacketInterval = UInt16((Sensor_MaxReportRate / rateHz) - 1);
+<a href='../S/135.html#L225'>rateHz</a>            225 ovr/sdk/src/OVR_SensorImpl.h     virtual void        SetReportRate(unsigned rateHz);
+<a href='../S/135.html#L250'>rateHz</a>            250 ovr/sdk/src/OVR_SensorImpl.h     Void            setReportRate(unsigned rateHz);
+</pre>
+</body>
+</html>

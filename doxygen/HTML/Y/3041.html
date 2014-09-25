@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>displayInfo</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/191.html#L765'>displayInfo</a>       765 ovr/sdk/src/OVR_DeviceImpl.cpp             SensorDisplayInfoImpl displayInfo;
+<a href='../S/191.html#L767'>displayInfo</a>       767 ovr/sdk/src/OVR_DeviceImpl.cpp             if (psensor-&gt;GetFeatureReport(displayInfo.Buffer, SensorDisplayInfoImpl::PacketSize))
+<a href='../S/191.html#L769'>displayInfo</a>       769 ovr/sdk/src/OVR_DeviceImpl.cpp                 displayInfo.Unpack();
+<a href='../S/191.html#L773'>displayInfo</a>       773 ovr/sdk/src/OVR_DeviceImpl.cpp                 if (displayInfo.DistortionType &amp; SensorDisplayInfoImpl::Mask_BaseFmt)
+<a href='../S/191.html#L775'>displayInfo</a>       775 ovr/sdk/src/OVR_DeviceImpl.cpp                     SensorDeviceImpl::EnumerateHMDFromSensorDisplayInfo(displayInfo, visitor);
+<a href='../S/86.html#L36'>displayInfo</a>        36 ovr/sdk/src/OVR_Linux_SensorDevice.cpp void SensorDeviceImpl::EnumerateHMDFromSensorDisplayInfo(   const SensorDisplayInfoImpl&amp; displayInfo, 
+<a href='../S/86.html#L42'>displayInfo</a>        42 ovr/sdk/src/OVR_Linux_SensorDevice.cpp                                         displayInfo.HResolution, displayInfo.VResolution,
+<a href='../S/86.html#L43'>displayInfo</a>        43 ovr/sdk/src/OVR_Linux_SensorDevice.cpp                                         displayInfo.HScreenSize, displayInfo.VScreenSize,
+<a href='../S/86.html#L44'>displayInfo</a>        44 ovr/sdk/src/OVR_Linux_SensorDevice.cpp                                         displayInfo.VCenter, displayInfo.LensSeparation);
+<a href='../S/86.html#L46'>displayInfo</a>        46 ovr/sdk/src/OVR_Linux_SensorDevice.cpp     if ((displayInfo.DistortionType &amp; SensorDisplayInfoImpl::Mask_BaseFmt) == SensorDisplayInfoImpl::Base_Distortion)
+<a href='../S/86.html#L49'>displayInfo</a>        49 ovr/sdk/src/OVR_Linux_SensorDevice.cpp         hmdCreateDesc.SetDistortion(displayInfo.DistortionK);
+<a href='../S/188.html#L224'>displayInfo</a>       224 ovr/sdk/src/OVR_Sensor2Impl.cpp     SensorDisplayInfoImpl displayInfo;
+<a href='../S/188.html#L225'>displayInfo</a>       225 ovr/sdk/src/OVR_Sensor2Impl.cpp     if (GetInternalDevice()-&gt;GetFeatureReport(displayInfo.Buffer, SensorDisplayInfoImpl::PacketSize))
+<a href='../S/188.html#L227'>displayInfo</a>       227 ovr/sdk/src/OVR_Sensor2Impl.cpp         displayInfo.Unpack();
+<a href='../S/188.html#L228'>displayInfo</a>       228 ovr/sdk/src/OVR_Sensor2Impl.cpp         Coordinates = (displayInfo.DistortionType &amp; SensorDisplayInfoImpl::Mask_BaseFmt) ?
+<a href='../S/190.html#L213'>displayInfo</a>       213 ovr/sdk/src/OVR_SensorImpl.cpp             SensorDisplayInfoImpl displayInfo;
+<a href='../S/190.html#L215'>displayInfo</a>       215 ovr/sdk/src/OVR_SensorImpl.cpp             if (device.GetFeatureReport(displayInfo.Buffer, SensorDisplayInfoImpl::PacketSize))
+<a href='../S/190.html#L217'>displayInfo</a>       217 ovr/sdk/src/OVR_SensorImpl.cpp                 displayInfo.Unpack();
+<a href='../S/190.html#L221'>displayInfo</a>       221 ovr/sdk/src/OVR_SensorImpl.cpp                 if (displayInfo.DistortionType &amp; SensorDisplayInfoImpl::Mask_BaseFmt)
+<a href='../S/190.html#L223'>displayInfo</a>       223 ovr/sdk/src/OVR_SensorImpl.cpp                     SensorDeviceImpl::EnumerateHMDFromSensorDisplayInfo(displayInfo, ExternalVisitor);
+<a href='../S/190.html#L372'>displayInfo</a>       372 ovr/sdk/src/OVR_SensorImpl.cpp     SensorDisplayInfoImpl displayInfo;
+<a href='../S/190.html#L373'>displayInfo</a>       373 ovr/sdk/src/OVR_SensorImpl.cpp     if (GetInternalDevice()-&gt;GetFeatureReport(displayInfo.Buffer, SensorDisplayInfoImpl::PacketSize))
+<a href='../S/190.html#L375'>displayInfo</a>       375 ovr/sdk/src/OVR_SensorImpl.cpp         displayInfo.Unpack();
+<a href='../S/190.html#L376'>displayInfo</a>       376 ovr/sdk/src/OVR_SensorImpl.cpp         Coordinates = (displayInfo.DistortionType &amp; SensorDisplayInfoImpl::Mask_BaseFmt) ?
+<a href='../S/135.html#L235'>displayInfo</a>       235 ovr/sdk/src/OVR_SensorImpl.h     static void         EnumerateHMDFromSensorDisplayInfo(const SensorDisplayInfoImpl&amp; displayInfo, 
+</pre>
+</body>
+</html>

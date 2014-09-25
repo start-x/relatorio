@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Exchange_Sync</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L518'>Exchange_Sync</a>     518 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Sync(volatile O_T* p, O_T val)                { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L576'>Exchange_Sync</a>     576 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Sync(volatile C* p, C val)             { C2T_union u; u.c = val; u.t = Ops::Exchange_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L613'>Exchange_Sync</a>     613 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     Exchange_Sync(T val)               { return Ops::Exchange_Sync(&amp;Value,  val); }
+</pre>
+</body>
+</html>

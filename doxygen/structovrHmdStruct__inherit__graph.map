@@ -1,0 +1,3 @@
+<map id="ovrHmdStruct" name="ovrHmdStruct">
+<area shape="rect" id="node2" href="$classOVR_1_1CAPI_1_1HMDState.html" title="{OVR::CAPI::HMDState\n|+ pHMD\l+ HMDInfoW\l+ HMDInfo\l+ pLastError\l+ EnabledHmdCaps\l+ HmdCapsAppliedToSensor\l+ DevicesLock\l+ AddSensorCount\l+ SensorStarted\l+ SensorCreated\land 24 more...\l|+ HMDState()\l+ HMDState()\l+ ~HMDState()\l+ StartSensor()\l+ StopSensor()\l+ ResetSensor()\l+ PredictedSensorState()\l+ GetSensorDesc()\l+ SetEnabledHmdCaps()\l+ ProcessLatencyTest()\land 21 more...\l}" alt="" coords="5,131,197,501"/>
+</map>

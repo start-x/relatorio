@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>arraySize</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L527'>arraySize</a>         527 ovr/sdk/src/CAPI/CAPI_HMDState.cpp unsigned HMDState::getFloatArray(const char* propertyName, float values[], unsigned arraySize)
+<a href='../S/97.html#L529'>arraySize</a>         529 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 	if (arraySize)
+<a href='../S/97.html#L535'>arraySize</a>         535 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             return CopyFloatArrayWithLimit(values, arraySize, data, 2);
+<a href='../S/97.html#L539'>arraySize</a>         539 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             return CopyFloatArrayWithLimit(values, arraySize, RenderState.ClearColor, 4);
+<a href='../S/97.html#L549'>arraySize</a>         549 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             return CopyFloatArrayWithLimit(values, arraySize, data, 3);
+<a href='../S/97.html#L570'>arraySize</a>         570 ovr/sdk/src/CAPI/CAPI_HMDState.cpp 				unsigned count = p-&gt;GetFloatValues(propertyName, values, arraySize);
+<a href='../S/97.html#L579'>arraySize</a>         579 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::setFloatArray(const char* propertyName, float values[], unsigned arraySize)
+<a href='../S/97.html#L581'>arraySize</a>         581 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     if (!arraySize)
+<a href='../S/97.html#L586'>arraySize</a>         586 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         CopyFloatArrayWithLimit(RenderState.ClearColor, 4, values, arraySize);
+<a href='../S/101.html#L229'>arraySize</a>         229 ovr/sdk/src/CAPI/CAPI_HMDState.h 	unsigned getFloatArray(const char* propertyName, float values[], unsigned arraySize);
+<a href='../S/101.html#L230'>arraySize</a>         230 ovr/sdk/src/CAPI/CAPI_HMDState.h     bool     setFloatArray(const char* propertyName, float values[], unsigned arraySize);
+<a href='../S/142.html#L828'>arraySize</a>         828 ovr/sdk/src/OVR_CAPI.cpp                               float values[], unsigned int arraySize)
+<a href='../S/142.html#L833'>arraySize</a>         833 ovr/sdk/src/OVR_CAPI.cpp 		return hmds-&gt;getFloatArray(propertyName, values, arraySize);
+<a href='../S/142.html#L842'>arraySize</a>         842 ovr/sdk/src/OVR_CAPI.cpp                                         float values[], unsigned int arraySize)
+<a href='../S/142.html#L847'>arraySize</a>         847 ovr/sdk/src/OVR_CAPI.cpp         return hmds-&gt;setFloatArray(propertyName, values, arraySize);
+<a href='../S/187.html#L768'>arraySize</a>         768 ovr/sdk/src/OVR_CAPI.h                                             float values[], unsigned int arraySize);
+<a href='../S/187.html#L772'>arraySize</a>         772 ovr/sdk/src/OVR_CAPI.h                                              float values[], unsigned int arraySize);
+</pre>
+</body>
+</html>

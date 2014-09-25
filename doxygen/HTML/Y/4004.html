@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>path</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/149.html#L564'>path</a>              564 ovr/sdk/src/Kernel/OVR_FileFILE.cpp Ptr&lt;File&gt; FileFILEOpen(const String&amp; path, int flags, int mode)
+<a href='../S/149.html#L566'>path</a>              566 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     Ptr&lt;File&gt; result = *new FILEFile(path, flags, mode);
+<a href='../S/149.html#L571'>path</a>              571 ovr/sdk/src/Kernel/OVR_FileFILE.cpp bool    SysFile::GetFileStat(FileStat* pfileStat, const String&amp; path)
+<a href='../S/149.html#L577'>path</a>              577 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     wchar_t *pwpath = (wchar_t*)OVR_ALLOC((UTF8Util::GetLength(path.ToCStr())+1)*sizeof(wchar_t));
+<a href='../S/149.html#L578'>path</a>              578 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     UTF8Util::DecodeString(pwpath, path.ToCStr());
+<a href='../S/149.html#L586'>path</a>              586 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     if (stat(path, &amp;fileStat) != 0)
+<a href='../S/161.html#L261'>path</a>              261 ovr/sdk/src/Kernel/OVR_String.h     static bool HasAbsolutePath(const char* path);
+<a href='../S/161.html#L262'>path</a>              262 ovr/sdk/src/Kernel/OVR_String.h     static bool HasExtension(const char* path);
+<a href='../S/161.html#L263'>path</a>              263 ovr/sdk/src/Kernel/OVR_String.h     static bool HasProtocol(const char* path);
+<a href='../S/171.html#L152'>path</a>              152 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp bool String::HasExtension(const char* path)
+<a href='../S/171.html#L155'>path</a>              155 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     ScanFilePath(path, 0, &amp;ext);
+<a href='../S/171.html#L158'>path</a>              158 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp bool String::HasProtocol(const char* path)
+<a href='../S/171.html#L160'>path</a>              160 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     return ScanPathProtocol(path) != 0;
+<a href='../S/156.html#L87'>path</a>               87 ovr/sdk/src/Kernel/OVR_SysFile.cpp Ptr&lt;File&gt; FileFILEOpen(const String&amp; path, int flags, int mode);
+<a href='../S/156.html#L90'>path</a>               90 ovr/sdk/src/Kernel/OVR_SysFile.cpp SysFile::SysFile(const String&amp; path, int flags, int mode) : DelegatedFile(0)
+<a href='../S/156.html#L92'>path</a>               92 ovr/sdk/src/Kernel/OVR_SysFile.cpp     Open(path, flags, mode);
+<a href='../S/156.html#L98'>path</a>               98 ovr/sdk/src/Kernel/OVR_SysFile.cpp bool SysFile::Open(const String&amp; path, int flags, int mode)
+<a href='../S/156.html#L100'>path</a>              100 ovr/sdk/src/Kernel/OVR_SysFile.cpp     pFile = FileFILEOpen(path, flags, mode);
+<a href='../S/156.html#L104'>path</a>              104 ovr/sdk/src/Kernel/OVR_SysFile.cpp         OVR_DEBUG_LOG(("Failed to open file: %s", path.ToCStr()));
+<a href='../S/146.html#L81'>path</a>               81 ovr/sdk/src/Kernel/OVR_SysFile.h     SysFile(const String&amp; path, int flags = Open_Read|Open_Buffered, int mode = Mode_ReadWrite); 
+<a href='../S/146.html#L84'>path</a>               84 ovr/sdk/src/Kernel/OVR_SysFile.h     bool  Open(const String&amp; path, int flags = Open_Read|Open_Buffered, int mode = Mode_ReadWrite);
+<a href='../S/146.html#L86'>path</a>               86 ovr/sdk/src/Kernel/OVR_SysFile.h     OVR_FORCE_INLINE bool  Create(const String&amp; path, int mode = Mode_ReadWrite)
+<a href='../S/146.html#L87'>path</a>               87 ovr/sdk/src/Kernel/OVR_SysFile.h     { return Open(path, Open_ReadWrite|Open_Create, mode); }
+<a href='../S/146.html#L91'>path</a>               91 ovr/sdk/src/Kernel/OVR_SysFile.h     static bool OVR_CDECL GetFileStat(FileStat* pfileStats, const String&amp; path);
+<a href='../S/191.html#L544'>path</a>              544 ovr/sdk/src/OVR_DeviceImpl.cpp     const String&amp; path, 
+<a href='../S/191.html#L554'>path</a>              554 ovr/sdk/src/OVR_DeviceImpl.cpp             devDesc-&gt;MatchDevice(path))
+<a href='../S/80.html#L408'>path</a>              408 ovr/sdk/src/OVR_DeviceImpl.h     Ptr&lt;DeviceCreateDesc&gt; FindDevice(const String&amp; path, DeviceType = Device_None);
+<a href='../S/140.html#L91'>path</a>               91 ovr/sdk/src/OVR_HIDDevice.h     virtual HIDDevice* Open(const String&amp; path) = 0;
+<a href='../S/123.html#L44'>path</a>               44 ovr/sdk/src/OVR_HIDDeviceImpl.h     virtual bool MatchDevice(const String&amp; path)
+<a href='../S/123.html#L47'>path</a>               47 ovr/sdk/src/OVR_HIDDeviceImpl.h         return HIDDesc.Path.CompareNoCase(path) == 0;
+<a href='../S/84.html#L1132'>path</a>             1132 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::Load(const char* path, const char** perror)
+<a href='../S/84.html#L1135'>path</a>             1135 ovr/sdk/src/OVR_JSON.cpp     if (!f.Open(path, File::Open_Read, File::Mode_Read))
+<a href='../S/84.html#L1162'>path</a>             1162 ovr/sdk/src/OVR_JSON.cpp bool JSON::Save(const char* path)
+<a href='../S/84.html#L1165'>path</a>             1165 ovr/sdk/src/OVR_JSON.cpp     if (!f.Open(path, File::Open_Write | File::Open_Create | File::Open_Truncate, File::Mode_Write))
+<a href='../S/78.html#L90'>path</a>               90 ovr/sdk/src/OVR_JSON.h     static JSON*    Load(const char* path, const char** perror = 0);
+<a href='../S/78.html#L93'>path</a>               93 ovr/sdk/src/OVR_JSON.h     bool            Save(const char* path);
+<a href='../S/132.html#L286'>path</a>              286 ovr/sdk/src/OVR_Linux_HIDDevice.cpp OVR::HIDDevice* HIDDeviceManager::Open(const String&amp; path)
+<a href='../S/132.html#L290'>path</a>              290 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (device-&gt;HIDInitialize(path))
+<a href='../S/132.html#L344'>path</a>              344 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         const char* path = udev_device_get_devnode(hid);
+<a href='../S/132.html#L346'>path</a>              346 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         if (OVR_strcmp(dev_path, path) == 0)
+<a href='../S/132.html#L460'>path</a>              460 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDevice::HIDInitialize(const String&amp; path)
+<a href='../S/132.html#L462'>path</a>              462 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     const char* hid_path = path.ToCStr();
+<a href='../S/81.html#L54'>path</a>               54 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool HIDInitialize(const String&amp; path);
+<a href='../S/81.html#L104'>path</a>              104 ovr/sdk/src/OVR_Linux_HIDDevice.h     virtual OVR::HIDDevice* Open(const String&amp; path);
+<a href='../S/120.html#L182'>path</a>              182 ovr/sdk/src/OVR_Linux_HMDDevice.cpp bool HMDDeviceCreateDesc::MatchDevice(const String&amp; path)
+<a href='../S/120.html#L184'>path</a>              184 ovr/sdk/src/OVR_Linux_HMDDevice.cpp     return DeviceId.CompareNoCase(path) == 0;
+<a href='../S/125.html#L101'>path</a>              101 ovr/sdk/src/OVR_Linux_HMDDevice.h     virtual bool        MatchDevice(const String&amp; path);
+<a href='../S/139.html#L66'>path</a>               66 ovr/sdk/src/OVR_Profile.cpp     String path;
+<a href='../S/139.html#L72'>path</a>               72 ovr/sdk/src/OVR_Profile.cpp     path = String(data_path);
+<a href='../S/139.html#L74'>path</a>               74 ovr/sdk/src/OVR_Profile.cpp     path += "/Oculus";
+<a href='../S/139.html#L79'>path</a>               79 ovr/sdk/src/OVR_Profile.cpp         OVR::UTF8Util::DecodeString(wpath, path.ToCStr());
+<a href='../S/139.html#L92'>path</a>               92 ovr/sdk/src/OVR_Profile.cpp     path = home;
+<a href='../S/139.html#L93'>path</a>               93 ovr/sdk/src/OVR_Profile.cpp     path += "/Library/Preferences/Oculus";
+<a href='../S/139.html#L97'>path</a>               97 ovr/sdk/src/OVR_Profile.cpp         DIR* dir = opendir(path);
+<a href='../S/139.html#L100'>path</a>              100 ovr/sdk/src/OVR_Profile.cpp             mkdir(path, S_IRWXU | S_IRWXG | S_IRWXO);
+<a href='../S/139.html#L112'>path</a>              112 ovr/sdk/src/OVR_Profile.cpp     path = home;
+<a href='../S/139.html#L113'>path</a>              113 ovr/sdk/src/OVR_Profile.cpp     path += "/.config/Oculus";
+<a href='../S/139.html#L117'>path</a>              117 ovr/sdk/src/OVR_Profile.cpp         DIR* dir = opendir(path);
+<a href='../S/139.html#L120'>path</a>              120 ovr/sdk/src/OVR_Profile.cpp             mkdir(path, S_IRWXU | S_IRWXG | S_IRWXO);
+<a href='../S/139.html#L130'>path</a>              130 ovr/sdk/src/OVR_Profile.cpp     return path;
+<a href='../S/139.html#L135'>path</a>              135 ovr/sdk/src/OVR_Profile.cpp     String path = GetBaseOVRPath(create_dir);
+<a href='../S/139.html#L136'>path</a>              136 ovr/sdk/src/OVR_Profile.cpp     path += "/ProfileDB.json";
+<a href='../S/139.html#L137'>path</a>              137 ovr/sdk/src/OVR_Profile.cpp     return path;
+<a href='../S/139.html#L327'>path</a>              327 ovr/sdk/src/OVR_Profile.cpp     String path = GetProfilePath(false);
+<a href='../S/139.html#L329'>path</a>              329 ovr/sdk/src/OVR_Profile.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+<a href='../S/139.html#L332'>path</a>              332 ovr/sdk/src/OVR_Profile.cpp         path = GetBaseOVRPath(false) + "/Profiles.json";  // look for legacy profile
+<a href='../S/139.html#L333'>path</a>              333 ovr/sdk/src/OVR_Profile.cpp         root = *JSON::Load(path);
+<a href='../S/139.html#L1011'>path</a>             1011 ovr/sdk/src/OVR_Profile.cpp     String path = GetBaseOVRPath(false);
+<a href='../S/139.html#L1012'>path</a>             1012 ovr/sdk/src/OVR_Profile.cpp     path += "/Devices.json";
+<a href='../S/139.html#L1015'>path</a>             1015 ovr/sdk/src/OVR_Profile.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+<a href='../S/190.html#L900'>path</a>              900 ovr/sdk/src/OVR_SensorImpl.cpp     String path = GetBaseOVRPath(true);
+<a href='../S/190.html#L901'>path</a>              901 ovr/sdk/src/OVR_SensorImpl.cpp     path += "/Devices.json";
+<a href='../S/190.html#L904'>path</a>              904 ovr/sdk/src/OVR_SensorImpl.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+<a href='../S/190.html#L992'>path</a>              992 ovr/sdk/src/OVR_SensorImpl.cpp     return root-&gt;Save(path);
+<a href='../S/190.html#L1009'>path</a>             1009 ovr/sdk/src/OVR_SensorImpl.cpp     String path = GetBaseOVRPath(true);
+<a href='../S/190.html#L1010'>path</a>             1010 ovr/sdk/src/OVR_SensorImpl.cpp     path += "/Devices.json";
+<a href='../S/190.html#L1013'>path</a>             1013 ovr/sdk/src/OVR_SensorImpl.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+</pre>
+</body>
+</html>

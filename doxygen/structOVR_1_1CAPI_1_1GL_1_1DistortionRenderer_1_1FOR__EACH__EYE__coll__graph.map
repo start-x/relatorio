@@ -1,0 +1,7 @@
+<map id="OVR::CAPI::GL::DistortionRenderer::FOR_EACH_EYE" name="OVR::CAPI::GL::DistortionRenderer::FOR_EACH_EYE">
+<area shape="rect" id="node2" href="$classOVR_1_1Size.html" title="{OVR::Size\&lt; int \&gt;\n|+ w\l+ h\l|+ Size()\l+ Size()\l+ Size()\l+ Size()\l+ Size()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 13 more...\l+ Min()\l+ Max()\l}" alt="" coords="5,531,192,813"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Size.html" title="{OVR::Size\&lt; T \&gt;\n||+ Size()\l+ Size()\l+ Size()\l+ Size()\l+ Size()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 13 more...\l+ Min()\l+ Max()\l}" alt="" coords="5,190,192,458"/>
+<area shape="rect" id="node6" href="$classOVR_1_1Rect.html" title="{OVR::Rect\&lt; T \&gt;\n||+ Rect()\l+ Rect()\l+ Rect()\l+ Rect()\l+ Rect()\l+ operator const Compatible\lType &amp;()\l+ GetPos()\l+ GetSize()\l+ SetPos()\l+ SetSize()\l+ operator==()\l+ operator!=()\l}" alt="" coords="216,197,403,451"/>
+<area shape="rect" id="node5" href="$classOVR_1_1Rect.html" title="{OVR::Rect\&lt; int \&gt;\n|+ x\l+ y\l+ w\l+ h\l|+ Rect()\l+ Rect()\l+ Rect()\l+ Rect()\l+ Rect()\l+ operator const Compatible\lType &amp;()\l+ GetPos()\l+ GetSize()\l+ SetPos()\l+ SetSize()\l+ operator==()\l+ operator!=()\l}" alt="" coords="216,523,403,821"/>
+<area shape="rect" id="node7" href="$OVR__CAPI_8h.html#structovrVector2f__" title="{ovrVector2f_\n|+ x\l+ y\l|}" alt="" coords="427,626,523,718"/>
+</map>

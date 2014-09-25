@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>PRead64</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/186.html#L206'>PRead64</a>           206 ovr/sdk/src/Kernel/OVR_File.h     UInt64  PRead64()           { UInt64 v = 0; Read((UByte*)&amp;v, 8); return v; }
+<a href='../S/186.html#L253'>PRead64</a>           253 ovr/sdk/src/Kernel/OVR_File.h     inline UInt64  ReadUInt64()                { return (UInt64)Alg::ByteUtil::LEToSystem(PRead64());  }
+<a href='../S/186.html#L254'>PRead64</a>           254 ovr/sdk/src/Kernel/OVR_File.h     inline SInt64  ReadSInt64()                { return (SInt64)Alg::ByteUtil::LEToSystem(PRead64());  }
+<a href='../S/186.html#L266'>PRead64</a>           266 ovr/sdk/src/Kernel/OVR_File.h     inline UInt64  ReadUInt64BE()              { return (UInt64)Alg::ByteUtil::BEToSystem(PRead64());  }
+<a href='../S/186.html#L267'>PRead64</a>           267 ovr/sdk/src/Kernel/OVR_File.h     inline SInt64  ReadSInt64BE()              { return (SInt64)Alg::ByteUtil::BEToSystem(PRead64());  }
+</pre>
+</body>
+</html>

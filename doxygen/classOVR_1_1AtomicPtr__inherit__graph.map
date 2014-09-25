@@ -1,0 +1,4 @@
+<map id="OVR::AtomicPtr&lt; T &gt;" name="OVR::AtomicPtr&lt; T &gt;">
+<area shape="rect" id="node2" href="$classOVR_1_1AtomicValueBase.html" title="{OVR::AtomicValueBase\l\&lt; T * \&gt;\n|+ Value\l|+ AtomicValueBase()\l+ AtomicValueBase()\l+ operator T *()\l+ Exchange_Sync()\l+ Exchange_Release()\l+ Exchange_Acquire()\l+ Exchange_NoSync()\l+ CompareAndSet_Sync()\l+ CompareAndSet_Release()\l+ CompareAndSet_Acquire()\l+ CompareAndSet_NoSync()\l+ Store_Release()\l+ Load_Acquire()\l}" alt="" coords="6,323,199,591"/>
+<area shape="rect" id="node3" href="$classOVR_1_1AtomicValueBase.html" title="{OVR::AtomicValueBase\&lt; T \&gt;\n|+ Value\l|+ AtomicValueBase()\l+ AtomicValueBase()\l+ operator T()\l+ Exchange_Sync()\l+ Exchange_Release()\l+ Exchange_Acquire()\l+ Exchange_NoSync()\l+ CompareAndSet_Sync()\l+ CompareAndSet_Release()\l+ CompareAndSet_Acquire()\l+ CompareAndSet_NoSync()\l+ Store_Release()\l+ Load_Acquire()\l}" alt="" coords="5,5,200,259"/>
+</map>

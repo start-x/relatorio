@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>RefCount</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/183.html#L47'>RefCount</a>           47 ovr/sdk/src/Kernel/OVR_RefCount.cpp     OVR_ASSERT(RefCount &lt;= 1);
+<a href='../S/183.html#L64'>RefCount</a>           64 ovr/sdk/src/Kernel/OVR_RefCount.cpp     OVR_ASSERT(RefCount &lt;= 1);
+<a href='../S/183.html#L81'>RefCount</a>           81 ovr/sdk/src/Kernel/OVR_RefCount.cpp     AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, 1);
+<a href='../S/183.html#L85'>RefCount</a>           85 ovr/sdk/src/Kernel/OVR_RefCount.cpp     if ((AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, -1) - 1) == 0)
+<a href='../S/183.html#L93'>RefCount</a>           93 ovr/sdk/src/Kernel/OVR_RefCount.cpp     AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, 1);
+<a href='../S/183.html#L97'>RefCount</a>           97 ovr/sdk/src/Kernel/OVR_RefCount.cpp     if ((AtomicOps&lt;int&gt;::ExchangeAdd_NoSync(&amp;RefCount, -1) - 1) == 0)
+<a href='../S/183.html#L105'>RefCount</a>          105 ovr/sdk/src/Kernel/OVR_RefCount.cpp     RefCount--;
+<a href='../S/183.html#L106'>RefCount</a>          106 ovr/sdk/src/Kernel/OVR_RefCount.cpp     if (RefCount == 0)
+<a href='../S/166.html#L65'>RefCount</a>           65 ovr/sdk/src/Kernel/OVR_RefCount.h    volatile int RefCount;
+<a href='../S/166.html#L69'>RefCount</a>           69 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE RefCountImplCore() : RefCount(1) { }
+<a href='../S/166.html#L77'>RefCount</a>           77 ovr/sdk/src/Kernel/OVR_RefCount.h     int GetRefCount() const { return RefCount;  }
+<a href='../S/166.html#L86'>RefCount</a>           86 ovr/sdk/src/Kernel/OVR_RefCount.h         if (pmem-&gt;RefCount != 0)
+<a href='../S/166.html#L100'>RefCount</a>          100 ovr/sdk/src/Kernel/OVR_RefCount.h     mutable int RefCount;
+<a href='../S/166.html#L104'>RefCount</a>          104 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE RefCountNTSImplCore() : RefCount(1) { }
+<a href='../S/166.html#L112'>RefCount</a>          112 ovr/sdk/src/Kernel/OVR_RefCount.h     int             GetRefCount() const { return RefCount;  }
+<a href='../S/166.html#L121'>RefCount</a>          121 ovr/sdk/src/Kernel/OVR_RefCount.h         if (pmem-&gt;RefCount != 0)
+<a href='../S/166.html#L163'>RefCount</a>          163 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE void    AddRef() const { RefCount++; }
+<a href='../S/184.html#L117'>RefCount</a>          117 ovr/sdk/src/Kernel/OVR_String.cpp     pdesc-&gt;RefCount = 1;
+<a href='../S/161.html#L72'>RefCount</a>           72 ovr/sdk/src/Kernel/OVR_String.h         volatile SInt32 RefCount;
+<a href='../S/161.html#L77'>RefCount</a>           77 ovr/sdk/src/Kernel/OVR_String.h             AtomicOps&lt;SInt32&gt;::ExchangeAdd_NoSync(&amp;RefCount, 1);
+<a href='../S/161.html#L91'>RefCount</a>           91 ovr/sdk/src/Kernel/OVR_String.h             if ((AtomicOps&lt;SInt32&gt;::ExchangeAdd_NoSync(&amp;RefCount, -1) - 1) == 0)
+<a href='../S/191.html#L409'>RefCount</a>          409 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 refCount = devCommon-&gt;RefCount;
+<a href='../S/191.html#L413'>RefCount</a>          413 ovr/sdk/src/OVR_DeviceImpl.cpp             if (devCommon-&gt;RefCount.CompareAndSet_NoSync(refCount, refCount-1))
+<a href='../S/191.html#L420'>RefCount</a>          420 ovr/sdk/src/OVR_DeviceImpl.cpp         else if (devCommon-&gt;RefCount.CompareAndSet_NoSync(1, 0))
+<a href='../S/191.html#L644'>RefCount</a>          644 ovr/sdk/src/OVR_DeviceImpl.cpp     RefCount++;
+<a href='../S/191.html#L651'>RefCount</a>          651 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 refCount = RefCount;
+<a href='../S/191.html#L674'>RefCount</a>          674 ovr/sdk/src/OVR_DeviceImpl.cpp         else if (RefCount.CompareAndSet_NoSync(refCount, refCount-1))
+<a href='../S/80.html#L203'>RefCount</a>          203 ovr/sdk/src/OVR_DeviceImpl.h     AtomicInt&lt;UInt32&gt;      RefCount;
+<a href='../S/80.html#L210'>RefCount</a>          210 ovr/sdk/src/OVR_DeviceImpl.h         : RefCount(1), pCreateDesc(createDesc), pParent(parent),
+</pre>
+</body>
+</html>

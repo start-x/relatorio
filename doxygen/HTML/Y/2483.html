@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>XMLAttribute</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L59'>XMLAttribute</a>       59 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             attrib-&gt;~XMLAttribute();			\
+<a href='../S/197.html#L1047'>XMLAttribute</a>     1047 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLAttribute::ParseDeep( char* p, bool processEntities )
+<a href='../S/197.html#L1075'>XMLAttribute</a>     1075 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetName( const char* n )
+<a href='../S/197.html#L1081'>XMLAttribute</a>     1081 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryIntValue( int* value ) const
+<a href='../S/197.html#L1090'>XMLAttribute</a>     1090 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryUnsignedValue( unsigned int* value ) const
+<a href='../S/197.html#L1099'>XMLAttribute</a>     1099 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryBoolValue( bool* value ) const
+<a href='../S/197.html#L1108'>XMLAttribute</a>     1108 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryFloatValue( float* value ) const
+<a href='../S/197.html#L1117'>XMLAttribute</a>     1117 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLError XMLAttribute::QueryDoubleValue( double* value ) const
+<a href='../S/197.html#L1126'>XMLAttribute</a>     1126 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( const char* v )
+<a href='../S/197.html#L1132'>XMLAttribute</a>     1132 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( int v )
+<a href='../S/197.html#L1140'>XMLAttribute</a>     1140 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( unsigned v )
+<a href='../S/197.html#L1148'>XMLAttribute</a>     1148 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( bool v )
+<a href='../S/197.html#L1155'>XMLAttribute</a>     1155 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( double v )
+<a href='../S/197.html#L1162'>XMLAttribute</a>     1162 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( float v )
+<a href='../S/197.html#L1181'>XMLAttribute</a>     1181 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLAttribute* next = _rootAttribute-&gt;_next;
+<a href='../S/197.html#L1188'>XMLAttribute</a>     1188 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLAttribute* XMLElement::FindAttribute( const char* name )
+<a href='../S/197.html#L1190'>XMLAttribute</a>     1190 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* a = 0;
+<a href='../S/197.html#L1200'>XMLAttribute</a>     1200 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLAttribute* XMLElement::FindAttribute( const char* name ) const
+<a href='../S/197.html#L1202'>XMLAttribute</a>     1202 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* a = 0;
+<a href='../S/197.html#L1214'>XMLAttribute</a>     1214 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const XMLAttribute* a = FindAttribute( name );
+<a href='../S/197.html#L1300'>XMLAttribute</a>     1300 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLAttribute* XMLElement::FindOrCreateAttribute( const char* name )
+<a href='../S/197.html#L1302'>XMLAttribute</a>     1302 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* last = 0;
+<a href='../S/197.html#L1303'>XMLAttribute</a>     1303 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* attrib = 0;
+<a href='../S/197.html#L1312'>XMLAttribute</a>     1312 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         attrib = new (_document-&gt;_attributePool.Alloc() ) XMLAttribute();
+<a href='../S/197.html#L1329'>XMLAttribute</a>     1329 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* prev = 0;
+<a href='../S/197.html#L1330'>XMLAttribute</a>     1330 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLAttribute* a=_rootAttribute; a; a=a-&gt;_next ) {
+<a href='../S/197.html#L1349'>XMLAttribute</a>     1349 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLAttribute* prevAttribute = 0;
+<a href='../S/197.html#L1361'>XMLAttribute</a>     1361 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             XMLAttribute* attrib = new (_document-&gt;_attributePool.Alloc() ) XMLAttribute();
+<a href='../S/197.html#L1445'>XMLAttribute</a>     1445 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( const XMLAttribute* a=FirstAttribute(); a; a=a-&gt;Next() ) {
+<a href='../S/197.html#L1457'>XMLAttribute</a>     1457 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const XMLAttribute* a=FirstAttribute();
+<a href='../S/197.html#L1458'>XMLAttribute</a>     1458 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         const XMLAttribute* b=other-&gt;FirstAttribute();
+<a href='../S/197.html#L2056'>XMLAttribute</a>     2056 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLPrinter::VisitEnter( const XMLElement&amp; element, const XMLAttribute* attribute )
+<a href='../S/196.html#L109'>XMLAttribute</a>      109 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLAttribute;
+<a href='../S/196.html#L417'>XMLAttribute</a>      417 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool VisitEnter( const XMLElement&amp; /*element*/, const XMLAttribute* /*firstAttribute*/ )	{
+<a href='../S/196.html#L974'>XMLAttribute</a>      974 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLAttribute
+<a href='../S/196.html#L987'>XMLAttribute</a>      987 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLAttribute* Next() const {
+<a href='../S/196.html#L1055'>XMLAttribute</a>     1055 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute() : _next( 0 ) {}
+<a href='../S/196.html#L1056'>XMLAttribute</a>     1056 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual ~XMLAttribute()	{}
+<a href='../S/196.html#L1058'>XMLAttribute</a>     1058 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute( const XMLAttribute&amp; );	// not supported
+<a href='../S/196.html#L1059'>XMLAttribute</a>     1059 ovr/sdk/third_party/tinyxml/tinyxml2.h     void operator=( const XMLAttribute&amp; );	// not supported
+<a href='../S/196.html#L1066'>XMLAttribute</a>     1066 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute*   _next;
+<a href='../S/196.html#L1171'>XMLAttribute</a>     1171 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1179'>XMLAttribute</a>     1179 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1187'>XMLAttribute</a>     1187 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1195'>XMLAttribute</a>     1195 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1203'>XMLAttribute</a>     1203 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1212'>XMLAttribute</a>     1212 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1217'>XMLAttribute</a>     1217 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1222'>XMLAttribute</a>     1222 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1227'>XMLAttribute</a>     1227 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1232'>XMLAttribute</a>     1232 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1242'>XMLAttribute</a>     1242 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLAttribute* FirstAttribute() const {
+<a href='../S/196.html#L1246'>XMLAttribute</a>     1246 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLAttribute* FindAttribute( const char* name ) const;
+<a href='../S/196.html#L1333'>XMLAttribute</a>     1333 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute* FindAttribute( const char* name );
+<a href='../S/196.html#L1334'>XMLAttribute</a>     1334 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute* FindOrCreateAttribute( const char* name );
+<a href='../S/196.html#L1342'>XMLAttribute</a>     1342 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute* _rootAttribute;
+<a href='../S/196.html#L1552'>XMLAttribute</a>     1552 ovr/sdk/third_party/tinyxml/tinyxml2.h     MemPoolT&lt; sizeof(XMLAttribute) &gt; _attributePool;
+<a href='../S/196.html#L1855'>XMLAttribute</a>     1855 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool VisitEnter( const XMLElement&amp; element, const XMLAttribute* attribute );
+</pre>
+</body>
+</html>

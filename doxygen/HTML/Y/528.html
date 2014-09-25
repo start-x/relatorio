@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Exchange_Release</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L519'>Exchange_Release</a>  519 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Release(volatile O_T* p, O_T val)             { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L532'>Exchange_Release</a>  532 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile O_T* p, O_T val)  { Exchange_Release(p, val); }
+<a href='../S/145.html#L577'>Exchange_Release</a>  577 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Release(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L614'>Exchange_Release</a>  614 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     Exchange_Release(T val)            { return Ops::Exchange_Release(&amp;Value, val); }
+</pre>
+</body>
+</html>

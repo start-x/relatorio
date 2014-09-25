@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>doc</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L585'>doc</a>               585 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode::XMLNode( XMLDocument* doc ) :
+<a href='../S/197.html#L586'>doc</a>               586 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _document( doc ),
+<a href='../S/197.html#L884'>doc</a>               884 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLText::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L886'>doc</a>               886 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !doc ) {
+<a href='../S/197.html#L887'>doc</a>               887 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         doc = _document;
+<a href='../S/197.html#L889'>doc</a>               889 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLText* text = doc-&gt;NewText( Value() );	// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L909'>doc</a>               909 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLComment::XMLComment( XMLDocument* doc ) : XMLNode( doc )
+<a href='../S/197.html#L931'>doc</a>               931 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLComment::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L933'>doc</a>               933 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !doc ) {
+<a href='../S/197.html#L934'>doc</a>               934 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         doc = _document;
+<a href='../S/197.html#L936'>doc</a>               936 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLComment* comment = doc-&gt;NewComment( Value() );	// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L955'>doc</a>               955 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLDeclaration::XMLDeclaration( XMLDocument* doc ) : XMLNode( doc )
+<a href='../S/197.html#L978'>doc</a>               978 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLDeclaration::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L980'>doc</a>               980 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !doc ) {
+<a href='../S/197.html#L981'>doc</a>               981 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         doc = _document;
+<a href='../S/197.html#L983'>doc</a>               983 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLDeclaration* dec = doc-&gt;NewDeclaration( Value() );	// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L1002'>doc</a>              1002 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLUnknown::XMLUnknown( XMLDocument* doc ) : XMLNode( doc )
+<a href='../S/197.html#L1025'>doc</a>              1025 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLUnknown::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L1027'>doc</a>              1027 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !doc ) {
+<a href='../S/197.html#L1028'>doc</a>              1028 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         doc = _document;
+<a href='../S/197.html#L1030'>doc</a>              1030 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUnknown* text = doc-&gt;NewUnknown( Value() );	// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L1171'>doc</a>              1171 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLElement::XMLElement( XMLDocument* doc ) : XMLNode( doc ),
+<a href='../S/197.html#L1439'>doc</a>              1439 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLElement::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L1441'>doc</a>              1441 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( !doc ) {
+<a href='../S/197.html#L1442'>doc</a>              1442 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         doc = _document;
+<a href='../S/197.html#L1444'>doc</a>              1444 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLElement* element = doc-&gt;NewElement( Value() );					// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L2046'>doc</a>              2046 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLPrinter::VisitEnter( const XMLDocument&amp; doc )
+<a href='../S/197.html#L2048'>doc</a>              2048 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _processEntities = doc.ProcessEntities();
+<a href='../S/197.html#L2049'>doc</a>              2049 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( doc.HasBOM() ) {
+<a href='../S/196.html#L834'>doc</a>               834 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText( XMLDocument* doc )	: XMLNode( doc ), _isCData( false )	{}
+<a href='../S/196.html#L863'>doc</a>               863 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLComment( XMLDocument* doc );
+<a href='../S/196.html#L901'>doc</a>               901 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLDeclaration( XMLDocument* doc );
+<a href='../S/196.html#L933'>doc</a>               933 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLUnknown( XMLDocument* doc );
+<a href='../S/196.html#L1328'>doc</a>              1328 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLElement( XMLDocument* doc );
+</pre>
+</body>
+</html>

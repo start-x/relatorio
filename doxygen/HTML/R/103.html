@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>CircularBuffer</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/162.html#L88'>CircularBuffer</a>     88 ovr/sdk/src/Kernel/OVR_Deque.h class CircularBuffer : public InPlaceMutableDeque&lt;Elem&gt;
+<a href='../S/162.html#L91'>CircularBuffer</a>     91 ovr/sdk/src/Kernel/OVR_Deque.h     CircularBuffer(int MaxSize = Deque&lt;Elem&gt;::DefaultCapacity) : InPlaceMutableDeque&lt;Elem&gt;(MaxSize) { };
+<a href='../S/162.html#L279'>CircularBuffer</a>    279 ovr/sdk/src/Kernel/OVR_Deque.h void CircularBuffer&lt;Elem&gt;::PushBack(const Elem &amp;Item)
+<a href='../S/162.html#L287'>CircularBuffer</a>    287 ovr/sdk/src/Kernel/OVR_Deque.h void CircularBuffer&lt;Elem&gt;::PushFront(const Elem &amp;Item)
+<a href='../S/119.html#L41'>CircularBuffer</a>     41 ovr/sdk/src/OVR_SensorFilter.h class SensorFilterBase : public CircularBuffer&lt;T&gt;
+<a href='../S/119.html#L47'>CircularBuffer</a>     47 ovr/sdk/src/OVR_SensorFilter.h     SensorFilterBase(int capacity = CircularBuffer&lt;T&gt;::DefaultCapacity)
+<a href='../S/119.html#L48'>CircularBuffer</a>     48 ovr/sdk/src/OVR_SensorFilter.h         : CircularBuffer&lt;T&gt;(capacity), RunningTotal() 
+<a href='../S/119.html#L56'>CircularBuffer</a>     56 ovr/sdk/src/OVR_SensorFilter.h         CircularBuffer&lt;T&gt;::PushBack(e);
+<a href='../S/119.html#L69'>CircularBuffer</a>     69 ovr/sdk/src/OVR_SensorFilter.h         CircularBuffer&lt;T&gt;::PushFront(e);
+<a href='../S/119.html#L82'>CircularBuffer</a>     82 ovr/sdk/src/OVR_SensorFilter.h         T e = CircularBuffer&lt;T&gt;::PopBack();
+<a href='../S/119.html#L89'>CircularBuffer</a>     89 ovr/sdk/src/OVR_SensorFilter.h         T e = CircularBuffer&lt;T&gt;::PopFront();
+<a href='../S/119.html#L96'>CircularBuffer</a>     96 ovr/sdk/src/OVR_SensorFilter.h         CircularBuffer&lt;T&gt;::Clear();
+<a href='../S/127.html#L399'>CircularBuffer</a>    399 ovr/sdk/src/OVR_SensorFusion.h     CircularBuffer&lt;ExposureRecord&gt; ExposureRecordHistory;
+<a href='../S/137.html#L57'>CircularBuffer</a>     57 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     CircularBuffer(UPInt size)
+<a href='../S/137.html#L85'>CircularBuffer</a>     85 ovr/sdk/src/OVR_ThreadCommandQueue.cpp UByte* CircularBuffer::Write(UPInt size)
+<a href='../S/137.html#L125'>CircularBuffer</a>    125 ovr/sdk/src/OVR_ThreadCommandQueue.cpp void CircularBuffer::ReadEnd(UPInt size)
+<a href='../S/137.html#L242'>CircularBuffer</a>    242 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     CircularBuffer      CommandBuffer;
+</pre>
+</body>
+</html>

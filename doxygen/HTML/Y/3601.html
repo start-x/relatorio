@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>m0</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L96'>m0</a>                 96 ovr/sdk/src/OVR_Stereo.cpp     float m0, m1;
+<a href='../S/88.html#L102'>m0</a>                102 ovr/sdk/src/OVR_Stereo.cpp         m0 =        ( K[1] - K[0] );    // general case would have been (K[1]-K[-1])/2
+<a href='../S/88.html#L109'>m0</a>                109 ovr/sdk/src/OVR_Stereo.cpp         m0 = 0.5f * ( K[k+1] - K[k-1] );
+<a href='../S/88.html#L116'>m0</a>                116 ovr/sdk/src/OVR_Stereo.cpp         m0 = 0.5f * ( K[NumSegments-1] - K[NumSegments-2] );
+<a href='../S/88.html#L123'>m0</a>                123 ovr/sdk/src/OVR_Stereo.cpp         m0 = K[NumSegments-1] - K[NumSegments-2];
+<a href='../S/88.html#L124'>m0</a>                124 ovr/sdk/src/OVR_Stereo.cpp         p1 = p0 + m0;
+<a href='../S/88.html#L125'>m0</a>                125 ovr/sdk/src/OVR_Stereo.cpp         m1 = m0;
+<a href='../S/88.html#L130'>m0</a>                130 ovr/sdk/src/OVR_Stereo.cpp     float res  = ( p0 * ( 1.0f + 2.0f *   t ) + m0 *   t ) * omt * omt
+</pre>
+</body>
+</html>

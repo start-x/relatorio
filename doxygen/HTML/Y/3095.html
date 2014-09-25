@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>edid</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/199.html#L41'>edid</a>               41 ovr/sdk/third_party/edid/edid.cpp static bool decode_header(const uint8_t *edid) {
+<a href='../S/199.html#L42'>edid</a>               42 ovr/sdk/third_party/edid/edid.cpp     if (memcmp(edid, "\x00\xff\xff\xff\xff\xff\xff\x00", 8) == 0)
+<a href='../S/199.html#L47'>edid</a>               47 ovr/sdk/third_party/edid/edid.cpp static int decode_vendor_and_product_identification(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L50'>edid</a>               50 ovr/sdk/third_party/edid/edid.cpp     info-&gt;manufacturer_code[0] = get_bits(edid[0x08], 2, 6);
+<a href='../S/199.html#L51'>edid</a>               51 ovr/sdk/third_party/edid/edid.cpp     info-&gt;manufacturer_code[1] = get_bits(edid[0x08], 0, 1) &lt;&lt; 3;
+<a href='../S/199.html#L52'>edid</a>               52 ovr/sdk/third_party/edid/edid.cpp     info-&gt;manufacturer_code[1] |= get_bits(edid[0x09], 5, 7);
+<a href='../S/199.html#L53'>edid</a>               53 ovr/sdk/third_party/edid/edid.cpp     info-&gt;manufacturer_code[2] = get_bits(edid[0x09], 0, 4);
+<a href='../S/199.html#L61'>edid</a>               61 ovr/sdk/third_party/edid/edid.cpp     info-&gt;product_code = edid[0x0b] &lt;&lt; 8 | edid[0x0a];
+<a href='../S/199.html#L64'>edid</a>               64 ovr/sdk/third_party/edid/edid.cpp     info-&gt;serial_number = edid[0x0c] | edid[0x0d] &lt;&lt; 8 | edid[0x0e] &lt;&lt; 16 | edid[0x0f] &lt;&lt; 24;
+<a href='../S/199.html#L68'>edid</a>               68 ovr/sdk/third_party/edid/edid.cpp     switch (edid[0x10]) {
+<a href='../S/199.html#L79'>edid</a>               79 ovr/sdk/third_party/edid/edid.cpp         info-&gt;production_week = edid[0x10];
+<a href='../S/199.html#L85'>edid</a>               85 ovr/sdk/third_party/edid/edid.cpp         info-&gt;model_year = 1990 + edid[0x11];
+<a href='../S/199.html#L87'>edid</a>               87 ovr/sdk/third_party/edid/edid.cpp         info-&gt;production_year = 1990 + edid[0x11];
+<a href='../S/199.html#L94'>edid</a>               94 ovr/sdk/third_party/edid/edid.cpp static bool decode_edid_version(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L95'>edid</a>               95 ovr/sdk/third_party/edid/edid.cpp     info-&gt;major_version = edid[0x12];
+<a href='../S/199.html#L96'>edid</a>               96 ovr/sdk/third_party/edid/edid.cpp     info-&gt;minor_version = edid[0x13];
+<a href='../S/199.html#L100'>edid</a>              100 ovr/sdk/third_party/edid/edid.cpp static bool decode_display_parameters(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L102'>edid</a>              102 ovr/sdk/third_party/edid/edid.cpp     info-&gt;is_digital = get_bit(edid[0x14], 7);
+<a href='../S/199.html#L108'>edid</a>              108 ovr/sdk/third_party/edid/edid.cpp         int bits = get_bits(edid[0x14], 4, 6);
+<a href='../S/199.html#L111'>edid</a>              111 ovr/sdk/third_party/edid/edid.cpp         bits = get_bits(edid[0x14], 0, 3);
+<a href='../S/199.html#L117'>edid</a>              117 ovr/sdk/third_party/edid/edid.cpp         int bits = get_bits(edid[0x14], 5, 6);
+<a href='../S/199.html#L128'>edid</a>              128 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.blank_to_black = get_bit(edid[0x14], 4);
+<a href='../S/199.html#L129'>edid</a>              129 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.separate_hv_sync = get_bit(edid[0x14], 3);
+<a href='../S/199.html#L130'>edid</a>              130 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.composite_sync_on_h = get_bit(edid[0x14], 2);
+<a href='../S/199.html#L131'>edid</a>              131 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.composite_sync_on_green = get_bit(edid[0x14], 1);
+<a href='../S/199.html#L132'>edid</a>              132 ovr/sdk/third_party/edid/edid.cpp         info-&gt;connector.analog.serration_on_vsync = get_bit(edid[0x14], 0);
+<a href='../S/199.html#L136'>edid</a>              136 ovr/sdk/third_party/edid/edid.cpp     if (edid[0x15] == 0 &amp;&amp; edid[0x16] == 0) {
+<a href='../S/199.html#L140'>edid</a>              140 ovr/sdk/third_party/edid/edid.cpp     } else if (edid[0x16] == 0) {
+<a href='../S/199.html#L143'>edid</a>              143 ovr/sdk/third_party/edid/edid.cpp         info-&gt;aspect_ratio = 100.0 / (edid[0x15] + 99);
+<a href='../S/199.html#L144'>edid</a>              144 ovr/sdk/third_party/edid/edid.cpp     } else if (edid[0x15] == 0) {
+<a href='../S/199.html#L147'>edid</a>              147 ovr/sdk/third_party/edid/edid.cpp         info-&gt;aspect_ratio = 100.0 / (edid[0x16] + 99);
+<a href='../S/199.html#L150'>edid</a>              150 ovr/sdk/third_party/edid/edid.cpp         info-&gt;width_mm = 10 * edid[0x15];
+<a href='../S/199.html#L151'>edid</a>              151 ovr/sdk/third_party/edid/edid.cpp         info-&gt;height_mm = 10 * edid[0x16];
+<a href='../S/199.html#L155'>edid</a>              155 ovr/sdk/third_party/edid/edid.cpp     if (edid[0x17] == 0xFF)
+<a href='../S/199.html#L158'>edid</a>              158 ovr/sdk/third_party/edid/edid.cpp         info-&gt;gamma = (edid[0x17] + 100.0) / 100.0;
+<a href='../S/199.html#L161'>edid</a>              161 ovr/sdk/third_party/edid/edid.cpp     info-&gt;standby = get_bit(edid[0x18], 7);
+<a href='../S/199.html#L162'>edid</a>              162 ovr/sdk/third_party/edid/edid.cpp     info-&gt;suspend = get_bit(edid[0x18], 6);
+<a href='../S/199.html#L163'>edid</a>              163 ovr/sdk/third_party/edid/edid.cpp     info-&gt;active_off = get_bit(edid[0x18], 5);
+<a href='../S/199.html#L167'>edid</a>              167 ovr/sdk/third_party/edid/edid.cpp         if (get_bit(edid[0x18], 3))
+<a href='../S/199.html#L169'>edid</a>              169 ovr/sdk/third_party/edid/edid.cpp         if (get_bit(edid[0x18], 4))
+<a href='../S/199.html#L172'>edid</a>              172 ovr/sdk/third_party/edid/edid.cpp         int bits = get_bits(edid[0x18], 3, 4);
+<a href='../S/199.html#L178'>edid</a>              178 ovr/sdk/third_party/edid/edid.cpp     info-&gt;srgb_is_standard = get_bit(edid[0x18], 2);
+<a href='../S/199.html#L181'>edid</a>              181 ovr/sdk/third_party/edid/edid.cpp     info-&gt;preferred_timing_includes_native = get_bit(edid[0x18], 1);
+<a href='../S/199.html#L184'>edid</a>              184 ovr/sdk/third_party/edid/edid.cpp     info-&gt;continuous_frequency = get_bit(edid[0x18], 0);
+<a href='../S/199.html#L196'>edid</a>              196 ovr/sdk/third_party/edid/edid.cpp static bool decode_color_characteristics(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L197'>edid</a>              197 ovr/sdk/third_party/edid/edid.cpp     info-&gt;red_x = decode_fraction(edid[0x1b], get_bits(edid[0x19], 6, 7));
+<a href='../S/199.html#L198'>edid</a>              198 ovr/sdk/third_party/edid/edid.cpp     info-&gt;red_y = decode_fraction(edid[0x1c], get_bits(edid[0x19], 5, 4));
+<a href='../S/199.html#L199'>edid</a>              199 ovr/sdk/third_party/edid/edid.cpp     info-&gt;green_x = decode_fraction(edid[0x1d], get_bits(edid[0x19], 2, 3));
+<a href='../S/199.html#L200'>edid</a>              200 ovr/sdk/third_party/edid/edid.cpp     info-&gt;green_y = decode_fraction(edid[0x1e], get_bits(edid[0x19], 0, 1));
+<a href='../S/199.html#L201'>edid</a>              201 ovr/sdk/third_party/edid/edid.cpp     info-&gt;blue_x = decode_fraction(edid[0x1f], get_bits(edid[0x1a], 6, 7));
+<a href='../S/199.html#L202'>edid</a>              202 ovr/sdk/third_party/edid/edid.cpp     info-&gt;blue_y = decode_fraction(edid[0x20], get_bits(edid[0x1a], 4, 5));
+<a href='../S/199.html#L203'>edid</a>              203 ovr/sdk/third_party/edid/edid.cpp     info-&gt;white_x = decode_fraction(edid[0x21], get_bits(edid[0x1a], 2, 3));
+<a href='../S/199.html#L204'>edid</a>              204 ovr/sdk/third_party/edid/edid.cpp     info-&gt;white_y = decode_fraction(edid[0x22], get_bits(edid[0x1a], 0, 1));
+<a href='../S/199.html#L209'>edid</a>              209 ovr/sdk/third_party/edid/edid.cpp static bool decode_established_timings(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L226'>edid</a>              226 ovr/sdk/third_party/edid/edid.cpp             int byte = edid[0x23 + i];
+<a href='../S/199.html#L235'>edid</a>              235 ovr/sdk/third_party/edid/edid.cpp static bool decode_standard_timings(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L239'>edid</a>              239 ovr/sdk/third_party/edid/edid.cpp         int first = edid[0x26 + 2 * i];
+<a href='../S/199.html#L240'>edid</a>              240 ovr/sdk/third_party/edid/edid.cpp         int second = edid[0x27 + 2 * i];
+<a href='../S/199.html#L369'>edid</a>              369 ovr/sdk/third_party/edid/edid.cpp static bool decode_descriptors(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L373'>edid</a>              373 ovr/sdk/third_party/edid/edid.cpp         if (edid[index + 0] == 0x00 &amp;&amp; edid[index + 1] == 0x00) {
+<a href='../S/199.html#L374'>edid</a>              374 ovr/sdk/third_party/edid/edid.cpp             decode_display_descriptor(edid + index, info);
+<a href='../S/199.html#L376'>edid</a>              376 ovr/sdk/third_party/edid/edid.cpp             decode_detailed_timing(edid + index, &amp;(info-&gt;detailed_timings[timing_idx++]));
+<a href='../S/199.html#L383'>edid</a>              383 ovr/sdk/third_party/edid/edid.cpp static void decode_check_sum(const uint8_t *edid, MonitorInfo *info) {
+<a href='../S/199.html#L386'>edid</a>              386 ovr/sdk/third_party/edid/edid.cpp         check += edid[i];
+<a href='../S/199.html#L390'>edid</a>              390 ovr/sdk/third_party/edid/edid.cpp MonitorInfo * decode_edid(const uint8_t *edid) {
+<a href='../S/199.html#L392'>edid</a>              392 ovr/sdk/third_party/edid/edid.cpp     decode_check_sum(edid, info);
+<a href='../S/199.html#L393'>edid</a>              393 ovr/sdk/third_party/edid/edid.cpp     if (decode_header(edid) &amp;&amp; //
+<a href='../S/199.html#L394'>edid</a>              394 ovr/sdk/third_party/edid/edid.cpp             decode_vendor_and_product_identification(edid, info) &amp;&amp; //
+<a href='../S/199.html#L395'>edid</a>              395 ovr/sdk/third_party/edid/edid.cpp             decode_edid_version(edid, info) &amp;&amp; //
+<a href='../S/199.html#L396'>edid</a>              396 ovr/sdk/third_party/edid/edid.cpp             decode_display_parameters(edid, info) &amp;&amp; //
+<a href='../S/199.html#L397'>edid</a>              397 ovr/sdk/third_party/edid/edid.cpp             decode_color_characteristics(edid, info) &amp;&amp; //
+<a href='../S/199.html#L398'>edid</a>              398 ovr/sdk/third_party/edid/edid.cpp             decode_established_timings(edid, info) &amp;&amp; //
+<a href='../S/199.html#L399'>edid</a>              399 ovr/sdk/third_party/edid/edid.cpp             decode_standard_timings(edid, info) &amp;&amp; //
+<a href='../S/199.html#L400'>edid</a>              400 ovr/sdk/third_party/edid/edid.cpp             decode_descriptors(edid, info)) {
+<a href='../S/199.html#L431'>edid</a>              431 ovr/sdk/third_party/edid/edid.cpp     uint8_t *edid = get_property(disp, id, edid_atom, &amp;len);
+<a href='../S/199.html#L432'>edid</a>              432 ovr/sdk/third_party/edid/edid.cpp     if (!edid) {
+<a href='../S/199.html#L434'>edid</a>              434 ovr/sdk/third_party/edid/edid.cpp         edid = get_property(disp, id, edid_atom, &amp;len);
+<a href='../S/199.html#L438'>edid</a>              438 ovr/sdk/third_party/edid/edid.cpp     if (edid) {
+<a href='../S/199.html#L440'>edid</a>              440 ovr/sdk/third_party/edid/edid.cpp             result = decode_edid(edid);
+<a href='../S/199.html#L442'>edid</a>              442 ovr/sdk/third_party/edid/edid.cpp         delete[] edid;
+</pre>
+</body>
+</html>

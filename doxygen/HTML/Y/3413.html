@@ -1,0 +1,221 @@
+<html>
+<head>
+<title>hmd</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/64.html#L20'>hmd</a>                20 ovr/Ovr.cpp    		ovrHmd_Destroy(this-&gt;hmd);
+<a href='../S/64.html#L31'>hmd</a>                31 ovr/Ovr.cpp    	this-&gt;hmd = ovrHmd_Create(0);
+<a href='../S/64.html#L32'>hmd</a>                32 ovr/Ovr.cpp    	if (this-&gt;hmd)
+<a href='../S/64.html#L35'>hmd</a>                35 ovr/Ovr.cpp    		ovrHmd_GetDesc(this-&gt;hmd, &amp;this-&gt;hmdDesc);
+<a href='../S/64.html#L43'>hmd</a>                43 ovr/Ovr.cpp    	this-&gt;hmd = ovrHmd_CreateDebug(ovrHmd_DK1);
+<a href='../S/64.html#L45'>hmd</a>                45 ovr/Ovr.cpp    	if(!this-&gt;hmd)
+<a href='../S/64.html#L51'>hmd</a>                51 ovr/Ovr.cpp    	ovrHmd_GetDesc(this-&gt;hmd, &amp;this-&gt;hmdDesc);
+<a href='../S/64.html#L59'>hmd</a>                59 ovr/Ovr.cpp    	bool success =  ovrHmd_StartSensor(this-&gt;hmd, ovrSensorCap_Orientation | ovrSensorCap_YawCorrection |
+<a href='../S/64.html#L74'>hmd</a>                74 ovr/Ovr.cpp    	ovrSensorState ss = ovrHmd_GetSensorState(this-&gt;hmd, 0.0);
+<a href='../S/67.html#L27'>hmd</a>                27 ovr/Ovr.h      	ovrHmd hmd;
+<a href='../S/93.html#L49'>hmd</a>                49 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h     DistortionRenderer(ovrRenderAPIType api, ovrHmd hmd,
+<a href='../S/93.html#L52'>hmd</a>                52 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h         : RenderAPI(api), HMD(hmd), TimeManager(timeManager), RState(renderState)
+<a href='../S/93.html#L86'>hmd</a>                86 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h     typedef DistortionRenderer* (*CreateFunc)(ovrHmd hmd,
+<a href='../S/98.html#L478'>hmd</a>               478 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp Transformf FrameTimeManager::GetEyePredictionPose(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/98.html#L481'>hmd</a>               481 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     ovrSensorState eyeState      = ovrHmd_GetSensorState(hmd, eyeRenderTime);
+<a href='../S/98.html#L513'>hmd</a>               513 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::GetTimewarpMatrices(ovrHmd hmd, ovrEyeType eyeId,
+<a href='../S/98.html#L516'>hmd</a>               516 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     if (!hmd)
+<a href='../S/98.html#L524'>hmd</a>               524 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     ovrSensorState startState = ovrHmd_GetSensorState(hmd, timewarpStartEnd[0]);
+<a href='../S/98.html#L525'>hmd</a>               525 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     ovrSensorState endState   = ovrHmd_GetSensorState(hmd, timewarpStartEnd[1]);
+<a href='../S/99.html#L195'>hmd</a>               195 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     Transformf GetEyePredictionPose(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/99.html#L198'>hmd</a>               198 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     void    GetTimewarpMatrices(ovrHmd hmd, ovrEyeType eye, ovrPosef renderPose, ovrMatrix4f twmOut[2]);
+<a href='../S/95.html#L98'>hmd</a>                98 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp void GlobalState::AddHMD(HMDState* hmd)
+<a href='../S/95.html#L101'>hmd</a>               101 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     HMDs.PushBack(hmd);
+<a href='../S/95.html#L103'>hmd</a>               103 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp void GlobalState::RemoveHMD(HMDState* hmd)
+<a href='../S/95.html#L106'>hmd</a>               106 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     hmd-&gt;RemoveNode();
+<a href='../S/95.html#L112'>hmd</a>               112 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     for(HMDState* hmd = HMDs.GetFirst(); !HMDs.IsNull(hmd); hmd = hmd-&gt;pNext)        
+<a href='../S/95.html#L113'>hmd</a>               113 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp         hmd-&gt;NotifyAddDevice(deviceType);
+<a href='../S/96.html#L59'>hmd</a>                59 ovr/sdk/src/CAPI/CAPI_GlobalState.h     void        AddHMD(HMDState* hmd);
+<a href='../S/96.html#L60'>hmd</a>                60 ovr/sdk/src/CAPI/CAPI_GlobalState.h     void        RemoveHMD(HMDState* hmd);
+<a href='../S/107.html#L36'>hmd</a>                36 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp HMDRenderState::HMDRenderState(ovrHmd hmd, Profile* userProfile, const OVR::HMDInfo&amp; hmdInfo)
+<a href='../S/107.html#L37'>hmd</a>                37 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     : HMD(hmd), HMDInfo(hmdInfo)
+<a href='../S/100.html#L50'>hmd</a>                50 ovr/sdk/src/CAPI/CAPI_HMDRenderState.h     HMDRenderState(ovrHmd hmd, Profile* userProfile, const OVR::HMDInfo&amp; hmdInfo);
+<a href='../S/104.html#L92'>hmd</a>                92 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp DistortionRenderer::DistortionRenderer(ovrHmd hmd, FrameTimeManager&amp; timeManager,
+<a href='../S/104.html#L94'>hmd</a>                94 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     : CAPI::DistortionRenderer(ovrRenderAPI_OpenGL, hmd, timeManager, renderState)
+<a href='../S/104.html#L107'>hmd</a>               107 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp CAPI::DistortionRenderer* DistortionRenderer::Create(ovrHmd hmd,
+<a href='../S/104.html#L114'>hmd</a>               114 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     return new DistortionRenderer(hmd, timeManager, renderState);
+<a href='../S/106.html#L33'>hmd</a>                33 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h     DistortionRenderer(ovrHmd hmd,
+<a href='../S/106.html#L40'>hmd</a>                40 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h     static CAPI::DistortionRenderer* Create(ovrHmd hmd,
+<a href='../S/142.html#L292'>hmd</a>               292 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_Destroy(ovrHmd hmd)
+<a href='../S/142.html#L294'>hmd</a>               294 ovr/sdk/src/OVR_CAPI.cpp     if (!hmd)
+<a href='../S/142.html#L297'>hmd</a>               297 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L304'>hmd</a>               304 ovr/sdk/src/OVR_CAPI.cpp     delete (HMDState*)hmd;
+<a href='../S/142.html#L308'>hmd</a>               308 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT const char* ovrHmd_GetLastError(ovrHmd hmd)
+<a href='../S/142.html#L311'>hmd</a>               311 ovr/sdk/src/OVR_CAPI.cpp     if (!hmd)
+<a href='../S/142.html#L317'>hmd</a>               317 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L327'>hmd</a>               327 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT unsigned int ovrHmd_GetEnabledCaps(ovrHmd hmd)
+<a href='../S/142.html#L329'>hmd</a>               329 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L335'>hmd</a>               335 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_SetEnabledCaps(ovrHmd hmd, unsigned int capsBits)
+<a href='../S/142.html#L337'>hmd</a>               337 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L358'>hmd</a>               358 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_StartSensor(ovrHmd hmd, unsigned int supportedCaps, unsigned int requiredCaps)
+<a href='../S/142.html#L360'>hmd</a>               360 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L365'>hmd</a>               365 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_StopSensor(ovrHmd hmd)
+<a href='../S/142.html#L367'>hmd</a>               367 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L371'>hmd</a>               371 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_ResetSensor(ovrHmd hmd)
+<a href='../S/142.html#L373'>hmd</a>               373 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L377'>hmd</a>               377 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrSensorState ovrHmd_GetSensorState(ovrHmd hmd, double absTime)
+<a href='../S/142.html#L379'>hmd</a>               379 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L384'>hmd</a>               384 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_GetSensorDesc(ovrHmd hmd, ovrSensorDesc* descOut)
+<a href='../S/142.html#L386'>hmd</a>               386 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L396'>hmd</a>               396 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_GetDesc(ovrHmd hmd, ovrHmdDesc* desc)
+<a href='../S/142.html#L398'>hmd</a>               398 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;    
+<a href='../S/142.html#L400'>hmd</a>               400 ovr/sdk/src/OVR_CAPI.cpp     desc-&gt;Handle = hmd;
+<a href='../S/142.html#L404'>hmd</a>               404 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrSizei ovrHmd_GetFovTextureSize(ovrHmd hmd, ovrEyeType eye, ovrFovPort fov,
+<a href='../S/142.html#L407'>hmd</a>               407 ovr/sdk/src/OVR_CAPI.cpp     if (!hmd) return Sizei(0);
+<a href='../S/142.html#L409'>hmd</a>               409 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L418'>hmd</a>               418 ovr/sdk/src/OVR_CAPI.cpp ovrBool ovrHmd_ConfigureRendering( ovrHmd hmd,
+<a href='../S/142.html#L424'>hmd</a>               424 ovr/sdk/src/OVR_CAPI.cpp     if (!hmd) return 0;
+<a href='../S/142.html#L425'>hmd</a>               425 ovr/sdk/src/OVR_CAPI.cpp     return ((HMDState*)hmd)-&gt;ConfigureRendering(eyeRenderDescOut, eyeFovIn,
+<a href='../S/142.html#L432'>hmd</a>               432 ovr/sdk/src/OVR_CAPI.cpp void ovrHmd_SetVsync(ovrHmd hmd, ovrBool vsync)
+<a href='../S/142.html#L434'>hmd</a>               434 ovr/sdk/src/OVR_CAPI.cpp     if (!hmd) return;
+<a href='../S/142.html#L436'>hmd</a>               436 ovr/sdk/src/OVR_CAPI.cpp     return ((HMDState*)hmd)-&gt;TimeManager.SetVsync(vsync? true : false);
+<a href='../S/142.html#L440'>hmd</a>               440 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrame(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L442'>hmd</a>               442 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L458'>hmd</a>               458 ovr/sdk/src/OVR_CAPI.cpp     return ovrHmd_BeginFrameTiming(hmd, frameIndex);
+<a href='../S/142.html#L463'>hmd</a>               463 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_EndFrame(ovrHmd hmd)
+<a href='../S/142.html#L465'>hmd</a>               465 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L495'>hmd</a>               495 ovr/sdk/src/OVR_CAPI.cpp     ovrHmd_EndFrameTiming(hmd);
+<a href='../S/142.html#L509'>hmd</a>               509 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrPosef ovrHmd_BeginEyeRender(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/142.html#L511'>hmd</a>               511 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L516'>hmd</a>               516 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_EndEyeRender(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/142.html#L519'>hmd</a>               519 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L529'>hmd</a>               529 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_GetFrameTiming(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L534'>hmd</a>               534 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L557'>hmd</a>               557 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrameTiming(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L562'>hmd</a>               562 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L592'>hmd</a>               592 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_EndFrameTiming(ovrHmd hmd)
+<a href='../S/142.html#L594'>hmd</a>               594 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L607'>hmd</a>               607 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_ResetFrameTiming(ovrHmd hmd,  unsigned int frameIndex) 
+<a href='../S/142.html#L609'>hmd</a>               609 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L621'>hmd</a>               621 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrPosef ovrHmd_GetEyePose(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/142.html#L623'>hmd</a>               623 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L627'>hmd</a>               627 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;TimeManager.GetEyePredictionPose(hmd, eye);
+<a href='../S/142.html#L631'>hmd</a>               631 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_GetEyeTimewarpMatrices(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/142.html#L634'>hmd</a>               634 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L635'>hmd</a>               635 ovr/sdk/src/OVR_CAPI.cpp     if (!hmd)
+<a href='../S/142.html#L641'>hmd</a>               641 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.GetTimewarpMatrices(hmd, eye, renderPose, twmOut);
+<a href='../S/142.html#L656'>hmd</a>               656 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrEyeRenderDesc ovrHmd_GetRenderDesc(ovrHmd hmd,
+<a href='../S/142.html#L661'>hmd</a>               661 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L679'>hmd</a>               679 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_CreateDistortionMesh( ovrHmd hmd,
+<a href='../S/142.html#L686'>hmd</a>               686 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L774'>hmd</a>               774 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_GetLatencyTestDrawColor(ovrHmd hmd, unsigned char rgbColorOut[3])
+<a href='../S/142.html#L776'>hmd</a>               776 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L783'>hmd</a>               783 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT const char*  ovrHmd_GetLatencyTestResult(ovrHmd hmd)
+<a href='../S/142.html#L785'>hmd</a>               785 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L789'>hmd</a>               789 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT double ovrHmd_GetMeasuredLatencyTest2(ovrHmd hmd)
+<a href='../S/142.html#L791'>hmd</a>               791 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L804'>hmd</a>               804 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT float ovrHmd_GetFloat(ovrHmd hmd, const char* propertyName, float defaultVal)
+<a href='../S/142.html#L806'>hmd</a>               806 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L815'>hmd</a>               815 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_SetFloat(ovrHmd hmd, const char* propertyName, float value)
+<a href='../S/142.html#L817'>hmd</a>               817 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L827'>hmd</a>               827 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT unsigned int ovrHmd_GetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/142.html#L830'>hmd</a>               830 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L841'>hmd</a>               841 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_SetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/142.html#L844'>hmd</a>               844 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L853'>hmd</a>               853 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT const char* ovrHmd_GetString(ovrHmd hmd, const char* propertyName,
+<a href='../S/142.html#L856'>hmd</a>               856 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L894'>hmd</a>               894 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT unsigned int ovrHmd_GetArraySize(ovrHmd hmd, const char* propertyName)
+<a href='../S/142.html#L896'>hmd</a>               896 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L919'>hmd</a>               919 ovr/sdk/src/OVR_CAPI.cpp OVR::SensorFusion* ovrHmd_GetSensorFusion(ovrHmd hmd)
+<a href='../S/142.html#L921'>hmd</a>               921 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/187.html#L430'>hmd</a>               430 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_Destroy(ovrHmd hmd);
+<a href='../S/187.html#L440'>hmd</a>               440 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT const char* ovrHmd_GetLastError(ovrHmd hmd);
+<a href='../S/187.html#L448'>hmd</a>               448 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT unsigned int ovrHmd_GetEnabledCaps(ovrHmd hmd);
+<a href='../S/187.html#L452'>hmd</a>               452 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void         ovrHmd_SetEnabledCaps(ovrHmd hmd, unsigned int hmdCaps);
+<a href='../S/187.html#L468'>hmd</a>               468 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool  ovrHmd_StartSensor(ovrHmd hmd,	unsigned int supportedSensorCaps,
+<a href='../S/187.html#L471'>hmd</a>               471 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_StopSensor(ovrHmd hmd);
+<a href='../S/187.html#L473'>hmd</a>               473 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_ResetSensor(ovrHmd hmd);
+<a href='../S/187.html#L480'>hmd</a>               480 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrSensorState ovrHmd_GetSensorState(ovrHmd hmd, double absTime);
+<a href='../S/187.html#L484'>hmd</a>               484 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool     ovrHmd_GetSensorDesc(ovrHmd hmd, ovrSensorDesc* descOut);
+<a href='../S/187.html#L491'>hmd</a>               491 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_GetDesc(ovrHmd hmd, ovrHmdDesc* desc);
+<a href='../S/187.html#L498'>hmd</a>               498 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrSizei ovrHmd_GetFovTextureSize(ovrHmd hmd, ovrEyeType eye, ovrFovPort fov,
+<a href='../S/187.html#L540'>hmd</a>               540 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool ovrHmd_ConfigureRendering( ovrHmd hmd,
+<a href='../S/187.html#L551'>hmd</a>               551 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrame(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L557'>hmd</a>               557 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_EndFrame(ovrHmd hmd);
+<a href='../S/187.html#L567'>hmd</a>               567 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrPosef ovrHmd_BeginEyeRender(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/187.html#L575'>hmd</a>               575 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_EndEyeRender(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/187.html#L602'>hmd</a>               602 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrEyeRenderDesc ovrHmd_GetRenderDesc(ovrHmd hmd,
+<a href='../S/187.html#L638'>hmd</a>               638 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool  ovrHmd_CreateDistortionMesh( ovrHmd hmd,
+<a href='../S/187.html#L656'>hmd</a>               656 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_GetFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L661'>hmd</a>               661 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L666'>hmd</a>               666 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_EndFrameTiming(ovrHmd hmd);
+<a href='../S/187.html#L671'>hmd</a>               671 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_ResetFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L676'>hmd</a>               676 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrPosef ovrHmd_GetEyePose(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/187.html#L683'>hmd</a>               683 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_GetEyeTimewarpMatrices(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/187.html#L715'>hmd</a>               715 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool      ovrHmd_ProcessLatencyTest(ovrHmd hmd, unsigned char rgbColorOut[3]);
+<a href='../S/187.html#L719'>hmd</a>               719 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT const char*  ovrHmd_GetLatencyTestResult(ovrHmd hmd);
+<a href='../S/187.html#L723'>hmd</a>               723 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT double       ovrHmd_GetMeasuredLatencyTest2(ovrHmd hmd);
+<a href='../S/187.html#L759'>hmd</a>               759 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT float       ovrHmd_GetFloat(ovrHmd hmd, const char* propertyName, float defaultVal);
+<a href='../S/187.html#L762'>hmd</a>               762 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool      ovrHmd_SetFloat(ovrHmd hmd, const char* propertyName, float value);
+<a href='../S/187.html#L767'>hmd</a>               767 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT unsigned int ovrHmd_GetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/187.html#L771'>hmd</a>               771 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool      ovrHmd_SetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/187.html#L777'>hmd</a>               777 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT const char* ovrHmd_GetString(ovrHmd hmd, const char* propertyName,
+<a href='../S/187.html#L782'>hmd</a>               782 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT unsigned int ovrHmd_GetArraySize(ovrHmd hmd, const char* propertyName);
+<a href='../S/139.html#L147'>hmd</a>               147 ovr/sdk/src/OVR_Profile.cpp         HMDDevice* hmd = (HMDDevice*)device;
+<a href='../S/139.html#L149'>hmd</a>               149 ovr/sdk/src/OVR_Profile.cpp         Ptr&lt;SensorDevice&gt; sensor = *(hmd-&gt;GetSensor());
+<a href='../S/139.html#L158'>hmd</a>               158 ovr/sdk/src/OVR_Profile.cpp             hmd-&gt;GetDeviceInfo(&amp;hmdinfo);
+<a href='../S/88.html#L860'>hmd</a>               860 ovr/sdk/src/OVR_Stereo.cpp LensConfig GenerateLensConfigFromEyeRelief ( float eyeReliefInMeters, HmdRenderInfo const &amp;hmd, DistortionEqnType distortionType /*= Distortion_CatmullRom10*/ )
+<a href='../S/88.html#L886'>hmd</a>               886 ovr/sdk/src/OVR_Stereo.cpp     if ( ( hmd.EyeCups == EyeCup_DK1A ) ||
+<a href='../S/88.html#L887'>hmd</a>               887 ovr/sdk/src/OVR_Stereo.cpp          ( hmd.EyeCups == EyeCup_DK1B ) ||
+<a href='../S/88.html#L888'>hmd</a>               888 ovr/sdk/src/OVR_Stereo.cpp          ( hmd.EyeCups == EyeCup_DK1C ) )
+<a href='../S/88.html#L966'>hmd</a>               966 ovr/sdk/src/OVR_Stereo.cpp     else if ( hmd.EyeCups == EyeCup_DKHD2A )
+<a href='../S/88.html#L1009'>hmd</a>              1009 ovr/sdk/src/OVR_Stereo.cpp     else if ( hmd.EyeCups == EyeCup_PinkA || hmd.EyeCups == EyeCup_DK2A )
+<a href='../S/88.html#L1248'>hmd</a>              1248 ovr/sdk/src/OVR_Stereo.cpp DistortionRenderDesc CalculateDistortionRenderDesc ( StereoEye eyeType, HmdRenderInfo const &amp;hmd,
+<a href='../S/88.html#L1271'>hmd</a>              1271 ovr/sdk/src/OVR_Stereo.cpp     const HmdRenderInfo::EyeConfig &amp;hmdEyeConfig = ( eyeType == StereoEye_Left ) ? hmd.EyeLeft : hmd.EyeRight;
+<a href='../S/88.html#L1281'>hmd</a>              1281 ovr/sdk/src/OVR_Stereo.cpp     Sizef pixelsPerMeter(hmd.ResolutionInPixels.w / ( hmd.ScreenSizeInMeters.w - hmd.ScreenGapSizeInMeters ),
+<a href='../S/88.html#L1282'>hmd</a>              1282 ovr/sdk/src/OVR_Stereo.cpp                          hmd.ResolutionInPixels.h / hmd.ScreenSizeInMeters.h);
+<a href='../S/88.html#L1288'>hmd</a>              1288 ovr/sdk/src/OVR_Stereo.cpp                                        (hmd.ScreenSizeInMeters / localDistortion.Lens.MetersPerTanAngleAtCenter).ToVector());
+<a href='../S/88.html#L1298'>hmd</a>              1298 ovr/sdk/src/OVR_Stereo.cpp     float visibleWidthOfOneEye = 0.5f * ( hmd.ScreenSizeInMeters.w - hmd.ScreenGapSizeInMeters );
+<a href='../S/88.html#L1299'>hmd</a>              1299 ovr/sdk/src/OVR_Stereo.cpp     float centerFromLeftInMeters = ( hmd.ScreenSizeInMeters.w - hmd.LensSeparationInMeters ) * 0.5f;
+<a href='../S/88.html#L1301'>hmd</a>              1301 ovr/sdk/src/OVR_Stereo.cpp     localDistortion.LensCenter.y = ( hmd.CenterFromTopInMeters  / hmd.ScreenSizeInMeters.h ) * 2.0f - 1.0f;
+<a href='../S/88.html#L1366'>hmd</a>              1366 ovr/sdk/src/OVR_Stereo.cpp                                   HmdRenderInfo const &amp;hmd,
+<a href='../S/88.html#L1374'>hmd</a>              1374 ovr/sdk/src/OVR_Stereo.cpp         eyeReliefInMeters     = hmd.EyeRight.ReliefInMeters;
+<a href='../S/88.html#L1375'>hmd</a>              1375 ovr/sdk/src/OVR_Stereo.cpp         offsetToRightInMeters = hmd.EyeRight.NoseToPupilInMeters - 0.5f * hmd.LensSeparationInMeters;
+<a href='../S/88.html#L1379'>hmd</a>              1379 ovr/sdk/src/OVR_Stereo.cpp         eyeReliefInMeters     = hmd.EyeLeft.ReliefInMeters;
+<a href='../S/88.html#L1380'>hmd</a>              1380 ovr/sdk/src/OVR_Stereo.cpp         offsetToRightInMeters = -(hmd.EyeLeft.NoseToPupilInMeters - 0.5f * hmd.LensSeparationInMeters);
+<a href='../S/88.html#L1392'>hmd</a>              1392 ovr/sdk/src/OVR_Stereo.cpp                                             hmd.LensDiameterInMeters,
+<a href='../S/88.html#L1485'>hmd</a>              1485 ovr/sdk/src/OVR_Stereo.cpp Recti GetFramebufferViewport ( StereoEye eyeType, HmdRenderInfo const &amp;hmd )
+<a href='../S/88.html#L1488'>hmd</a>              1488 ovr/sdk/src/OVR_Stereo.cpp     result.w = hmd.ResolutionInPixels.w/2;
+<a href='../S/88.html#L1489'>hmd</a>              1489 ovr/sdk/src/OVR_Stereo.cpp     result.h = hmd.ResolutionInPixels.h;
+<a href='../S/88.html#L1494'>hmd</a>              1494 ovr/sdk/src/OVR_Stereo.cpp         result.x = (hmd.ResolutionInPixels.w+1)/2;      // Round up, not down.
+<a href='../S/131.html#L361'>hmd</a>               361 ovr/sdk/src/OVR_Stereo.h LensConfig          GenerateLensConfigFromEyeRelief ( float eyeReliefInMeters, HmdRenderInfo const &amp;hmd,
+<a href='../S/131.html#L364'>hmd</a>               364 ovr/sdk/src/OVR_Stereo.h DistortionRenderDesc CalculateDistortionRenderDesc ( StereoEye eyeType, HmdRenderInfo const &amp;hmd,
+<a href='../S/131.html#L375'>hmd</a>               375 ovr/sdk/src/OVR_Stereo.h                                               HmdRenderInfo const &amp;hmd,
+<a href='../S/131.html#L386'>hmd</a>               386 ovr/sdk/src/OVR_Stereo.h Recti               GetFramebufferViewport ( StereoEye eyeType, HmdRenderInfo const &amp;hmd );
+<a href='../S/117.html#L86'>hmd</a>                86 ovr/sdk/src/Util/Util_Render_Stereo.cpp static DistortionAndFov CalculateDistortionAndFovInternal ( StereoEye eyeType, HmdRenderInfo const &amp;hmd,
+<a href='../S/117.html#L93'>hmd</a>                93 ovr/sdk/src/Util/Util_Render_Stereo.cpp     DistortionRenderDesc localDistortion  = CalculateDistortionRenderDesc ( eyeType, hmd, pLensOverride );
+<a href='../S/117.html#L94'>hmd</a>                94 ovr/sdk/src/Util/Util_Render_Stereo.cpp     FovPort              fov              = CalculateFovFromHmdInfo ( eyeType, localDistortion, hmd, extraEyeRotationInRadians );
+<a href='../S/117.html#L177'>hmd</a>               177 ovr/sdk/src/Util/Util_Render_Stereo.cpp static StereoEyeParams CalculateStereoEyeParamsInternal ( StereoEye eyeType, HmdRenderInfo const &amp;hmd,
+<a href='../S/117.html#L203'>hmd</a>               203 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti distortedViewport   = GetFramebufferViewport ( eyeType, hmd );
+<a href='../S/117.html#L204'>hmd</a>               204 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Vector3f virtualCameraOffset = CalculateEyeVirtualCameraOffset(hmd, eyeType, bMonoRenderingMode);
+<a href='../S/117.html#L222'>hmd</a>               222 ovr/sdk/src/Util/Util_Render_Stereo.cpp Vector3f CalculateEyeVirtualCameraOffset(HmdRenderInfo const &amp;hmd,
+<a href='../S/117.html#L229'>hmd</a>               229 ovr/sdk/src/Util/Util_Render_Stereo.cpp         float eyeCenterRelief = hmd.GetEyeCenter().ReliefInMeters;
+<a href='../S/117.html#L233'>hmd</a>               233 ovr/sdk/src/Util/Util_Render_Stereo.cpp             virtualCameraOffset.x = hmd.EyeLeft.NoseToPupilInMeters;
+<a href='../S/117.html#L234'>hmd</a>               234 ovr/sdk/src/Util/Util_Render_Stereo.cpp             virtualCameraOffset.z = eyeCenterRelief - hmd.EyeLeft.ReliefInMeters;
+<a href='../S/117.html#L238'>hmd</a>               238 ovr/sdk/src/Util/Util_Render_Stereo.cpp             virtualCameraOffset.x = -hmd.EyeRight.NoseToPupilInMeters;
+<a href='../S/117.html#L239'>hmd</a>               239 ovr/sdk/src/Util/Util_Render_Stereo.cpp             virtualCameraOffset.z = eyeCenterRelief - hmd.EyeRight.ReliefInMeters;
+<a href='../S/117.html#L250'>hmd</a>               250 ovr/sdk/src/Util/Util_Render_Stereo.cpp Sizei CalculateRecommendedTextureSize ( HmdRenderInfo const &amp;hmd,
+<a href='../S/117.html#L259'>hmd</a>               259 ovr/sdk/src/Util/Util_Render_Stereo.cpp         DistortionAndFov distortionAndFov = CalculateDistortionAndFovInternal ( eyeType, hmd, NULL, NULL, OVR_DEFAULT_EXTRA_EYE_ROTATION );
+<a href='../S/117.html#L277'>hmd</a>               277 ovr/sdk/src/Util/Util_Render_Stereo.cpp StereoEyeParams CalculateStereoEyeParams ( HmdRenderInfo const &amp;hmd,
+<a href='../S/117.html#L287'>hmd</a>               287 ovr/sdk/src/Util/Util_Render_Stereo.cpp     DistortionAndFov distortionAndFov = CalculateDistortionAndFovInternal ( eyeType, hmd, NULL, NULL, OVR_DEFAULT_EXTRA_EYE_ROTATION );
+<a href='../S/117.html#L307'>hmd</a>               307 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                 eyeType, hmd,
+<a href='../S/117.html#L315'>hmd</a>               315 ovr/sdk/src/Util/Util_Render_Stereo.cpp FovPort CalculateRecommendedFov ( HmdRenderInfo const &amp;hmd,
+<a href='../S/117.html#L319'>hmd</a>               319 ovr/sdk/src/Util/Util_Render_Stereo.cpp     DistortionAndFov distortionAndFov = CalculateDistortionAndFovInternal ( eyeType, hmd, NULL, NULL, OVR_DEFAULT_EXTRA_EYE_ROTATION );
+<a href='../S/117.html#L426'>hmd</a>               426 ovr/sdk/src/Util/Util_Render_Stereo.cpp void StereoConfig::SetHmdRenderInfo(const HmdRenderInfo&amp; hmd)
+<a href='../S/117.html#L428'>hmd</a>               428 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd = hmd;
+<a href='../S/115.html#L54'>hmd</a>                54 ovr/sdk/src/Util/Util_Render_Stereo.h Sizei CalculateRecommendedTextureSize    ( HmdRenderInfo const &amp;hmd,
+<a href='../S/115.html#L58'>hmd</a>                58 ovr/sdk/src/Util/Util_Render_Stereo.h FovPort CalculateRecommendedFov          ( HmdRenderInfo const &amp;hmd,
+<a href='../S/115.html#L62'>hmd</a>                62 ovr/sdk/src/Util/Util_Render_Stereo.h StereoEyeParams CalculateStereoEyeParams ( HmdRenderInfo const &amp;hmd,
+<a href='../S/115.html#L72'>hmd</a>                72 ovr/sdk/src/Util/Util_Render_Stereo.h Vector3f CalculateEyeVirtualCameraOffset(HmdRenderInfo const &amp;hmd,
+<a href='../S/115.html#L151'>hmd</a>               151 ovr/sdk/src/Util/Util_Render_Stereo.h     void        SetHmdRenderInfo(const HmdRenderInfo&amp; hmd);
+</pre>
+</body>
+</html>

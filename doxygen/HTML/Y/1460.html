@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>NextInChain</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/179.html#L119'>NextInChain</a>       119 ovr/sdk/src/Kernel/OVR_Hash.h     SPInt       NextInChain;
+<a href='../S/179.html#L123'>NextInChain</a>       123 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(-2) { }
+<a href='../S/179.html#L125'>NextInChain</a>       125 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(e.NextInChain), Value(e.Value) { }
+<a href='../S/179.html#L127'>NextInChain</a>       127 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }
+<a href='../S/179.html#L129'>NextInChain</a>       129 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEmpty() const          { return NextInChain == -2;  }
+<a href='../S/179.html#L130'>NextInChain</a>       130 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEndOfChain() const     { return NextInChain == -1;  }
+<a href='../S/179.html#L140'>NextInChain</a>       140 ovr/sdk/src/Kernel/OVR_Hash.h         NextInChain = -2;
+<a href='../S/179.html#L154'>NextInChain</a>       154 ovr/sdk/src/Kernel/OVR_Hash.h     SPInt       NextInChain;
+<a href='../S/179.html#L159'>NextInChain</a>       159 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(-2) { }
+<a href='../S/179.html#L161'>NextInChain</a>       161 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(e.NextInChain), HashValue(e.HashValue), Value(e.Value) { }
+<a href='../S/179.html#L163'>NextInChain</a>       163 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }
+<a href='../S/179.html#L165'>NextInChain</a>       165 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEmpty() const          { return NextInChain == -2;  }
+<a href='../S/179.html#L166'>NextInChain</a>       166 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEndOfChain() const     { return NextInChain == -1;  }
+<a href='../S/179.html#L176'>NextInChain</a>       176 ovr/sdk/src/Kernel/OVR_Hash.h         NextInChain = -2;
+<a href='../S/179.html#L320'>NextInChain</a>       320 ovr/sdk/src/Kernel/OVR_Hash.h             index       = e-&gt;NextInChain;
+<a href='../S/179.html#L332'>NextInChain</a>       332 ovr/sdk/src/Kernel/OVR_Hash.h                 Entry*  enext = &amp;E(e-&gt;NextInChain);
+<a href='../S/179.html#L342'>NextInChain</a>       342 ovr/sdk/src/Kernel/OVR_Hash.h             E(prevIndex).NextInChain = e-&gt;NextInChain;
+<a href='../S/179.html#L597'>NextInChain</a>       597 ovr/sdk/src/Kernel/OVR_Hash.h                 index       = e-&gt;NextInChain;
+<a href='../S/179.html#L611'>NextInChain</a>       611 ovr/sdk/src/Kernel/OVR_Hash.h                         Entry*  enext = &amp;phash-&gt;E(e-&gt;NextInChain);
+<a href='../S/179.html#L622'>NextInChain</a>       622 ovr/sdk/src/Kernel/OVR_Hash.h                     phash-&gt;E(prevIndex).NextInChain = e-&gt;NextInChain;
+<a href='../S/179.html#L735'>NextInChain</a>       735 ovr/sdk/src/Kernel/OVR_Hash.h             index = e-&gt;NextInChain;
+<a href='../S/179.html#L782'>NextInChain</a>       782 ovr/sdk/src/Kernel/OVR_Hash.h                 naturalEntry-&gt;NextInChain = blankIndex;
+<a href='../S/179.html#L796'>NextInChain</a>       796 ovr/sdk/src/Kernel/OVR_Hash.h                     if (e-&gt;NextInChain == index)
+<a href='../S/179.html#L800'>NextInChain</a>       800 ovr/sdk/src/Kernel/OVR_Hash.h                         e-&gt;NextInChain = blankIndex;
+<a href='../S/179.html#L803'>NextInChain</a>       803 ovr/sdk/src/Kernel/OVR_Hash.h                     collidedIndex = e-&gt;NextInChain;
+<a href='../S/179.html#L809'>NextInChain</a>       809 ovr/sdk/src/Kernel/OVR_Hash.h                 naturalEntry-&gt;NextInChain = -1;                
+<a href='../S/179.html#L870'>NextInChain</a>       870 ovr/sdk/src/Kernel/OVR_Hash.h             newHash.E(i).NextInChain = -2;
+<a href='../S/179.html#L1053'>NextInChain</a>      1053 ovr/sdk/src/Kernel/OVR_Hash.h     SPInt NextInChain;
+<a href='../S/179.html#L1057'>NextInChain</a>      1057 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(-2) { }
+<a href='../S/179.html#L1059'>NextInChain</a>      1059 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(e.NextInChain), Value(e.Value) { }
+<a href='../S/179.html#L1061'>NextInChain</a>      1061 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }    
+<a href='../S/179.html#L1063'>NextInChain</a>      1063 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(keyRef) { }
+<a href='../S/179.html#L1065'>NextInChain</a>      1065 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEmpty() const             { return NextInChain == -2;  }
+<a href='../S/179.html#L1066'>NextInChain</a>      1066 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEndOfChain() const        { return NextInChain == -1;  }
+<a href='../S/179.html#L1073'>NextInChain</a>      1073 ovr/sdk/src/Kernel/OVR_Hash.h         NextInChain = -2;
+<a href='../S/179.html#L1087'>NextInChain</a>      1087 ovr/sdk/src/Kernel/OVR_Hash.h     SPInt NextInChain;
+<a href='../S/179.html#L1092'>NextInChain</a>      1092 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(-2) { }
+<a href='../S/179.html#L1094'>NextInChain</a>      1094 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(e.NextInChain), HashValue(e.HashValue), Value(e.Value) { }
+<a href='../S/179.html#L1096'>NextInChain</a>      1096 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }
+<a href='../S/179.html#L1098'>NextInChain</a>      1098 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(keyRef) { }
+<a href='../S/179.html#L1100'>NextInChain</a>      1100 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEmpty() const            { return NextInChain == -2;  }
+<a href='../S/179.html#L1101'>NextInChain</a>      1101 ovr/sdk/src/Kernel/OVR_Hash.h     bool    IsEndOfChain() const       { return NextInChain == -1;  }
+<a href='../S/179.html#L1108'>NextInChain</a>      1108 ovr/sdk/src/Kernel/OVR_Hash.h         NextInChain = -2;
+</pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+var classOVR_1_1Linux_1_1HMDDeviceCreateDesc =
+[
+    [ "Contents_Screen", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a28014182aa14fcf064cf9c726cb2bf56ad2fff44bb063c7cb867566d8aa252ede", null ],
+    [ "Contents_Distortion", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a28014182aa14fcf064cf9c726cb2bf56ab7f95999dbfcf861fed72d0174806125", null ],
+    [ "HMDDeviceCreateDesc", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a11f80342746c9baf63587275088c894f", null ],
+    [ "HMDDeviceCreateDesc", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#ae805276ded3324e6f80756f3f10f9bb2", null ],
+    [ "Clone", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#aaccbdd331a7c74143c98093fe496755f", null ],
+    [ "GetDeviceInfo", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#ab0b437dc403146e10937f2c15c90494d", null ],
+    [ "GetHmdType", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a924327bc8ffff5ee363c2b6a2dfb74dd", null ],
+    [ "MatchDevice", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a1033037321c96cf298d0515f16d37497", null ],
+    [ "MatchDevice", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#af4b7950981232cc8c9fe44eea3b879dc", null ],
+    [ "NewDeviceInstance", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#aa3bc83ef2bd3f2841cf58e28f7977017", null ],
+    [ "SetDistortion", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#aeba643c6232049c9e0b8899dba52e1ab", null ],
+    [ "SetScreenParameters", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#af9c9adbbd7839256766ad038e364d65f", null ],
+    [ "UpdateMatchedCandidate", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a2917f0bf42ca9320b322a23d043222e9", null ],
+    [ "HMDDevice", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#aa4019c31c11ca1ffc19c58b52c3aaa11", null ],
+    [ "Contents", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a273b6bd722bd6a8a8824bd86e0dc5d32", null ],
+    [ "Desktop", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a6b1a0fae5014292888ecb0bcf0330fec", null ],
+    [ "DeviceId", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a2df6aa71aa63340128fbbf5b9550b015", null ],
+    [ "DisplayDeviceName", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#aa3d0d6a1cf7d84c9c19536d4b63f04d1", null ],
+    [ "DisplayId", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#aab877d65e0191392eaef77884f9a4bb4", null ],
+    [ "DistortionEqn", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a4009b8ee79da14d6393f910b58441de2", null ],
+    [ "DistortionK", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a3fa388001622cd7a08739a1476c5011a", null ],
+    [ "LensSeparationInMeters", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a604f701e3543451b3af57e002991f0d0", null ],
+    [ "ResolutionInPixels", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#ae5a90da92ce6537df6ccf8834bf3cb60", null ],
+    [ "ScreenSizeInMeters", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a697e3dabe6b4e48644e02c6a3f92bb49", null ],
+    [ "VCenterFromTopInMeters", "classOVR_1_1Linux_1_1HMDDeviceCreateDesc.html#a40b050e86f7a4b4e5b84220ce402e982", null ]
+];

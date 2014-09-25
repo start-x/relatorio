@@ -1,0 +1,478 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_Stereo.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_Stereo.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/132.html' title='Multiple included from 5 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   OVR.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_Stereo.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Stereo rendering functions</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   November 30, 2013</font></i>
+<a name='L7'>   7 <i><font color='green'>Authors     :   Tom Fosyth</font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#ifndef</font> <a href='../S/131.html#L29' title='Defined at 29 in ovr/sdk/src/OVR_Stereo.h.'>OVR_Stereo_h</a>
+<a name='L29'>  29 <font color='darkred'>#define</font> <a href='../S/131.html#L28' title='Refered from 28 in ovr/sdk/src/OVR_Stereo.h.'>OVR_Stereo_h</a>
+<a name='L30'>  30 
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='108.html'>OVR_Device.h</a>"
+<a name='L32'>  32 
+<a name='L33'>  33 <i><font color='green'>// CAPI Forward declaration.</font></i>
+<a name='L34'>  34 <b>typedef</b> <b>struct</b> <a href='../S/187.html#L100' title='Defined at 100 in ovr/sdk/src/OVR_CAPI.h.'>ovrFovPort_</a> <a href='../R/1348.html' title='Multiple refered from 22 places.'>ovrFovPort</a>;
+<a name='L35'>  35 <b>typedef</b> <b>struct</b> <a href='../S/187.html#L56' title='Defined at 56 in ovr/sdk/src/OVR_CAPI.h.'>ovrRecti_</a> <a href='../R/1384.html' title='Multiple refered from 5 places.'>ovrRecti</a>;
+<a name='L36'>  36 
+<a name='L37'>  37 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L38'>  38 
+<a name='L39'>  39 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L40'>  40 <i><font color='green'>// ***** Stereo Enumerations</font></i>
+<a name='L41'>  41 
+<a name='L42'>  42 <i><font color='green'>// StereoEye specifies which eye we are rendering for; it is used to</font></i>
+<a name='L43'>  43 <i><font color='green'>// retrieve StereoEyeParams.</font></i>
+<a name='L44'>  44 <b>enum</b> <a href='../R/1052.html' title='Multiple refered from 57 places.'>StereoEye</a>
+<a name='L45'>  45 <font color='red'>{</font>
+<a name='L46'>  46     <a href='../Y/2140.html' title='Multiple used in 4 places.'>StereoEye_Center</a>,
+<a name='L47'>  47     <a href='../Y/2141.html' title='Multiple used in 13 places.'>StereoEye_Left</a>,
+<a name='L48'>  48     <a href='../Y/2142.html' title='Multiple used in 24 places.'>StereoEye_Right</a>    
+<a name='L49'>  49 <font color='red'>}</font>;
+<a name='L50'>  50 
+<a name='L51'>  51 
+<a name='L52'>  52 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L53'>  53 <i><font color='green'>// ***** FovPort</font></i>
+<a name='L54'>  54 
+<a name='L55'>  55 <i><font color='green'>// FovPort describes Field Of View (FOV) of a viewport.</font></i>
+<a name='L56'>  56 <i><font color='green'>// This class has values for up, down, left and right, stored in </font></i>
+<a name='L57'>  57 <i><font color='green'>// tangent of the angle units to simplify calculations.</font></i>
+<a name='L58'>  58 <i><font color='green'>//</font></i>
+<a name='L59'>  59 <i><font color='green'>// As an example, for a standard 90 degree vertical FOV, we would </font></i>
+<a name='L60'>  60 <i><font color='green'>// have: { UpTan = tan(90 degrees / 2), DownTan = tan(90 degrees / 2) }.</font></i>
+<a name='L61'>  61 <i><font color='green'>//</font></i>
+<a name='L62'>  62 <i><font color='green'>// CreateFromRadians/Degrees helper functions can be used to</font></i>
+<a name='L63'>  63 <i><font color='green'>// access FOV in different units.</font></i>
+<a name='L64'>  64 
+<a name='L65'>  65 <b>struct</b> <a href='../R/265.html' title='Multiple refered from 54 places.'>FovPort</a>
+<a name='L66'>  66 <font color='red'>{</font>
+<a name='L67'>  67     <b>float</b> <a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>;
+<a name='L68'>  68     <b>float</b> <a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>;
+<a name='L69'>  69     <b>float</b> <a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>;
+<a name='L70'>  70     <b>float</b> <a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a>;
+<a name='L71'>  71 
+<a name='L72'>  72     <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> ( <b>float</b> <a href='../Y/4401.html' title='Multiple used in 2 places.'>sideTan</a> = 0.0f ) :
+<a name='L73'>  73         <a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>(<a href='../Y/4401.html' title='Multiple used in 2 places.'>sideTan</a>), <a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>(<a href='../Y/4401.html' title='Multiple used in 2 places.'>sideTan</a>), <a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>(<a href='../Y/4401.html' title='Multiple used in 2 places.'>sideTan</a>), <a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a>(<a href='../Y/4401.html' title='Multiple used in 2 places.'>sideTan</a>) <font color='red'>{</font> <font color='red'>}</font>
+<a name='L74'>  74     <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> ( <b>float</b> <a href='../Y/4681.html' title='Multiple used in 55 places.'>u</a>, <b>float</b> <a href='../Y/2947.html' title='Multiple used in 119 places.'>d</a>, <b>float</b> <a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a>, <b>float</b> <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a> ) :
+<a name='L75'>  75         <a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>(<a href='../Y/4681.html' title='Multiple used in 55 places.'>u</a>), <a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>(<a href='../Y/2947.html' title='Multiple used in 119 places.'>d</a>), <a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>(<a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a>), <a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a>(<a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>) <font color='red'>{</font> <font color='red'>}</font>
+<a name='L76'>  76 
+<a name='L77'>  77     <i><font color='green'>// C-interop support: FovPort &lt;-&gt; ovrFovPort (implementation in OVR_CAPI.cpp).</font></i>
+<a name='L78'>  78     <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>(<b>const</b> <a href='../D/1439.html' title='Multiple defined in 2 places.'>ovrFovPort</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>);
+<a name='L79'>  79     <a href='../Y/3818.html' title='Multiple used in 298 places.'>operator</a> <a href='../D/1439.html' title='Multiple defined in 2 places.'>ovrFovPort</a> () <b>const</b>;
+<a name='L80'>  80 
+<a name='L81'>  81 
+<a name='L82'>  82     <b>static</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/274.html' title='Multiple used in 3 places.'>CreateFromRadians</a>(<b>float</b> <a href='../Y/3428.html' title='Multiple used in 3 places.'>horizontalFov</a>, <b>float</b> <a href='../Y/4793.html' title='Multiple used in 3 places.'>verticalFov</a>)
+<a name='L83'>  83     <font color='red'>{</font>
+<a name='L84'>  84         <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L85'>  85         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>.<a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>    = <a href='../Y/4557.html' title='Multiple used in 5 places.'>tanf</a> (   <a href='../Y/4793.html' title='Multiple used in 3 places.'>verticalFov</a> * 0.5f );
+<a name='L86'>  86         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>.<a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>  = <a href='../Y/4557.html' title='Multiple used in 5 places.'>tanf</a> (   <a href='../Y/4793.html' title='Multiple used in 3 places.'>verticalFov</a> * 0.5f );
+<a name='L87'>  87         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>.<a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>  = <a href='../Y/4557.html' title='Multiple used in 5 places.'>tanf</a> ( <a href='../Y/3428.html' title='Multiple used in 3 places.'>horizontalFov</a> * 0.5f );
+<a name='L88'>  88         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>.<a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a> = <a href='../Y/4557.html' title='Multiple used in 5 places.'>tanf</a> ( <a href='../Y/3428.html' title='Multiple used in 3 places.'>horizontalFov</a> * 0.5f );
+<a name='L89'>  89         <b>return</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L90'>  90     <font color='red'>}</font>
+<a name='L91'>  91 
+<a name='L92'>  92     <b>static</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> CreateFromDegrees(<b>float</b> <a href='../Y/3429.html' title='Multiple used in 2 places.'>horizontalFovDegrees</a>,
+<a name='L93'>  93                                      <b>float</b> <a href='../Y/4794.html' title='Multiple used in 2 places.'>verticalFovDegrees</a>)
+<a name='L94'>  94     <font color='red'>{</font>
+<a name='L95'>  95         <b>return</b> <a href='../Y/274.html' title='Multiple used in 3 places.'>CreateFromRadians</a>(<a href='../Y/361.html' title='Multiple used in 7 places.'>DegreeToRad</a>(<a href='../Y/3429.html' title='Multiple used in 2 places.'>horizontalFovDegrees</a>),
+<a name='L96'>  96                                  <a href='../Y/361.html' title='Multiple used in 7 places.'>DegreeToRad</a>(<a href='../Y/4794.html' title='Multiple used in 2 places.'>verticalFovDegrees</a>));
+<a name='L97'>  97     <font color='red'>}</font>
+<a name='L98'>  98 
+<a name='L99'>  99     <i><font color='green'>//  Get Horizontal/Vertical components of Fov in radians.</font></i>
+<a name='L100'> 100     <b>float</b> <a href='../Y/826.html' title='Multiple used in 2 places.'>GetVerticalFovRadians</a>() <b>const</b>     <font color='red'>{</font> <b>return</b> <a href='../Y/2717.html' title='Multiple used in 2 places.'>atanf</a>(<a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>)    + <a href='../Y/2717.html' title='Multiple used in 2 places.'>atanf</a>(<a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>); <font color='red'>}</font>
+<a name='L101'> 101     <b>float</b> <a href='../Y/769.html' title='Multiple used in 2 places.'>GetHorizontalFovRadians</a>() <b>const</b>   <font color='red'>{</font> <b>return</b> <a href='../Y/2717.html' title='Multiple used in 2 places.'>atanf</a>(<a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>)  + <a href='../Y/2717.html' title='Multiple used in 2 places.'>atanf</a>(<a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a>); <font color='red'>}</font>
+<a name='L102'> 102     <i><font color='green'>//  Get Horizontal/Vertical components of Fov in degrees.</font></i>
+<a name='L103'> 103     <b>float</b> GetVerticalFovDegrees() <b>const</b>     <font color='red'>{</font> <b>return</b> <a href='../Y/1768.html' title='Multiple used in 3 places.'>RadToDegree</a>(<a href='../Y/826.html' title='Multiple used in 2 places.'>GetVerticalFovRadians</a>()); <font color='red'>}</font>
+<a name='L104'> 104     <b>float</b> GetHorizontalFovDegrees() <b>const</b>   <font color='red'>{</font> <b>return</b> <a href='../Y/1768.html' title='Multiple used in 3 places.'>RadToDegree</a>(<a href='../Y/769.html' title='Multiple used in 2 places.'>GetHorizontalFovRadians</a>()); <font color='red'>}</font>
+<a name='L105'> 105 
+<a name='L106'> 106     <i><font color='green'>// Compute maximum tangent value among all four sides.</font></i>
+<a name='L107'> 107     <b>float</b> GetMaxSideTan() <b>const</b>
+<a name='L108'> 108     <font color='red'>{</font>
+<a name='L109'> 109         <b>return</b> <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>(<a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>(<a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>, <a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>), <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>(<a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>, <a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a>));
+<a name='L110'> 110     <font color='red'>}</font>
+<a name='L111'> 111 
+<a name='L112'> 112     <i><font color='green'>// Converts Fov Tan angle units to [-1,1] render target NDC space</font></i>
+<a name='L113'> 113     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/142.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_CAPI.cpp.'>TanAngleToRendertargetNDC</a>(<a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <b>const</b> &amp;<a href='../Y/4547.html' title='Multiple used in 31 places.'>tanEyeAngle</a>);
+<a name='L114'> 114 
+<a name='L115'> 115 
+<a name='L116'> 116     <i><font color='green'>// Compute per-channel minimum and maximum of Fov.</font></i>
+<a name='L117'> 117     <b>static</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>(<b>const</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>&amp; <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>, <b>const</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>&amp; <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>)
+<a name='L118'> 118     <font color='red'>{</font>   
+<a name='L119'> 119         <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a>( <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>   , <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>    ),   
+<a name='L120'> 120                      <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a> , <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>  ),
+<a name='L121'> 121                      <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a> , <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>  ),
+<a name='L122'> 122                      <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a>, <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a> ) );
+<a name='L123'> 123         <b>return</b> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a>;
+<a name='L124'> 124     <font color='red'>}</font>
+<a name='L125'> 125 
+<a name='L126'> 126     <b>static</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>(<b>const</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>&amp; <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>, <b>const</b> <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>&amp; <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>)
+<a name='L127'> 127     <font color='red'>{</font>   
+<a name='L128'> 128         <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a>( <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>   , <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../Y/2359.html' title='Multiple used in 30 places.'>UpTan</a>    ),   
+<a name='L129'> 129                      <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a> , <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../Y/467.html' title='Multiple used in 30 places.'>DownTan</a>  ),
+<a name='L130'> 130                      <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a> , <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../Y/1266.html' title='Multiple used in 30 places.'>LeftTan</a>  ),
+<a name='L131'> 131                      <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>( <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>.<a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a>, <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>.<a href='../S/142.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI.cpp.'>RightTan</a> ) );
+<a name='L132'> 132         <b>return</b> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a>;
+<a name='L133'> 133     <font color='red'>}</font>
+<a name='L134'> 134 <font color='red'>}</font>;
+<a name='L135'> 135 
+<a name='L136'> 136 
+<a name='L137'> 137 
+<a name='L138'> 138 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L139'> 139 <i><font color='green'>// ***** ScaleAndOffset</font></i>
+<a name='L140'> 140 
+<a name='L141'> 141 <b>struct</b> <a href='../R/939.html' title='Multiple refered from 19 places.'>ScaleAndOffset2D</a>
+<a name='L142'> 142 <font color='red'>{</font>
+<a name='L143'> 143     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../Y/1962.html' title='Multiple used in 16 places.'>Scale</a>;
+<a name='L144'> 144     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../Y/1534.html' title='Multiple used in 38 places.'>Offset</a>;
+<a name='L145'> 145 
+<a name='L146'> 146     <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a>(<b>float</b> <a href='../Y/4522.html' title='Multiple used in 2 places.'>sx</a> = 0.0f, <b>float</b> <a href='../Y/4524.html' title='Multiple used in 2 places.'>sy</a> = 0.0f, <b>float</b> <a href='../Y/3902.html' title='Multiple used in 2 places.'>ox</a> = 0.0f, <b>float</b> <a href='../Y/3904.html' title='Multiple used in 2 places.'>oy</a> = 0.0f)
+<a name='L147'> 147       : <a href='../Y/1962.html' title='Multiple used in 16 places.'>Scale</a>(<a href='../Y/4522.html' title='Multiple used in 2 places.'>sx</a>, <a href='../Y/4524.html' title='Multiple used in 2 places.'>sy</a>), <a href='../Y/1534.html' title='Multiple used in 38 places.'>Offset</a>(<a href='../Y/3902.html' title='Multiple used in 2 places.'>ox</a>, <a href='../Y/3904.html' title='Multiple used in 2 places.'>oy</a>)        
+<a name='L148'> 148     <font color='red'>{</font> <font color='red'>}</font>
+<a name='L149'> 149 <font color='red'>}</font>;
+<a name='L150'> 150 
+<a name='L151'> 151 
+<a name='L152'> 152 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L153'> 153 <i><font color='green'>// ***** Misc. utility functions.</font></i>
+<a name='L154'> 154 
+<a name='L155'> 155 <i><font color='green'>// Inputs are 4 points (pFitX[0],pFitY[0]) through (pFitX[3],pFitY[3])</font></i>
+<a name='L156'> 156 <i><font color='green'>// Result is four coefficients in pResults[0] through pResults[3] such that</font></i>
+<a name='L157'> 157 <i><font color='green'>//      y = pResult[0] + x * ( pResult[1] + x * ( pResult[2] + x * ( pResult[3] ) ) );</font></i>
+<a name='L158'> 158 <i><font color='green'>// passes through all four input points.</font></i>
+<a name='L159'> 159 <i><font color='green'>// Return is true if it succeeded, false if it failed (because two control points</font></i>
+<a name='L160'> 160 <i><font color='green'>// have the same pFitX value).</font></i>
+<a name='L161'> 161 <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/88.html#L50' title='Defined at 50 in ovr/sdk/src/OVR_Stereo.cpp.'>FitCubicPolynomial</a> ( <b>float</b> *<a href='../Y/3977.html' title='Multiple used in 15 places.'>pResult</a>, <b>const</b> <b>float</b> *<a href='../Y/3934.html' title='Multiple used in 18 places.'>pFitX</a>, <b>const</b> <b>float</b> *<a href='../Y/3935.html' title='Multiple used in 6 places.'>pFitY</a> );
+<a name='L162'> 162 
+<a name='L163'> 163 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L164'> 164 <i><font color='green'>// ***** LensConfig</font></i>
+<a name='L165'> 165 
+<a name='L166'> 166 <i><font color='green'>// LensConfig describes the configuration of a single lens in an HMD.</font></i>
+<a name='L167'> 167 <i><font color='green'>// - Eqn and K[] describe a distortion function.</font></i>
+<a name='L168'> 168 <i><font color='green'>// - MetersPerTanAngleAtCenter is the relationship between distance on a</font></i>
+<a name='L169'> 169 <i><font color='green'>//   screen (at the center of the lens), and the angle variance of the light after it</font></i>
+<a name='L170'> 170 <i><font color='green'>//   has passed through the lens.</font></i>
+<a name='L171'> 171 <i><font color='green'>// - ChromaticAberration is an array of parameters for controlling</font></i>
+<a name='L172'> 172 <i><font color='green'>//   additional Red and Blue scaling in order to reduce chromatic aberration</font></i>
+<a name='L173'> 173 <i><font color='green'>//   caused by the Rift lenses.</font></i>
+<a name='L174'> 174 <b>struct</b> <a href='../R/532.html' title='Multiple refered from 29 places.'>LensConfig</a>
+<a name='L175'> 175 <font color='red'>{</font>
+<a name='L176'> 176     <i><font color='green'>// The result is a scaling applied to the distance from the center of the lens.</font></i>
+<a name='L177'> 177     <b>float</b>    <a href='../S/88.html#L166' title='Defined at 166 in ovr/sdk/src/OVR_Stereo.cpp.'>DistortionFnScaleRadiusSquared</a> (<b>float</b> <a href='../Y/4324.html' title='Multiple used in 17 places.'>rsq</a>) <b>const</b>;
+<a name='L178'> 178     <i><font color='green'>// x,y,z components map to r,g,b scales.</font></i>
+<a name='L179'> 179     <a href='../S/177.html#L554' title='Defined at 554 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3f</a> <a href='../S/88.html#L203' title='Defined at 203 in ovr/sdk/src/OVR_Stereo.cpp.'>DistortionFnScaleRadiusSquaredChroma</a> (<b>float</b> <a href='../Y/4324.html' title='Multiple used in 17 places.'>rsq</a>) <b>const</b>;
+<a name='L180'> 180 
+<a name='L181'> 181     <i><font color='green'>// DistortionFn applies distortion to the argument.</font></i>
+<a name='L182'> 182     <i><font color='green'>// Input: the distance in TanAngle/NIC space from the optical center to the input pixel.</font></i>
+<a name='L183'> 183     <i><font color='green'>// Output: the resulting distance after distortion.</font></i>
+<a name='L184'> 184     <b>float</b> <a href='../Y/433.html' title='Multiple used in 7 places.'>DistortionFn</a>(<b>float</b> <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>) <b>const</b>
+<a name='L185'> 185     <font color='red'>{</font>
+<a name='L186'> 186         <b>return</b> <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a> * <a href='../S/88.html#L166' title='Defined at 166 in ovr/sdk/src/OVR_Stereo.cpp.'>DistortionFnScaleRadiusSquared</a> ( <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a> * <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a> );
+<a name='L187'> 187     <font color='red'>}</font>
+<a name='L188'> 188 
+<a name='L189'> 189     <i><font color='green'>// DistortionFnInverse computes the inverse of the distortion function on an argument.</font></i>
+<a name='L190'> 190     <b>float</b> <a href='../S/88.html#L214' title='Defined at 214 in ovr/sdk/src/OVR_Stereo.cpp.'>DistortionFnInverse</a>(<b>float</b> <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>) <b>const</b>;
+<a name='L191'> 191 
+<a name='L192'> 192     <i><font color='green'>// Also computes the inverse, but using a polynomial approximation. Warning - it's just an approximation!</font></i>
+<a name='L193'> 193     <b>float</b> <a href='../S/88.html#L254' title='Defined at 254 in ovr/sdk/src/OVR_Stereo.cpp.'>DistortionFnInverseApprox</a>(<b>float</b> <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>) <b>const</b>;
+<a name='L194'> 194     <i><font color='green'>// Sets up InvK[].</font></i>
+<a name='L195'> 195     <b>void</b> <a href='../S/88.html#L290' title='Defined at 290 in ovr/sdk/src/OVR_Stereo.cpp.'>SetUpInverseApprox</a>();
+<a name='L196'> 196 
+<a name='L197'> 197     <i><font color='green'>// Sets a bunch of sensible defaults.</font></i>
+<a name='L198'> 198     <b>void</b> <a href='../S/88.html#L374' title='Defined at 374 in ovr/sdk/src/OVR_Stereo.cpp.'>SetToIdentity</a>();
+<a name='L199'> 199 
+<a name='L200'> 200 
+<a name='L201'> 201 
+<a name='L202'> 202     <b>enum</b> <font color='red'>{</font> <a href='../R/619.html' title='Multiple refered from 11 places.'>NumCoefficients</a> = 11 <font color='red'>}</font>;
+<a name='L203'> 203 
+<a name='L204'> 204     <a href='../S/85.html#L55' title='Defined at 55 in ovr/sdk/src/OVR_DeviceConstants.h.'>DistortionEqnType</a>   <a href='../Y/513.html' title='Multiple used in 18 places.'>Eqn</a>;
+<a name='L205'> 205     <b>float</b>               <a href='../Y/1066.html' title='Multiple used in 147 places.'>K</a>[<a href='../S/131.html#L202' title='Defined at 202 in ovr/sdk/src/OVR_Stereo.h.'>NumCoefficients</a>];
+<a name='L206'> 206     <b>float</b>               <a href='../Y/1379.html' title='Multiple used in 22 places.'>MaxR</a>;       <i><font color='green'>// The highest R you're going to query for - the curve is unpredictable beyond it.</font></i>
+<a name='L207'> 207 
+<a name='L208'> 208     <b>float</b>               <a href='../Y/1420.html' title='Multiple used in 25 places.'>MetersPerTanAngleAtCenter</a>;
+<a name='L209'> 209 
+<a name='L210'> 210     <i><font color='green'>// Additional per-channel scaling is applied after distortion:</font></i>
+<a name='L211'> 211     <i><font color='green'>//  Index [0] - Red channel constant coefficient.</font></i>
+<a name='L212'> 212     <i><font color='green'>//  Index [1] - Red channel r^2 coefficient.</font></i>
+<a name='L213'> 213     <i><font color='green'>//  Index [2] - Blue channel constant coefficient.</font></i>
+<a name='L214'> 214     <i><font color='green'>//  Index [3] - Blue channel r^2 coefficient.</font></i>
+<a name='L215'> 215     <b>float</b>               <a href='../Y/199.html' title='Multiple used in 45 places.'>ChromaticAberration</a>[4];
+<a name='L216'> 216 
+<a name='L217'> 217     <b>float</b>               <a href='../Y/1013.html' title='Multiple used in 8 places.'>InvK</a>[<a href='../S/131.html#L202' title='Defined at 202 in ovr/sdk/src/OVR_Stereo.h.'>NumCoefficients</a>];
+<a name='L218'> 218     <b>float</b>               <a href='../Y/1377.html' title='Multiple used in 9 places.'>MaxInvR</a>;
+<a name='L219'> 219 <font color='red'>}</font>;
+<a name='L220'> 220 
+<a name='L221'> 221 
+<a name='L222'> 222 <i><font color='green'>// For internal use - storing and loading lens config data</font></i>
+<a name='L223'> 223 
+<a name='L224'> 224 <i><font color='green'>// Returns true on success.</font></i>
+<a name='L225'> 225 <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/88.html#L434' title='Defined at 434 in ovr/sdk/src/OVR_Stereo.cpp.'>LoadLensConfig</a> ( <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a> *<a href='../Y/4105.html' title='Multiple used in 6 places.'>presult</a>, <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a> <b>const</b> *<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, <b>int</b> <a href='../Y/2786.html' title='Multiple used in 7 places.'>bufferSizeInBytes</a> );
+<a name='L226'> 226 
+<a name='L227'> 227 <i><font color='green'>// Returns number of bytes needed.</font></i>
+<a name='L228'> 228 <b>int</b> <a href='../S/88.html#L500' title='Defined at 500 in ovr/sdk/src/OVR_Stereo.cpp.'>SaveLensConfigSizeInBytes</a> ( <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a> <b>const</b> &amp;<a href='../Y/2891.html' title='Multiple used in 25 places.'>config</a> );
+<a name='L229'> 229 <i><font color='green'>// Returns true on success.</font></i>
+<a name='L230'> 230 <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/88.html#L507' title='Defined at 507 in ovr/sdk/src/OVR_Stereo.cpp.'>SaveLensConfig</a> ( <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a> *<a href='../Y/4010.html' title='Multiple used in 52 places.'>pbuffer</a>, <b>int</b> <a href='../Y/2786.html' title='Multiple used in 7 places.'>bufferSizeInBytes</a>, <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a> <b>const</b> &amp;<a href='../Y/2891.html' title='Multiple used in 25 places.'>config</a> );
+<a name='L231'> 231 
+<a name='L232'> 232 
+<a name='L233'> 233 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L234'> 234 <i><font color='green'>// ***** DistortionRenderDesc</font></i>
+<a name='L235'> 235 
+<a name='L236'> 236 <i><font color='green'>// This describes distortion for a single eye in an HMD with a display, not just the lens by itself.</font></i>
+<a name='L237'> 237 <b>struct</b> <a href='../R/205.html' title='Multiple refered from 24 places.'>DistortionRenderDesc</a>
+<a name='L238'> 238 <font color='red'>{</font>
+<a name='L239'> 239     <i><font color='green'>// The raw lens values.</font></i>
+<a name='L240'> 240     <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a>          <a href='../Y/1269.html' title='Multiple used in 9 places.'>Lens</a>;
+<a name='L241'> 241 
+<a name='L242'> 242     <i><font color='green'>// These map from [-1,1] across the eye being rendered into TanEyeAngle space (but still distorted)</font></i>
+<a name='L243'> 243     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>            <a href='../Y/1270.html' title='Multiple used in 11 places.'>LensCenter</a>;
+<a name='L244'> 244     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>            <a href='../Y/2187.html' title='Multiple used in 8 places.'>TanEyeAngleScale</a>;
+<a name='L245'> 245     <i><font color='green'>// Computed from device characteristics, IPD and eye-relief.</font></i>
+<a name='L246'> 246     <i><font color='green'>// (not directly used for rendering, but very useful)</font></i>
+<a name='L247'> 247     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>            <a href='../Y/1672.html' title='Multiple used in 7 places.'>PixelsPerTanAngleAtCenter</a>;
+<a name='L248'> 248 <font color='red'>}</font>;
+<a name='L249'> 249 
+<a name='L250'> 250 
+<a name='L251'> 251 
+<a name='L252'> 252 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L253'> 253 <i><font color='green'>// ***** HmdRenderInfo</font></i>
+<a name='L254'> 254 
+<a name='L255'> 255 <i><font color='green'>// All the parts of the HMD info that are needed to set up the rendering system.</font></i>
+<a name='L256'> 256 
+<a name='L257'> 257 <b>struct</b> <a href='../R/444.html' title='Multiple refered from 31 places.'>HmdRenderInfo</a>
+<a name='L258'> 258 <font color='red'>{</font>
+<a name='L259'> 259     <i><font color='green'>// The start of this sturucture is intentionally very similar to HMDInfo in OVER_Device.h</font></i>
+<a name='L260'> 260     <i><font color='green'>// However to reduce interdependencies, one does not simply #include the other.</font></i>
+<a name='L261'> 261 
+<a name='L262'> 262     <a href='../S/85.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_DeviceConstants.h.'>HmdTypeEnum</a> <a href='../Y/934.html' title='Multiple used in 18 places.'>HmdType</a>;
+<a name='L263'> 263 
+<a name='L264'> 264     <i><font color='green'>// Size of the entire screen</font></i>
+<a name='L265'> 265     <a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>&lt;<b>int</b>&gt;   <a href='../Y/1868.html' title='Multiple used in 26 places.'>ResolutionInPixels</a>;
+<a name='L266'> 266     <a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>&lt;<b>float</b>&gt; <a href='../Y/1973.html' title='Multiple used in 32 places.'>ScreenSizeInMeters</a>;
+<a name='L267'> 267     <b>float</b>       <a href='../Y/1970.html' title='Multiple used in 13 places.'>ScreenGapSizeInMeters</a>;
+<a name='L268'> 268 
+<a name='L269'> 269     <i><font color='green'>// Characteristics of the lenses.</font></i>
+<a name='L270'> 270     <b>float</b>       <a href='../Y/193.html' title='Multiple used in 12 places.'>CenterFromTopInMeters</a>;
+<a name='L271'> 271     <b>float</b>       <a href='../Y/1277.html' title='Multiple used in 19 places.'>LensSeparationInMeters</a>;
+<a name='L272'> 272     <b>float</b>       <a href='../Y/1272.html' title='Multiple used in 8 places.'>LensDiameterInMeters</a>;
+<a name='L273'> 273     <b>float</b>       <a href='../Y/1278.html' title='Multiple used in 10 places.'>LensSurfaceToMidplateInMeters</a>;
+<a name='L274'> 274     <a href='../S/85.html#L115' title='Defined at 115 in ovr/sdk/src/OVR_DeviceConstants.h.'>EyeCupType</a>  <a href='../Y/556.html' title='Multiple used in 26 places.'>EyeCups</a>;
+<a name='L275'> 275 
+<a name='L276'> 276     <i><font color='green'>// Timing &amp; shutter data. All values in seconds.</font></i>
+<a name='L277'> 277     <b>struct</b> ShutterInfo
+<a name='L278'> 278     <font color='red'>{</font>
+<a name='L279'> 279         <a href='../S/85.html#L95' title='Defined at 95 in ovr/sdk/src/OVR_DeviceConstants.h.'>HmdShutterTypeEnum</a>  <a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a>;
+<a name='L280'> 280         <b>float</b>               <a href='../Y/2422.html' title='Multiple used in 31 places.'>VsyncToNextVsync</a>;                <i><font color='green'>// 1/framerate</font></i>
+<a name='L281'> 281         <b>float</b>               <a href='../Y/2421.html' title='Multiple used in 19 places.'>VsyncToFirstScanline</a>;            <i><font color='green'>// for global shutter, vsync-&gt;shutter open.</font></i>
+<a name='L282'> 282         <b>float</b>               <a href='../Y/610.html' title='Multiple used in 21 places.'>FirstScanlineToLastScanline</a>;     <i><font color='green'>// for global shutter, will be zero.</font></i>
+<a name='L283'> 283         <b>float</b>               <a href='../Y/1671.html' title='Multiple used in 21 places.'>PixelSettleTime</a>;                 <i><font color='green'>// estimated.</font></i>
+<a name='L284'> 284         <b>float</b>               <a href='../Y/1668.html' title='Multiple used in 21 places.'>PixelPersistence</a>;                <i><font color='green'>// Full persistence = 1/framerate.</font></i>
+<a name='L285'> 285     <font color='red'>}</font>           <a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>;
+<a name='L286'> 286 
+<a name='L287'> 287 
+<a name='L288'> 288     <i><font color='green'>// These are all set from the user's profile.</font></i>
+<a name='L289'> 289     <b>struct</b> <a href='../R/235.html' title='Multiple refered from 4 places.'>EyeConfig</a>
+<a name='L290'> 290     <font color='red'>{</font>
+<a name='L291'> 291         <i><font color='green'>// Distance from center of eyeball to front plane of lens.</font></i>
+<a name='L292'> 292         <b>float</b>               <a href='../Y/1841.html' title='Multiple used in 24 places.'>ReliefInMeters</a>;
+<a name='L293'> 293         <i><font color='green'>// Distance from nose (technically, center of Rift) to the middle of the eye.</font></i>
+<a name='L294'> 294         <b>float</b>               <a href='../Y/1473.html' title='Multiple used in 14 places.'>NoseToPupilInMeters</a>;
+<a name='L295'> 295 
+<a name='L296'> 296         <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a>          <a href='../Y/425.html' title='Multiple used in 49 places.'>Distortion</a>;
+<a name='L297'> 297     <font color='red'>}</font> <a href='../Y/557.html' title='Multiple used in 51 places.'>EyeLeft</a>, <a href='../Y/565.html' title='Multiple used in 20 places.'>EyeRight</a>;
+<a name='L298'> 298 
+<a name='L299'> 299 
+<a name='L300'> 300     <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a>()
+<a name='L301'> 301     <font color='red'>{</font>
+<a name='L302'> 302         <a href='../Y/934.html' title='Multiple used in 18 places.'>HmdType</a> = <a href='../Y/944.html' title='Multiple used in 8 places.'>HmdType_None</a>;
+<a name='L303'> 303         <a href='../Y/1868.html' title='Multiple used in 26 places.'>ResolutionInPixels</a>.<a href='../Y/4824.html' title='Multiple used in 151 places.'>w</a> = 0;
+<a name='L304'> 304         <a href='../Y/1868.html' title='Multiple used in 26 places.'>ResolutionInPixels</a>.<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> = 0;
+<a name='L305'> 305         <a href='../Y/1973.html' title='Multiple used in 32 places.'>ScreenSizeInMeters</a>.<a href='../Y/4824.html' title='Multiple used in 151 places.'>w</a> = 0.0f;
+<a name='L306'> 306         <a href='../Y/1973.html' title='Multiple used in 32 places.'>ScreenSizeInMeters</a>.<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> = 0.0f;
+<a name='L307'> 307         <a href='../Y/1970.html' title='Multiple used in 13 places.'>ScreenGapSizeInMeters</a> = 0.0f;
+<a name='L308'> 308         <a href='../Y/193.html' title='Multiple used in 12 places.'>CenterFromTopInMeters</a> = 0.0f;
+<a name='L309'> 309         <a href='../Y/1277.html' title='Multiple used in 19 places.'>LensSeparationInMeters</a> = 0.0f;
+<a name='L310'> 310         <a href='../Y/1272.html' title='Multiple used in 8 places.'>LensDiameterInMeters</a> = 0.0f;
+<a name='L311'> 311         <a href='../Y/1278.html' title='Multiple used in 10 places.'>LensSurfaceToMidplateInMeters</a> = 0.0f;
+<a name='L312'> 312         <a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> = <a href='../Y/930.html' title='Multiple used in 3 places.'>HmdShutter_LAST</a>;
+<a name='L313'> 313         <a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/2422.html' title='Multiple used in 31 places.'>VsyncToNextVsync</a> = 0.0f;
+<a name='L314'> 314         <a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/2421.html' title='Multiple used in 19 places.'>VsyncToFirstScanline</a> = 0.0f;
+<a name='L315'> 315         <a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/610.html' title='Multiple used in 21 places.'>FirstScanlineToLastScanline</a> = 0.0f;
+<a name='L316'> 316         <a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/1671.html' title='Multiple used in 21 places.'>PixelSettleTime</a> = 0.0f;
+<a name='L317'> 317         <a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/1668.html' title='Multiple used in 21 places.'>PixelPersistence</a> = 0.0f;
+<a name='L318'> 318         <a href='../Y/556.html' title='Multiple used in 26 places.'>EyeCups</a> = <a href='../Y/543.html' title='Multiple used in 11 places.'>EyeCup_DK1A</a>;
+<a name='L319'> 319         <a href='../Y/557.html' title='Multiple used in 51 places.'>EyeLeft</a>.<a href='../Y/1841.html' title='Multiple used in 24 places.'>ReliefInMeters</a> = 0.0f;
+<a name='L320'> 320         <a href='../Y/557.html' title='Multiple used in 51 places.'>EyeLeft</a>.<a href='../Y/1473.html' title='Multiple used in 14 places.'>NoseToPupilInMeters</a> = 0.0f;
+<a name='L321'> 321         <a href='../Y/557.html' title='Multiple used in 51 places.'>EyeLeft</a>.<a href='../Y/425.html' title='Multiple used in 49 places.'>Distortion</a>.<a href='../S/88.html#L374' title='Defined at 374 in ovr/sdk/src/OVR_Stereo.cpp.'>SetToIdentity</a>();
+<a name='L322'> 322         <a href='../Y/565.html' title='Multiple used in 20 places.'>EyeRight</a> = <a href='../Y/557.html' title='Multiple used in 51 places.'>EyeLeft</a>;
+<a name='L323'> 323     <font color='red'>}</font>
+<a name='L324'> 324 
+<a name='L325'> 325     <i><font color='green'>// The "center eye" is the position the HMD tracking returns,</font></i>
+<a name='L326'> 326     <i><font color='green'>// and games will also usually use it for audio, aiming reticles, some line-of-sight tests, etc.</font></i>
+<a name='L327'> 327     <a href='../S/131.html#L289' title='Defined at 289 in ovr/sdk/src/OVR_Stereo.h.'>EyeConfig</a> <a href='../Y/755.html' title='Multiple used in 3 places.'>GetEyeCenter</a>() <b>const</b>
+<a name='L328'> 328     <font color='red'>{</font>
+<a name='L329'> 329         <a href='../S/131.html#L289' title='Defined at 289 in ovr/sdk/src/OVR_Stereo.h.'>EyeConfig</a> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L330'> 330         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>.<a href='../Y/1841.html' title='Multiple used in 24 places.'>ReliefInMeters</a> = 0.5f * ( <a href='../Y/557.html' title='Multiple used in 51 places.'>EyeLeft</a>.<a href='../Y/1841.html' title='Multiple used in 24 places.'>ReliefInMeters</a> + <a href='../Y/565.html' title='Multiple used in 20 places.'>EyeRight</a>.<a href='../Y/1841.html' title='Multiple used in 24 places.'>ReliefInMeters</a> );
+<a name='L331'> 331         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>.<a href='../Y/1473.html' title='Multiple used in 14 places.'>NoseToPupilInMeters</a> = 0.0f;
+<a name='L332'> 332         <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>.<a href='../Y/425.html' title='Multiple used in 49 places.'>Distortion</a>.<a href='../S/88.html#L374' title='Defined at 374 in ovr/sdk/src/OVR_Stereo.cpp.'>SetToIdentity</a>();
+<a name='L333'> 333         <b>return</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L334'> 334     <font color='red'>}</font>
+<a name='L335'> 335 
+<a name='L336'> 336 <font color='red'>}</font>;
+<a name='L337'> 337 
+<a name='L338'> 338 
+<a name='L339'> 339 
+<a name='L340'> 340 
+<a name='L341'> 341 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L342'> 342 
+<a name='L343'> 343 <i><font color='green'>// Stateless computation functions, in somewhat recommended execution order.</font></i>
+<a name='L344'> 344 <i><font color='green'>// For examples on how to use many of them, see the StereoConfig::UpdateComputedState function.</font></i>
+<a name='L345'> 345 
+<a name='L346'> 346 <b>const</b> <b>float</b> <a href='../Y/1496.html' title='Multiple used in 10 places.'>OVR_DEFAULT_EXTRA_EYE_ROTATION</a> = 30.0f * <a href='../Y/1365.html' title='Multiple used in 77 places.'>Math</a>&lt;<b>float</b>&gt;::<a href='../Y/362.html' title='Multiple used in 9 places.'>DegreeToRadFactor</a>;
+<a name='L347'> 347 
+<a name='L348'> 348 <i><font color='green'>// Creates a dummy debug HMDInfo matching a particular HMD model.</font></i>
+<a name='L349'> 349 <i><font color='green'>// Useful for development without an actual HMD attached.</font></i>
+<a name='L350'> 350 <a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>             <a href='../S/88.html#L588' title='Defined at 588 in ovr/sdk/src/OVR_Stereo.cpp.'>CreateDebugHMDInfo</a>(<a href='../S/85.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_DeviceConstants.h.'>HmdTypeEnum</a> <a href='../Y/3421.html' title='Multiple used in 31 places.'>hmdType</a>);
+<a name='L351'> 351 
+<a name='L352'> 352 
+<a name='L353'> 353 <i><font color='green'>// profile may be NULL, in which case it uses the hard-coded defaults.</font></i>
+<a name='L354'> 354 <i><font color='green'>// distortionType should be left at the default unless you require something specific for your distortion shaders.</font></i>
+<a name='L355'> 355 <i><font color='green'>// eyeCupOverride can be EyeCup_LAST, in which case it uses the one in the profile.</font></i>
+<a name='L356'> 356 <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a>       <a href='../S/88.html#L662' title='Defined at 662 in ovr/sdk/src/OVR_Stereo.cpp.'>GenerateHmdRenderInfoFromHmdInfo</a> ( <a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a> <b>const</b> &amp;<a href='../Y/3419.html' title='Multiple used in 81 places.'>hmdInfo</a>,
+<a name='L357'> 357                                                        <a href='../S/139.html#L963' title='Defined at 963 in ovr/sdk/src/OVR_Profile.cpp.'>Profile</a> <b>const</b> *<a href='../Y/4132.html' title='Multiple used in 43 places.'>profile</a> = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>,
+<a name='L358'> 358                                                        <a href='../S/85.html#L55' title='Defined at 55 in ovr/sdk/src/OVR_DeviceConstants.h.'>DistortionEqnType</a> <a href='../Y/3057.html' title='Multiple used in 6 places.'>distortionType</a> = <a href='../Y/455.html' title='Multiple used in 15 places.'>Distortion_CatmullRom10</a>,
+<a name='L359'> 359                                                        <a href='../S/85.html#L115' title='Defined at 115 in ovr/sdk/src/OVR_DeviceConstants.h.'>EyeCupType</a> <a href='../Y/3161.html' title='Multiple used in 4 places.'>eyeCupOverride</a> = <a href='../Y/551.html' title='Multiple used in 4 places.'>EyeCup_LAST</a> );
+<a name='L360'> 360 
+<a name='L361'> 361 <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a>          <a href='../S/88.html#L860' title='Defined at 860 in ovr/sdk/src/OVR_Stereo.cpp.'>GenerateLensConfigFromEyeRelief</a> ( <b>float</b> <a href='../Y/3169.html' title='Multiple used in 25 places.'>eyeReliefInMeters</a>, <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L362'> 362                                                       <a href='../S/85.html#L55' title='Defined at 55 in ovr/sdk/src/OVR_DeviceConstants.h.'>DistortionEqnType</a> <a href='../Y/3057.html' title='Multiple used in 6 places.'>distortionType</a> = <a href='../Y/455.html' title='Multiple used in 15 places.'>Distortion_CatmullRom10</a> );
+<a name='L363'> 363 
+<a name='L364'> 364 <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <a href='../S/88.html#L1248' title='Defined at 1248 in ovr/sdk/src/OVR_Stereo.cpp.'>CalculateDistortionRenderDesc</a> ( <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>, <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L365'> 365                                                      <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a> <b>const</b> *<a href='../Y/3954.html' title='Multiple used in 10 places.'>pLensOverride</a> = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a> );
+<a name='L366'> 366 
+<a name='L367'> 367 <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>             <a href='../S/88.html#L1310' title='Defined at 1310 in ovr/sdk/src/OVR_Stereo.cpp.'>CalculateFovFromEyePosition</a> ( <b>float</b> <a href='../Y/3169.html' title='Multiple used in 25 places.'>eyeReliefInMeters</a>,
+<a name='L368'> 368                                                   <b>float</b> <a href='../Y/3803.html' title='Multiple used in 10 places.'>offsetToRightInMeters</a>,
+<a name='L369'> 369                                                   <b>float</b> <a href='../Y/3802.html' title='Multiple used in 6 places.'>offsetDownwardsInMeters</a>,
+<a name='L370'> 370                                                   <b>float</b> <a href='../Y/3560.html' title='Multiple used in 3 places.'>lensDiameterInMeters</a>,
+<a name='L371'> 371                                                   <b>float</b> <a href='../Y/3153.html' title='Multiple used in 15 places.'>extraEyeRotationInRadians</a> = <a href='../Y/1496.html' title='Multiple used in 10 places.'>OVR_DEFAULT_EXTRA_EYE_ROTATION</a>);
+<a name='L372'> 372 
+<a name='L373'> 373 <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>             <a href='../S/88.html#L1364' title='Defined at 1364 in ovr/sdk/src/OVR_Stereo.cpp.'>CalculateFovFromHmdInfo</a> ( <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>,
+<a name='L374'> 374                                               <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L375'> 375                                               <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L376'> 376                                               <b>float</b> <a href='../Y/3153.html' title='Multiple used in 15 places.'>extraEyeRotationInRadians</a> = <a href='../Y/1496.html' title='Multiple used in 10 places.'>OVR_DEFAULT_EXTRA_EYE_ROTATION</a> );
+<a name='L377'> 377 
+<a name='L378'> 378 <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>             <a href='../S/88.html#L1403' title='Defined at 1403 in ovr/sdk/src/OVR_Stereo.cpp.'>GetPhysicalScreenFov</a> ( <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>, <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a> );
+<a name='L379'> 379 
+<a name='L380'> 380 <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>             <a href='../S/88.html#L1460' title='Defined at 1460 in ovr/sdk/src/OVR_Stereo.cpp.'>ClampToPhysicalScreenFov</a> ( <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>, <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L381'> 381                                                <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/3468.html' title='Multiple used in 6 places.'>inputFovPort</a> );
+<a name='L382'> 382 
+<a name='L383'> 383 <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a>               <a href='../S/88.html#L1473' title='Defined at 1473 in ovr/sdk/src/OVR_Stereo.cpp.'>CalculateIdealPixelSize</a> ( <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>, <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L384'> 384                                               <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a>, <b>float</b> <a href='../Y/4065.html' title='Multiple used in 13 places.'>pixelsPerDisplayPixel</a> );
+<a name='L385'> 385 
+<a name='L386'> 386 <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a>               <a href='../S/88.html#L1485' title='Defined at 1485 in ovr/sdk/src/OVR_Stereo.cpp.'>GetFramebufferViewport</a> ( <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>, <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a> );
+<a name='L387'> 387 
+<a name='L388'> 388 <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>            <a href='../S/88.html#L1543' title='Defined at 1543 in ovr/sdk/src/OVR_Stereo.cpp.'>CreateProjection</a> ( <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4312.html' title='Multiple used in 9 places.'>rightHanded</a>, <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a>,
+<a name='L389'> 389                                        <b>float</b> <a href='../Y/4894.html' title='Multiple used in 17 places.'>zNear</a> = 0.01f, <b>float</b> <a href='../Y/4893.html' title='Multiple used in 18 places.'>zFar</a> = 10000.0f );
+<a name='L390'> 390 
+<a name='L391'> 391 <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>            <a href='../S/88.html#L1588' title='Defined at 1588 in ovr/sdk/src/OVR_Stereo.cpp.'>CreateOrthoSubProjection</a> ( <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4312.html' title='Multiple used in 9 places.'>rightHanded</a>, <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>,
+<a name='L392'> 392                                                <b>float</b> <a href='../Y/4555.html' title='Multiple used in 3 places.'>tanHalfFovX</a>, <b>float</b> <a href='../Y/4556.html' title='Multiple used in 3 places.'>tanHalfFovY</a>,
+<a name='L393'> 393                                                <b>float</b> <a href='../Y/4724.html' title='Multiple used in 3 places.'>unitsX</a>, <b>float</b> <a href='../Y/4725.html' title='Multiple used in 3 places.'>unitsY</a>, <b>float</b> <a href='../Y/3044.html' title='Multiple used in 3 places.'>distanceFromCamera</a>,
+<a name='L394'> 394                                                <b>float</b> <a href='../Y/3484.html' title='Multiple used in 3 places.'>interpupillaryDistance</a>, <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <b>const</b> &amp;<a href='../Y/4142.html' title='Multiple used in 32 places.'>projection</a>,
+<a name='L395'> 395                                                <b>float</b> <a href='../Y/4894.html' title='Multiple used in 17 places.'>zNear</a> = 0.0f, <b>float</b> <a href='../Y/4893.html' title='Multiple used in 18 places.'>zFar</a> = 0.0f );
+<a name='L396'> 396 
+<a name='L397'> 397 <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a>    <a href='../S/88.html#L1500' title='Defined at 1500 in ovr/sdk/src/OVR_Stereo.cpp.'>CreateNDCScaleAndOffsetFromFov</a> ( <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a> );
+<a name='L398'> 398 
+<a name='L399'> 399 <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a>    <a href='../S/88.html#L1518' title='Defined at 1518 in ovr/sdk/src/OVR_Stereo.cpp.'>CreateUVScaleAndOffsetfromNDCScaleandOffset</a> ( <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a> <a href='../Y/4345.html' title='Multiple used in 4 places.'>scaleAndOffsetNDC</a>,
+<a name='L400'> 400                                                                   <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a> <a href='../Y/4275.html' title='Multiple used in 29 places.'>renderedViewport</a>,
+<a name='L401'> 401                                                                   <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <a href='../Y/4268.html' title='Multiple used in 8 places.'>renderTargetSize</a> );
+<a name='L402'> 402 
+<a name='L403'> 403 
+<a name='L404'> 404 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L405'> 405 <i><font color='green'>// ***** StereoEyeParams</font></i>
+<a name='L406'> 406 
+<a name='L407'> 407 <i><font color='green'>// StereoEyeParams describes RenderDevice configuration needed to render</font></i>
+<a name='L408'> 408 <i><font color='green'>// the scene for one eye. </font></i>
+<a name='L409'> 409 <b>struct</b> <a href='../R/1053.html' title='Multiple refered from 14 places.'>StereoEyeParams</a>
+<a name='L410'> 410 <font color='red'>{</font>
+<a name='L411'> 411     <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a>               <a href='../Y/540.html' title='Multiple used in 9 places.'>Eye</a>;
+<a name='L412'> 412     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>                <a href='../Y/2409.html' title='Multiple used in 4 places.'>ViewAdjust</a>;             <i><font color='green'>// Translation to be applied to view matrix.</font></i>
+<a name='L413'> 413 
+<a name='L414'> 414     <i><font color='green'>// Distortion and the VP on the physical display - the thing to run the distortion shader on.</font></i>
+<a name='L415'> 415     <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a>    <a href='../Y/425.html' title='Multiple used in 49 places.'>Distortion</a>;
+<a name='L416'> 416     <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a>                   <a href='../Y/454.html' title='Multiple used in 2 places.'>DistortionViewport</a>;
+<a name='L417'> 417 
+<a name='L418'> 418     <i><font color='green'>// Projection and VP of a particular view (you could have multiple of these).</font></i>
+<a name='L419'> 419     <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a>                   <a href='../Y/1861.html' title='Multiple used in 8 places.'>RenderedViewport</a>;       <i><font color='green'>// Viewport that we render the standard scene to.</font></i>
+<a name='L420'> 420     <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>                 <a href='../Y/626.html' title='Multiple used in 28 places.'>Fov</a>;                    <i><font color='green'>// The FOVs of this scene.</font></i>
+<a name='L421'> 421     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>                <a href='../Y/1860.html' title='Multiple used in 7 places.'>RenderedProjection</a>;     <i><font color='green'>// Projection matrix used with this eye.</font></i>
+<a name='L422'> 422     <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a>        <a href='../Y/567.html' title='Multiple used in 12 places.'>EyeToSourceNDC</a>;         <i><font color='green'>// Mapping from TanEyeAngle space to [-1,+1] on the rendered image.</font></i>
+<a name='L423'> 423     <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a>        <a href='../Y/568.html' title='Multiple used in 11 places.'>EyeToSourceUV</a>;          <i><font color='green'>// Mapping from TanEyeAngle space to actual texture UV coords.</font></i>
+<a name='L424'> 424 <font color='red'>}</font>;
+<a name='L425'> 425 
+<a name='L426'> 426 
+<a name='L427'> 427 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L428'> 428 <i><font color='green'>// A set of "forward-mapping" functions, mapping from framebuffer space to real-world and/or texture space.</font></i>
+<a name='L429'> 429 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1672' title='Defined at 1672 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformScreenNDCToTanFovSpace</a> ( <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L430'> 430                                            <b>const</b> <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> &amp;<a href='../Y/3259.html' title='Multiple used in 16 places.'>framebufferNDC</a> );
+<a name='L431'> 431 <b>void</b> <a href='../S/88.html#L1691' title='Defined at 1691 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformScreenNDCToTanFovSpaceChroma</a> ( <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> *<a href='../Y/4297.html' title='Multiple used in 3 places.'>resultR</a>, <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> *<a href='../Y/4295.html' title='Multiple used in 3 places.'>resultG</a>, <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> *<a href='../Y/4292.html' title='Multiple used in 3 places.'>resultB</a>, 
+<a name='L432'> 432                                              <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L433'> 433                                              <b>const</b> <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> &amp;<a href='../Y/3259.html' title='Multiple used in 16 places.'>framebufferNDC</a> );
+<a name='L434'> 434 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1709' title='Defined at 1709 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformTanFovSpaceToRendertargetTexUV</a> ( <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <b>const</b> &amp;<a href='../Y/3167.html' title='Multiple used in 14 places.'>eyeParams</a>,
+<a name='L435'> 435                                                    <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <b>const</b> &amp;<a href='../Y/4547.html' title='Multiple used in 31 places.'>tanEyeAngle</a> );
+<a name='L436'> 436 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1718' title='Defined at 1718 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformTanFovSpaceToRendertargetNDC</a> ( <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <b>const</b> &amp;<a href='../Y/3167.html' title='Multiple used in 14 places.'>eyeParams</a>,
+<a name='L437'> 437                                                  <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <b>const</b> &amp;<a href='../Y/4547.html' title='Multiple used in 31 places.'>tanEyeAngle</a> );
+<a name='L438'> 438 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1727' title='Defined at 1727 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformScreenPixelToScreenNDC</a>( <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a> <b>const</b> &amp;<a href='../Y/3058.html' title='Multiple used in 10 places.'>distortionViewport</a>,
+<a name='L439'> 439                                           <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <b>const</b> &amp;<a href='../Y/4057.html' title='Multiple used in 13 places.'>pixel</a> );
+<a name='L440'> 440 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1737' title='Defined at 1737 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformScreenPixelToTanFovSpace</a> ( <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a> <b>const</b> &amp;<a href='../Y/3058.html' title='Multiple used in 10 places.'>distortionViewport</a>,
+<a name='L441'> 441                                              <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L442'> 442                                              <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <b>const</b> &amp;<a href='../Y/4057.html' title='Multiple used in 13 places.'>pixel</a> );
+<a name='L443'> 443 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1745' title='Defined at 1745 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformScreenNDCToRendertargetTexUV</a>( <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L444'> 444                                                 <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <b>const</b> &amp;<a href='../Y/3167.html' title='Multiple used in 14 places.'>eyeParams</a>,
+<a name='L445'> 445                                                 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <b>const</b> &amp;<a href='../Y/4057.html' title='Multiple used in 13 places.'>pixel</a> );
+<a name='L446'> 446 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1753' title='Defined at 1753 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformScreenPixelToRendertargetTexUV</a>( <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a> <b>const</b> &amp;<a href='../Y/3058.html' title='Multiple used in 10 places.'>distortionViewport</a>,
+<a name='L447'> 447                                                   <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L448'> 448                                                   <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <b>const</b> &amp;<a href='../Y/3167.html' title='Multiple used in 14 places.'>eyeParams</a>,
+<a name='L449'> 449                                                   <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <b>const</b> &amp;<a href='../Y/4057.html' title='Multiple used in 13 places.'>pixel</a> );
+<a name='L450'> 450 
+<a name='L451'> 451 <i><font color='green'>// A set of "reverse-mapping" functions, mapping from real-world and/or texture space back to the framebuffer.</font></i>
+<a name='L452'> 452 <i><font color='green'>// Be aware that many of these are significantly slower than their forward-mapping counterparts.</font></i>
+<a name='L453'> 453 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1766' title='Defined at 1766 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformTanFovSpaceToScreenNDC</a>( <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> <b>const</b> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>,
+<a name='L454'> 454                                           <b>const</b> <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> &amp;<a href='../Y/4547.html' title='Multiple used in 31 places.'>tanEyeAngle</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4743.html' title='Multiple used in 3 places.'>usePolyApprox</a> = <a href='../Y/3198.html' title='Multiple used in 97 places.'>false</a> );
+<a name='L455'> 455 <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> <a href='../S/88.html#L1788' title='Defined at 1788 in ovr/sdk/src/OVR_Stereo.cpp.'>TransformRendertargetNDCToTanFovSpace</a>( <b>const</b> <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a> &amp;<a href='../Y/3174.html' title='Multiple used in 20 places.'>eyeToSourceNDC</a>,
+<a name='L456'> 456                                                 <b>const</b> <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a> &amp;<a href='../Y/4583.html' title='Multiple used in 7 places.'>textureNDC</a> );
+<a name='L457'> 457 
+<a name='L458'> 458 <font color='red'>}</font> <i><font color='green'>//namespace OVR</font></i>
+<a name='L459'> 459 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

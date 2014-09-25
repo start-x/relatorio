@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>handler</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L116'>handler</a>           116 ovr/sdk/src/OVR_Device.h     virtual void            AddMessageHandler(MessageHandler* handler);
+<a href='../S/191.html#L68'>handler</a>            68 ovr/sdk/src/OVR_DeviceImpl.cpp     static MessageHandlerImpl* FromHandler(MessageHandler* handler)
+<a href='../S/191.html#L69'>handler</a>            69 ovr/sdk/src/OVR_DeviceImpl.cpp     { return (MessageHandlerImpl*)&amp;handler-&gt;Internal; }
+<a href='../S/191.html#L70'>handler</a>            70 ovr/sdk/src/OVR_DeviceImpl.cpp     static const MessageHandlerImpl* FromHandler(const MessageHandler* handler)
+<a href='../S/191.html#L71'>handler</a>            71 ovr/sdk/src/OVR_DeviceImpl.cpp     { return (const MessageHandlerImpl*)&amp;handler-&gt;Internal; }
+<a href='../S/191.html#L107'>handler</a>           107 ovr/sdk/src/OVR_DeviceImpl.cpp void MessageHandlerRef::AddHandler(MessageHandler* handler)
+<a href='../S/191.html#L109'>handler</a>           109 ovr/sdk/src/OVR_DeviceImpl.cpp     OVR_ASSERT(!handler ||
+<a href='../S/191.html#L110'>handler</a>           110 ovr/sdk/src/OVR_DeviceImpl.cpp                MessageHandlerImpl::FromHandler(handler)-&gt;pLock == pLock);    
+<a href='../S/191.html#L112'>handler</a>           112 ovr/sdk/src/OVR_DeviceImpl.cpp     AddHandler_NTS(handler);
+<a href='../S/191.html#L115'>handler</a>           115 ovr/sdk/src/OVR_DeviceImpl.cpp void MessageHandlerRef::AddHandler_NTS(MessageHandler* handler)
+<a href='../S/191.html#L117'>handler</a>           117 ovr/sdk/src/OVR_DeviceImpl.cpp     OVR_ASSERT(handler != NULL);
+<a href='../S/191.html#L121'>handler</a>           121 ovr/sdk/src/OVR_DeviceImpl.cpp         if (pHandlers[i] == handler)
+<a href='../S/191.html#L124'>handler</a>           124 ovr/sdk/src/OVR_DeviceImpl.cpp     pHandlers[HandlersCount] = handler;
+<a href='../S/191.html#L127'>handler</a>           127 ovr/sdk/src/OVR_DeviceImpl.cpp     MessageHandlerImpl* handlerImpl = MessageHandlerImpl::FromHandler(handler);
+<a href='../S/191.html#L135'>handler</a>           135 ovr/sdk/src/OVR_DeviceImpl.cpp bool MessageHandlerRef::RemoveHandler(MessageHandler* handler)
+<a href='../S/191.html#L141'>handler</a>           141 ovr/sdk/src/OVR_DeviceImpl.cpp         if (pHandlers[i] == handler)
+<a href='../S/191.html#L241'>handler</a>           241 ovr/sdk/src/OVR_DeviceImpl.cpp void DeviceBase::AddMessageHandler(MessageHandler* handler)
+<a href='../S/191.html#L243'>handler</a>           243 ovr/sdk/src/OVR_DeviceImpl.cpp     getDeviceCommon()-&gt;HandlerRef.AddHandler(handler);
+<a href='../S/80.html#L65'>handler</a>            65 ovr/sdk/src/OVR_DeviceImpl.h     void            AddHandler(MessageHandler* handler);
+<a href='../S/80.html#L67'>handler</a>            67 ovr/sdk/src/OVR_DeviceImpl.h     bool            RemoveHandler(MessageHandler* handler);
+<a href='../S/80.html#L69'>handler</a>            69 ovr/sdk/src/OVR_DeviceImpl.h     void            AddHandler_NTS(MessageHandler* handler);
+<a href='../S/140.html#L145'>handler</a>           145 ovr/sdk/src/OVR_HIDDevice.h     void SetHandler(HIDHandler* handler)
+<a href='../S/140.html#L146'>handler</a>           146 ovr/sdk/src/OVR_HIDDevice.h     { Handler = handler; }
+<a href='../S/190.html#L611'>handler</a>           611 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::AddMessageHandler(MessageHandler* handler)
+<a href='../S/190.html#L613'>handler</a>           613 ovr/sdk/src/OVR_SensorImpl.cpp     if (handler)
+<a href='../S/190.html#L615'>handler</a>           615 ovr/sdk/src/OVR_SensorImpl.cpp     DeviceBase::AddMessageHandler(handler);
+<a href='../S/135.html#L199'>handler</a>           199 ovr/sdk/src/OVR_SensorImpl.h     virtual void AddMessageHandler(MessageHandler* handler);
+</pre>
+</body>
+</html>

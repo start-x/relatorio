@@ -1,0 +1,6 @@
+<map id="OVR::RefCountBaseV&lt; C &gt;" name="OVR::RefCountBaseV&lt; C &gt;">
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountBaseStatVImpl.html" title="{OVR::RefCountBaseStatVImpl\l\&lt; RefCountVImpl \&gt;\n||+ RefCountBaseStatVImpl()\l}" alt="" coords="107,350,309,442"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountVImpl.html" title="{OVR::RefCountVImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="15,193,163,285"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountBaseStatVImpl.html" title="{OVR::RefCountBaseStatVImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatVImpl()\l}" alt="" coords="188,193,391,285"/>
+</map>

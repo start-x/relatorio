@@ -1,0 +1,5 @@
+<map id="OVR::MessageCameraAdded" name="OVR::MessageCameraAdded">
+<area shape="rect" id="node2" href="$classOVR_1_1Message.html" title="{OVR::Message\n|+ Type\l|+ Message()\l}" alt="" coords="47,421,157,499"/>
+<area shape="rect" id="node3" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="21,133,184,357"/>
+<area shape="rect" id="node4" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="20,5,184,83"/>
+</map>

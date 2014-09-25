@@ -1,0 +1,850 @@
+<html>
+<head>
+<title>ovr/sdk/src/CAPI/CAPI_HMDState.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/219.html'>CAPI</a>/CAPI_HMDState.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L45'>[^]</a><a href='#L782'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L45' title='Defined at 45.'>LatencyTest2Active</a>
+<li><a href='#L74' title='Defined at 74.'>LastGetFrameTimeSeconds</a>
+<li><a href='#L114' title='Defined at 114.'>StartSensor</a>
+<li><a href='#L220' title='Defined at 220.'>StopSensor</a>
+<li><a href='#L250' title='Defined at 250.'>ResetSensor</a>
+<li><a href='#L257' title='Defined at 257.'>PredictedSensorState</a>
+<li><a href='#L308' title='Defined at 308.'>checkCreateSensor</a>
+<li><a href='#L353' title='Defined at 353.'>GetSensorDesc</a>
+<li><a href='#L372' title='Defined at 372.'>applyProfileToSensorFusion</a>
+<li><a href='#L385' title='Defined at 385.'>updateLowPersistenceMode</a>
+<li><a href='#L401' title='Defined at 401.'>updateLatencyTestForHmd</a>
+<li><a href='#L424' title='Defined at 424.'>updateDK2FeaturesTiedToSensor</a>
+<li><a href='#L448' title='Defined at 448.'>SetEnabledHmdCaps</a>
+<li><a href='#L485' title='Defined at 485.'>getFloatValue</a>
+<li><a href='#L506' title='Defined at 506.'>setFloatValue</a>
+<li><a href='#L517' title='Defined at 517.'>CopyFloatArrayWithLimit</a>
+<li><a href='#L527' title='Defined at 527.'>getFloatArray</a>
+<li><a href='#L579' title='Defined at 579.'>setFloatArray</a>
+<li><a href='#L593' title='Defined at 593.'>getString</a>
+<li><a href='#L613' title='Defined at 613.'>ProcessLatencyTest</a>
+<li><a href='#L655' title='Defined at 655.'>ProcessLatencyTest2</a>
+<li><a href='#L701' title='Defined at 701.'>ConfigureRendering</a>
+<li><a href='#L758' title='Defined at 758.'>BeginEyeRender</a>
+<li><a href='#L782' title='Defined at 782.'>EndEyeRender</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   CAPI_HMDState.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   State associated with a single HMD</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   January 24, 2014</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Michael Antonov</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='101.html'>CAPI_HMDState.h</a>"
+<a name='L28'>  28 <font color='darkred'>#include</font> "<a href='96.html'>CAPI_GlobalState.h</a>"
+<a name='L29'>  29 <font color='darkred'>#include</font> "<a href='133.html'>../OVR_Profile.h</a>"
+<a name='L30'>  30 
+<a name='L31'>  31 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font> <b>namespace</b> <a href='../R/79.html' title='Multiple refered from 33 places.'>CAPI</a> <font color='red'>{</font>
+<a name='L32'>  32 
+<a name='L33'>  33 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L34'>  34 <i><font color='green'>// ***** HMDState</font></i>
+<a name='L35'>  35 
+<a name='L36'>  36 
+<a name='L37'>  37 <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>(<a href='../Y/872.html' title='Multiple used in 2 places.'>HMDDevice</a>* <a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a>)
+<a name='L38'>  38     : <a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>(<a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a>), <a href='../Y/876.html' title='Multiple used in 5 places.'>HMDInfoW</a>(<a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a>), <a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>(HMDInfoW.<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>),    
+<a name='L39'>  39       EnabledHmdCaps(0), HmdCapsAppliedToSensor(0),
+<a name='L40'>  40       SensorStarted(0), SensorCreated(0), SensorCaps(0),
+<a name='L41'>  41       AddSensorCount(0), AddLatencyTestCount(0), AddLatencyTestDisplayCount(0),
+<a name='L42'>  42       RenderState(<a href='../Y/3294.html' title='Multiple used in 10 places.'>getThis</a>(), <a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>-&gt;GetProfile(), <a href='../Y/876.html' title='Multiple used in 5 places.'>HMDInfoW</a>.<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>),
+<a name='L43'>  43       LastFrameTimeSeconds(0.0f), <a href='../S/97.html#L74' title='Defined at 74 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>LastGetFrameTimeSeconds</a>(0.0),
+<a name='L44'>  44       LatencyTestActive(<b>false</b>),
+<a name='L45'>  45       <a href='../R/509.html' title='Multiple refered from 3 places.'>LatencyTest2Active</a>(<b>false</b>)
+<a name='L46'>  46 <font color='red'>{</font>
+<a name='L47'>  47     <a href='../Y/3950.html' title='Multiple used in 8 places.'>pLastError</a> = 0;
+<a name='L48'>  48     <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a>-&gt;<a href='../S/95.html#L98' title='Defined at 98 in ovr/sdk/src/CAPI/CAPI_GlobalState.cpp.'>AddHMD</a>(<b>this</b>);
+<a name='L49'>  49     
+<a name='L50'>  50     <i><font color='green'>// Should be in renderer?</font></i>
+<a name='L51'>  51     <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>.<a href='../D/468.html' title='Multiple defined in 3 places.'>Init</a>(<a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>);
+<a name='L52'>  52 
+<a name='L53'>  53     <a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[0] = <b>false</b>;
+<a name='L54'>  54     <a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[1] = <b>false</b>;
+<a name='L55'>  55 
+<a name='L56'>  56     <a href='../Y/1242.html' title='Multiple used in 9 places.'>LatencyTestDrawColor</a>[0] = 0;
+<a name='L57'>  57     <a href='../Y/1242.html' title='Multiple used in 9 places.'>LatencyTestDrawColor</a>[1] = 0;
+<a name='L58'>  58     <a href='../Y/1242.html' title='Multiple used in 9 places.'>LatencyTestDrawColor</a>[2] = 0;
+<a name='L59'>  59 
+<a name='L60'>  60     <a href='../D/681.html' title='Multiple defined in 2 places.'>OVR_CAPI_VISION_CODE</a>( <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> = 0; )
+<a name='L61'>  61 
+<a name='L62'>  62     <a href='../Y/1862.html' title='Multiple used in 9 places.'>RenderingConfigured</a> = <b>false</b>;
+<a name='L63'>  63     <a href='../Y/123.html' title='Multiple used in 7 places.'>BeginFrameCalled</a>    = <b>false</b>;
+<a name='L64'>  64     <a href='../Y/124.html' title='Multiple used in 6 places.'>BeginFrameThreadId</a>  = 0;
+<a name='L65'>  65     <a href='../Y/125.html' title='Multiple used in 7 places.'>BeginFrameTimingCalled</a> = <b>false</b>;
+<a name='L66'>  66 <font color='red'>}</font>
+<a name='L67'>  67 
+<a name='L68'>  68 <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>(ovrHmdType <a href='../Y/3421.html' title='Multiple used in 31 places.'>hmdType</a>)
+<a name='L69'>  69   : <a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>(0), <a href='../Y/876.html' title='Multiple used in 5 places.'>HMDInfoW</a>(<a href='../Y/3421.html' title='Multiple used in 31 places.'>hmdType</a>), <a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>(HMDInfoW.<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>),
+<a name='L70'>  70     EnabledHmdCaps(0),
+<a name='L71'>  71     SensorStarted(0), SensorCreated(0), SensorCaps(0),
+<a name='L72'>  72     AddSensorCount(0), AddLatencyTestCount(0), AddLatencyTestDisplayCount(0),
+<a name='L73'>  73     RenderState(<a href='../Y/3294.html' title='Multiple used in 10 places.'>getThis</a>(), 0, <a href='../Y/876.html' title='Multiple used in 5 places.'>HMDInfoW</a>.<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>), <i><font color='green'>// No profile. </font></i>
+<a name='L74'>  74     LastFrameTimeSeconds(0.0), <a href='../R/506.html' title='Multiple refered from 5 places.'>LastGetFrameTimeSeconds</a>(0.0)
+<a name='L75'>  75 <font color='red'>{</font>
+<a name='L76'>  76     <i><font color='green'>// TBD: We should probably be looking up the default profile for the given</font></i>
+<a name='L77'>  77     <i><font color='green'>// device type + user.</font></i>
+<a name='L78'>  78 
+<a name='L79'>  79     <a href='../Y/3950.html' title='Multiple used in 8 places.'>pLastError</a> = 0;
+<a name='L80'>  80     <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a>-&gt;<a href='../S/95.html#L98' title='Defined at 98 in ovr/sdk/src/CAPI/CAPI_GlobalState.cpp.'>AddHMD</a>(<b>this</b>);
+<a name='L81'>  81 
+<a name='L82'>  82     <i><font color='green'>// Should be in renderer?</font></i>
+<a name='L83'>  83     <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>.<a href='../D/468.html' title='Multiple defined in 3 places.'>Init</a>(<a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>);
+<a name='L84'>  84 
+<a name='L85'>  85     <a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[0] = <b>false</b>;
+<a name='L86'>  86     <a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[1] = <b>false</b>;
+<a name='L87'>  87 
+<a name='L88'>  88     <a href='../D/681.html' title='Multiple defined in 2 places.'>OVR_CAPI_VISION_CODE</a>( <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> = 0; )
+<a name='L89'>  89 
+<a name='L90'>  90     <a href='../Y/1862.html' title='Multiple used in 9 places.'>RenderingConfigured</a> = <b>false</b>;
+<a name='L91'>  91     <a href='../Y/123.html' title='Multiple used in 7 places.'>BeginFrameCalled</a>   = <b>false</b>;
+<a name='L92'>  92     <a href='../Y/124.html' title='Multiple used in 6 places.'>BeginFrameThreadId</a> = 0;
+<a name='L93'>  93     <a href='../Y/125.html' title='Multiple used in 7 places.'>BeginFrameTimingCalled</a> = <b>false</b>;
+<a name='L94'>  94 <font color='red'>}</font>
+<a name='L95'>  95 
+<a name='L96'>  96 
+<a name='L97'>  97 <a href='../R/428.html' title='Multiple refered from 71 places.'>HMDState</a>::~<a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>()
+<a name='L98'>  98 <font color='red'>{</font>
+<a name='L99'>  99     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a>);
+<a name='L100'> 100    
+<a name='L101'> 101     <a href='../S/97.html#L220' title='Defined at 220 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>StopSensor</a>();
+<a name='L102'> 102     <a href='../S/97.html#L701' title='Defined at 701 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>ConfigureRendering</a>(0,0,0,0);
+<a name='L103'> 103 
+<a name='L104'> 104     <a href='../D/681.html' title='Multiple defined in 2 places.'>OVR_CAPI_VISION_CODE</a>( <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> == 0); )
+<a name='L105'> 105 
+<a name='L106'> 106     <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a>-&gt;<a href='../S/95.html#L103' title='Defined at 103 in ovr/sdk/src/CAPI/CAPI_GlobalState.cpp.'>RemoveHMD</a>(<b>this</b>);
+<a name='L107'> 107 <font color='red'>}</font>
+<a name='L108'> 108 
+<a name='L109'> 109 
+<a name='L110'> 110 
+<a name='L111'> 111 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L112'> 112 <i><font color='green'>// *** Sensor </font></i>
+<a name='L113'> 113 
+<a name='L114'> 114 <b>bool</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1051.html' title='Multiple refered from 2 places.'>StartSensor</a>(<b>unsigned</b> <a href='../Y/4515.html' title='Multiple used in 8 places.'>supportedCaps</a>, <b>unsigned</b> <a href='../Y/4284.html' title='Multiple used in 8 places.'>requiredCaps</a>)
+<a name='L115'> 115 <font color='red'>{</font>
+<a name='L116'> 116     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3585.html' title='Multiple used in 26 places.'>lockScope</a>(&amp;<a href='../Y/413.html' title='Multiple used in 7 places.'>DevicesLock</a>);
+<a name='L117'> 117 
+<a name='L118'> 118     <b>bool</b> <a href='../Y/2931.html' title='Multiple used in 3 places.'>crystalCoveOrBetter</a> = (<a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/934.html' title='Multiple used in 18 places.'>HmdType</a> == <a href='../Y/936.html' title='Multiple used in 10 places.'>HmdType_CrystalCoveProto</a>) ||
+<a name='L119'> 119                                (<a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/934.html' title='Multiple used in 18 places.'>HmdType</a> == <a href='../Y/938.html' title='Multiple used in 14 places.'>HmdType_DK2</a>);
+<a name='L120'> 120     <b>bool</b> <a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a> = <b>false</b>;
+<a name='L121'> 121 
+<a name='L122'> 122     <i><font color='green'>// TBD: In case of sensor not being immediately available, it would be good to check</font></i>
+<a name='L123'> 123     <i><font color='green'>//      yaw config availability to match it with ovrHmdCap_YawCorrection requirement.</font></i>
+<a name='L124'> 124     <i><font color='green'>// </font></i>
+<a name='L125'> 125 
+<a name='L126'> 126     <b>if</b> (!<a href='../Y/2931.html' title='Multiple used in 3 places.'>crystalCoveOrBetter</a>)
+<a name='L127'> 127     <font color='red'>{</font>
+<a name='L128'> 128         <b>if</b> (<a href='../Y/4284.html' title='Multiple used in 8 places.'>requiredCaps</a> &amp; <a href='../S/187.html#L160' title='Defined at 160 in ovr/sdk/src/OVR_CAPI.h.'>ovrSensorCap_Position</a>)
+<a name='L129'> 129         <font color='red'>{</font>
+<a name='L130'> 130             <a href='../Y/3950.html' title='Multiple used in 8 places.'>pLastError</a> = "ovrSensorCap_Position not supported on this HMD.";
+<a name='L131'> 131             <b>return</b> <b>false</b>;            
+<a name='L132'> 132         <font color='red'>}</font>
+<a name='L133'> 133     <font color='red'>}</font>
+<a name='L134'> 134 
+<a name='L135'> 135     <a href='../Y/4515.html' title='Multiple used in 8 places.'>supportedCaps</a> |= <a href='../Y/4284.html' title='Multiple used in 8 places.'>requiredCaps</a>;
+<a name='L136'> 136 
+<a name='L137'> 137     <b>if</b> (<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a> &amp;&amp; !<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>)
+<a name='L138'> 138     <font color='red'>{</font>
+<a name='L139'> 139         <i><font color='green'>// Zero AddSensorCount before creation, in case it fails (or succeeds but then</font></i>
+<a name='L140'> 140         <i><font color='green'>// immediately gets disconnected) followed by another Add notification.        </font></i>
+<a name='L141'> 141         <a href='../Y/43.html' title='Multiple used in 7 places.'>AddSensorCount</a>      = 0;
+<a name='L142'> 142         <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>             = *<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>-&gt;<a href='../S/129.html#L350' title='Defined at 350 in ovr/sdk/src/OVR_Common_HMDDevice.cpp.'>GetSensor</a>();
+<a name='L143'> 143         <a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a>= <b>true</b>;
+<a name='L144'> 144 
+<a name='L145'> 145         <b>if</b> (<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>)
+<a name='L146'> 146         <font color='red'>{</font>
+<a name='L147'> 147             <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/190.html#L527' title='Defined at 527 in ovr/sdk/src/OVR_SensorImpl.cpp.'>SetReportRate</a>(500);
+<a name='L148'> 148             <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L77' title='Defined at 77 in ovr/sdk/src/OVR_SensorFusion.cpp.'>AttachToSensor</a>(<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>);
+<a name='L149'> 149             <a href='../S/97.html#L372' title='Defined at 372 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>applyProfileToSensorFusion</a>();
+<a name='L150'> 150         <font color='red'>}</font>
+<a name='L151'> 151         <b>else</b>
+<a name='L152'> 152         <font color='red'>{</font>
+<a name='L153'> 153             <b>if</b> (<a href='../Y/4284.html' title='Multiple used in 8 places.'>requiredCaps</a> &amp; <a href='../S/187.html#L158' title='Defined at 158 in ovr/sdk/src/OVR_CAPI.h.'>ovrSensorCap_Orientation</a>)
+<a name='L154'> 154             <font color='red'>{</font>
+<a name='L155'> 155                 <a href='../Y/3950.html' title='Multiple used in 8 places.'>pLastError</a> = "Failed to create sensor.";
+<a name='L156'> 156                 <b>return</b> <b>false</b>;
+<a name='L157'> 157             <font color='red'>}</font>
+<a name='L158'> 158         <font color='red'>}</font>
+<a name='L159'> 159     <font color='red'>}</font>
+<a name='L160'> 160 
+<a name='L161'> 161 
+<a name='L162'> 162     <b>if</b> ((<a href='../Y/4284.html' title='Multiple used in 8 places.'>requiredCaps</a> &amp; <a href='../S/187.html#L159' title='Defined at 159 in ovr/sdk/src/OVR_CAPI.h.'>ovrSensorCap_YawCorrection</a>) &amp;&amp; !<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/190.html#L579' title='Defined at 579 in ovr/sdk/src/OVR_SensorImpl.cpp.'>IsMagCalibrated</a>())
+<a name='L163'> 163     <font color='red'>{</font>
+<a name='L164'> 164         <a href='../Y/3950.html' title='Multiple used in 8 places.'>pLastError</a> = "ovrHmdCap_YawCorrection not available.";
+<a name='L165'> 165         <b>if</b> (<a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a>)
+<a name='L166'> 166         <font color='red'>{</font>
+<a name='L167'> 167             <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L77' title='Defined at 77 in ovr/sdk/src/OVR_SensorFusion.cpp.'>AttachToSensor</a>(0);
+<a name='L168'> 168             <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../D/965.html' title='Multiple defined in 4 places.'>Reset</a>();
+<a name='L169'> 169             <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L170'> 170         <font color='red'>}</font>
+<a name='L171'> 171         <b>return</b> <b>false</b>;
+<a name='L172'> 172     <font color='red'>}</font>        
+<a name='L173'> 173 
+<a name='L174'> 174     <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../Y/2074.html' title='Multiple used in 4 places.'>SetYawCorrectionEnabled</a>((<a href='../Y/4515.html' title='Multiple used in 8 places.'>supportedCaps</a> &amp; <a href='../S/187.html#L159' title='Defined at 159 in ovr/sdk/src/OVR_CAPI.h.'>ovrSensorCap_YawCorrection</a>) != 0);
+<a name='L175'> 175 
+<a name='L176'> 176     <b>if</b> (<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a> &amp;&amp; <a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a>)
+<a name='L177'> 177     <font color='red'>{</font>
+<a name='L178'> 178         <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("Sensor created.\n");
+<a name='L179'> 179         <a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a> = <b>true</b>;
+<a name='L180'> 180     <font color='red'>}</font>
+<a name='L181'> 181 
+<a name='L182'> 182     <a href='../S/97.html#L424' title='Defined at 424 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>updateDK2FeaturesTiedToSensor</a>(<a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a>);    
+<a name='L183'> 183     
+<a name='L184'> 184 
+<a name='L185'> 185 <font color='darkred'>#ifdef</font> <a href='../Y/1493.html' title='Multiple used in 5 places.'>OVR_CAPI_VISIONSUPPORT</a>
+<a name='L186'> 186 
+<a name='L187'> 187     <b>if</b> (<a href='../Y/2931.html' title='Multiple used in 3 places.'>crystalCoveOrBetter</a> &amp;&amp; (<a href='../Y/4515.html' title='Multiple used in 8 places.'>supportedCaps</a> &amp; <a href='../S/187.html#L160' title='Defined at 160 in ovr/sdk/src/OVR_CAPI.h.'>ovrSensorCap_Position</a>))
+<a name='L188'> 188     <font color='red'>{</font>
+<a name='L189'> 189         <b>if</b> (!<a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>)
+<a name='L190'> 190         <font color='red'>{</font>
+<a name='L191'> 191             <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> = <b>new</b> Vision::<a href='../Y/1685.html' title='Multiple used in 3 places.'>PoseTracker</a>(<a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>);
+<a name='L192'> 192             <b>if</b> (<a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>)
+<a name='L193'> 193             <font color='red'>{</font>
+<a name='L194'> 194                 <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>-&gt;<a href='../Y/74.html' title='Multiple used in 2 places.'>AssociateHMD</a>(<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>);
+<a name='L195'> 195                 <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("Sensor Pose tracker created.\n");
+<a name='L196'> 196             <font color='red'>}</font>
+<a name='L197'> 197         <font color='red'>}</font>
+<a name='L198'> 198 
+<a name='L199'> 199         <i><font color='green'>// TBD: How do we verify that position tracking is actually available</font></i>
+<a name='L200'> 200         <i><font color='green'>//      i.e. camera is plugged in?</font></i>
+<a name='L201'> 201     <font color='red'>}</font>
+<a name='L202'> 202     <b>else</b> <b>if</b> (<a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>)
+<a name='L203'> 203     <font color='red'>{</font>
+<a name='L204'> 204         <i><font color='green'>// TBD: Internals not thread safe - must fix!!</font></i>
+<a name='L205'> 205         <b>delete</b> <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>;
+<a name='L206'> 206         <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> = 0;
+<a name='L207'> 207         <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("Sensor Pose tracker destroyed.\n");
+<a name='L208'> 208     <font color='red'>}</font>
+<a name='L209'> 209 
+<a name='L210'> 210 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_CAPI_VISIONSUPPORT</font></i>
+<a name='L211'> 211 
+<a name='L212'> 212     <a href='../Y/1987.html' title='Multiple used in 9 places.'>SensorCaps</a>    = <a href='../Y/4515.html' title='Multiple used in 8 places.'>supportedCaps</a>;
+<a name='L213'> 213     <a href='../Y/2003.html' title='Multiple used in 6 places.'>SensorStarted</a> = <b>true</b>;
+<a name='L214'> 214 
+<a name='L215'> 215     <b>return</b> <b>true</b>;
+<a name='L216'> 216 <font color='red'>}</font>
+<a name='L217'> 217 
+<a name='L218'> 218 
+<a name='L219'> 219 <i><font color='green'>// Stops sensor sampling, shutting down internal resources.</font></i>
+<a name='L220'> 220 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1057.html' title='Multiple refered from 3 places.'>StopSensor</a>()
+<a name='L221'> 221 <font color='red'>{</font>
+<a name='L222'> 222     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3585.html' title='Multiple used in 26 places.'>lockScope</a>(&amp;<a href='../Y/413.html' title='Multiple used in 7 places.'>DevicesLock</a>);
+<a name='L223'> 223 
+<a name='L224'> 224     <b>if</b> (<a href='../Y/2003.html' title='Multiple used in 6 places.'>SensorStarted</a>)
+<a name='L225'> 225     <font color='red'>{</font>
+<a name='L226'> 226 <font color='darkred'>#ifdef</font> <a href='../Y/1493.html' title='Multiple used in 5 places.'>OVR_CAPI_VISIONSUPPORT</a>
+<a name='L227'> 227         <b>if</b> (<a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>)
+<a name='L228'> 228         <font color='red'>{</font>
+<a name='L229'> 229             <i><font color='green'>// TBD: Internals not thread safe - must fix!!</font></i>
+<a name='L230'> 230             <b>delete</b> <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>;
+<a name='L231'> 231             <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> = 0;
+<a name='L232'> 232             <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("Sensor Pose tracker destroyed.\n");
+<a name='L233'> 233         <font color='red'>}</font>        
+<a name='L234'> 234 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_CAPI_VISION_CODE</font></i>
+<a name='L235'> 235 
+<a name='L236'> 236         <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L77' title='Defined at 77 in ovr/sdk/src/OVR_SensorFusion.cpp.'>AttachToSensor</a>(0);
+<a name='L237'> 237         <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../D/965.html' title='Multiple defined in 4 places.'>Reset</a>();
+<a name='L238'> 238         <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L239'> 239         <a href='../Y/925.html' title='Multiple used in 6 places.'>HmdCapsAppliedToSensor</a> = 0;
+<a name='L240'> 240         <a href='../Y/43.html' title='Multiple used in 7 places.'>AddSensorCount</a> = 0;
+<a name='L241'> 241         <a href='../Y/1987.html' title='Multiple used in 9 places.'>SensorCaps</a>     = 0;
+<a name='L242'> 242         <a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a>  = <b>false</b>;
+<a name='L243'> 243         <a href='../Y/2003.html' title='Multiple used in 6 places.'>SensorStarted</a>  = <b>false</b>;
+<a name='L244'> 244 
+<a name='L245'> 245         <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("StopSensor succeeded.\n");
+<a name='L246'> 246     <font color='red'>}</font>
+<a name='L247'> 247 <font color='red'>}</font>
+<a name='L248'> 248 
+<a name='L249'> 249 <i><font color='green'>// Resets sensor orientation.</font></i>
+<a name='L250'> 250 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/908.html' title='Multiple refered from 2 places.'>ResetSensor</a>()
+<a name='L251'> 251 <font color='red'>{</font>
+<a name='L252'> 252     <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../D/965.html' title='Multiple defined in 4 places.'>Reset</a>();
+<a name='L253'> 253 <font color='red'>}</font>
+<a name='L254'> 254 
+<a name='L255'> 255 
+<a name='L256'> 256 <i><font color='green'>// Returns prediction for time.</font></i>
+<a name='L257'> 257 <a href='../D/1503.html' title='Multiple defined in 2 places.'>ovrSensorState</a> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/835.html' title='Multiple refered from 2 places.'>PredictedSensorState</a>(<b>double</b> <a href='../Y/2672.html' title='Multiple used in 15 places.'>absTime</a>)
+<a name='L258'> 258 <font color='red'>{</font>    
+<a name='L259'> 259     <a href='../S/142.html#L74' title='Defined at 74 in ovr/sdk/src/OVR_CAPI.cpp.'>SensorState</a> <a href='../Y/4447.html' title='Multiple used in 22 places.'>ss</a>;
+<a name='L260'> 260 
+<a name='L261'> 261     <i><font color='green'>// We are trying to keep this path lockless unless we are notified of new device</font></i>
+<a name='L262'> 262     <i><font color='green'>// creation while not having a sensor yet. It's ok to check SensorCreated volatile</font></i>
+<a name='L263'> 263     <i><font color='green'>// flag here, since GetSensorStateAtTime() is internally lockless and safe.</font></i>
+<a name='L264'> 264 
+<a name='L265'> 265     <b>if</b> (<a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a> || <a href='../S/97.html#L308' title='Defined at 308 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>checkCreateSensor</a>())
+<a name='L266'> 266     <font color='red'>{</font>   
+<a name='L267'> 267         <a href='../Y/4447.html' title='Multiple used in 22 places.'>ss</a> = <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L859' title='Defined at 859 in ovr/sdk/src/OVR_SensorFusion.cpp.'>GetSensorStateAtTime</a>(<a href='../Y/2672.html' title='Multiple used in 15 places.'>absTime</a>);
+<a name='L268'> 268 
+<a name='L269'> 269         <b>if</b> (!(<a href='../Y/4447.html' title='Multiple used in 22 places.'>ss</a>.<a href='../Y/2131.html' title='Multiple used in 17 places.'>StatusFlags</a> &amp; <a href='../S/187.html#L244' title='Defined at 244 in ovr/sdk/src/OVR_CAPI.h.'>ovrStatus_OrientationTracked</a>))
+<a name='L270'> 270         <font color='red'>{</font>
+<a name='L271'> 271             <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3585.html' title='Multiple used in 26 places.'>lockScope</a>(&amp;<a href='../Y/413.html' title='Multiple used in 7 places.'>DevicesLock</a>);
+<a name='L272'> 272 
+<a name='L273'> 273 <font color='darkred'>#ifdef</font> <a href='../Y/1493.html' title='Multiple used in 5 places.'>OVR_CAPI_VISIONSUPPORT</a>
+<a name='L274'> 274             <b>if</b> (<a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>)
+<a name='L275'> 275             <font color='red'>{</font>
+<a name='L276'> 276                 <i><font color='green'>// TBD: Internals not thread safe - must fix!!</font></i>
+<a name='L277'> 277                 <b>delete</b> <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>;
+<a name='L278'> 278                 <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> = 0;
+<a name='L279'> 279                 <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("Sensor Pose tracker destroyed.\n");
+<a name='L280'> 280             <font color='red'>}</font>        
+<a name='L281'> 281 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_CAPI_VISION_CODE</font></i>
+<a name='L282'> 282             <i><font color='green'>// Not needed yet; SFusion.AttachToSensor(0);</font></i>
+<a name='L283'> 283             <i><font color='green'>// This seems to reset orientation anyway...</font></i>
+<a name='L284'> 284             <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L285'> 285             <a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a> = <b>false</b>;         
+<a name='L286'> 286             <a href='../Y/925.html' title='Multiple used in 6 places.'>HmdCapsAppliedToSensor</a> = 0;
+<a name='L287'> 287         <font color='red'>}</font>
+<a name='L288'> 288     <font color='red'>}</font>
+<a name='L289'> 289     <b>else</b>
+<a name='L290'> 290     <font color='red'>{</font>
+<a name='L291'> 291         <i><font color='green'>// SensorState() defaults to 0s.</font></i>
+<a name='L292'> 292         <i><font color='green'>// ss.Pose.Orientation       = Quatf();</font></i>
+<a name='L293'> 293         <i><font color='green'>// ..</font></i>
+<a name='L294'> 294 
+<a name='L295'> 295         <i><font color='green'>// John:</font></i>
+<a name='L296'> 296         <i><font color='green'>// We still want valid times so frames will get a delta-time</font></i>
+<a name='L297'> 297         <i><font color='green'>// and allow operation with a joypad when the sensor isn't</font></i>
+<a name='L298'> 298         <i><font color='green'>// connected.</font></i>
+<a name='L299'> 299         <a href='../Y/4447.html' title='Multiple used in 22 places.'>ss</a>.<a href='../Y/1818.html' title='Multiple used in 10 places.'>Recorded</a>.<a href='../Y/2254.html' title='Multiple used in 24 places.'>TimeInSeconds</a>  = <a href='../Y/2672.html' title='Multiple used in 15 places.'>absTime</a>;
+<a name='L300'> 300         <a href='../Y/4447.html' title='Multiple used in 22 places.'>ss</a>.<a href='../Y/1693.html' title='Multiple used in 13 places.'>Predicted</a>.<a href='../Y/2254.html' title='Multiple used in 24 places.'>TimeInSeconds</a> = <a href='../Y/2672.html' title='Multiple used in 15 places.'>absTime</a>;
+<a name='L301'> 301     <font color='red'>}</font>
+<a name='L302'> 302 
+<a name='L303'> 303     <a href='../Y/4447.html' title='Multiple used in 22 places.'>ss</a>.<a href='../Y/2131.html' title='Multiple used in 17 places.'>StatusFlags</a> |= <a href='../S/187.html#L247' title='Defined at 247 in ovr/sdk/src/OVR_CAPI.h.'>ovrStatus_HmdConnected</a>;
+<a name='L304'> 304     <b>return</b> <a href='../Y/4447.html' title='Multiple used in 22 places.'>ss</a>;
+<a name='L305'> 305 <font color='red'>}</font>
+<a name='L306'> 306 
+<a name='L307'> 307 
+<a name='L308'> 308 <b>bool</b>  <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1244.html' title='Multiple refered from 2 places.'>checkCreateSensor</a>()
+<a name='L309'> 309 <font color='red'>{</font>
+<a name='L310'> 310     <b>if</b> (!(<a href='../Y/2003.html' title='Multiple used in 6 places.'>SensorStarted</a> &amp;&amp; !<a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a> &amp;&amp; <a href='../Y/43.html' title='Multiple used in 7 places.'>AddSensorCount</a>))
+<a name='L311'> 311         <b>return</b> <b>false</b>;
+<a name='L312'> 312 
+<a name='L313'> 313     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3585.html' title='Multiple used in 26 places.'>lockScope</a>(&amp;<a href='../Y/413.html' title='Multiple used in 7 places.'>DevicesLock</a>);
+<a name='L314'> 314 
+<a name='L315'> 315     <i><font color='green'>// Re-check condition once in the lock, in case the state changed.</font></i>
+<a name='L316'> 316     <b>if</b> (<a href='../Y/2003.html' title='Multiple used in 6 places.'>SensorStarted</a> &amp;&amp; !<a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a> &amp;&amp; <a href='../Y/43.html' title='Multiple used in 7 places.'>AddSensorCount</a>)
+<a name='L317'> 317     <font color='red'>{</font>        
+<a name='L318'> 318         <b>if</b> (<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>)
+<a name='L319'> 319         <font color='red'>{</font>
+<a name='L320'> 320             <a href='../Y/43.html' title='Multiple used in 7 places.'>AddSensorCount</a> = 0;
+<a name='L321'> 321             <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>        = *<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>-&gt;<a href='../S/129.html#L350' title='Defined at 350 in ovr/sdk/src/OVR_Common_HMDDevice.cpp.'>GetSensor</a>();
+<a name='L322'> 322         <font color='red'>}</font>
+<a name='L323'> 323 
+<a name='L324'> 324         <b>if</b> (<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>)
+<a name='L325'> 325         <font color='red'>{</font>
+<a name='L326'> 326             <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/190.html#L527' title='Defined at 527 in ovr/sdk/src/OVR_SensorImpl.cpp.'>SetReportRate</a>(500);
+<a name='L327'> 327             <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L77' title='Defined at 77 in ovr/sdk/src/OVR_SensorFusion.cpp.'>AttachToSensor</a>(<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>);
+<a name='L328'> 328             <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../Y/2074.html' title='Multiple used in 4 places.'>SetYawCorrectionEnabled</a>((<a href='../Y/1987.html' title='Multiple used in 9 places.'>SensorCaps</a> &amp; <a href='../S/187.html#L159' title='Defined at 159 in ovr/sdk/src/OVR_CAPI.h.'>ovrSensorCap_YawCorrection</a>) != 0);
+<a name='L329'> 329             <a href='../S/97.html#L372' title='Defined at 372 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>applyProfileToSensorFusion</a>();
+<a name='L330'> 330 
+<a name='L331'> 331 <font color='darkred'>#ifdef</font> <a href='../Y/1493.html' title='Multiple used in 5 places.'>OVR_CAPI_VISIONSUPPORT</a>
+<a name='L332'> 332             <b>if</b> (<a href='../Y/1987.html' title='Multiple used in 9 places.'>SensorCaps</a> &amp; <a href='../S/187.html#L160' title='Defined at 160 in ovr/sdk/src/OVR_CAPI.h.'>ovrSensorCap_Position</a>)
+<a name='L333'> 333             <font color='red'>{</font>
+<a name='L334'> 334                 <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a> = <b>new</b> Vision::<a href='../Y/1685.html' title='Multiple used in 3 places.'>PoseTracker</a>(<a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>);
+<a name='L335'> 335                 <b>if</b> (<a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>)
+<a name='L336'> 336                 <font color='red'>{</font>
+<a name='L337'> 337                     <a href='../Y/3971.html' title='Multiple used in 20 places.'>pPoseTracker</a>-&gt;<a href='../Y/74.html' title='Multiple used in 2 places.'>AssociateHMD</a>(<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>);
+<a name='L338'> 338                 <font color='red'>}</font>
+<a name='L339'> 339                 <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("Sensor Pose tracker created.\n");
+<a name='L340'> 340             <font color='red'>}</font>
+<a name='L341'> 341 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_CAPI_VISION_CODE</font></i>
+<a name='L342'> 342 
+<a name='L343'> 343             <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("Sensor created.\n");
+<a name='L344'> 344 
+<a name='L345'> 345             <a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a> = <b>true</b>;
+<a name='L346'> 346             <b>return</b> <b>true</b>;
+<a name='L347'> 347         <font color='red'>}</font>
+<a name='L348'> 348     <font color='red'>}</font>
+<a name='L349'> 349 
+<a name='L350'> 350     <b>return</b> <a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a>;
+<a name='L351'> 351 <font color='red'>}</font>
+<a name='L352'> 352 
+<a name='L353'> 353 <b>bool</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/379.html' title='Multiple refered from 2 places.'>GetSensorDesc</a>(ovrSensorDesc* <a href='../Y/2983.html' title='Multiple used in 9 places.'>descOut</a>)
+<a name='L354'> 354 <font color='red'>{</font>
+<a name='L355'> 355     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3585.html' title='Multiple used in 26 places.'>lockScope</a>(&amp;<a href='../Y/413.html' title='Multiple used in 7 places.'>DevicesLock</a>);
+<a name='L356'> 356 
+<a name='L357'> 357     <b>if</b> (<a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a>)
+<a name='L358'> 358     <font color='red'>{</font>
+<a name='L359'> 359         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>);
+<a name='L360'> 360         <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../Y/2000.html' title='Multiple used in 12 places.'>SensorInfo</a> <a href='../Y/4400.html' title='Multiple used in 6 places.'>si</a>;
+<a name='L361'> 361         <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../D/326.html' title='Multiple defined in 7 places.'>GetDeviceInfo</a>(&amp;<a href='../Y/4400.html' title='Multiple used in 6 places.'>si</a>);
+<a name='L362'> 362         <a href='../Y/2983.html' title='Multiple used in 9 places.'>descOut</a>-&gt;<a href='../Y/2400.html' title='Multiple used in 12 places.'>VendorId</a>  = <a href='../Y/4400.html' title='Multiple used in 6 places.'>si</a>.<a href='../Y/2400.html' title='Multiple used in 12 places.'>VendorId</a>;
+<a name='L363'> 363         <a href='../Y/2983.html' title='Multiple used in 9 places.'>descOut</a>-&gt;<a href='../Y/1713.html' title='Multiple used in 19 places.'>ProductId</a> = <a href='../Y/4400.html' title='Multiple used in 6 places.'>si</a>.<a href='../Y/1713.html' title='Multiple used in 19 places.'>ProductId</a>;
+<a name='L364'> 364         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4400.html' title='Multiple used in 6 places.'>si</a>.<a href='../Y/2018.html' title='Multiple used in 18 places.'>SerialNumber</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>() &lt;= <b>sizeof</b>(<a href='../Y/2983.html' title='Multiple used in 9 places.'>descOut</a>-&gt;<a href='../Y/2018.html' title='Multiple used in 18 places.'>SerialNumber</a>));
+<a name='L365'> 365         <a href='../Y/1516.html' title='Multiple used in 16 places.'>OVR_strcpy</a>(<a href='../Y/2983.html' title='Multiple used in 9 places.'>descOut</a>-&gt;<a href='../Y/2018.html' title='Multiple used in 18 places.'>SerialNumber</a>, <b>sizeof</b>(<a href='../Y/2983.html' title='Multiple used in 9 places.'>descOut</a>-&gt;<a href='../Y/2018.html' title='Multiple used in 18 places.'>SerialNumber</a>), <a href='../Y/4400.html' title='Multiple used in 6 places.'>si</a>.<a href='../Y/2018.html' title='Multiple used in 18 places.'>SerialNumber</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>());
+<a name='L366'> 366         <b>return</b> <b>true</b>;
+<a name='L367'> 367     <font color='red'>}</font>
+<a name='L368'> 368     <b>return</b> <b>false</b>;
+<a name='L369'> 369 <font color='red'>}</font>
+<a name='L370'> 370 
+<a name='L371'> 371 
+<a name='L372'> 372 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1231.html' title='Multiple refered from 3 places.'>applyProfileToSensorFusion</a>()
+<a name='L373'> 373 <font color='red'>{</font>
+<a name='L374'> 374     <b>if</b> (!<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>)
+<a name='L375'> 375         <b>return</b>;
+<a name='L376'> 376     <a href='../S/139.html#L963' title='Defined at 963 in ovr/sdk/src/OVR_Profile.cpp.'>Profile</a>* <a href='../Y/4132.html' title='Multiple used in 43 places.'>profile</a> = <a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>-&gt;<a href='../D/386.html' title='Multiple defined in 2 places.'>GetProfile</a>();
+<a name='L377'> 377     <b>if</b> (!<a href='../Y/4132.html' title='Multiple used in 43 places.'>profile</a>)
+<a name='L378'> 378     <font color='red'>{</font>
+<a name='L379'> 379         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<b>false</b>);
+<a name='L380'> 380         <b>return</b>;
+<a name='L381'> 381     <font color='red'>}</font>
+<a name='L382'> 382     <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L752' title='Defined at 752 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SetUserHeadDimensions</a> ( *<a href='../Y/4132.html' title='Multiple used in 43 places.'>profile</a>, <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a> );
+<a name='L383'> 383 <font color='red'>}</font>
+<a name='L384'> 384 
+<a name='L385'> 385 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1475.html' title='Multiple refered from 2 places.'>updateLowPersistenceMode</a>(<b>bool</b> <a href='../Y/3594.html' title='Multiple used in 4 places.'>lowPersistence</a>) <b>const</b>
+<a name='L386'> 386 <font color='red'>{</font>
+<a name='L387'> 387         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>);
+<a name='L388'> 388         <a href='../S/108.html#L613' title='Defined at 613 in ovr/sdk/src/OVR_Device.h.'>DisplayReport</a> <a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>;
+<a name='L389'> 389     
+<a name='L390'> 390     <b>if</b> (<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>.<a href='../Y/804.html' title='Multiple used in 29 places.'>GetPtr</a>())
+<a name='L391'> 391     <font color='red'>{</font>
+<a name='L392'> 392             <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/188.html#L313' title='Defined at 313 in ovr/sdk/src/OVR_Sensor2Impl.cpp.'>GetDisplayReport</a>(&amp;<a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>);
+<a name='L393'> 393 
+<a name='L394'> 394             <a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>.<a href='../Y/1658.html' title='Multiple used in 6 places.'>Persistence</a> = (<a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a>) (<a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>.<a href='../Y/2285.html' title='Multiple used in 6 places.'>TotalRows</a> * (<a href='../Y/3594.html' title='Multiple used in 4 places.'>lowPersistence</a> ? 0.18f : 1.0f));
+<a name='L395'> 395             <a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>.<a href='../Y/139.html' title='Multiple used in 6 places.'>Brightness</a> = <a href='../Y/3594.html' title='Multiple used in 4 places.'>lowPersistence</a> ? 255 : 0;
+<a name='L396'> 396     
+<a name='L397'> 397             <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/188.html#L295' title='Defined at 295 in ovr/sdk/src/OVR_Sensor2Impl.cpp.'>SetDisplayReport</a>(<a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>);
+<a name='L398'> 398     <font color='red'>}</font>
+<a name='L399'> 399 <font color='red'>}</font>
+<a name='L400'> 400 
+<a name='L401'> 401 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1474.html' title='Multiple refered from 2 places.'>updateLatencyTestForHmd</a>(<b>bool</b> <a href='../Y/3550.html' title='Multiple used in 4 places.'>latencyTesting</a>)
+<a name='L402'> 402 <font color='red'>{</font>
+<a name='L403'> 403     <b>if</b> (<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>.<a href='../Y/804.html' title='Multiple used in 29 places.'>GetPtr</a>())
+<a name='L404'> 404     <font color='red'>{</font>
+<a name='L405'> 405         <a href='../S/108.html#L613' title='Defined at 613 in ovr/sdk/src/OVR_Device.h.'>DisplayReport</a> <a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>;
+<a name='L406'> 406         <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/188.html#L313' title='Defined at 313 in ovr/sdk/src/OVR_Sensor2Impl.cpp.'>GetDisplayReport</a>(&amp;<a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>);
+<a name='L407'> 407 
+<a name='L408'> 408         <a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>.<a href='../Y/1785.html' title='Multiple used in 6 places.'>ReadPixel</a> = <a href='../Y/3550.html' title='Multiple used in 4 places.'>latencyTesting</a>;
+<a name='L409'> 409 
+<a name='L410'> 410         <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/188.html#L295' title='Defined at 295 in ovr/sdk/src/OVR_Sensor2Impl.cpp.'>SetDisplayReport</a>(<a href='../Y/3071.html' title='Multiple used in 9 places.'>dr</a>);
+<a name='L411'> 411     <font color='red'>}</font>
+<a name='L412'> 412 
+<a name='L413'> 413     <b>if</b> (<a href='../Y/3550.html' title='Multiple used in 4 places.'>latencyTesting</a>)
+<a name='L414'> 414     <font color='red'>{</font>
+<a name='L415'> 415         <a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../S/118.html#L63' title='Defined at 63 in ovr/sdk/src/Util/Util_LatencyTest2.cpp.'>SetSensorDevice</a>(<a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>.<a href='../Y/804.html' title='Multiple used in 29 places.'>GetPtr</a>());
+<a name='L416'> 416     <font color='red'>}</font>
+<a name='L417'> 417     <b>else</b>
+<a name='L418'> 418     <font color='red'>{</font>
+<a name='L419'> 419         <a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../S/118.html#L63' title='Defined at 63 in ovr/sdk/src/Util/Util_LatencyTest2.cpp.'>SetSensorDevice</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>);
+<a name='L420'> 420     <font color='red'>}</font>
+<a name='L421'> 421 <font color='red'>}</font>
+<a name='L422'> 422 
+<a name='L423'> 423 
+<a name='L424'> 424 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1472.html' title='Multiple refered from 3 places.'>updateDK2FeaturesTiedToSensor</a>(<b>bool</b> <a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a>)
+<a name='L425'> 425 <font color='red'>{</font>
+<a name='L426'> 426     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3585.html' title='Multiple used in 26 places.'>lockScope</a>(&amp;<a href='../Y/413.html' title='Multiple used in 7 places.'>DevicesLock</a>);
+<a name='L427'> 427 
+<a name='L428'> 428     <b>if</b> (!<a href='../Y/1988.html' title='Multiple used in 11 places.'>SensorCreated</a> || (<a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/934.html' title='Multiple used in 18 places.'>HmdType</a> != <a href='../Y/938.html' title='Multiple used in 14 places.'>HmdType_DK2</a>))
+<a name='L429'> 429         <b>return</b>;
+<a name='L430'> 430 
+<a name='L431'> 431     <i><font color='green'>// Only send display reports if state changed or sensor initializing first time.</font></i>
+<a name='L432'> 432     <b>if</b> (<a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a> ||
+<a name='L433'> 433          ((<a href='../Y/925.html' title='Multiple used in 6 places.'>HmdCapsAppliedToSensor</a> ^ <a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a>) &amp; <a href='../S/187.html#L142' title='Defined at 142 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_LowPersistence</a>))
+<a name='L434'> 434     <font color='red'>{</font>
+<a name='L435'> 435         <a href='../S/97.html#L385' title='Defined at 385 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>updateLowPersistenceMode</a>((<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> &amp; <a href='../S/187.html#L142' title='Defined at 142 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_LowPersistence</a>) ? <b>true</b> : <b>false</b>);         
+<a name='L436'> 436     <font color='red'>}</font>
+<a name='L437'> 437 
+<a name='L438'> 438     <b>if</b> (<a href='../Y/4372.html' title='Multiple used in 9 places.'>sensorCreatedJustNow</a> || ((<a href='../Y/925.html' title='Multiple used in 6 places.'>HmdCapsAppliedToSensor</a> ^ <a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a>) &amp; <a href='../S/187.html#L143' title='Defined at 143 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_LatencyTest</a>))
+<a name='L439'> 439     <font color='red'>{</font>
+<a name='L440'> 440         <a href='../S/97.html#L401' title='Defined at 401 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>updateLatencyTestForHmd</a>((<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> &amp; <a href='../S/187.html#L143' title='Defined at 143 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_LatencyTest</a>) != 0);
+<a name='L441'> 441     <font color='red'>}</font>
+<a name='L442'> 442 
+<a name='L443'> 443     <a href='../Y/925.html' title='Multiple used in 6 places.'>HmdCapsAppliedToSensor</a> = <a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> &amp; (<a href='../S/187.html#L142' title='Defined at 142 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_LowPersistence</a>|<a href='../S/187.html#L143' title='Defined at 143 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_LatencyTest</a>);
+<a name='L444'> 444 <font color='red'>}</font>
+<a name='L445'> 445 
+<a name='L446'> 446 
+<a name='L447'> 447 
+<a name='L448'> 448 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/982.html' title='Multiple refered from 2 places.'>SetEnabledHmdCaps</a>(<b>unsigned</b> <a href='../Y/3414.html' title='Multiple used in 7 places.'>hmdCaps</a>)
+<a name='L449'> 449 <font color='red'>{</font>
+<a name='L450'> 450     
+<a name='L451'> 451     <b>if</b> (<a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/934.html' title='Multiple used in 18 places.'>HmdType</a> == <a href='../Y/938.html' title='Multiple used in 14 places.'>HmdType_DK2</a>)
+<a name='L452'> 452     <font color='red'>{</font>
+<a name='L453'> 453         <b>if</b> ((<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> ^ <a href='../Y/3414.html' title='Multiple used in 7 places.'>hmdCaps</a>) &amp; <a href='../S/187.html#L144' title='Defined at 144 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_DynamicPrediction</a>)
+<a name='L454'> 454         <font color='red'>{</font>
+<a name='L455'> 455             <i><font color='green'>// DynamicPrediction change</font></i>
+<a name='L456'> 456             <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>.<a href='../S/98.html#L235' title='Defined at 235 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>ResetFrameTiming</a>(<a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>.<a href='../S/98.html#L440' title='Defined at 440 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetFrameTiming</a>().<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>,
+<a name='L457'> 457                                          (<a href='../Y/3414.html' title='Multiple used in 7 places.'>hmdCaps</a> &amp; <a href='../S/187.html#L144' title='Defined at 144 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_DynamicPrediction</a>) ? <b>true</b> : <b>false</b>,
+<a name='L458'> 458                                          <a href='../Y/1862.html' title='Multiple used in 9 places.'>RenderingConfigured</a>);
+<a name='L459'> 459         <font color='red'>}</font>
+<a name='L460'> 460     <font color='red'>}</font>
+<a name='L461'> 461 
+<a name='L462'> 462     <b>if</b> ((<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> ^ <a href='../Y/3414.html' title='Multiple used in 7 places.'>hmdCaps</a>) &amp; <a href='../S/187.html#L146' title='Defined at 146 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_NoVSync</a>)
+<a name='L463'> 463     <font color='red'>{</font>
+<a name='L464'> 464         <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>.<a href='../Y/2072.html' title='Multiple used in 3 places.'>SetVsync</a>((<a href='../Y/3414.html' title='Multiple used in 7 places.'>hmdCaps</a> &amp; <a href='../S/187.html#L146' title='Defined at 146 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_NoVSync</a>) ? <b>false</b> : <b>true</b>);
+<a name='L465'> 465     <font color='red'>}</font>
+<a name='L466'> 466 
+<a name='L467'> 467 
+<a name='L468'> 468     <a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a>             = <a href='../Y/3414.html' title='Multiple used in 7 places.'>hmdCaps</a> &amp; <a href='../S/187.html#L150' title='Defined at 150 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_Writable_Mask</a>;
+<a name='L469'> 469     <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> = <a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a>;
+<a name='L470'> 470 
+<a name='L471'> 471     <i><font color='green'>// Unfortunately, LowPersistance and other flags are tied to sensor.</font></i>
+<a name='L472'> 472     <i><font color='green'>// This flag will apply the state of sensor is created; otherwise this will be delayed</font></i>
+<a name='L473'> 473     <i><font color='green'>// till StartSensor.</font></i>
+<a name='L474'> 474     <i><font color='green'>// Such behavior is less then ideal, but should be resolved with the service model.</font></i>
+<a name='L475'> 475 
+<a name='L476'> 476     <a href='../S/97.html#L424' title='Defined at 424 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>updateDK2FeaturesTiedToSensor</a>(<b>false</b>);
+<a name='L477'> 477 <font color='red'>}</font>
+<a name='L478'> 478 
+<a name='L479'> 479 
+<a name='L480'> 480 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L481'> 481 <i><font color='green'>// ***** Property Access</font></i>
+<a name='L482'> 482 
+<a name='L483'> 483 <i><font color='green'>// TBD: This all needs to be cleaned up and organized into namespaces.</font></i>
+<a name='L484'> 484 
+<a name='L485'> 485 <b>float</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1290.html' title='Multiple refered from 2 places.'>getFloatValue</a>(<b>const</b> <b>char</b>* <a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <b>float</b> <a href='../Y/2970.html' title='Multiple used in 15 places.'>defaultVal</a>)
+<a name='L486'> 486 <font color='red'>{</font>
+<a name='L487'> 487         <b>if</b> (<a href='../Y/1515.html' title='Multiple used in 27 places.'>OVR_strcmp</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, "LensSeparation") == 0)
+<a name='L488'> 488         <font color='red'>{</font>
+<a name='L489'> 489                 <b>return</b> <a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/1277.html' title='Multiple used in 19 places.'>LensSeparationInMeters</a>;
+<a name='L490'> 490         <font color='red'>}</font>
+<a name='L491'> 491     <b>else</b> <b>if</b> (<a href='../Y/1515.html' title='Multiple used in 27 places.'>OVR_strcmp</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, "CenterPupilDepth") == 0)
+<a name='L492'> 492     <font color='red'>{</font>        
+<a name='L493'> 493         <b>return</b> <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L801' title='Defined at 801 in ovr/sdk/src/OVR_SensorFusion.cpp.'>GetCenterPupilDepth</a>();
+<a name='L494'> 494     <font color='red'>}</font>
+<a name='L495'> 495         <b>else</b> <b>if</b> (<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>)
+<a name='L496'> 496         <font color='red'>{</font>
+<a name='L497'> 497                 <a href='../S/139.html#L963' title='Defined at 963 in ovr/sdk/src/OVR_Profile.cpp.'>Profile</a>* <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a> = <a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>-&gt;<a href='../D/386.html' title='Multiple defined in 2 places.'>GetProfile</a>();
+<a name='L498'> 498                 <b>if</b> (<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)
+<a name='L499'> 499                 <font color='red'>{</font>
+<a name='L500'> 500                         <b>return</b> <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>-&gt;<a href='../S/139.html#L1265' title='Defined at 1265 in ovr/sdk/src/OVR_Profile.cpp.'>GetFloatValue</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <a href='../Y/2970.html' title='Multiple used in 15 places.'>defaultVal</a>);
+<a name='L501'> 501                 <font color='red'>}</font>
+<a name='L502'> 502         <font color='red'>}</font>
+<a name='L503'> 503         <b>return</b> <a href='../Y/2970.html' title='Multiple used in 15 places.'>defaultVal</a>;
+<a name='L504'> 504 <font color='red'>}</font>
+<a name='L505'> 505 
+<a name='L506'> 506 <b>bool</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1443.html' title='Multiple refered from 2 places.'>setFloatValue</a>(<b>const</b> <b>char</b>* <a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <b>float</b> <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>)
+<a name='L507'> 507 <font color='red'>{</font>
+<a name='L508'> 508     <b>if</b> (<a href='../Y/1515.html' title='Multiple used in 27 places.'>OVR_strcmp</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, "CenterPupilDepth") == 0)
+<a name='L509'> 509     <font color='red'>{</font>
+<a name='L510'> 510         <a href='../Y/1908.html' title='Multiple used in 17 places.'>SFusion</a>.<a href='../S/189.html#L806' title='Defined at 806 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SetCenterPupilDepth</a>(<a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>);
+<a name='L511'> 511         <b>return</b> <b>true</b>;
+<a name='L512'> 512     <font color='red'>}</font>
+<a name='L513'> 513     <b>return</b> <b>false</b>;
+<a name='L514'> 514 <font color='red'>}</font>
+<a name='L515'> 515 
+<a name='L516'> 516 
+<a name='L517'> 517 <b>static</b> <b>unsigned</b> <a href='../R/127.html' title='Multiple refered from 4 places.'>CopyFloatArrayWithLimit</a>(<b>float</b> <a href='../Y/2986.html' title='Multiple used in 81 places.'>dest</a>[], <b>unsigned</b> <a href='../Y/2987.html' title='Multiple used in 2 places.'>destSize</a>,
+<a name='L518'> 518                                         <b>float</b> <a href='../Y/4430.html' title='Multiple used in 30 places.'>source</a>[], <b>unsigned</b> <a href='../Y/4432.html' title='Multiple used in 2 places.'>sourceSize</a>)
+<a name='L519'> 519 <font color='red'>{</font>
+<a name='L520'> 520     <b>unsigned</b> <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>(<a href='../Y/2987.html' title='Multiple used in 2 places.'>destSize</a>, <a href='../Y/4432.html' title='Multiple used in 2 places.'>sourceSize</a>);
+<a name='L521'> 521     <b>for</b> (<b>unsigned</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L522'> 522         <a href='../Y/2986.html' title='Multiple used in 81 places.'>dest</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>] = <a href='../Y/4430.html' title='Multiple used in 30 places.'>source</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>];
+<a name='L523'> 523     <b>return</b> <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a>;
+<a name='L524'> 524 <font color='red'>}</font>
+<a name='L525'> 525 
+<a name='L526'> 526 
+<a name='L527'> 527 <b>unsigned</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1289.html' title='Multiple refered from 2 places.'>getFloatArray</a>(<b>const</b> <b>char</b>* <a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <b>float</b> <a href='../Y/4784.html' title='Multiple used in 26 places.'>values</a>[], <b>unsigned</b> <a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>)
+<a name='L528'> 528 <font color='red'>{</font>
+<a name='L529'> 529         <b>if</b> (<a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>)
+<a name='L530'> 530         <font color='red'>{</font>
+<a name='L531'> 531                 <b>if</b> (<a href='../Y/1515.html' title='Multiple used in 27 places.'>OVR_strcmp</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, "ScreenSize") == 0)
+<a name='L532'> 532                 <font color='red'>{</font>
+<a name='L533'> 533             <b>float</b> <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>[2] = <font color='red'>{</font> <a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/1973.html' title='Multiple used in 32 places.'>ScreenSizeInMeters</a>.<a href='../Y/4824.html' title='Multiple used in 151 places.'>w</a>, <a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/1973.html' title='Multiple used in 32 places.'>ScreenSizeInMeters</a>.<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> <font color='red'>}</font>;
+<a name='L534'> 534 
+<a name='L535'> 535             <b>return</b> <a href='../S/97.html#L517' title='Defined at 517 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>CopyFloatArrayWithLimit</a>(<a href='../Y/4784.html' title='Multiple used in 26 places.'>values</a>, <a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>, <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, 2);
+<a name='L536'> 536                 <font color='red'>}</font>
+<a name='L537'> 537         <b>else</b> <b>if</b> (<a href='../Y/1515.html' title='Multiple used in 27 places.'>OVR_strcmp</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, "DistortionClearColor") == 0)
+<a name='L538'> 538         <font color='red'>{</font>
+<a name='L539'> 539             <b>return</b> <a href='../S/97.html#L517' title='Defined at 517 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>CopyFloatArrayWithLimit</a>(<a href='../Y/4784.html' title='Multiple used in 26 places.'>values</a>, <a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>, <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/203.html' title='Multiple used in 11 places.'>ClearColor</a>, 4);
+<a name='L540'> 540         <font color='red'>}</font>
+<a name='L541'> 541         <b>else</b> <b>if</b> (<a href='../Y/1515.html' title='Multiple used in 27 places.'>OVR_strcmp</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, "DK2Latency") == 0)
+<a name='L542'> 542         <font color='red'>{</font>
+<a name='L543'> 543             <b>if</b> (<a href='../S/107.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>HMDInfo</a>.<a href='../Y/934.html' title='Multiple used in 18 places.'>HmdType</a> != <a href='../Y/938.html' title='Multiple used in 14 places.'>HmdType_DK2</a>)
+<a name='L544'> 544                 <b>return</b> 0;
+<a name='L545'> 545 
+<a name='L546'> 546             <b>float</b> <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>[3];            
+<a name='L547'> 547             <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>.<a href='../S/98.html#L193' title='Defined at 193 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetLatencyTimings</a>(<a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>);
+<a name='L548'> 548             
+<a name='L549'> 549             <b>return</b> <a href='../S/97.html#L517' title='Defined at 517 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>CopyFloatArrayWithLimit</a>(<a href='../Y/4784.html' title='Multiple used in 26 places.'>values</a>, <a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>, <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, 3);
+<a name='L550'> 550         <font color='red'>}</font>
+<a name='L551'> 551 
+<a name='L552'> 552         <i><font color='green'>/*</font></i>
+<a name='L553'> 553 <i><font color='green'>        else if (OVR_strcmp(propertyName, "CenterPupilDepth") == 0)</font></i>
+<a name='L554'> 554 <i><font color='green'>        {</font></i>
+<a name='L555'> 555 <i><font color='green'>            if (arraySize &gt;= 1)</font></i>
+<a name='L556'> 556 <i><font color='green'>            {</font></i>
+<a name='L557'> 557 <i><font color='green'>                values[0] = SFusion.GetCenterPupilDepth();</font></i>
+<a name='L558'> 558 <i><font color='green'>                return 1;</font></i>
+<a name='L559'> 559 <i><font color='green'>            }</font></i>
+<a name='L560'> 560 <i><font color='green'>            return 0;</font></i>
+<a name='L561'> 561 <i><font color='green'>        } */</font></i>
+<a name='L562'> 562                 <b>else</b> <b>if</b> (<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>)
+<a name='L563'> 563                 <font color='red'>{</font>        
+<a name='L564'> 564                         <a href='../S/139.html#L963' title='Defined at 963 in ovr/sdk/src/OVR_Profile.cpp.'>Profile</a>* <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a> = <a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>-&gt;<a href='../D/386.html' title='Multiple defined in 2 places.'>GetProfile</a>();
+<a name='L565'> 565 
+<a name='L566'> 566                         <i><font color='green'>// TBD: Not quite right. Should update profile interface, so that</font></i>
+<a name='L567'> 567                         <i><font color='green'>//      we can return 0 in all conditions if property doesn't exist.</font></i>
+<a name='L568'> 568                         <b>if</b> (<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)
+<a name='L569'> 569                         <font color='red'>{</font>
+<a name='L570'> 570                                 <b>unsigned</b> <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a> = <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>-&gt;<a href='../S/139.html#L1275' title='Defined at 1275 in ovr/sdk/src/OVR_Profile.cpp.'>GetFloatValues</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <a href='../Y/4784.html' title='Multiple used in 26 places.'>values</a>, <a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>);
+<a name='L571'> 571                                 <b>return</b> <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a>;
+<a name='L572'> 572                         <font color='red'>}</font>
+<a name='L573'> 573                 <font color='red'>}</font>
+<a name='L574'> 574         <font color='red'>}</font>
+<a name='L575'> 575 
+<a name='L576'> 576         <b>return</b> 0;
+<a name='L577'> 577 <font color='red'>}</font>
+<a name='L578'> 578 
+<a name='L579'> 579 <b>bool</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1442.html' title='Multiple refered from 2 places.'>setFloatArray</a>(<b>const</b> <b>char</b>* <a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <b>float</b> <a href='../Y/4784.html' title='Multiple used in 26 places.'>values</a>[], <b>unsigned</b> <a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>)
+<a name='L580'> 580 <font color='red'>{</font>
+<a name='L581'> 581     <b>if</b> (!<a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>)
+<a name='L582'> 582         <b>return</b> <b>false</b>;
+<a name='L583'> 583     
+<a name='L584'> 584     <b>if</b> (<a href='../Y/1515.html' title='Multiple used in 27 places.'>OVR_strcmp</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, "DistortionClearColor") == 0)
+<a name='L585'> 585     <font color='red'>{</font>
+<a name='L586'> 586         <a href='../S/97.html#L517' title='Defined at 517 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>CopyFloatArrayWithLimit</a>(<a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/203.html' title='Multiple used in 11 places.'>ClearColor</a>, 4, <a href='../Y/4784.html' title='Multiple used in 26 places.'>values</a>, <a href='../Y/2710.html' title='Multiple used in 17 places.'>arraySize</a>);
+<a name='L587'> 587         <b>return</b> <b>true</b>;
+<a name='L588'> 588     <font color='red'>}</font>
+<a name='L589'> 589     <b>return</b> <b>false</b>;
+<a name='L590'> 590 <font color='red'>}</font>
+<a name='L591'> 591 
+<a name='L592'> 592 
+<a name='L593'> 593 <b>const</b> <b>char</b>* <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/1302.html' title='Multiple refered from 2 places.'>getString</a>(<b>const</b> <b>char</b>* <a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <b>const</b> <b>char</b>* <a href='../Y/2970.html' title='Multiple used in 15 places.'>defaultVal</a>)
+<a name='L594'> 594 <font color='red'>{</font>
+<a name='L595'> 595         <b>if</b> (<a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>)
+<a name='L596'> 596         <font color='red'>{</font>
+<a name='L597'> 597                 <i><font color='green'>// For now, just access the profile.</font></i>
+<a name='L598'> 598                 <a href='../S/139.html#L963' title='Defined at 963 in ovr/sdk/src/OVR_Profile.cpp.'>Profile</a>* <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a> = <a href='../Y/3940.html' title='Multiple used in 18 places.'>pHMD</a>-&gt;<a href='../D/386.html' title='Multiple defined in 2 places.'>GetProfile</a>();
+<a name='L599'> 599 
+<a name='L600'> 600                 <a href='../Y/1214.html' title='Multiple used in 4 places.'>LastGetStringValue</a>[0] = 0;
+<a name='L601'> 601                 <b>if</b> (<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a> &amp;&amp; <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>-&gt;<a href='../D/420.html' title='Multiple defined in 2 places.'>GetValue</a>(<a href='../Y/4144.html' title='Multiple used in 43 places.'>propertyName</a>, <a href='../Y/1214.html' title='Multiple used in 4 places.'>LastGetStringValue</a>, <b>sizeof</b>(<a href='../Y/1214.html' title='Multiple used in 4 places.'>LastGetStringValue</a>)))
+<a name='L602'> 602                 <font color='red'>{</font>
+<a name='L603'> 603                         <b>return</b> <a href='../Y/1214.html' title='Multiple used in 4 places.'>LastGetStringValue</a>;
+<a name='L604'> 604                 <font color='red'>}</font>
+<a name='L605'> 605         <font color='red'>}</font>
+<a name='L606'> 606 
+<a name='L607'> 607         <b>return</b> <a href='../Y/2970.html' title='Multiple used in 15 places.'>defaultVal</a>;
+<a name='L608'> 608 <font color='red'>}</font>
+<a name='L609'> 609 
+<a name='L610'> 610 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L611'> 611 <i><font color='green'>// *** Latency Test</font></i>
+<a name='L612'> 612 
+<a name='L613'> 613 <b>bool</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/850.html' title='Multiple refered from 2 places.'>ProcessLatencyTest</a>(<b>unsigned</b> <b>char</b> <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[3])
+<a name='L614'> 614 <font color='red'>{</font>
+<a name='L615'> 615     <b>bool</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <b>false</b>;
+<a name='L616'> 616 
+<a name='L617'> 617     <i><font color='green'>// Check create.</font></i>
+<a name='L618'> 618     <b>if</b> (<a href='../Y/3952.html' title='Multiple used in 7 places.'>pLatencyTester</a>)
+<a name='L619'> 619     <font color='red'>{</font>
+<a name='L620'> 620         <b>if</b> (<a href='../Y/3952.html' title='Multiple used in 7 places.'>pLatencyTester</a>-&gt;<a href='../S/191.html#L259' title='Defined at 259 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>IsConnected</a>())
+<a name='L621'> 621         <font color='red'>{</font>
+<a name='L622'> 622             <a href='../S/160.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_Color.h.'>Color</a> <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>;
+<a name='L623'> 623 
+<a name='L624'> 624             <a href='../Y/1262.html' title='Multiple used in 6 places.'>LatencyUtil</a>.<a href='../S/114.html#L356' title='Defined at 356 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>ProcessInputs</a>();
+<a name='L625'> 625             <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = <a href='../Y/1262.html' title='Multiple used in 6 places.'>LatencyUtil</a>.<a href='../D/199.html' title='Multiple defined in 2 places.'>DisplayScreenColor</a>(<a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>);
+<a name='L626'> 626             <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[0] = <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>.<a href='../Y/1761.html' title='Multiple used in 76 places.'>R</a>;
+<a name='L627'> 627             <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[1] = <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>.<a href='../Y/655.html' title='Multiple used in 14 places.'>G</a>;
+<a name='L628'> 628             <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[2] = <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>.<a href='../Y/99.html' title='Multiple used in 31 places.'>B</a>;
+<a name='L629'> 629         <font color='red'>}</font>
+<a name='L630'> 630         <b>else</b>
+<a name='L631'> 631         <font color='red'>{</font>
+<a name='L632'> 632             <i><font color='green'>// Disconnect.</font></i>
+<a name='L633'> 633             <a href='../Y/1262.html' title='Multiple used in 6 places.'>LatencyUtil</a>.<a href='../S/114.html#L71' title='Defined at 71 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>SetDevice</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>);
+<a name='L634'> 634             <a href='../Y/3952.html' title='Multiple used in 7 places.'>pLatencyTester</a> = 0;
+<a name='L635'> 635             <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("LATENCY SENSOR disconnected.\n");
+<a name='L636'> 636         <font color='red'>}</font>
+<a name='L637'> 637     <font color='red'>}</font>
+<a name='L638'> 638     <b>else</b> <b>if</b> (<a href='../Y/38.html' title='Multiple used in 4 places.'>AddLatencyTestCount</a> &gt; 0)
+<a name='L639'> 639     <font color='red'>{</font>
+<a name='L640'> 640         <i><font color='green'>// This might have some unlikely race condition issue which could cause us to miss a device...</font></i>
+<a name='L641'> 641         <a href='../Y/38.html' title='Multiple used in 4 places.'>AddLatencyTestCount</a> = 0;
+<a name='L642'> 642 
+<a name='L643'> 643         <a href='../Y/3952.html' title='Multiple used in 7 places.'>pLatencyTester</a> = *<a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a>-&gt;<a href='../S/191.html#L236' title='Defined at 236 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>GetManager</a>()-&gt;
+<a name='L644'> 644                             <a href='../D/233.html' title='Multiple defined in 4 places.'>EnumerateDevices</a>&lt;<a href='../Y/1238.html' title='Multiple used in 18 places.'>LatencyTestDevice</a>&gt;().<a href='../D/140.html' title='Multiple defined in 2 places.'>CreateDevice</a>();
+<a name='L645'> 645         <b>if</b> (<a href='../Y/3952.html' title='Multiple used in 7 places.'>pLatencyTester</a>)
+<a name='L646'> 646         <font color='red'>{</font>
+<a name='L647'> 647             <a href='../Y/1262.html' title='Multiple used in 6 places.'>LatencyUtil</a>.<a href='../S/114.html#L71' title='Defined at 71 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>SetDevice</a>(<a href='../Y/3952.html' title='Multiple used in 7 places.'>pLatencyTester</a>);
+<a name='L648'> 648             <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("LATENCY TESTER connected\n");
+<a name='L649'> 649         <font color='red'>}</font>        
+<a name='L650'> 650     <font color='red'>}</font>
+<a name='L651'> 651     
+<a name='L652'> 652     <b>return</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>;
+<a name='L653'> 653 <font color='red'>}</font>
+<a name='L654'> 654 
+<a name='L655'> 655 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../S/101.html#L156' title='Refered from 156 in ovr/sdk/src/CAPI/CAPI_HMDState.h.'>ProcessLatencyTest2</a>(<b>unsigned</b> <b>char</b> <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[3], <b>double</b> <a href='../Y/4464.html' title='Multiple used in 7 places.'>startTime</a>)
+<a name='L656'> 656 <font color='red'>{</font>
+<a name='L657'> 657     <i><font color='green'>// Check create.</font></i>
+<a name='L658'> 658     <b>if</b> (!(<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> &amp; <a href='../S/187.html#L143' title='Defined at 143 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_LatencyTest</a>))
+<a name='L659'> 659         <b>return</b>;
+<a name='L660'> 660 
+<a name='L661'> 661     <b>if</b> (<a href='../Y/3953.html' title='Multiple used in 6 places.'>pLatencyTesterDisplay</a> &amp;&amp; !<a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../Y/899.html' title='Multiple used in 2 places.'>HasDisplayDevice</a>())
+<a name='L662'> 662     <font color='red'>{</font>
+<a name='L663'> 663         <b>if</b> (!<a href='../Y/3953.html' title='Multiple used in 6 places.'>pLatencyTesterDisplay</a>-&gt;<a href='../S/191.html#L259' title='Defined at 259 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>IsConnected</a>())
+<a name='L664'> 664         <font color='red'>{</font>
+<a name='L665'> 665             <a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../S/118.html#L83' title='Defined at 83 in ovr/sdk/src/Util/Util_LatencyTest2.cpp.'>SetDisplayDevice</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>);
+<a name='L666'> 666         <font color='red'>}</font>
+<a name='L667'> 667     <font color='red'>}</font>
+<a name='L668'> 668     <b>else</b> <b>if</b> (<a href='../Y/39.html' title='Multiple used in 4 places.'>AddLatencyTestDisplayCount</a> &gt; 0)
+<a name='L669'> 669     <font color='red'>{</font>
+<a name='L670'> 670         <i><font color='green'>// This might have some unlikely race condition issue</font></i>
+<a name='L671'> 671         <i><font color='green'>// which could cause us to miss a device...</font></i>
+<a name='L672'> 672         <a href='../Y/39.html' title='Multiple used in 4 places.'>AddLatencyTestDisplayCount</a> = 0;
+<a name='L673'> 673 
+<a name='L674'> 674         <a href='../Y/3953.html' title='Multiple used in 6 places.'>pLatencyTesterDisplay</a> = *<a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a>-&gt;<a href='../S/191.html#L236' title='Defined at 236 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>GetManager</a>()-&gt;
+<a name='L675'> 675                                  <a href='../D/233.html' title='Multiple defined in 4 places.'>EnumerateDevices</a>&lt;<a href='../Y/1238.html' title='Multiple used in 18 places.'>LatencyTestDevice</a>&gt;().<a href='../D/140.html' title='Multiple defined in 2 places.'>CreateDevice</a>();
+<a name='L676'> 676         <b>if</b> (<a href='../Y/3953.html' title='Multiple used in 6 places.'>pLatencyTesterDisplay</a>)
+<a name='L677'> 677         <font color='red'>{</font>
+<a name='L678'> 678             <a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../S/118.html#L83' title='Defined at 83 in ovr/sdk/src/Util/Util_LatencyTest2.cpp.'>SetDisplayDevice</a>(<a href='../Y/3953.html' title='Multiple used in 6 places.'>pLatencyTesterDisplay</a>);
+<a name='L679'> 679         <font color='red'>}</font>
+<a name='L680'> 680     <font color='red'>}</font>
+<a name='L681'> 681 
+<a name='L682'> 682     <b>if</b> (<a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../Y/898.html' title='Multiple used in 3 places.'>HasDevice</a>() &amp;&amp; <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a> &amp;&amp; <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>-&gt;<a href='../S/191.html#L259' title='Defined at 259 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>IsConnected</a>())
+<a name='L683'> 683     <font color='red'>{</font>
+<a name='L684'> 684         <a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../D/72.html' title='Multiple defined in 2 places.'>BeginTest</a>(<a href='../Y/4464.html' title='Multiple used in 7 places.'>startTime</a>);
+<a name='L685'> 685 
+<a name='L686'> 686         <a href='../S/160.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_Color.h.'>Color</a> <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>;
+<a name='L687'> 687         <a href='../S/97.html#L45' title='Defined at 45 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>LatencyTest2Active</a> = <a href='../Y/1263.html' title='Multiple used in 10 places.'>LatencyUtil2</a>.<a href='../D/199.html' title='Multiple defined in 2 places.'>DisplayScreenColor</a>(<a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>);
+<a name='L688'> 688         <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[0] = <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>.<a href='../Y/1761.html' title='Multiple used in 76 places.'>R</a>;
+<a name='L689'> 689         <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[1] = <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>.<a href='../Y/655.html' title='Multiple used in 14 places.'>G</a>;
+<a name='L690'> 690         <a href='../Y/4304.html' title='Multiple used in 15 places.'>rgbColorOut</a>[2] = <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>.<a href='../Y/99.html' title='Multiple used in 31 places.'>B</a>;
+<a name='L691'> 691     <font color='red'>}</font>
+<a name='L692'> 692     <b>else</b>
+<a name='L693'> 693     <font color='red'>{</font>
+<a name='L694'> 694         <a href='../S/97.html#L45' title='Defined at 45 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>LatencyTest2Active</a> = <b>false</b>;
+<a name='L695'> 695     <font color='red'>}</font>
+<a name='L696'> 696 <font color='red'>}</font>
+<a name='L697'> 697 
+<a name='L698'> 698 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L699'> 699 <i><font color='green'>// *** Rendering</font></i>
+<a name='L700'> 700 
+<a name='L701'> 701 <b>bool</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/121.html' title='Multiple refered from 3 places.'>ConfigureRendering</a>(<a href='../Y/3837.html' title='Multiple used in 2 places.'>ovrEyeRenderDesc</a> <a href='../Y/3170.html' title='Multiple used in 10 places.'>eyeRenderDescOut</a>[2],
+<a name='L702'> 702                                   <b>const</b> <a href='../Y/3839.html' title='Multiple used in 6 places.'>ovrFovPort</a> <a href='../Y/3163.html' title='Multiple used in 10 places.'>eyeFovIn</a>[2],
+<a name='L703'> 703                                   <b>const</b> <a href='../Y/3891.html' title='Multiple used in 2 places.'>ovrRenderAPIConfig</a>* <a href='../Y/2703.html' title='Multiple used in 13 places.'>apiConfig</a>,                                  
+<a name='L704'> 704                                   <b>unsigned</b> <a href='../Y/3048.html' title='Multiple used in 14 places.'>distortionCaps</a>)
+<a name='L705'> 705 <font color='red'>{</font>
+<a name='L706'> 706     <a href='../Y/2230.html' title='Multiple used in 13 places.'>ThreadChecker</a>::<a href='../D/1002.html' title='Multiple defined in 2 places.'>Scope</a> <a href='../Y/2840.html' title='Multiple used in 6 places.'>checkScope</a>(&amp;<a href='../Y/1849.html' title='Multiple used in 7 places.'>RenderAPIThreadChecker</a>, "ovrHmd_ConfigureRendering");
+<a name='L707'> 707 
+<a name='L708'> 708     <i><font color='green'>// null -&gt; shut down.</font></i>
+<a name='L709'> 709     <b>if</b> (!<a href='../Y/2703.html' title='Multiple used in 13 places.'>apiConfig</a>)
+<a name='L710'> 710     <font color='red'>{</font>
+<a name='L711'> 711         <b>if</b> (<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>)
+<a name='L712'> 712             <a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();        
+<a name='L713'> 713         <a href='../Y/1862.html' title='Multiple used in 9 places.'>RenderingConfigured</a> = <b>false</b>; 
+<a name='L714'> 714         <b>return</b> <b>true</b>;
+<a name='L715'> 715     <font color='red'>}</font>
+<a name='L716'> 716 
+<a name='L717'> 717     <b>if</b> (<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a> &amp;&amp;
+<a name='L718'> 718         (<a href='../Y/2703.html' title='Multiple used in 13 places.'>apiConfig</a>-&gt;<a href='../Y/917.html' title='Multiple used in 11 places.'>Header</a>.<a href='../Y/9.html' title='Multiple used in 4 places.'>API</a> != <a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>-&gt;<a href='../Y/810.html' title='Multiple used in 2 places.'>GetRenderAPI</a>()))
+<a name='L719'> 719     <font color='red'>{</font>
+<a name='L720'> 720         <i><font color='green'>// Shutdown old renderer.</font></i>
+<a name='L721'> 721         <b>if</b> (<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>)
+<a name='L722'> 722             <a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L723'> 723     <font color='red'>}</font>
+<a name='L724'> 724 
+<a name='L725'> 725 
+<a name='L726'> 726     <i><font color='green'>// Step 1: do basic setup configuration</font></i>
+<a name='L727'> 727     <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../S/107.html#L134' title='Defined at 134 in ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp.'>setupRenderDesc</a>(<a href='../Y/3170.html' title='Multiple used in 10 places.'>eyeRenderDescOut</a>, <a href='../Y/3163.html' title='Multiple used in 10 places.'>eyeFovIn</a>);
+<a name='L728'> 728     <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> = <a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a>;     <i><font color='green'>// This is a copy... Any cleaner way?</font></i>
+<a name='L729'> 729     <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/426.html' title='Multiple used in 12 places.'>DistortionCaps</a> = <a href='../Y/3048.html' title='Multiple used in 14 places.'>distortionCaps</a>;
+<a name='L730'> 730 
+<a name='L731'> 731     <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>.<a href='../S/98.html#L235' title='Defined at 235 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>ResetFrameTiming</a>(0,
+<a name='L732'> 732                                  (<a href='../Y/495.html' title='Multiple used in 20 places.'>EnabledHmdCaps</a> &amp; <a href='../S/187.html#L144' title='Defined at 144 in ovr/sdk/src/OVR_CAPI.h.'>ovrHmdCap_DynamicPrediction</a>) ? <b>true</b> : <b>false</b>,
+<a name='L733'> 733                                  <b>true</b>);
+<a name='L734'> 734 
+<a name='L735'> 735     <a href='../Y/1213.html' title='Multiple used in 7 places.'>LastFrameTimeSeconds</a> = 0.0f;
+<a name='L736'> 736 
+<a name='L737'> 737     <i><font color='green'>// Set RenderingConfigured early to avoid ASSERTs in renderer initialization.</font></i>
+<a name='L738'> 738     <a href='../Y/1862.html' title='Multiple used in 9 places.'>RenderingConfigured</a> = <b>true</b>;
+<a name='L739'> 739 
+<a name='L740'> 740     <b>if</b> (!<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>)
+<a name='L741'> 741     <font color='red'>{</font>
+<a name='L742'> 742         <a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a> = *<a href='../S/104.html#L101' title='Defined at 101 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>DistortionRenderer</a>::<a href='../Y/10.html' title='Multiple used in 3 places.'>APICreateRegistry</a>
+<a name='L743'> 743                         [<a href='../Y/2703.html' title='Multiple used in 13 places.'>apiConfig</a>-&gt;<a href='../Y/917.html' title='Multiple used in 11 places.'>Header</a>.<a href='../Y/9.html' title='Multiple used in 4 places.'>API</a>](<b>this</b>, <a href='../Y/2255.html' title='Multiple used in 24 places.'>TimeManager</a>, <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>);
+<a name='L744'> 744     <font color='red'>}</font>
+<a name='L745'> 745 
+<a name='L746'> 746     <b>if</b> (!<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a> ||
+<a name='L747'> 747         !<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>-&gt;<a href='../D/475.html' title='Multiple defined in 10 places.'>Initialize</a>(<a href='../Y/2703.html' title='Multiple used in 13 places.'>apiConfig</a>, <a href='../Y/3048.html' title='Multiple used in 14 places.'>distortionCaps</a>))
+<a name='L748'> 748     <font color='red'>{</font>
+<a name='L749'> 749         <a href='../Y/1862.html' title='Multiple used in 9 places.'>RenderingConfigured</a> = <b>false</b>;
+<a name='L750'> 750         <b>return</b> <b>false</b>;
+<a name='L751'> 751     <font color='red'>}</font>    
+<a name='L752'> 752 
+<a name='L753'> 753     <b>return</b> <b>true</b>;
+<a name='L754'> 754 <font color='red'>}</font>
+<a name='L755'> 755 
+<a name='L756'> 756 
+<a name='L757'> 757 
+<a name='L758'> 758 <a href='../D/1478.html' title='Multiple defined in 2 places.'>ovrPosef</a> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/65.html' title='Multiple refered from 2 places.'>BeginEyeRender</a>(<a href='../Y/3838.html' title='Multiple used in 7 places.'>ovrEyeType</a> <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>)
+<a name='L759'> 759 <font color='red'>{</font>
+<a name='L760'> 760     <i><font color='green'>// Debug checks.</font></i>
+<a name='L761'> 761     <a href='../Y/2835.html' title='Multiple used in 4 places.'>checkBeginFrameScope</a>("ovrHmd_BeginEyeRender");
+<a name='L762'> 762     <a href='../Y/2230.html' title='Multiple used in 13 places.'>ThreadChecker</a>::<a href='../D/1002.html' title='Multiple defined in 2 places.'>Scope</a> <a href='../Y/2840.html' title='Multiple used in 6 places.'>checkScope</a>(&amp;<a href='../Y/1849.html' title='Multiple used in 7 places.'>RenderAPIThreadChecker</a>, "ovrHmd_BeginEyeRender");
+<a name='L763'> 763 
+<a name='L764'> 764     <i><font color='green'>// Unknown eyeId provided in ovrHmd_BeginEyeRender</font></i>
+<a name='L765'> 765     <a href='../D/664.html' title='Multiple defined in 2 places.'>OVR_ASSERT_LOG</a>(<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a> == <a href='../S/187.html#L179' title='Defined at 179 in ovr/sdk/src/OVR_CAPI.h.'>ovrEye_Left</a> || <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a> == <a href='../S/187.html#L180' title='Defined at 180 in ovr/sdk/src/OVR_CAPI.h.'>ovrEye_Right</a>,
+<a name='L766'> 766                    ("ovrHmd_BeginEyeRender eyeId out of range."));     
+<a name='L767'> 767     <a href='../D/664.html' title='Multiple defined in 2 places.'>OVR_ASSERT_LOG</a>(<a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>] == <b>false</b>,
+<a name='L768'> 768                    ("Multiple calls to ovrHmd_BeginEyeRender for the same eye."));
+<a name='L769'> 769 
+<a name='L770'> 770     <a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>] = <b>true</b>;
+<a name='L771'> 771     
+<a name='L772'> 772     <i><font color='green'>// Only process latency tester for drawing the left eye (assumes left eye is drawn first)</font></i>
+<a name='L773'> 773     <b>if</b> (<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a> &amp;&amp; <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a> == 0)
+<a name='L774'> 774     <font color='red'>{</font>
+<a name='L775'> 775         <a href='../Y/1234.html' title='Multiple used in 4 places.'>LatencyTestActive</a> = <a href='../S/97.html#L613' title='Defined at 613 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>ProcessLatencyTest</a>(<a href='../Y/1242.html' title='Multiple used in 9 places.'>LatencyTestDrawColor</a>);
+<a name='L776'> 776     <font color='red'>}</font>
+<a name='L777'> 777 
+<a name='L778'> 778     <b>return</b> <a href='../Y/3858.html' title='Multiple used in 3 places.'>ovrHmd_GetEyePose</a>(<b>this</b>, <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>);
+<a name='L779'> 779 <font color='red'>}</font>
+<a name='L780'> 780 
+<a name='L781'> 781 
+<a name='L782'> 782 <b>void</b> <a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>::<a href='../R/218.html' title='Multiple refered from 2 places.'>EndEyeRender</a>(<a href='../Y/3838.html' title='Multiple used in 7 places.'>ovrEyeType</a> <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>, <a href='../Y/3889.html' title='Multiple used in 2 places.'>ovrPosef</a> <a href='../Y/4264.html' title='Multiple used in 12 places.'>renderPose</a>, <a href='../Y/3896.html' title='Multiple used in 2 places.'>ovrTexture</a>* <a href='../Y/3173.html' title='Multiple used in 10 places.'>eyeTexture</a>)
+<a name='L783'> 783 <font color='red'>{</font>
+<a name='L784'> 784     <i><font color='green'>// Debug checks.</font></i>
+<a name='L785'> 785     <a href='../Y/2835.html' title='Multiple used in 4 places.'>checkBeginFrameScope</a>("ovrHmd_EndEyeRender");
+<a name='L786'> 786     <a href='../Y/2230.html' title='Multiple used in 13 places.'>ThreadChecker</a>::<a href='../D/1002.html' title='Multiple defined in 2 places.'>Scope</a> <a href='../Y/2840.html' title='Multiple used in 6 places.'>checkScope</a>(&amp;<a href='../Y/1849.html' title='Multiple used in 7 places.'>RenderAPIThreadChecker</a>, "ovrHmd_EndEyeRender");
+<a name='L787'> 787 
+<a name='L788'> 788     <b>if</b> (!<a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>])
+<a name='L789'> 789     <font color='red'>{</font>
+<a name='L790'> 790         <a href='../D/664.html' title='Multiple defined in 2 places.'>OVR_ASSERT_LOG</a>(<b>false</b>,
+<a name='L791'> 791                        ("ovrHmd_EndEyeRender called without ovrHmd_BeginEyeRender."));
+<a name='L792'> 792         <b>return</b>;
+<a name='L793'> 793     <font color='red'>}</font>
+<a name='L794'> 794 
+<a name='L795'> 795     <a href='../Y/1857.html' title='Multiple used in 17 places.'>RenderState</a>.<a href='../Y/563.html' title='Multiple used in 5 places.'>EyeRenderPoses</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>] = <a href='../Y/4264.html' title='Multiple used in 12 places.'>renderPose</a>;
+<a name='L796'> 796 
+<a name='L797'> 797     <b>if</b> (<a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>)
+<a name='L798'> 798         <a href='../Y/3976.html' title='Multiple used in 18 places.'>pRenderer</a>-&gt;<a href='../S/104.html#L161' title='Defined at 161 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>SubmitEye</a>(<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>, <a href='../Y/3173.html' title='Multiple used in 10 places.'>eyeTexture</a>);
+<a name='L799'> 799 
+<a name='L800'> 800     <a href='../Y/559.html' title='Multiple used in 9 places.'>EyeRenderActive</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>] = <b>false</b>;
+<a name='L801'> 801 <font color='red'>}</font>
+<a name='L802'> 802 
+<a name='L803'> 803 <font color='red'>}</font><font color='red'>}</font> <i><font color='green'>// namespace OVR::CAPI</font></i>
+<a name='L804'> 804 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L45'>[^]</a><a href='#L782'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<map id="OVR::SysFile" name="OVR::SysFile">
+<area shape="rect" id="node2" href="$classOVR_1_1DelegatedFile.html" title="{OVR::DelegatedFile\n|# pFile\l|+ DelegatedFile()\l+ GetFilePath()\l+ IsValid()\l+ IsWritable()\l+ Tell()\l+ LTell()\l+ GetLength()\l+ LGetLength()\l+ GetErrorCode()\l+ Write()\land 8 more...\l# DelegatedFile()\l# DelegatedFile()\l}" alt="" coords="188,1171,327,1424"/>
+<area shape="rect" id="node3" href="$classOVR_1_1File.html" title="{OVR::File\n||+ File()\l+ GetFilePath()\l+ IsValid()\l+ IsWritable()\l+ Tell()\l+ LTell()\l+ GetLength()\l+ LGetLength()\l+ GetErrorCode()\l+ Write()\land 60 more...\l&#45; PRead64()\l&#45; PRead32()\l&#45; PRead16()\l&#45; PRead8()\l&#45; PWrite64()\l&#45; PWrite32()\l&#45; PWrite16()\l&#45; PWrite8()\l}" alt="" coords="196,779,319,1120"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l File \&gt;\n||+ RefCountBase()\l}" alt="" coords="53,635,205,727"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="51,350,245,442"/>
+<area shape="rect" id="node10" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="145,493,324,571"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node7" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node8" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+<area shape="rect" id="node11" href="$classOVR_1_1FileConstants.html" title="{OVR::FileConstants\n||}" alt="" coords="230,643,369,720"/>
+</map>

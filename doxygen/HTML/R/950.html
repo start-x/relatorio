@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>SensorDeviceImpl</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/191.html#L775'>SensorDeviceImpl</a>  775 ovr/sdk/src/OVR_DeviceImpl.cpp                     SensorDeviceImpl::EnumerateHMDFromSensorDisplayInfo(displayInfo, visitor);
+<a href='../S/86.html#L36'>SensorDeviceImpl</a>   36 ovr/sdk/src/OVR_Linux_SensorDevice.cpp void SensorDeviceImpl::EnumerateHMDFromSensorDisplayInfo(   const SensorDisplayInfoImpl&amp; displayInfo, 
+<a href='../S/90.html#L53'>SensorDeviceImpl</a>   53 ovr/sdk/src/OVR_Sensor2Impl.h class Sensor2DeviceImpl : public SensorDeviceImpl
+<a href='../S/190.html#L223'>SensorDeviceImpl</a>  223 ovr/sdk/src/OVR_SensorImpl.cpp                     SensorDeviceImpl::EnumerateHMDFromSensorDisplayInfo(displayInfo, ExternalVisitor);
+<a href='../S/190.html#L275'>SensorDeviceImpl</a>  275 ovr/sdk/src/OVR_SensorImpl.cpp     return new SensorDeviceImpl(this);
+<a href='../S/190.html#L303'>SensorDeviceImpl</a>  303 ovr/sdk/src/OVR_SensorImpl.cpp SensorDeviceImpl::SensorDeviceImpl(SensorDeviceCreateDesc* createDesc)
+<a href='../S/190.html#L325'>SensorDeviceImpl</a>  325 ovr/sdk/src/OVR_SensorImpl.cpp SensorDeviceImpl::~SensorDeviceImpl()
+<a href='../S/190.html#L333'>SensorDeviceImpl</a>  333 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::Initialize(DeviceBase* parent)
+<a href='../S/190.html#L344'>SensorDeviceImpl</a>  344 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::openDevice()
+<a href='../S/190.html#L398'>SensorDeviceImpl</a>  398 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::closeDeviceOnError()
+<a href='../S/190.html#L404'>SensorDeviceImpl</a>  404 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::Shutdown()
+<a href='../S/190.html#L411'>SensorDeviceImpl</a>  411 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::OnInputReport(UByte* pData, UInt32 length)
+<a href='../S/190.html#L426'>SensorDeviceImpl</a>  426 ovr/sdk/src/OVR_SensorImpl.cpp double SensorDeviceImpl::OnTicks(double tickSeconds)
+<a href='../S/190.html#L444'>SensorDeviceImpl</a>  444 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::SetRange(const SensorRange&amp; range, bool waitFlag)
+<a href='../S/190.html#L451'>SensorDeviceImpl</a>  451 ovr/sdk/src/OVR_SensorImpl.cpp         return threadQueue-&gt;PushCall(this, &amp;SensorDeviceImpl::setRange, range);
+<a href='../S/190.html#L455'>SensorDeviceImpl</a>  455 ovr/sdk/src/OVR_SensorImpl.cpp                                             &amp;SensorDeviceImpl::setRange,
+<a href='../S/190.html#L465'>SensorDeviceImpl</a>  465 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::GetRange(SensorRange* range) const
+<a href='../S/190.html#L471'>SensorDeviceImpl</a>  471 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::setRange(const SensorRange&amp; range)
+<a href='../S/190.html#L485'>SensorDeviceImpl</a>  485 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::SetCoordinateFrame(CoordinateFrame coordframe)
+<a href='../S/190.html#L489'>SensorDeviceImpl</a>  489 ovr/sdk/src/OVR_SensorImpl.cpp         PushCall(this, &amp;SensorDeviceImpl::setCoordinateFrame, coordframe, true);
+<a href='../S/190.html#L492'>SensorDeviceImpl</a>  492 ovr/sdk/src/OVR_SensorImpl.cpp SensorDevice::CoordinateFrame SensorDeviceImpl::GetCoordinateFrame() const
+<a href='../S/190.html#L497'>SensorDeviceImpl</a>  497 ovr/sdk/src/OVR_SensorImpl.cpp Void SensorDeviceImpl::setCoordinateFrame(CoordinateFrame coordframe)
+<a href='../S/190.html#L527'>SensorDeviceImpl</a>  527 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::SetReportRate(unsigned rateHz)
+<a href='../S/190.html#L531'>SensorDeviceImpl</a>  531 ovr/sdk/src/OVR_SensorImpl.cpp         PushCall(this, &amp;SensorDeviceImpl::setReportRate, rateHz, true);
+<a href='../S/190.html#L534'>SensorDeviceImpl</a>  534 ovr/sdk/src/OVR_SensorImpl.cpp unsigned SensorDeviceImpl::GetReportRate() const
+<a href='../S/190.html#L546'>SensorDeviceImpl</a>  546 ovr/sdk/src/OVR_SensorImpl.cpp Void SensorDeviceImpl::setReportRate(unsigned rateHz)
+<a href='../S/190.html#L568'>SensorDeviceImpl</a>  568 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::GetFactoryCalibration(Vector3f* AccelOffset, Vector3f* GyroOffset,
+<a href='../S/190.html#L579'>SensorDeviceImpl</a>  579 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::IsMagCalibrated()
+<a href='../S/190.html#L584'>SensorDeviceImpl</a>  584 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::SetOnboardCalibrationEnabled(bool enabled)
+<a href='../S/190.html#L588'>SensorDeviceImpl</a>  588 ovr/sdk/src/OVR_SensorImpl.cpp         PushCall(this, &amp;SensorDeviceImpl::setOnboardCalibrationEnabled, enabled, true);
+<a href='../S/190.html#L591'>SensorDeviceImpl</a>  591 ovr/sdk/src/OVR_SensorImpl.cpp Void SensorDeviceImpl::setOnboardCalibrationEnabled(bool enabled)
+<a href='../S/190.html#L611'>SensorDeviceImpl</a>  611 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::AddMessageHandler(MessageHandler* handler)
+<a href='../S/190.html#L666'>SensorDeviceImpl</a>  666 ovr/sdk/src/OVR_SensorImpl.cpp bool  SensorDeviceImpl::decodeTrackerMessage(TrackerMessage* message, UByte* buffer, int size)
+<a href='../S/190.html#L690'>SensorDeviceImpl</a>  690 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::onTrackerMessage(TrackerMessage* message)
+<a href='../S/190.html#L830'>SensorDeviceImpl</a>  830 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::replaceWithPhoneMag(Vector3f* val)
+<a href='../S/190.html#L854'>SensorDeviceImpl</a>  854 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::SetMagCalibrationReport(const MagCalibrationReport &amp;data)
+<a href='../S/190.html#L996'>SensorDeviceImpl</a>  996 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::GetMagCalibrationReport(MagCalibrationReport* data)
+<a href='../S/190.html#L1122'>SensorDeviceImpl</a> 1122 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::SetSerialReport(const SerialReport&amp; data)
+<a href='../S/190.html#L1134'>SensorDeviceImpl</a> 1134 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::setSerialReport(const SerialReport&amp; data)
+<a href='../S/190.html#L1140'>SensorDeviceImpl</a> 1140 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::GetSerialReport(SerialReport* data)
+<a href='../S/190.html#L1152'>SensorDeviceImpl</a> 1152 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::getSerialReport(SerialReport* data)
+<a href='../S/135.html#L188'>SensorDeviceImpl</a>  188 ovr/sdk/src/OVR_SensorImpl.h class SensorDeviceImpl : public HIDDeviceImpl&lt;OVR::SensorDevice&gt;
+<a href='../S/135.html#L191'>SensorDeviceImpl</a>  191 ovr/sdk/src/OVR_SensorImpl.h      SensorDeviceImpl(SensorDeviceCreateDesc* createDesc);
+<a href='../S/135.html#L192'>SensorDeviceImpl</a>  192 ovr/sdk/src/OVR_SensorImpl.h     ~SensorDeviceImpl();
+</pre>
+</body>
+</html>

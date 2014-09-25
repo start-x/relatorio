@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>DeviceBase</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/129.html#L34'>DeviceBase</a>         34 ovr/sdk/src/OVR_Common_HMDDevice.cpp DeviceBase* HMDDeviceCreateDesc::NewDeviceInstance()
+<a href='../S/129.html#L282'>DeviceBase</a>        282 ovr/sdk/src/OVR_Common_HMDDevice.cpp bool HMDDevice::Initialize(DeviceBase* parent)
+<a href='../S/108.html#L100'>DeviceBase</a>        100 ovr/sdk/src/OVR_Device.h class DeviceBase : public NewOverrideBase
+<a href='../S/108.html#L109'>DeviceBase</a>        109 ovr/sdk/src/OVR_Device.h     virtual ~DeviceBase() { }
+<a href='../S/108.html#L113'>DeviceBase</a>        113 ovr/sdk/src/OVR_Device.h     virtual DeviceBase*     GetParent() const;
+<a href='../S/108.html#L192'>DeviceBase</a>        192 ovr/sdk/src/OVR_Device.h template&lt;class T = DeviceBase&gt;
+<a href='../S/108.html#L239'>DeviceBase</a>        239 ovr/sdk/src/OVR_Device.h class DeviceManager : public DeviceBase
+<a href='../S/108.html#L412'>DeviceBase</a>        412 ovr/sdk/src/OVR_Device.h class HMDDevice : public DeviceBase
+<a href='../S/108.html#L964'>DeviceBase</a>        964 ovr/sdk/src/OVR_Device.h class SensorDevice : public HIDDeviceBase, public DeviceBase
+<a href='../S/108.html#L1097'>DeviceBase</a>       1097 ovr/sdk/src/OVR_Device.h class LatencyTestDevice : public HIDDeviceBase, public DeviceBase
+<a href='../S/108.html#L1127'>DeviceBase</a>       1127 ovr/sdk/src/OVR_Device.h     virtual DeviceBase* GetDevice() { return this; }
+<a href='../S/89.html#L63'>DeviceBase</a>         63 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceBase* DeviceHandle::GetDevice_AddRef() const
+<a href='../S/89.html#L75'>DeviceBase</a>         75 ovr/sdk/src/OVR_DeviceHandle.cpp bool DeviceHandle::IsDevice(DeviceBase* pdev) const
+<a href='../S/89.html#L102'>DeviceBase</a>        102 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceBase* DeviceHandle::CreateDevice()
+<a href='../S/89.html#L107'>DeviceBase</a>        107 ovr/sdk/src/OVR_DeviceHandle.cpp     DeviceBase*            device = 0;
+<a href='../S/89.html#L132'>DeviceBase</a>        132 ovr/sdk/src/OVR_DeviceHandle.cpp                 &amp;device, pImpl, (DeviceBase*)0);
+<a href='../S/89.html#L135'>DeviceBase</a>        135 ovr/sdk/src/OVR_DeviceHandle.cpp             device = manager-&gt;CreateDevice_MgrThread(pImpl, (DeviceBase*)0);
+<a href='../S/126.html#L35'>DeviceBase</a>         35 ovr/sdk/src/OVR_DeviceHandle.h class DeviceBase;
+<a href='../S/126.html#L75'>DeviceBase</a>         75 ovr/sdk/src/OVR_DeviceHandle.h     DeviceBase* GetDevice_AddRef() const;
+<a href='../S/126.html#L82'>DeviceBase</a>         82 ovr/sdk/src/OVR_DeviceHandle.h     bool        IsDevice(DeviceBase*) const;
+<a href='../S/126.html#L86'>DeviceBase</a>         86 ovr/sdk/src/OVR_DeviceHandle.h 	DeviceBase* CreateDevice();
+<a href='../S/191.html#L82'>DeviceBase</a>         82 ovr/sdk/src/OVR_DeviceImpl.cpp MessageHandlerRef::MessageHandlerRef(DeviceBase* device)
+<a href='../S/191.html#L224'>DeviceBase</a>        224 ovr/sdk/src/OVR_DeviceImpl.cpp void DeviceBase::AddRef()
+<a href='../S/191.html#L228'>DeviceBase</a>        228 ovr/sdk/src/OVR_DeviceImpl.cpp void DeviceBase::Release()
+<a href='../S/191.html#L232'>DeviceBase</a>        232 ovr/sdk/src/OVR_DeviceImpl.cpp DeviceBase* DeviceBase::GetParent() const
+<a href='../S/191.html#L236'>DeviceBase</a>        236 ovr/sdk/src/OVR_DeviceImpl.cpp DeviceManager* DeviceBase::GetManager() const
+<a href='../S/191.html#L241'>DeviceBase</a>        241 ovr/sdk/src/OVR_DeviceImpl.cpp void DeviceBase::AddMessageHandler(MessageHandler* handler)
+<a href='../S/191.html#L246'>DeviceBase</a>        246 ovr/sdk/src/OVR_DeviceImpl.cpp DeviceType DeviceBase::GetType() const
+<a href='../S/191.html#L251'>DeviceBase</a>        251 ovr/sdk/src/OVR_DeviceImpl.cpp bool DeviceBase::GetDeviceInfo(DeviceInfo* info) const
+<a href='../S/191.html#L259'>DeviceBase</a>        259 ovr/sdk/src/OVR_DeviceImpl.cpp bool DeviceBase::IsConnected()
+<a href='../S/191.html#L265'>DeviceBase</a>        265 ovr/sdk/src/OVR_DeviceImpl.cpp Lock* DeviceBase::GetHandlerLock() const
+<a href='../S/191.html#L281'>DeviceBase</a>        281 ovr/sdk/src/OVR_DeviceImpl.cpp     virtual DeviceBase* NewDeviceInstance()                        { return 0; }
+<a href='../S/191.html#L322'>DeviceBase</a>        322 ovr/sdk/src/OVR_DeviceImpl.cpp bool DeviceManagerImpl::Initialize(DeviceBase* parent)
+<a href='../S/191.html#L361'>DeviceBase</a>        361 ovr/sdk/src/OVR_DeviceImpl.cpp DeviceBase* DeviceManagerImpl::CreateDevice_MgrThread(DeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/191.html#L379'>DeviceBase</a>        379 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceBase* device = createDesc-&gt;NewDeviceInstance();
+<a href='../S/191.html#L399'>DeviceBase</a>        399 ovr/sdk/src/OVR_DeviceImpl.cpp Void DeviceManagerImpl::ReleaseDevice_MgrThread(DeviceBase* device)
+<a href='../S/80.html#L61'>DeviceBase</a>         61 ovr/sdk/src/OVR_DeviceImpl.h     MessageHandlerRef(DeviceBase* device);
+<a href='../S/80.html#L74'>DeviceBase</a>         74 ovr/sdk/src/OVR_DeviceImpl.h     DeviceBase*     GetDevice() const  { return pDevice; }
+<a href='../S/80.html#L78'>DeviceBase</a>         78 ovr/sdk/src/OVR_DeviceImpl.h     DeviceBase*     pDevice;
+<a href='../S/80.html#L145'>DeviceBase</a>        145 ovr/sdk/src/OVR_DeviceImpl.h     virtual DeviceBase*       NewDeviceInstance() = 0;
+<a href='../S/80.html#L191'>DeviceBase</a>        191 ovr/sdk/src/OVR_DeviceImpl.h     DeviceBase*                 pDevice;
+<a href='../S/80.html#L205'>DeviceBase</a>        205 ovr/sdk/src/OVR_DeviceImpl.h     Ptr&lt;DeviceBase&gt;        pParent;
+<a href='../S/80.html#L209'>DeviceBase</a>        209 ovr/sdk/src/OVR_DeviceImpl.h     DeviceCommon(DeviceCreateDesc* createDesc, DeviceBase* device, DeviceBase* parent)
+<a href='../S/80.html#L222'>DeviceBase</a>        222 ovr/sdk/src/OVR_DeviceImpl.h     virtual bool Initialize(DeviceBase* parent) = 0;
+<a href='../S/80.html#L235'>DeviceBase</a>        235 ovr/sdk/src/OVR_DeviceImpl.h     DeviceImpl(DeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/80.html#L345'>DeviceBase</a>        345 ovr/sdk/src/OVR_DeviceImpl.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/80.html#L382'>DeviceBase</a>        382 ovr/sdk/src/OVR_DeviceImpl.h     static DeviceCommon* GetDeviceCommon(DeviceBase* device)
+<a href='../S/80.html#L389'>DeviceBase</a>        389 ovr/sdk/src/OVR_DeviceImpl.h     DeviceBase* CreateDevice_MgrThread(DeviceCreateDesc* createDesc, DeviceBase* parent = 0);
+<a href='../S/80.html#L390'>DeviceBase</a>        390 ovr/sdk/src/OVR_DeviceImpl.h     Void        ReleaseDevice_MgrThread(DeviceBase* device);
+<a href='../S/121.html#L41'>DeviceBase</a>         41 ovr/sdk/src/OVR_DeviceMessages.h class DeviceBase;
+<a href='../S/121.html#L79'>DeviceBase</a>         79 ovr/sdk/src/OVR_DeviceMessages.h             DeviceBase* pdev = 0) : Type(type), pDevice(pdev)
+<a href='../S/121.html#L83'>DeviceBase</a>         83 ovr/sdk/src/OVR_DeviceMessages.h     DeviceBase* pDevice; // Device that emitted the message.
+<a href='../S/121.html#L105'>DeviceBase</a>        105 ovr/sdk/src/OVR_DeviceMessages.h     MessageBodyFrame(DeviceBase* dev)
+<a href='../S/121.html#L135'>DeviceBase</a>        135 ovr/sdk/src/OVR_DeviceMessages.h     MessageDeviceStatus(MessageType type, DeviceBase* dev, const DeviceHandle &amp;hdev)
+<a href='../S/121.html#L144'>DeviceBase</a>        144 ovr/sdk/src/OVR_DeviceMessages.h     MessageExposureFrame(DeviceBase* dev)
+<a href='../S/121.html#L156'>DeviceBase</a>        156 ovr/sdk/src/OVR_DeviceMessages.h     MessagePixelRead(DeviceBase* dev)
+<a href='../S/121.html#L174'>DeviceBase</a>        174 ovr/sdk/src/OVR_DeviceMessages.h     MessageLatencyTestSamples(DeviceBase* dev)
+<a href='../S/121.html#L186'>DeviceBase</a>        186 ovr/sdk/src/OVR_DeviceMessages.h     MessageLatencyTestColorDetected(DeviceBase* dev)
+<a href='../S/121.html#L200'>DeviceBase</a>        200 ovr/sdk/src/OVR_DeviceMessages.h     MessageLatencyTestStarted(DeviceBase* dev)
+<a href='../S/121.html#L212'>DeviceBase</a>        212 ovr/sdk/src/OVR_DeviceMessages.h     MessageLatencyTestButton(DeviceBase* dev)
+<a href='../S/121.html#L226'>DeviceBase</a>        226 ovr/sdk/src/OVR_DeviceMessages.h     MessageCameraFrame(DeviceBase* dev)
+<a href='../S/121.html#L262'>DeviceBase</a>        262 ovr/sdk/src/OVR_DeviceMessages.h     MessageCameraAdded(DeviceBase* dev)
+<a href='../S/123.html#L58'>DeviceBase</a>         58 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDeviceImpl(HIDDeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/123.html#L100'>DeviceBase</a>        100 ovr/sdk/src/OVR_HIDDeviceImpl.h     virtual bool Initialize(DeviceBase* parent)
+<a href='../S/87.html#L451'>DeviceBase</a>        451 ovr/sdk/src/OVR_LatencyTestImpl.cpp DeviceBase* LatencyTestDeviceCreateDesc::NewDeviceInstance()
+<a href='../S/87.html#L492'>DeviceBase</a>        492 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool LatencyTestDeviceImpl::Initialize(DeviceBase* parent)
+<a href='../S/122.html#L69'>DeviceBase</a>         69 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual DeviceBase* NewDeviceInstance();
+<a href='../S/122.html#L105'>DeviceBase</a>        105 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/193.html#L53'>DeviceBase</a>         53 ovr/sdk/src/OVR_Linux_DeviceManager.cpp bool DeviceManager::Initialize(DeviceBase*)
+<a href='../S/130.html#L50'>DeviceBase</a>         50 ovr/sdk/src/OVR_Linux_DeviceManager.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/125.html#L95'>DeviceBase</a>         95 ovr/sdk/src/OVR_Linux_HMDDevice.h     virtual DeviceBase* NewDeviceInstance();
+<a href='../S/125.html#L130'>DeviceBase</a>        130 ovr/sdk/src/OVR_Linux_HMDDevice.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/139.html#L140'>DeviceBase</a>        140 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::GetDeviceTags(const DeviceBase* device, String&amp; product, String&amp; serial)
+<a href='../S/139.html#L292'>DeviceBase</a>        292 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::GetDefaultProfile(const DeviceBase* device)
+<a href='../S/139.html#L681'>DeviceBase</a>        681 ovr/sdk/src/OVR_Profile.cpp const char* ProfileManager::GetDefaultUser(const DeviceBase* device)
+<a href='../S/139.html#L720'>DeviceBase</a>        720 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::SetDefaultUser(const DeviceBase* device, const char* user)
+<a href='../S/139.html#L919'>DeviceBase</a>        919 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::GetProfile(const DeviceBase* device, const char* user)
+<a href='../S/139.html#L1065'>DeviceBase</a>       1065 ovr/sdk/src/OVR_Profile.cpp bool Profile::LoadDeviceProfile(const DeviceBase* device)
+<a href='../S/133.html#L45'>DeviceBase</a>         45 ovr/sdk/src/OVR_Profile.h class DeviceBase;
+<a href='../S/133.html#L84'>DeviceBase</a>         84 ovr/sdk/src/OVR_Profile.h     const char*         GetDefaultUser(const DeviceBase* device);
+<a href='../S/133.html#L85'>DeviceBase</a>         85 ovr/sdk/src/OVR_Profile.h     bool                SetDefaultUser(const DeviceBase* device, const char* user);
+<a href='../S/133.html#L88'>DeviceBase</a>         88 ovr/sdk/src/OVR_Profile.h     Profile*            GetProfile(const DeviceBase* device, const char* user);
+<a href='../S/133.html#L89'>DeviceBase</a>         89 ovr/sdk/src/OVR_Profile.h     Profile*            GetDefaultProfile(const DeviceBase* device);
+<a href='../S/133.html#L93'>DeviceBase</a>         93 ovr/sdk/src/OVR_Profile.h     bool                GetDeviceTags(const DeviceBase* device, String&amp; product, String&amp; serial);
+<a href='../S/133.html#L150'>DeviceBase</a>        150 ovr/sdk/src/OVR_Profile.h     static bool         LoadProfile(const DeviceBase* device,
+<a href='../S/133.html#L156'>DeviceBase</a>        156 ovr/sdk/src/OVR_Profile.h     bool                LoadDeviceProfile(const DeviceBase* device);
+<a href='../S/190.html#L268'>DeviceBase</a>        268 ovr/sdk/src/OVR_SensorImpl.cpp DeviceBase* SensorDeviceCreateDesc::NewDeviceInstance()
+<a href='../S/190.html#L333'>DeviceBase</a>        333 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::Initialize(DeviceBase* parent)
+<a href='../S/190.html#L615'>DeviceBase</a>        615 ovr/sdk/src/OVR_SensorImpl.cpp     DeviceBase::AddMessageHandler(handler);
+<a href='../S/135.html#L72'>DeviceBase</a>         72 ovr/sdk/src/OVR_SensorImpl.h     virtual DeviceBase* NewDeviceInstance();
+<a href='../S/135.html#L114'>DeviceBase</a>        114 ovr/sdk/src/OVR_SensorImpl.h     virtual DeviceBase* NewDeviceInstance() { return NULL; };
+<a href='../S/135.html#L196'>DeviceBase</a>        196 ovr/sdk/src/OVR_SensorImpl.h     virtual bool Initialize(DeviceBase* parent);
+</pre>
+</body>
+</html>

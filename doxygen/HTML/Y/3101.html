@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>element</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L728'>element</a>           728 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLElement* element = node-&gt;ToElement();
+<a href='../S/197.html#L729'>element</a>           729 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( element ) {
+<a href='../S/197.html#L730'>element</a>           730 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !value || XMLUtil::StringEqual( element-&gt;Name(), value ) ) {
+<a href='../S/197.html#L731'>element</a>           731 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 return element;
+<a href='../S/197.html#L742'>element</a>           742 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLElement* element = node-&gt;ToElement();
+<a href='../S/197.html#L743'>element</a>           743 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( element ) {
+<a href='../S/197.html#L744'>element</a>           744 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !value || XMLUtil::StringEqual( element-&gt;Name(), value ) ) {
+<a href='../S/197.html#L745'>element</a>           745 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 return element;
+<a href='../S/197.html#L755'>element</a>           755 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* element=this-&gt;_next; element; element = element-&gt;_next ) {
+<a href='../S/197.html#L756'>element</a>           756 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if (    element-&gt;ToElement()
+<a href='../S/197.html#L757'>element</a>           757 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 &amp;&amp; (!value || XMLUtil::StringEqual( value, element-&gt;Value() ))) {
+<a href='../S/197.html#L758'>element</a>           758 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return element-&gt;ToElement();
+<a href='../S/197.html#L767'>element</a>           767 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* element=_prev; element; element = element-&gt;_prev ) {
+<a href='../S/197.html#L768'>element</a>           768 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if (    element-&gt;ToElement()
+<a href='../S/197.html#L769'>element</a>           769 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 &amp;&amp; (!value || XMLUtil::StringEqual( value, element-&gt;Value() ))) {
+<a href='../S/197.html#L770'>element</a>           770 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             return element-&gt;ToElement();
+<a href='../S/197.html#L1444'>element</a>          1444 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLElement* element = doc-&gt;NewElement( Value() );					// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L1446'>element</a>          1446 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         element-&gt;SetAttribute( a-&gt;Name(), a-&gt;Value() );					// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L1448'>element</a>          1448 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return element;
+<a href='../S/197.html#L2056'>element</a>          2056 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLPrinter::VisitEnter( const XMLElement&amp; element, const XMLAttribute* attribute )
+<a href='../S/197.html#L2058'>element</a>          2058 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     OpenElement( element.Name() );
+<a href='../S/196.html#L1855'>element</a>          1855 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool VisitEnter( const XMLElement&amp; element, const XMLAttribute* attribute );
+<a href='../S/196.html#L1856'>element</a>          1856 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool VisitExit( const XMLElement&amp; element );
+</pre>
+</body>
+</html>

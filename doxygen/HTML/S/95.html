@@ -1,0 +1,170 @@
+<html>
+<head>
+<title>ovr/sdk/src/CAPI/CAPI_GlobalState.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/219.html'>CAPI</a>/CAPI_GlobalState.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L69'>[^]</a><a href='#L116'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L69' title='Defined at 69.'>EnumerateDevices</a>
+<li><a href='#L88' title='Defined at 88.'>CreateDevice</a>
+<li><a href='#L98' title='Defined at 98.'>AddHMD</a>
+<li><a href='#L103' title='Defined at 103.'>RemoveHMD</a>
+<li><a href='#L109' title='Defined at 109.'>NotifyHMDs_AddDevice</a>
+<li><a href='#L116' title='Defined at 116.'>OnMessage</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   CAPI_GlobalState.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Maintains global state of the CAPI</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   January 24, 2014</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Michael Antonov</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='96.html'>CAPI_GlobalState.h</a>"
+<a name='L28'>  28 
+<a name='L29'>  29 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font> <b>namespace</b> <a href='../R/79.html' title='Multiple refered from 33 places.'>CAPI</a> <font color='red'>{</font>
+<a name='L30'>  30 
+<a name='L31'>  31 
+<a name='L32'>  32 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L33'>  33 <i><font color='green'>// Open Questions / Notes</font></i>
+<a name='L34'>  34 
+<a name='L35'>  35 <i><font color='green'>// 2. Detect HMDs.</font></i>
+<a name='L36'>  36 <i><font color='green'>// Challenge: If we do everything through polling, it would imply we want all the devices</font></i>
+<a name='L37'>  37 <i><font color='green'>//            initialized. However, there may be multiple rifts, extra sensors, etc,</font></i>
+<a name='L38'>  38 <i><font color='green'>//            which shouldn't be allocated.</font></i>
+<a name='L39'>  39 <i><font color='green'>// </font></i>
+<a name='L40'>  40 
+<a name='L41'>  41 <i><font color='green'>// How do you reset orientation Quaternion?</font></i>
+<a name='L42'>  42 <i><font color='green'>// Can you change IPD?</font></i>
+<a name='L43'>  43 
+<a name='L44'>  44 
+<a name='L45'>  45 
+<a name='L46'>  46 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L47'>  47 <i><font color='green'>// ***** OVRGlobalState</font></i>
+<a name='L48'>  48 
+<a name='L49'>  49 <i><font color='green'>// Global instance</font></i>
+<a name='L50'>  50 <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>* <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a> = 0;
+<a name='L51'>  51 
+<a name='L52'>  52 
+<a name='L53'>  53 <a href='../R/409.html' title='Multiple refered from 31 places.'>GlobalState</a>::<a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>()
+<a name='L54'>  54 <font color='red'>{</font>
+<a name='L55'>  55     <a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a> = *<a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../D/138.html' title='Multiple defined in 4 places.'>Create</a>();
+<a name='L56'>  56     <i><font color='green'>// Handle the DeviceManager's messages</font></i>
+<a name='L57'>  57     <a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a>-&gt;<a href='../D/18.html' title='Multiple defined in 2 places.'>AddMessageHandler</a>( <b>this</b> );
+<a name='L58'>  58     <a href='../D/233.html' title='Multiple defined in 4 places.'>EnumerateDevices</a>();
+<a name='L59'>  59 
+<a name='L60'>  60     <i><font color='green'>// PhoneSensors::Init();</font></i>
+<a name='L61'>  61 <font color='red'>}</font>
+<a name='L62'>  62 
+<a name='L63'>  63 <a href='../R/409.html' title='Multiple refered from 31 places.'>GlobalState</a>::~<a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>()
+<a name='L64'>  64 <font color='red'>{</font>
+<a name='L65'>  65     <a href='../S/191.html#L199' title='Defined at 199 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>RemoveHandlerFromDevices</a>();
+<a name='L66'>  66     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/879.html' title='Multiple used in 4 places.'>HMDs</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>());
+<a name='L67'>  67 <font color='red'>}</font>
+<a name='L68'>  68 
+<a name='L69'>  69 <b>int</b> <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../R/225.html' title='Multiple refered from 14 places.'>EnumerateDevices</a>()
+<a name='L70'>  70 <font color='red'>{</font>
+<a name='L71'>  71     <i><font color='green'>// Need to use separate lock for device enumeration, as pManager-&gt;GetHandlerLock()</font></i>
+<a name='L72'>  72     <i><font color='green'>// would produce deadlocks here.</font></i>
+<a name='L73'>  73     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3582.html' title='Multiple used in 17 places.'>lock</a>(&amp;<a href='../Y/512.html' title='Multiple used in 3 places.'>EnumerationLock</a>);
+<a name='L74'>  74     
+<a name='L75'>  75     <a href='../Y/511.html' title='Multiple used in 6 places.'>EnumeratedDevices</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();        
+<a name='L76'>  76 
+<a name='L77'>  77     <a href='../Y/389.html' title='Multiple used in 17 places.'>DeviceEnumerator</a>&lt;<a href='../D/441.html' title='Multiple defined in 2 places.'>HMDDevice</a>&gt; <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a> = <a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a>-&gt;<a href='../D/233.html' title='Multiple defined in 4 places.'>EnumerateDevices</a>&lt;<a href='../D/441.html' title='Multiple defined in 2 places.'>HMDDevice</a>&gt;();
+<a name='L78'>  78     <b>while</b>(<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>.<a href='../S/89.html#L90' title='Defined at 90 in ovr/sdk/src/OVR_DeviceHandle.cpp.'>IsAvailable</a>())
+<a name='L79'>  79     <font color='red'>{</font>
+<a name='L80'>  80         <a href='../Y/511.html' title='Multiple used in 6 places.'>EnumeratedDevices</a>.<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../D/182.html' title='Multiple defined in 4 places.'>DeviceHandle</a>(<a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>));       
+<a name='L81'>  81         <a href='../Y/3090.html' title='Multiple used in 82 places.'>e</a>.<a href='../Y/1455.html' title='Multiple used in 9 places.'>Next</a>();
+<a name='L82'>  82     <font color='red'>}</font>
+<a name='L83'>  83 
+<a name='L84'>  84     <b>return</b> (<b>int</b>)<a href='../Y/511.html' title='Multiple used in 6 places.'>EnumeratedDevices</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L85'>  85 <font color='red'>}</font>
+<a name='L86'>  86 
+<a name='L87'>  87 
+<a name='L88'>  88 <a href='../D/441.html' title='Multiple defined in 2 places.'>HMDDevice</a>* <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../R/133.html' title='Multiple refered from 9 places.'>CreateDevice</a>(<b>int</b> <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>)
+<a name='L89'>  89 <font color='red'>{</font>
+<a name='L90'>  90     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3582.html' title='Multiple used in 17 places.'>lock</a>(&amp;<a href='../Y/512.html' title='Multiple used in 3 places.'>EnumerationLock</a>);
+<a name='L91'>  91 
+<a name='L92'>  92     <b>if</b> (<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a> &gt;= (<b>int</b>)<a href='../Y/511.html' title='Multiple used in 6 places.'>EnumeratedDevices</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>())
+<a name='L93'>  93         <b>return</b> 0;
+<a name='L94'>  94     <b>return</b> <a href='../Y/511.html' title='Multiple used in 6 places.'>EnumeratedDevices</a>[<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>].<a href='../Y/270.html' title='Multiple used in 2 places.'>CreateDeviceTyped</a>&lt;<a href='../D/441.html' title='Multiple defined in 2 places.'>HMDDevice</a>&gt;();
+<a name='L95'>  95 <font color='red'>}</font>
+<a name='L96'>  96 
+<a name='L97'>  97 
+<a name='L98'>  98 <b>void</b> <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../R/12.html' title='Multiple refered from 3 places.'>AddHMD</a>(<a href='../Y/878.html' title='Multiple used in 2 places.'>HMDState</a>* <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>)
+<a name='L99'>  99 <font color='red'>{</font>
+<a name='L100'> 100     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3582.html' title='Multiple used in 17 places.'>lock</a>(<a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a>-&gt;<a href='../D/355.html' title='Multiple defined in 2 places.'>GetHandlerLock</a>());
+<a name='L101'> 101     <a href='../Y/879.html' title='Multiple used in 4 places.'>HMDs</a>.<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>);
+<a name='L102'> 102 <font color='red'>}</font>
+<a name='L103'> 103 <b>void</b> <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../R/894.html' title='Multiple refered from 2 places.'>RemoveHMD</a>(<a href='../Y/878.html' title='Multiple used in 2 places.'>HMDState</a>* <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>)
+<a name='L104'> 104 <font color='red'>{</font>
+<a name='L105'> 105     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3582.html' title='Multiple used in 17 places.'>lock</a>(<a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a>-&gt;<a href='../D/355.html' title='Multiple defined in 2 places.'>GetHandlerLock</a>());
+<a name='L106'> 106     <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>-&gt;<a href='../Y/1846.html' title='Multiple used in 15 places.'>RemoveNode</a>();
+<a name='L107'> 107 <font color='red'>}</font>
+<a name='L108'> 108 
+<a name='L109'> 109 <b>void</b> <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../R/618.html' title='Multiple refered from 2 places.'>NotifyHMDs_AddDevice</a>(<a href='../Y/401.html' title='Multiple used in 2 places.'>DeviceType</a> <a href='../Y/3013.html' title='Multiple used in 2 places.'>deviceType</a>)
+<a name='L110'> 110 <font color='red'>{</font>
+<a name='L111'> 111     <a href='../D/571.html' title='Multiple defined in 2 places.'>Lock</a>::<a href='../Y/1296.html' title='Multiple used in 78 places.'>Locker</a> <a href='../Y/3582.html' title='Multiple used in 17 places.'>lock</a>(<a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a>-&gt;<a href='../D/355.html' title='Multiple defined in 2 places.'>GetHandlerLock</a>());
+<a name='L112'> 112     <b>for</b>(<a href='../S/97.html#L97' title='Defined at 97 in ovr/sdk/src/CAPI/CAPI_HMDState.cpp.'>HMDState</a>* <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a> = <a href='../Y/879.html' title='Multiple used in 4 places.'>HMDs</a>.<a href='../Y/758.html' title='Multiple used in 33 places.'>GetFirst</a>(); !<a href='../Y/879.html' title='Multiple used in 4 places.'>HMDs</a>.<a href='../Y/1041.html' title='Multiple used in 21 places.'>IsNull</a>(<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>); <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a> = <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>-&gt;<a href='../Y/3961.html' title='Multiple used in 72 places.'>pNext</a>)        
+<a name='L113'> 113         <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>-&gt;<a href='../Y/1477.html' title='Multiple used in 2 places.'>NotifyAddDevice</a>(<a href='../S/23.html#L11' title='Defined at 11 in device/Device.h.'>deviceType</a>);
+<a name='L114'> 114 <font color='red'>}</font>
+<a name='L115'> 115 
+<a name='L116'> 116 <b>void</b> <a href='../D/426.html' title='Multiple defined in 2 places.'>GlobalState</a>::<a href='../R/794.html' title='Multiple refered from 7 places.'>OnMessage</a>(<b>const</b> <a href='../Y/1394.html' title='Multiple used in 39 places.'>Message</a>&amp; <a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>)
+<a name='L117'> 117 <font color='red'>{</font>
+<a name='L118'> 118     <b>if</b> (<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> == <a href='../Y/1411.html' title='Multiple used in 9 places.'>Message_DeviceAdded</a> || <a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> == <a href='../Y/1412.html' title='Multiple used in 8 places.'>Message_DeviceRemoved</a>)
+<a name='L119'> 119     <font color='red'>{</font>       
+<a name='L120'> 120         <b>if</b> (<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../Y/3925.html' title='Multiple used in 36 places.'>pDevice</a> == <a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a>)
+<a name='L121'> 121         <font color='red'>{</font>   
+<a name='L122'> 122             <b>const</b> <a href='../Y/1398.html' title='Multiple used in 7 places.'>MessageDeviceStatus</a>&amp; <a href='../Y/4471.html' title='Multiple used in 2 places.'>statusMsg</a> =
+<a name='L123'> 123                 <b>static_cast</b>&lt;<b>const</b> <a href='../Y/1398.html' title='Multiple used in 7 places.'>MessageDeviceStatus</a>&amp;&gt;(<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>);
+<a name='L124'> 124 
+<a name='L125'> 125             <b>if</b> (<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> == <a href='../Y/1411.html' title='Multiple used in 9 places.'>Message_DeviceAdded</a>)
+<a name='L126'> 126             <font color='red'>{</font>
+<a name='L127'> 127                 <i><font color='green'>//LogText("OnMessage DeviceAdded.\n");</font></i>
+<a name='L128'> 128 
+<a name='L129'> 129                 <i><font color='green'>// We may have added a sensor/other device; notify any HMDs that might</font></i>
+<a name='L130'> 130                 <i><font color='green'>// need it to check for it later.</font></i>
+<a name='L131'> 131                 <a href='../S/95.html#L109' title='Defined at 109 in ovr/sdk/src/CAPI/CAPI_GlobalState.cpp.'>NotifyHMDs_AddDevice</a>(<a href='../Y/4471.html' title='Multiple used in 2 places.'>statusMsg</a>.<a href='../Y/892.html' title='Multiple used in 5 places.'>Handle</a>.<a href='../D/416.html' title='Multiple defined in 2 places.'>GetType</a>());
+<a name='L132'> 132             <font color='red'>}</font>
+<a name='L133'> 133             <b>else</b>
+<a name='L134'> 134             <font color='red'>{</font>
+<a name='L135'> 135                 <i><font color='green'>//LogText("OnMessage DeviceRemoved.\n");</font></i>
+<a name='L136'> 136             <font color='red'>}</font>
+<a name='L137'> 137         <font color='red'>}</font>
+<a name='L138'> 138     <font color='red'>}</font>
+<a name='L139'> 139 <font color='red'>}</font>
+<a name='L140'> 140 
+<a name='L141'> 141 
+<a name='L142'> 142 <font color='red'>}</font><font color='red'>}</font> <i><font color='green'>// namespace OVR::CAPI</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L69'>[^]</a><a href='#L116'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

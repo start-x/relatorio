@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>pFitX</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L50'>pFitX</a>              50 ovr/sdk/src/OVR_Stereo.cpp bool FitCubicPolynomial ( float *pResult, const float *pFitX, const float *pFitY )
+<a href='../S/88.html#L52'>pFitX</a>              52 ovr/sdk/src/OVR_Stereo.cpp     float d0 = ( ( pFitX[0]-pFitX[1] ) * ( pFitX[0]-pFitX[2] ) * ( pFitX[0]-pFitX[3] ) );
+<a href='../S/88.html#L53'>pFitX</a>              53 ovr/sdk/src/OVR_Stereo.cpp     float d1 = ( ( pFitX[1]-pFitX[2] ) * ( pFitX[1]-pFitX[3] ) * ( pFitX[1]-pFitX[0] ) );
+<a href='../S/88.html#L54'>pFitX</a>              54 ovr/sdk/src/OVR_Stereo.cpp     float d2 = ( ( pFitX[2]-pFitX[3] ) * ( pFitX[2]-pFitX[0] ) * ( pFitX[2]-pFitX[1] ) );
+<a href='../S/88.html#L55'>pFitX</a>              55 ovr/sdk/src/OVR_Stereo.cpp     float d3 = ( ( pFitX[3]-pFitX[0] ) * ( pFitX[3]-pFitX[1] ) * ( pFitX[3]-pFitX[2] ) );
+<a href='../S/88.html#L67'>pFitX</a>              67 ovr/sdk/src/OVR_Stereo.cpp     pResult[0] = -( f0*pFitX[1]*pFitX[2]*pFitX[3]
+<a href='../S/88.html#L68'>pFitX</a>              68 ovr/sdk/src/OVR_Stereo.cpp                   + f1*pFitX[0]*pFitX[2]*pFitX[3]
+<a href='../S/88.html#L69'>pFitX</a>              69 ovr/sdk/src/OVR_Stereo.cpp                   + f2*pFitX[0]*pFitX[1]*pFitX[3]
+<a href='../S/88.html#L70'>pFitX</a>              70 ovr/sdk/src/OVR_Stereo.cpp                   + f3*pFitX[0]*pFitX[1]*pFitX[2] );
+<a href='../S/88.html#L71'>pFitX</a>              71 ovr/sdk/src/OVR_Stereo.cpp     pResult[1] = f0*(pFitX[1]*pFitX[2] + pFitX[2]*pFitX[3] + pFitX[3]*pFitX[1])
+<a href='../S/88.html#L72'>pFitX</a>              72 ovr/sdk/src/OVR_Stereo.cpp                + f1*(pFitX[0]*pFitX[2] + pFitX[2]*pFitX[3] + pFitX[3]*pFitX[0])
+<a href='../S/88.html#L73'>pFitX</a>              73 ovr/sdk/src/OVR_Stereo.cpp                + f2*(pFitX[0]*pFitX[1] + pFitX[1]*pFitX[3] + pFitX[3]*pFitX[0])
+<a href='../S/88.html#L74'>pFitX</a>              74 ovr/sdk/src/OVR_Stereo.cpp                + f3*(pFitX[0]*pFitX[1] + pFitX[1]*pFitX[2] + pFitX[2]*pFitX[0]);
+<a href='../S/88.html#L75'>pFitX</a>              75 ovr/sdk/src/OVR_Stereo.cpp     pResult[2] = -( f0*(pFitX[1]+pFitX[2]+pFitX[3])
+<a href='../S/88.html#L76'>pFitX</a>              76 ovr/sdk/src/OVR_Stereo.cpp                   + f1*(pFitX[0]+pFitX[2]+pFitX[3])
+<a href='../S/88.html#L77'>pFitX</a>              77 ovr/sdk/src/OVR_Stereo.cpp                   + f2*(pFitX[0]+pFitX[1]+pFitX[3])
+<a href='../S/88.html#L78'>pFitX</a>              78 ovr/sdk/src/OVR_Stereo.cpp                   + f3*(pFitX[0]+pFitX[1]+pFitX[2]) );
+<a href='../S/131.html#L161'>pFitX</a>             161 ovr/sdk/src/OVR_Stereo.h bool FitCubicPolynomial ( float *pResult, const float *pFitX, const float *pFitY );
+</pre>
+</body>
+</html>

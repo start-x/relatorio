@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Load_Acquire</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L536'>Load_Acquire</a>      536 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Load_Acquire(const volatile O_T* p)      { O_AcquireSync sync; OVR_UNUSED(sync); return *p; }
+<a href='../S/145.html#L590'>Load_Acquire</a>      590 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Load_Acquire(const volatile C* p)               { C2T_union u; u.t = Ops::Load_Acquire((PT)p); return u.c; }
+<a href='../S/145.html#L623'>Load_Acquire</a>      623 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     Load_Acquire() const               { return Ops::Load_Acquire(&amp;Value);  }
+<a href='../S/145.html#L643'>Load_Acquire</a>      643 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -&gt; () const     { return this-&gt;Load_Acquire(); }
+<a href='../S/145.html#L648'>Load_Acquire</a>      648 ovr/sdk/src/Kernel/OVR_Atomic.h     inline operator T* () const        { return this-&gt;Load_Acquire(); }
+</pre>
+</body>
+</html>

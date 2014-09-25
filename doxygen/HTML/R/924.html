@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>SInt64</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/147.html#L802'>SInt64</a>            802 ovr/sdk/src/Kernel/OVR_Alg.h     SInt64*  pa  = (SInt64*)p1;
+<a href='../S/147.html#L803'>SInt64</a>            803 ovr/sdk/src/Kernel/OVR_Alg.h     SInt64*  pb  = (SInt64*)p2;
+<a href='../S/147.html#L853'>SInt64</a>            853 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SwapOrder(SInt64 v)     { return (SInt64)SwapOrder(UInt64(v)); }
+<a href='../S/147.html#L887'>SInt64</a>            887 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   LEToSystem(SInt64 v)    { return v; }
+<a href='../S/147.html#L899'>SInt64</a>            899 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   BEToSystem(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L911'>SInt64</a>            911 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToLE(SInt64 v)    { return v; }
+<a href='../S/147.html#L923'>SInt64</a>            923 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToBE(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L936'>SInt64</a>            936 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   LEToSystem(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L948'>SInt64</a>            948 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   BEToSystem(SInt64 v)    { return v; }
+<a href='../S/147.html#L960'>SInt64</a>            960 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToLE(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L972'>SInt64</a>            972 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToBE(SInt64 v)    { return v; }
+<a href='../S/172.html#L180'>SInt64</a>            180 ovr/sdk/src/Kernel/OVR_File.cpp SInt64  BufferedFile::LTell()
+<a href='../S/172.html#L185'>SInt64</a>            185 ovr/sdk/src/Kernel/OVR_File.cpp     SInt64 pos = pFile-&gt;LTell();
+<a href='../S/172.html#L207'>SInt64</a>            207 ovr/sdk/src/Kernel/OVR_File.cpp SInt64  BufferedFile::LGetLength()
+<a href='../S/172.html#L209'>SInt64</a>            209 ovr/sdk/src/Kernel/OVR_File.cpp     SInt64 len = pFile-&gt;LGetLength();
+<a href='../S/172.html#L213'>SInt64</a>            213 ovr/sdk/src/Kernel/OVR_File.cpp         SInt64 currPos = pFile-&gt;LTell() + Pos;
+<a href='../S/172.html#L464'>SInt64</a>            464 ovr/sdk/src/Kernel/OVR_File.cpp SInt64  BufferedFile::LSeek(SInt64 offset, int origin)
+<a href='../S/172.html#L475'>SInt64</a>            475 ovr/sdk/src/Kernel/OVR_File.cpp                 return SInt64(FilePos - DataSize + Pos);
+<a href='../S/172.html#L481'>SInt64</a>            481 ovr/sdk/src/Kernel/OVR_File.cpp             offset = (SInt64)(FilePos - DataSize + Pos) + offset;
+<a href='../S/186.html#L139'>SInt64</a>            139 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LTell() = 0;
+<a href='../S/186.html#L143'>SInt64</a>            143 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LGetLength() = 0;
+<a href='../S/186.html#L186'>SInt64</a>            186 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LSeek(SInt64 offset, int origin=Seek_Set) = 0;
+<a href='../S/186.html#L227'>SInt64</a>            227 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt64(SInt64 v)       { PWrite64((UInt64)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L254'>SInt64</a>            254 ovr/sdk/src/Kernel/OVR_File.h     inline SInt64  ReadSInt64()                { return (SInt64)Alg::ByteUtil::LEToSystem(PRead64());  }
+<a href='../S/186.html#L267'>SInt64</a>            267 ovr/sdk/src/Kernel/OVR_File.h     inline SInt64  ReadSInt64BE()              { return (SInt64)Alg::ByteUtil::BEToSystem(PRead64());  }
+<a href='../S/186.html#L297'>SInt64</a>            297 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LTell()                                     { return pFile-&gt;LTell(); }
+<a href='../S/186.html#L300'>SInt64</a>            300 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LGetLength()                                { return pFile-&gt;LGetLength(); }
+<a href='../S/186.html#L318'>SInt64</a>            318 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LSeek(SInt64 offset, int origin=Seek_Set)   { return pFile-&gt;LSeek(offset,origin); }
+<a href='../S/186.html#L379'>SInt64</a>            379 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LTell();
+<a href='../S/186.html#L382'>SInt64</a>            382 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LGetLength();
+<a href='../S/186.html#L396'>SInt64</a>            396 ovr/sdk/src/Kernel/OVR_File.h     virtual SInt64      LSeek(SInt64 offset, int origin=Seek_Set);
+<a href='../S/186.html#L420'>SInt64</a>            420 ovr/sdk/src/Kernel/OVR_File.h     SInt64      LTell()             { return (SInt64) FileIndex; }
+<a href='../S/186.html#L423'>SInt64</a>            423 ovr/sdk/src/Kernel/OVR_File.h     SInt64      LGetLength()        { return (SInt64) FileSize; }
+<a href='../S/186.html#L487'>SInt64</a>            487 ovr/sdk/src/Kernel/OVR_File.h     SInt64      LSeek(SInt64 offset, int origin = Seek_Set)
+<a href='../S/186.html#L489'>SInt64</a>            489 ovr/sdk/src/Kernel/OVR_File.h         return (SInt64) Seek((int) offset, origin);
+<a href='../S/149.html#L160'>SInt64</a>            160 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual SInt64      LTell();
+<a href='../S/149.html#L162'>SInt64</a>            162 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual SInt64      LGetLength();
+<a href='../S/149.html#L174'>SInt64</a>            174 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual SInt64      LSeek(SInt64 offset, int origin);
+<a href='../S/149.html#L296'>SInt64</a>            296 ovr/sdk/src/Kernel/OVR_FileFILE.cpp SInt64  FILEFile::LTell()
+<a href='../S/149.html#L298'>SInt64</a>            298 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SInt64 pos = ftell(fs);
+<a href='../S/149.html#L316'>SInt64</a>            316 ovr/sdk/src/Kernel/OVR_FileFILE.cpp SInt64  FILEFile::LGetLength()
+<a href='../S/149.html#L318'>SInt64</a>            318 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SInt64 pos = LTell();
+<a href='../S/149.html#L322'>SInt64</a>            322 ovr/sdk/src/Kernel/OVR_FileFILE.cpp         SInt64 size = LTell();
+<a href='../S/149.html#L383'>SInt64</a>            383 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SInt64 pos    = LTell();
+<a href='../S/149.html#L384'>SInt64</a>            384 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SInt64 newPos = LSeek(numBytes, Seek_Cur);
+<a href='../S/149.html#L399'>SInt64</a>            399 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SInt64 pos    = LTell();
+<a href='../S/149.html#L400'>SInt64</a>            400 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SInt64 endPos = LGetLength();
+<a href='../S/149.html#L455'>SInt64</a>            455 ovr/sdk/src/Kernel/OVR_FileFILE.cpp SInt64  FILEFile::LSeek(SInt64 offset, int origin)
+<a href='../S/173.html#L251'>SInt64</a>            251 ovr/sdk/src/Kernel/OVR_Std.h inline SInt64 OVR_CDECL OVR_strtoq(const char *nptr, char **endptr, int base)
+<a href='../S/173.html#L261'>SInt64</a>            261 ovr/sdk/src/Kernel/OVR_Std.h inline SInt64 OVR_CDECL OVR_atoq(const char* string)
+<a href='../S/156.html#L54'>SInt64</a>             54 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual SInt64      LTell()                     { return 0; }
+<a href='../S/156.html#L56'>SInt64</a>             56 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual SInt64      LGetLength()                { return 0; }
+<a href='../S/156.html#L68'>SInt64</a>             68 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual SInt64      LSeek(SInt64 offset, int origin)              { return -1; OVR_UNUSED2(offset, origin); }
+<a href='../S/146.html#L51'>SInt64</a>             51 ovr/sdk/src/Kernel/OVR_SysFile.h     SInt64  ModifyTime;
+<a href='../S/146.html#L52'>SInt64</a>             52 ovr/sdk/src/Kernel/OVR_SysFile.h     SInt64  AccessTime;
+<a href='../S/146.html#L53'>SInt64</a>             53 ovr/sdk/src/Kernel/OVR_SysFile.h     SInt64  FileSize;
+<a href='../S/168.html#L279'>SInt64</a>            279 ovr/sdk/src/Kernel/OVR_Types.h     using OVR::SInt64;
+</pre>
+</body>
+</html>

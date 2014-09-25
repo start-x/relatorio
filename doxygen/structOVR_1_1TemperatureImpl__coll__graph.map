@@ -1,0 +1,5 @@
+<map id="OVR::TemperatureImpl" name="OVR::TemperatureImpl">
+<area shape="rect" id="node2" href="$structOVR_1_1TemperatureReport.html" title="{OVR::TemperatureReport\n|+ CommandId\l+ Version\l+ NumBins\l+ Bin\l+ NumSamples\l+ Sample\l+ TargetTemperature\l+ ActualTemperature\l+ Time\l|+ TemperatureReport()\l+ TemperatureReport()\l}" alt="" coords="13,873,184,1082"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; double \&gt;\n|+ x\l+ y\l+ z\l|+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="5,510,192,807"/>
+<area shape="rect" id="node4" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; T \&gt;\n||+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="5,177,192,445"/>
+</map>

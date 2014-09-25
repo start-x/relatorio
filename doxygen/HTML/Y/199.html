@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>ChromaticAberration</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L869'>ChromaticAberration</a>  869 ovr/sdk/src/OVR_Device.h 		memcpy(ChromaticAberration, chromaticAberration, sizeof(ChromaticAberration));
+<a href='../S/108.html#L882'>ChromaticAberration</a>  882 ovr/sdk/src/OVR_Device.h 	UInt16		ChromaticAberration[4];
+<a href='../S/192.html#L504'>ChromaticAberration</a>  504 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			EncodeUInt16(Buffer+38+2*i, Settings.ChromaticAberration[i]);
+<a href='../S/192.html#L525'>ChromaticAberration</a>  525 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			Settings.ChromaticAberration[i] = DecodeUInt16(Buffer+38+2*i);
+<a href='../S/88.html#L207'>ChromaticAberration</a>  207 ovr/sdk/src/OVR_Stereo.cpp     scaleRGB.x = scale * ( 1.0f + ChromaticAberration[0] + rsq * ChromaticAberration[1] );     // Red
+<a href='../S/88.html#L209'>ChromaticAberration</a>  209 ovr/sdk/src/OVR_Stereo.cpp     scaleRGB.z = scale * ( 1.0f + ChromaticAberration[2] + rsq * ChromaticAberration[3] );     // Blue
+<a href='../S/88.html#L386'>ChromaticAberration</a>  386 ovr/sdk/src/OVR_Stereo.cpp     ChromaticAberration[0] = 0.0f;
+<a href='../S/88.html#L387'>ChromaticAberration</a>  387 ovr/sdk/src/OVR_Stereo.cpp     ChromaticAberration[1] = 0.0f;
+<a href='../S/88.html#L388'>ChromaticAberration</a>  388 ovr/sdk/src/OVR_Stereo.cpp     ChromaticAberration[2] = 0.0f;
+<a href='../S/88.html#L389'>ChromaticAberration</a>  389 ovr/sdk/src/OVR_Stereo.cpp     ChromaticAberration[3] = 0.0f;
+<a href='../S/88.html#L409'>ChromaticAberration</a>  409 ovr/sdk/src/OVR_Stereo.cpp     UInt16      ChromaticAberration[4];
+<a href='../S/88.html#L460'>ChromaticAberration</a>  460 ovr/sdk/src/OVR_Stereo.cpp                 lcs.ChromaticAberration[i]  = DecodeUInt16 ( pbuffer + 28 + 2*i );
+<a href='../S/88.html#L481'>ChromaticAberration</a>  481 ovr/sdk/src/OVR_Stereo.cpp                 result.ChromaticAberration[i] = DecodeFixedPointUInt16 ( lcs.ChromaticAberration[i], 0x8000, 16+3 );
+<a href='../S/88.html#L531'>ChromaticAberration</a>  531 ovr/sdk/src/OVR_Stereo.cpp         lcs.ChromaticAberration[i] = EncodeFixedPointUInt16 ( config.ChromaticAberration[i], 0x8000, 16+3 );
+<a href='../S/88.html#L545'>ChromaticAberration</a>  545 ovr/sdk/src/OVR_Stereo.cpp         EncodeUInt16 (  pbuffer + 28 + 2*i, lcs.ChromaticAberration[i] );
+<a href='../S/88.html#L575'>ChromaticAberration</a>  575 ovr/sdk/src/OVR_Stereo.cpp         OVR_ASSERT ( fabsf ( testConfig.ChromaticAberration[i] - config.ChromaticAberration[i] ) &lt; 0.00001f );
+<a href='../S/88.html#L714'>ChromaticAberration</a>  714 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[0] = -0.006f;
+<a href='../S/88.html#L715'>ChromaticAberration</a>  715 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[1] =  0.0f;
+<a href='../S/88.html#L716'>ChromaticAberration</a>  716 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[2] =  0.014f;
+<a href='../S/88.html#L717'>ChromaticAberration</a>  717 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[3] =  0.0f;
+<a href='../S/88.html#L960'>ChromaticAberration</a>  960 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[0]        = -0.006f;
+<a href='../S/88.html#L961'>ChromaticAberration</a>  961 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[1]        =  0.0f;
+<a href='../S/88.html#L962'>ChromaticAberration</a>  962 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[2]        =  0.014f;
+<a href='../S/88.html#L963'>ChromaticAberration</a>  963 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[3]        =  0.0f;
+<a href='../S/88.html#L1003'>ChromaticAberration</a> 1003 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[0]        = -0.006f;
+<a href='../S/88.html#L1004'>ChromaticAberration</a> 1004 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[1]        =  0.0f;
+<a href='../S/88.html#L1005'>ChromaticAberration</a> 1005 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[2]        =  0.014f;
+<a href='../S/88.html#L1006'>ChromaticAberration</a> 1006 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[3]        =  0.0f;
+<a href='../S/88.html#L1045'>ChromaticAberration</a> 1045 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[0]        = -0.015f;
+<a href='../S/88.html#L1046'>ChromaticAberration</a> 1046 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[1]        = -0.02f;
+<a href='../S/88.html#L1047'>ChromaticAberration</a> 1047 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[2]        =  0.025f;
+<a href='../S/88.html#L1048'>ChromaticAberration</a> 1048 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[3]        =  0.02f;
+<a href='../S/88.html#L1074'>ChromaticAberration</a> 1074 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[0]        =  0.0f;
+<a href='../S/88.html#L1075'>ChromaticAberration</a> 1075 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[1]        =  0.0f;
+<a href='../S/88.html#L1076'>ChromaticAberration</a> 1076 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[2]        =  0.0f;
+<a href='../S/88.html#L1077'>ChromaticAberration</a> 1077 ovr/sdk/src/OVR_Stereo.cpp             distortions[i].Config.ChromaticAberration[3]        =  0.0f;
+<a href='../S/88.html#L1224'>ChromaticAberration</a> 1224 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[0] = invLerpVal * pLower-&gt;Config.ChromaticAberration[0] + lerpVal * pUpper-&gt;Config.ChromaticAberration[0];
+<a href='../S/88.html#L1225'>ChromaticAberration</a> 1225 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[1] = invLerpVal * pLower-&gt;Config.ChromaticAberration[1] + lerpVal * pUpper-&gt;Config.ChromaticAberration[1];
+<a href='../S/88.html#L1226'>ChromaticAberration</a> 1226 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[2] = invLerpVal * pLower-&gt;Config.ChromaticAberration[2] + lerpVal * pUpper-&gt;Config.ChromaticAberration[2];
+<a href='../S/88.html#L1227'>ChromaticAberration</a> 1227 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[3] = invLerpVal * pLower-&gt;Config.ChromaticAberration[3] + lerpVal * pUpper-&gt;Config.ChromaticAberration[3];
+<a href='../S/131.html#L215'>ChromaticAberration</a>  215 ovr/sdk/src/OVR_Stereo.h     float               ChromaticAberration[4];
+<a href='../S/117.html#L394'>ChromaticAberration</a>  394 ovr/sdk/src/Util/Util_Render_Stereo.cpp 	Hmd.EyeLeft.Distortion.ChromaticAberration[0]		= 0.006f;
+<a href='../S/117.html#L395'>ChromaticAberration</a>  395 ovr/sdk/src/Util/Util_Render_Stereo.cpp 	Hmd.EyeLeft.Distortion.ChromaticAberration[1]		= 0.0f;
+<a href='../S/117.html#L396'>ChromaticAberration</a>  396 ovr/sdk/src/Util/Util_Render_Stereo.cpp 	Hmd.EyeLeft.Distortion.ChromaticAberration[2]		= -0.014f;
+<a href='../S/117.html#L397'>ChromaticAberration</a>  397 ovr/sdk/src/Util/Util_Render_Stereo.cpp 	Hmd.EyeLeft.Distortion.ChromaticAberration[3]		= 0.0f;
+</pre>
+</body>
+</html>

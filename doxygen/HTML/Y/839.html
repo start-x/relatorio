@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>GyroFilter</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/128.html#L162'>GyroFilter</a>        162 ovr/sdk/src/OVR_SensorCalibration.cpp     Vector3f avg = (GyroFilter.IsEmpty()) ? gyro : gyro * alpha + GyroFilter.PeekBack() * (1 - alpha);
+<a href='../S/128.html#L166'>GyroFilter</a>        166 ovr/sdk/src/OVR_SensorCalibration.cpp     if (avg.Length() &gt;= absLimit || (avg - GyroFilter.Mean()).Length() &gt;= noiseLimit)
+<a href='../S/128.html#L167'>GyroFilter</a>        167 ovr/sdk/src/OVR_SensorCalibration.cpp         GyroFilter.Clear();
+<a href='../S/128.html#L168'>GyroFilter</a>        168 ovr/sdk/src/OVR_SensorCalibration.cpp     GyroFilter.PushBack(avg);
+<a href='../S/128.html#L171'>GyroFilter</a>        171 ovr/sdk/src/OVR_SensorCalibration.cpp     if (GyroFilter.GetSize() &gt; GyroFilter.GetCapacity() / 2)
+<a href='../S/128.html#L173'>GyroFilter</a>        173 ovr/sdk/src/OVR_SensorCalibration.cpp         GyroAutoOffset = GyroFilter.Mean();
+<a href='../S/128.html#L176'>GyroFilter</a>        176 ovr/sdk/src/OVR_SensorCalibration.cpp         if (GyroFilter.IsFull())
+<a href='../S/141.html#L76'>GyroFilter</a>         76 ovr/sdk/src/OVR_SensorCalibration.h     SensorFilterf GyroFilter;
+</pre>
+</body>
+</html>

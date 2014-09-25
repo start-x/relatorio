@@ -1,0 +1,608 @@
+<html>
+<head>
+<title>ovr/sdk/src/Util/Util_LatencyTest.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/222.html'>Util</a>/Util_LatencyTest.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L71'>[^]</a><a href='#L534'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L71' title='Defined at 71.'>SetDevice</a>
+<li><a href='#L97' title='Defined at 97.'>getRandomComponent</a>
+<li><a href='#L103' title='Defined at 103.'>BeginTest</a>
+<li><a href='#L117' title='Defined at 117.'>handleMessage</a>
+<li><a href='#L311' title='Defined at 311.'>getActiveResult</a>
+<li><a href='#L317' title='Defined at 317.'>setTimer</a>
+<li><a href='#L322' title='Defined at 322.'>clearTimer</a>
+<li><a href='#L327' title='Defined at 327.'>reset</a>
+<li><a href='#L336' title='Defined at 336.'>clearMeasurementResults</a>
+<li><a href='#L351' title='Defined at 351.'>OnMessage</a>
+<li><a href='#L356' title='Defined at 356.'>ProcessInputs</a>
+<li><a href='#L362' title='Defined at 362.'>DisplayScreenColor</a>
+<li><a href='#L375' title='Defined at 375.'>GetResultsString</a>
+<li><a href='#L386' title='Defined at 386.'>areResultsComplete</a>
+<li><a href='#L431' title='Defined at 431.'>processResults</a>
+<li><a href='#L534' title='Defined at 534.'>updateForTimeouts</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   Util_LatencyTest.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Wraps the lower level LatencyTester interface and adds functionality.</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   February 14, 2013</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Lee Cooper</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='113.html'>Util_LatencyTest.h</a>"
+<a name='L28'>  28 
+<a name='L29'>  29 <font color='darkred'>#include</font> "<a href='155.html'>../Kernel/OVR_Log.h</a>"
+<a name='L30'>  30 <font color='darkred'>#include</font> "<a href='185.html'>../Kernel/OVR_Timer.h</a>"
+<a name='L31'>  31 
+<a name='L32'>  32 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font> <b>namespace</b> <a href='../R/1165.html' title='Multiple refered from 16 places.'>Util</a> <font color='red'>{</font>
+<a name='L33'>  33 
+<a name='L34'>  34 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/2175.html' title='Multiple used in 3 places.'>TIME_TO_WAIT_FOR_SETTLE_PRE_CALIBRATION</a> = 16*10;
+<a name='L35'>  35 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/2172.html' title='Multiple used in 3 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_CALIBRATION</a> = 16*10;
+<a name='L36'>  36 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/2173.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT</a> = 16*5;
+<a name='L37'>  37 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/2174.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS</a> = 16*5;
+<a name='L38'>  38 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a> = 10;                 <i><font color='green'>// For both color 1-&gt;2 and color 2-&gt;1 transitions.</font></i>
+<a name='L39'>  39 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/957.html' title='Multiple used in 3 places.'>INITIAL_SAMPLES_TO_IGNORE</a> = 4;
+<a name='L40'>  40 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/2171.html' title='Multiple used in 2 places.'>TIMEOUT_WAITING_FOR_TEST_STARTED</a> = 1000;
+<a name='L41'>  41 <b>static</b> <b>const</b> <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>     <a href='../Y/2170.html' title='Multiple used in 2 places.'>TIMEOUT_WAITING_FOR_COLOR_DETECTED</a> = 4000;
+<a name='L42'>  42 <b>static</b> <b>const</b> <a href='../S/160.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_Color.h.'>Color</a>      CALIBRATE_BLACK(0, 0, 0);
+<a name='L43'>  43 <b>static</b> <b>const</b> <a href='../S/160.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_Color.h.'>Color</a>      CALIBRATE_WHITE(255, 255, 255);
+<a name='L44'>  44 <b>static</b> <b>const</b> <a href='../S/160.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_Color.h.'>Color</a>      COLOR1(0, 0, 0);
+<a name='L45'>  45 <b>static</b> <b>const</b> <a href='../S/160.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_Color.h.'>Color</a>      COLOR2(255, 255, 255);
+<a name='L46'>  46 <b>static</b> <b>const</b> <a href='../S/160.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_Color.h.'>Color</a>      SENSOR_DETECT_THRESHOLD(128, 255, 255);
+<a name='L47'>  47 <b>static</b> <b>const</b> <b>float</b>      <a href='../Y/103.html' title='Multiple used in 2 places.'>BIG_FLOAT</a> = 1000000.0f;
+<a name='L48'>  48 <b>static</b> <b>const</b> <b>float</b>      <a href='../Y/1916.html' title='Multiple used in 2 places.'>SMALL_FLOAT</a> = -1000000.0f;
+<a name='L49'>  49 
+<a name='L50'>  50 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L51'>  51 <i><font color='green'>// ***** LatencyTest</font></i>
+<a name='L52'>  52 
+<a name='L53'>  53 <a href='../R/507.html' title='Multiple refered from 26 places.'>LatencyTest</a>::<a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>(<a href='../Y/1238.html' title='Multiple used in 18 places.'>LatencyTestDevice</a>* <a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a>)
+<a name='L54'>  54  :  <a href='../Y/894.html' title='Multiple used in 22 places.'>Handler</a>(<a href='../Y/3294.html' title='Multiple used in 10 places.'>getThis</a>())
+<a name='L55'>  55 <font color='red'>{</font>
+<a name='L56'>  56     <b>if</b> (<a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a> != <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>)
+<a name='L57'>  57     <font color='red'>{</font>
+<a name='L58'>  58         <a href='../S/114.html#L71' title='Defined at 71 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>SetDevice</a>(<a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a>);
+<a name='L59'>  59     <font color='red'>}</font>
+<a name='L60'>  60 
+<a name='L61'>  61     <a href='../S/114.html#L327' title='Defined at 327 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>reset</a>();
+<a name='L62'>  62 
+<a name='L63'>  63     srand(<a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../Y/820.html' title='Multiple used in 4 places.'>GetTicksMs</a>());
+<a name='L64'>  64 <font color='red'>}</font>
+<a name='L65'>  65 
+<a name='L66'>  66 <a href='../R/507.html' title='Multiple refered from 26 places.'>LatencyTest</a>::~<a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>()
+<a name='L67'>  67 <font color='red'>{</font>
+<a name='L68'>  68      <a href='../S/114.html#L336' title='Defined at 336 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>clearMeasurementResults</a>();
+<a name='L69'>  69 <font color='red'>}</font>
+<a name='L70'>  70 
+<a name='L71'>  71 <b>bool</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/975.html' title='Multiple refered from 4 places.'>SetDevice</a>(<a href='../Y/1238.html' title='Multiple used in 18 places.'>LatencyTestDevice</a>* <a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a>)
+<a name='L72'>  72 <font color='red'>{</font>
+<a name='L73'>  73 
+<a name='L74'>  74     <b>if</b> (<a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a> != <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>)
+<a name='L75'>  75     <font color='red'>{</font>
+<a name='L76'>  76         <a href='../Y/894.html' title='Multiple used in 22 places.'>Handler</a>.<a href='../S/191.html#L199' title='Defined at 199 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>RemoveHandlerFromDevices</a>();
+<a name='L77'>  77 
+<a name='L78'>  78         <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a> = <a href='../Y/3002.html' title='Multiple used in 145 places.'>device</a>;
+<a name='L79'>  79 
+<a name='L80'>  80         <b>if</b> (<a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a> != <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>)
+<a name='L81'>  81         <font color='red'>{</font>
+<a name='L82'>  82             <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../D/18.html' title='Multiple defined in 2 places.'>AddMessageHandler</a>(&amp;<a href='../Y/894.html' title='Multiple used in 22 places.'>Handler</a>);
+<a name='L83'>  83 
+<a name='L84'>  84             <i><font color='green'>// Set trigger threshold.</font></i>
+<a name='L85'>  85             <a href='../S/108.html#L1065' title='Defined at 1065 in ovr/sdk/src/OVR_Device.h.'>LatencyTestConfiguration</a> <a href='../Y/2892.html' title='Multiple used in 21 places.'>configuration</a>(SENSOR_DETECT_THRESHOLD, <b>false</b>);     <i><font color='green'>// No samples streaming.</font></i>
+<a name='L86'>  86             <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L555' title='Defined at 555 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetConfiguration</a>(<a href='../Y/2892.html' title='Multiple used in 21 places.'>configuration</a>, <b>true</b>);
+<a name='L87'>  87 
+<a name='L88'>  88             <i><font color='green'>// Set display to initial (3 dashes).</font></i>
+<a name='L89'>  89             <a href='../S/108.html#L1082' title='Defined at 1082 in ovr/sdk/src/OVR_Device.h.'>LatencyTestDisplay</a> <a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>(2, 0x40400040);
+<a name='L90'>  90             <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L665' title='Defined at 665 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetDisplay</a>(<a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>);
+<a name='L91'>  91         <font color='red'>}</font>
+<a name='L92'>  92     <font color='red'>}</font>
+<a name='L93'>  93 
+<a name='L94'>  94     <b>return</b> <b>true</b>;
+<a name='L95'>  95 <font color='red'>}</font>
+<a name='L96'>  96 
+<a name='L97'>  97 <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1300.html' title='Multiple refered from 5 places.'>getRandomComponent</a>(<a href='../Y/2328.html' title='Multiple used in 18 places.'>UInt32</a> <a href='../Y/4230.html' title='Multiple used in 15 places.'>range</a>)
+<a name='L98'>  98 <font color='red'>{</font>
+<a name='L99'>  99     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/4775.html' title='Multiple used in 233 places.'>val</a> = rand() % <a href='../Y/4230.html' title='Multiple used in 15 places.'>range</a>;
+<a name='L100'> 100     <b>return</b> <a href='../Y/4775.html' title='Multiple used in 233 places.'>val</a>;
+<a name='L101'> 101 <font color='red'>}</font>
+<a name='L102'> 102 
+<a name='L103'> 103 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/67.html' title='Multiple refered from 4 places.'>BeginTest</a>()
+<a name='L104'> 104 <font color='red'>{</font>
+<a name='L105'> 105      <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2121.html' title='Multiple used in 5 places.'>State_WaitingForButton</a>)
+<a name='L106'> 106     <font color='red'>{</font>
+<a name='L107'> 107         <i><font color='green'>// Set color to black and wait a while.</font></i>
+<a name='L108'> 108         <a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a> = <a href='../Y/155.html' title='Multiple used in 2 places.'>CALIBRATE_BLACK</a>;
+<a name='L109'> 109 
+<a name='L110'> 110         <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2126.html' title='Multiple used in 3 places.'>State_WaitingForSettlePreCalibrationColorBlack</a>;
+<a name='L111'> 111         <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForButton -&gt; State_WaitingForSettlePreCalibrationColorBlack."));
+<a name='L112'> 112 
+<a name='L113'> 113         <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/2175.html' title='Multiple used in 3 places.'>TIME_TO_WAIT_FOR_SETTLE_PRE_CALIBRATION</a>);
+<a name='L114'> 114     <font color='red'>}</font>
+<a name='L115'> 115 <font color='red'>}</font>
+<a name='L116'> 116 
+<a name='L117'> 117 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1312.html' title='Multiple refered from 9 places.'>handleMessage</a>(<b>const</b> <a href='../Y/1394.html' title='Multiple used in 39 places.'>Message</a>&amp; <a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>, LatencyTestMessageType <a href='../Y/3545.html' title='Multiple used in 4 places.'>latencyTestMessage</a>)
+<a name='L118'> 118 <font color='red'>{</font>
+<a name='L119'> 119     <i><font color='green'>// For debugging.</font></i>
+<a name='L120'> 120 <i><font color='green'>/*  if (msg.Type == Message_LatencyTestSamples)</font></i>
+<a name='L121'> 121 <i><font color='green'>    {</font></i>
+<a name='L122'> 122 <i><font color='green'>        MessageLatencyTestSamples* pSamples = (MessageLatencyTestSamples*) &amp;msg;</font></i>
+<a name='L123'> 123 <i><font color='green'></font></i>
+<a name='L124'> 124 <i><font color='green'>        if (pSamples-&gt;Samples.GetSize() &gt; 0)</font></i>
+<a name='L125'> 125 <i><font color='green'>        {</font></i>
+<a name='L126'> 126 <i><font color='green'>            // Just show the first one for now.</font></i>
+<a name='L127'> 127 <i><font color='green'>            Color c = pSamples-&gt;Samples[0];</font></i>
+<a name='L128'> 128 <i><font color='green'>            OVR_DEBUG_LOG(("%d %d %d", c.R, c.G, c.B));</font></i>
+<a name='L129'> 129 <i><font color='green'>        }</font></i>
+<a name='L130'> 130 <i><font color='green'>        return;</font></i>
+<a name='L131'> 131 <i><font color='green'>    }</font></i>
+<a name='L132'> 132 <i><font color='green'>*/</font></i>
+<a name='L133'> 133 
+<a name='L134'> 134     <b>if</b> (<a href='../Y/3545.html' title='Multiple used in 4 places.'>latencyTestMessage</a> == <a href='../Y/1256.html' title='Multiple used in 4 places.'>LatencyTest_Timer</a>)
+<a name='L135'> 135     <font color='red'>{</font>
+<a name='L136'> 136         <b>if</b> (!<a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>)
+<a name='L137'> 137         <font color='red'>{</font>
+<a name='L138'> 138             <a href='../S/114.html#L327' title='Defined at 327 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>reset</a>();
+<a name='L139'> 139             <b>return</b>;
+<a name='L140'> 140         <font color='red'>}</font>
+<a name='L141'> 141         
+<a name='L142'> 142         <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2126.html' title='Multiple used in 3 places.'>State_WaitingForSettlePreCalibrationColorBlack</a>)
+<a name='L143'> 143         <font color='red'>{</font>
+<a name='L144'> 144             <i><font color='green'>// Send calibrate message to device and wait a while.</font></i>
+<a name='L145'> 145             <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L611' title='Defined at 611 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetCalibrate</a>(<a href='../Y/155.html' title='Multiple used in 2 places.'>CALIBRATE_BLACK</a>);
+<a name='L146'> 146 
+<a name='L147'> 147             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2123.html' title='Multiple used in 3 places.'>State_WaitingForSettlePostCalibrationColorBlack</a>;
+<a name='L148'> 148             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForSettlePreCalibrationColorBlack -&gt; State_WaitingForSettlePostCalibrationColorBlack."));
+<a name='L149'> 149 
+<a name='L150'> 150             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/2172.html' title='Multiple used in 3 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_CALIBRATION</a>);
+<a name='L151'> 151         <font color='red'>}</font>
+<a name='L152'> 152         <b>else</b> <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2123.html' title='Multiple used in 3 places.'>State_WaitingForSettlePostCalibrationColorBlack</a>)
+<a name='L153'> 153         <font color='red'>{</font>
+<a name='L154'> 154             <i><font color='green'>// Change color to white and wait a while.</font></i>
+<a name='L155'> 155             <a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a> = <a href='../Y/156.html' title='Multiple used in 2 places.'>CALIBRATE_WHITE</a>;
+<a name='L156'> 156 
+<a name='L157'> 157             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2127.html' title='Multiple used in 3 places.'>State_WaitingForSettlePreCalibrationColorWhite</a>;
+<a name='L158'> 158             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForSettlePostCalibrationColorBlack -&gt; State_WaitingForSettlePreCalibrationColorWhite."));
+<a name='L159'> 159 
+<a name='L160'> 160             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/2175.html' title='Multiple used in 3 places.'>TIME_TO_WAIT_FOR_SETTLE_PRE_CALIBRATION</a>);
+<a name='L161'> 161         <font color='red'>}</font>
+<a name='L162'> 162         <b>else</b> <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2127.html' title='Multiple used in 3 places.'>State_WaitingForSettlePreCalibrationColorWhite</a>)
+<a name='L163'> 163         <font color='red'>{</font>
+<a name='L164'> 164             <i><font color='green'>// Send calibrate message to device and wait a while.</font></i>
+<a name='L165'> 165             <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L611' title='Defined at 611 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetCalibrate</a>(<a href='../Y/156.html' title='Multiple used in 2 places.'>CALIBRATE_WHITE</a>);
+<a name='L166'> 166 
+<a name='L167'> 167             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2124.html' title='Multiple used in 3 places.'>State_WaitingForSettlePostCalibrationColorWhite</a>;
+<a name='L168'> 168             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForSettlePreCalibrationColorWhite -&gt; State_WaitingForSettlePostCalibrationColorWhite."));
+<a name='L169'> 169 
+<a name='L170'> 170             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/2172.html' title='Multiple used in 3 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_CALIBRATION</a>);
+<a name='L171'> 171         <font color='red'>}</font>
+<a name='L172'> 172         <b>else</b> <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2124.html' title='Multiple used in 3 places.'>State_WaitingForSettlePostCalibrationColorWhite</a>)
+<a name='L173'> 173         <font color='red'>{</font>
+<a name='L174'> 174             <i><font color='green'>// Calibration is done. Switch to color 1 and wait for it to settle.</font></i>
+<a name='L175'> 175             <a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a> = <a href='../Y/168.html' title='Multiple used in 3 places.'>COLOR1</a>;
+<a name='L176'> 176 
+<a name='L177'> 177             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2125.html' title='Multiple used in 6 places.'>State_WaitingForSettlePostMeasurement</a>;
+<a name='L178'> 178             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForSettlePostCalibrationColorWhite -&gt; State_WaitingForSettlePostMeasurement."));
+<a name='L179'> 179 
+<a name='L180'> 180             <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a> = <a href='../Y/2173.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT</a> + <a href='../S/114.html#L97' title='Defined at 97 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getRandomComponent</a>(<a href='../Y/2174.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS</a>);
+<a name='L181'> 181             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a>);
+<a name='L182'> 182         <font color='red'>}</font>
+<a name='L183'> 183         <b>else</b> <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2125.html' title='Multiple used in 6 places.'>State_WaitingForSettlePostMeasurement</a>)
+<a name='L184'> 184         <font color='red'>{</font>
+<a name='L185'> 185             <i><font color='green'>// Prepare for next measurement.</font></i>
+<a name='L186'> 186 
+<a name='L187'> 187             <i><font color='green'>// Create a new result object.</font></i>
+<a name='L188'> 188             <a href='../Y/1388.html' title='Multiple used in 9 places.'>MeasurementResult</a>* <a href='../Y/3977.html' title='Multiple used in 15 places.'>pResult</a> = <b>new</b> MeasurementResult();
+<a name='L189'> 189             <a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/3977.html' title='Multiple used in 15 places.'>pResult</a>);
+<a name='L190'> 190 
+<a name='L191'> 191             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2129.html' title='Multiple used in 3 places.'>State_WaitingToTakeMeasurement</a>;
+<a name='L192'> 192             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForSettlePostMeasurement -&gt; State_WaitingToTakeMeasurement."));
+<a name='L193'> 193         <font color='red'>}</font>
+<a name='L194'> 194         <b>else</b> <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2128.html' title='Multiple used in 4 places.'>State_WaitingForTestStarted</a>)
+<a name='L195'> 195         <font color='red'>{</font>
+<a name='L196'> 196             <i><font color='green'>// We timed out waiting for 'TestStarted'. Abandon this measurement and setup for the next.</font></i>
+<a name='L197'> 197             <a href='../S/114.html#L311' title='Defined at 311 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getActiveResult</a>()-&gt;<a href='../Y/2260.html' title='Multiple used in 5 places.'>TimedOutWaitingForTestStarted</a> = <b>true</b>;
+<a name='L198'> 198 
+<a name='L199'> 199             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2125.html' title='Multiple used in 6 places.'>State_WaitingForSettlePostMeasurement</a>;
+<a name='L200'> 200             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("** Timed out waiting for 'TestStarted'."));
+<a name='L201'> 201             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForTestStarted -&gt; State_WaitingForSettlePostMeasurement."));
+<a name='L202'> 202 
+<a name='L203'> 203             <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a> = <a href='../Y/2173.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT</a> + <a href='../S/114.html#L97' title='Defined at 97 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getRandomComponent</a>(<a href='../Y/2174.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS</a>);
+<a name='L204'> 204             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a>);
+<a name='L205'> 205         <font color='red'>}</font>
+<a name='L206'> 206         <b>else</b> <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2122.html' title='Multiple used in 4 places.'>State_WaitingForColorDetected</a>)
+<a name='L207'> 207         <font color='red'>{</font>
+<a name='L208'> 208             <i><font color='green'>// We timed out waiting for 'ColorDetected'. Abandon this measurement and setup for the next.</font></i>
+<a name='L209'> 209             <a href='../S/114.html#L311' title='Defined at 311 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getActiveResult</a>()-&gt;<a href='../Y/2259.html' title='Multiple used in 5 places.'>TimedOutWaitingForColorDetected</a> = <b>true</b>;
+<a name='L210'> 210 
+<a name='L211'> 211             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2125.html' title='Multiple used in 6 places.'>State_WaitingForSettlePostMeasurement</a>;
+<a name='L212'> 212             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("** Timed out waiting for 'ColorDetected'."));
+<a name='L213'> 213             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForColorDetected -&gt; State_WaitingForSettlePostMeasurement."));
+<a name='L214'> 214 
+<a name='L215'> 215             <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a> = <a href='../Y/2173.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT</a> + <a href='../S/114.html#L97' title='Defined at 97 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getRandomComponent</a>(<a href='../Y/2174.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS</a>);
+<a name='L216'> 216             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a>);
+<a name='L217'> 217         <font color='red'>}</font>
+<a name='L218'> 218     <font color='red'>}</font>
+<a name='L219'> 219     <b>else</b> <b>if</b> (<a href='../Y/3545.html' title='Multiple used in 4 places.'>latencyTestMessage</a> == <a href='../Y/1255.html' title='Multiple used in 4 places.'>LatencyTest_ProcessInputs</a>)
+<a name='L220'> 220     <font color='red'>{</font>
+<a name='L221'> 221         <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2129.html' title='Multiple used in 3 places.'>State_WaitingToTakeMeasurement</a>)
+<a name='L222'> 222         <font color='red'>{</font>
+<a name='L223'> 223             <b>if</b> (!<a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>)
+<a name='L224'> 224             <font color='red'>{</font>
+<a name='L225'> 225                 <a href='../S/114.html#L327' title='Defined at 327 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>reset</a>();
+<a name='L226'> 226                 <b>return</b>;
+<a name='L227'> 227             <font color='red'>}</font>
+<a name='L228'> 228             
+<a name='L229'> 229             <i><font color='green'>// Send 'StartTest' feature report with opposite target color.</font></i>
+<a name='L230'> 230             <b>if</b> (<a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a> == <a href='../Y/168.html' title='Multiple used in 3 places.'>COLOR1</a>)
+<a name='L231'> 231             <font color='red'>{</font>
+<a name='L232'> 232                 <a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a> = <a href='../Y/169.html' title='Multiple used in 3 places.'>COLOR2</a>;
+<a name='L233'> 233             <font color='red'>}</font>
+<a name='L234'> 234             <b>else</b>
+<a name='L235'> 235             <font color='red'>{</font>
+<a name='L236'> 236                 <a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a> = <a href='../Y/168.html' title='Multiple used in 3 places.'>COLOR1</a>;
+<a name='L237'> 237             <font color='red'>}</font>
+<a name='L238'> 238 
+<a name='L239'> 239             <a href='../S/114.html#L311' title='Defined at 311 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getActiveResult</a>()-&gt;<a href='../Y/2192.html' title='Multiple used in 12 places.'>TargetColor</a> = <a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a>;
+<a name='L240'> 240             
+<a name='L241'> 241             <i><font color='green'>// Record time so we can determine usb roundtrip time.</font></i>
+<a name='L242'> 242             <a href='../S/114.html#L311' title='Defined at 311 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getActiveResult</a>()-&gt;<a href='../Y/2115.html' title='Multiple used in 4 places.'>StartTestSeconds</a> = <a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../S/153.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_Timer.cpp.'>GetSeconds</a>();
+<a name='L243'> 243 
+<a name='L244'> 244             <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L638' title='Defined at 638 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetStartTest</a>(<a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a>);
+<a name='L245'> 245 
+<a name='L246'> 246             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2128.html' title='Multiple used in 4 places.'>State_WaitingForTestStarted</a>;
+<a name='L247'> 247             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingToTakeMeasurement -&gt; State_WaitingForTestStarted."));
+<a name='L248'> 248 
+<a name='L249'> 249             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/2171.html' title='Multiple used in 2 places.'>TIMEOUT_WAITING_FOR_TEST_STARTED</a>);
+<a name='L250'> 250 
+<a name='L251'> 251             <a href='../S/108.html#L1082' title='Defined at 1082 in ovr/sdk/src/OVR_Device.h.'>LatencyTestDisplay</a> <a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>(2, 0x40090040);
+<a name='L252'> 252             <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L665' title='Defined at 665 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetDisplay</a>(<a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>);
+<a name='L253'> 253         <font color='red'>}</font>
+<a name='L254'> 254     <font color='red'>}</font>
+<a name='L255'> 255     <b>else</b> <b>if</b> (<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> == <a href='../Y/1414.html' title='Multiple used in 3 places.'>Message_LatencyTestButton</a>)
+<a name='L256'> 256     <font color='red'>{</font>
+<a name='L257'> 257         <a href='../D/72.html' title='Multiple defined in 2 places.'>BeginTest</a>();
+<a name='L258'> 258     <font color='red'>}</font>
+<a name='L259'> 259     <b>else</b> <b>if</b> (<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> == <a href='../Y/1417.html' title='Multiple used in 3 places.'>Message_LatencyTestStarted</a>)
+<a name='L260'> 260     <font color='red'>{</font>
+<a name='L261'> 261         <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2128.html' title='Multiple used in 4 places.'>State_WaitingForTestStarted</a>)
+<a name='L262'> 262         <font color='red'>{</font>
+<a name='L263'> 263             <a href='../S/114.html#L322' title='Defined at 322 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>clearTimer</a>();
+<a name='L264'> 264 
+<a name='L265'> 265             <i><font color='green'>// Record time so we can determine usb roundtrip time.</font></i>
+<a name='L266'> 266             <a href='../S/114.html#L311' title='Defined at 311 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getActiveResult</a>()-&gt;<a href='../Y/2209.html' title='Multiple used in 4 places.'>TestStartedSeconds</a> = <a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../S/153.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_Timer.cpp.'>GetSeconds</a>();
+<a name='L267'> 267             
+<a name='L268'> 268             <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2122.html' title='Multiple used in 4 places.'>State_WaitingForColorDetected</a>;
+<a name='L269'> 269             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForTestStarted -&gt; State_WaitingForColorDetected."));
+<a name='L270'> 270 
+<a name='L271'> 271             <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/2170.html' title='Multiple used in 2 places.'>TIMEOUT_WAITING_FOR_COLOR_DETECTED</a>);
+<a name='L272'> 272         <font color='red'>}</font>
+<a name='L273'> 273     <font color='red'>}</font>
+<a name='L274'> 274     <b>else</b> <b>if</b> (<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> == <a href='../Y/1415.html' title='Multiple used in 3 places.'>Message_LatencyTestColorDetected</a>)
+<a name='L275'> 275     <font color='red'>{</font>
+<a name='L276'> 276         <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2122.html' title='Multiple used in 4 places.'>State_WaitingForColorDetected</a>)
+<a name='L277'> 277         <font color='red'>{</font>
+<a name='L278'> 278             <i><font color='green'>// Record time to detect color.</font></i>
+<a name='L279'> 279             <a href='../Y/1403.html' title='Multiple used in 4 places.'>MessageLatencyTestColorDetected</a>* <a href='../Y/3923.html' title='Multiple used in 2 places.'>pDetected</a> = (<a href='../Y/1403.html' title='Multiple used in 4 places.'>MessageLatencyTestColorDetected</a>*) &amp;<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>;
+<a name='L280'> 280             <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> <a href='../Y/3099.html' title='Multiple used in 3 places.'>elapsedTime</a> = <a href='../Y/3923.html' title='Multiple used in 2 places.'>pDetected</a>-&gt;<a href='../Y/486.html' title='Multiple used in 5 places.'>Elapsed</a>;
+<a name='L281'> 281             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("Time to 'ColorDetected' = %d", <a href='../Y/3099.html' title='Multiple used in 3 places.'>elapsedTime</a>));
+<a name='L282'> 282             
+<a name='L283'> 283             <a href='../S/114.html#L311' title='Defined at 311 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getActiveResult</a>()-&gt;<a href='../Y/399.html' title='Multiple used in 5 places.'>DeviceMeasuredElapsedMilliS</a> = <a href='../Y/3099.html' title='Multiple used in 3 places.'>elapsedTime</a>;
+<a name='L284'> 284 
+<a name='L285'> 285             <b>if</b> (<a href='../S/114.html#L386' title='Defined at 386 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>areResultsComplete</a>())
+<a name='L286'> 286             <font color='red'>{</font>
+<a name='L287'> 287                 <i><font color='green'>// We're done.</font></i>
+<a name='L288'> 288                 <a href='../S/114.html#L431' title='Defined at 431 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>processResults</a>();
+<a name='L289'> 289                 <a href='../S/114.html#L327' title='Defined at 327 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>reset</a>();
+<a name='L290'> 290             <font color='red'>}</font>
+<a name='L291'> 291             <b>else</b>
+<a name='L292'> 292             <font color='red'>{</font>
+<a name='L293'> 293                 <i><font color='green'>// Run another measurement.</font></i>
+<a name='L294'> 294                 <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2125.html' title='Multiple used in 6 places.'>State_WaitingForSettlePostMeasurement</a>;
+<a name='L295'> 295                 <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("State_WaitingForColorDetected -&gt; State_WaitingForSettlePostMeasurement."));
+<a name='L296'> 296 
+<a name='L297'> 297                 <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a> = <a href='../Y/2173.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT</a> + <a href='../S/114.html#L97' title='Defined at 97 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>getRandomComponent</a>(<a href='../Y/2174.html' title='Multiple used in 5 places.'>TIME_TO_WAIT_FOR_SETTLE_POST_MEASUREMENT_RANDOMNESS</a>);
+<a name='L298'> 298                 <a href='../S/114.html#L317' title='Defined at 317 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>setTimer</a>(<a href='../Y/4832.html' title='Multiple used in 8 places.'>waitTime</a>);
+<a name='L299'> 299 
+<a name='L300'> 300                 <a href='../S/108.html#L1082' title='Defined at 1082 in ovr/sdk/src/OVR_Device.h.'>LatencyTestDisplay</a> <a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>(2, 0x40400040);
+<a name='L301'> 301                 <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L665' title='Defined at 665 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetDisplay</a>(<a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>);
+<a name='L302'> 302             <font color='red'>}</font>
+<a name='L303'> 303         <font color='red'>}</font>
+<a name='L304'> 304     <font color='red'>}</font>
+<a name='L305'> 305     <b>else</b> <b>if</b> (<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a> == <a href='../Y/1412.html' title='Multiple used in 8 places.'>Message_DeviceRemoved</a>)
+<a name='L306'> 306     <font color='red'>{</font>
+<a name='L307'> 307         <a href='../S/114.html#L327' title='Defined at 327 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>reset</a>();
+<a name='L308'> 308     <font color='red'>}</font>
+<a name='L309'> 309 <font color='red'>}</font>
+<a name='L310'> 310 
+<a name='L311'> 311 <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../Y/1388.html' title='Multiple used in 9 places.'>MeasurementResult</a>* <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1282.html' title='Multiple refered from 7 places.'>getActiveResult</a>()
+<a name='L312'> 312 <font color='red'>{</font>
+<a name='L313'> 313     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(!<a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>());    
+<a name='L314'> 314     <b>return</b> <a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/773.html' title='Multiple used in 7 places.'>GetLast</a>();
+<a name='L315'> 315 <font color='red'>}</font>
+<a name='L316'> 316 
+<a name='L317'> 317 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1459.html' title='Multiple refered from 11 places.'>setTimer</a>(<a href='../Y/2328.html' title='Multiple used in 18 places.'>UInt32</a> <a href='../Y/4605.html' title='Multiple used in 3 places.'>timeMilliS</a>)
+<a name='L318'> 318 <font color='red'>{</font>
+<a name='L319'> 319     <a href='../Y/31.html' title='Multiple used in 8 places.'>ActiveTimerMilliS</a> = <a href='../Y/4605.html' title='Multiple used in 3 places.'>timeMilliS</a>;
+<a name='L320'> 320 <font color='red'>}</font>
+<a name='L321'> 321 
+<a name='L322'> 322 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1247.html' title='Multiple refered from 2 places.'>clearTimer</a>()
+<a name='L323'> 323 <font color='red'>{</font>
+<a name='L324'> 324     <a href='../Y/31.html' title='Multiple used in 8 places.'>ActiveTimerMilliS</a> = 0;
+<a name='L325'> 325 <font color='red'>}</font>
+<a name='L326'> 326 
+<a name='L327'> 327 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1432.html' title='Multiple refered from 6 places.'>reset</a>()
+<a name='L328'> 328 <font color='red'>{</font>
+<a name='L329'> 329     <a href='../S/114.html#L336' title='Defined at 336 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>clearMeasurementResults</a>();
+<a name='L330'> 330     <a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> = <a href='../Y/2121.html' title='Multiple used in 5 places.'>State_WaitingForButton</a>;
+<a name='L331'> 331 
+<a name='L332'> 332     <a href='../Y/915.html' title='Multiple used in 4 places.'>HaveOldTime</a> = <b>false</b>;
+<a name='L333'> 333     <a href='../Y/31.html' title='Multiple used in 8 places.'>ActiveTimerMilliS</a> = 0;
+<a name='L334'> 334 <font color='red'>}</font>
+<a name='L335'> 335 
+<a name='L336'> 336 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1246.html' title='Multiple refered from 3 places.'>clearMeasurementResults</a>()
+<a name='L337'> 337 <font color='red'>{</font>
+<a name='L338'> 338     <b>while</b>(!<a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>())
+<a name='L339'> 339     <font color='red'>{</font>
+<a name='L340'> 340         <a href='../Y/1388.html' title='Multiple used in 9 places.'>MeasurementResult</a>* <a href='../Y/3927.html' title='Multiple used in 3 places.'>pElem</a> = <a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/758.html' title='Multiple used in 33 places.'>GetFirst</a>();
+<a name='L341'> 341         <a href='../Y/3927.html' title='Multiple used in 3 places.'>pElem</a>-&gt;<a href='../Y/1846.html' title='Multiple used in 15 places.'>RemoveNode</a>();
+<a name='L342'> 342         <b>delete</b> <a href='../Y/3927.html' title='Multiple used in 3 places.'>pElem</a>;
+<a name='L343'> 343     <font color='red'>}</font>
+<a name='L344'> 344 <font color='red'>}</font>
+<a name='L345'> 345 
+<a name='L346'> 346 <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/521.html' title='Multiple refered from 6 places.'>LatencyTestHandler</a>::~<a href='../S/114.html#L346' title='Defined at 346 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>LatencyTestHandler</a>()
+<a name='L347'> 347 <font color='red'>{</font>
+<a name='L348'> 348     <a href='../S/191.html#L199' title='Defined at 199 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>RemoveHandlerFromDevices</a>();
+<a name='L349'> 349 <font color='red'>}</font>
+<a name='L350'> 350 
+<a name='L351'> 351 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../S/114.html#L346' title='Defined at 346 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>LatencyTestHandler</a>::<a href='../R/794.html' title='Multiple refered from 7 places.'>OnMessage</a>(<b>const</b> <a href='../Y/1394.html' title='Multiple used in 39 places.'>Message</a>&amp; <a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>)
+<a name='L352'> 352 <font color='red'>{</font>
+<a name='L353'> 353     <a href='../Y/3951.html' title='Multiple used in 6 places.'>pLatencyTestUtil</a>-&gt;<a href='../D/1398.html' title='Multiple defined in 3 places.'>handleMessage</a>(<a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>);
+<a name='L354'> 354 <font color='red'>}</font>
+<a name='L355'> 355 
+<a name='L356'> 356 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/849.html' title='Multiple refered from 2 places.'>ProcessInputs</a>()
+<a name='L357'> 357 <font color='red'>{</font>
+<a name='L358'> 358     <a href='../S/114.html#L534' title='Defined at 534 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>updateForTimeouts</a>();
+<a name='L359'> 359     <a href='../D/1398.html' title='Multiple defined in 3 places.'>handleMessage</a>(<a href='../Y/1394.html' title='Multiple used in 39 places.'>Message</a>(), <a href='../Y/1255.html' title='Multiple used in 4 places.'>LatencyTest_ProcessInputs</a>);
+<a name='L360'> 360 <font color='red'>}</font>
+<a name='L361'> 361 
+<a name='L362'> 362 <b>bool</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/192.html' title='Multiple refered from 4 places.'>DisplayScreenColor</a>(<a href='../Y/218.html' title='Multiple used in 6 places.'>Color</a>&amp; <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a>)
+<a name='L363'> 363 <font color='red'>{</font>
+<a name='L364'> 364     <a href='../S/114.html#L534' title='Defined at 534 in ovr/sdk/src/Util/Util_LatencyTest.cpp.'>updateForTimeouts</a>();
+<a name='L365'> 365 
+<a name='L366'> 366     <b>if</b> (<a href='../Y/2118.html' title='Multiple used in 39 places.'>State</a> == <a href='../Y/2121.html' title='Multiple used in 5 places.'>State_WaitingForButton</a>)
+<a name='L367'> 367     <font color='red'>{</font>
+<a name='L368'> 368         <b>return</b> <b>false</b>;
+<a name='L369'> 369     <font color='red'>}</font>
+<a name='L370'> 370 
+<a name='L371'> 371     <a href='../Y/2869.html' title='Multiple used in 16 places.'>colorToDisplay</a> = <a href='../Y/1850.html' title='Multiple used in 10 places.'>RenderColor</a>;
+<a name='L372'> 372     <b>return</b> <b>true</b>;
+<a name='L373'> 373 <font color='red'>}</font>
+<a name='L374'> 374 
+<a name='L375'> 375 <b>const</b> <b>char</b>*     <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/376.html' title='Multiple refered from 2 places.'>GetResultsString</a>()
+<a name='L376'> 376 <font color='red'>{</font>
+<a name='L377'> 377         <b>if</b> (!<a href='../Y/1872.html' title='Multiple used in 5 places.'>ResultsString</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>() &amp;&amp; <a href='../Y/1875.html' title='Multiple used in 4 places.'>ReturnedResultString</a> != <a href='../Y/1872.html' title='Multiple used in 5 places.'>ResultsString</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>())
+<a name='L378'> 378         <font color='red'>{</font>
+<a name='L379'> 379                 <a href='../Y/1875.html' title='Multiple used in 4 places.'>ReturnedResultString</a> = <a href='../Y/1872.html' title='Multiple used in 5 places.'>ResultsString</a>;
+<a name='L380'> 380                 <b>return</b> <a href='../Y/1875.html' title='Multiple used in 4 places.'>ReturnedResultString</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>();
+<a name='L381'> 381         <font color='red'>}</font>
+<a name='L382'> 382     
+<a name='L383'> 383         <b>return</b> <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>;
+<a name='L384'> 384 <font color='red'>}</font>
+<a name='L385'> 385 
+<a name='L386'> 386 <b>bool</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1234.html' title='Multiple refered from 2 places.'>areResultsComplete</a>()
+<a name='L387'> 387 <font color='red'>{</font>
+<a name='L388'> 388     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3462.html' title='Multiple used in 3 places.'>initialMeasurements</a> = 0;
+<a name='L389'> 389 
+<a name='L390'> 390     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3663.html' title='Multiple used in 7 places.'>measurements1to2</a> = 0;
+<a name='L391'> 391     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3664.html' title='Multiple used in 7 places.'>measurements2to1</a> = 0;
+<a name='L392'> 392 
+<a name='L393'> 393     <a href='../Y/1388.html' title='Multiple used in 9 places.'>MeasurementResult</a>* <a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a> = <a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/758.html' title='Multiple used in 33 places.'>GetFirst</a>();
+<a name='L394'> 394     <b>while</b>(<b>true</b>)
+<a name='L395'> 395     <font color='red'>{</font>
+<a name='L396'> 396         <i><font color='green'>// Process.</font></i>
+<a name='L397'> 397         <b>if</b> (!<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2260.html' title='Multiple used in 5 places.'>TimedOutWaitingForTestStarted</a> &amp;&amp;
+<a name='L398'> 398             !<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2259.html' title='Multiple used in 5 places.'>TimedOutWaitingForColorDetected</a>)
+<a name='L399'> 399         <font color='red'>{</font>
+<a name='L400'> 400             <a href='../Y/3462.html' title='Multiple used in 3 places.'>initialMeasurements</a>++;
+<a name='L401'> 401 
+<a name='L402'> 402             <b>if</b> (<a href='../Y/3462.html' title='Multiple used in 3 places.'>initialMeasurements</a> &gt; <a href='../Y/957.html' title='Multiple used in 3 places.'>INITIAL_SAMPLES_TO_IGNORE</a>)
+<a name='L403'> 403             <font color='red'>{</font>
+<a name='L404'> 404                 <b>if</b> (<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2192.html' title='Multiple used in 12 places.'>TargetColor</a> == <a href='../Y/169.html' title='Multiple used in 3 places.'>COLOR2</a>)
+<a name='L405'> 405                 <font color='red'>{</font>
+<a name='L406'> 406                     <a href='../Y/3663.html' title='Multiple used in 7 places.'>measurements1to2</a>++;
+<a name='L407'> 407                 <font color='red'>}</font>
+<a name='L408'> 408                 <b>else</b>
+<a name='L409'> 409                 <font color='red'>{</font>
+<a name='L410'> 410                     <a href='../Y/3664.html' title='Multiple used in 7 places.'>measurements2to1</a>++;
+<a name='L411'> 411                 <font color='red'>}</font>
+<a name='L412'> 412             <font color='red'>}</font>
+<a name='L413'> 413         <font color='red'>}</font>
+<a name='L414'> 414 
+<a name='L415'> 415         <b>if</b> (<a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/1035.html' title='Multiple used in 3 places.'>IsLast</a>(<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>))
+<a name='L416'> 416         <font color='red'>{</font>
+<a name='L417'> 417             <b>break</b>;
+<a name='L418'> 418         <font color='red'>}</font>
+<a name='L419'> 419         <a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a> = <a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/791.html' title='Multiple used in 9 places.'>GetNext</a>(<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>);
+<a name='L420'> 420     <font color='red'>}</font>
+<a name='L421'> 421 
+<a name='L422'> 422     <b>if</b> (<a href='../Y/3663.html' title='Multiple used in 7 places.'>measurements1to2</a> &gt;= <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a> &amp;&amp;
+<a name='L423'> 423         <a href='../Y/3664.html' title='Multiple used in 7 places.'>measurements2to1</a> &gt;= <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a>)
+<a name='L424'> 424     <font color='red'>{</font>
+<a name='L425'> 425         <b>return</b> <b>true</b>;
+<a name='L426'> 426     <font color='red'>}</font>
+<a name='L427'> 427 
+<a name='L428'> 428     <b>return</b> <b>false</b>;
+<a name='L429'> 429 <font color='red'>}</font>
+<a name='L430'> 430 
+<a name='L431'> 431 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1418.html' title='Multiple refered from 2 places.'>processResults</a>()
+<a name='L432'> 432 <font color='red'>{</font>
+<a name='L433'> 433 
+<a name='L434'> 434     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3687.html' title='Multiple used in 3 places.'>minTime1To2</a> = <a href='../Y/2326.html' title='Multiple used in 3 places.'>UINT_MAX</a>;
+<a name='L435'> 435     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3655.html' title='Multiple used in 3 places.'>maxTime1To2</a> = 0;
+<a name='L436'> 436     <b>float</b> <a href='../Y/2735.html' title='Multiple used in 5 places.'>averageTime1To2</a> = 0.0f;
+<a name='L437'> 437     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3688.html' title='Multiple used in 3 places.'>minTime2To1</a> = <a href='../Y/2326.html' title='Multiple used in 3 places.'>UINT_MAX</a>;
+<a name='L438'> 438     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3656.html' title='Multiple used in 3 places.'>maxTime2To1</a> = 0;
+<a name='L439'> 439     <b>float</b> <a href='../Y/2736.html' title='Multiple used in 5 places.'>averageTime2To1</a> = 0.0f;
+<a name='L440'> 440 
+<a name='L441'> 441     <b>float</b> <a href='../Y/3689.html' title='Multiple used in 3 places.'>minUSBTripMilliS</a> = <a href='../Y/103.html' title='Multiple used in 2 places.'>BIG_FLOAT</a>;
+<a name='L442'> 442     <b>float</b> <a href='../Y/3657.html' title='Multiple used in 3 places.'>maxUSBTripMilliS</a> = <a href='../Y/1916.html' title='Multiple used in 2 places.'>SMALL_FLOAT</a>;
+<a name='L443'> 443     <b>float</b> <a href='../Y/2737.html' title='Multiple used in 5 places.'>averageUSBTripMilliS</a> = 0.0f;
+<a name='L444'> 444     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/2919.html' title='Multiple used in 3 places.'>countUSBTripTime</a> = 0;
+<a name='L445'> 445 
+<a name='L446'> 446     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3665.html' title='Multiple used in 4 places.'>measurementsCount</a> = 0;
+<a name='L447'> 447     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3663.html' title='Multiple used in 7 places.'>measurements1to2</a> = 0;
+<a name='L448'> 448     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3664.html' title='Multiple used in 7 places.'>measurements2to1</a> = 0;
+<a name='L449'> 449 
+<a name='L450'> 450     <a href='../Y/1388.html' title='Multiple used in 9 places.'>MeasurementResult</a>* <a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a> = <a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/758.html' title='Multiple used in 33 places.'>GetFirst</a>();
+<a name='L451'> 451     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a> = 0;
+<a name='L452'> 452     <b>while</b>(<b>true</b>)
+<a name='L453'> 453     <font color='red'>{</font>
+<a name='L454'> 454         <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a>++;
+<a name='L455'> 455 
+<a name='L456'> 456         <b>if</b> (!<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2260.html' title='Multiple used in 5 places.'>TimedOutWaitingForTestStarted</a> &amp;&amp;
+<a name='L457'> 457             !<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2259.html' title='Multiple used in 5 places.'>TimedOutWaitingForColorDetected</a>)
+<a name='L458'> 458         <font color='red'>{</font>
+<a name='L459'> 459             <a href='../Y/3665.html' title='Multiple used in 4 places.'>measurementsCount</a>++;
+<a name='L460'> 460 
+<a name='L461'> 461             <b>if</b> (<a href='../Y/3665.html' title='Multiple used in 4 places.'>measurementsCount</a> &gt; <a href='../Y/957.html' title='Multiple used in 3 places.'>INITIAL_SAMPLES_TO_IGNORE</a>)
+<a name='L462'> 462             <font color='red'>{</font>
+<a name='L463'> 463                 <b>if</b> (<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2192.html' title='Multiple used in 12 places.'>TargetColor</a> == <a href='../Y/169.html' title='Multiple used in 3 places.'>COLOR2</a>)
+<a name='L464'> 464                 <font color='red'>{</font>
+<a name='L465'> 465                     <a href='../Y/3663.html' title='Multiple used in 7 places.'>measurements1to2</a>++;
+<a name='L466'> 466 
+<a name='L467'> 467                     <b>if</b> (<a href='../Y/3663.html' title='Multiple used in 7 places.'>measurements1to2</a> &lt;= <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a>)
+<a name='L468'> 468                     <font color='red'>{</font>
+<a name='L469'> 469                         <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a> = <a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/399.html' title='Multiple used in 5 places.'>DeviceMeasuredElapsedMilliS</a>;
+<a name='L470'> 470 
+<a name='L471'> 471                         <a href='../Y/3687.html' title='Multiple used in 3 places.'>minTime1To2</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>(<a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a>, <a href='../Y/3687.html' title='Multiple used in 3 places.'>minTime1To2</a>);
+<a name='L472'> 472                         <a href='../Y/3655.html' title='Multiple used in 3 places.'>maxTime1To2</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>(<a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a>, <a href='../Y/3655.html' title='Multiple used in 3 places.'>maxTime1To2</a>);
+<a name='L473'> 473 
+<a name='L474'> 474                         <a href='../Y/2735.html' title='Multiple used in 5 places.'>averageTime1To2</a> += (<b>float</b>) <a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a>;
+<a name='L475'> 475                     <font color='red'>}</font>
+<a name='L476'> 476                 <font color='red'>}</font>
+<a name='L477'> 477                 <b>else</b>
+<a name='L478'> 478                 <font color='red'>{</font>
+<a name='L479'> 479                     <a href='../Y/3664.html' title='Multiple used in 7 places.'>measurements2to1</a>++;
+<a name='L480'> 480 
+<a name='L481'> 481                     <b>if</b> (<a href='../Y/3664.html' title='Multiple used in 7 places.'>measurements2to1</a> &lt;= <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a>)
+<a name='L482'> 482                     <font color='red'>{</font>
+<a name='L483'> 483                         <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a> = <a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/399.html' title='Multiple used in 5 places.'>DeviceMeasuredElapsedMilliS</a>;
+<a name='L484'> 484 
+<a name='L485'> 485                         <a href='../Y/3688.html' title='Multiple used in 3 places.'>minTime2To1</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>(<a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a>, <a href='../Y/3688.html' title='Multiple used in 3 places.'>minTime2To1</a>);
+<a name='L486'> 486                         <a href='../Y/3656.html' title='Multiple used in 3 places.'>maxTime2To1</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>(<a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a>, <a href='../Y/3656.html' title='Multiple used in 3 places.'>maxTime2To1</a>);
+<a name='L487'> 487 
+<a name='L488'> 488                         <a href='../Y/2736.html' title='Multiple used in 5 places.'>averageTime2To1</a> += (<b>float</b>) <a href='../Y/3097.html' title='Multiple used in 8 places.'>elapsed</a>;
+<a name='L489'> 489                     <font color='red'>}</font>
+<a name='L490'> 490                 <font color='red'>}</font>
+<a name='L491'> 491 
+<a name='L492'> 492                 <b>float</b> <a href='../Y/4738.html' title='Multiple used in 4 places.'>usbRountripElapsedMilliS</a> = <a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../D/620.html' title='Multiple defined in 3 places.'>MsPerSecond</a> * (<b>float</b>) (<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2209.html' title='Multiple used in 4 places.'>TestStartedSeconds</a> - <a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>-&gt;<a href='../Y/2115.html' title='Multiple used in 4 places.'>StartTestSeconds</a>);
+<a name='L493'> 493                 <a href='../Y/3689.html' title='Multiple used in 3 places.'>minUSBTripMilliS</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>(<a href='../Y/4738.html' title='Multiple used in 4 places.'>usbRountripElapsedMilliS</a>, <a href='../Y/3689.html' title='Multiple used in 3 places.'>minUSBTripMilliS</a>);
+<a name='L494'> 494                 <a href='../Y/3657.html' title='Multiple used in 3 places.'>maxUSBTripMilliS</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1370.html' title='Multiple used in 38 places.'>Max</a>(<a href='../Y/4738.html' title='Multiple used in 4 places.'>usbRountripElapsedMilliS</a>, <a href='../Y/3657.html' title='Multiple used in 3 places.'>maxUSBTripMilliS</a>);
+<a name='L495'> 495                 <a href='../Y/2737.html' title='Multiple used in 5 places.'>averageUSBTripMilliS</a> += <a href='../Y/4738.html' title='Multiple used in 4 places.'>usbRountripElapsedMilliS</a>;
+<a name='L496'> 496                 <a href='../Y/2919.html' title='Multiple used in 3 places.'>countUSBTripTime</a>++;
+<a name='L497'> 497             <font color='red'>}</font>
+<a name='L498'> 498         <font color='red'>}</font>
+<a name='L499'> 499 
+<a name='L500'> 500         <b>if</b> (<a href='../Y/3663.html' title='Multiple used in 7 places.'>measurements1to2</a> &gt;= <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a> &amp;&amp;
+<a name='L501'> 501             <a href='../Y/3664.html' title='Multiple used in 7 places.'>measurements2to1</a> &gt;= <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a>)
+<a name='L502'> 502         <font color='red'>{</font>
+<a name='L503'> 503             <b>break</b>;
+<a name='L504'> 504         <font color='red'>}</font>
+<a name='L505'> 505 
+<a name='L506'> 506         <b>if</b> (<a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/1035.html' title='Multiple used in 3 places.'>IsLast</a>(<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>))
+<a name='L507'> 507         <font color='red'>{</font>
+<a name='L508'> 508             <b>break</b>;
+<a name='L509'> 509         <font color='red'>}</font>
+<a name='L510'> 510         <a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a> = <a href='../Y/1871.html' title='Multiple used in 12 places.'>Results</a>.<a href='../Y/791.html' title='Multiple used in 9 places.'>GetNext</a>(<a href='../Y/3919.html' title='Multiple used in 15 places.'>pCurr</a>);
+<a name='L511'> 511     <font color='red'>}</font>
+<a name='L512'> 512 
+<a name='L513'> 513     <a href='../Y/2735.html' title='Multiple used in 5 places.'>averageTime1To2</a> /= (<b>float</b>) <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a>;      
+<a name='L514'> 514     <a href='../Y/2736.html' title='Multiple used in 5 places.'>averageTime2To1</a> /= (<b>float</b>) <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a>;
+<a name='L515'> 515 
+<a name='L516'> 516     <a href='../Y/2737.html' title='Multiple used in 5 places.'>averageUSBTripMilliS</a> /= <a href='../Y/2919.html' title='Multiple used in 3 places.'>countUSBTripTime</a>;
+<a name='L517'> 517     
+<a name='L518'> 518     <b>float</b> <a href='../Y/3210.html' title='Multiple used in 4 places.'>finalResult</a> = 0.5f * (<a href='../Y/2735.html' title='Multiple used in 5 places.'>averageTime1To2</a> + <a href='../Y/2736.html' title='Multiple used in 5 places.'>averageTime2To1</a>);
+<a name='L519'> 519     <a href='../Y/3210.html' title='Multiple used in 4 places.'>finalResult</a> += <a href='../Y/2737.html' title='Multiple used in 5 places.'>averageUSBTripMilliS</a>;
+<a name='L520'> 520 
+<a name='L521'> 521     <a href='../Y/1872.html' title='Multiple used in 5 places.'>ResultsString</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L522'> 522     <a href='../Y/1872.html' title='Multiple used in 5 places.'>ResultsString</a>.<a href='../S/158.html#L32' title='Defined at 32 in ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp.'>AppendFormat</a>("RESULT=%.1f (add half Tracker period) [b-&gt;w %d|%.1f|%d] [w-&gt;b %d|%.1f|%d] [usb rndtrp %.1f|%.1f|%.1f] [cnt %d] [tmouts %d]",  
+<a name='L523'> 523                 <a href='../Y/3210.html' title='Multiple used in 4 places.'>finalResult</a>, 
+<a name='L524'> 524                 <a href='../Y/3687.html' title='Multiple used in 3 places.'>minTime1To2</a>, <a href='../Y/2735.html' title='Multiple used in 5 places.'>averageTime1To2</a>, <a href='../Y/3655.html' title='Multiple used in 3 places.'>maxTime1To2</a>, 
+<a name='L525'> 525                 <a href='../Y/3688.html' title='Multiple used in 3 places.'>minTime2To1</a>, <a href='../Y/2736.html' title='Multiple used in 5 places.'>averageTime2To1</a>, <a href='../Y/3656.html' title='Multiple used in 3 places.'>maxTime2To1</a>,
+<a name='L526'> 526                 <a href='../Y/3689.html' title='Multiple used in 3 places.'>minUSBTripMilliS</a>, <a href='../Y/2737.html' title='Multiple used in 5 places.'>averageUSBTripMilliS</a>, <a href='../Y/3657.html' title='Multiple used in 3 places.'>maxUSBTripMilliS</a>,
+<a name='L527'> 527                 <a href='../Y/324.html' title='Multiple used in 10 places.'>DEFAULT_NUMBER_OF_SAMPLES</a>*2, <a href='../Y/2916.html' title='Multiple used in 149 places.'>count</a> - <a href='../Y/3665.html' title='Multiple used in 4 places.'>measurementsCount</a>);
+<a name='L528'> 528     
+<a name='L529'> 529     <i><font color='green'>// Display result on latency tester display.</font></i>
+<a name='L530'> 530     <a href='../S/108.html#L1082' title='Defined at 1082 in ovr/sdk/src/OVR_Device.h.'>LatencyTestDisplay</a> <a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>(1, (<b>int</b>)<a href='../Y/3210.html' title='Multiple used in 4 places.'>finalResult</a>);
+<a name='L531'> 531     <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>-&gt;<a href='../S/87.html#L665' title='Defined at 665 in ovr/sdk/src/OVR_LatencyTestImpl.cpp.'>SetDisplay</a>(<a href='../Y/3598.html' title='Multiple used in 14 places.'>ltd</a>);
+<a name='L532'> 532 <font color='red'>}</font>
+<a name='L533'> 533 
+<a name='L534'> 534 <b>void</b> <a href='../D/528.html' title='Multiple defined in 2 places.'>LatencyTest</a>::<a href='../R/1473.html' title='Multiple refered from 3 places.'>updateForTimeouts</a>()
+<a name='L535'> 535 <font color='red'>{</font>
+<a name='L536'> 536     <b>if</b> (!<a href='../Y/915.html' title='Multiple used in 4 places.'>HaveOldTime</a>)
+<a name='L537'> 537     <font color='red'>{</font>
+<a name='L538'> 538         <a href='../Y/915.html' title='Multiple used in 4 places.'>HaveOldTime</a> = <b>true</b>;
+<a name='L539'> 539         <a href='../Y/1540.html' title='Multiple used in 6 places.'>OldTime</a> = <a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../Y/820.html' title='Multiple used in 4 places.'>GetTicksMs</a>();
+<a name='L540'> 540         <b>return</b>;
+<a name='L541'> 541     <font color='red'>}</font>
+<a name='L542'> 542 
+<a name='L543'> 543     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3748.html' title='Multiple used in 13 places.'>newTime</a> = <a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../Y/820.html' title='Multiple used in 4 places.'>GetTicksMs</a>();
+<a name='L544'> 544     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a> = <a href='../Y/3748.html' title='Multiple used in 13 places.'>newTime</a> - <a href='../Y/1540.html' title='Multiple used in 6 places.'>OldTime</a>;
+<a name='L545'> 545     <b>if</b> (<a href='../Y/3748.html' title='Multiple used in 13 places.'>newTime</a> &lt; <a href='../Y/1540.html' title='Multiple used in 6 places.'>OldTime</a>)
+<a name='L546'> 546     <font color='red'>{</font>
+<a name='L547'> 547         <a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a> = <a href='../Y/1540.html' title='Multiple used in 6 places.'>OldTime</a> - <a href='../Y/3748.html' title='Multiple used in 13 places.'>newTime</a>;
+<a name='L548'> 548         <a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a> = <a href='../Y/2326.html' title='Multiple used in 3 places.'>UINT_MAX</a> - <a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a>;
+<a name='L549'> 549     <font color='red'>}</font>
+<a name='L550'> 550     <a href='../Y/1540.html' title='Multiple used in 6 places.'>OldTime</a> = <a href='../Y/3748.html' title='Multiple used in 13 places.'>newTime</a>;
+<a name='L551'> 551 
+<a name='L552'> 552     <a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/1422.html' title='Multiple used in 33 places.'>Min</a>(<a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a>, (<a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>) 100);   <i><font color='green'>// Clamp at 100mS in case we're not being called very often.</font></i>
+<a name='L553'> 553 
+<a name='L554'> 554 
+<a name='L555'> 555     <b>if</b> (<a href='../Y/31.html' title='Multiple used in 8 places.'>ActiveTimerMilliS</a> == 0)
+<a name='L556'> 556     <font color='red'>{</font>
+<a name='L557'> 557         <b>return</b>;
+<a name='L558'> 558     <font color='red'>}</font>
+<a name='L559'> 559 
+<a name='L560'> 560     <b>if</b> (<a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a> &gt;= <a href='../Y/31.html' title='Multiple used in 8 places.'>ActiveTimerMilliS</a>)
+<a name='L561'> 561     <font color='red'>{</font>
+<a name='L562'> 562         <a href='../Y/31.html' title='Multiple used in 8 places.'>ActiveTimerMilliS</a> = 0;
+<a name='L563'> 563         <a href='../D/1398.html' title='Multiple defined in 3 places.'>handleMessage</a>(<a href='../Y/1394.html' title='Multiple used in 39 places.'>Message</a>(), <a href='../Y/1256.html' title='Multiple used in 4 places.'>LatencyTest_Timer</a>);
+<a name='L564'> 564         <b>return</b>;
+<a name='L565'> 565     <font color='red'>}</font>
+<a name='L566'> 566 
+<a name='L567'> 567     <a href='../Y/31.html' title='Multiple used in 8 places.'>ActiveTimerMilliS</a> -= <a href='../Y/3098.html' title='Multiple used in 6 places.'>elapsedMilliS</a>;
+<a name='L568'> 568 <font color='red'>}</font>
+<a name='L569'> 569 
+<a name='L570'> 570 <font color='red'>}</font><font color='red'>}</font> <i><font color='green'>// namespace OVR::Util</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L71'>[^]</a><a href='#L534'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

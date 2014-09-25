@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>msg</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/95.html#L116'>msg</a>               116 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp void GlobalState::OnMessage(const Message&amp; msg)
+<a href='../S/95.html#L118'>msg</a>               118 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     if (msg.Type == Message_DeviceAdded || msg.Type == Message_DeviceRemoved)
+<a href='../S/95.html#L120'>msg</a>               120 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp         if (msg.pDevice == pManager)
+<a href='../S/95.html#L123'>msg</a>               123 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp                 static_cast&lt;const MessageDeviceStatus&amp;&gt;(msg);
+<a href='../S/95.html#L125'>msg</a>               125 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp             if (msg.Type == Message_DeviceAdded)
+<a href='../S/96.html#L56'>msg</a>                56 ovr/sdk/src/CAPI/CAPI_GlobalState.h     void        OnMessage(const Message&amp; msg);
+<a href='../S/102.html#L333'>msg</a>               333 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         GLchar msg[1024];
+<a href='../S/102.html#L334'>msg</a>               334 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         glGetProgramInfoLog(Prog, sizeof(msg), 0, msg);
+<a href='../S/102.html#L335'>msg</a>               335 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         OVR_DEBUG_LOG(("Linking shaders failed: %s\n", msg));
+<a href='../S/103.html#L513'>msg</a>               513 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 			GLchar msg[1024];
+<a href='../S/103.html#L514'>msg</a>               514 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 			glGetShaderInfoLog(GLShader, sizeof(msg), 0, msg);
+<a href='../S/103.html#L515'>msg</a>               515 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 			if (msg[0])
+<a href='../S/103.html#L516'>msg</a>               516 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 				OVR_DEBUG_LOG(("Compiling shader\n%s\nfailed: %s\n", src, msg));
+<a href='../S/191.html#L99'>msg</a>                99 ovr/sdk/src/OVR_DeviceImpl.cpp void MessageHandlerRef::Call(const Message&amp; msg)
+<a href='../S/191.html#L104'>msg</a>               104 ovr/sdk/src/OVR_DeviceImpl.cpp         pHandlers[i]-&gt;OnMessage(msg);
+<a href='../S/80.html#L71'>msg</a>                71 ovr/sdk/src/OVR_DeviceImpl.h     void            Call(const Message&amp; msg);
+<a href='../S/128.html#L137'>msg</a>               137 ovr/sdk/src/OVR_SensorCalibration.cpp void SensorCalibration::Apply(MessageBodyFrame&amp; msg)
+<a href='../S/128.html#L139'>msg</a>               139 ovr/sdk/src/OVR_SensorCalibration.cpp     AutocalibrateGyro(msg);
+<a href='../S/128.html#L144'>msg</a>               144 ovr/sdk/src/OVR_SensorCalibration.cpp         gyroOffset[i] = (float) Interpolators[i].GetOffset(msg.Temperature, GyroAutoTemperature, GyroAutoOffset[i]);
+<a href='../S/128.html#L147'>msg</a>               147 ovr/sdk/src/OVR_SensorCalibration.cpp     msg.RotationRate = GyroMatrix.Transform(msg.RotationRate - gyroOffset);
+<a href='../S/128.html#L148'>msg</a>               148 ovr/sdk/src/OVR_SensorCalibration.cpp     msg.Acceleration = AccelMatrix.Transform(msg.Acceleration - AccelOffset);
+<a href='../S/128.html#L150'>msg</a>               150 ovr/sdk/src/OVR_SensorCalibration.cpp         msg.MagneticField = MagMatrix.Transform(msg.MagneticField);
+<a href='../S/128.html#L153'>msg</a>               153 ovr/sdk/src/OVR_SensorCalibration.cpp void SensorCalibration::AutocalibrateGyro(MessageBodyFrame const&amp; msg)
+<a href='../S/128.html#L160'>msg</a>               160 ovr/sdk/src/OVR_SensorCalibration.cpp     Vector3f gyro = msg.RotationRate;
+<a href='../S/128.html#L174'>msg</a>               174 ovr/sdk/src/OVR_SensorCalibration.cpp         GyroAutoTemperature = msg.Temperature;
+<a href='../S/141.html#L53'>msg</a>                53 ovr/sdk/src/OVR_SensorCalibration.h     void Apply(MessageBodyFrame&amp; msg);
+<a href='../S/141.html#L59'>msg</a>                59 ovr/sdk/src/OVR_SensorCalibration.h     void AutocalibrateGyro(MessageBodyFrame const&amp; msg);
+<a href='../S/189.html#L285'>msg</a>               285 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::handleMessage(const MessageBodyFrame&amp; msg)
+<a href='../S/189.html#L287'>msg</a>               287 ovr/sdk/src/OVR_SensorFusion.cpp     if (msg.Type != Message_BodyFrame || !IsMotionTrackingEnabled())
+<a href='../S/189.html#L291'>msg</a>               291 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d gyro(msg.RotationRate); 
+<a href='../S/189.html#L292'>msg</a>               292 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accel(msg.Acceleration); 
+<a href='../S/189.html#L293'>msg</a>               293 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d mag(msg.MagneticField);
+<a href='../S/189.html#L294'>msg</a>               294 ovr/sdk/src/OVR_SensorFusion.cpp     double DeltaT = msg.TimeDelta;
+<a href='../S/189.html#L297'>msg</a>               297 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.TimeInSeconds = msg.AbsoluteTimeSeconds;
+<a href='../S/189.html#L393'>msg</a>               393 ovr/sdk/src/OVR_SensorFusion.cpp     lstate.Temperature  = msg.Temperature;
+<a href='../S/189.html#L398'>msg</a>               398 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::handleExposure(const MessageExposureFrame&amp; msg)
+<a href='../S/189.html#L400'>msg</a>               400 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ExposureCounter = msg.CameraFrameCount;
+<a href='../S/189.html#L401'>msg</a>               401 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ExposureTime = msg.CameraTimeSeconds;
+<a href='../S/189.html#L403'>msg</a>               403 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.TimeInSeconds = msg.CameraTimeSeconds - LastMessageExposureFrame.CameraTimeSeconds;
+<a href='../S/189.html#L408'>msg</a>               408 ovr/sdk/src/OVR_SensorFusion.cpp     LastMessageExposureFrame = msg;
+<a href='../S/189.html#L887'>msg</a>               887 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnMessage(const MessageBodyFrame&amp; msg)
+<a href='../S/189.html#L890'>msg</a>               890 ovr/sdk/src/OVR_SensorFusion.cpp     handleMessage(msg);
+<a href='../S/189.html#L895'>msg</a>               895 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::BodyFrameHandler::OnMessage(const Message&amp; msg)
+<a href='../S/189.html#L897'>msg</a>               897 ovr/sdk/src/OVR_SensorFusion.cpp 	Recording::GetRecorder().RecordMessage(msg);
+<a href='../S/189.html#L898'>msg</a>               898 ovr/sdk/src/OVR_SensorFusion.cpp     if (msg.Type == Message_BodyFrame)
+<a href='../S/189.html#L899'>msg</a>               899 ovr/sdk/src/OVR_SensorFusion.cpp         pFusion-&gt;handleMessage(static_cast&lt;const MessageBodyFrame&amp;&gt;(msg));
+<a href='../S/189.html#L900'>msg</a>               900 ovr/sdk/src/OVR_SensorFusion.cpp     if (msg.Type == Message_ExposureFrame)
+<a href='../S/189.html#L901'>msg</a>               901 ovr/sdk/src/OVR_SensorFusion.cpp         pFusion-&gt;handleExposure(static_cast&lt;const MessageExposureFrame&amp;&gt;(msg));
+<a href='../S/127.html#L257'>msg</a>               257 ovr/sdk/src/OVR_SensorFusion.h     void        OnMessage                (const MessageBodyFrame&amp; msg);
+<a href='../S/127.html#L320'>msg</a>               320 ovr/sdk/src/OVR_SensorFusion.h         virtual void OnMessage(const Message&amp; msg);
+<a href='../S/127.html#L455'>msg</a>               455 ovr/sdk/src/OVR_SensorFusion.h     void        handleMessage(const MessageBodyFrame&amp; msg);
+<a href='../S/127.html#L456'>msg</a>               456 ovr/sdk/src/OVR_SensorFusion.h     void        handleExposure(const MessageExposureFrame&amp; msg);
+<a href='../S/114.html#L117'>msg</a>               117 ovr/sdk/src/Util/Util_LatencyTest.cpp void LatencyTest::handleMessage(const Message&amp; msg, LatencyTestMessageType latencyTestMessage)
+<a href='../S/114.html#L255'>msg</a>               255 ovr/sdk/src/Util/Util_LatencyTest.cpp     else if (msg.Type == Message_LatencyTestButton)
+<a href='../S/114.html#L259'>msg</a>               259 ovr/sdk/src/Util/Util_LatencyTest.cpp     else if (msg.Type == Message_LatencyTestStarted)
+<a href='../S/114.html#L274'>msg</a>               274 ovr/sdk/src/Util/Util_LatencyTest.cpp     else if (msg.Type == Message_LatencyTestColorDetected)
+<a href='../S/114.html#L279'>msg</a>               279 ovr/sdk/src/Util/Util_LatencyTest.cpp             MessageLatencyTestColorDetected* pDetected = (MessageLatencyTestColorDetected*) &amp;msg;
+<a href='../S/114.html#L305'>msg</a>               305 ovr/sdk/src/Util/Util_LatencyTest.cpp     else if (msg.Type == Message_DeviceRemoved)
+<a href='../S/114.html#L351'>msg</a>               351 ovr/sdk/src/Util/Util_LatencyTest.cpp void LatencyTest::LatencyTestHandler::OnMessage(const Message&amp; msg)
+<a href='../S/114.html#L353'>msg</a>               353 ovr/sdk/src/Util/Util_LatencyTest.cpp     pLatencyTestUtil-&gt;handleMessage(msg);
+<a href='../S/113.html#L99'>msg</a>                99 ovr/sdk/src/Util/Util_LatencyTest.h     void handleMessage(const Message&amp; msg, LatencyTestMessageType latencyTestMessage = LatencyTest_None);
+<a href='../S/113.html#L111'>msg</a>               111 ovr/sdk/src/Util/Util_LatencyTest.h         virtual void OnMessage(const Message&amp; msg);
+<a href='../S/118.html#L123'>msg</a>               123 ovr/sdk/src/Util/Util_LatencyTest2.cpp void LatencyTest2::handleMessage(const MessagePixelRead&amp; msg)
+<a href='../S/118.html#L128'>msg</a>               128 ovr/sdk/src/Util/Util_LatencyTest2.cpp     LastPixelReadMsg = msg;
+<a href='../S/118.html#L132'>msg</a>               132 ovr/sdk/src/Util/Util_LatencyTest2.cpp     if (FrameTimeRecord::ColorToReadbackIndex(&amp;readbackIndex, msg.PixelReadValue))
+<a href='../S/118.html#L134'>msg</a>               134 ovr/sdk/src/Util/Util_LatencyTest2.cpp         RecentFrameSet.AddValue(readbackIndex, msg.FrameTimeSeconds);
+<a href='../S/118.html#L177'>msg</a>               177 ovr/sdk/src/Util/Util_LatencyTest2.cpp void LatencyTest2::PixelReadHandler::OnMessage(const Message&amp; msg)
+<a href='../S/118.html#L179'>msg</a>               179 ovr/sdk/src/Util/Util_LatencyTest2.cpp     if(msg.Type == Message_PixelRead)
+<a href='../S/118.html#L180'>msg</a>               180 ovr/sdk/src/Util/Util_LatencyTest2.cpp         pLatencyTestUtil-&gt;handleMessage(static_cast&lt;const MessagePixelRead&amp;&gt;(msg));
+<a href='../S/110.html#L201'>msg</a>               201 ovr/sdk/src/Util/Util_LatencyTest2.h     void handleMessage(const MessagePixelRead&amp; msg);
+<a href='../S/110.html#L210'>msg</a>               210 ovr/sdk/src/Util/Util_LatencyTest2.h         virtual void OnMessage(const Message&amp; msg);
+</pre>
+</body>
+</html>

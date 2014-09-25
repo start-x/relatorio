@@ -1,0 +1,3 @@
+<map id="OVR::LensDistortionImpl" name="OVR::LensDistortionImpl">
+<area shape="rect" id="node2" href="$structOVR_1_1LensDistortionReport.html" title="{OVR::LensDistortionReport\n|+ CommandId\l+ NumDistortions\l+ DistortionIndex\l+ Bitmask\l+ LensType\l+ Version\l+ EyeRelief\l+ KCoefficients\l+ MaxR\l+ MetersPerTanAngleAtCenter\l+ ChromaticAberration\l|+ LensDistortionReport()\l+ LensDistortionReport()\l}" alt="" coords="5,6,205,245"/>
+</map>

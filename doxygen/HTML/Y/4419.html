@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>skippedBytes</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L346'>skippedBytes</a>      346 ovr/sdk/src/Kernel/OVR_File.cpp     int skippedBytes = 0;
+<a href='../S/172.html#L351'>skippedBytes</a>      351 ovr/sdk/src/Kernel/OVR_File.cpp         skippedBytes = (((int)DataSize-(int)Pos) &gt;= numBytes) ? numBytes : (DataSize-Pos);
+<a href='../S/172.html#L352'>skippedBytes</a>      352 ovr/sdk/src/Kernel/OVR_File.cpp         Pos          += skippedBytes;
+<a href='../S/172.html#L353'>skippedBytes</a>      353 ovr/sdk/src/Kernel/OVR_File.cpp         numBytes     -= skippedBytes;
+<a href='../S/172.html#L362'>skippedBytes</a>      362 ovr/sdk/src/Kernel/OVR_File.cpp             skippedBytes += numBytes;
+<a href='../S/172.html#L366'>skippedBytes</a>      366 ovr/sdk/src/Kernel/OVR_File.cpp         else if (skippedBytes &lt;= 0)
+<a href='../S/172.html#L367'>skippedBytes</a>      367 ovr/sdk/src/Kernel/OVR_File.cpp             skippedBytes = -1;
+<a href='../S/172.html#L369'>skippedBytes</a>      369 ovr/sdk/src/Kernel/OVR_File.cpp     return skippedBytes;
+</pre>
+</body>
+</html>

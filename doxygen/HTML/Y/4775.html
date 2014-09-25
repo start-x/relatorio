@@ -1,0 +1,244 @@
+<html>
+<head>
+<title>val</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/147.html#L464'>val</a>               464 ovr/sdk/src/Kernel/OVR_Alg.h UPInt LowerBoundSliced(const Array&amp; arr, UPInt start, UPInt end, const Value&amp; val, Less less)
+<a href='../S/147.html#L475'>val</a>               475 ovr/sdk/src/Kernel/OVR_Alg.h         if(less(arr[middle], val)) 
+<a href='../S/147.html#L493'>val</a>               493 ovr/sdk/src/Kernel/OVR_Alg.h UPInt LowerBoundSliced(const Array&amp; arr, UPInt start, UPInt end, const Value&amp; val)
+<a href='../S/147.html#L495'>val</a>               495 ovr/sdk/src/Kernel/OVR_Alg.h     return LowerBoundSliced(arr, start, end, val, OperatorLess&lt;Value&gt;::Compare);
+<a href='../S/147.html#L502'>val</a>               502 ovr/sdk/src/Kernel/OVR_Alg.h UPInt LowerBoundSized(const Array&amp; arr, UPInt size, const Value&amp; val)
+<a href='../S/147.html#L504'>val</a>               504 ovr/sdk/src/Kernel/OVR_Alg.h     return LowerBoundSliced(arr, 0, size, val, OperatorLess&lt;Value&gt;::Compare);
+<a href='../S/147.html#L511'>val</a>               511 ovr/sdk/src/Kernel/OVR_Alg.h UPInt LowerBound(const Array&amp; arr, const Value&amp; val, Less less)
+<a href='../S/147.html#L513'>val</a>               513 ovr/sdk/src/Kernel/OVR_Alg.h     return LowerBoundSliced(arr, 0, arr.GetSize(), val, less);
+<a href='../S/147.html#L521'>val</a>               521 ovr/sdk/src/Kernel/OVR_Alg.h UPInt LowerBound(const Array&amp; arr, const Value&amp; val)
+<a href='../S/147.html#L523'>val</a>               523 ovr/sdk/src/Kernel/OVR_Alg.h     return LowerBoundSliced(arr, 0, arr.GetSize(), val, OperatorLess&lt;Value&gt;::Compare);
+<a href='../S/147.html#L532'>val</a>               532 ovr/sdk/src/Kernel/OVR_Alg.h UPInt UpperBoundSliced(const Array&amp; arr, UPInt start, UPInt end, const Value&amp; val, Less less)
+<a href='../S/147.html#L543'>val</a>               543 ovr/sdk/src/Kernel/OVR_Alg.h         if(less(val, arr[middle]))
+<a href='../S/147.html#L561'>val</a>               561 ovr/sdk/src/Kernel/OVR_Alg.h UPInt UpperBoundSliced(const Array&amp; arr, UPInt start, UPInt end, const Value&amp; val)
+<a href='../S/147.html#L563'>val</a>               563 ovr/sdk/src/Kernel/OVR_Alg.h     return UpperBoundSliced(arr, start, end, val, OperatorLess&lt;Value&gt;::Compare);
+<a href='../S/147.html#L571'>val</a>               571 ovr/sdk/src/Kernel/OVR_Alg.h UPInt UpperBoundSized(const Array&amp; arr, UPInt size, const Value&amp; val)
+<a href='../S/147.html#L573'>val</a>               573 ovr/sdk/src/Kernel/OVR_Alg.h     return UpperBoundSliced(arr, 0, size, val, OperatorLess&lt;Value&gt;::Compare);
+<a href='../S/147.html#L581'>val</a>               581 ovr/sdk/src/Kernel/OVR_Alg.h UPInt UpperBound(const Array&amp; arr, const Value&amp; val, Less less)
+<a href='../S/147.html#L583'>val</a>               583 ovr/sdk/src/Kernel/OVR_Alg.h     return UpperBoundSliced(arr, 0, arr.GetSize(), val, less);
+<a href='../S/147.html#L591'>val</a>               591 ovr/sdk/src/Kernel/OVR_Alg.h UPInt UpperBound(const Array&amp; arr, const Value&amp; val)
+<a href='../S/147.html#L593'>val</a>               593 ovr/sdk/src/Kernel/OVR_Alg.h     return UpperBoundSliced(arr, 0, arr.GetSize(), val, OperatorLess&lt;Value&gt;::Compare);
+<a href='../S/147.html#L670'>val</a>               670 ovr/sdk/src/Kernel/OVR_Alg.h inline UByte UpperBit(UPInt val)
+<a href='../S/147.html#L674'>val</a>               674 ovr/sdk/src/Kernel/OVR_Alg.h     if (val &amp; 0xFFFF0000)
+<a href='../S/147.html#L676'>val</a>               676 ovr/sdk/src/Kernel/OVR_Alg.h         return (val &amp; 0xFF000000) ? 
+<a href='../S/147.html#L677'>val</a>               677 ovr/sdk/src/Kernel/OVR_Alg.h             UpperBitTable[(val &gt;&gt; 24)       ] + 24: 
+<a href='../S/147.html#L678'>val</a>               678 ovr/sdk/src/Kernel/OVR_Alg.h             UpperBitTable[(val &gt;&gt; 16) &amp; 0xFF] + 16;
+<a href='../S/147.html#L680'>val</a>               680 ovr/sdk/src/Kernel/OVR_Alg.h     return (val &amp; 0xFF00) ?
+<a href='../S/147.html#L681'>val</a>               681 ovr/sdk/src/Kernel/OVR_Alg.h         UpperBitTable[(val &gt;&gt; 8) &amp; 0xFF] + 8:
+<a href='../S/147.html#L682'>val</a>               682 ovr/sdk/src/Kernel/OVR_Alg.h         UpperBitTable[(val     ) &amp; 0xFF];
+<a href='../S/147.html#L686'>val</a>               686 ovr/sdk/src/Kernel/OVR_Alg.h     if (val &amp; 0xFFFFFFFF00000000)
+<a href='../S/147.html#L688'>val</a>               688 ovr/sdk/src/Kernel/OVR_Alg.h         if (val &amp; 0xFFFF000000000000)
+<a href='../S/147.html#L690'>val</a>               690 ovr/sdk/src/Kernel/OVR_Alg.h             return (val &amp; 0xFF00000000000000) ?
+<a href='../S/147.html#L691'>val</a>               691 ovr/sdk/src/Kernel/OVR_Alg.h                 UpperBitTable[(val &gt;&gt; 56)       ] + 56: 
+<a href='../S/147.html#L692'>val</a>               692 ovr/sdk/src/Kernel/OVR_Alg.h                 UpperBitTable[(val &gt;&gt; 48) &amp; 0xFF] + 48;
+<a href='../S/147.html#L694'>val</a>               694 ovr/sdk/src/Kernel/OVR_Alg.h         return (val &amp; 0xFF0000000000) ?
+<a href='../S/147.html#L695'>val</a>               695 ovr/sdk/src/Kernel/OVR_Alg.h             UpperBitTable[(val &gt;&gt; 40) &amp; 0xFF] + 40:
+<a href='../S/147.html#L696'>val</a>               696 ovr/sdk/src/Kernel/OVR_Alg.h             UpperBitTable[(val &gt;&gt; 32) &amp; 0xFF] + 32;
+<a href='../S/147.html#L700'>val</a>               700 ovr/sdk/src/Kernel/OVR_Alg.h         if (val &amp; 0xFFFF0000)
+<a href='../S/147.html#L702'>val</a>               702 ovr/sdk/src/Kernel/OVR_Alg.h             return (val &amp; 0xFF000000) ? 
+<a href='../S/147.html#L703'>val</a>               703 ovr/sdk/src/Kernel/OVR_Alg.h                 UpperBitTable[(val &gt;&gt; 24)       ] + 24: 
+<a href='../S/147.html#L704'>val</a>               704 ovr/sdk/src/Kernel/OVR_Alg.h                 UpperBitTable[(val &gt;&gt; 16) &amp; 0xFF] + 16;
+<a href='../S/147.html#L706'>val</a>               706 ovr/sdk/src/Kernel/OVR_Alg.h         return (val &amp; 0xFF00) ?
+<a href='../S/147.html#L707'>val</a>               707 ovr/sdk/src/Kernel/OVR_Alg.h             UpperBitTable[(val &gt;&gt; 8) &amp; 0xFF] + 8:
+<a href='../S/147.html#L708'>val</a>               708 ovr/sdk/src/Kernel/OVR_Alg.h             UpperBitTable[(val     ) &amp; 0xFF];
+<a href='../S/147.html#L715'>val</a>               715 ovr/sdk/src/Kernel/OVR_Alg.h inline UByte LowerBit(UPInt val)
+<a href='../S/147.html#L719'>val</a>               719 ovr/sdk/src/Kernel/OVR_Alg.h     if (val &amp; 0xFFFF)
+<a href='../S/147.html#L721'>val</a>               721 ovr/sdk/src/Kernel/OVR_Alg.h         return (val &amp; 0xFF) ?
+<a href='../S/147.html#L722'>val</a>               722 ovr/sdk/src/Kernel/OVR_Alg.h             LowerBitTable[ val &amp; 0xFF]:
+<a href='../S/147.html#L723'>val</a>               723 ovr/sdk/src/Kernel/OVR_Alg.h             LowerBitTable[(val &gt;&gt; 8) &amp; 0xFF] + 8;
+<a href='../S/147.html#L725'>val</a>               725 ovr/sdk/src/Kernel/OVR_Alg.h     return (val &amp; 0xFF0000) ?
+<a href='../S/147.html#L726'>val</a>               726 ovr/sdk/src/Kernel/OVR_Alg.h             LowerBitTable[(val &gt;&gt; 16) &amp; 0xFF] + 16:
+<a href='../S/147.html#L727'>val</a>               727 ovr/sdk/src/Kernel/OVR_Alg.h             LowerBitTable[(val &gt;&gt; 24) &amp; 0xFF] + 24;
+<a href='../S/147.html#L731'>val</a>               731 ovr/sdk/src/Kernel/OVR_Alg.h     if (val &amp; 0xFFFFFFFF)
+<a href='../S/147.html#L733'>val</a>               733 ovr/sdk/src/Kernel/OVR_Alg.h         if (val &amp; 0xFFFF)
+<a href='../S/147.html#L735'>val</a>               735 ovr/sdk/src/Kernel/OVR_Alg.h             return (val &amp; 0xFF) ?
+<a href='../S/147.html#L736'>val</a>               736 ovr/sdk/src/Kernel/OVR_Alg.h                 LowerBitTable[ val &amp; 0xFF]:
+<a href='../S/147.html#L737'>val</a>               737 ovr/sdk/src/Kernel/OVR_Alg.h                 LowerBitTable[(val &gt;&gt; 8) &amp; 0xFF] + 8;
+<a href='../S/147.html#L739'>val</a>               739 ovr/sdk/src/Kernel/OVR_Alg.h         return (val &amp; 0xFF0000) ?
+<a href='../S/147.html#L740'>val</a>               740 ovr/sdk/src/Kernel/OVR_Alg.h                 LowerBitTable[(val &gt;&gt; 16) &amp; 0xFF] + 16:
+<a href='../S/147.html#L741'>val</a>               741 ovr/sdk/src/Kernel/OVR_Alg.h                 LowerBitTable[(val &gt;&gt; 24) &amp; 0xFF] + 24;
+<a href='../S/147.html#L745'>val</a>               745 ovr/sdk/src/Kernel/OVR_Alg.h         if (val &amp; 0xFFFF00000000)
+<a href='../S/147.html#L747'>val</a>               747 ovr/sdk/src/Kernel/OVR_Alg.h              return (val &amp; 0xFF00000000) ?
+<a href='../S/147.html#L748'>val</a>               748 ovr/sdk/src/Kernel/OVR_Alg.h                 LowerBitTable[(val &gt;&gt; 32) &amp; 0xFF] + 32:
+<a href='../S/147.html#L749'>val</a>               749 ovr/sdk/src/Kernel/OVR_Alg.h                 LowerBitTable[(val &gt;&gt; 40) &amp; 0xFF] + 40;
+<a href='../S/147.html#L751'>val</a>               751 ovr/sdk/src/Kernel/OVR_Alg.h         return (val &amp; 0xFF000000000000) ?
+<a href='../S/147.html#L752'>val</a>               752 ovr/sdk/src/Kernel/OVR_Alg.h             LowerBitTable[(val &gt;&gt; 48) &amp; 0xFF] + 48:
+<a href='../S/147.html#L753'>val</a>               753 ovr/sdk/src/Kernel/OVR_Alg.h             LowerBitTable[(val &gt;&gt; 56) &amp; 0xFF] + 56;
+<a href='../S/147.html#L1017'>val</a>              1017 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeUInt16(UByte* buffer, UInt16 val)
+<a href='../S/147.html#L1019'>val</a>              1019 ovr/sdk/src/Kernel/OVR_Alg.h     *(UInt16*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1022'>val</a>              1022 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeSInt16(UByte* buffer, SInt16 val)
+<a href='../S/147.html#L1024'>val</a>              1024 ovr/sdk/src/Kernel/OVR_Alg.h     *(SInt16*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1027'>val</a>              1027 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeUInt32(UByte* buffer, UInt32 val)
+<a href='../S/147.html#L1029'>val</a>              1029 ovr/sdk/src/Kernel/OVR_Alg.h     *(UInt32*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1032'>val</a>              1032 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeSInt32(UByte* buffer, SInt32 val)
+<a href='../S/147.html#L1034'>val</a>              1034 ovr/sdk/src/Kernel/OVR_Alg.h     *(SInt32*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1037'>val</a>              1037 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeFloat(UByte* buffer, float val)
+<a href='../S/147.html#L1044'>val</a>              1044 ovr/sdk/src/Kernel/OVR_Alg.h     F = val;
+<a href='../S/152.html#L240'>val</a>               240 ovr/sdk/src/Kernel/OVR_Array.h     void PushBack(const ValueType&amp; val)
+<a href='../S/152.html#L243'>val</a>               243 ovr/sdk/src/Kernel/OVR_Array.h         Allocator::Construct(this-&gt;Data + this-&gt;Size - 1, val);
+<a href='../S/152.html#L247'>val</a>               247 ovr/sdk/src/Kernel/OVR_Array.h     void PushBackAlt(const S&amp; val)
+<a href='../S/152.html#L250'>val</a>               250 ovr/sdk/src/Kernel/OVR_Array.h         Allocator::ConstructAlt(this-&gt;Data + this-&gt;Size - 1, val);
+<a href='../S/152.html#L299'>val</a>               299 ovr/sdk/src/Kernel/OVR_Array.h     void PushBack(const ValueType&amp; val)
+<a href='../S/152.html#L302'>val</a>               302 ovr/sdk/src/Kernel/OVR_Array.h         Allocator::Construct(this-&gt;Data + this-&gt;Size - 1, val);
+<a href='../S/152.html#L306'>val</a>               306 ovr/sdk/src/Kernel/OVR_Array.h     void PushBackAlt(const S&amp; val)
+<a href='../S/152.html#L309'>val</a>               309 ovr/sdk/src/Kernel/OVR_Array.h         Allocator::ConstructAlt(this-&gt;Data + this-&gt;Size - 1, val);
+<a href='../S/152.html#L427'>val</a>               427 ovr/sdk/src/Kernel/OVR_Array.h     void    PushBack(const ValueType&amp; val)
+<a href='../S/152.html#L433'>val</a>               433 ovr/sdk/src/Kernel/OVR_Array.h         Data.PushBack(val);
+<a href='../S/152.html#L437'>val</a>               437 ovr/sdk/src/Kernel/OVR_Array.h     void PushBackAlt(const S&amp; val)
+<a href='../S/152.html#L439'>val</a>               439 ovr/sdk/src/Kernel/OVR_Array.h         Data.PushBackAlt(val);
+<a href='../S/152.html#L550'>val</a>               550 ovr/sdk/src/Kernel/OVR_Array.h     void    InsertAt(UPInt index, const ValueType&amp; val = ValueType())
+<a href='../S/152.html#L562'>val</a>               562 ovr/sdk/src/Kernel/OVR_Array.h         AllocatorType::Construct(Data.Data + index, val);
+<a href='../S/152.html#L566'>val</a>               566 ovr/sdk/src/Kernel/OVR_Array.h     void    InsertMultipleAt(UPInt index, UPInt num, const ValueType&amp; val = ValueType())
+<a href='../S/152.html#L579'>val</a>               579 ovr/sdk/src/Kernel/OVR_Array.h             AllocatorType::Construct(Data.Data + index + i, val);
+<a href='../S/145.html#L151'>val</a>               151 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     Exchange_NoSync(volatile T* p, T val)            { return InterlockedExchange((InterlockTPtr)p, val); }
+<a href='../S/145.html#L152'>val</a>               152 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     ExchangeAdd_NoSync(volatile T* p, T val)         { return InterlockedExchangeAdd((InterlockTPtr)p, val); }
+<a href='../S/145.html#L153'>val</a>               153 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile T* p, T c, T val)  { return InterlockedCompareExchange((InterlockETPtr)p, (ET)val, (ET)c) == (ET)c; }
+<a href='../S/145.html#L196'>val</a>               196 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i), [r] "=&amp;b" (ret) : [i] "b" (i), [cmp] "b" (c), [val] "b" (value) : "cc", "memory");
+<a href='../S/145.html#L407'>val</a>               407 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     Exchange_NoSync(volatile T* p, T val)            { return InterlockedExchange64((InterlockTPtr)p, val); }
+<a href='../S/145.html#L408'>val</a>               408 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static T     ExchangeAdd_NoSync(volatile T* p, T val)         { return InterlockedExchangeAdd64((InterlockTPtr)p, val); }
+<a href='../S/145.html#L409'>val</a>               409 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile T* p, T c, T val)  { return InterlockedCompareExchange64((InterlockTPtr)p, val, c) == c; }
+<a href='../S/145.html#L455'>val</a>               455 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i), [r] "=&amp;b" (ret), [o] "=&amp;r" (dummy) : [i] "b" (i), [cmp] "b" (c), [val] "b" (value) : "cc");
+<a href='../S/145.html#L506'>val</a>               506 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_NoSync(volatile O_T* p, O_T val)           { O_T old = *p; *p = val; return old; }
+<a href='../S/145.html#L508'>val</a>               508 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_NoSync(volatile O_T* p, O_T val)        { O_T old = *p; *p += val; return old; }
+<a href='../S/145.html#L511'>val</a>               511 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile O_T* p, O_T c, O_T val) { if (*p==c) { *p = val; return 1; } return 0; }
+<a href='../S/145.html#L518'>val</a>               518 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Sync(volatile O_T* p, O_T val)                { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L519'>val</a>               519 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Release(volatile O_T* p, O_T val)             { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }
+<a href='../S/145.html#L520'>val</a>               520 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   Exchange_Acquire(volatile O_T* p, O_T val)             { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::Exchange_NoSync(p, val); }  
+<a href='../S/145.html#L521'>val</a>               521 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Sync(volatile O_T* p, O_T val)             { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L522'>val</a>               522 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Release(volatile O_T* p, O_T val)          { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L523'>val</a>               523 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Acquire(volatile O_T* p, O_T val)          { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L524'>val</a>               524 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile O_T* p, O_T c, O_T val)    { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L525'>val</a>               525 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Release(volatile O_T* p, O_T c, O_T val) { O_ReleaseSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L526'>val</a>               526 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Acquire(volatile O_T* p, O_T c, O_T val) { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L532'>val</a>               532 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile O_T* p, O_T val)  { Exchange_Release(p, val); }
+<a href='../S/145.html#L534'>val</a>               534 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile O_T* p, O_T val)  { O_ReleaseSync sync; OVR_UNUSED(sync); *p = val; }
+<a href='../S/145.html#L576'>val</a>               576 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Sync(volatile C* p, C val)             { C2T_union u; u.c = val; u.t = Ops::Exchange_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L577'>val</a>               577 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Release(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L578'>val</a>               578 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_Acquire(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::Exchange_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L579'>val</a>               579 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     Exchange_NoSync(volatile C* p, C val)           { C2T_union u; u.c = val; u.t = Ops::Exchange_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L580'>val</a>               580 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Sync(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L581'>val</a>               581 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Release(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Release((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L582'>val</a>               582 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Acquire(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L583'>val</a>               583 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_NoSync(volatile C* p, C val)        { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_NoSync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L584'>val</a>               584 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile C* p, C c, C val)   { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Sync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L585'>val</a>               585 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Release(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Release((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L586'>val</a>               586 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Relse(volatile C* p, C c, C val){ C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Acquire((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L587'>val</a>               587 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_NoSync(volatile C* p, C c, C val) { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_NoSync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L589'>val</a>               589 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static void  Store_Release(volatile C* p, C val)             { C2T_union u; u.c = val; Ops::Store_Release((PT)p, u.t); }    
+<a href='../S/145.html#L606'>val</a>               606 ovr/sdk/src/Kernel/OVR_Atomic.h     explicit inline AtomicValueBase(T val)    { Ops::Store_Release(&amp;Value, val); }
+<a href='../S/145.html#L613'>val</a>               613 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     Exchange_Sync(T val)               { return Ops::Exchange_Sync(&amp;Value,  val); }
+<a href='../S/145.html#L614'>val</a>               614 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     Exchange_Release(T val)            { return Ops::Exchange_Release(&amp;Value, val); }
+<a href='../S/145.html#L615'>val</a>               615 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     Exchange_Acquire(T val)            { return Ops::Exchange_Acquire(&amp;Value, val); }
+<a href='../S/145.html#L616'>val</a>               616 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     Exchange_NoSync(T val)             { return Ops::Exchange_NoSync(&amp;Value, val); }
+<a href='../S/145.html#L617'>val</a>               617 ovr/sdk/src/Kernel/OVR_Atomic.h     inline bool  CompareAndSet_Sync(T c, T val)     { return Ops::CompareAndSet_Sync(&amp;Value, c, val); }
+<a href='../S/145.html#L618'>val</a>               618 ovr/sdk/src/Kernel/OVR_Atomic.h     inline bool  CompareAndSet_Release(T c, T val)  { return Ops::CompareAndSet_Release(&amp;Value, c, val); }
+<a href='../S/145.html#L619'>val</a>               619 ovr/sdk/src/Kernel/OVR_Atomic.h     inline bool  CompareAndSet_Acquire(T c, T val)  { return Ops::CompareAndSet_Relse(&amp;Value, c, val); }
+<a href='../S/145.html#L620'>val</a>               620 ovr/sdk/src/Kernel/OVR_Atomic.h     inline bool  CompareAndSet_NoSync(T c, T val)   { return Ops::CompareAndSet_NoSync(&amp;Value, c, val); }
+<a href='../S/145.html#L622'>val</a>               622 ovr/sdk/src/Kernel/OVR_Atomic.h     inline void  Store_Release(T val)               { Ops::Store_Release(&amp;Value, val); }
+<a href='../S/145.html#L640'>val</a>               640 ovr/sdk/src/Kernel/OVR_Atomic.h     explicit inline AtomicPtr(T* val) : AtomicValueBase&lt;T*&gt;(val)   { }
+<a href='../S/145.html#L665'>val</a>               665 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator = (T* val)  { this-&gt;Store_Release(val); return val; }
+<a href='../S/145.html#L668'>val</a>               668 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator += (I val) { return ExchangeAdd_Sync(val) + val; }
+<a href='../S/145.html#L670'>val</a>               670 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -= (I val) { return operator += (-val); }
+<a href='../S/145.html#L692'>val</a>               692 ovr/sdk/src/Kernel/OVR_Atomic.h     explicit inline AtomicInt(T val) : AtomicValueBase&lt;T&gt;(val)    { }
+<a href='../S/145.html#L696'>val</a>               696 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     ExchangeAdd_Sync(T val)            { return Ops::ExchangeAdd_Sync(&amp;this-&gt;Value, val); }
+<a href='../S/145.html#L697'>val</a>               697 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     ExchangeAdd_Release(T val)         { return Ops::ExchangeAdd_Release(&amp;this-&gt;Value, val); }
+<a href='../S/145.html#L698'>val</a>               698 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     ExchangeAdd_Acquire(T val)         { return Ops::ExchangeAdd_Acquire(&amp;this-&gt;Value, val); }
+<a href='../S/145.html#L699'>val</a>               699 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     ExchangeAdd_NoSync(T val)          { return Ops::ExchangeAdd_NoSync(&amp;this-&gt;Value, val); }
+<a href='../S/145.html#L708'>val</a>               708 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator = (T val)  { this-&gt;Store_Release(val); return val; }
+<a href='../S/145.html#L709'>val</a>               709 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator += (T val) { return ExchangeAdd_Sync(val) + val; }
+<a href='../S/145.html#L710'>val</a>               710 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator -= (T val) { return ExchangeAdd_Sync(0 - val) - val; }
+<a href='../S/148.html#L59'>val</a>                59 ovr/sdk/src/Kernel/OVR_Lockless.cpp     void Set(int val)
+<a href='../S/148.html#L63'>val</a>                63 ovr/sdk/src/Kernel/OVR_Lockless.cpp             Data[i] = val*100 + i;
+<a href='../S/148.html#L69'>val</a>                69 ovr/sdk/src/Kernel/OVR_Lockless.cpp         int val = Data[0];
+<a href='../S/148.html#L74'>val</a>                74 ovr/sdk/src/Kernel/OVR_Lockless.cpp             if (Data[i] != (val + i))
+<a href='../S/148.html#L77'>val</a>                77 ovr/sdk/src/Kernel/OVR_Lockless.cpp                 if (prevValue != val / 100) 
+<a href='../S/148.html#L80'>val</a>                80 ovr/sdk/src/Kernel/OVR_Lockless.cpp                             i, val/100);
+<a href='../S/148.html#L87'>val</a>                87 ovr/sdk/src/Kernel/OVR_Lockless.cpp         return val / 100;
+<a href='../S/177.html#L232'>val</a>               232 ovr/sdk/src/Kernel/OVR_Math.h T Acos(T val) { 
+<a href='../S/177.html#L233'>val</a>               233 ovr/sdk/src/Kernel/OVR_Math.h 		if (val &gt; T(1))				return T(0);
+<a href='../S/177.html#L234'>val</a>               234 ovr/sdk/src/Kernel/OVR_Math.h 		else if (val &lt; T(-1))		return Math&lt;T&gt;::Pi;
+<a href='../S/177.html#L235'>val</a>               235 ovr/sdk/src/Kernel/OVR_Math.h 		else						return acos(val); 
+<a href='../S/177.html#L240'>val</a>               240 ovr/sdk/src/Kernel/OVR_Math.h T Asin(T val) { 
+<a href='../S/177.html#L241'>val</a>               241 ovr/sdk/src/Kernel/OVR_Math.h 	if (val &gt; T(1))				return Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L242'>val</a>               242 ovr/sdk/src/Kernel/OVR_Math.h 	else if (val &lt; T(-1))		return Math&lt;T&gt;::PiOver2 * T(3);
+<a href='../S/177.html#L243'>val</a>               243 ovr/sdk/src/Kernel/OVR_Math.h 	else						return asin(val); 
+<a href='../S/173.html#L50'>val</a>                50 ovr/sdk/src/Kernel/OVR_Std.h inline char* OVR_CDECL OVR_itoa(int val, char *dest, UPInt destsize, int radix)
+<a href='../S/173.html#L53'>val</a>                53 ovr/sdk/src/Kernel/OVR_Std.h     _itoa_s(val, dest, destsize, radix);
+<a href='../S/173.html#L57'>val</a>                57 ovr/sdk/src/Kernel/OVR_Std.h     return itoa(val, dest, radix);
+<a href='../S/173.html#L61'>val</a>                61 ovr/sdk/src/Kernel/OVR_Std.h inline char* OVR_itoa(int val, char* dest, unsigned int len, int radix)
+<a href='../S/173.html#L63'>val</a>                63 ovr/sdk/src/Kernel/OVR_Std.h     if (val == 0)
+<a href='../S/173.html#L73'>val</a>                73 ovr/sdk/src/Kernel/OVR_Std.h     int cur = val;
+<a href='../S/173.html#L77'>val</a>                77 ovr/sdk/src/Kernel/OVR_Std.h     if (val &lt; 0)
+<a href='../S/173.html#L79'>val</a>                79 ovr/sdk/src/Kernel/OVR_Std.h         val = -val;
+<a href='../S/173.html#L83'>val</a>                83 ovr/sdk/src/Kernel/OVR_Std.h     while ((val != 0) &amp;&amp; (i &lt; (len - 1 - sign)))        
+<a href='../S/173.html#L85'>val</a>                85 ovr/sdk/src/Kernel/OVR_Std.h         cur    = val % radix;
+<a href='../S/173.html#L86'>val</a>                86 ovr/sdk/src/Kernel/OVR_Std.h         val   /= radix;
+<a href='../S/84.html#L202'>val</a>               202 ovr/sdk/src/OVR_JSON.cpp const char* ParseHex(unsigned* val, unsigned digits, const char* str)
+<a href='../S/84.html#L204'>val</a>               204 ovr/sdk/src/OVR_JSON.cpp     *val = 0;
+<a href='../S/84.html#L219'>val</a>               219 ovr/sdk/src/OVR_JSON.cpp         *val = *val * 16 + v;
+<a href='../S/139.html#L1197'>val</a>              1197 ovr/sdk/src/OVR_Profile.cpp char* Profile::GetValue(const char* key, char* val, int val_length) const
+<a href='../S/139.html#L1202'>val</a>              1202 ovr/sdk/src/OVR_Profile.cpp         OVR_strcpy(val, val_length, value-&gt;Value.ToCStr());
+<a href='../S/139.html#L1203'>val</a>              1203 ovr/sdk/src/OVR_Profile.cpp         return val;
+<a href='../S/139.html#L1207'>val</a>              1207 ovr/sdk/src/OVR_Profile.cpp         val[0] = 0;
+<a href='../S/139.html#L1341'>val</a>              1341 ovr/sdk/src/OVR_Profile.cpp void Profile::SetValue(JSON* val)
+<a href='../S/139.html#L1343'>val</a>              1343 ovr/sdk/src/OVR_Profile.cpp     if (val-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1344'>val</a>              1344 ovr/sdk/src/OVR_Profile.cpp         SetDoubleValue(val-&gt;Name, val-&gt;dValue);
+<a href='../S/139.html#L1345'>val</a>              1345 ovr/sdk/src/OVR_Profile.cpp     else if (val-&gt;Type == JSON_Bool)
+<a href='../S/139.html#L1346'>val</a>              1346 ovr/sdk/src/OVR_Profile.cpp         SetBoolValue(val-&gt;Name, (val-&gt;dValue != 0));
+<a href='../S/139.html#L1347'>val</a>              1347 ovr/sdk/src/OVR_Profile.cpp     else if (val-&gt;Type == JSON_String)
+<a href='../S/139.html#L1348'>val</a>              1348 ovr/sdk/src/OVR_Profile.cpp         SetValue(val-&gt;Name, val-&gt;Value);
+<a href='../S/139.html#L1349'>val</a>              1349 ovr/sdk/src/OVR_Profile.cpp     else if (val-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1351'>val</a>              1351 ovr/sdk/src/OVR_Profile.cpp         if (val == NULL)
+<a href='../S/139.html#L1355'>val</a>              1355 ovr/sdk/src/OVR_Profile.cpp         JSON* value = val-&gt;Copy();
+<a href='../S/139.html#L1362'>val</a>              1362 ovr/sdk/src/OVR_Profile.cpp void Profile::SetValue(const char* key, const char* val)
+<a href='../S/139.html#L1364'>val</a>              1364 ovr/sdk/src/OVR_Profile.cpp     if (key == NULL || val == NULL)
+<a href='../S/139.html#L1370'>val</a>              1370 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Value = val;
+<a href='../S/139.html#L1374'>val</a>              1374 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateString(val);
+<a href='../S/139.html#L1383'>val</a>              1383 ovr/sdk/src/OVR_Profile.cpp void Profile::SetBoolValue(const char* key, bool val)
+<a href='../S/139.html#L1391'>val</a>              1391 ovr/sdk/src/OVR_Profile.cpp         value-&gt;dValue = val;
+<a href='../S/139.html#L1395'>val</a>              1395 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateBool(val);
+<a href='../S/139.html#L1404'>val</a>              1404 ovr/sdk/src/OVR_Profile.cpp void Profile::SetIntValue(const char* key, int val)
+<a href='../S/139.html#L1406'>val</a>              1406 ovr/sdk/src/OVR_Profile.cpp     SetDoubleValue(key, val);
+<a href='../S/139.html#L1410'>val</a>              1410 ovr/sdk/src/OVR_Profile.cpp void Profile::SetFloatValue(const char* key, float val)
+<a href='../S/139.html#L1412'>val</a>              1412 ovr/sdk/src/OVR_Profile.cpp     SetDoubleValue(key, val);
+<a href='../S/139.html#L1458'>val</a>              1458 ovr/sdk/src/OVR_Profile.cpp void Profile::SetDoubleValue(const char* key, double val)
+<a href='../S/139.html#L1463'>val</a>              1463 ovr/sdk/src/OVR_Profile.cpp         value-&gt;dValue = val;
+<a href='../S/139.html#L1467'>val</a>              1467 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateNumber(val);
+<a href='../S/133.html#L125'>val</a>               125 ovr/sdk/src/OVR_Profile.h     char*               GetValue(const char* key, char* val, int val_length) const;
+<a href='../S/133.html#L133'>val</a>               133 ovr/sdk/src/OVR_Profile.h     void                SetValue(const char* key, const char* val);
+<a href='../S/133.html#L134'>val</a>               134 ovr/sdk/src/OVR_Profile.h     void                SetBoolValue(const char* key, bool val);
+<a href='../S/133.html#L135'>val</a>               135 ovr/sdk/src/OVR_Profile.h     void                SetIntValue(const char* key, int val);
+<a href='../S/133.html#L136'>val</a>               136 ovr/sdk/src/OVR_Profile.h     void                SetFloatValue(const char* key, float val);
+<a href='../S/133.html#L138'>val</a>               138 ovr/sdk/src/OVR_Profile.h     void                SetDoubleValue(const char* key, double val);
+<a href='../S/133.html#L147'>val</a>               147 ovr/sdk/src/OVR_Profile.h     void                SetValue(JSON* val);
+<a href='../S/190.html#L634'>val</a>               634 ovr/sdk/src/OVR_SensorImpl.cpp     Vector3f val = convertHMDToSensor ? Vector3f(ax, az, -ay) :  Vector3f(ax, ay, az);
+<a href='../S/190.html#L635'>val</a>               635 ovr/sdk/src/OVR_SensorImpl.cpp     return val * 0.0001f;
+<a href='../S/190.html#L662'>val</a>               662 ovr/sdk/src/OVR_SensorImpl.cpp     Vector3f val = convertHMDToSensor ? Vector3f(gx, gz, -gy) :  Vector3f(gx, gy, gz);
+<a href='../S/190.html#L663'>val</a>               663 ovr/sdk/src/OVR_SensorImpl.cpp     return val * 0.0001f;
+<a href='../S/190.html#L830'>val</a>               830 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::replaceWithPhoneMag(Vector3f* val)
+<a href='../S/190.html#L847'>val</a>               847 ovr/sdk/src/OVR_SensorImpl.cpp 	*val = res;
+<a href='../S/135.html#L305'>val</a>               305 ovr/sdk/src/OVR_SensorImpl.h     void 	        replaceWithPhoneMag(Vector3f* val);
+<a href='../S/144.html#L59'>val</a>                59 ovr/sdk/src/OVR_SensorImpl_Common.cpp                                     float val, float factor, const char* label)
+<a href='../S/144.html#L61'>val</a>                61 ovr/sdk/src/OVR_SensorImpl_Common.cpp     UInt16 threshold = (UInt16)(val * factor);
+<a href='../S/138.html#L46'>val</a>                46 ovr/sdk/src/OVR_SensorImpl_Common.h                                     float val, float factor, const char* label);
+<a href='../S/88.html#L413'>val</a>               413 ovr/sdk/src/OVR_Stereo.cpp UInt16 EncodeFixedPointUInt16 ( float val, UInt16 zeroVal, int fractionalBits )
+<a href='../S/88.html#L416'>val</a>               416 ovr/sdk/src/OVR_Stereo.cpp     float valWhole = val * (float)( 1 &lt;&lt; fractionalBits );
+<a href='../S/88.html#L423'>val</a>               423 ovr/sdk/src/OVR_Stereo.cpp float DecodeFixedPointUInt16 ( UInt16 val, UInt16 zeroVal, int fractionalBits )
+<a href='../S/88.html#L426'>val</a>               426 ovr/sdk/src/OVR_Stereo.cpp     float valFloat = (float)val;
+<a href='../S/88.html#L1207'>val</a>              1207 ovr/sdk/src/OVR_Stereo.cpp             float val = result.DistortionFnScaleRadiusSquared ( radiusSq );            
+<a href='../S/88.html#L1208'>val</a>              1208 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( Alg::Abs ( val - result.K[ctrlPt] ) &lt; 0.0001f );
+<a href='../S/88.html#L1209'>val</a>              1209 ovr/sdk/src/OVR_Stereo.cpp             OVR_UNUSED1(val); // For release build.
+<a href='../S/114.html#L99'>val</a>                99 ovr/sdk/src/Util/Util_LatencyTest.cpp     UInt32 val = rand() % range;
+<a href='../S/114.html#L100'>val</a>               100 ovr/sdk/src/Util/Util_LatencyTest.cpp     return val;
+<a href='../S/196.html#L615'>val</a>               615 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetValue( const char* val, bool staticMem=false );
+</pre>
+</body>
+</html>

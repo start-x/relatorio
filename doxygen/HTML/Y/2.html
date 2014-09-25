@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>A0</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/83.html#L164'>A0</a>                164 ovr/sdk/src/OVR_ThreadCommandQueue.h template&lt;class C, class R, class A0&gt;
+<a href='../S/83.html#L167'>A0</a>                167 ovr/sdk/src/OVR_ThreadCommandQueue.h     typedef R (C::*FnPtr)(A0);
+<a href='../S/83.html#L171'>A0</a>                171 ovr/sdk/src/OVR_ThreadCommandQueue.h     typename CleanType&lt;A0&gt;::Type AVal0;
+<a href='../S/83.html#L180'>A0</a>                180 ovr/sdk/src/OVR_ThreadCommandQueue.h     ThreadCommandMF1(C* pclass, FnPtr fn, R* ret, A0 a0, bool needsWait)
+<a href='../S/83.html#L190'>A0</a>                190 ovr/sdk/src/OVR_ThreadCommandQueue.h template&lt;class C, class R, class A0, class A1&gt;
+<a href='../S/83.html#L193'>A0</a>                193 ovr/sdk/src/OVR_ThreadCommandQueue.h     typedef R (C::*FnPtr)(A0, A1);
+<a href='../S/83.html#L197'>A0</a>                197 ovr/sdk/src/OVR_ThreadCommandQueue.h     typename CleanType&lt;A0&gt;::Type  AVal0;
+<a href='../S/83.html#L207'>A0</a>                207 ovr/sdk/src/OVR_ThreadCommandQueue.h     ThreadCommandMF2(C* pclass, FnPtr fn, R* ret, A0 a0, A1 a1, bool needsWait)
+<a href='../S/83.html#L263'>A0</a>                263 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0&gt;
+<a href='../S/83.html#L264'>A0</a>                264 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(R (C::*fn)(A0), typename SelfType&lt;A0&gt;::Type a0, bool wait = false)
+<a href='../S/83.html#L265'>A0</a>                265 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(static_cast&lt;C*&gt;(this), fn, 0, a0, wait)); }
+<a href='../S/83.html#L266'>A0</a>                266 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0, class A1&gt;
+<a href='../S/83.html#L267'>A0</a>                267 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(R (C::*fn)(A0, A1),
+<a href='../S/83.html#L268'>A0</a>                268 ovr/sdk/src/OVR_ThreadCommandQueue.h                   typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1, bool wait = false)
+<a href='../S/83.html#L269'>A0</a>                269 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(static_cast&lt;C*&gt;(this), fn, 0, a0, a1, wait)); }
+<a href='../S/83.html#L276'>A0</a>                276 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0&gt;
+<a href='../S/83.html#L277'>A0</a>                277 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(C* p, R (C::*fn)(A0), typename SelfType&lt;A0&gt;::Type a0, bool wait = false)
+<a href='../S/83.html#L278'>A0</a>                278 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(p, fn, 0, a0, wait)); }
+<a href='../S/83.html#L279'>A0</a>                279 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0, class A1&gt;
+<a href='../S/83.html#L280'>A0</a>                280 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCall(C* p, R (C::*fn)(A0, A1),
+<a href='../S/83.html#L281'>A0</a>                281 ovr/sdk/src/OVR_ThreadCommandQueue.h                   typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1, bool wait = false)
+<a href='../S/83.html#L282'>A0</a>                282 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(p, fn, 0, a0, a1, wait)); }
+<a href='../S/83.html#L292'>A0</a>                292 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0&gt;
+<a href='../S/83.html#L293'>A0</a>                293 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(R (C::*fn)(A0), R* ret, typename SelfType&lt;A0&gt;::Type a0)
+<a href='../S/83.html#L294'>A0</a>                294 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(static_cast&lt;C*&gt;(this), fn, ret, a0, true)); }
+<a href='../S/83.html#L295'>A0</a>                295 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0, class A1&gt;
+<a href='../S/83.html#L296'>A0</a>                296 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(R (C::*fn)(A0, A1), R* ret,
+<a href='../S/83.html#L297'>A0</a>                297 ovr/sdk/src/OVR_ThreadCommandQueue.h                                typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1)
+<a href='../S/83.html#L298'>A0</a>                298 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(static_cast&lt;C*&gt;(this), fn, ret, a0, a1, true)); }
+<a href='../S/83.html#L304'>A0</a>                304 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0&gt;
+<a href='../S/83.html#L305'>A0</a>                305 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(C* p, R (C::*fn)(A0), R* ret, typename SelfType&lt;A0&gt;::Type a0)
+<a href='../S/83.html#L306'>A0</a>                306 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF1&lt;C,R,A0&gt;(p, fn, ret, a0, true)); }
+<a href='../S/83.html#L307'>A0</a>                307 ovr/sdk/src/OVR_ThreadCommandQueue.h     template&lt;class C, class R, class A0, class A1&gt;
+<a href='../S/83.html#L308'>A0</a>                308 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCallAndWaitResult(C* p, R (C::*fn)(A0, A1), R* ret,
+<a href='../S/83.html#L309'>A0</a>                309 ovr/sdk/src/OVR_ThreadCommandQueue.h                                typename SelfType&lt;A0&gt;::Type a0, typename SelfType&lt;A1&gt;::Type a1)
+<a href='../S/83.html#L310'>A0</a>                310 ovr/sdk/src/OVR_ThreadCommandQueue.h     { return PushCommand(ThreadCommandMF2&lt;C,R,A0,A1&gt;(p, fn, ret, a0, a1, true)); }
+</pre>
+</body>
+</html>

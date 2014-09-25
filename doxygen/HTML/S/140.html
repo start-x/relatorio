@@ -1,0 +1,173 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_HIDDevice.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_HIDDevice.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/97.html' title='Multiple included from 2 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_HIDDevice.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Cross platform HID device interface.</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   February 22, 2013</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Lee Cooper</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#ifndef</font> <a href='../S/140.html#L28' title='Defined at 28 in ovr/sdk/src/OVR_HIDDevice.h.'>OVR_HIDDevice_h</a>
+<a name='L28'>  28 <font color='darkred'>#define</font> <a href='../S/140.html#L27' title='Refered from 27 in ovr/sdk/src/OVR_HIDDevice.h.'>OVR_HIDDevice_h</a>
+<a name='L29'>  29 
+<a name='L30'>  30 <font color='darkred'>#include</font> "<a href='91.html'>OVR_HIDDeviceBase.h</a>"
+<a name='L31'>  31 
+<a name='L32'>  32 <font color='darkred'>#include</font> "<a href='166.html'>Kernel/OVR_RefCount.h</a>"
+<a name='L33'>  33 <font color='darkred'>#include</font> "<a href='161.html'>Kernel/OVR_String.h</a>"
+<a name='L34'>  34 <font color='darkred'>#include</font> "<a href='185.html'>Kernel/OVR_Timer.h</a>"
+<a name='L35'>  35 
+<a name='L36'>  36 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L37'>  37 
+<a name='L38'>  38 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../S/132.html#L451' title='Defined at 451 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>HIDDevice</a>;
+<a name='L39'>  39 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>;
+<a name='L40'>  40 
+<a name='L41'>  41 <i><font color='green'>// HIDDeviceDesc contains interesting attributes of a HID device, including a Path</font></i>
+<a name='L42'>  42 <i><font color='green'>// that can be used to create it.</font></i>
+<a name='L43'>  43 <b>struct</b> <a href='../R/418.html' title='Multiple refered from 24 places.'>HIDDeviceDesc</a>
+<a name='L44'>  44 <font color='red'>{</font>
+<a name='L45'>  45     <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a>  <a href='../Y/2400.html' title='Multiple used in 12 places.'>VendorId</a>;
+<a name='L46'>  46     <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a>  <a href='../Y/1713.html' title='Multiple used in 19 places.'>ProductId</a>;
+<a name='L47'>  47     <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a>  <a href='../Y/2402.html' title='Multiple used in 11 places.'>VersionNumber</a>;
+<a name='L48'>  48     <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a>  Usage;
+<a name='L49'>  49     <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a>  UsagePage;
+<a name='L50'>  50     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>  <a href='../Y/1653.html' title='Multiple used in 18 places.'>Path</a>;           <i><font color='green'>// Platform specific.</font></i>
+<a name='L51'>  51     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>  <a href='../Y/1351.html' title='Multiple used in 12 places.'>Manufacturer</a>;
+<a name='L52'>  52     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>  <a href='../Y/1712.html' title='Multiple used in 5 places.'>Product</a>;
+<a name='L53'>  53     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>  <a href='../Y/2018.html' title='Multiple used in 18 places.'>SerialNumber</a>;
+<a name='L54'>  54 <font color='red'>}</font>;
+<a name='L55'>  55 
+<a name='L56'>  56 <i><font color='green'>// HIDEnumerateVisitor exposes a Visit interface called for every detected device</font></i>
+<a name='L57'>  57 <i><font color='green'>// by HIDDeviceManager::Enumerate. </font></i>
+<a name='L58'>  58 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/858.html' title='Multiple used in 4 places.'>HIDEnumerateVisitor</a>
+<a name='L59'>  59 <font color='red'>{</font>
+<a name='L60'>  60 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L61'>  61 
+<a name='L62'>  62     <i><font color='green'>// Should return true if we are interested in supporting</font></i>
+<a name='L63'>  63     <i><font color='green'>// this HID VendorId and ProductId pair.</font></i>
+<a name='L64'>  64     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../D/598.html' title='Multiple defined in 4 places.'>MatchVendorProduct</a>(<a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> <a href='../Y/4786.html' title='Multiple used in 16 places.'>vendorId</a>, <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> <a href='../Y/4124.html' title='Multiple used in 16 places.'>productId</a>)
+<a name='L65'>  65     <font color='red'>{</font> <a href='../S/168.html#L429' title='Defined at 429 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED2</a>(<a href='../Y/4786.html' title='Multiple used in 16 places.'>vendorId</a>, <a href='../Y/4124.html' title='Multiple used in 16 places.'>productId</a>); <b>return</b> <a href='../Y/4657.html' title='Multiple used in 68 places.'>true</a>; <font color='red'>}</font>
+<a name='L66'>  66 
+<a name='L67'>  67     <i><font color='green'>// Override to get notified about available device. Will only be called for</font></i>
+<a name='L68'>  68     <i><font color='green'>// devices that matched MatchVendorProduct.</font></i>
+<a name='L69'>  69     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>void</b> <a href='../D/1258.html' title='Multiple defined in 8 places.'>Visit</a>(<a href='../S/132.html#L451' title='Defined at 451 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>HIDDevice</a>&amp;, <b>const</b> <a href='../S/140.html#L43' title='Defined at 43 in ovr/sdk/src/OVR_HIDDevice.h.'>HIDDeviceDesc</a>&amp;) <font color='red'>{</font> <font color='red'>}</font>
+<a name='L70'>  70 <font color='red'>}</font>;
+<a name='L71'>  71 
+<a name='L72'>  72 
+<a name='L73'>  73 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L74'>  74 <i><font color='green'>// ***** HIDDeviceManager</font></i>
+<a name='L75'>  75 
+<a name='L76'>  76 <i><font color='green'>// Internal manager for enumerating and opening HID devices.</font></i>
+<a name='L77'>  77 <i><font color='green'>// If an OVR::DeviceManager is created then an OVR::HIDDeviceManager will automatically be created and can be accessed from the</font></i>
+<a name='L78'>  78 <i><font color='green'>// DeviceManager by calling 'GetHIDDeviceManager()'. When using HIDDeviceManager in standalone mode, the client must call</font></i>
+<a name='L79'>  79 <i><font color='green'>// 'Create' below.</font></i>
+<a name='L80'>  80 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../D/436.html' title='Multiple defined in 2 places.'>HIDDeviceManager</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1829.html' title='Multiple used in 20 places.'>RefCountBase</a>&lt;<a href='../D/436.html' title='Multiple defined in 2 places.'>HIDDeviceManager</a>&gt;
+<a name='L81'>  81 <font color='red'>{</font>
+<a name='L82'>  82 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L83'>  83 
+<a name='L84'>  84     <i><font color='green'>// Creates a new HIDDeviceManager. Only one instance of HIDDeviceManager should be created at a time.</font></i>
+<a name='L85'>  85     <b>static</b> <a href='../D/436.html' title='Multiple defined in 2 places.'>HIDDeviceManager</a>* <a href='../D/138.html' title='Multiple defined in 4 places.'>Create</a>(<a href='../Y/1725.html' title='Multiple used in 115 places.'>Ptr</a>&lt;<a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>&gt;&amp; <a href='../Y/3008.html' title='Multiple used in 3 places.'>deviceManager</a>);
+<a name='L86'>  86 
+<a name='L87'>  87     <i><font color='green'>// Enumerate HID devices using a HIDEnumerateVisitor derived visitor class.</font></i>
+<a name='L88'>  88     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/132.html#L214' title='Defined at 214 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>Enumerate</a>(<a href='../Y/858.html' title='Multiple used in 4 places.'>HIDEnumerateVisitor</a>* <a href='../Y/3125.html' title='Multiple used in 5 places.'>enumVisitor</a>) = 0;
+<a name='L89'>  89 
+<a name='L90'>  90     <i><font color='green'>// Open a HID device with the specified path.</font></i>
+<a name='L91'>  91     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../S/132.html#L451' title='Defined at 451 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>HIDDevice</a>* <a href='../D/856.html' title='Multiple defined in 2 places.'>Open</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>) = 0;
+<a name='L92'>  92 
+<a name='L93'>  93 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L94'>  94     <a href='../D/436.html' title='Multiple defined in 2 places.'>HIDDeviceManager</a>()
+<a name='L95'>  95     <font color='red'>{</font> <font color='red'>}</font>
+<a name='L96'>  96 <font color='red'>}</font>;
+<a name='L97'>  97 
+<a name='L98'>  98 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L99'>  99 <i><font color='green'>// ***** HIDDevice</font></i>
+<a name='L100'> 100 
+<a name='L101'> 101 <i><font color='green'>// HID device object. This is designed to be operated in synchronous</font></i>
+<a name='L102'> 102 <i><font color='green'>// and asynchronous modes. With no handler set, input messages will be</font></i>
+<a name='L103'> 103 <i><font color='green'>// stored and can be retrieved by calling 'Read' or 'ReadBlocking'.</font></i>
+<a name='L104'> 104 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../S/132.html#L451' title='Defined at 451 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>HIDDevice</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1829.html' title='Multiple used in 20 places.'>RefCountBase</a>&lt;<a href='../S/132.html#L451' title='Defined at 451 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>HIDDevice</a>&gt;, <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/851.html' title='Multiple used in 5 places.'>HIDDeviceBase</a>
+<a name='L105'> 105 <font color='red'>{</font>
+<a name='L106'> 106 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L107'> 107 
+<a name='L108'> 108     <a href='../S/132.html#L451' title='Defined at 451 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>HIDDevice</a>()
+<a name='L109'> 109      :  <a href='../Y/894.html' title='Multiple used in 22 places.'>Handler</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>)
+<a name='L110'> 110     <font color='red'>{</font>
+<a name='L111'> 111     <font color='red'>}</font>
+<a name='L112'> 112 
+<a name='L113'> 113     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> ~<a href='../S/132.html#L451' title='Defined at 451 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>HIDDevice</a>() <font color='red'>{</font><font color='red'>}</font>
+<a name='L114'> 114 
+<a name='L115'> 115     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/132.html#L634' title='Defined at 634 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>SetFeatureReport</a>(<a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>) = 0;
+<a name='L116'> 116     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/132.html#L654' title='Defined at 654 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>GetFeatureReport</a>(<a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>) = 0;
+<a name='L117'> 117 
+<a name='L118'> 118 <i><font color='green'>// Not yet implemented.</font></i>
+<a name='L119'> 119 <i><font color='green'>/*</font></i>
+<a name='L120'> 120 <i><font color='green'>    virtual bool Write(UByte* data, UInt32 length) = 0;</font></i>
+<a name='L121'> 121 <i><font color='green'></font></i>
+<a name='L122'> 122 <i><font color='green'>    virtual bool Read(UByte* pData, UInt32 length, UInt32 timeoutMilliS) = 0;</font></i>
+<a name='L123'> 123 <i><font color='green'>    virtual bool ReadBlocking(UByte* pData, UInt32 length) = 0;</font></i>
+<a name='L124'> 124 <i><font color='green'>*/</font></i>
+<a name='L125'> 125 
+<a name='L126'> 126     <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/859.html' title='Multiple used in 6 places.'>HIDHandler</a>
+<a name='L127'> 127     <font color='red'>{</font>
+<a name='L128'> 128     <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L129'> 129         <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>void</b> <a href='../D/849.html' title='Multiple defined in 3 places.'>OnInputReport</a>(<a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>* <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>)
+<a name='L130'> 130         <font color='red'>{</font> <a href='../S/168.html#L429' title='Defined at 429 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED2</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>); <font color='red'>}</font>
+<a name='L131'> 131 
+<a name='L132'> 132         <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>double</b> <a href='../D/852.html' title='Multiple defined in 3 places.'>OnTicks</a>(<b>double</b> <a href='../Y/4597.html' title='Multiple used in 18 places.'>tickSeconds</a>)
+<a name='L133'> 133         <font color='red'>{</font> <a href='../S/168.html#L428' title='Defined at 428 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED1</a>(<a href='../Y/4597.html' title='Multiple used in 18 places.'>tickSeconds</a>);  <b>return</b> 1000.0 ; <font color='red'>}</font>
+<a name='L134'> 134 
+<a name='L135'> 135         <b>enum</b> <a href='../R/420.html' title='Multiple refered from 2 places.'>HIDDeviceMessageType</a>
+<a name='L136'> 136         <font color='red'>{</font>
+<a name='L137'> 137             <a href='../Y/856.html' title='Multiple used in 3 places.'>HIDDeviceMessage_DeviceAdded</a>    = 0,
+<a name='L138'> 138             <a href='../Y/857.html' title='Multiple used in 3 places.'>HIDDeviceMessage_DeviceRemoved</a>  = 1
+<a name='L139'> 139         <font color='red'>}</font>;
+<a name='L140'> 140 
+<a name='L141'> 141         <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>void</b> <a href='../Y/1541.html' title='Multiple used in 4 places.'>OnDeviceMessage</a>(<a href='../S/140.html#L135' title='Defined at 135 in ovr/sdk/src/OVR_HIDDevice.h.'>HIDDeviceMessageType</a> <a href='../Y/3674.html' title='Multiple used in 22 places.'>messageType</a>) 
+<a name='L142'> 142         <font color='red'>{</font> <a href='../S/168.html#L428' title='Defined at 428 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED1</a>(<a href='../Y/3674.html' title='Multiple used in 22 places.'>messageType</a>); <font color='red'>}</font>
+<a name='L143'> 143     <font color='red'>}</font>;
+<a name='L144'> 144 
+<a name='L145'> 145     <b>void</b> <a href='../Y/2038.html' title='Multiple used in 3 places.'>SetHandler</a>(<a href='../Y/859.html' title='Multiple used in 6 places.'>HIDHandler</a>* <a href='../Y/3395.html' title='Multiple used in 27 places.'>handler</a>)
+<a name='L146'> 146     <font color='red'>{</font> <a href='../Y/894.html' title='Multiple used in 22 places.'>Handler</a> = <a href='../Y/3395.html' title='Multiple used in 27 places.'>handler</a>; <font color='red'>}</font>
+<a name='L147'> 147 
+<a name='L148'> 148 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L149'> 149     <a href='../Y/859.html' title='Multiple used in 6 places.'>HIDHandler</a>* <a href='../Y/894.html' title='Multiple used in 22 places.'>Handler</a>;
+<a name='L150'> 150 <font color='red'>}</font>;
+<a name='L151'> 151 
+<a name='L152'> 152 <font color='red'>}</font> <i><font color='green'>// namespace OVR</font></i>
+<a name='L153'> 153 
+<a name='L154'> 154 <font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

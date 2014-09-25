@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Quat</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L121'>Quat</a>              121 ovr/sdk/src/Kernel/OVR_Math.h template&lt;class T&gt; class Quat;
+<a href='../S/177.html#L141'>Quat</a>              141 ovr/sdk/src/Kernel/OVR_Math.h template&lt;&gt; struct CompatibleTypes&lt;Quat&lt;float&gt; &gt;     { typedef ovrQuatf Type; };
+<a href='../S/177.html#L142'>Quat</a>              142 ovr/sdk/src/Kernel/OVR_Math.h template&lt;&gt; struct CompatibleTypes&lt;Quat&lt;double&gt; &gt;    { typedef ovrQuatd Type; };
+<a href='../S/177.html#L251'>Quat</a>              251 ovr/sdk/src/Kernel/OVR_Math.h class Quat;
+<a href='../S/177.html#L694'>Quat</a>              694 ovr/sdk/src/Kernel/OVR_Math.h class Quat
+<a href='../S/177.html#L700'>Quat</a>              700 ovr/sdk/src/Kernel/OVR_Math.h     Quat() : x(0), y(0), z(0), w(1) { }
+<a href='../S/177.html#L701'>Quat</a>              701 ovr/sdk/src/Kernel/OVR_Math.h     Quat(T x_, T y_, T z_, T w_) : x(x_), y(y_), z(z_), w(w_) { }
+<a href='../S/177.html#L702'>Quat</a>              702 ovr/sdk/src/Kernel/OVR_Math.h     explicit Quat(const Quat&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L706'>Quat</a>              706 ovr/sdk/src/Kernel/OVR_Math.h     Quat(const typename CompatibleTypes&lt;Quat&lt;T&gt; &gt;::Type&amp; s) : x(s.x), y(s.y), z(s.z), w(s.w) { }
+<a href='../S/177.html#L708'>Quat</a>              708 ovr/sdk/src/Kernel/OVR_Math.h     operator typename CompatibleTypes&lt;Quat&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L710'>Quat</a>              710 ovr/sdk/src/Kernel/OVR_Math.h         typename CompatibleTypes&lt;Quat&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L719'>Quat</a>              719 ovr/sdk/src/Kernel/OVR_Math.h     Quat(const Vector3&lt;T&gt;&amp; axis, T angle)
+<a href='../S/177.html#L740'>Quat</a>              740 ovr/sdk/src/Kernel/OVR_Math.h     Quat(Axis A, T angle, RotateDirection d = Rotate_CCW, HandedSystem s = Handed_R)
+<a href='../S/177.html#L773'>Quat</a>              773 ovr/sdk/src/Kernel/OVR_Math.h     explicit Quat(const Matrix4&lt;T&gt;&amp; m)
+<a href='../S/177.html#L815'>Quat</a>              815 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Quat(const Matrix3&lt;T&gt;&amp; m)
+<a href='../S/177.html#L856'>Quat</a>              856 ovr/sdk/src/Kernel/OVR_Math.h     bool operator== (const Quat&amp; b) const   { return x == b.x &amp;&amp; y == b.y &amp;&amp; z == b.z &amp;&amp; w == b.w; }
+<a href='../S/177.html#L857'>Quat</a>              857 ovr/sdk/src/Kernel/OVR_Math.h     bool operator!= (const Quat&amp; b) const   { return x != b.x || y != b.y || z != b.z || w != b.w; }
+<a href='../S/177.html#L859'>Quat</a>              859 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator+  (const Quat&amp; b) const  { return Quat(x + b.x, y + b.y, z + b.z, w + b.w); }
+<a href='../S/177.html#L860'>Quat</a>              860 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator+= (const Quat&amp; b)        { w += b.w; x += b.x; y += b.y; z += b.z; return *this; }
+<a href='../S/177.html#L861'>Quat</a>              861 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator-  (const Quat&amp; b) const  { return Quat(x - b.x, y - b.y, z - b.z, w - b.w); }
+<a href='../S/177.html#L862'>Quat</a>              862 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator-= (const Quat&amp; b)        { w -= b.w; x -= b.x; y -= b.y; z -= b.z; return *this; }
+<a href='../S/177.html#L864'>Quat</a>              864 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator*  (T s) const            { return Quat(x * s, y * s, z * s, w * s); }
+<a href='../S/177.html#L865'>Quat</a>              865 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator*= (T s)                  { w *= s; x *= s; y *= s; z *= s; return *this; }
+<a href='../S/177.html#L866'>Quat</a>              866 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator/  (T s) const            { T rcp = T(1)/s; return Quat(x * rcp, y * rcp, z * rcp, w *rcp); }
+<a href='../S/177.html#L867'>Quat</a>              867 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator/= (T s)                  { T rcp = T(1)/s; w *= rcp; x *= rcp; y *= rcp; z *= rcp; return *this; }
+<a href='../S/177.html#L880'>Quat</a>              880 ovr/sdk/src/Kernel/OVR_Math.h     T       Distance(const Quat&amp; q) const	
+<a href='../S/177.html#L887'>Quat</a>              887 ovr/sdk/src/Kernel/OVR_Math.h     T       DistanceSq(const Quat&amp; q) const
+<a href='../S/177.html#L894'>Quat</a>              894 ovr/sdk/src/Kernel/OVR_Math.h     T       Dot(const Quat&amp; q) const
+<a href='../S/177.html#L900'>Quat</a>              900 ovr/sdk/src/Kernel/OVR_Math.h     T       Angle(const Quat&amp; q) const
+<a href='../S/177.html#L915'>Quat</a>              915 ovr/sdk/src/Kernel/OVR_Math.h 	Quat    Normalized() const              
+<a href='../S/177.html#L923'>Quat</a>              923 ovr/sdk/src/Kernel/OVR_Math.h     Quat    Conj() const                    { return Quat(-x, -y, -z, w); }
+<a href='../S/177.html#L927'>Quat</a>              927 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator* (const Quat&amp; b) const   { return Quat(w * b.x + x * b.w + y * b.z - z * b.y,
+<a href='../S/177.html#L934'>Quat</a>              934 ovr/sdk/src/Kernel/OVR_Math.h     Quat PowNormalized(T p) const
+<a href='../S/177.html#L939'>Quat</a>              939 ovr/sdk/src/Kernel/OVR_Math.h         return Quat(v, a * p);
+<a href='../S/177.html#L943'>Quat</a>              943 ovr/sdk/src/Kernel/OVR_Math.h     Quat Nlerp(const Quat&amp; other, T a)
+<a href='../S/177.html#L953'>Quat</a>              953 ovr/sdk/src/Kernel/OVR_Math.h         return ((*this * Quat&lt;T&gt;(v.x, v.y, v.z, T(0))) * Inverted()).Imag();
+<a href='../S/177.html#L957'>Quat</a>              957 ovr/sdk/src/Kernel/OVR_Math.h     Quat        Inverted() const
+<a href='../S/177.html#L959'>Quat</a>              959 ovr/sdk/src/Kernel/OVR_Math.h         return Quat(-x, -y, -z, w);
+<a href='../S/177.html#L965'>Quat</a>              965 ovr/sdk/src/Kernel/OVR_Math.h         *this = Quat(-x, -y, -z, w);
+<a href='../S/177.html#L1085'>Quat</a>             1085 ovr/sdk/src/Kernel/OVR_Math.h typedef Quat&lt;float&gt;  Quatf;
+<a href='../S/177.html#L1086'>Quat</a>             1086 ovr/sdk/src/Kernel/OVR_Math.h typedef Quat&lt;double&gt; Quatd;
+<a href='../S/177.html#L1101'>Quat</a>             1101 ovr/sdk/src/Kernel/OVR_Math.h     Transform(const Quat&lt;T&gt;&amp; orientation, const Vector3&lt;T&gt;&amp; pos)
+<a href='../S/177.html#L1118'>Quat</a>             1118 ovr/sdk/src/Kernel/OVR_Math.h     Quat&lt;T&gt;    Rotation;
+<a href='../S/177.html#L1154'>Quat</a>             1154 ovr/sdk/src/Kernel/OVR_Math.h         Quat&lt;T&gt; inv = Rotation.Inverted();
+<a href='../S/177.html#L1231'>Quat</a>             1231 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Quat&lt;T&gt;&amp; q)
+<a href='../S/177.html#L1902'>Quat</a>             1902 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Quat&lt;T&gt;&amp; q)
+</pre>
+</body>
+</html>

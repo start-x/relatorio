@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>pImpl</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/151.html#L69'>pImpl</a>              69 ovr/sdk/src/Kernel/OVR_Threads.h     MutexImpl  *pImpl; 
+<a href='../S/151.html#L116'>pImpl</a>             116 ovr/sdk/src/Kernel/OVR_Threads.h     WaitConditionImpl *pImpl;
+<a href='../S/181.html#L162'>pImpl</a>             162 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     pImpl = new MutexImpl(this, recursive);
+<a href='../S/181.html#L167'>pImpl</a>             167 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     delete pImpl;
+<a href='../S/181.html#L173'>pImpl</a>             173 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     pImpl-&gt;DoLock();
+<a href='../S/181.html#L177'>pImpl</a>             177 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     return pImpl-&gt;TryLock();
+<a href='../S/181.html#L181'>pImpl</a>             181 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     pImpl-&gt;Unlock(this);
+<a href='../S/181.html#L185'>pImpl</a>             185 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     return pImpl-&gt;IsLockedByAnotherThread(this);
+<a href='../S/181.html#L269'>pImpl</a>             269 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     unsigned            lockCount = pmutex-&gt;pImpl-&gt;LockCount;
+<a href='../S/181.html#L278'>pImpl</a>             278 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     if (pmutex-&gt;pImpl-&gt;Recursive)
+<a href='../S/181.html#L281'>pImpl</a>             281 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         pmutex-&gt;pImpl-&gt;LockCount = 0;
+<a href='../S/181.html#L283'>pImpl</a>             283 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp             pthread_mutex_unlock(&amp;pmutex-&gt;pImpl-&gt;SMutex);
+<a href='../S/181.html#L287'>pImpl</a>             287 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         pmutex-&gt;pImpl-&gt;LockCount = 0;
+<a href='../S/181.html#L288'>pImpl</a>             288 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         pthread_mutex_unlock(&amp;pmutex-&gt;pImpl-&gt;SMutex);
+<a href='../S/181.html#L349'>pImpl</a>             349 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     pImpl = new WaitConditionImpl;
+<a href='../S/181.html#L353'>pImpl</a>             353 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     delete pImpl;
+<a href='../S/181.html#L358'>pImpl</a>             358 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     return pImpl-&gt;Wait(pmutex, delay);
+<a href='../S/181.html#L363'>pImpl</a>             363 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     pImpl-&gt;Notify();
+<a href='../S/181.html#L367'>pImpl</a>             367 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     pImpl-&gt;NotifyAll();
+<a href='../S/89.html#L36'>pImpl</a>              36 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceHandle::DeviceHandle(DeviceCreateDesc* impl) : pImpl(impl)
+<a href='../S/89.html#L38'>pImpl</a>              38 ovr/sdk/src/OVR_DeviceHandle.cpp     if (pImpl)
+<a href='../S/89.html#L39'>pImpl</a>              39 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl-&gt;AddRef();
+<a href='../S/89.html#L42'>pImpl</a>              42 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceHandle::DeviceHandle(const DeviceHandle&amp; src) : pImpl(src.pImpl)
+<a href='../S/89.html#L44'>pImpl</a>              44 ovr/sdk/src/OVR_DeviceHandle.cpp     if (pImpl)
+<a href='../S/89.html#L45'>pImpl</a>              45 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl-&gt;AddRef();
+<a href='../S/89.html#L50'>pImpl</a>              50 ovr/sdk/src/OVR_DeviceHandle.cpp     if (pImpl)
+<a href='../S/89.html#L51'>pImpl</a>              51 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl-&gt;Release();
+<a href='../S/89.html#L56'>pImpl</a>              56 ovr/sdk/src/OVR_DeviceHandle.cpp     if (src.pImpl)
+<a href='../S/89.html#L57'>pImpl</a>              57 ovr/sdk/src/OVR_DeviceHandle.cpp         src.pImpl-&gt;AddRef();
+<a href='../S/89.html#L58'>pImpl</a>              58 ovr/sdk/src/OVR_DeviceHandle.cpp     if (pImpl)
+<a href='../S/89.html#L59'>pImpl</a>              59 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl-&gt;Release();
+<a href='../S/89.html#L60'>pImpl</a>              60 ovr/sdk/src/OVR_DeviceHandle.cpp     pImpl = src.pImpl;
+<a href='../S/89.html#L65'>pImpl</a>              65 ovr/sdk/src/OVR_DeviceHandle.cpp     if (pImpl &amp;&amp; pImpl-&gt;pDevice)
+<a href='../S/89.html#L67'>pImpl</a>              67 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl-&gt;pDevice-&gt;AddRef();
+<a href='../S/89.html#L68'>pImpl</a>              68 ovr/sdk/src/OVR_DeviceHandle.cpp         return pImpl-&gt;pDevice;
+<a href='../S/89.html#L77'>pImpl</a>              77 ovr/sdk/src/OVR_DeviceHandle.cpp     return (pdev &amp;&amp; pImpl &amp;&amp; pImpl-&gt;pDevice) ? 
+<a href='../S/89.html#L78'>pImpl</a>              78 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl-&gt;pDevice == pdev : false;
+<a href='../S/89.html#L83'>pImpl</a>              83 ovr/sdk/src/OVR_DeviceHandle.cpp     return pImpl ? pImpl-&gt;Type : Device_None;
+<a href='../S/89.html#L88'>pImpl</a>              88 ovr/sdk/src/OVR_DeviceHandle.cpp     return pImpl ? pImpl-&gt;GetDeviceInfo(info) : false;
+<a href='../S/89.html#L94'>pImpl</a>              94 ovr/sdk/src/OVR_DeviceHandle.cpp     return pImpl ? (pImpl-&gt;Enumerated &amp;&amp; pImpl-&gt;pLock-&gt;pManager) : false;
+<a href='../S/89.html#L99'>pImpl</a>              99 ovr/sdk/src/OVR_DeviceHandle.cpp     return pImpl ? (pImpl-&gt;pDevice != 0) : false;
+<a href='../S/89.html#L104'>pImpl</a>             104 ovr/sdk/src/OVR_DeviceHandle.cpp     if (!pImpl)
+<a href='../S/89.html#L114'>pImpl</a>             114 ovr/sdk/src/OVR_DeviceHandle.cpp         Lock::Locker deviceLockScope(pImpl-&gt;GetLock());
+<a href='../S/89.html#L116'>pImpl</a>             116 ovr/sdk/src/OVR_DeviceHandle.cpp         if (pImpl-&gt;pDevice)
+<a href='../S/89.html#L118'>pImpl</a>             118 ovr/sdk/src/OVR_DeviceHandle.cpp             pImpl-&gt;pDevice-&gt;AddRef();
+<a href='../S/89.html#L119'>pImpl</a>             119 ovr/sdk/src/OVR_DeviceHandle.cpp             return pImpl-&gt;pDevice;
+<a href='../S/89.html#L121'>pImpl</a>             121 ovr/sdk/src/OVR_DeviceHandle.cpp         manager = pImpl-&gt;GetManagerImpl();
+<a href='../S/89.html#L132'>pImpl</a>             132 ovr/sdk/src/OVR_DeviceHandle.cpp                 &amp;device, pImpl, (DeviceBase*)0);
+<a href='../S/89.html#L135'>pImpl</a>             135 ovr/sdk/src/OVR_DeviceHandle.cpp             device = manager-&gt;CreateDevice_MgrThread(pImpl, (DeviceBase*)0);
+<a href='../S/89.html#L142'>pImpl</a>             142 ovr/sdk/src/OVR_DeviceHandle.cpp     if (pImpl)
+<a href='../S/89.html#L144'>pImpl</a>             144 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl-&gt;Release();
+<a href='../S/89.html#L145'>pImpl</a>             145 ovr/sdk/src/OVR_DeviceHandle.cpp         pImpl = 0;
+<a href='../S/89.html#L155'>pImpl</a>             155 ovr/sdk/src/OVR_DeviceHandle.cpp     Lock::Locker           lockScope(pImpl-&gt;GetLock());
+<a href='../S/89.html#L157'>pImpl</a>             157 ovr/sdk/src/OVR_DeviceHandle.cpp     DeviceCreateDesc* next = pImpl;
+<a href='../S/89.html#L159'>pImpl</a>             159 ovr/sdk/src/OVR_DeviceHandle.cpp     if (!pImpl-&gt;pNext)
+<a href='../S/89.html#L170'>pImpl</a>             170 ovr/sdk/src/OVR_DeviceHandle.cpp             pImpl-&gt;Release();
+<a href='../S/89.html#L171'>pImpl</a>             171 ovr/sdk/src/OVR_DeviceHandle.cpp             pImpl = 0;
+<a href='../S/89.html#L178'>pImpl</a>             178 ovr/sdk/src/OVR_DeviceHandle.cpp     pImpl-&gt;Release();
+<a href='../S/89.html#L179'>pImpl</a>             179 ovr/sdk/src/OVR_DeviceHandle.cpp     pImpl = next;
+<a href='../S/126.html#L61'>pImpl</a>              61 ovr/sdk/src/OVR_DeviceHandle.h 	DeviceHandle() : pImpl(0) { }    
+<a href='../S/126.html#L67'>pImpl</a>              67 ovr/sdk/src/OVR_DeviceHandle.h 	bool operator == (const DeviceHandle&amp; other) const { return pImpl == other.pImpl; }
+<a href='../S/126.html#L68'>pImpl</a>              68 ovr/sdk/src/OVR_DeviceHandle.h 	bool operator != (const DeviceHandle&amp; other) const { return pImpl != other.pImpl; }
+<a href='../S/126.html#L103'>pImpl</a>             103 ovr/sdk/src/OVR_DeviceHandle.h 	DeviceCreateDesc* pImpl;
+<a href='../S/137.html#L195'>pImpl</a>             195 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         ThreadCommandQueueImpl* pImpl;
+<a href='../S/137.html#L198'>pImpl</a>             198 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             : ThreadCommand(sizeof(ExitCommand), wait, true), pImpl(impl) { }
+<a href='../S/137.html#L202'>pImpl</a>             202 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             Lock::Locker lock(&amp;pImpl-&gt;QueueLock);
+<a href='../S/137.html#L203'>pImpl</a>             203 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             pImpl-&gt;ExitProcessed = true;
+<a href='../S/137.html#L340'>pImpl</a>             340 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     pImpl = new ThreadCommandQueueImpl(this);
+<a href='../S/137.html#L344'>pImpl</a>             344 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     delete pImpl;
+<a href='../S/137.html#L349'>pImpl</a>             349 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     return pImpl-&gt;PushCommand(command);
+<a href='../S/137.html#L354'>pImpl</a>             354 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     return pImpl-&gt;PopCommand(popBuffer);
+<a href='../S/137.html#L365'>pImpl</a>             365 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         Lock::Locker lock(&amp;pImpl-&gt;QueueLock);
+<a href='../S/137.html#L366'>pImpl</a>             366 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         if (pImpl-&gt;ExitEnqueued)
+<a href='../S/137.html#L368'>pImpl</a>             368 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         pImpl-&gt;ExitEnqueued = true;
+<a href='../S/137.html#L371'>pImpl</a>             371 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     PushCommand(ThreadCommandQueueImpl::ExitCommand(pImpl, wait));
+<a href='../S/137.html#L376'>pImpl</a>             376 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     return pImpl-&gt;ExitProcessed;
+<a href='../S/83.html#L313'>pImpl</a>             313 ovr/sdk/src/OVR_ThreadCommandQueue.h     class ThreadCommandQueueImpl* pImpl;
+</pre>
+</body>
+</html>

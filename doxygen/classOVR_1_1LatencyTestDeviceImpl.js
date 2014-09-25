@@ -1,0 +1,27 @@
+var classOVR_1_1LatencyTestDeviceImpl =
+[
+    [ "LatencyTestDeviceImpl", "classOVR_1_1LatencyTestDeviceImpl.html#a94932306b084b39013b739db665b1479", null ],
+    [ "~LatencyTestDeviceImpl", "classOVR_1_1LatencyTestDeviceImpl.html#a29e26740eeb0558a0ed0d2c6475bc028", null ],
+    [ "closeDevice", "classOVR_1_1LatencyTestDeviceImpl.html#a25d0cdb307b6b3c07a587ba43c6bc0dd", null ],
+    [ "closeDeviceOnIOError", "classOVR_1_1LatencyTestDeviceImpl.html#a3c9b808f85fed42765c6a5597e3427ed", null ],
+    [ "GetConfiguration", "classOVR_1_1LatencyTestDeviceImpl.html#a69bbabc39d87d525563886474690b7e4", null ],
+    [ "getConfiguration", "classOVR_1_1LatencyTestDeviceImpl.html#a65637ccad7b75405784d573aa7a84c7c", null ],
+    [ "Initialize", "classOVR_1_1LatencyTestDeviceImpl.html#adf1267cd5bfd79448c3542843f32352f", null ],
+    [ "initializeRead", "classOVR_1_1LatencyTestDeviceImpl.html#a053430cb29393d7c365c044f983804f8", null ],
+    [ "OnInputReport", "classOVR_1_1LatencyTestDeviceImpl.html#ae786d849f530834c55101d3e822380b3", null ],
+    [ "onLatencyTestButtonMessage", "classOVR_1_1LatencyTestDeviceImpl.html#afeaa0147477256afeb3c662198f12e06", null ],
+    [ "onLatencyTestColorDetectedMessage", "classOVR_1_1LatencyTestDeviceImpl.html#a167bd1d9ff346a33865cd69f2687efee", null ],
+    [ "onLatencyTestSamplesMessage", "classOVR_1_1LatencyTestDeviceImpl.html#a95422a93fbf236ed1a83ad8a77e82183", null ],
+    [ "onLatencyTestStartedMessage", "classOVR_1_1LatencyTestDeviceImpl.html#a892e042207fc77077d060b890f93191c", null ],
+    [ "openDevice", "classOVR_1_1LatencyTestDeviceImpl.html#a7fe24ba51675655aebfd8f2642ed2f36", null ],
+    [ "processReadResult", "classOVR_1_1LatencyTestDeviceImpl.html#aec515e2361dd85ef39806c3d7cc17b8b", null ],
+    [ "SetCalibrate", "classOVR_1_1LatencyTestDeviceImpl.html#a790e187c785a2b6487001954d6a65312", null ],
+    [ "setCalibrate", "classOVR_1_1LatencyTestDeviceImpl.html#a317e880d088b76c49b2345b64289da5e", null ],
+    [ "SetConfiguration", "classOVR_1_1LatencyTestDeviceImpl.html#a272c27f191c3393b398936997be35ec4", null ],
+    [ "setConfiguration", "classOVR_1_1LatencyTestDeviceImpl.html#ad4605f4fea3a6d373922337f7414cfb2", null ],
+    [ "SetDisplay", "classOVR_1_1LatencyTestDeviceImpl.html#a9bdabfa7b98ec4650d940839590a1b18", null ],
+    [ "setDisplay", "classOVR_1_1LatencyTestDeviceImpl.html#a617fe42f610359ff104ab9f045fbc1b9", null ],
+    [ "SetStartTest", "classOVR_1_1LatencyTestDeviceImpl.html#a6f735064efb03a4d8e88ef130bcb943f", null ],
+    [ "setStartTest", "classOVR_1_1LatencyTestDeviceImpl.html#acc7a12f090a0e2889e722238ad42d4f8", null ],
+    [ "Shutdown", "classOVR_1_1LatencyTestDeviceImpl.html#a379667b83b7fec8938a3f72d97787172", null ]
+];

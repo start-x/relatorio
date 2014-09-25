@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>pCurVBVert</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L414'>pCurVBVert</a>        414 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp         DistortionVertex *   pCurVBVert  = pVBVerts;
+<a href='../S/104.html#L419'>pCurVBVert</a>        419 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;Pos.x = pCurOvrVert-&gt;Pos.x;
+<a href='../S/104.html#L420'>pCurVBVert</a>        420 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;Pos.y = pCurOvrVert-&gt;Pos.y;
+<a href='../S/104.html#L421'>pCurVBVert</a>        421 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;TexR  = (*(Vector2f*)&amp;pCurOvrVert-&gt;TexR);
+<a href='../S/104.html#L422'>pCurVBVert</a>        422 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;TexG  = (*(Vector2f*)&amp;pCurOvrVert-&gt;TexG);
+<a href='../S/104.html#L423'>pCurVBVert</a>        423 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;TexB  = (*(Vector2f*)&amp;pCurOvrVert-&gt;TexB);
+<a href='../S/104.html#L425'>pCurVBVert</a>        425 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;Col.R = (OVR::UByte)( pCurOvrVert-&gt;VignetteFactor * 255.99f );
+<a href='../S/104.html#L426'>pCurVBVert</a>        426 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;Col.G = pCurVBVert-&gt;Col.R;
+<a href='../S/104.html#L427'>pCurVBVert</a>        427 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;Col.B = pCurVBVert-&gt;Col.R;
+<a href='../S/104.html#L428'>pCurVBVert</a>        428 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert-&gt;Col.A = (OVR::UByte)( pCurOvrVert-&gt;TimeWarpFactor * 255.99f );;
+<a href='../S/104.html#L430'>pCurVBVert</a>        430 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp             pCurVBVert++;
+</pre>
+</body>
+</html>

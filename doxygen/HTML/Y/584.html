@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>FdNotifiers</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/193.html#L159'>FdNotifiers</a>       159 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     FdNotifiers.PushBack(notify);
+<a href='../S/193.html#L162'>FdNotifiers</a>       162 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     OVR_ASSERT(FdNotifiers.GetSize() == PollFds.GetSize());
+<a href='../S/193.html#L170'>FdNotifiers</a>       170 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     for (UPInt i = 0; i &lt; FdNotifiers.GetSize(); i++)
+<a href='../S/193.html#L172'>FdNotifiers</a>       172 ovr/sdk/src/OVR_Linux_DeviceManager.cpp         if ((FdNotifiers[i] == notify) &amp;&amp; (PollFds[i].fd == fd))
+<a href='../S/193.html#L174'>FdNotifiers</a>       174 ovr/sdk/src/OVR_Linux_DeviceManager.cpp             FdNotifiers.RemoveAt(i);
+<a href='../S/193.html#L241'>FdNotifiers</a>       241 ovr/sdk/src/OVR_Linux_DeviceManager.cpp                             if (FdNotifiers[i])
+<a href='../S/193.html#L242'>FdNotifiers</a>       242 ovr/sdk/src/OVR_Linux_DeviceManager.cpp                                 FdNotifiers[i]-&gt;OnEvent(i, PollFds[i].fd);
+<a href='../S/130.html#L112'>FdNotifiers</a>       112 ovr/sdk/src/OVR_Linux_DeviceManager.h     Array&lt;Notifier*&gt;        FdNotifiers;
+</pre>
+</body>
+</html>

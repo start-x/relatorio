@@ -1,0 +1,6 @@
+<map id="OVR::AtomicOpsRaw&lt; 8 &gt;" name="OVR::AtomicOpsRaw&lt; 8 &gt;">
+<area shape="rect" id="node2" href="$structOVR_1_1AtomicOpsRaw__DefImpl.html" title="{OVR::AtomicOpsRaw_DefImpl\l\&lt; AtomicOpsRaw_8ByteImpl \&gt;\n||+ Exchange_Sync()\l+ Exchange_Release()\l+ Exchange_Acquire()\l+ ExchangeAdd_Sync()\l+ ExchangeAdd_Release()\l+ ExchangeAdd_Acquire()\l+ CompareAndSet_Sync()\l+ CompareAndSet_Release()\l+ CompareAndSet_Acquire()\l+ Store_Release()\l+ Load_Acquire()\l}" alt="" coords="163,422,367,661"/>
+<area shape="rect" id="node3" href="$structOVR_1_1AtomicOpsRaw__8ByteImpl.html" title="{OVR::AtomicOpsRaw_8ByteImpl\n||}" alt="" coords="5,207,221,284"/>
+<area shape="rect" id="node4" href="$structOVR_1_1AtomicOpsRawBase.html" title="{OVR::AtomicOpsRawBase\n||}" alt="" coords="23,5,204,83"/>
+<area shape="rect" id="node5" href="$structOVR_1_1AtomicOpsRaw__DefImpl.html" title="{OVR::AtomicOpsRaw_DefImpl\&lt; O \&gt;\n||+ Exchange_Sync()\l+ Exchange_Release()\l+ Exchange_Acquire()\l+ ExchangeAdd_Sync()\l+ ExchangeAdd_Release()\l+ ExchangeAdd_Acquire()\l+ CompareAndSet_Sync()\l+ CompareAndSet_Release()\l+ CompareAndSet_Acquire()\l+ Store_Release()\l+ Load_Acquire()\l}" alt="" coords="246,133,484,357"/>
+</map>

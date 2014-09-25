@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>AcquireSync</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L99'>AcquireSync</a>        99 ovr/sdk/src/Kernel/OVR_Atomic.h struct AcquireSync { inline AcquireSync() { } };
+<a href='../S/145.html#L104'>AcquireSync</a>       104 ovr/sdk/src/Kernel/OVR_Atomic.h struct AcquireSync { inline AcquireSync() { } ~AcquireSync() { asm volatile("isync\n"); } };
+<a href='../S/145.html#L109'>AcquireSync</a>       109 ovr/sdk/src/Kernel/OVR_Atomic.h struct AcquireSync { inline AcquireSync() { } ~AcquireSync() { asm volatile("sync\n"); } };
+<a href='../S/145.html#L114'>AcquireSync</a>       114 ovr/sdk/src/Kernel/OVR_Atomic.h struct AcquireSync { inline AcquireSync() { } ~AcquireSync() { asm volatile("dmb\n"); } };
+<a href='../S/145.html#L121'>AcquireSync</a>       121 ovr/sdk/src/Kernel/OVR_Atomic.h struct AcquireSync { inline AcquireSync() { } };
+</pre>
+</body>
+</html>

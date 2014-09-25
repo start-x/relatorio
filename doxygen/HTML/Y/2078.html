@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>ShaderBase</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L39'>ShaderBase</a>         39 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     const ShaderBase::Uniform* ReflectionData;
+<a href='../S/105.html#L55'>ShaderBase</a>         55 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h     const OVR::CAPI::GL::ShaderBase::Uniform SimpleQuad_vs_refl[] =
+<a href='../S/105.html#L57'>ShaderBase</a>         57 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "PositionOffset", OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 0, 8 },
+<a href='../S/105.html#L58'>ShaderBase</a>         58 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "Scale",          OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 8, 8 },
+<a href='../S/105.html#L71'>ShaderBase</a>         71 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h     const OVR::CAPI::GL::ShaderBase::Uniform SimpleQuad_fs_refl[] =
+<a href='../S/105.html#L73'>ShaderBase</a>         73 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "Color", OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 0, 16 },
+<a href='../S/105.html#L101'>ShaderBase</a>        101 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h     const OVR::CAPI::GL::ShaderBase::Uniform Distortion_vs_refl[] =
+<a href='../S/105.html#L103'>ShaderBase</a>        103 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVScale",  OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 0, 8 },
+<a href='../S/105.html#L104'>ShaderBase</a>        104 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVOffset", OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 8, 8 },
+<a href='../S/105.html#L171'>ShaderBase</a>        171 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h     const OVR::CAPI::GL::ShaderBase::Uniform DistortionTimewarp_vs_refl[] =
+<a href='../S/105.html#L173'>ShaderBase</a>        173 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVScale",  OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 0, 8 },
+<a href='../S/105.html#L174'>ShaderBase</a>        174 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVOffset", OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 8, 8 },
+<a href='../S/105.html#L211'>ShaderBase</a>        211 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h     const OVR::CAPI::GL::ShaderBase::Uniform DistortionChroma_vs_refl[] =
+<a href='../S/105.html#L213'>ShaderBase</a>        213 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVScale",  OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 0, 8 },
+<a href='../S/105.html#L214'>ShaderBase</a>        214 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVOffset", OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 8, 8 },
+<a href='../S/105.html#L316'>ShaderBase</a>        316 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h     const OVR::CAPI::GL::ShaderBase::Uniform DistortionTimewarpChroma_vs_refl[] =
+<a href='../S/105.html#L318'>ShaderBase</a>        318 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVScale",  OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 0, 8 },
+<a href='../S/105.html#L319'>ShaderBase</a>        319 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeToSourceUVOffset", OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 8, 8 },
+<a href='../S/105.html#L320'>ShaderBase</a>        320 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeRotationStart",    OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 16, 64 },
+<a href='../S/105.html#L321'>ShaderBase</a>        321 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionShaders.h         { "EyeRotationEnd",      OVR::CAPI::GL::ShaderBase::VARTYPE_FLOAT, 80, 64 },
+<a href='../S/102.html#L407'>ShaderBase</a>        407 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderBase::SetUniform(const char* name, int n, const float* v)
+<a href='../S/102.html#L420'>ShaderBase</a>        420 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderBase::SetUniformBool(const char* name, int n, const bool* v) 
+<a href='../S/102.html#L434'>ShaderBase</a>        434 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp void ShaderBase::InitUniforms(const Uniform* refl, size_t reflSize)
+<a href='../S/103.html#L442'>ShaderBase</a>        442 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h class ShaderBase : public Shader
+<a href='../S/103.html#L465'>ShaderBase</a>        465 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 	ShaderBase(RenderParams* rp, ShaderStage stage) : Shader(stage), pParams(rp), UniformData(0), UniformsSize(0) {}
+<a href='../S/103.html#L466'>ShaderBase</a>        466 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 	~ShaderBase()
+<a href='../S/103.html#L479'>ShaderBase</a>        479 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h class ShaderImpl : public ShaderBase
+<a href='../S/103.html#L485'>ShaderBase</a>        485 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 		: ShaderBase(rp, SStage)
+</pre>
+</body>
+</html>

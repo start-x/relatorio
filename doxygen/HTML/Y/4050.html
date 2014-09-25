@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>phash</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/179.html#L576'>phash</a>             576 ovr/sdk/src/Kernel/OVR_Hash.h             SelfType*   phash = const_cast&lt;SelfType*&gt;(ConstIterator::pHash);
+<a href='../S/179.html#L581'>phash</a>             581 ovr/sdk/src/Kernel/OVR_Hash.h             SPInt       index     = hashValue &amp; phash-&gt;pTable-&gt;SizeMask;
+<a href='../S/179.html#L583'>phash</a>             583 ovr/sdk/src/Kernel/OVR_Hash.h             Entry*      e = &amp;phash-&gt;E(index);
+<a href='../S/179.html#L586'>phash</a>             586 ovr/sdk/src/Kernel/OVR_Hash.h             if (e-&gt;IsEmpty() || (e-&gt;GetCachedHash(phash-&gt;pTable-&gt;SizeMask) != (UPInt)index))
+<a href='../S/179.html#L593'>phash</a>             593 ovr/sdk/src/Kernel/OVR_Hash.h             while ((e-&gt;GetCachedHash(phash-&gt;pTable-&gt;SizeMask) != (UPInt)naturalIndex) || !(e-&gt;Value == key))
+<a href='../S/179.html#L600'>phash</a>             600 ovr/sdk/src/Kernel/OVR_Hash.h                 e = &amp;phash-&gt;E(index);
+<a href='../S/179.html#L611'>phash</a>             611 ovr/sdk/src/Kernel/OVR_Hash.h                         Entry*  enext = &amp;phash-&gt;E(e-&gt;NextInChain);
+<a href='../S/179.html#L622'>phash</a>             622 ovr/sdk/src/Kernel/OVR_Hash.h                     phash-&gt;E(prevIndex).NextInChain = e-&gt;NextInChain;
+<a href='../S/179.html#L627'>phash</a>             627 ovr/sdk/src/Kernel/OVR_Hash.h                 phash-&gt;pTable-&gt;EntryCount --;
+</pre>
+</body>
+</html>

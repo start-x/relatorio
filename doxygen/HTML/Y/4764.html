@@ -1,0 +1,343 @@
+<html>
+<head>
+<title>v</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/102.html#L244'>v</a>                 244 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     void* v = glMapBuffer(Use, mode);
+<a href='../S/102.html#L245'>v</a>                 245 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     return v;
+<a href='../S/102.html#L302'>v</a>                 302 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderSet::SetUniform(const char* name, int n, const float* v)
+<a href='../S/102.html#L311'>v</a>                 311 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case 1:   glUniform1fv(UniformInfo[i].Location, n, v); break;
+<a href='../S/102.html#L312'>v</a>                 312 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case 2:   glUniform2fv(UniformInfo[i].Location, n/2, v); break;
+<a href='../S/102.html#L313'>v</a>                 313 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case 3:   glUniform3fv(UniformInfo[i].Location, n/3, v); break;
+<a href='../S/102.html#L314'>v</a>                 314 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case 4:   glUniform4fv(UniformInfo[i].Location, n/4, v); break;
+<a href='../S/102.html#L315'>v</a>                 315 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case 12:  glUniformMatrix3fv(UniformInfo[i].Location, 1, 1, v); break;
+<a href='../S/102.html#L316'>v</a>                 316 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             case 16:  glUniformMatrix4fv(UniformInfo[i].Location, 1, 1, v); break;
+<a href='../S/102.html#L407'>v</a>                 407 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderBase::SetUniform(const char* name, int n, const float* v)
+<a href='../S/102.html#L413'>v</a>                 413 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             memcpy(UniformData + UniformRefl[i].Offset, v, n * sizeof(float));
+<a href='../S/102.html#L420'>v</a>                 420 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderBase::SetUniformBool(const char* name, int n, const bool* v) 
+<a href='../S/102.html#L427'>v</a>                 427 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             memcpy(UniformData + UniformRefl[i].Offset, v, UniformRefl[i].Size);
+<a href='../S/103.html#L299'>v</a>                 299 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniform(const char* name, int n, const float* v) { OVR_UNUSED3(name, n, v); return false; }
+<a href='../S/103.html#L300'>v</a>                 300 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniformBool(const char* name, int n, const bool* v) { OVR_UNUSED3(name, n, v); return false; }
+<a href='../S/103.html#L346'>v</a>                 346 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniform(const char* name, int n, const float* v);
+<a href='../S/103.html#L349'>v</a>                 349 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         const float v[] = {x};
+<a href='../S/103.html#L350'>v</a>                 350 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 1, v);
+<a href='../S/103.html#L354'>v</a>                 354 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         const float v[] = {x,y};
+<a href='../S/103.html#L355'>v</a>                 355 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 2, v);
+<a href='../S/103.html#L359'>v</a>                 359 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         const float v[] = {x,y,z};
+<a href='../S/103.html#L360'>v</a>                 360 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 3, v);
+<a href='../S/103.html#L364'>v</a>                 364 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         const float v[] = {x,y,z,w};
+<a href='../S/103.html#L365'>v</a>                 365 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 4, v);
+<a href='../S/103.html#L368'>v</a>                 368 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool SetUniformv(const char* name, const Vector3f&amp; v)
+<a href='../S/103.html#L370'>v</a>                 370 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         const float a[] = {v.x,v.y,v.z,1};
+<a href='../S/103.html#L473'>v</a>                 473 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 	bool SetUniform(const char* name, int n, const float* v);
+<a href='../S/103.html#L474'>v</a>                 474 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 	bool SetUniformBool(const char* name, int n, const bool* v);
+<a href='../S/147.html#L52'>v</a>                  52 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt; OVR_FORCE_INLINE const T Clamp(const T v, const T minVal, const T maxVal)
+<a href='../S/147.html#L53'>v</a>                  53 ovr/sdk/src/Kernel/OVR_Alg.h { return Max&lt;T&gt;(minVal, Min&lt;T&gt;(v, maxVal)); }
+<a href='../S/147.html#L79'>v</a>                  79 ovr/sdk/src/Kernel/OVR_Alg.h template &lt;typename T&gt;   OVR_FORCE_INLINE const T Abs(const T v)
+<a href='../S/147.html#L80'>v</a>                  80 ovr/sdk/src/Kernel/OVR_Alg.h { return (v&gt;=0) ? v : -v; }
+<a href='../S/147.html#L836'>v</a>                 836 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    SwapOrder(UByte v)      { return v; }
+<a href='../S/147.html#L837'>v</a>                 837 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    SwapOrder(SByte v)      { return v; }
+<a href='../S/147.html#L838'>v</a>                 838 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   SwapOrder(UInt16 v)     { return UInt16(v&gt;&gt;8)|UInt16(v&lt;&lt;8); }
+<a href='../S/147.html#L839'>v</a>                 839 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SwapOrder(SInt16 v)     { return SInt16((UInt16(v)&gt;&gt;8)|(v&lt;&lt;8)); }
+<a href='../S/147.html#L840'>v</a>                 840 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SwapOrder(UInt32 v)     { return (v&gt;&gt;24)|((v&amp;0x00FF0000)&gt;&gt;8)|((v&amp;0x0000FF00)&lt;&lt;8)|(v&lt;&lt;24); }
+<a href='../S/147.html#L842'>v</a>                 842 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   SwapOrder(UInt64 v)
+<a href='../S/147.html#L844'>v</a>                 844 ovr/sdk/src/Kernel/OVR_Alg.h         return   (v&gt;&gt;56) |
+<a href='../S/147.html#L845'>v</a>                 845 ovr/sdk/src/Kernel/OVR_Alg.h                  ((v&amp;UInt64(0x00FF000000000000ULL))&gt;&gt;40) |
+<a href='../S/147.html#L846'>v</a>                 846 ovr/sdk/src/Kernel/OVR_Alg.h                  ((v&amp;UInt64(0x0000FF0000000000ULL))&gt;&gt;24) |
+<a href='../S/147.html#L847'>v</a>                 847 ovr/sdk/src/Kernel/OVR_Alg.h                  ((v&amp;UInt64(0x000000FF00000000ULL))&gt;&gt;8)  |
+<a href='../S/147.html#L848'>v</a>                 848 ovr/sdk/src/Kernel/OVR_Alg.h                  ((v&amp;UInt64(0x00000000FF000000ULL))&lt;&lt;8)  |
+<a href='../S/147.html#L849'>v</a>                 849 ovr/sdk/src/Kernel/OVR_Alg.h                  ((v&amp;UInt64(0x0000000000FF0000ULL))&lt;&lt;24) |
+<a href='../S/147.html#L850'>v</a>                 850 ovr/sdk/src/Kernel/OVR_Alg.h                  ((v&amp;UInt64(0x000000000000FF00ULL))&lt;&lt;40) |
+<a href='../S/147.html#L851'>v</a>                 851 ovr/sdk/src/Kernel/OVR_Alg.h                  (v&lt;&lt;56); 
+<a href='../S/147.html#L853'>v</a>                 853 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SwapOrder(SInt64 v)     { return (SInt64)SwapOrder(UInt64(v)); }
+<a href='../S/147.html#L858'>v</a>                 858 ovr/sdk/src/Kernel/OVR_Alg.h             UInt32 v;
+<a href='../S/147.html#L861'>v</a>                 861 ovr/sdk/src/Kernel/OVR_Alg.h         u.v = SwapOrder(u.v);
+<a href='../S/147.html#L869'>v</a>                 869 ovr/sdk/src/Kernel/OVR_Alg.h             UInt64 v;
+<a href='../S/147.html#L872'>v</a>                 872 ovr/sdk/src/Kernel/OVR_Alg.h         u.v = SwapOrder(u.v);
+<a href='../S/147.html#L880'>v</a>                 880 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    LEToSystem(UByte  v)    { return v; }
+<a href='../S/147.html#L881'>v</a>                 881 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    LEToSystem(SByte  v)    { return v; }
+<a href='../S/147.html#L882'>v</a>                 882 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   LEToSystem(UInt16 v)    { return v; }
+<a href='../S/147.html#L883'>v</a>                 883 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   LEToSystem(SInt16 v)    { return v; }
+<a href='../S/147.html#L884'>v</a>                 884 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   LEToSystem(UInt32 v)    { return v; }
+<a href='../S/147.html#L885'>v</a>                 885 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   LEToSystem(SInt32 v)    { return v; }
+<a href='../S/147.html#L886'>v</a>                 886 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   LEToSystem(UInt64 v)    { return v; }
+<a href='../S/147.html#L887'>v</a>                 887 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   LEToSystem(SInt64 v)    { return v; }
+<a href='../S/147.html#L888'>v</a>                 888 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    LEToSystem(float  v)    { return v; }
+<a href='../S/147.html#L889'>v</a>                 889 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   LEToSystem(double v)    { return v; }
+<a href='../S/147.html#L892'>v</a>                 892 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    BEToSystem(UByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L893'>v</a>                 893 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    BEToSystem(SByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L894'>v</a>                 894 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   BEToSystem(UInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L895'>v</a>                 895 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   BEToSystem(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L896'>v</a>                 896 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   BEToSystem(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L897'>v</a>                 897 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   BEToSystem(SInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L898'>v</a>                 898 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   BEToSystem(UInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L899'>v</a>                 899 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   BEToSystem(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L900'>v</a>                 900 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    BEToSystem(float  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L901'>v</a>                 901 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   BEToSystem(double v)    { return SwapOrder(v); }
+<a href='../S/147.html#L904'>v</a>                 904 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    SystemToLE(UByte  v)    { return v; }
+<a href='../S/147.html#L905'>v</a>                 905 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    SystemToLE(SByte  v)    { return v; }
+<a href='../S/147.html#L906'>v</a>                 906 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   SystemToLE(UInt16 v)    { return v; }
+<a href='../S/147.html#L907'>v</a>                 907 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToLE(SInt16 v)    { return v; }
+<a href='../S/147.html#L908'>v</a>                 908 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToLE(UInt32 v)    { return v; }
+<a href='../S/147.html#L909'>v</a>                 909 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SystemToLE(SInt32 v)    { return v; }
+<a href='../S/147.html#L910'>v</a>                 910 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   SystemToLE(UInt64 v)    { return v; }
+<a href='../S/147.html#L911'>v</a>                 911 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToLE(SInt64 v)    { return v; }
+<a href='../S/147.html#L912'>v</a>                 912 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    SystemToLE(float  v)    { return v; }
+<a href='../S/147.html#L913'>v</a>                 913 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   SystemToLE(double v)    { return v; }   
+<a href='../S/147.html#L916'>v</a>                 916 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    SystemToBE(UByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L917'>v</a>                 917 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    SystemToBE(SByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L918'>v</a>                 918 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   SystemToBE(UInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L919'>v</a>                 919 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToBE(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L920'>v</a>                 920 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToBE(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L921'>v</a>                 921 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SystemToBE(SInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L922'>v</a>                 922 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   SystemToBE(UInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L923'>v</a>                 923 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToBE(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L924'>v</a>                 924 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    SystemToBE(float  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L925'>v</a>                 925 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   SystemToBE(double v)    { return SwapOrder(v); }
+<a href='../S/147.html#L929'>v</a>                 929 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    LEToSystem(UByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L930'>v</a>                 930 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    LEToSystem(SByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L931'>v</a>                 931 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   LEToSystem(UInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L932'>v</a>                 932 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   LEToSystem(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L933'>v</a>                 933 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   LEToSystem(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L934'>v</a>                 934 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   LEToSystem(SInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L935'>v</a>                 935 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   LEToSystem(UInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L936'>v</a>                 936 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   LEToSystem(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L937'>v</a>                 937 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    LEToSystem(float  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L938'>v</a>                 938 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   LEToSystem(double v)    { return SwapOrder(v); }
+<a href='../S/147.html#L941'>v</a>                 941 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    BEToSystem(UByte  v)    { return v; }
+<a href='../S/147.html#L942'>v</a>                 942 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    BEToSystem(SByte  v)    { return v; }
+<a href='../S/147.html#L943'>v</a>                 943 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   BEToSystem(UInt16 v)    { return v; }
+<a href='../S/147.html#L944'>v</a>                 944 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   BEToSystem(SInt16 v)    { return v; }
+<a href='../S/147.html#L945'>v</a>                 945 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   BEToSystem(UInt32 v)    { return v; }
+<a href='../S/147.html#L946'>v</a>                 946 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   BEToSystem(SInt32 v)    { return v; }
+<a href='../S/147.html#L947'>v</a>                 947 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   BEToSystem(UInt64 v)    { return v; }
+<a href='../S/147.html#L948'>v</a>                 948 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   BEToSystem(SInt64 v)    { return v; }
+<a href='../S/147.html#L949'>v</a>                 949 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    BEToSystem(float  v)    { return v; }
+<a href='../S/147.html#L950'>v</a>                 950 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   BEToSystem(double v)    { return v; }
+<a href='../S/147.html#L953'>v</a>                 953 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    SystemToLE(UByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L954'>v</a>                 954 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    SystemToLE(SByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L955'>v</a>                 955 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   SystemToLE(UInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L956'>v</a>                 956 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToLE(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L957'>v</a>                 957 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToLE(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L958'>v</a>                 958 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SystemToLE(SInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L959'>v</a>                 959 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   SystemToLE(UInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L960'>v</a>                 960 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToLE(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L961'>v</a>                 961 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    SystemToLE(float  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L962'>v</a>                 962 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   SystemToLE(double v)    { return SwapOrder(v); }
+<a href='../S/147.html#L965'>v</a>                 965 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    SystemToBE(UByte  v)    { return v; }
+<a href='../S/147.html#L966'>v</a>                 966 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    SystemToBE(SByte  v)    { return v; }
+<a href='../S/147.html#L967'>v</a>                 967 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   SystemToBE(UInt16 v)    { return v; }
+<a href='../S/147.html#L968'>v</a>                 968 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToBE(SInt16 v)    { return v; }
+<a href='../S/147.html#L969'>v</a>                 969 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToBE(UInt32 v)    { return v; }
+<a href='../S/147.html#L970'>v</a>                 970 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SystemToBE(SInt32 v)    { return v; }
+<a href='../S/147.html#L971'>v</a>                 971 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   SystemToBE(UInt64 v)    { return v; }
+<a href='../S/147.html#L972'>v</a>                 972 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToBE(SInt64 v)    { return v; }
+<a href='../S/147.html#L973'>v</a>                 973 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    SystemToBE(float  v)    { return v; }
+<a href='../S/147.html#L974'>v</a>                 974 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   SystemToBE(double v)    { return v; }
+<a href='../S/145.html#L246'>v</a>                 246 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i),[r] "=&amp;d" (ret), [o] "=&amp;d" (dummy) : [i] "d" (i), [c] "d" (c), [v] "d" (value)
+<a href='../S/145.html#L330'>v</a>                 330 ovr/sdk/src/Kernel/OVR_Atomic.h             : "+m" (*i),[r] "=&amp;r" (ret), [o] "=&amp;r" (dummy), [t] "=&amp;r" (test) : [i] "r" (i), [c] "r" (c), [v] "r" (value)
+<a href='../S/145.html#L360'>v</a>                 360 ovr/sdk/src/Kernel/OVR_Atomic.h                      : "+m" (*i), "=a" (ret) : [i] "m" (*i), "1" (c), [v] "q" (value) : "cc", "memory");
+<a href='../S/145.html#L371'>v</a>                 371 ovr/sdk/src/Kernel/OVR_Atomic.h         T v;
+<a href='../S/145.html#L373'>v</a>                 373 ovr/sdk/src/Kernel/OVR_Atomic.h             v = *i;
+<a href='../S/145.html#L374'>v</a>                 374 ovr/sdk/src/Kernel/OVR_Atomic.h         } while (!__sync_bool_compare_and_swap(i, v, j));
+<a href='../S/145.html#L375'>v</a>                 375 ovr/sdk/src/Kernel/OVR_Atomic.h         return v;
+<a href='../S/145.html#L466'>v</a>                 466 ovr/sdk/src/Kernel/OVR_Atomic.h         T v;
+<a href='../S/145.html#L468'>v</a>                 468 ovr/sdk/src/Kernel/OVR_Atomic.h             v = *i;
+<a href='../S/145.html#L469'>v</a>                 469 ovr/sdk/src/Kernel/OVR_Atomic.h         } while (!__sync_bool_compare_and_swap(i, v, j));
+<a href='../S/145.html#L470'>v</a>                 470 ovr/sdk/src/Kernel/OVR_Atomic.h         return v;
+<a href='../S/186.html#L206'>v</a>                 206 ovr/sdk/src/Kernel/OVR_File.h     UInt64  PRead64()           { UInt64 v = 0; Read((UByte*)&amp;v, 8); return v; }
+<a href='../S/186.html#L207'>v</a>                 207 ovr/sdk/src/Kernel/OVR_File.h     UInt32  PRead32()           { UInt32 v = 0; Read((UByte*)&amp;v, 4); return v; }
+<a href='../S/186.html#L208'>v</a>                 208 ovr/sdk/src/Kernel/OVR_File.h     UInt16  PRead16()           { UInt16 v = 0; Read((UByte*)&amp;v, 2); return v; }
+<a href='../S/186.html#L209'>v</a>                 209 ovr/sdk/src/Kernel/OVR_File.h     UByte   PRead8()            { UByte  v = 0; Read((UByte*)&amp;v, 1); return v; }
+<a href='../S/186.html#L210'>v</a>                 210 ovr/sdk/src/Kernel/OVR_File.h     void    PWrite64(UInt64 v)  { Write((UByte*)&amp;v, 8); }
+<a href='../S/186.html#L211'>v</a>                 211 ovr/sdk/src/Kernel/OVR_File.h     void    PWrite32(UInt32 v)  { Write((UByte*)&amp;v, 4); }
+<a href='../S/186.html#L212'>v</a>                 212 ovr/sdk/src/Kernel/OVR_File.h     void    PWrite16(UInt16 v)  { Write((UByte*)&amp;v, 2); }
+<a href='../S/186.html#L213'>v</a>                 213 ovr/sdk/src/Kernel/OVR_File.h     void    PWrite8(UByte v)    { Write((UByte*)&amp;v, 1); }
+<a href='../S/186.html#L218'>v</a>                 218 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUByte(UByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L219'>v</a>                 219 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSByte(SByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L220'>v</a>                 220 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt8(UByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L221'>v</a>                 221 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt8(SByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L222'>v</a>                 222 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt16(UInt16 v)       { PWrite16((UInt16)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L223'>v</a>                 223 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16(SInt16 v)       { PWrite16((UInt16)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L224'>v</a>                 224 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt32(UInt32 v)       { PWrite32((UInt32)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L225'>v</a>                 225 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt32(SInt32 v)       { PWrite32((UInt32)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L226'>v</a>                 226 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt64(UInt64 v)       { PWrite64((UInt64)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L227'>v</a>                 227 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt64(SInt64 v)       { PWrite64((UInt64)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L228'>v</a>                 228 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteFloat(float v)         { v = Alg::ByteUtil::SystemToLE(v); Write((UByte*)&amp;v, 4); } 
+<a href='../S/186.html#L229'>v</a>                 229 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteDouble(double v)       { v = Alg::ByteUtil::SystemToLE(v); Write((UByte*)&amp;v, 8); }
+<a href='../S/186.html#L231'>v</a>                 231 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUByteBE(UByte v)       { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L232'>v</a>                 232 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSByteBE(SByte v)       { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L233'>v</a>                 233 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt8BE(UInt16 v)      { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L234'>v</a>                 234 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt8BE(SInt16 v)      { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L235'>v</a>                 235 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L236'>v</a>                 236 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L237'>v</a>                 237 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L238'>v</a>                 238 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L239'>v</a>                 239 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt64BE(UInt64 v)     { PWrite64((UInt64)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L240'>v</a>                 240 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt64BE(UInt64 v)     { PWrite64((UInt64)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L241'>v</a>                 241 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteFloatBE(float v)       { v = Alg::ByteUtil::SystemToBE(v); Write((UByte*)&amp;v, 4); }
+<a href='../S/186.html#L242'>v</a>                 242 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteDoubleBE(double v)     { v = Alg::ByteUtil::SystemToBE(v); Write((UByte*)&amp;v, 8); }
+<a href='../S/186.html#L255'>v</a>                 255 ovr/sdk/src/Kernel/OVR_File.h     inline float   ReadFloat()                 { float v = 0.0f; Read((UByte*)&amp;v, 4); return Alg::ByteUtil::LEToSystem(v); }
+<a href='../S/186.html#L256'>v</a>                 256 ovr/sdk/src/Kernel/OVR_File.h     inline double  ReadDouble()                { double v = 0.0; Read((UByte*)&amp;v, 8); return Alg::ByteUtil::LEToSystem(v); }
+<a href='../S/186.html#L268'>v</a>                 268 ovr/sdk/src/Kernel/OVR_File.h     inline float   ReadFloatBE()               { float v = 0.0f; Read((UByte*)&amp;v, 4); return Alg::ByteUtil::BEToSystem(v); }
+<a href='../S/186.html#L269'>v</a>                 269 ovr/sdk/src/Kernel/OVR_File.h     inline double  ReadDoubleBE()              { double v = 0.0; Read((UByte*)&amp;v, 8); return Alg::ByteUtil::BEToSystem(v); }
+<a href='../S/150.html#L200'>v</a>                 200 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetShiftPressed(bool v = true)  { (v) ? States |= Key_ShiftPressed : States &amp;= ~Key_ShiftPressed; }
+<a href='../S/150.html#L201'>v</a>                 201 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetCtrlPressed(bool v = true)   { (v) ? States |= Key_CtrlPressed  : States &amp;= ~Key_CtrlPressed; }
+<a href='../S/150.html#L202'>v</a>                 202 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetAltPressed(bool v = true)    { (v) ? States |= Key_AltPressed   : States &amp;= ~Key_AltPressed; }
+<a href='../S/150.html#L203'>v</a>                 203 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetMetaPressed(bool v = true)   { (v) ? States |= Key_MetaPressed  : States &amp;= ~Key_MetaPressed; }
+<a href='../S/150.html#L204'>v</a>                 204 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetCapsToggled(bool v = true)   { (v) ? States |= Key_CapsToggled  : States &amp;= ~Key_CapsToggled; }
+<a href='../S/150.html#L205'>v</a>                 205 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetNumToggled(bool v = true)    { (v) ? States |= Key_NumToggled   : States &amp;= ~Key_NumToggled; }
+<a href='../S/150.html#L206'>v</a>                 206 ovr/sdk/src/Kernel/OVR_KeyCodes.h     void SetScrollToggled(bool v = true) { (v) ? States |= Key_ScrollToggled: States &amp;= ~Key_ScrollToggled; }
+<a href='../S/177.html#L570'>v</a>                 570 ovr/sdk/src/Kernel/OVR_Math.h     Vector4f(const Vector3f&amp; v) : Vector3f(v), w(1) {}
+<a href='../S/177.html#L743'>v</a>                 743 ovr/sdk/src/Kernel/OVR_Math.h         T v[3];
+<a href='../S/177.html#L744'>v</a>                 744 ovr/sdk/src/Kernel/OVR_Math.h         v[0] = v[1] = v[2] = T(0);
+<a href='../S/177.html#L745'>v</a>                 745 ovr/sdk/src/Kernel/OVR_Math.h         v[A] = sinHalfAngle;
+<a href='../S/177.html#L748'>v</a>                 748 ovr/sdk/src/Kernel/OVR_Math.h         x = v[0];
+<a href='../S/177.html#L749'>v</a>                 749 ovr/sdk/src/Kernel/OVR_Math.h         y = v[1];
+<a href='../S/177.html#L750'>v</a>                 750 ovr/sdk/src/Kernel/OVR_Math.h         z = v[2];
+<a href='../S/177.html#L936'>v</a>                 936 ovr/sdk/src/Kernel/OVR_Math.h         Vector3&lt;T&gt; v;
+<a href='../S/177.html#L938'>v</a>                 938 ovr/sdk/src/Kernel/OVR_Math.h         GetAxisAngle(&amp;v, &amp;a);
+<a href='../S/177.html#L939'>v</a>                 939 ovr/sdk/src/Kernel/OVR_Math.h         return Quat(v, a * p);
+<a href='../S/177.html#L951'>v</a>                 951 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Rotate(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L953'>v</a>                 953 ovr/sdk/src/Kernel/OVR_Math.h         return ((*this * Quat&lt;T&gt;(v.x, v.y, v.z, T(0))) * Inverted()).Imag();
+<a href='../S/177.html#L1121'>v</a>                1121 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Rotate(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L1123'>v</a>                1123 ovr/sdk/src/Kernel/OVR_Math.h         return Rotation.Rotate(v);
+<a href='../S/177.html#L1126'>v</a>                1126 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Translate(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L1128'>v</a>                1128 ovr/sdk/src/Kernel/OVR_Math.h         return v + Translation;
+<a href='../S/177.html#L1131'>v</a>                1131 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Apply(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L1133'>v</a>                1133 ovr/sdk/src/Kernel/OVR_Math.h         return Translate(Rotate(v));
+<a href='../S/177.html#L1405'>v</a>                1405 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Transform(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L1407'>v</a>                1407 ovr/sdk/src/Kernel/OVR_Math.h         return Vector3&lt;T&gt;(M[0][0] * v.x + M[0][1] * v.y + M[0][2] * v.z + M[0][3],
+<a href='../S/177.html#L1408'>v</a>                1408 ovr/sdk/src/Kernel/OVR_Math.h                           M[1][0] * v.x + M[1][1] * v.y + M[1][2] * v.z + M[1][3],
+<a href='../S/177.html#L1409'>v</a>                1409 ovr/sdk/src/Kernel/OVR_Math.h                           M[2][0] * v.x + M[2][1] * v.y + M[2][2] * v.z + M[2][3]);
+<a href='../S/177.html#L1588'>v</a>                1588 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Translation(const Vector3&lt;T&gt;&amp; v)
+<a href='../S/177.html#L1591'>v</a>                1591 ovr/sdk/src/Kernel/OVR_Math.h         t.M[0][3] = v.x;
+<a href='../S/177.html#L1592'>v</a>                1592 ovr/sdk/src/Kernel/OVR_Math.h         t.M[1][3] = v.y;
+<a href='../S/177.html#L1593'>v</a>                1593 ovr/sdk/src/Kernel/OVR_Math.h         t.M[2][3] = v.z;
+<a href='../S/177.html#L1608'>v</a>                1608 ovr/sdk/src/Kernel/OVR_Math.h     void SetTranslation(const Vector3&lt;T&gt;&amp; v)
+<a href='../S/177.html#L1610'>v</a>                1610 ovr/sdk/src/Kernel/OVR_Math.h         M[0][3] = v.x;
+<a href='../S/177.html#L1611'>v</a>                1611 ovr/sdk/src/Kernel/OVR_Math.h         M[1][3] = v.y;
+<a href='../S/177.html#L1612'>v</a>                1612 ovr/sdk/src/Kernel/OVR_Math.h         M[2][3] = v.z;
+<a href='../S/177.html#L1621'>v</a>                1621 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Scaling(const Vector3&lt;T&gt;&amp; v)
+<a href='../S/177.html#L1624'>v</a>                1624 ovr/sdk/src/Kernel/OVR_Math.h         t.M[0][0] = v.x;
+<a href='../S/177.html#L1625'>v</a>                1625 ovr/sdk/src/Kernel/OVR_Math.h         t.M[1][1] = v.y;
+<a href='../S/177.html#L1626'>v</a>                1626 ovr/sdk/src/Kernel/OVR_Math.h         t.M[2][2] = v.z;
+<a href='../S/177.html#L2020'>v</a>                2020 ovr/sdk/src/Kernel/OVR_Math.h 		M[0][0] = b.v[0];
+<a href='../S/177.html#L2021'>v</a>                2021 ovr/sdk/src/Kernel/OVR_Math.h 		M[0][1] = b.v[1];
+<a href='../S/177.html#L2022'>v</a>                2022 ovr/sdk/src/Kernel/OVR_Math.h 		M[0][2] = b.v[2];
+<a href='../S/177.html#L2023'>v</a>                2023 ovr/sdk/src/Kernel/OVR_Math.h 		M[1][1] = b.v[3];
+<a href='../S/177.html#L2024'>v</a>                2024 ovr/sdk/src/Kernel/OVR_Math.h 		M[1][2] = b.v[4];
+<a href='../S/177.html#L2025'>v</a>                2025 ovr/sdk/src/Kernel/OVR_Math.h 		M[2][2] = b.v[5];
+<a href='../S/177.html#L2111'>v</a>                2111 ovr/sdk/src/Kernel/OVR_Math.h 	Vector3&lt;T&gt; Transform(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L2113'>v</a>                2113 ovr/sdk/src/Kernel/OVR_Math.h 		return Vector3&lt;T&gt;(M[0][0] * v.x + M[0][1] * v.y + M[0][2] * v.z,
+<a href='../S/177.html#L2114'>v</a>                2114 ovr/sdk/src/Kernel/OVR_Math.h 						  M[1][0] * v.x + M[1][1] * v.y + M[1][2] * v.z,
+<a href='../S/177.html#L2115'>v</a>                2115 ovr/sdk/src/Kernel/OVR_Math.h 						  M[2][0] * v.x + M[2][1] * v.y + M[2][2] * v.z);
+<a href='../S/177.html#L2216'>v</a>                2216 ovr/sdk/src/Kernel/OVR_Math.h 	T v[6]; // _00 _01 _02 _11 _12 _22
+<a href='../S/177.html#L2222'>v</a>                2222 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] = v[3] = v[5] = s;
+<a href='../S/177.html#L2223'>v</a>                2223 ovr/sdk/src/Kernel/OVR_Math.h 		v[1] = v[2] = v[4] = 0;
+<a href='../S/177.html#L2228'>v</a>                2228 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] = a00; v[1] = a01; v[2] = a02;
+<a href='../S/177.html#L2229'>v</a>                2229 ovr/sdk/src/Kernel/OVR_Math.h 		v[3] = a11; v[4] = a12;
+<a href='../S/177.html#L2230'>v</a>                2230 ovr/sdk/src/Kernel/OVR_Math.h 		v[5] = a22;
+<a href='../S/177.html#L2238'>v</a>                2238 ovr/sdk/src/Kernel/OVR_Math.h 	inline T operator()(int i, int j) const { return v[Index(i,j)]; }
+<a href='../S/177.html#L2240'>v</a>                2240 ovr/sdk/src/Kernel/OVR_Math.h 	inline T &amp;operator()(int i, int j) { return v[Index(i,j)]; }
+<a href='../S/177.html#L2245'>v</a>                2245 ovr/sdk/src/Kernel/OVR_Math.h 		return SymMat3&lt;U&gt;(static_cast&lt;U&gt;(v[0]), static_cast&lt;U&gt;(v[1]), static_cast&lt;U&gt;(v[2]),
+<a href='../S/177.html#L2246'>v</a>                2246 ovr/sdk/src/Kernel/OVR_Math.h 						  static_cast&lt;U&gt;(v[3]), static_cast&lt;U&gt;(v[4]), static_cast&lt;U&gt;(v[5]));
+<a href='../S/177.html#L2251'>v</a>                2251 ovr/sdk/src/Kernel/OVR_Math.h 		v[0]+=b.v[0];
+<a href='../S/177.html#L2252'>v</a>                2252 ovr/sdk/src/Kernel/OVR_Math.h 		v[1]+=b.v[1];
+<a href='../S/177.html#L2253'>v</a>                2253 ovr/sdk/src/Kernel/OVR_Math.h 		v[2]+=b.v[2];
+<a href='../S/177.html#L2254'>v</a>                2254 ovr/sdk/src/Kernel/OVR_Math.h 		v[3]+=b.v[3];
+<a href='../S/177.html#L2255'>v</a>                2255 ovr/sdk/src/Kernel/OVR_Math.h 		v[4]+=b.v[4];
+<a href='../S/177.html#L2256'>v</a>                2256 ovr/sdk/src/Kernel/OVR_Math.h 		v[5]+=b.v[5];
+<a href='../S/177.html#L2262'>v</a>                2262 ovr/sdk/src/Kernel/OVR_Math.h 		v[0]-=b.v[0];
+<a href='../S/177.html#L2263'>v</a>                2263 ovr/sdk/src/Kernel/OVR_Math.h 		v[1]-=b.v[1];
+<a href='../S/177.html#L2264'>v</a>                2264 ovr/sdk/src/Kernel/OVR_Math.h 		v[2]-=b.v[2];
+<a href='../S/177.html#L2265'>v</a>                2265 ovr/sdk/src/Kernel/OVR_Math.h 		v[3]-=b.v[3];
+<a href='../S/177.html#L2266'>v</a>                2266 ovr/sdk/src/Kernel/OVR_Math.h 		v[4]-=b.v[4];
+<a href='../S/177.html#L2267'>v</a>                2267 ovr/sdk/src/Kernel/OVR_Math.h 		v[5]-=b.v[5];
+<a href='../S/177.html#L2274'>v</a>                2274 ovr/sdk/src/Kernel/OVR_Math.h 		v[0]*=s;
+<a href='../S/177.html#L2275'>v</a>                2275 ovr/sdk/src/Kernel/OVR_Math.h 		v[1]*=s;
+<a href='../S/177.html#L2276'>v</a>                2276 ovr/sdk/src/Kernel/OVR_Math.h 		v[2]*=s;
+<a href='../S/177.html#L2277'>v</a>                2277 ovr/sdk/src/Kernel/OVR_Math.h 		v[3]*=s;
+<a href='../S/177.html#L2278'>v</a>                2278 ovr/sdk/src/Kernel/OVR_Math.h 		v[4]*=s;
+<a href='../S/177.html#L2279'>v</a>                2279 ovr/sdk/src/Kernel/OVR_Math.h 		v[5]*=s;
+<a href='../S/177.html#L2287'>v</a>                2287 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[0] = v[0]*s; 
+<a href='../S/177.html#L2288'>v</a>                2288 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[1] = v[1]*s; 
+<a href='../S/177.html#L2289'>v</a>                2289 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[2] = v[2]*s; 
+<a href='../S/177.html#L2290'>v</a>                2290 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[3] = v[3]*s; 
+<a href='../S/177.html#L2291'>v</a>                2291 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[4] = v[4]*s; 
+<a href='../S/177.html#L2292'>v</a>                2292 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[5] = v[5]*s; 
+<a href='../S/177.html#L2302'>v</a>                2302 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[0] = a.v[0] * b.v[0];
+<a href='../S/177.html#L2303'>v</a>                2303 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[1] = a.v[0] * b.v[1] + a.v[1] * b.v[3];
+<a href='../S/177.html#L2304'>v</a>                2304 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[2] = a.v[0] * b.v[2] + a.v[1] * b.v[4];
+<a href='../S/177.html#L2306'>v</a>                2306 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[3] = a.v[3] * b.v[3];
+<a href='../S/177.html#L2307'>v</a>                2307 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[4] = a.v[3] * b.v[4] + a.v[4] * b.v[5];
+<a href='../S/177.html#L2309'>v</a>                2309 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[5] = a.v[5] * b.v[5];
+<a href='../S/177.html#L2347'>v</a>                2347 ovr/sdk/src/Kernel/OVR_Math.h 	inline T Trace() const { return v[0] + v[3] + v[5]; }
+<a href='../S/177.html#L2352'>v</a>                2352 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] = a.x*a.x; v[1] = a.x*a.y; v[2] = a.x*a.z;
+<a href='../S/177.html#L2353'>v</a>                2353 ovr/sdk/src/Kernel/OVR_Math.h 		v[3] = a.y*a.y; v[4] = a.y*a.z;
+<a href='../S/177.html#L2354'>v</a>                2354 ovr/sdk/src/Kernel/OVR_Math.h 		v[5] = a.z*a.z;
+<a href='../S/177.html#L2360'>v</a>                2360 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] += a.x*a.x; v[1] += a.x*a.y; v[2] += a.x*a.z;
+<a href='../S/177.html#L2361'>v</a>                2361 ovr/sdk/src/Kernel/OVR_Math.h 		v[3] += a.y*a.y; v[4] += a.y*a.z;
+<a href='../S/177.html#L2362'>v</a>                2362 ovr/sdk/src/Kernel/OVR_Math.h 		v[5] += a.z*a.z;
+<a href='../S/177.html#L2368'>v</a>                2368 ovr/sdk/src/Kernel/OVR_Math.h 		v[0] -= a.x*a.x; v[1] -= a.x*a.y; v[2] -= a.x*a.z;
+<a href='../S/177.html#L2369'>v</a>                2369 ovr/sdk/src/Kernel/OVR_Math.h 		v[3] -= a.y*a.y; v[4] -= a.y*a.z;
+<a href='../S/177.html#L2370'>v</a>                2370 ovr/sdk/src/Kernel/OVR_Math.h 		v[5] -= a.z*a.z;
+<a href='../S/166.html#L364'>v</a>                 364 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr(Pickable&lt;C&gt; v) : pObject(v.GetPtr())
+<a href='../S/166.html#L391'>v</a>                 391 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr(Pickable&lt;R&gt; v) : pObject(v.GetPtr())
+<a href='../S/166.html#L527'>v</a>                 527 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; Pick(Pickable&lt;C&gt; v)
+<a href='../S/166.html#L529'>v</a>                 529 ovr/sdk/src/Kernel/OVR_RefCount.h         if (v.GetPtr() != pObject)
+<a href='../S/166.html#L532'>v</a>                 532 ovr/sdk/src/Kernel/OVR_RefCount.h             pObject = v.GetPtr();
+<a href='../S/166.html#L539'>v</a>                 539 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; Pick(Pickable&lt;R&gt; v)
+<a href='../S/166.html#L541'>v</a>                 541 ovr/sdk/src/Kernel/OVR_RefCount.h         if (v.GetPtr() != pObject)
+<a href='../S/166.html#L544'>v</a>                 544 ovr/sdk/src/Kernel/OVR_RefCount.h             pObject = v.GetPtr();
+<a href='../S/161.html#L530'>v</a>                 530 ovr/sdk/src/Kernel/OVR_String.h     StringDataPtr(const T (&amp;v)[N])
+<a href='../S/161.html#L531'>v</a>                 531 ovr/sdk/src/Kernel/OVR_String.h         : pStr(v), Size(N) {}
+<a href='../S/84.html#L208'>v</a>                 208 ovr/sdk/src/OVR_JSON.cpp         unsigned v = *str;
+<a href='../S/84.html#L210'>v</a>                 210 ovr/sdk/src/OVR_JSON.cpp         if ((v &gt;= '0') &amp;&amp; (v &lt;= '9'))
+<a href='../S/84.html#L211'>v</a>                 211 ovr/sdk/src/OVR_JSON.cpp             v -= '0';
+<a href='../S/84.html#L212'>v</a>                 212 ovr/sdk/src/OVR_JSON.cpp         else if ((v &gt;= 'a') &amp;&amp; (v &lt;= 'f'))
+<a href='../S/84.html#L213'>v</a>                 213 ovr/sdk/src/OVR_JSON.cpp             v = 10 + v - 'a';
+<a href='../S/84.html#L214'>v</a>                 214 ovr/sdk/src/OVR_JSON.cpp         else if ((v &gt;= 'A') &amp;&amp; (v &lt;= 'F'))
+<a href='../S/84.html#L215'>v</a>                 215 ovr/sdk/src/OVR_JSON.cpp             v = 10 + v - 'A';
+<a href='../S/84.html#L219'>v</a>                 219 ovr/sdk/src/OVR_JSON.cpp         *val = *val * 16 + v;
+<a href='../S/197.html#L413'>v</a>                 413 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( int v, char* buffer, int bufferSize )
+<a href='../S/197.html#L415'>v</a>                 415 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%d", v );
+<a href='../S/197.html#L419'>v</a>                 419 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( unsigned v, char* buffer, int bufferSize )
+<a href='../S/197.html#L421'>v</a>                 421 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%u", v );
+<a href='../S/197.html#L425'>v</a>                 425 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( bool v, char* buffer, int bufferSize )
+<a href='../S/197.html#L427'>v</a>                 427 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%d", v ? 1 : 0 );
+<a href='../S/197.html#L431'>v</a>                 431 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( float v, char* buffer, int bufferSize )
+<a href='../S/197.html#L433'>v</a>                 433 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%g", v );
+<a href='../S/197.html#L437'>v</a>                 437 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( double v, char* buffer, int bufferSize )
+<a href='../S/197.html#L439'>v</a>                 439 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%g", v );
+<a href='../S/197.html#L1126'>v</a>                1126 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( const char* v )
+<a href='../S/197.html#L1128'>v</a>                1128 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _value.SetStr( v );
+<a href='../S/197.html#L1132'>v</a>                1132 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( int v )
+<a href='../S/197.html#L1135'>v</a>                1135 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1140'>v</a>                1140 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( unsigned v )
+<a href='../S/197.html#L1143'>v</a>                1143 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1148'>v</a>                1148 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( bool v )
+<a href='../S/197.html#L1151'>v</a>                1151 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1155'>v</a>                1155 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( double v )
+<a href='../S/197.html#L1158'>v</a>                1158 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1162'>v</a>                1162 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLAttribute::SetAttribute( float v )
+<a href='../S/197.html#L1165'>v</a>                1165 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1882'>v</a>                1882 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, int v )
+<a href='../S/197.html#L1885'>v</a>                1885 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1890'>v</a>                1890 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, unsigned v )
+<a href='../S/197.html#L1893'>v</a>                1893 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1898'>v</a>                1898 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, bool v )
+<a href='../S/197.html#L1901'>v</a>                1901 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1906'>v</a>                1906 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, double v )
+<a href='../S/197.html#L1909'>v</a>                1909 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/196.html#L500'>v</a>                 500 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( int v, char* buffer, int bufferSize );
+<a href='../S/196.html#L501'>v</a>                 501 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( unsigned v, char* buffer, int bufferSize );
+<a href='../S/196.html#L502'>v</a>                 502 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( bool v, char* buffer, int bufferSize );
+<a href='../S/196.html#L503'>v</a>                 503 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( float v, char* buffer, int bufferSize );
+<a href='../S/196.html#L504'>v</a>                 504 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( double v, char* buffer, int bufferSize );
+</pre>
+</body>
+</html>

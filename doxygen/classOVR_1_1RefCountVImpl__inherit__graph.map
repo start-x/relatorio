@@ -1,0 +1,7 @@
+<map id="OVR::RefCountVImpl" name="OVR::RefCountVImpl">
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatVImpl.html" title="{OVR::RefCountBaseStatVImpl\l\&lt; RefCountVImpl \&gt;\n||+ RefCountBaseStatVImpl()\l}" alt="" coords="96,337,299,429"/>
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="113,5,281,141"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountBaseV.html" title="{OVR::RefCountBaseV\&lt; C \&gt;\n||+ RefCountBaseV()\l}" alt="" coords="5,480,192,557"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountBaseV.html" title="{OVR::RefCountBaseV\l\&lt; Frame \&gt;\n||+ RefCountBaseV()\l}" alt="" coords="99,622,252,714"/>
+<area shape="rect" id="node6" href="$classOVR_1_1Util_1_1Frame.html" title="{OVR::Util::Frame\n|+ frameNumber\l+ plots\l+ textLines\l+ imageData\l+ colorImageData\l+ width\l+ height\l+ colorPitch\l+ ready\l|+ Frame()\l+ ~Frame()\l}" alt="" coords="113,766,239,975"/>
+</map>

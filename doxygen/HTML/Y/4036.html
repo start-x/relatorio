@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>perror</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/84.html#L112'>perror</a>            112 ovr/sdk/src/OVR_JSON.cpp const char* AssignError(const char** perror, const char *errorMessage)
+<a href='../S/84.html#L114'>perror</a>            114 ovr/sdk/src/OVR_JSON.cpp     if (perror)
+<a href='../S/84.html#L115'>perror</a>            115 ovr/sdk/src/OVR_JSON.cpp         *perror = errorMessage;
+<a href='../S/84.html#L228'>perror</a>            228 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseString(const char* str, const char** perror)
+<a href='../S/84.html#L239'>perror</a>            239 ovr/sdk/src/OVR_JSON.cpp         return AssignError(perror, "Syntax Error: Missing quote");
+<a href='../S/84.html#L413'>perror</a>            413 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::Parse(const char* buff, const char** perror)
+<a href='../S/84.html#L420'>perror</a>            420 ovr/sdk/src/OVR_JSON.cpp         AssignError(perror, "Error: Failed to allocate memory");
+<a href='../S/84.html#L424'>perror</a>            424 ovr/sdk/src/OVR_JSON.cpp 	end = json-&gt;parseValue(skip(buff), perror);
+<a href='../S/84.html#L436'>perror</a>            436 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::ParseBuffer(const char *buff, int len, const char** perror)
+<a href='../S/84.html#L444'>perror</a>            444 ovr/sdk/src/OVR_JSON.cpp 	JSON *objJson = Parse(termStr, perror);
+<a href='../S/84.html#L453'>perror</a>            453 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseValue(const char* buff, const char** perror)
+<a href='../S/84.html#L455'>perror</a>            455 ovr/sdk/src/OVR_JSON.cpp     if (perror)
+<a href='../S/84.html#L456'>perror</a>            456 ovr/sdk/src/OVR_JSON.cpp         *perror = 0;
+<a href='../S/84.html#L482'>perror</a>            482 ovr/sdk/src/OVR_JSON.cpp         return parseString(buff, perror);
+<a href='../S/84.html#L490'>perror</a>            490 ovr/sdk/src/OVR_JSON.cpp         return parseArray(buff, perror);
+<a href='../S/84.html#L494'>perror</a>            494 ovr/sdk/src/OVR_JSON.cpp         return parseObject(buff, perror);
+<a href='../S/84.html#L497'>perror</a>            497 ovr/sdk/src/OVR_JSON.cpp     return AssignError(perror, "Syntax Error: Invalid syntax");
+<a href='../S/84.html#L528'>perror</a>            528 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseArray(const char* buff, const char** perror)
+<a href='../S/84.html#L533'>perror</a>            533 ovr/sdk/src/OVR_JSON.cpp         return AssignError(perror, "Syntax Error: Missing opening bracket");
+<a href='../S/84.html#L547'>perror</a>            547 ovr/sdk/src/OVR_JSON.cpp     buff=skip(child-&gt;parseValue(skip(buff), perror));	// skip any spacing, get the buff. 
+<a href='../S/84.html#L555'>perror</a>            555 ovr/sdk/src/OVR_JSON.cpp             return AssignError(perror, "Error: Failed to allocate memory");
+<a href='../S/84.html#L559'>perror</a>            559 ovr/sdk/src/OVR_JSON.cpp 		buff=skip(new_item-&gt;parseValue(skip(buff+1), perror));
+<a href='../S/84.html#L561'>perror</a>            561 ovr/sdk/src/OVR_JSON.cpp             return AssignError(perror, "Error: Failed to allocate memory");
+<a href='../S/84.html#L567'>perror</a>            567 ovr/sdk/src/OVR_JSON.cpp     return AssignError(perror, "Syntax Error: Missing ending bracket");
+<a href='../S/84.html#L657'>perror</a>            657 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseObject(const char* buff, const char** perror)
+<a href='../S/84.html#L661'>perror</a>            661 ovr/sdk/src/OVR_JSON.cpp         return AssignError(perror, "Syntax Error: Missing opening brace");
+<a href='../S/84.html#L672'>perror</a>            672 ovr/sdk/src/OVR_JSON.cpp 	buff=skip(child-&gt;parseString(skip(buff), perror));
+<a href='../S/84.html#L680'>perror</a>            680 ovr/sdk/src/OVR_JSON.cpp         return AssignError(perror, "Syntax Error: Missing colon");
+<a href='../S/84.html#L683'>perror</a>            683 ovr/sdk/src/OVR_JSON.cpp 	buff=skip(child-&gt;parseValue(skip(buff+1), perror));	// skip any spacing, get the value.
+<a href='../S/84.html#L695'>perror</a>            695 ovr/sdk/src/OVR_JSON.cpp 		buff=skip(child-&gt;parseString(skip(buff+1), perror));
+<a href='../S/84.html#L704'>perror</a>            704 ovr/sdk/src/OVR_JSON.cpp             return AssignError(perror, "Syntax Error: Missing colon");
+<a href='../S/84.html#L708'>perror</a>            708 ovr/sdk/src/OVR_JSON.cpp         buff=skip(child-&gt;parseValue(skip(buff+1), perror));
+<a href='../S/84.html#L716'>perror</a>            716 ovr/sdk/src/OVR_JSON.cpp     return AssignError(perror, "Syntax Error: Missing closing brace");
+<a href='../S/84.html#L1132'>perror</a>           1132 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::Load(const char* path, const char** perror)
+<a href='../S/84.html#L1137'>perror</a>           1137 ovr/sdk/src/OVR_JSON.cpp         AssignError(perror, "Failed to open file");
+<a href='../S/84.html#L1155'>perror</a>           1155 ovr/sdk/src/OVR_JSON.cpp     JSON* json = JSON::Parse((char*)buff, perror);
+<a href='../S/78.html#L83'>perror</a>             83 ovr/sdk/src/OVR_JSON.h     static JSON*    Parse(const char* buff, const char** perror = 0);
+<a href='../S/78.html#L86'>perror</a>             86 ovr/sdk/src/OVR_JSON.h 	static JSON*	ParseBuffer(const char *buff, int len, const char** perror = 0);
+<a href='../S/78.html#L90'>perror</a>             90 ovr/sdk/src/OVR_JSON.h     static JSON*    Load(const char* path, const char** perror = 0);
+<a href='../S/78.html#L150'>perror</a>            150 ovr/sdk/src/OVR_JSON.h     const char*     parseValue(const char *buff, const char** perror);
+<a href='../S/78.html#L152'>perror</a>            152 ovr/sdk/src/OVR_JSON.h     const char*     parseArray(const char* value, const char** perror);
+<a href='../S/78.html#L153'>perror</a>            153 ovr/sdk/src/OVR_JSON.h     const char*     parseObject(const char* value, const char** perror);
+<a href='../S/78.html#L154'>perror</a>            154 ovr/sdk/src/OVR_JSON.h     const char*     parseString(const char* str, const char** perror);
+</pre>
+</body>
+</html>

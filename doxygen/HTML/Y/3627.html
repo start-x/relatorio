@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>magRefInWorldFrame</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L556'>magRefInWorldFrame</a>  556 ovr/sdk/src/OVR_SensorFusion.cpp         Vector3d magRefInWorldFrame = MagRefs[MagRefIdx].WorldFromImu.Rotate(MagRefs[MagRefIdx].InImuFrame);
+<a href='../S/189.html#L557'>magRefInWorldFrame</a>  557 ovr/sdk/src/OVR_SensorFusion.cpp         magRefInWorldFrame.Normalize();
+<a href='../S/189.html#L560'>magRefInWorldFrame</a>  560 ovr/sdk/src/OVR_SensorFusion.cpp         if (Alg::Abs(magRefInWorldFrame.y - magInWorldFrame.y) &gt; maxTiltError)
+<a href='../S/189.html#L573'>magRefInWorldFrame</a>  573 ovr/sdk/src/OVR_SensorFusion.cpp         magInWorldFrame.y = magRefInWorldFrame.y = 0;
+<a href='../S/189.html#L574'>magRefInWorldFrame</a>  574 ovr/sdk/src/OVR_SensorFusion.cpp         Quatd yawError = vectorAlignmentRotation(magInWorldFrame, magRefInWorldFrame);
+</pre>
+</body>
+</html>

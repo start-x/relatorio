@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>PWrite16</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/186.html#L212'>PWrite16</a>          212 ovr/sdk/src/Kernel/OVR_File.h     void    PWrite16(UInt16 v)  { Write((UByte*)&amp;v, 2); }
+<a href='../S/186.html#L222'>PWrite16</a>          222 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt16(UInt16 v)       { PWrite16((UInt16)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L223'>PWrite16</a>          223 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16(SInt16 v)       { PWrite16((UInt16)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L235'>PWrite16</a>          235 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L236'>PWrite16</a>          236 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+</pre>
+</body>
+</html>

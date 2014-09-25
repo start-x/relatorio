@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>zNear</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L1544'>zNear</a>            1544 ovr/sdk/src/OVR_Stereo.cpp                            float zNear /*= 0.01f*/, float zFar /*= 10000.0f*/ )
+<a href='../S/88.html#L1575'>zNear</a>            1575 ovr/sdk/src/OVR_Stereo.cpp     projection.M[2][2] = -handednessScale * zFar / (zNear - zFar);
+<a href='../S/88.html#L1576'>zNear</a>            1576 ovr/sdk/src/OVR_Stereo.cpp     projection.M[2][3] = (zFar * zNear) / (zNear - zFar);
+<a href='../S/88.html#L1593'>zNear</a>            1593 ovr/sdk/src/OVR_Stereo.cpp                                     float zNear /*= 0.0f*/, float zFar /*= 0.0f*/ )
+<a href='../S/88.html#L1643'>zNear</a>            1643 ovr/sdk/src/OVR_Stereo.cpp     if ( fabsf ( zNear - zFar ) &lt; 0.001f )
+<a href='../S/88.html#L1654'>zNear</a>            1654 ovr/sdk/src/OVR_Stereo.cpp         ortho.M[2][2] = zFar / (zNear - zFar);
+<a href='../S/88.html#L1655'>zNear</a>            1655 ovr/sdk/src/OVR_Stereo.cpp         ortho.M[2][3] = (zFar * zNear) / (zNear - zFar);
+<a href='../S/131.html#L389'>zNear</a>             389 ovr/sdk/src/OVR_Stereo.h                                        float zNear = 0.01f, float zFar = 10000.0f );
+<a href='../S/131.html#L395'>zNear</a>             395 ovr/sdk/src/OVR_Stereo.h                                                float zNear = 0.0f, float zFar = 0.0f );
+<a href='../S/117.html#L182'>zNear</a>             182 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                                           bool bRightHanded = true, float zNear = 0.01f, float zFar = 10000.0f,
+<a href='../S/117.html#L194'>zNear</a>             194 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f projection = CreateProjection ( bRightHanded, zoomedFov, zNear, zFar );
+<a href='../S/117.html#L282'>zNear</a>             282 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                            float zNear /*= 0.01f*/, float zFar /*= 10000.0f*/,
+<a href='../S/117.html#L311'>zNear</a>             311 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                 bRightHanded, zNear, zFar, false, zoomFactor );
+<a href='../S/117.html#L507'>zNear</a>             507 ovr/sdk/src/Util/Util_Render_Stereo.cpp void StereoConfig::SetZClipPlanesAndHandedness ( float zNear /*= 0.01f*/, float zFar /*= 10000.0f*/, bool rightHandedProjection /*= true*/ )
+<a href='../S/117.html#L510'>zNear</a>             510 ovr/sdk/src/Util/Util_Render_Stereo.cpp     ZNear = zNear;
+<a href='../S/115.html#L67'>zNear</a>              67 ovr/sdk/src/Util/Util_Render_Stereo.h                                            float zNear = 0.01f, float zFar = 10000.0f,
+<a href='../S/115.html#L225'>zNear</a>             225 ovr/sdk/src/Util/Util_Render_Stereo.h     void        SetZClipPlanesAndHandedness ( float zNear = 0.01f, float zFar = 10000.0f,
+</pre>
+</body>
+</html>

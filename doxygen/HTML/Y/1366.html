@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Matrix3</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L126'>Matrix3</a>           126 ovr/sdk/src/Kernel/OVR_Math.h template&lt;class T&gt; class Matrix3;
+<a href='../S/177.html#L143'>Matrix3</a>           143 ovr/sdk/src/Kernel/OVR_Math.h template&lt;&gt; struct CompatibleTypes&lt;Matrix3&lt;double&gt; &gt; { typedef ovrMatrix3d Type; };
+<a href='../S/177.html#L815'>Matrix3</a>           815 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Quat(const Matrix3&lt;T&gt;&amp; m)
+<a href='../S/177.html#L1861'>Matrix3</a>          1861 ovr/sdk/src/Kernel/OVR_Math.h class Matrix3
+<a href='../S/177.html#L1863'>Matrix3</a>          1863 ovr/sdk/src/Kernel/OVR_Math.h 	static const Matrix3 IdentityValue;
+<a href='../S/177.html#L1871'>Matrix3</a>          1871 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3(NoInitType) { }
+<a href='../S/177.html#L1874'>Matrix3</a>          1874 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3()
+<a href='../S/177.html#L1879'>Matrix3</a>          1879 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3(T m11, T m12, T m13,
+<a href='../S/177.html#L1902'>Matrix3</a>          1902 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Quat&lt;T&gt;&amp; q)
+<a href='../S/177.html#L1913'>Matrix3</a>          1913 ovr/sdk/src/Kernel/OVR_Math.h 	inline explicit Matrix3(T s)
+<a href='../S/177.html#L1919'>Matrix3</a>          1919 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Transform&lt;T&gt;&amp; p)
+<a href='../S/177.html#L1921'>Matrix3</a>          1921 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(p.Rotation);
+<a href='../S/177.html#L1927'>Matrix3</a>          1927 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Matrix4&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L1935'>Matrix3</a>          1935 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3(const typename CompatibleTypes&lt;Matrix3&lt;T&gt; &gt;::Type&amp; s) 
+<a href='../S/177.html#L1937'>Matrix3</a>          1937 ovr/sdk/src/Kernel/OVR_Math.h 		OVR_COMPILER_ASSERT(sizeof(s) == sizeof(Matrix3));
+<a href='../S/177.html#L1941'>Matrix3</a>          1941 ovr/sdk/src/Kernel/OVR_Math.h 	operator typename CompatibleTypes&lt;Matrix3&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L1943'>Matrix3</a>          1943 ovr/sdk/src/Kernel/OVR_Math.h 		typename CompatibleTypes&lt;Matrix3&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L1944'>Matrix3</a>          1944 ovr/sdk/src/Kernel/OVR_Math.h 		OVR_COMPILER_ASSERT(sizeof(result) == sizeof(Matrix3));
+<a href='../S/177.html#L1957'>Matrix3</a>          1957 ovr/sdk/src/Kernel/OVR_Math.h 	static Matrix3 FromString(const char* src)
+<a href='../S/177.html#L1959'>Matrix3</a>          1959 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result;
+<a href='../S/177.html#L1972'>Matrix3</a>          1972 ovr/sdk/src/Kernel/OVR_Math.h 	static const Matrix3&amp; Identity()  { return IdentityValue; }
+<a href='../S/177.html#L1981'>Matrix3</a>          1981 ovr/sdk/src/Kernel/OVR_Math.h 	bool operator== (const Matrix3&amp; b) const
+<a href='../S/177.html#L1991'>Matrix3</a>          1991 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator+ (const Matrix3&amp; b) const
+<a href='../S/177.html#L1998'>Matrix3</a>          1998 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator+= (const Matrix3&amp; b)
+<a href='../S/177.html#L2006'>Matrix3</a>          2006 ovr/sdk/src/Kernel/OVR_Math.h 	void operator= (const Matrix3&amp; b)
+<a href='../S/177.html#L2030'>Matrix3</a>          2030 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator- (const Matrix3&amp; b) const
+<a href='../S/177.html#L2032'>Matrix3</a>          2032 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(*this);
+<a href='../S/177.html#L2037'>Matrix3</a>          2037 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator-= (const Matrix3&amp; b)
+<a href='../S/177.html#L2046'>Matrix3</a>          2046 ovr/sdk/src/Kernel/OVR_Math.h 	static Matrix3&amp; Multiply(Matrix3* d, const Matrix3&amp; a, const Matrix3&amp; b)
+<a href='../S/177.html#L2059'>Matrix3</a>          2059 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator* (const Matrix3&amp; b) const
+<a href='../S/177.html#L2061'>Matrix3</a>          2061 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(Matrix3::NoInit);
+<a href='../S/177.html#L2066'>Matrix3</a>          2066 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator*= (const Matrix3&amp; b)
+<a href='../S/177.html#L2068'>Matrix3</a>          2068 ovr/sdk/src/Kernel/OVR_Math.h 		return Multiply(this, Matrix3(*this), b);
+<a href='../S/177.html#L2071'>Matrix3</a>          2071 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator* (T s) const
+<a href='../S/177.html#L2073'>Matrix3</a>          2073 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(*this);
+<a href='../S/177.html#L2078'>Matrix3</a>          2078 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator*= (T s)
+<a href='../S/177.html#L2096'>Matrix3</a>          2096 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator/ (T s) const
+<a href='../S/177.html#L2098'>Matrix3</a>          2098 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix3 result(*this);
+<a href='../S/177.html#L2103'>Matrix3</a>          2103 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator/= (T s)
+<a href='../S/177.html#L2118'>Matrix3</a>          2118 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 Transposed() const
+<a href='../S/177.html#L2120'>Matrix3</a>          2120 ovr/sdk/src/Kernel/OVR_Math.h 		return Matrix3(M[0][0], M[1][0], M[2][0],
+<a href='../S/177.html#L2166'>Matrix3</a>          2166 ovr/sdk/src/Kernel/OVR_Math.h 		const Matrix3&lt;T&gt;&amp; m = *this;
+<a href='../S/177.html#L2176'>Matrix3</a>          2176 ovr/sdk/src/Kernel/OVR_Math.h 	inline Matrix3&lt;T&gt; Inverse() const
+<a href='../S/177.html#L2178'>Matrix3</a>          2178 ovr/sdk/src/Kernel/OVR_Math.h         Matrix3&lt;T&gt; a;
+<a href='../S/177.html#L2179'>Matrix3</a>          2179 ovr/sdk/src/Kernel/OVR_Math.h         const  Matrix3&lt;T&gt;&amp; m = *this;
+<a href='../S/177.html#L2202'>Matrix3</a>          2202 ovr/sdk/src/Kernel/OVR_Math.h typedef Matrix3&lt;float&gt;  Matrix3f;
+<a href='../S/177.html#L2203'>Matrix3</a>          2203 ovr/sdk/src/Kernel/OVR_Math.h typedef Matrix3&lt;double&gt; Matrix3d;
+<a href='../S/177.html#L2378'>Matrix3</a>          2378 ovr/sdk/src/Kernel/OVR_Math.h inline Matrix3&lt;T&gt; operator*(const SymMat3&lt;T&gt;&amp; a, const SymMat3&lt;T&gt;&amp; b)
+<a href='../S/177.html#L2381'>Matrix3</a>          2381 ovr/sdk/src/Kernel/OVR_Math.h     return Matrix3&lt;T&gt;(
+<a href='../S/177.html#L2389'>Matrix3</a>          2389 ovr/sdk/src/Kernel/OVR_Math.h inline Matrix3&lt;T&gt; operator*(const Matrix3&lt;T&gt;&amp; a, const SymMat3&lt;T&gt;&amp; b)
+<a href='../S/177.html#L2392'>Matrix3</a>          2392 ovr/sdk/src/Kernel/OVR_Math.h 	return Matrix3&lt;T&gt;(
+<a href='../S/143.html#L65'>Matrix3</a>            65 ovr/sdk/src/OVR_SensorFilter.cpp Matrix3&lt;T&gt; SensorFilter&lt;T&gt;::Covariance() const
+<a href='../S/143.html#L68'>Matrix3</a>            68 ovr/sdk/src/OVR_SensorFilter.cpp     Matrix3&lt;T&gt; total;
+<a href='../S/143.html#L90'>Matrix3</a>            90 ovr/sdk/src/OVR_SensorFilter.cpp     Matrix3&lt;T&gt; cov = this-&gt;Covariance();
+<a href='../S/119.html#L217'>Matrix3</a>           217 ovr/sdk/src/OVR_SensorFilter.h     Matrix3&lt;T&gt; Covariance() const;
+</pre>
+</body>
+</html>

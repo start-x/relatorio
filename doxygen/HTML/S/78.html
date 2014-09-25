@@ -1,0 +1,183 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_JSON.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_JSON.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/101.html' title='Multiple included from 4 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   None</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_JSON.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   JSON format reader and writer</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   April 9, 2013</font></i>
+<a name='L7'>   7 <i><font color='green'>Author      :   Brant Lewis</font></i>
+<a name='L8'>   8 <i><font color='green'>Notes       :</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L11'>  11 <i><font color='green'></font></i>
+<a name='L12'>  12 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L13'>  13 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L14'>  14 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L15'>  15 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L20'>  20 <i><font color='green'></font></i>
+<a name='L21'>  21 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L22'>  22 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L23'>  23 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L24'>  24 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L25'>  25 <i><font color='green'>limitations under the License.</font></i>
+<a name='L26'>  26 <i><font color='green'></font></i>
+<a name='L27'>  27 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L28'>  28 
+<a name='L29'>  29 <font color='darkred'>#ifndef</font> <a href='../S/78.html#L30' title='Defined at 30 in ovr/sdk/src/OVR_JSON.h.'>OVR_JSON_H</a>
+<a name='L30'>  30 <font color='darkred'>#define</font> <a href='../S/78.html#L29' title='Refered from 29 in ovr/sdk/src/OVR_JSON.h.'>OVR_JSON_H</a>
+<a name='L31'>  31 
+<a name='L32'>  32 <font color='darkred'>#include</font> "<a href='166.html'>Kernel/OVR_RefCount.h</a>"
+<a name='L33'>  33 <font color='darkred'>#include</font> "<a href='161.html'>Kernel/OVR_String.h</a>"
+<a name='L34'>  34 <font color='darkred'>#include</font> "<a href='180.html'>Kernel/OVR_List.h</a>"
+<a name='L35'>  35 
+<a name='L36'>  36 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>  
+<a name='L37'>  37 
+<a name='L38'>  38 <i><font color='green'>// JSONItemType describes the type of JSON item, specifying the type of</font></i>
+<a name='L39'>  39 <i><font color='green'>// data that can be obtained from it.</font></i>
+<a name='L40'>  40 <b>enum</b> <a href='../R/488.html' title='Multiple refered from 3 places.'>JSONItemType</a>
+<a name='L41'>  41 <font color='red'>{</font>
+<a name='L42'>  42     <a href='../Y/1061.html' title='Multiple used in 2 places.'>JSON_None</a>      = 0,
+<a name='L43'>  43     <a href='../Y/1062.html' title='Multiple used in 4 places.'>JSON_Null</a>      = 1,
+<a name='L44'>  44     <a href='../Y/1060.html' title='Multiple used in 9 places.'>JSON_Bool</a>      = 2,
+<a name='L45'>  45     <a href='../Y/1063.html' title='Multiple used in 14 places.'>JSON_Number</a>    = 3,
+<a name='L46'>  46     <a href='../Y/1065.html' title='Multiple used in 9 places.'>JSON_String</a>    = 4,
+<a name='L47'>  47     <a href='../Y/1059.html' title='Multiple used in 19 places.'>JSON_Array</a>     = 5,
+<a name='L48'>  48     <a href='../Y/1064.html' title='Multiple used in 7 places.'>JSON_Object</a>    = 6
+<a name='L49'>  49 <font color='red'>}</font>;
+<a name='L50'>  50 
+<a name='L51'>  51 <i><font color='green'>//-----------------------------------------------------------------------------</font></i>
+<a name='L52'>  52 <i><font color='green'>// ***** JSON</font></i>
+<a name='L53'>  53 
+<a name='L54'>  54 <i><font color='green'>// JSON object represents a JSON node that can be either a root of the JSON tree</font></i>
+<a name='L55'>  55 <i><font color='green'>// or a child item. Every node has a type that describes what is is.</font></i>
+<a name='L56'>  56 <i><font color='green'>// New JSON trees are typically loaded JSON::Load or created with JSON::Parse.</font></i>
+<a name='L57'>  57 
+<a name='L58'>  58 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1829.html' title='Multiple used in 20 places.'>RefCountBase</a>&lt;<a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>&gt;, <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../S/180.html#L47' title='Defined at 47 in ovr/sdk/src/Kernel/OVR_List.h.'>ListNode</a>&lt;<a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>&gt;
+<a name='L59'>  59 <font color='red'>{</font>
+<a name='L60'>  60 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L61'>  61     <a href='../Y/1289.html' title='Multiple used in 20 places.'>List</a>&lt;<a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>&gt;      <a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>;
+<a name='L62'>  62 
+<a name='L63'>  63 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L64'>  64     <a href='../S/78.html#L40' title='Defined at 40 in ovr/sdk/src/OVR_JSON.h.'>JSONItemType</a>    <a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a>;       <i><font color='green'>// Type of this JSON node.</font></i>
+<a name='L65'>  65     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>          <a href='../Y/1450.html' title='Multiple used in 69 places.'>Name</a>;       <i><font color='green'>// Name part of the {Name, Value} pair in a parent object.</font></i>
+<a name='L66'>  66     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>          <a href='../Y/2390.html' title='Multiple used in 188 places.'>Value</a>;
+<a name='L67'>  67     <b>double</b>          <a href='../S/84.html#L123' title='Defined at 123 in ovr/sdk/src/OVR_JSON.cpp.'>dValue</a>;
+<a name='L68'>  68 
+<a name='L69'>  69 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L70'>  70     ~<a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>();
+<a name='L71'>  71 
+<a name='L72'>  72     <i><font color='green'>// *** Creation of NEW JSON objects</font></i>
+<a name='L73'>  73 
+<a name='L74'>  74     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../Y/280.html' title='Multiple used in 10 places.'>CreateObject</a>()               <font color='red'>{</font> <b>return</b> <a href='../D/1417.html' title='Multiple defined in 12 places.'>new</a> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>(<a href='../Y/1064.html' title='Multiple used in 7 places.'>JSON_Object</a>);<font color='red'>}</font>
+<a name='L75'>  75     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../Y/278.html' title='Multiple used in 2 places.'>CreateNull</a>()                 <font color='red'>{</font> <b>return</b> <a href='../D/1417.html' title='Multiple defined in 12 places.'>new</a> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>(<a href='../Y/1062.html' title='Multiple used in 4 places.'>JSON_Null</a>); <font color='red'>}</font>
+<a name='L76'>  76     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../Y/267.html' title='Multiple used in 9 places.'>CreateArray</a>()                <font color='red'>{</font> <b>return</b> <a href='../D/1417.html' title='Multiple defined in 12 places.'>new</a> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>(<a href='../Y/1059.html' title='Multiple used in 19 places.'>JSON_Array</a>); <font color='red'>}</font>
+<a name='L77'>  77     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../Y/269.html' title='Multiple used in 3 places.'>CreateBool</a>(<a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>)           <font color='red'>{</font> <b>return</b> <a href='../S/84.html#L981' title='Defined at 981 in ovr/sdk/src/OVR_JSON.cpp.'>createHelper</a>(<a href='../Y/1060.html' title='Multiple used in 9 places.'>JSON_Bool</a>, <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a> ? 1.0 : 0.0); <font color='red'>}</font>
+<a name='L78'>  78     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../Y/279.html' title='Multiple used in 4 places.'>CreateNumber</a>(<b>double</b> <a href='../Y/3774.html' title='Multiple used in 38 places.'>num</a>)     <font color='red'>{</font> <b>return</b> <a href='../S/84.html#L981' title='Defined at 981 in ovr/sdk/src/OVR_JSON.cpp.'>createHelper</a>(<a href='../Y/1063.html' title='Multiple used in 14 places.'>JSON_Number</a>, <a href='../Y/3774.html' title='Multiple used in 38 places.'>num</a>); <font color='red'>}</font>
+<a name='L79'>  79     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../Y/283.html' title='Multiple used in 4 places.'>CreateString</a>(<b>const</b> <b>char</b> *<a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>)  <font color='red'>{</font> <b>return</b> <a href='../S/84.html#L981' title='Defined at 981 in ovr/sdk/src/OVR_JSON.cpp.'>createHelper</a>(<a href='../Y/1065.html' title='Multiple used in 9 places.'>JSON_String</a>, 0.0, <a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>); <font color='red'>}</font>
+<a name='L80'>  80 
+<a name='L81'>  81     <i><font color='green'>// Creates a new JSON object from parsing string.</font></i>
+<a name='L82'>  82     <i><font color='green'>// Returns null pointer and fills in *perror in case of parse error.</font></i>
+<a name='L83'>  83     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../D/873.html' title='Multiple defined in 2 places.'>Parse</a>(<b>const</b> <b>char</b>* <a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, <b>const</b> <b>char</b>** <a href='../Y/4036.html' title='Multiple used in 43 places.'>perror</a> = 0);
+<a name='L84'>  84 
+<a name='L85'>  85         <i><font color='green'>// This version works for buffers that are not null terminated strings.</font></i>
+<a name='L86'>  86         <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../S/84.html#L436' title='Defined at 436 in ovr/sdk/src/OVR_JSON.cpp.'>ParseBuffer</a>(<b>const</b> <b>char</b> *<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, <b>int</b> <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>, <b>const</b> <b>char</b>** <a href='../Y/4036.html' title='Multiple used in 43 places.'>perror</a> = 0);
+<a name='L87'>  87 
+<a name='L88'>  88     <i><font color='green'>// Loads and parses a JSON object from a file.</font></i>
+<a name='L89'>  89     <i><font color='green'>// Returns 0 and assigns perror with error message on fail.</font></i>
+<a name='L90'>  90     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../S/84.html#L1132' title='Defined at 1132 in ovr/sdk/src/OVR_JSON.cpp.'>Load</a>(<b>const</b> <b>char</b>* <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, <b>const</b> <b>char</b>** <a href='../Y/4036.html' title='Multiple used in 43 places.'>perror</a> = 0);
+<a name='L91'>  91 
+<a name='L92'>  92     <i><font color='green'>// Saves a JSON object to a file.</font></i>
+<a name='L93'>  93     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>            <a href='../D/994.html' title='Multiple defined in 2 places.'>Save</a>(<b>const</b> <b>char</b>* <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>);
+<a name='L94'>  94 
+<a name='L95'>  95     <i><font color='green'>// *** Object Member Access</font></i>
+<a name='L96'>  96 
+<a name='L97'>  97     <i><font color='green'>// These provide access to child items of the list.</font></i>
+<a name='L98'>  98     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>            HasItems() <b>const</b>         <font color='red'>{</font> <b>return</b> <a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>(); <font color='red'>}</font>
+<a name='L99'>  99     <i><font color='green'>// Returns first/last child item, or null if child list is empty</font></i>
+<a name='L100'> 100     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*           <a href='../Y/759.html' title='Multiple used in 29 places.'>GetFirstItem</a>()           <font color='red'>{</font> <b>return</b> (!<a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>()) ? <a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>.<a href='../Y/758.html' title='Multiple used in 33 places.'>GetFirst</a>() : 0; <font color='red'>}</font>
+<a name='L101'> 101     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*           GetLastItem()            <font color='red'>{</font> <b>return</b> (!<a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>()) ? <a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>.<a href='../Y/773.html' title='Multiple used in 7 places.'>GetLast</a>() : 0; <font color='red'>}</font>
+<a name='L102'> 102 
+<a name='L103'> 103     <i><font color='green'>// Counts the number of items in the object; these methods are inefficient.</font></i>
+<a name='L104'> 104     <b>unsigned</b>        <a href='../S/84.html#L864' title='Defined at 864 in ovr/sdk/src/OVR_JSON.cpp.'>GetItemCount</a>() <b>const</b>;
+<a name='L105'> 105     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*           <a href='../S/84.html#L872' title='Defined at 872 in ovr/sdk/src/OVR_JSON.cpp.'>GetItemByIndex</a>(<b>unsigned</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>);
+<a name='L106'> 106     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*           <a href='../S/84.html#L897' title='Defined at 897 in ovr/sdk/src/OVR_JSON.cpp.'>GetItemByName</a>(<b>const</b> <b>char</b>* <a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>);
+<a name='L107'> 107 
+<a name='L108'> 108         <i><font color='green'>// Accessors by name</font></i>
+<a name='L109'> 109         <b>double</b>                  <a href='../S/84.html#L995' title='Defined at 995 in ovr/sdk/src/OVR_JSON.cpp.'>GetNumberByName</a>(<b>const</b> <b>char</b> *<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <b>double</b> <a href='../Y/2967.html' title='Multiple used in 12 places.'>defValue</a> = 0.0);
+<a name='L110'> 110         <b>int</b>                             <a href='../S/84.html#L1006' title='Defined at 1006 in ovr/sdk/src/OVR_JSON.cpp.'>GetIntByName</a>(<b>const</b> <b>char</b> *<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <b>int</b> <a href='../Y/2967.html' title='Multiple used in 12 places.'>defValue</a> = 0);
+<a name='L111'> 111         <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>                    <a href='../S/84.html#L1017' title='Defined at 1017 in ovr/sdk/src/OVR_JSON.cpp.'>GetBoolByName</a>(<b>const</b> <b>char</b> *<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2967.html' title='Multiple used in 12 places.'>defValue</a> = <a href='../Y/3198.html' title='Multiple used in 97 places.'>false</a>);
+<a name='L112'> 112         <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>                  <a href='../S/84.html#L1028' title='Defined at 1028 in ovr/sdk/src/OVR_JSON.cpp.'>GetStringByName</a>(<b>const</b> <b>char</b> *<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a> &amp;<a href='../Y/2967.html' title='Multiple used in 12 places.'>defValue</a> = "");
+<a name='L113'> 113 
+<a name='L114'> 114     <i><font color='green'>// Returns next item in a list of children; 0 if no more items exist.</font></i>
+<a name='L115'> 115     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*           <a href='../Y/792.html' title='Multiple used in 33 places.'>GetNextItem</a>(<a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>* <a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>)  <font color='red'>{</font> <b>return</b> <a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>.<a href='../Y/1041.html' title='Multiple used in 21 places.'>IsNull</a>(<a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>-&gt;<a href='../Y/3961.html' title='Multiple used in 72 places.'>pNext</a>) ? 0 : <a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>-&gt;<a href='../Y/3961.html' title='Multiple used in 72 places.'>pNext</a>; <font color='red'>}</font>
+<a name='L116'> 116     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*           GetPrevItem(<a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>* <a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>)  <font color='red'>{</font> <b>return</b> <a href='../Y/197.html' title='Multiple used in 37 places.'>Children</a>.<a href='../Y/1041.html' title='Multiple used in 21 places.'>IsNull</a>(<a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>-&gt;<a href='../Y/3972.html' title='Multiple used in 56 places.'>pPrev</a>) ? 0 : <a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>-&gt;<a href='../Y/3972.html' title='Multiple used in 56 places.'>pPrev</a>; <font color='red'>}</font>
+<a name='L117'> 117 
+<a name='L118'> 118 
+<a name='L119'> 119     <i><font color='green'>// Child item access functions</font></i>
+<a name='L120'> 120     <b>void</b>            <a href='../S/84.html#L921' title='Defined at 921 in ovr/sdk/src/OVR_JSON.cpp.'>AddItem</a>(<b>const</b> <b>char</b> *<a href='../Y/4499.html' title='Multiple used in 24 places.'>string</a>, <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>* <a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>);
+<a name='L121'> 121     <b>void</b>            AddNullItem(<b>const</b> <b>char</b>* <a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>)                    <font color='red'>{</font> <a href='../S/84.html#L921' title='Defined at 921 in ovr/sdk/src/OVR_JSON.cpp.'>AddItem</a>(<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <a href='../Y/278.html' title='Multiple used in 2 places.'>CreateNull</a>()); <font color='red'>}</font>
+<a name='L122'> 122     <b>void</b>            <a href='../Y/36.html' title='Multiple used in 2 places.'>AddBoolItem</a>(<b>const</b> <b>char</b>* <a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>)            <font color='red'>{</font> <a href='../S/84.html#L921' title='Defined at 921 in ovr/sdk/src/OVR_JSON.cpp.'>AddItem</a>(<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <a href='../Y/269.html' title='Multiple used in 3 places.'>CreateBool</a>(<a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>)); <font color='red'>}</font>
+<a name='L123'> 123     <b>void</b>            <a href='../Y/41.html' title='Multiple used in 5 places.'>AddNumberItem</a>(<b>const</b> <b>char</b>* <a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <b>double</b> <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>)        <font color='red'>{</font> <a href='../S/84.html#L921' title='Defined at 921 in ovr/sdk/src/OVR_JSON.cpp.'>AddItem</a>(<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <a href='../Y/279.html' title='Multiple used in 4 places.'>CreateNumber</a>(<a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>)); <font color='red'>}</font>
+<a name='L124'> 124     <b>void</b>            <a href='../Y/44.html' title='Multiple used in 13 places.'>AddStringItem</a>(<b>const</b> <b>char</b>* <a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <b>const</b> <b>char</b>* <a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>)   <font color='red'>{</font> <a href='../S/84.html#L921' title='Defined at 921 in ovr/sdk/src/OVR_JSON.cpp.'>AddItem</a>(<a href='../Y/3720.html' title='Multiple used in 141 places.'>name</a>, <a href='../Y/283.html' title='Multiple used in 4 places.'>CreateString</a>(<a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>)); <font color='red'>}</font>
+<a name='L125'> 125 <i><font color='green'>//    void            ReplaceItem(unsigned index, JSON* new_item);</font></i>
+<a name='L126'> 126 <i><font color='green'>//    void            DeleteItem(unsigned index);</font></i>
+<a name='L127'> 127     <b>void</b>            <a href='../S/84.html#L970' title='Defined at 970 in ovr/sdk/src/OVR_JSON.cpp.'>RemoveLast</a>();
+<a name='L128'> 128 
+<a name='L129'> 129     <i><font color='green'>// *** Array Element Access</font></i>
+<a name='L130'> 130 
+<a name='L131'> 131     <i><font color='green'>// Add new elements to the end of array.</font></i>
+<a name='L132'> 132     <b>void</b>            <a href='../S/84.html#L1041' title='Defined at 1041 in ovr/sdk/src/OVR_JSON.cpp.'>AddArrayElement</a>(<a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a> *<a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>);
+<a name='L133'> 133     <b>void</b>            <a href='../S/84.html#L1050' title='Defined at 1050 in ovr/sdk/src/OVR_JSON.cpp.'>InsertArrayElement</a>(<b>int</b> <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>, <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>* <a href='../Y/3506.html' title='Multiple used in 115 places.'>item</a>);
+<a name='L134'> 134     <b>void</b>            <a href='../Y/34.html' title='Multiple used in 3 places.'>AddArrayNumber</a>(<b>double</b> <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>)        <font color='red'>{</font> <a href='../S/84.html#L1041' title='Defined at 1041 in ovr/sdk/src/OVR_JSON.cpp.'>AddArrayElement</a>(<a href='../Y/279.html' title='Multiple used in 4 places.'>CreateNumber</a>(<a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>)); <font color='red'>}</font>
+<a name='L135'> 135     <b>void</b>            AddArrayString(<b>const</b> <b>char</b>* <a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>)   <font color='red'>{</font> <a href='../S/84.html#L1041' title='Defined at 1041 in ovr/sdk/src/OVR_JSON.cpp.'>AddArrayElement</a>(<a href='../Y/283.html' title='Multiple used in 4 places.'>CreateString</a>(<a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>)); <font color='red'>}</font>
+<a name='L136'> 136 
+<a name='L137'> 137     <i><font color='green'>// Accessed array elements; currently inefficient.</font></i>
+<a name='L138'> 138     <b>int</b>             <a href='../S/84.html#L1076' title='Defined at 1076 in ovr/sdk/src/OVR_JSON.cpp.'>GetArraySize</a>();
+<a name='L139'> 139     <b>double</b>          <a href='../S/84.html#L1085' title='Defined at 1085 in ovr/sdk/src/OVR_JSON.cpp.'>GetArrayNumber</a>(<b>int</b> <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>);
+<a name='L140'> 140     <b>const</b> <b>char</b>*     <a href='../S/84.html#L1099' title='Defined at 1099 in ovr/sdk/src/OVR_JSON.cpp.'>GetArrayString</a>(<b>int</b> <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>);
+<a name='L141'> 141 
+<a name='L142'> 142     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*           <a href='../S/84.html#L1112' title='Defined at 1112 in ovr/sdk/src/OVR_JSON.cpp.'>Copy</a>();  <i><font color='green'>// Create a copy of this object</font></i>
+<a name='L143'> 143 
+<a name='L144'> 144 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L145'> 145     <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>(<a href='../S/78.html#L40' title='Defined at 40 in ovr/sdk/src/OVR_JSON.h.'>JSONItemType</a> <a href='../Y/3510.html' title='Multiple used in 6 places.'>itemType</a> = <a href='../Y/1064.html' title='Multiple used in 7 places.'>JSON_Object</a>);
+<a name='L146'> 146 
+<a name='L147'> 147     <b>static</b> <a href='../S/84.html#L127' title='Defined at 127 in ovr/sdk/src/OVR_JSON.cpp.'>JSON</a>*    <a href='../S/84.html#L981' title='Defined at 981 in ovr/sdk/src/OVR_JSON.cpp.'>createHelper</a>(<a href='../S/78.html#L40' title='Defined at 40 in ovr/sdk/src/OVR_JSON.h.'>JSONItemType</a> <a href='../Y/3510.html' title='Multiple used in 6 places.'>itemType</a>, <b>double</b> <a href='../Y/3084.html' title='Multiple used in 6 places.'>dval</a>, <b>const</b> <b>char</b>* <a href='../Y/4487.html' title='Multiple used in 4 places.'>strVal</a> = 0);
+<a name='L148'> 148 
+<a name='L149'> 149     <i><font color='green'>// JSON Parsing helper functions.</font></i>
+<a name='L150'> 150     <b>const</b> <b>char</b>*     <a href='../S/84.html#L453' title='Defined at 453 in ovr/sdk/src/OVR_JSON.cpp.'>parseValue</a>(<b>const</b> <b>char</b> *<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, <b>const</b> <b>char</b>** <a href='../Y/4036.html' title='Multiple used in 43 places.'>perror</a>);
+<a name='L151'> 151     <b>const</b> <b>char</b>*     <a href='../S/84.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_JSON.cpp.'>parseNumber</a>(<b>const</b> <b>char</b> *<a href='../Y/3774.html' title='Multiple used in 38 places.'>num</a>);
+<a name='L152'> 152     <b>const</b> <b>char</b>*     <a href='../S/84.html#L528' title='Defined at 528 in ovr/sdk/src/OVR_JSON.cpp.'>parseArray</a>(<b>const</b> <b>char</b>* <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>, <b>const</b> <b>char</b>** <a href='../Y/4036.html' title='Multiple used in 43 places.'>perror</a>);
+<a name='L153'> 153     <b>const</b> <b>char</b>*     <a href='../S/84.html#L657' title='Defined at 657 in ovr/sdk/src/OVR_JSON.cpp.'>parseObject</a>(<b>const</b> <b>char</b>* <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>, <b>const</b> <b>char</b>** <a href='../Y/4036.html' title='Multiple used in 43 places.'>perror</a>);
+<a name='L154'> 154     <b>const</b> <b>char</b>*     <a href='../S/84.html#L228' title='Defined at 228 in ovr/sdk/src/OVR_JSON.cpp.'>parseString</a>(<b>const</b> <b>char</b>* <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>, <b>const</b> <b>char</b>** <a href='../Y/4036.html' title='Multiple used in 43 places.'>perror</a>);
+<a name='L155'> 155 
+<a name='L156'> 156     <b>char</b>*           <a href='../S/84.html#L503' title='Defined at 503 in ovr/sdk/src/OVR_JSON.cpp.'>PrintValue</a>(<b>int</b> <a href='../Y/2979.html' title='Multiple used in 21 places.'>depth</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/3229.html' title='Multiple used in 36 places.'>fmt</a>);
+<a name='L157'> 157     <b>char</b>*           <a href='../S/84.html#L721' title='Defined at 721 in ovr/sdk/src/OVR_JSON.cpp.'>PrintObject</a>(<b>int</b> <a href='../Y/2979.html' title='Multiple used in 21 places.'>depth</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/3229.html' title='Multiple used in 36 places.'>fmt</a>);
+<a name='L158'> 158     <b>char</b>*           <a href='../S/84.html#L572' title='Defined at 572 in ovr/sdk/src/OVR_JSON.cpp.'>PrintArray</a>(<b>int</b> <a href='../Y/2979.html' title='Multiple used in 21 places.'>depth</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/3229.html' title='Multiple used in 36 places.'>fmt</a>);
+<a name='L159'> 159 <font color='red'>}</font>;
+<a name='L160'> 160 
+<a name='L161'> 161 
+<a name='L162'> 162 <font color='red'>}</font>
+<a name='L163'> 163 
+<a name='L164'> 164 <font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

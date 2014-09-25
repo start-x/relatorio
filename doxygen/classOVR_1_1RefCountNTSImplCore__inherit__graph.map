@@ -1,0 +1,5 @@
+<map id="OVR::RefCountNTSImplCore" name="OVR::RefCountNTSImplCore">
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountNTSImpl.html" title="{OVR::RefCountNTSImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="25,190,191,282"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountNTSImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="11,331,205,423"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountBaseNTS.html" title="{OVR::RefCountBaseNTS\&lt; C \&gt;\n||+ RefCountBaseNTS()\l}" alt="" coords="5,472,211,549"/>
+</map>

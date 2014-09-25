@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>XMLText</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L543'>XMLText</a>           543 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLText* text = new (_textPool.Alloc()) XMLText( this );
+<a href='../S/197.html#L560'>XMLText</a>           560 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         returnNode = new (_textPool.Alloc()) XMLText( this );
+<a href='../S/197.html#L856'>XMLText</a>           856 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLText::ParseDeep( char* p, StrPair* )
+<a href='../S/197.html#L884'>XMLText</a>           884 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLText::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L889'>XMLText</a>           889 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLText* text = doc-&gt;NewText( Value() );	// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L895'>XMLText</a>           895 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLText::ShallowEqual( const XMLNode* compare ) const
+<a href='../S/197.html#L901'>XMLText</a>           901 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLText::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L1557'>XMLText</a>          1557 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLText* XMLDocument::NewText( const char* str )
+<a href='../S/197.html#L1559'>XMLText</a>          1559 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLText* text = new (_textPool.Alloc()) XMLText( this );
+<a href='../S/197.html#L2074'>XMLText</a>          2074 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLPrinter::Visit( const XMLText&amp; text )
+<a href='../S/196.html#L112'>XMLText</a>           112 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLText;
+<a href='../S/196.html#L430'>XMLText</a>           430 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Visit( const XMLText&amp; /*text*/ )					{
+<a href='../S/196.html#L560'>XMLText</a>           560 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLText*		ToText()		{
+<a href='../S/196.html#L583'>XMLText</a>           583 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual const XMLText*			ToText() const			{
+<a href='../S/196.html#L806'>XMLText</a>           806 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLText : public XMLNode
+<a href='../S/196.html#L813'>XMLText</a>           813 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLText* ToText()			{
+<a href='../S/196.html#L816'>XMLText</a>           816 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual const XMLText* ToText() const	{
+<a href='../S/196.html#L834'>XMLText</a>           834 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText( XMLDocument* doc )	: XMLNode( doc ), _isCData( false )	{}
+<a href='../S/196.html#L835'>XMLText</a>           835 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual ~XMLText()												{}
+<a href='../S/196.html#L836'>XMLText</a>           836 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText( const XMLText&amp; );	// not supported
+<a href='../S/196.html#L837'>XMLText</a>           837 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText&amp; operator=( const XMLText&amp; );	// not supported
+<a href='../S/196.html#L1479'>XMLText</a>          1479 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText* NewText( const char* text );
+<a href='../S/196.html#L1553'>XMLText</a>          1553 ovr/sdk/third_party/tinyxml/tinyxml2.h     MemPoolT&lt; sizeof(XMLText) &gt;		 _textPool;
+<a href='../S/196.html#L1676'>XMLText</a>          1676 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText* ToText() 							{
+<a href='../S/196.html#L1747'>XMLText</a>          1747 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLText* ToText() const				{
+<a href='../S/196.html#L1858'>XMLText</a>          1858 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Visit( const XMLText&amp; text );
+</pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>neckeye</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/139.html#L434'>neckeye</a>           434 ovr/sdk/src/OVR_Profile.cpp                 float neckeye[2] = { 0, 0 };
+<a href='../S/139.html#L446'>neckeye</a>           446 ovr/sdk/src/OVR_Profile.cpp                             neckeye[0] = (float)item-&gt;dValue;
+<a href='../S/139.html#L448'>neckeye</a>           448 ovr/sdk/src/OVR_Profile.cpp                             neckeye[1] = (float)item-&gt;dValue;
+<a href='../S/139.html#L498'>neckeye</a>           498 ovr/sdk/src/OVR_Profile.cpp                 if (neckeye[0] &gt; 0 &amp;&amp; neckeye[1] &gt; 0)
+<a href='../S/139.html#L499'>neckeye</a>           499 ovr/sdk/src/OVR_Profile.cpp                     user_profile-&gt;SetFloatValues(OVR_KEY_NECK_TO_EYE_DISTANCE, neckeye, 2);
+<a href='../S/189.html#L754'>neckeye</a>           754 ovr/sdk/src/OVR_SensorFusion.cpp     float neckeye[2];
+<a href='../S/189.html#L755'>neckeye</a>           755 ovr/sdk/src/OVR_SensorFusion.cpp     int count = profile.GetFloatValues(OVR_KEY_NECK_TO_EYE_DISTANCE, neckeye, 2);
+<a href='../S/189.html#L759'>neckeye</a>           759 ovr/sdk/src/OVR_SensorFusion.cpp         OVR_ASSERT ( ( neckeye[0] &gt; 0.05f ) &amp;&amp; ( neckeye[0] &lt; 0.5f ) );
+<a href='../S/189.html#L760'>neckeye</a>           760 ovr/sdk/src/OVR_SensorFusion.cpp         OVR_ASSERT ( ( neckeye[1] &gt; 0.05f ) &amp;&amp; ( neckeye[1] &lt; 0.5f ) );
+<a href='../S/189.html#L761'>neckeye</a>           761 ovr/sdk/src/OVR_SensorFusion.cpp         SetHeadModel ( Vector3f ( 0.0, neckeye[1], -neckeye[0] ) );
+</pre>
+</body>
+</html>

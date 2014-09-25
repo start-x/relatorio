@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>FrameTimeManager</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/93.html#L50'>FrameTimeManager</a>   50 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h                        FrameTimeManager&amp; timeManager,              
+<a href='../S/93.html#L87'>FrameTimeManager</a>   87 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h                                               FrameTimeManager &amp;timeManager,
+<a href='../S/93.html#L108'>FrameTimeManager</a>  108 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h     FrameTimeManager&amp;       TimeManager;
+<a href='../S/98.html#L212'>FrameTimeManager</a>  212 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp FrameTimeManager::FrameTimeManager(bool vsyncEnabled)
+<a href='../S/98.html#L225'>FrameTimeManager</a>  225 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::Init(HmdRenderInfo&amp; renderInfo)
+<a href='../S/98.html#L235'>FrameTimeManager</a>  235 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::ResetFrameTiming(unsigned frameIndex,
+<a href='../S/98.html#L257'>FrameTimeManager</a>  257 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp double  FrameTimeManager::calcFrameDelta() const
+<a href='../S/98.html#L282'>FrameTimeManager</a>  282 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp double  FrameTimeManager::calcScreenDelay() const
+<a href='../S/98.html#L309'>FrameTimeManager</a>  309 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp double  FrameTimeManager::calcTimewarpWaitDelta() const
+<a href='../S/98.html#L329'>FrameTimeManager</a>  329 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::Timing::InitTimingFromInputs(const FrameTimeManager::TimingInputs&amp; inputs,
+<a href='../S/98.html#L405'>FrameTimeManager</a>  405 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp double FrameTimeManager::BeginFrame(unsigned frameIndex)
+<a href='../S/98.html#L422'>FrameTimeManager</a>  422 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::EndFrame()
+<a href='../S/98.html#L440'>FrameTimeManager</a>  440 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp FrameTimeManager::Timing FrameTimeManager::GetFrameTiming(unsigned frameIndex)
+<a href='../S/98.html#L467'>FrameTimeManager</a>  467 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp double FrameTimeManager::GetEyePredictionTime(ovrEyeType eye)
+<a href='../S/98.html#L478'>FrameTimeManager</a>  478 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp Transformf FrameTimeManager::GetEyePredictionPose(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/98.html#L493'>FrameTimeManager</a>  493 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::GetTimewarpPredictions(ovrEyeType eye, double timewarpStartEnd[2])
+<a href='../S/98.html#L513'>FrameTimeManager</a>  513 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::GetTimewarpMatrices(ovrHmd hmd, ovrEyeType eyeId,
+<a href='../S/98.html#L577'>FrameTimeManager</a>  577 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp bool  FrameTimeManager::NeedDistortionTimeMeasurement() const
+<a href='../S/98.html#L585'>FrameTimeManager</a>  585 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void  FrameTimeManager::AddDistortionTimeMeasurement(double distortionTimeSeconds)
+<a href='../S/98.html#L599'>FrameTimeManager</a>  599 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::UpdateFrameLatencyTrackingAfterEndFrame(
+<a href='../S/99.html#L130'>FrameTimeManager</a>  130 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h class FrameTimeManager
+<a href='../S/99.html#L133'>FrameTimeManager</a>  133 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     FrameTimeManager(bool vsyncEnabled = true);
+<a href='../S/101.html#L313'>FrameTimeManager</a>  313 ovr/sdk/src/CAPI/CAPI_HMDState.h     FrameTimeManager        TimeManager;
+<a href='../S/104.html#L92'>FrameTimeManager</a>   92 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp DistortionRenderer::DistortionRenderer(ovrHmd hmd, FrameTimeManager&amp; timeManager,
+<a href='../S/104.html#L108'>FrameTimeManager</a>  108 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp                                                      FrameTimeManager&amp; timeManager,
+<a href='../S/106.html#L34'>FrameTimeManager</a>   34 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h                        FrameTimeManager&amp; timeManager,
+<a href='../S/106.html#L41'>FrameTimeManager</a>   41 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h                                             FrameTimeManager&amp; timeManager,
+<a href='../S/142.html#L537'>FrameTimeManager</a>  537 ovr/sdk/src/OVR_CAPI.cpp         FrameTimeManager::Timing frameTiming = hmds-&gt;TimeManager.GetFrameTiming(frameIndex);
+<a href='../S/142.html#L572'>FrameTimeManager</a>  572 ovr/sdk/src/OVR_CAPI.cpp     const FrameTimeManager::Timing &amp;frameTiming = hmds-&gt;TimeManager.GetFrameTiming();
+</pre>
+</body>
+</html>

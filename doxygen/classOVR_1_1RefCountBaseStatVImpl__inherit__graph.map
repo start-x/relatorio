@@ -1,0 +1,6 @@
+<map id="OVR::RefCountBaseStatVImpl&lt; Base &gt;" name="OVR::RefCountBaseStatVImpl&lt; Base &gt;">
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatVImpl.html" title="{OVR::RefCountBaseStatVImpl\l\&lt; RefCountVImpl \&gt;\n||+ RefCountBaseStatVImpl()\l}" alt="" coords="96,291,299,383"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountBaseV.html" title="{OVR::RefCountBaseV\&lt; C \&gt;\n||+ RefCountBaseV()\l}" alt="" coords="5,435,192,512"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountBaseV.html" title="{OVR::RefCountBaseV\l\&lt; Frame \&gt;\n||+ RefCountBaseV()\l}" alt="" coords="99,577,252,669"/>
+<area shape="rect" id="node6" href="$classOVR_1_1Util_1_1Frame.html" title="{OVR::Util::Frame\n|+ frameNumber\l+ plots\l+ textLines\l+ imageData\l+ colorImageData\l+ width\l+ height\l+ colorPitch\l+ ready\l|+ Frame()\l+ ~Frame()\l}" alt="" coords="113,721,239,930"/>
+</map>

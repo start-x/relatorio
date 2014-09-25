@@ -1,0 +1,5 @@
+<map id="OVR::GyroOffsetImpl" name="OVR::GyroOffsetImpl">
+<area shape="rect" id="node2" href="$structOVR_1_1GyroOffsetReport.html" title="{OVR::GyroOffsetReport\n|+ CommandId\l+ Version\l+ Temperature\l|+ GyroOffsetReport()\l+ GyroOffsetReport()\l}" alt="" coords="17,873,180,994"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; double \&gt;\n|+ x\l+ y\l+ z\l|+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="5,510,192,807"/>
+<area shape="rect" id="node4" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; T \&gt;\n||+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="5,177,192,445"/>
+</map>

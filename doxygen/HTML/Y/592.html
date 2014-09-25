@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>FilePos</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L51'>FilePos</a>            51 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos     = 0;
+<a href='../S/172.html#L61'>FilePos</a>            61 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos     = pfile-&gt;LTell();
+<a href='../S/172.html#L124'>FilePos</a>           124 ovr/sdk/src/Kernel/OVR_File.cpp             FilePos += pFile-&gt;Write(pBuffer,Pos);
+<a href='../S/172.html#L131'>FilePos</a>           131 ovr/sdk/src/Kernel/OVR_File.cpp                 FilePos = pFile-&gt;LSeek(-(int)(DataSize-Pos), Seek_Cur);
+<a href='../S/172.html#L153'>FilePos</a>           153 ovr/sdk/src/Kernel/OVR_File.cpp         FilePos  += DataSize;
+<a href='../S/172.html#L167'>FilePos</a>           167 ovr/sdk/src/Kernel/OVR_File.cpp         return int (FilePos - DataSize + Pos);
+<a href='../S/172.html#L183'>FilePos</a>           183 ovr/sdk/src/Kernel/OVR_File.cpp         return FilePos - DataSize + Pos;
+<a href='../S/172.html#L255'>FilePos</a>           255 ovr/sdk/src/Kernel/OVR_File.cpp                     FilePos += sz;
+<a href='../S/172.html#L267'>FilePos</a>           267 ovr/sdk/src/Kernel/OVR_File.cpp         FilePos += sz;
+<a href='../S/172.html#L297'>FilePos</a>           297 ovr/sdk/src/Kernel/OVR_File.cpp                 FilePos += numBytes;
+<a href='../S/172.html#L339'>FilePos</a>           339 ovr/sdk/src/Kernel/OVR_File.cpp         FilePos += sz;
+<a href='../S/172.html#L363'>FilePos</a>           363 ovr/sdk/src/Kernel/OVR_File.cpp             FilePos += numBytes;
+<a href='../S/172.html#L410'>FilePos</a>           410 ovr/sdk/src/Kernel/OVR_File.cpp                 return int (FilePos - DataSize + Pos);
+<a href='../S/172.html#L416'>FilePos</a>           416 ovr/sdk/src/Kernel/OVR_File.cpp             OVR_ASSERT(((FilePos - DataSize + Pos) + (UInt64)offset) &lt; ~(UInt64)0);
+<a href='../S/172.html#L417'>FilePos</a>           417 ovr/sdk/src/Kernel/OVR_File.cpp             offset = (int)(FilePos - DataSize + Pos) + offset;
+<a href='../S/172.html#L422'>FilePos</a>           422 ovr/sdk/src/Kernel/OVR_File.cpp             if (((unsigned)offset - (FilePos-DataSize)) &lt;= DataSize)
+<a href='../S/172.html#L424'>FilePos</a>           424 ovr/sdk/src/Kernel/OVR_File.cpp                 OVR_ASSERT((FilePos-DataSize) &lt; ~(UInt64)0);
+<a href='../S/172.html#L425'>FilePos</a>           425 ovr/sdk/src/Kernel/OVR_File.cpp                 Pos = (unsigned)offset - (unsigned)(FilePos-DataSize);
+<a href='../S/172.html#L460'>FilePos</a>           460 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos = pFile-&gt;Seek(offset,origin);
+<a href='../S/172.html#L461'>FilePos</a>           461 ovr/sdk/src/Kernel/OVR_File.cpp     return int (FilePos);
+<a href='../S/172.html#L475'>FilePos</a>           475 ovr/sdk/src/Kernel/OVR_File.cpp                 return SInt64(FilePos - DataSize + Pos);
+<a href='../S/172.html#L481'>FilePos</a>           481 ovr/sdk/src/Kernel/OVR_File.cpp             offset = (SInt64)(FilePos - DataSize + Pos) + offset;
+<a href='../S/172.html#L486'>FilePos</a>           486 ovr/sdk/src/Kernel/OVR_File.cpp             if (((UInt64)offset - (FilePos-DataSize)) &lt;= DataSize)
+<a href='../S/172.html#L488'>FilePos</a>           488 ovr/sdk/src/Kernel/OVR_File.cpp                 Pos = (unsigned)((UInt64)offset - (FilePos-DataSize));
+<a href='../S/172.html#L520'>FilePos</a>           520 ovr/sdk/src/Kernel/OVR_File.cpp     FilePos = pFile-&gt;LSeek(offset,origin);
+<a href='../S/172.html#L521'>FilePos</a>           521 ovr/sdk/src/Kernel/OVR_File.cpp     return FilePos;
+<a href='../S/186.html#L352'>FilePos</a>           352 ovr/sdk/src/Kernel/OVR_File.h     UInt64          FilePos;
+</pre>
+</body>
+</html>

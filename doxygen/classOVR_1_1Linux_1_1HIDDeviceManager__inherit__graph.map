@@ -1,0 +1,10 @@
+<map id="OVR::Linux::HIDDeviceManager" name="OVR::Linux::HIDDeviceManager">
+<area shape="rect" id="node2" href="$classOVR_1_1HIDDeviceManager.html" title="{OVR::HIDDeviceManager\n||+ Enumerate()\l+ Open()\l+ Create()\l# HIDDeviceManager()\l}" alt="" coords="42,779,216,901"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l HIDDeviceManager \&gt;\n||+ RefCountBase()\l}" alt="" coords="53,635,205,727"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="51,350,245,442"/>
+<area shape="rect" id="node9" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="145,493,324,571"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node7" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+<area shape="rect" id="node10" href="$classOVR_1_1Linux_1_1DeviceManagerThread_1_1Notifier.html" title="{OVR::Linux::DeviceManager\lThread::Notifier\n||+ OnEvent()\l+ OnTicks()\l}" alt="" coords="241,787,431,893"/>
+</map>

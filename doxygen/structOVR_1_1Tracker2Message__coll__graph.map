@@ -1,0 +1,4 @@
+<map id="OVR::Tracker2Message" name="OVR::Tracker2Message">
+<area shape="rect" id="node2" href="$structOVR_1_1Tracker2Sensors.html" title="{OVR::Tracker2Sensors\n|+ LastCommandID\l+ NumSamples\l+ RunningSampleCount\l+ Temperature\l+ SampleTimestamp\l+ MagX\l+ MagY\l+ MagZ\l+ FrameCount\l+ FrameTimestamp\l+ FrameID\l+ CameraPattern\l+ CameraFrameCount\l+ CameraTimestamp\l|+ Decode()\l}" alt="" coords="6,222,167,490"/>
+<area shape="rect" id="node3" href="$namespaceOVR.html#structOVR_1_1TrackerSample" title="{OVR::TrackerSample\n|+ AccelX\l+ AccelY\l+ AccelZ\l+ GyroX\l+ GyroY\l+ GyroZ\l|}" alt="" coords="13,6,160,157"/>
+</map>

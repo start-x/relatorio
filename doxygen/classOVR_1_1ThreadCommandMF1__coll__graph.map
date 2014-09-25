@@ -1,0 +1,17 @@
+<map id="OVR::ThreadCommandMF1&lt; C, R, A0 &gt;" name="OVR::ThreadCommandMF1&lt; C, R, A0 &gt;">
+<area shape="rect" id="node2" href="$classOVR_1_1ThreadCommand.html" title="{OVR::ThreadCommand\n|+ Size\l+ WaitFlag\l+ ExitFlag\l|+ ThreadCommand()\l+ ~ThreadCommand()\l+ NeedsWait()\l+ GetSize()\l+ Execute()\l+ CopyConstruct()\l}" alt="" coords="167,1313,325,1493"/>
+<area shape="rect" id="node3" href="$classOVR_1_1ThreadCommand_1_1NotifyEvent.html" title="{OVR::ThreadCommand\l::NotifyEvent\n||+ NotifyEvent()\l+ Wait()\l+ PulseEvent()\l}" alt="" coords="167,1126,325,1247"/>
+<area shape="rect" id="node4" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; NotifyEvent \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="5,895,208,1046"/>
+<area shape="rect" id="node5" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; T \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="33,665,180,815"/>
+<area shape="rect" id="node6" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="196,249,360,327"/>
+<area shape="rect" id="node9" href="$classOVR_1_1MutexImpl.html" title="{OVR::MutexImpl\n|&#45; Recursive\l&#45; LockCount\l&#45; LockedBy\l|+ MutexImpl()\l+ ~MutexImpl()\l+ DoLock()\l+ TryLock()\l+ Unlock()\l+ IsLockedByAnotherThread()\l+ IsSignaled()\l}" alt="" coords="285,405,480,600"/>
+<area shape="rect" id="node13" href="$classOVR_1_1WaitConditionImpl.html" title="{OVR::WaitConditionImpl\n||+ WaitConditionImpl()\l+ ~WaitConditionImpl()\l+ Wait()\l+ Notify()\l+ NotifyAll()\l}" alt="" coords="505,435,671,571"/>
+<area shape="rect" id="node7" href="$classOVR_1_1Event.html" title="{OVR::Event\n|&#45; State\l&#45; Temporary\l|+ Event()\l+ ~Event()\l+ Wait()\l+ SetEvent()\l+ ResetEvent()\l+ PulseEvent()\l&#45; updateState()\l}" alt="" coords="327,881,437,1061"/>
+<area shape="rect" id="node8" href="$classOVR_1_1Mutex.html" title="{OVR::Mutex\n||+ Mutex()\l+ ~Mutex()\l+ DoLock()\l+ TryLock()\l+ Unlock()\l+ IsLockedByAnotherThread()\l}" alt="" coords="285,665,480,815"/>
+<area shape="rect" id="node10" href="$namespaceOVR.html#unionOVR_1_1pthread__mutex__t" title="{OVR::pthread_mutex_t\n|+ __size\l+ __align\l|}" alt="" coords="386,242,541,334"/>
+<area shape="rect" id="node11" href="$namespaceOVR.html#structOVR_1_1pthread__mutex__t_1_1____pthread__mutex__s" title="{OVR::pthread_mutex\l_t::__pthread_mutex_s\n|+ __lock\l+ __count\l+ __owner\l+ __kind\l+ __nusers\l+ @16\l|}" alt="" coords="387,5,540,171"/>
+<area shape="rect" id="node12" href="$classOVR_1_1WaitCondition.html" title="{OVR::WaitCondition\n||+ WaitCondition()\l+ ~WaitCondition()\l+ Wait()\l+ Notify()\l+ NotifyAll()\l}" alt="" coords="511,672,651,808"/>
+<area shape="rect" id="node14" href="$namespaceOVR.html#unionOVR_1_1pthread__cond__t" title="{OVR::pthread_cond_t\n|+ __data\l+ __size\l+ __align\l|}" alt="" coords="566,235,713,341"/>
+<area shape="rect" id="node15" href="$namespaceOVR.html#namespaceOVR" title="{OVR::CleanType\&lt; A0 \&gt;\n||}" alt="" coords="351,1364,513,1441"/>
+<area shape="rect" id="node16" href="$namespaceOVR.html#structOVR_1_1CleanType" title="{OVR::CleanType\&lt; T \&gt;\n||}" alt="" coords="355,1148,508,1225"/>
+</map>

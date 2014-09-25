@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>headModel</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L786'>headModel</a>         786 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetHeadModel(const Vector3f &amp;headModel, bool resetNeckPivot /*= true*/ )
+<a href='../S/189.html#L792'>headModel</a>         792 ovr/sdk/src/OVR_SensorFusion.cpp     OVR_ASSERT ( headModel.y &gt; 0.0f );
+<a href='../S/189.html#L793'>headModel</a>         793 ovr/sdk/src/OVR_SensorFusion.cpp     OVR_ASSERT ( headModel.z &lt; 0.0f );
+<a href='../S/189.html#L794'>headModel</a>         794 ovr/sdk/src/OVR_SensorFusion.cpp     CpfFromNeck = Transformd(Quatd(), (Vector3d)headModel).Inverted();
+<a href='../S/127.html#L278'>headModel</a>         278 ovr/sdk/src/OVR_SensorFusion.h     void                        SetHeadModel(const Vector3f &amp;headModel, bool resetNeckPivot = true );
+</pre>
+</body>
+</html>

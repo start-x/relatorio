@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Pose</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/64.html#L83'>Pose</a>               83 ovr/Ovr.cpp    		ovrPosef pose = ss.Predicted.Pose;
+<a href='../S/98.html#L489'>Pose</a>              489 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     return eyeState.Predicted.Pose;
+<a href='../S/98.html#L530'>Pose</a>              530 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     Quatf quatFromStart = startState.Predicted.Pose.Orientation;
+<a href='../S/98.html#L531'>Pose</a>              531 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     Quatf quatFromEnd   = endState.Predicted.Pose.Orientation;
+<a href='../S/177.html#L1144'>Pose</a>             1144 ovr/sdk/src/Kernel/OVR_Math.h         result.Pose                = (*this) * poseState.Pose;
+<a href='../S/187.html#L89'>Pose</a>               89 ovr/sdk/src/OVR_CAPI.h     ovrPosef     Pose;
+<a href='../S/189.html#L131'>Pose</a>              131 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose                   = ImuFromCpf.Inverted(); // place CPF at the origin, not the IMU
+<a href='../S/189.html#L152'>Pose</a>              152 ovr/sdk/src/OVR_SensorFusion.cpp     setNeckPivotFromPose ( WorldFromImu.Pose );
+<a href='../S/189.html#L169'>Pose</a>              169 ovr/sdk/src/OVR_SensorFusion.cpp     CameraFromImu.Pose = cameraFromImu;
+<a href='../S/189.html#L200'>Pose</a>              200 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImuPrev = CameraFromImu.Pose;
+<a href='../S/189.html#L201'>Pose</a>              201 ovr/sdk/src/OVR_SensorFusion.cpp     CameraFromImu.Pose = cameraFromImu; 
+<a href='../S/189.html#L214'>Pose</a>              214 ovr/sdk/src/OVR_SensorFusion.cpp             LastVisionExposureRecord.ImuOnlyDelta.Pose.Translation / LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds;
+<a href='../S/189.html#L231'>Pose</a>              231 ovr/sdk/src/OVR_SensorFusion.cpp     err.Pose.Rotation = worldFromImuVision.Pose.Rotation * 
+<a href='../S/189.html#L232'>Pose</a>              232 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord.WorldFromImu.Pose.Rotation.Inverted();
+<a href='../S/189.html#L233'>Pose</a>              233 ovr/sdk/src/OVR_SensorFusion.cpp     err.Pose.Translation = worldFromImuVision.Pose.Translation - 
+<a href='../S/189.html#L234'>Pose</a>              234 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord.WorldFromImu.Pose.Translation;
+<a href='../S/189.html#L264'>Pose</a>              264 ovr/sdk/src/OVR_SensorFusion.cpp         result = CameraFromImu.Pose *
+<a href='../S/189.html#L265'>Pose</a>              265 ovr/sdk/src/OVR_SensorFusion.cpp             LastVisionExposureRecord.WorldFromImu.Pose.Inverted() * record.WorldFromImu.Pose;
+<a href='../S/189.html#L276'>Pose</a>              276 ovr/sdk/src/OVR_SensorFusion.cpp                 CameraFromImu.Pose.Rotation * delta.Pose.Rotation,
+<a href='../S/189.html#L277'>Pose</a>              277 ovr/sdk/src/OVR_SensorFusion.cpp                 CameraFromImu.Pose.Translation + CameraFromImu.LinearVelocity * delta.TimeInSeconds +
+<a href='../S/189.html#L278'>Pose</a>              278 ovr/sdk/src/OVR_SensorFusion.cpp                 WorldFromCamera.Inverted().Rotate(delta.Pose.Translation)
+<a href='../S/189.html#L308'>Pose</a>              308 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInWorldFrame = WorldFromImu.Pose.Rotate(accel) - Vector3d(0, 9.8, 0);
+<a href='../S/189.html#L336'>Pose</a>              336 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose.Rotation.Normalize();
+<a href='../S/189.html#L348'>Pose</a>              348 ovr/sdk/src/OVR_SensorFusion.cpp         setNeckPivotFromPose(WorldFromImu.Pose);
+<a href='../S/189.html#L355'>Pose</a>              355 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromNeck.Rotation = WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L356'>Pose</a>              356 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose = WorldFromNeck * (ImuFromCpf * CpfFromNeck).Inverted();
+<a href='../S/189.html#L375'>Pose</a>              375 ovr/sdk/src/OVR_SensorFusion.cpp 	Recording::GetRecorder().LogData("sfPose", WorldFromImu.Pose);
+<a href='../S/189.html#L448'>Pose</a>              448 ovr/sdk/src/OVR_SensorFusion.cpp     if (VisionError.Pose.Translation.LengthSq() &gt; (snapThreshold * snapThreshold) ||
+<a href='../S/189.html#L460'>Pose</a>              460 ovr/sdk/src/OVR_SensorFusion.cpp         correctionPos = worldFromImuVision.Pose.Translation - WorldFromImu.Pose.Translation;
+<a href='../S/189.html#L466'>Pose</a>              466 ovr/sdk/src/OVR_SensorFusion.cpp         correctionPos = VisionError.Pose.Translation.EntrywiseMultiply(gainPos) * deltaT;
+<a href='../S/189.html#L467'>Pose</a>              467 ovr/sdk/src/OVR_SensorFusion.cpp         correctionVel = VisionError.Pose.Translation.EntrywiseMultiply(gainVel) * deltaT;
+<a href='../S/189.html#L468'>Pose</a>              468 ovr/sdk/src/OVR_SensorFusion.cpp         AccelOffset  += VisionError.Pose.Translation.EntrywiseMultiply(gainAccel) * deltaT;
+<a href='../S/189.html#L471'>Pose</a>              471 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose.Translation += correctionPos;
+<a href='../S/189.html#L475'>Pose</a>              475 ovr/sdk/src/OVR_SensorFusion.cpp     LastVisionExposureRecord.WorldFromImu.Pose.Translation += correctionPos;
+<a href='../S/189.html#L480'>Pose</a>              480 ovr/sdk/src/OVR_SensorFusion.cpp         state.Pose.Translation += correctionPos;
+<a href='../S/189.html#L490'>Pose</a>              490 ovr/sdk/src/OVR_SensorFusion.cpp     Quatd yawError = extractYawRotation(VisionError.Pose.Rotation);
+<a href='../S/189.html#L499'>Pose</a>              499 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L502'>Pose</a>              502 ovr/sdk/src/OVR_SensorFusion.cpp     LastVisionExposureRecord.WorldFromImu.Pose.Rotation = correction * LastVisionExposureRecord.WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L506'>Pose</a>              506 ovr/sdk/src/OVR_SensorFusion.cpp         state.Pose.Rotation = correction * state.Pose.Rotation;
+<a href='../S/189.html#L518'>Pose</a>              518 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d magInWorldFrame = WorldFromImu.Pose.Rotate(mag);
+<a href='../S/189.html#L550'>Pose</a>              550 ovr/sdk/src/OVR_SensorFusion.cpp             MagRefs.PushBack(MagReferencePoint(mag, WorldFromImu.Pose, 1000));
+<a href='../S/189.html#L580'>Pose</a>              580 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L590'>Pose</a>              590 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInWorldFrame = WorldFromImu.Pose.Rotate(FAccelInImuFrame.GetFilteredValue());
+<a href='../S/189.html#L605'>Pose</a>              605 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L618'>Pose</a>              618 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImu = WorldFromCamera.Inverted() * VisionError.Pose * WorldFromImu.Pose;
+<a href='../S/189.html#L635'>Pose</a>              635 ovr/sdk/src/OVR_SensorFusion.cpp     if (CameraFromImu.Pose.Rotate(forward).Angle(forward) &gt; 1)
+<a href='../S/189.html#L668'>Pose</a>              668 ovr/sdk/src/OVR_SensorFusion.cpp     newWorldFromCamera.Translation += (WorldFromCamera * CameraFromImu.Pose).Translation -
+<a href='../S/189.html#L669'>Pose</a>              669 ovr/sdk/src/OVR_SensorFusion.cpp         (newWorldFromCamera * CameraFromImu.Pose).Translation;
+<a href='../S/189.html#L688'>Pose</a>              688 ovr/sdk/src/OVR_SensorFusion.cpp 	Vector3d currentDir = WorldFromImu.Pose.Rotate(Vector3d(0, 0, 1));
+<a href='../S/189.html#L719'>Pose</a>              719 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L728'>Pose</a>              728 ovr/sdk/src/OVR_SensorFusion.cpp 	SetFocusDirection(WorldFromImu.Pose.Rotate(Vector3d(0.0, 0.0, 1.0)));
+<a href='../S/189.html#L797'>Pose</a>              797 ovr/sdk/src/OVR_SensorFusion.cpp         setNeckPivotFromPose ( WorldFromImu.Pose );
+<a href='../S/189.html#L813'>Pose</a>              813 ovr/sdk/src/OVR_SensorFusion.cpp     setNeckPivotFromPose ( WorldFromImu.Pose );
+<a href='../S/189.html#L826'>Pose</a>              826 ovr/sdk/src/OVR_SensorFusion.cpp     Transform&lt;double&gt; pose   = poseState.Pose;
+<a href='../S/189.html#L855'>Pose</a>              855 ovr/sdk/src/OVR_SensorFusion.cpp     return ss.Predicted.Pose;
+<a href='../S/189.html#L875'>Pose</a>              875 ovr/sdk/src/OVR_SensorFusion.cpp      ss.Recorded.Pose  = Transformf(lstate.State.Pose * ImuFromCpf);
+<a href='../S/189.html#L876'>Pose</a>              876 ovr/sdk/src/OVR_SensorFusion.cpp      ss.Predicted.Pose = Transformf(calcPredictedPose(lstate.State, pdt) * ImuFromCpf);
+<a href='../S/127.html#L65'>Pose</a>               65 ovr/sdk/src/OVR_SensorFusion.h         : Pose(src.Pose),
+<a href='../S/127.html#L73'>Pose</a>               73 ovr/sdk/src/OVR_SensorFusion.h         : Pose(src.Pose),
+<a href='../S/127.html#L82'>Pose</a>               82 ovr/sdk/src/OVR_SensorFusion.h         result.Pose		            = Pose;
+<a href='../S/127.html#L92'>Pose</a>               92 ovr/sdk/src/OVR_SensorFusion.h     Transform&lt;T&gt; Pose;
+<a href='../S/127.html#L559'>Pose</a>              559 ovr/sdk/src/OVR_SensorFusion.h         Pose.Rotation = Pose.Rotation * Quatd(angVel, angle);
+<a href='../S/127.html#L566'>Pose</a>              566 ovr/sdk/src/OVR_SensorFusion.h     Pose.Translation  += LinearVelocity * dt + LinearAcceleration * (dt * dt * 0.5);
+<a href='../S/127.html#L575'>Pose</a>              575 ovr/sdk/src/OVR_SensorFusion.h     Pose.Rotation     = Pose.Rotation * delta.Pose.Rotation;
+<a href='../S/127.html#L576'>Pose</a>              576 ovr/sdk/src/OVR_SensorFusion.h     Pose.Translation += delta.Pose.Translation + LinearVelocity * delta.TimeInSeconds;
+</pre>
+</body>
+</html>

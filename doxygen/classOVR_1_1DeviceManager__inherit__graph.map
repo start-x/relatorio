@@ -1,0 +1,7 @@
+<map id="OVR::DeviceManager" name="OVR::DeviceManager">
+<area shape="rect" id="node4" href="$classOVR_1_1DeviceImpl.html" title="{OVR::DeviceImpl\&lt; OVR\l::DeviceManager \&gt;\n||+ DeviceImpl()\l+ GetManagerImpl()\l+ getThis()\l+ getDeviceCommon()\l}" alt="" coords="17,661,183,797"/>
+<area shape="rect" id="node2" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="19,131,181,355"/>
+<area shape="rect" id="node3" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="17,5,181,83"/>
+<area shape="rect" id="node5" href="$classOVR_1_1DeviceManagerImpl.html" title="{OVR::DeviceManagerImpl\n|+ Devices\l+ Factories\l# HidDeviceManager\l# pProfileManager\l|+ DeviceManagerImpl()\l+ ~DeviceManagerImpl()\l+ Initialize()\l+ Shutdown()\l+ GetProfileManager()\l+ GetThreadQueue()\l+ GetThreadId()\l+ EnumerateDevicesEx()\l+ AddFactory()\l+ CallOnDeviceAdded()\land 10 more...\l+ CreateManagerDesc()\l+ GetDeviceCommon()\l}" alt="" coords="13,846,187,1143"/>
+<area shape="rect" id="node6" href="$classOVR_1_1Linux_1_1DeviceManager.html" title="{OVR::Linux::DeviceManager\n|+ pThread\l|+ DeviceManager()\l+ ~DeviceManager()\l+ Initialize()\l+ Shutdown()\l+ GetThreadQueue()\l+ GetThreadId()\l+ EnumerateDevicesEx()\l+ GetDeviceInfo()\l}" alt="" coords="5,1193,195,1373"/>
+</map>

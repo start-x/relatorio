@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>ExchangeAdd_Acquire</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L523'>ExchangeAdd_Acquire</a>  523 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Acquire(volatile O_T* p, O_T val)          { O_AcquireSync sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L582'>ExchangeAdd_Acquire</a>  582 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Acquire(volatile C* p, C val)       { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Acquire((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L659'>ExchangeAdd_Acquire</a>  659 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T*     ExchangeAdd_Acquire(I incr)   { return Ops::ExchangeAdd_Acquire(&amp;this-&gt;Value, ((T*)0) + incr); }
+<a href='../S/145.html#L698'>ExchangeAdd_Acquire</a>  698 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     ExchangeAdd_Acquire(T val)         { return Ops::ExchangeAdd_Acquire(&amp;this-&gt;Value, val); }
+<a href='../S/145.html#L703'>ExchangeAdd_Acquire</a>  703 ovr/sdk/src/Kernel/OVR_Atomic.h     inline void  Increment_Acquire()                { ExchangeAdd_Acquire((T)1); }    
+</pre>
+</body>
+</html>

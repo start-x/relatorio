@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>tanHalfFov</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L1782'>tanHalfFov</a>       1782 ovr/sdk/src/Kernel/OVR_Math.h         T tanHalfFov = tan(yfov * 0.5f);
+<a href='../S/177.html#L1784'>tanHalfFov</a>       1784 ovr/sdk/src/Kernel/OVR_Math.h         m.M[0][0] = 1 / (aspect * tanHalfFov);
+<a href='../S/177.html#L1785'>tanHalfFov</a>       1785 ovr/sdk/src/Kernel/OVR_Math.h         m.M[1][1] = 1 / tanHalfFov;
+<a href='../S/177.html#L1806'>tanHalfFov</a>       1806 ovr/sdk/src/Kernel/OVR_Math.h         T tanHalfFov = tan(yfov * 0.5f);
+<a href='../S/177.html#L1808'>tanHalfFov</a>       1808 ovr/sdk/src/Kernel/OVR_Math.h         m.M[0][0] = 1.0 / (aspect * tanHalfFov);
+<a href='../S/177.html#L1809'>tanHalfFov</a>       1809 ovr/sdk/src/Kernel/OVR_Math.h         m.M[1][1] = 1.0 / tanHalfFov;
+<a href='../S/88.html#L1474'>tanHalfFov</a>       1474 ovr/sdk/src/OVR_Stereo.cpp                                 FovPort tanHalfFov, float pixelsPerDisplayPixel )
+<a href='../S/88.html#L1480'>tanHalfFov</a>       1480 ovr/sdk/src/OVR_Stereo.cpp     result.w  = (int)(0.5f + pixelsPerDisplayPixel * distortion.PixelsPerTanAngleAtCenter.x * ( tanHalfFov.LeftTan + tanHalfFov.RightTan ) );
+<a href='../S/88.html#L1481'>tanHalfFov</a>       1481 ovr/sdk/src/OVR_Stereo.cpp     result.h = (int)(0.5f + pixelsPerDisplayPixel * distortion.PixelsPerTanAngleAtCenter.y * ( tanHalfFov.UpTan   + tanHalfFov.DownTan  ) );
+<a href='../S/88.html#L1500'>tanHalfFov</a>       1500 ovr/sdk/src/OVR_Stereo.cpp ScaleAndOffset2D CreateNDCScaleAndOffsetFromFov ( FovPort tanHalfFov )
+<a href='../S/88.html#L1502'>tanHalfFov</a>       1502 ovr/sdk/src/OVR_Stereo.cpp     float projXScale = 2.0f / ( tanHalfFov.LeftTan + tanHalfFov.RightTan );
+<a href='../S/88.html#L1503'>tanHalfFov</a>       1503 ovr/sdk/src/OVR_Stereo.cpp     float projXOffset = ( tanHalfFov.LeftTan - tanHalfFov.RightTan ) * projXScale * 0.5f;
+<a href='../S/88.html#L1504'>tanHalfFov</a>       1504 ovr/sdk/src/OVR_Stereo.cpp     float projYScale = 2.0f / ( tanHalfFov.UpTan + tanHalfFov.DownTan );
+<a href='../S/88.html#L1505'>tanHalfFov</a>       1505 ovr/sdk/src/OVR_Stereo.cpp     float projYOffset = ( tanHalfFov.UpTan - tanHalfFov.DownTan ) * projYScale * 0.5f;
+<a href='../S/88.html#L1543'>tanHalfFov</a>       1543 ovr/sdk/src/OVR_Stereo.cpp Matrix4f CreateProjection( bool rightHanded, FovPort tanHalfFov,
+<a href='../S/88.html#L1547'>tanHalfFov</a>       1547 ovr/sdk/src/OVR_Stereo.cpp     ScaleAndOffset2D scaleAndOffset = CreateNDCScaleAndOffsetFromFov ( tanHalfFov );
+</pre>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>TimeInSeconds</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L487'>TimeInSeconds</a>     487 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         RenderIMUTimeSeconds = eyeState.Recorded.TimeInSeconds;
+<a href='../S/98.html#L528'>TimeInSeconds</a>     528 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         TimewarpIMUTimeSeconds = startState.Recorded.TimeInSeconds;
+<a href='../S/97.html#L299'>TimeInSeconds</a>     299 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         ss.Recorded.TimeInSeconds  = absTime;
+<a href='../S/97.html#L300'>TimeInSeconds</a>     300 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         ss.Predicted.TimeInSeconds = absTime;
+<a href='../S/187.html#L94'>TimeInSeconds</a>      94 ovr/sdk/src/OVR_CAPI.h     double       TimeInSeconds;         // Absolute time of this state sample.
+<a href='../S/189.html#L202'>TimeInSeconds</a>     202 ovr/sdk/src/OVR_SensorFusion.cpp     CameraFromImu.TimeInSeconds = LastVisionExposureRecord.ExposureTime;
+<a href='../S/189.html#L207'>TimeInSeconds</a>     207 ovr/sdk/src/OVR_SensorFusion.cpp     if (LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds &gt; 0.001)
+<a href='../S/189.html#L210'>TimeInSeconds</a>     210 ovr/sdk/src/OVR_SensorFusion.cpp                                             LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds;
+<a href='../S/189.html#L214'>TimeInSeconds</a>     214 ovr/sdk/src/OVR_SensorFusion.cpp             LastVisionExposureRecord.ImuOnlyDelta.Pose.Translation / LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds;
+<a href='../S/189.html#L277'>TimeInSeconds</a>     277 ovr/sdk/src/OVR_SensorFusion.cpp                 CameraFromImu.Pose.Translation + CameraFromImu.LinearVelocity * delta.TimeInSeconds +
+<a href='../S/189.html#L297'>TimeInSeconds</a>     297 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.TimeInSeconds = msg.AbsoluteTimeSeconds;
+<a href='../S/189.html#L370'>TimeInSeconds</a>     370 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.TimeInSeconds = WorldFromImu.TimeInSeconds - LastMessageExposureFrame.CameraTimeSeconds;
+<a href='../S/189.html#L373'>TimeInSeconds</a>     373 ovr/sdk/src/OVR_SensorFusion.cpp 	Recording::GetRecorder().LogData("sfTimeSeconds", WorldFromImu.TimeInSeconds);
+<a href='../S/189.html#L403'>TimeInSeconds</a>     403 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.TimeInSeconds = msg.CameraTimeSeconds - LastMessageExposureFrame.CameraTimeSeconds;
+<a href='../S/189.html#L863'>TimeInSeconds</a>     863 ovr/sdk/src/OVR_SensorFusion.cpp      const double pdt = absoluteTime - lstate.State.TimeInSeconds;
+<a href='../S/189.html#L872'>TimeInSeconds</a>     872 ovr/sdk/src/OVR_SensorFusion.cpp      ss.Predicted.TimeInSeconds = absoluteTime;
+<a href='../S/127.html#L62'>TimeInSeconds</a>      62 ovr/sdk/src/OVR_SensorFusion.h     PoseState() : TimeInSeconds(0.0) { }
+<a href='../S/127.html#L68'>TimeInSeconds</a>      68 ovr/sdk/src/OVR_SensorFusion.h           TimeInSeconds(src.TimeInSeconds)
+<a href='../S/127.html#L76'>TimeInSeconds</a>      76 ovr/sdk/src/OVR_SensorFusion.h           TimeInSeconds(src.TimeInSeconds)
+<a href='../S/127.html#L87'>TimeInSeconds</a>      87 ovr/sdk/src/OVR_SensorFusion.h         result.TimeInSeconds        = TimeInSeconds;
+<a href='../S/127.html#L98'>TimeInSeconds</a>      98 ovr/sdk/src/OVR_SensorFusion.h     double      TimeInSeconds;
+<a href='../S/127.html#L530'>TimeInSeconds</a>     530 ovr/sdk/src/OVR_SensorFusion.h     return LastVisionAbsoluteTime - CameraFromImu.TimeInSeconds;
+<a href='../S/127.html#L576'>TimeInSeconds</a>     576 ovr/sdk/src/OVR_SensorFusion.h     Pose.Translation += delta.Pose.Translation + LinearVelocity * delta.TimeInSeconds;
+<a href='../S/127.html#L578'>TimeInSeconds</a>     578 ovr/sdk/src/OVR_SensorFusion.h     TimeInSeconds    += delta.TimeInSeconds;
+</pre>
+</body>
+</html>

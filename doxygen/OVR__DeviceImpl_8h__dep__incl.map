@@ -1,0 +1,18 @@
+<map id="ovr/sdk/src/OVR_DeviceImpl.h" name="ovr/sdk/src/OVR_DeviceImpl.h">
+<area shape="rect" id="node2" href="$OVR__DeviceHandle_8cpp.html" title="ovr/sdk/src/OVR_DeviceHandle.cpp" alt="" coords="61,88,295,115"/>
+<area shape="rect" id="node3" href="$OVR__DeviceImpl_8cpp.html" title="ovr/sdk/src/OVR_DeviceImpl.cpp" alt="" coords="5,269,224,296"/>
+<area shape="rect" id="node4" href="$OVR__HIDDeviceImpl_8h.html" title="ovr/sdk/src/OVR_HIDDevice\lImpl.h" alt="" coords="517,81,709,122"/>
+<area shape="rect" id="node7" href="$OVR__Linux__SensorDevice_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_SensorDevice.cpp" alt="" coords="1122,262,1280,303"/>
+<area shape="rect" id="node14" href="$OVR__Linux__DeviceManager_8h.html" title="ovr/sdk/src/OVR_Linux\l_DeviceManager.h" alt="" coords="990,81,1148,122"/>
+<area shape="rect" id="node5" href="$OVR__SensorImpl_8h.html" title="ovr/sdk/src/OVR_SensorImpl.h" alt="" coords="371,179,575,205"/>
+<area shape="rect" id="node11" href="$OVR__LatencyTestImpl_8h.html" title="ovr/sdk/src/OVR_LatencyTest\lImpl.h" alt="" coords="834,171,1032,213"/>
+<area shape="rect" id="node13" href="$OVR__Linux__HIDDevice_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_HIDDevice.cpp" alt="" coords="534,262,692,303"/>
+<area shape="rect" id="node6" href="$OVR__Linux__DeviceManager_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_DeviceManager.cpp" alt="" coords="939,262,1097,303"/>
+<area shape="rect" id="node8" href="$OVR__Sensor2Impl_8h.html" title="ovr/sdk/src/OVR_Sensor2Impl.h" alt="" coords="248,269,457,296"/>
+<area shape="rect" id="node10" href="$OVR__SensorImpl_8cpp.html" title="ovr/sdk/src/OVR_SensorImpl.cpp" alt="" coords="387,352,605,379"/>
+<area shape="rect" id="node9" href="$OVR__Sensor2Impl_8cpp.html" title="ovr/sdk/src/OVR_Sensor2Impl.cpp" alt="" coords="137,352,361,379"/>
+<area shape="rect" id="node12" href="$OVR__LatencyTestImpl_8cpp.html" title="ovr/sdk/src/OVR_LatencyTest\lImpl.cpp" alt="" coords="717,262,915,303"/>
+<area shape="rect" id="node15" href="$OVR__Linux__HIDDevice_8h.html" title="ovr/sdk/src/OVR_Linux\l_HIDDevice.h" alt="" coords="651,171,809,213"/>
+<area shape="rect" id="node16" href="$OVR__Linux__HMDDevice_8h.html" title="ovr/sdk/src/OVR_Linux\l_HMDDevice.h" alt="" coords="1107,171,1265,213"/>
+<area shape="rect" id="node17" href="$OVR__Linux__HMDDevice_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_HMDDevice.cpp" alt="" coords="1305,262,1463,303"/>
+</map>

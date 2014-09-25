@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>resultNanos</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/153.html#L168'>resultNanos</a>       168 ovr/sdk/src/Kernel/OVR_Timer.cpp     UInt64          resultNanos;
+<a href='../S/153.html#L206'>resultNanos</a>       206 ovr/sdk/src/Kernel/OVR_Timer.cpp     resultNanos = perfCounterNanos - PerfMinusTicksDeltaNanos;    
+<a href='../S/153.html#L211'>resultNanos</a>       211 ovr/sdk/src/Kernel/OVR_Timer.cpp     if (resultNanos &gt; (mmCounterNanos + MMTimerResolutionNanos*2))
+<a href='../S/153.html#L213'>resultNanos</a>       213 ovr/sdk/src/Kernel/OVR_Timer.cpp         resultNanos = mmCounterNanos + MMTimerResolutionNanos*2;
+<a href='../S/153.html#L214'>resultNanos</a>       214 ovr/sdk/src/Kernel/OVR_Timer.cpp         if (resultNanos &lt; LastResultNanos)
+<a href='../S/153.html#L215'>resultNanos</a>       215 ovr/sdk/src/Kernel/OVR_Timer.cpp             resultNanos = LastResultNanos;
+<a href='../S/153.html#L216'>resultNanos</a>       216 ovr/sdk/src/Kernel/OVR_Timer.cpp         PerfMinusTicksDeltaNanos = perfCounterNanos - resultNanos;
+<a href='../S/153.html#L218'>resultNanos</a>       218 ovr/sdk/src/Kernel/OVR_Timer.cpp     else if (resultNanos &lt; (mmCounterNanos - MMTimerResolutionNanos))
+<a href='../S/153.html#L220'>resultNanos</a>       220 ovr/sdk/src/Kernel/OVR_Timer.cpp         resultNanos = mmCounterNanos - MMTimerResolutionNanos;
+<a href='../S/153.html#L221'>resultNanos</a>       221 ovr/sdk/src/Kernel/OVR_Timer.cpp         if (resultNanos &lt; LastResultNanos)
+<a href='../S/153.html#L222'>resultNanos</a>       222 ovr/sdk/src/Kernel/OVR_Timer.cpp             resultNanos = LastResultNanos;
+<a href='../S/153.html#L223'>resultNanos</a>       223 ovr/sdk/src/Kernel/OVR_Timer.cpp         PerfMinusTicksDeltaNanos = perfCounterNanos - resultNanos;
+<a href='../S/153.html#L226'>resultNanos</a>       226 ovr/sdk/src/Kernel/OVR_Timer.cpp     LastResultNanos = resultNanos;
+<a href='../S/153.html#L231'>resultNanos</a>       231 ovr/sdk/src/Kernel/OVR_Timer.cpp 	if (!initial_time) initial_time = resultNanos;
+<a href='../S/153.html#L232'>resultNanos</a>       232 ovr/sdk/src/Kernel/OVR_Timer.cpp 	resultNanos -= initial_time;
+<a href='../S/153.html#L235'>resultNanos</a>       235 ovr/sdk/src/Kernel/OVR_Timer.cpp     return resultNanos;
+</pre>
+</body>
+</html>

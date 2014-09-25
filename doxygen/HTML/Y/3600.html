@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>m</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/103.html#L252'>m</a>                 252 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool   Unmap(void *m);
+<a href='../S/103.html#L374'>m</a>                 374 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniform4x4f(const char* name, const Matrix4f&amp; m)
+<a href='../S/103.html#L376'>m</a>                 376 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         Matrix4f mt = m.Transposed();
+<a href='../S/103.html#L426'>m</a>                 426 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     DisplayId(String m, long id=0) : MonitorName(m), CgDisplayId(id) {}
+<a href='../S/177.html#L773'>m</a>                 773 ovr/sdk/src/Kernel/OVR_Math.h     explicit Quat(const Matrix4&lt;T&gt;&amp; m)
+<a href='../S/177.html#L775'>m</a>                 775 ovr/sdk/src/Kernel/OVR_Math.h         T trace = m.M[0][0] + m.M[1][1] + m.M[2][2];
+<a href='../S/177.html#L784'>m</a>                 784 ovr/sdk/src/Kernel/OVR_Math.h             x = (m.M[2][1] - m.M[1][2]) / s;
+<a href='../S/177.html#L785'>m</a>                 785 ovr/sdk/src/Kernel/OVR_Math.h             y = (m.M[0][2] - m.M[2][0]) / s;
+<a href='../S/177.html#L786'>m</a>                 786 ovr/sdk/src/Kernel/OVR_Math.h             z = (m.M[1][0] - m.M[0][1]) / s; 
+<a href='../S/177.html#L788'>m</a>                 788 ovr/sdk/src/Kernel/OVR_Math.h         else if ((m.M[0][0] &gt; m.M[1][1])&amp;&amp;(m.M[0][0] &gt; m.M[2][2])) 
+<a href='../S/177.html#L790'>m</a>                 790 ovr/sdk/src/Kernel/OVR_Math.h             T s = sqrt(T(1) + m.M[0][0] - m.M[1][1] - m.M[2][2]) * T(2);
+<a href='../S/177.html#L791'>m</a>                 791 ovr/sdk/src/Kernel/OVR_Math.h             w = (m.M[2][1] - m.M[1][2]) / s;
+<a href='../S/177.html#L793'>m</a>                 793 ovr/sdk/src/Kernel/OVR_Math.h             y = (m.M[0][1] + m.M[1][0]) / s;
+<a href='../S/177.html#L794'>m</a>                 794 ovr/sdk/src/Kernel/OVR_Math.h             z = (m.M[2][0] + m.M[0][2]) / s;
+<a href='../S/177.html#L796'>m</a>                 796 ovr/sdk/src/Kernel/OVR_Math.h         else if (m.M[1][1] &gt; m.M[2][2]) 
+<a href='../S/177.html#L798'>m</a>                 798 ovr/sdk/src/Kernel/OVR_Math.h             T s = sqrt(T(1) + m.M[1][1] - m.M[0][0] - m.M[2][2]) * T(2); // S=4*qy
+<a href='../S/177.html#L799'>m</a>                 799 ovr/sdk/src/Kernel/OVR_Math.h             w = (m.M[0][2] - m.M[2][0]) / s;
+<a href='../S/177.html#L800'>m</a>                 800 ovr/sdk/src/Kernel/OVR_Math.h             x = (m.M[0][1] + m.M[1][0]) / s;
+<a href='../S/177.html#L802'>m</a>                 802 ovr/sdk/src/Kernel/OVR_Math.h             z = (m.M[1][2] + m.M[2][1]) / s;
+<a href='../S/177.html#L806'>m</a>                 806 ovr/sdk/src/Kernel/OVR_Math.h             T s = sqrt(T(1) + m.M[2][2] - m.M[0][0] - m.M[1][1]) * T(2); // S=4*qz
+<a href='../S/177.html#L807'>m</a>                 807 ovr/sdk/src/Kernel/OVR_Math.h             w = (m.M[1][0] - m.M[0][1]) / s;
+<a href='../S/177.html#L808'>m</a>                 808 ovr/sdk/src/Kernel/OVR_Math.h             x = (m.M[0][2] + m.M[2][0]) / s;
+<a href='../S/177.html#L809'>m</a>                 809 ovr/sdk/src/Kernel/OVR_Math.h             y = (m.M[1][2] + m.M[2][1]) / s;
+<a href='../S/177.html#L815'>m</a>                 815 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Quat(const Matrix3&lt;T&gt;&amp; m)
+<a href='../S/177.html#L817'>m</a>                 817 ovr/sdk/src/Kernel/OVR_Math.h 		T trace = m.M[0][0] + m.M[1][1] + m.M[2][2];
+<a href='../S/177.html#L826'>m</a>                 826 ovr/sdk/src/Kernel/OVR_Math.h 			x = (m.M[2][1] - m.M[1][2]) / s;
+<a href='../S/177.html#L827'>m</a>                 827 ovr/sdk/src/Kernel/OVR_Math.h 			y = (m.M[0][2] - m.M[2][0]) / s;
+<a href='../S/177.html#L828'>m</a>                 828 ovr/sdk/src/Kernel/OVR_Math.h 			z = (m.M[1][0] - m.M[0][1]) / s; 
+<a href='../S/177.html#L830'>m</a>                 830 ovr/sdk/src/Kernel/OVR_Math.h 		else if ((m.M[0][0] &gt; m.M[1][1])&amp;&amp;(m.M[0][0] &gt; m.M[2][2])) 
+<a href='../S/177.html#L832'>m</a>                 832 ovr/sdk/src/Kernel/OVR_Math.h 			T s = sqrt(T(1) + m.M[0][0] - m.M[1][1] - m.M[2][2]) * T(2);
+<a href='../S/177.html#L833'>m</a>                 833 ovr/sdk/src/Kernel/OVR_Math.h 			w = (m.M[2][1] - m.M[1][2]) / s;
+<a href='../S/177.html#L835'>m</a>                 835 ovr/sdk/src/Kernel/OVR_Math.h 			y = (m.M[0][1] + m.M[1][0]) / s;
+<a href='../S/177.html#L836'>m</a>                 836 ovr/sdk/src/Kernel/OVR_Math.h 			z = (m.M[2][0] + m.M[0][2]) / s;
+<a href='../S/177.html#L838'>m</a>                 838 ovr/sdk/src/Kernel/OVR_Math.h 		else if (m.M[1][1] &gt; m.M[2][2]) 
+<a href='../S/177.html#L840'>m</a>                 840 ovr/sdk/src/Kernel/OVR_Math.h 			T s = sqrt(T(1) + m.M[1][1] - m.M[0][0] - m.M[2][2]) * T(2); // S=4*qy
+<a href='../S/177.html#L841'>m</a>                 841 ovr/sdk/src/Kernel/OVR_Math.h 			w = (m.M[0][2] - m.M[2][0]) / s;
+<a href='../S/177.html#L842'>m</a>                 842 ovr/sdk/src/Kernel/OVR_Math.h 			x = (m.M[0][1] + m.M[1][0]) / s;
+<a href='../S/177.html#L844'>m</a>                 844 ovr/sdk/src/Kernel/OVR_Math.h 			z = (m.M[1][2] + m.M[2][1]) / s;
+<a href='../S/177.html#L848'>m</a>                 848 ovr/sdk/src/Kernel/OVR_Math.h 			T s = sqrt(T(1) + m.M[2][2] - m.M[0][0] - m.M[1][1]) * T(2); // S=4*qz
+<a href='../S/177.html#L849'>m</a>                 849 ovr/sdk/src/Kernel/OVR_Math.h 			w = (m.M[1][0] - m.M[0][1]) / s;
+<a href='../S/177.html#L850'>m</a>                 850 ovr/sdk/src/Kernel/OVR_Math.h 			x = (m.M[0][2] + m.M[2][0]) / s;
+<a href='../S/177.html#L851'>m</a>                 851 ovr/sdk/src/Kernel/OVR_Math.h 			y = (m.M[1][2] + m.M[2][1]) / s;
+<a href='../S/177.html#L1045'>m</a>                1045 ovr/sdk/src/Kernel/OVR_Math.h         int m = 3 - A1 - A2;
+<a href='../S/177.html#L1050'>m</a>                1050 ovr/sdk/src/Kernel/OVR_Math.h         T Qmm = Q[m]*Q[m];
+<a href='../S/177.html#L1063'>m</a>                1063 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( T(2)*(w*Q[A1] - psign*Q[A2]*Q[m]),
+<a href='../S/177.html#L1070'>m</a>                1070 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( T(2)*(w*Q[A1] - psign*Q[A2]*Q[m]),
+<a href='../S/177.html#L1075'>m</a>                1075 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( psign*w*Q[m] + Q[A1]*Q[A2],
+<a href='../S/177.html#L1076'>m</a>                1076 ovr/sdk/src/Kernel/OVR_Math.h 		                   w*Q[A2] -psign*Q[A1]*Q[m]);
+<a href='../S/177.html#L1078'>m</a>                1078 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*w*Q[m] + Q[A1]*Q[A2],
+<a href='../S/177.html#L1079'>m</a>                1079 ovr/sdk/src/Kernel/OVR_Math.h 		                   w*Q[A2] + psign*Q[A1]*Q[m]);
+<a href='../S/177.html#L1534'>m</a>                1534 ovr/sdk/src/Kernel/OVR_Math.h         int m = 3 - A1 - A2;
+<a href='../S/177.html#L1545'>m</a>                1545 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*M[A2][m],M[A2][A2]);
+<a href='../S/177.html#L1551'>m</a>                1551 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*M[A2][m],M[A2][A2]);
+<a href='../S/177.html#L1555'>m</a>                1555 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( M[A2][A1],-psign*M[m][A1]);
+<a href='../S/177.html#L1557'>m</a>                1557 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( M[A1][A2],psign*M[A1][m]);
+<a href='../S/177.html#L1575'>m</a>                1575 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(0,  0,  0, 
+<a href='../S/177.html#L1580'>m</a>                1580 ovr/sdk/src/Kernel/OVR_Math.h         m.M[inv[abs(from.XAxis)]][0] = T(from.XAxis/toArray[inv[abs(from.XAxis)]]);
+<a href='../S/177.html#L1581'>m</a>                1581 ovr/sdk/src/Kernel/OVR_Math.h         m.M[inv[abs(from.YAxis)]][1] = T(from.YAxis/toArray[inv[abs(from.YAxis)]]);
+<a href='../S/177.html#L1582'>m</a>                1582 ovr/sdk/src/Kernel/OVR_Math.h         m.M[inv[abs(from.ZAxis)]][2] = T(from.ZAxis/toArray[inv[abs(from.ZAxis)]]);
+<a href='../S/177.html#L1583'>m</a>                1583 ovr/sdk/src/Kernel/OVR_Math.h         return m;
+<a href='../S/177.html#L1747'>m</a>                1747 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(x.x,  x.y,  x.z,  -(x.Dot(eye)),
+<a href='../S/177.html#L1751'>m</a>                1751 ovr/sdk/src/Kernel/OVR_Math.h         return m;
+<a href='../S/177.html#L1763'>m</a>                1763 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(x.x,  x.y,  x.z,  -(x.Dot(eye)),
+<a href='../S/177.html#L1767'>m</a>                1767 ovr/sdk/src/Kernel/OVR_Math.h         return m;
+<a href='../S/177.html#L1781'>m</a>                1781 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m;
+<a href='../S/177.html#L1784'>m</a>                1784 ovr/sdk/src/Kernel/OVR_Math.h         m.M[0][0] = 1 / (aspect * tanHalfFov);
+<a href='../S/177.html#L1785'>m</a>                1785 ovr/sdk/src/Kernel/OVR_Math.h         m.M[1][1] = 1 / tanHalfFov;
+<a href='../S/177.html#L1786'>m</a>                1786 ovr/sdk/src/Kernel/OVR_Math.h         m.M[2][2] = zfar / (zfar - znear);
+<a href='../S/177.html#L1787'>m</a>                1787 ovr/sdk/src/Kernel/OVR_Math.h         m.M[3][2] = 1;
+<a href='../S/177.html#L1788'>m</a>                1788 ovr/sdk/src/Kernel/OVR_Math.h         m.M[2][3] = (zfar * znear) / (znear - zfar);
+<a href='../S/177.html#L1789'>m</a>                1789 ovr/sdk/src/Kernel/OVR_Math.h         m.M[3][3] = 0;
+<a href='../S/177.html#L1793'>m</a>                1793 ovr/sdk/src/Kernel/OVR_Math.h         return m;
+<a href='../S/177.html#L1805'>m</a>                1805 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m;
+<a href='../S/177.html#L1808'>m</a>                1808 ovr/sdk/src/Kernel/OVR_Math.h         m.M[0][0] = 1.0 / (aspect * tanHalfFov);
+<a href='../S/177.html#L1809'>m</a>                1809 ovr/sdk/src/Kernel/OVR_Math.h         m.M[1][1] = 1.0 / tanHalfFov;
+<a href='../S/177.html#L1810'>m</a>                1810 ovr/sdk/src/Kernel/OVR_Math.h         m.M[2][2] = zfar / (znear - zfar);
+<a href='../S/177.html#L1812'>m</a>                1812 ovr/sdk/src/Kernel/OVR_Math.h         m.M[3][2] = -1.0;
+<a href='../S/177.html#L1813'>m</a>                1813 ovr/sdk/src/Kernel/OVR_Math.h         m.M[2][3] = (zfar * znear) / (znear - zfar);
+<a href='../S/177.html#L1814'>m</a>                1814 ovr/sdk/src/Kernel/OVR_Math.h         m.M[3][3] = 0.0;
+<a href='../S/177.html#L1819'>m</a>                1819 ovr/sdk/src/Kernel/OVR_Math.h         return m;
+<a href='../S/177.html#L1824'>m</a>                1824 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m;
+<a href='../S/177.html#L1825'>m</a>                1825 ovr/sdk/src/Kernel/OVR_Math.h         m.M[0][0] = 2.0/w;
+<a href='../S/177.html#L1826'>m</a>                1826 ovr/sdk/src/Kernel/OVR_Math.h         m.M[1][1] = -2.0/h;
+<a href='../S/177.html#L1827'>m</a>                1827 ovr/sdk/src/Kernel/OVR_Math.h         m.M[0][3] = -1.0;
+<a href='../S/177.html#L1828'>m</a>                1828 ovr/sdk/src/Kernel/OVR_Math.h         m.M[1][3] = 1.0;
+<a href='../S/177.html#L1829'>m</a>                1829 ovr/sdk/src/Kernel/OVR_Math.h         m.M[2][2] = 0;
+<a href='../S/177.html#L1830'>m</a>                1830 ovr/sdk/src/Kernel/OVR_Math.h         return m;
+<a href='../S/177.html#L2166'>m</a>                2166 ovr/sdk/src/Kernel/OVR_Math.h 		const Matrix3&lt;T&gt;&amp; m = *this;
+<a href='../S/177.html#L2169'>m</a>                2169 ovr/sdk/src/Kernel/OVR_Math.h 		d  = m.M[0][0] * (m.M[1][1]*m.M[2][2] - m.M[1][2] * m.M[2][1]);
+<a href='../S/177.html#L2170'>m</a>                2170 ovr/sdk/src/Kernel/OVR_Math.h 		d -= m.M[0][1] * (m.M[1][0]*m.M[2][2] - m.M[1][2] * m.M[2][0]);
+<a href='../S/177.html#L2171'>m</a>                2171 ovr/sdk/src/Kernel/OVR_Math.h 		d += m.M[0][2] * (m.M[1][0]*m.M[2][1] - m.M[1][1] * m.M[2][0]);
+<a href='../S/177.html#L2179'>m</a>                2179 ovr/sdk/src/Kernel/OVR_Math.h         const  Matrix3&lt;T&gt;&amp; m = *this;
+<a href='../S/177.html#L2185'>m</a>                2185 ovr/sdk/src/Kernel/OVR_Math.h         a.M[0][0] = s * (m.M[1][1] * m.M[2][2] - m.M[1][2] * m.M[2][1]);   
+<a href='../S/177.html#L2186'>m</a>                2186 ovr/sdk/src/Kernel/OVR_Math.h         a.M[1][0] = s * (m.M[1][2] * m.M[2][0] - m.M[1][0] * m.M[2][2]);   
+<a href='../S/177.html#L2187'>m</a>                2187 ovr/sdk/src/Kernel/OVR_Math.h         a.M[2][0] = s * (m.M[1][0] * m.M[2][1] - m.M[1][1] * m.M[2][0]);   
+<a href='../S/177.html#L2189'>m</a>                2189 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[0][1] = s * (m.M[0][2] * m.M[2][1] - m.M[0][1] * m.M[2][2]);   
+<a href='../S/177.html#L2190'>m</a>                2190 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[1][1] = s * (m.M[0][0] * m.M[2][2] - m.M[0][2] * m.M[2][0]);   
+<a href='../S/177.html#L2191'>m</a>                2191 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[2][1] = s * (m.M[0][1] * m.M[2][0] - m.M[0][0] * m.M[2][1]);   
+<a href='../S/177.html#L2193'>m</a>                2193 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[0][2] = s * (m.M[0][1] * m.M[1][2] - m.M[0][2] * m.M[1][1]);   
+<a href='../S/177.html#L2194'>m</a>                2194 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[1][2] = s * (m.M[0][2] * m.M[1][0] - m.M[0][0] * m.M[1][2]);   
+<a href='../S/177.html#L2195'>m</a>                2195 ovr/sdk/src/Kernel/OVR_Math.h 		a.M[2][2] = s * (m.M[0][0] * m.M[1][1] - m.M[0][1] * m.M[1][0]);   
+<a href='../S/177.html#L2316'>m</a>                2316 ovr/sdk/src/Kernel/OVR_Math.h 		const this_type&amp; m = *this;
+<a href='../S/177.html#L2319'>m</a>                2319 ovr/sdk/src/Kernel/OVR_Math.h 		d  = m(0,0) * (m(1,1)*m(2,2) - m(1,2) * m(2,1));
+<a href='../S/177.html#L2320'>m</a>                2320 ovr/sdk/src/Kernel/OVR_Math.h 		d -= m(0,1) * (m(1,0)*m(2,2) - m(1,2) * m(2,0));
+<a href='../S/177.html#L2321'>m</a>                2321 ovr/sdk/src/Kernel/OVR_Math.h 		d += m(0,2) * (m(1,0)*m(2,1) - m(1,1) * m(2,0));
+<a href='../S/177.html#L2329'>m</a>                2329 ovr/sdk/src/Kernel/OVR_Math.h 		const this_type&amp; m = *this;
+<a href='../S/177.html#L2335'>m</a>                2335 ovr/sdk/src/Kernel/OVR_Math.h 		a(0,0) = s * (m(1,1) * m(2,2) - m(1,2) * m(2,1));   
+<a href='../S/177.html#L2337'>m</a>                2337 ovr/sdk/src/Kernel/OVR_Math.h 		a(0,1) = s * (m(0,2) * m(2,1) - m(0,1) * m(2,2));   
+<a href='../S/177.html#L2338'>m</a>                2338 ovr/sdk/src/Kernel/OVR_Math.h 		a(1,1) = s * (m(0,0) * m(2,2) - m(0,2) * m(2,0));   
+<a href='../S/177.html#L2340'>m</a>                2340 ovr/sdk/src/Kernel/OVR_Math.h 		a(0,2) = s * (m(0,1) * m(1,2) - m(0,2) * m(1,1));   
+<a href='../S/177.html#L2341'>m</a>                2341 ovr/sdk/src/Kernel/OVR_Math.h 		a(1,2) = s * (m(0,2) * m(1,0) - m(0,0) * m(1,2));   
+<a href='../S/177.html#L2342'>m</a>                2342 ovr/sdk/src/Kernel/OVR_Math.h 		a(2,2) = s * (m(0,0) * m(1,1) - m(0,1) * m(1,0));   
+<a href='../S/119.html#L184'>m</a>                 184 ovr/sdk/src/OVR_SensorFilter.h         int m = (n-1)/2;
+<a href='../S/119.html#L186'>m</a>                 186 ovr/sdk/src/OVR_SensorFilter.h         for (int k = 1; k &lt;= m; k++) 
+<a href='../S/119.html#L188'>m</a>                 188 ovr/sdk/src/OVR_SensorFilter.h             int ind1 = m - k;
+<a href='../S/119.html#L189'>m</a>                 189 ovr/sdk/src/OVR_SensorFilter.h             int ind2 = n - m + k - 1;
+<a href='../S/119.html#L192'>m</a>                 192 ovr/sdk/src/OVR_SensorFilter.h         float coef = 3.0f/(m*(m+1.0f)*(2.0f*m+1.0f));
+<a href='../S/111.html#L324'>m</a>                 324 ovr/sdk/src/Util/Util_ImageWindow.cpp 	D2D1_MATRIX_3X2_F m;
+<a href='../S/111.html#L325'>m</a>                 325 ovr/sdk/src/Util/Util_ImageWindow.cpp 	m._11 = -1; m._12 = 0;
+<a href='../S/111.html#L326'>m</a>                 326 ovr/sdk/src/Util/Util_ImageWindow.cpp 	m._21 = 0; m._22 = 1;
+<a href='../S/111.html#L327'>m</a>                 327 ovr/sdk/src/Util/Util_ImageWindow.cpp 	m._31 = 0; m._32 = 0;
+<a href='../S/111.html#L328'>m</a>                 328 ovr/sdk/src/Util/Util_ImageWindow.cpp 	pRT-&gt;SetTransform( m );
+</pre>
+</body>
+</html>

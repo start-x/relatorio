@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>CompareAndSet_Sync</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/159.html#L116'>CompareAndSet_Sync</a>  116 ovr/sdk/src/Kernel/OVR_Atomic.cpp             if (AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, 0, LockInitMarker))
+<a href='../S/159.html#L120'>CompareAndSet_Sync</a>  120 ovr/sdk/src/Kernel/OVR_Atomic.cpp                 while (!AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, LockInitMarker, 1));
+<a href='../S/159.html#L145'>CompareAndSet_Sync</a>  145 ovr/sdk/src/Kernel/OVR_Atomic.cpp             if (AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, 1, LockInitMarker))
+<a href='../S/159.html#L150'>CompareAndSet_Sync</a>  150 ovr/sdk/src/Kernel/OVR_Atomic.cpp                 while (!AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, LockInitMarker, 0));
+<a href='../S/145.html#L524'>CompareAndSet_Sync</a>  524 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile O_T* p, O_T c, O_T val)    { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::CompareAndSet_NoSync(p,c,val); }
+<a href='../S/145.html#L584'>CompareAndSet_Sync</a>  584 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static bool  CompareAndSet_Sync(volatile C* p, C c, C val)   { C2T_union u,cu; u.c = val; cu.c = c; return Ops::CompareAndSet_Sync((PT)p, cu.t, u.t); }
+<a href='../S/145.html#L617'>CompareAndSet_Sync</a>  617 ovr/sdk/src/Kernel/OVR_Atomic.h     inline bool  CompareAndSet_Sync(T c, T val)     { return Ops::CompareAndSet_Sync(&amp;Value, c, val); }
+<a href='../S/145.html#L724'>CompareAndSet_Sync</a>  724 ovr/sdk/src/Kernel/OVR_Atomic.h         } while(!this-&gt;CompareAndSet_Sync(comp, newVal));
+<a href='../S/145.html#L734'>CompareAndSet_Sync</a>  734 ovr/sdk/src/Kernel/OVR_Atomic.h         } while(!this-&gt;CompareAndSet_Sync(comp, newVal));
+<a href='../S/145.html#L744'>CompareAndSet_Sync</a>  744 ovr/sdk/src/Kernel/OVR_Atomic.h         } while(!this-&gt;CompareAndSet_Sync(comp, newVal));
+<a href='../S/145.html#L754'>CompareAndSet_Sync</a>  754 ovr/sdk/src/Kernel/OVR_Atomic.h         } while(!this-&gt;CompareAndSet_Sync(comp, newVal));
+<a href='../S/145.html#L764'>CompareAndSet_Sync</a>  764 ovr/sdk/src/Kernel/OVR_Atomic.h         } while(!CompareAndSet_Sync(comp, newVal));
+<a href='../S/145.html#L774'>CompareAndSet_Sync</a>  774 ovr/sdk/src/Kernel/OVR_Atomic.h         } while(!CompareAndSet_Sync(comp, newVal));
+<a href='../S/145.html#L784'>CompareAndSet_Sync</a>  784 ovr/sdk/src/Kernel/OVR_Atomic.h         } while(!this-&gt;CompareAndSet_Sync(comp, newVal));
+</pre>
+</body>
+</html>

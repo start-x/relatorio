@@ -1,0 +1,48 @@
+var OVR__Stereo_8cpp =
+[
+    [ "LensConfigStored_CatmullRom10Version1", "namespaceOVR.html#structOVR_1_1LensConfigStored__CatmullRom10Version1", [
+      [ "ChromaticAberration", "namespaceOVR.html#a7961e5cccb65ee9e03c3d2adb5767d63", null ],
+      [ "K", "namespaceOVR.html#a8d851c8678d2df2fec9141234362ac75", null ],
+      [ "MaxR", "namespaceOVR.html#a8ec4c4a938fe433140dfbb7aebae1eed", null ],
+      [ "MetersPerTanAngleAtCenter", "namespaceOVR.html#a2a6d4e66ebaca7fb88f4bbaf979fc39a", null ],
+      [ "VersionNumber", "namespaceOVR.html#a665b3bd4121b2584d52e8ebac621c30c", null ]
+    ] ],
+    [ "LensConfigStoredVersion", "OVR__Stereo_8cpp.html#aeec6d504b564cdd874ab60d8f5ab954e", [
+      [ "LCSV_CatmullRom10Version1", "OVR__Stereo_8cpp.html#aeec6d504b564cdd874ab60d8f5ab954ea3f8c54a02bdbafe163c017eb2b257f3c", null ]
+    ] ],
+    [ "CalculateDistortionRenderDesc", "OVR__Stereo_8cpp.html#a9fe82742ed14605ed57866b2e4a29b37", null ],
+    [ "CalculateFovFromEyePosition", "OVR__Stereo_8cpp.html#a331c7ff0f9e756196ba9f5a5744c7a23", null ],
+    [ "CalculateFovFromHmdInfo", "OVR__Stereo_8cpp.html#a811b19317fe5993b3bd43d7df469406a", null ],
+    [ "CalculateIdealPixelSize", "OVR__Stereo_8cpp.html#a7f133a50bf76a6ec851bc576ab1bba4f", null ],
+    [ "ClampToPhysicalScreenFov", "OVR__Stereo_8cpp.html#a577e6dadffeabc985831031fec75572a", null ],
+    [ "CreateDebugHMDInfo", "OVR__Stereo_8cpp.html#afa080330b17ebe43e51702bbfa48d148", null ],
+    [ "CreateNDCScaleAndOffsetFromFov", "OVR__Stereo_8cpp.html#a5c96bafb284c7915e750d8969abb2053", null ],
+    [ "CreateOrthoSubProjection", "OVR__Stereo_8cpp.html#afb614575b5231386196848f3d3a917c4", null ],
+    [ "CreateProjection", "OVR__Stereo_8cpp.html#a380b7d869eb8b898dbbf7c93f443b661", null ],
+    [ "CreateUVScaleAndOffsetfromNDCScaleandOffset", "OVR__Stereo_8cpp.html#a94195798b62b1ed618fbd215d9bd576b", null ],
+    [ "DecodeFixedPointUInt16", "OVR__Stereo_8cpp.html#a7ad0811edea392cfc604ce53bb2342ce", null ],
+    [ "EncodeFixedPointUInt16", "OVR__Stereo_8cpp.html#a731868e22bff7ab09ca93c36f7d095e1", null ],
+    [ "EvalCatmullRom10Spline", "OVR__Stereo_8cpp.html#ab8fef9b94fda8bb5234633df33705278", null ],
+    [ "ExtEvalCatmullRom10Spline", "OVR__Stereo_8cpp.html#a9e608aee88b7097609e541040ef668f1", null ],
+    [ "FitCubicPolynomial", "OVR__Stereo_8cpp.html#a95d6e87ddd717a53239cce3369f4ebd3", null ],
+    [ "GenerateHmdRenderInfoFromHmdInfo", "OVR__Stereo_8cpp.html#ab9e8ff0579135aea563c0f32fa12839d", null ],
+    [ "GenerateLensConfigFromEyeRelief", "OVR__Stereo_8cpp.html#a8afbb8af9f3db4c64407ed4749f49d44", null ],
+    [ "GetFramebufferViewport", "OVR__Stereo_8cpp.html#acd8f058f7822d3e0e118d63985696e82", null ],
+    [ "GetPhysicalScreenFov", "OVR__Stereo_8cpp.html#a3e745256d1298637d91285d26e8d7fd0", null ],
+    [ "LoadLensConfig", "OVR__Stereo_8cpp.html#a0992aff9ec3084df40a2062b7c0a966b", null ],
+    [ "SaveLensConfig", "OVR__Stereo_8cpp.html#ab350f1e917b568e433d46d39f900c3bd", null ],
+    [ "SaveLensConfigSizeInBytes", "OVR__Stereo_8cpp.html#a50922b1a0a96d18f8e58b141ff4d0735", null ],
+    [ "SetEyeCup", "OVR__Stereo_8cpp.html#a2028f6b542236c3f8449e5acba90d753", null ],
+    [ "TransformRendertargetNDCToTanFovSpace", "OVR__Stereo_8cpp.html#a7c4ed1324be6479f03c113a84363be31", null ],
+    [ "TransformScreenNDCToRendertargetTexUV", "OVR__Stereo_8cpp.html#a825859254729b28f0cbdf5ec4b70fa25", null ],
+    [ "TransformScreenNDCToTanFovSpace", "OVR__Stereo_8cpp.html#a532843ea79838468f3c4639cb16ce9b9", null ],
+    [ "TransformScreenNDCToTanFovSpaceChroma", "OVR__Stereo_8cpp.html#a9e83020095b4d17491dfecd6e2b0df19", null ],
+    [ "TransformScreenPixelToRendertargetTexUV", "OVR__Stereo_8cpp.html#afd24adf9b6a553251e708c22b60e0dca", null ],
+    [ "TransformScreenPixelToScreenNDC", "OVR__Stereo_8cpp.html#a0d5aceba26852352c0fdab950b6ab9bf", null ],
+    [ "TransformScreenPixelToTanFovSpace", "OVR__Stereo_8cpp.html#a873e639d71a469d08e00014e51231b09", null ],
+    [ "TransformTanFovSpaceToRendertargetNDC", "OVR__Stereo_8cpp.html#a0ddf25fd49ff0135251d96ae6ecc9922", null ],
+    [ "TransformTanFovSpaceToRendertargetTexUV", "OVR__Stereo_8cpp.html#af0d9d0f3c76e5c95b09e813a0fd4e1ec", null ],
+    [ "TransformTanFovSpaceToScreenNDC", "OVR__Stereo_8cpp.html#a24bebae56dec1c26df6edc9d958005b4", null ],
+    [ "CustomDistortion", "OVR__Stereo_8cpp.html#a21b5e21fc19c1652b4845d390d9ff922", null ],
+    [ "CustomDistortionInv", "OVR__Stereo_8cpp.html#a44295519616b4f41dc9f2a3f5fc0b270", null ]
+];

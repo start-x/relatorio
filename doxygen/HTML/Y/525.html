@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>ExchangeAdd_Sync</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/145.html#L521'>ExchangeAdd_Sync</a>  521 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static O_T   ExchangeAdd_Sync(volatile O_T* p, O_T val)             { O_FullSync    sync; OVR_UNUSED(sync); return AtomicOpsRaw_DefImpl&lt;O&gt;::ExchangeAdd_NoSync(p, val); }
+<a href='../S/145.html#L580'>ExchangeAdd_Sync</a>  580 ovr/sdk/src/Kernel/OVR_Atomic.h     inline static C     ExchangeAdd_Sync(volatile C* p, C val)          { C2T_union u; u.c = val; u.t = Ops::ExchangeAdd_Sync((PT)p, u.t); return u.c; }
+<a href='../S/145.html#L655'>ExchangeAdd_Sync</a>  655 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T*     ExchangeAdd_Sync(I incr)      { return Ops::ExchangeAdd_Sync(&amp;this-&gt;Value, ((T*)0) + incr); }
+<a href='../S/145.html#L668'>ExchangeAdd_Sync</a>  668 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator += (I val) { return ExchangeAdd_Sync(val) + val; }
+<a href='../S/145.html#L672'>ExchangeAdd_Sync</a>  672 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator ++ ()      { return ExchangeAdd_Sync(1) + 1; }
+<a href='../S/145.html#L673'>ExchangeAdd_Sync</a>  673 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -- ()      { return ExchangeAdd_Sync(-1) - 1; }
+<a href='../S/145.html#L674'>ExchangeAdd_Sync</a>  674 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator ++ (int)   { return ExchangeAdd_Sync(1); }
+<a href='../S/145.html#L675'>ExchangeAdd_Sync</a>  675 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -- (int)   { return ExchangeAdd_Sync(-1); }
+<a href='../S/145.html#L696'>ExchangeAdd_Sync</a>  696 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T     ExchangeAdd_Sync(T val)            { return Ops::ExchangeAdd_Sync(&amp;this-&gt;Value, val); }
+<a href='../S/145.html#L701'>ExchangeAdd_Sync</a>  701 ovr/sdk/src/Kernel/OVR_Atomic.h     inline void  Increment_Sync()                   { ExchangeAdd_Sync((T)1); }
+<a href='../S/145.html#L709'>ExchangeAdd_Sync</a>  709 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator += (T val) { return ExchangeAdd_Sync(val) + val; }
+<a href='../S/145.html#L710'>ExchangeAdd_Sync</a>  710 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator -= (T val) { return ExchangeAdd_Sync(0 - val) - val; }
+<a href='../S/145.html#L712'>ExchangeAdd_Sync</a>  712 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator ++ ()      { return ExchangeAdd_Sync((T)1) + 1; }
+<a href='../S/145.html#L713'>ExchangeAdd_Sync</a>  713 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator -- ()      { return ExchangeAdd_Sync(((T)0)-1) - 1; }
+<a href='../S/145.html#L714'>ExchangeAdd_Sync</a>  714 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator ++ (int)   { return ExchangeAdd_Sync((T)1); }
+<a href='../S/145.html#L715'>ExchangeAdd_Sync</a>  715 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator -- (int)   { return ExchangeAdd_Sync(((T)0)-1); }
+<a href='../S/178.html#L64'>ExchangeAdd_Sync</a>   64 ovr/sdk/src/Kernel/OVR_Lockless.h             end   = UpdateEnd.ExchangeAdd_Sync(0);
+<a href='../S/178.html#L66'>ExchangeAdd_Sync</a>   66 ovr/sdk/src/Kernel/OVR_Lockless.h             begin = UpdateBegin.ExchangeAdd_Sync(0);
+<a href='../S/178.html#L87'>ExchangeAdd_Sync</a>   87 ovr/sdk/src/Kernel/OVR_Lockless.h         const int slot = UpdateBegin.ExchangeAdd_Sync(1) &amp; 1;
+<a href='../S/178.html#L90'>ExchangeAdd_Sync</a>   90 ovr/sdk/src/Kernel/OVR_Lockless.h         UpdateEnd.ExchangeAdd_Sync(1);
+</pre>
+</body>
+</html>

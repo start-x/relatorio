@@ -1,0 +1,721 @@
+<html>
+<head>
+<title>ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/219.html'>CAPI</a>/CAPI_FrameTimeManager.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L42'>[^]</a><a href='#L639'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L42' title='Defined at 42.'>Reset</a>
+<li><a href='#L55' title='Defined at 55.'>GetNextDrawColor</a>
+<li><a href='#L68' title='Defined at 68.'>SaveDrawColor</a>
+<li><a href='#L107' title='Defined at 107.'>MatchRecord</a>
+<li><a href='#L193' title='Defined at 193.'>GetLatencyTimings</a>
+<li><a href='#L214' title='Defined at 214.'>FrameTiming</a>
+<li><a href='#L225' title='Defined at 225.'>Init</a>
+<li><a href='#L235' title='Defined at 235.'>ResetFrameTiming</a>
+<li><a href='#L257' title='Defined at 257.'>calcFrameDelta</a>
+<li><a href='#L282' title='Defined at 282.'>calcScreenDelay</a>
+<li><a href='#L309' title='Defined at 309.'>calcTimewarpWaitDelta</a>
+<li><a href='#L329' title='Defined at 329.'>InitTimingFromInputs</a>
+<li><a href='#L405' title='Defined at 405.'>BeginFrame</a>
+<li><a href='#L422' title='Defined at 422.'>EndFrame</a>
+<li><a href='#L440' title='Defined at 440.'>GetFrameTiming</a>
+<li><a href='#L467' title='Defined at 467.'>GetEyePredictionTime</a>
+<li><a href='#L478' title='Defined at 478.'>GetEyePredictionPose</a>
+<li><a href='#L493' title='Defined at 493.'>GetTimewarpPredictions</a>
+<li><a href='#L513' title='Defined at 513.'>GetTimewarpMatrices</a>
+<li><a href='#L577' title='Defined at 577.'>NeedDistortionTimeMeasurement</a>
+<li><a href='#L585' title='Defined at 585.'>AddDistortionTimeMeasurement</a>
+<li><a href='#L599' title='Defined at 599.'>UpdateFrameLatencyTrackingAfterEndFrame</a>
+<li><a href='#L624' title='Defined at 624.'>AddTimeDelta</a>
+<li><a href='#L639' title='Defined at 639.'>GetMedianTimeDelta</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   CAPI_FrameTimeManager.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Manage frame timing and pose prediction for rendering</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   November 30, 2013</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Volga Aksoy, Michael Antonov</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='99.html'>CAPI_FrameTimeManager.h</a>"
+<a name='L28'>  28 
+<a name='L29'>  29 
+<a name='L30'>  30 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font> <b>namespace</b> <a href='../R/79.html' title='Multiple refered from 33 places.'>CAPI</a> <font color='red'>{</font>
+<a name='L31'>  31 
+<a name='L32'>  32 
+<a name='L33'>  33 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L34'>  34 <i><font color='green'>// ***** FrameLatencyTracker</font></i>
+<a name='L35'>  35     
+<a name='L36'>  36 
+<a name='L37'>  37 <a href='../R/267.html' title='Multiple refered from 9 places.'>FrameLatencyTracker</a>::<a href='../S/98.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameLatencyTracker</a>()
+<a name='L38'>  38 <font color='red'>{</font>
+<a name='L39'>  39    <a href='../D/965.html' title='Multiple defined in 4 places.'>Reset</a>();
+<a name='L40'>  40 <font color='red'>}</font>
+<a name='L41'>  41 
+<a name='L42'>  42 <b>void</b> <a href='../S/98.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameLatencyTracker</a>::<a href='../R/906.html' title='Multiple refered from 18 places.'>Reset</a>()
+<a name='L43'>  43 <font color='red'>{</font>
+<a name='L44'>  44     <a href='../Y/2293.html' title='Multiple used in 5 places.'>TrackerEnabled</a>         = <b>true</b>;
+<a name='L45'>  45     <a href='../Y/2436.html' title='Multiple used in 8 places.'>WaitMode</a>               = <a href='../S/99.html#L105' title='Defined at 105 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>SampleWait_Zeroes</a>;
+<a name='L46'>  46     <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>             = 0;    
+<a name='L47'>  47     <a href='../Y/1358.html' title='Multiple used in 8 places.'>MatchCount</a>             = 0;
+<a name='L48'>  48     <a href='../Y/1854.html' title='Multiple used in 5 places.'>RenderLatencySeconds</a>   = 0.0;
+<a name='L49'>  49     <a href='../Y/2265.html' title='Multiple used in 5 places.'>TimewarpLatencySeconds</a> = 0.0;
+<a name='L50'>  50     
+<a name='L51'>  51     <a href='../Y/634.html' title='Multiple used in 6 places.'>FrameDeltas</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L52'>  52 <font color='red'>}</font>
+<a name='L53'>  53 
+<a name='L54'>  54 
+<a name='L55'>  55 <b>unsigned</b> <b>char</b> <a href='../S/98.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameLatencyTracker</a>::<a href='../R/358.html' title='Multiple refered from 2 places.'>GetNextDrawColor</a>()
+<a name='L56'>  56 <font color='red'>{</font>   
+<a name='L57'>  57     <b>if</b> (!<a href='../Y/2293.html' title='Multiple used in 5 places.'>TrackerEnabled</a> || (<a href='../Y/2436.html' title='Multiple used in 8 places.'>WaitMode</a> == <a href='../S/99.html#L105' title='Defined at 105 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>SampleWait_Zeroes</a>) ||
+<a name='L58'>  58         (<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a> &gt;= <a href='../S/99.html#L76' title='Defined at 76 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>FramesTracked</a>))
+<a name='L59'>  59     <font color='red'>{</font>        
+<a name='L60'>  60         <b>return</b> (<b>unsigned</b> <b>char</b>)<a href='../D/1241.html' title='Multiple defined in 5 places.'>Util</a>::<a href='../S/110.html#L50' title='Defined at 50 in ovr/sdk/src/Util/Util_LatencyTest2.h.'>FrameTimeRecord</a>::<a href='../Y/1807.html' title='Multiple used in 4 places.'>ReadbackIndexToColor</a>(0);
+<a name='L61'>  61     <font color='red'>}</font>
+<a name='L62'>  62 
+<a name='L63'>  63     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a> &lt; <a href='../S/99.html#L76' title='Defined at 76 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>FramesTracked</a>);    
+<a name='L64'>  64     <b>return</b> (<b>unsigned</b> <b>char</b>)<a href='../D/1241.html' title='Multiple defined in 5 places.'>Util</a>::<a href='../S/110.html#L50' title='Defined at 50 in ovr/sdk/src/Util/Util_LatencyTest2.h.'>FrameTimeRecord</a>::<a href='../Y/1807.html' title='Multiple used in 4 places.'>ReadbackIndexToColor</a>(<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>+1);
+<a name='L65'>  65 <font color='red'>}</font>
+<a name='L66'>  66 
+<a name='L67'>  67 
+<a name='L68'>  68 <b>void</b> <a href='../S/98.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameLatencyTracker</a>::<a href='../R/935.html' title='Multiple refered from 2 places.'>SaveDrawColor</a>(<b>unsigned</b> <b>char</b> <a href='../Y/3072.html' title='Multiple used in 4 places.'>drawColor</a>, <b>double</b> <a href='../Y/3114.html' title='Multiple used in 4 places.'>endFrameTime</a>,
+<a name='L69'>  69                                         <b>double</b> <a href='../Y/4262.html' title='Multiple used in 3 places.'>renderIMUTime</a>, <b>double</b> <a href='../Y/4619.html' title='Multiple used in 3 places.'>timewarpIMUTime</a> )
+<a name='L70'>  70 <font color='red'>{</font>
+<a name='L71'>  71     <b>if</b> (!<a href='../Y/2293.html' title='Multiple used in 5 places.'>TrackerEnabled</a> || (<a href='../Y/2436.html' title='Multiple used in 8 places.'>WaitMode</a> == <a href='../S/99.html#L105' title='Defined at 105 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>SampleWait_Zeroes</a>))
+<a name='L72'>  72         <b>return</b>;
+<a name='L73'>  73 
+<a name='L74'>  74     <b>if</b> (<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a> &lt; <a href='../S/99.html#L76' title='Defined at 76 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>FramesTracked</a>)
+<a name='L75'>  75     <font color='red'>{</font>
+<a name='L76'>  76         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../D/1241.html' title='Multiple defined in 5 places.'>Util</a>::<a href='../S/110.html#L50' title='Defined at 50 in ovr/sdk/src/Util/Util_LatencyTest2.h.'>FrameTimeRecord</a>::<a href='../Y/1807.html' title='Multiple used in 4 places.'>ReadbackIndexToColor</a>(<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>+1) == <a href='../Y/3072.html' title='Multiple used in 4 places.'>drawColor</a>);
+<a name='L77'>  77         <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/3072.html' title='Multiple used in 4 places.'>drawColor</a>);
+<a name='L78'>  78 
+<a name='L79'>  79         <i><font color='green'>// saves {color, endFrame time}</font></i>
+<a name='L80'>  80         <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>].<a href='../Y/1806.html' title='Multiple used in 8 places.'>ReadbackIndex</a>         = <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a> + 1;
+<a name='L81'>  81         <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>].<a href='../Y/2256.html' title='Multiple used in 16 places.'>TimeSeconds</a>           = <a href='../Y/3114.html' title='Multiple used in 4 places.'>endFrameTime</a>;
+<a name='L82'>  82         <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>].<a href='../Y/1852.html' title='Multiple used in 9 places.'>RenderIMUTimeSeconds</a>  = <a href='../Y/4262.html' title='Multiple used in 3 places.'>renderIMUTime</a>;
+<a name='L83'>  83         <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>].<a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a>= <a href='../Y/4619.html' title='Multiple used in 3 places.'>timewarpIMUTime</a>;
+<a name='L84'>  84         <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>].<a href='../Y/1364.html' title='Multiple used in 4 places.'>MatchedRecord</a>         = <b>false</b>;
+<a name='L85'>  85         <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>++;
+<a name='L86'>  86     <font color='red'>}</font>
+<a name='L87'>  87     <b>else</b>
+<a name='L88'>  88     <font color='red'>{</font>
+<a name='L89'>  89         <i><font color='green'>// If the request was outstanding for too long, switch to zero mode to restart.</font></i>
+<a name='L90'>  90         <b>if</b> (<a href='../Y/3114.html' title='Multiple used in 4 places.'>endFrameTime</a> &gt; (<a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>-1].<a href='../Y/2256.html' title='Multiple used in 16 places.'>TimeSeconds</a> + 0.15))
+<a name='L91'>  91         <font color='red'>{</font>
+<a name='L92'>  92             <b>if</b> (<a href='../Y/1358.html' title='Multiple used in 8 places.'>MatchCount</a> == 0)
+<a name='L93'>  93             <font color='red'>{</font>
+<a name='L94'>  94                 <i><font color='green'>// If nothing was matched, we have no latency reading.</font></i>
+<a name='L95'>  95                 <a href='../Y/1854.html' title='Multiple used in 5 places.'>RenderLatencySeconds</a>   = 0.0;
+<a name='L96'>  96                 <a href='../Y/2265.html' title='Multiple used in 5 places.'>TimewarpLatencySeconds</a> = 0.0;
+<a name='L97'>  97             <font color='red'>}</font>
+<a name='L98'>  98 
+<a name='L99'>  99             <a href='../Y/2436.html' title='Multiple used in 8 places.'>WaitMode</a>   =  <a href='../S/99.html#L105' title='Defined at 105 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>SampleWait_Zeroes</a>;
+<a name='L100'> 100             <a href='../Y/1358.html' title='Multiple used in 8 places.'>MatchCount</a> = 0;
+<a name='L101'> 101             <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a> = 0;
+<a name='L102'> 102         <font color='red'>}</font>
+<a name='L103'> 103     <font color='red'>}</font>
+<a name='L104'> 104 <font color='red'>}</font>
+<a name='L105'> 105 
+<a name='L106'> 106 
+<a name='L107'> 107 <b>void</b> <a href='../S/98.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameLatencyTracker</a>::<a href='../R/570.html' title='Multiple refered from 2 places.'>MatchRecord</a>(<b>const</b> <a href='../Y/2378.html' title='Multiple used in 2 places.'>Util</a>::<a href='../Y/644.html' title='Multiple used in 2 places.'>FrameTimeRecordSet</a> &amp;<a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>)
+<a name='L108'> 108 <font color='red'>{</font>
+<a name='L109'> 109     <b>if</b> (!<a href='../Y/2293.html' title='Multiple used in 5 places.'>TrackerEnabled</a>)
+<a name='L110'> 110         <b>return</b>;
+<a name='L111'> 111 
+<a name='L112'> 112     <b>if</b> (<a href='../Y/2436.html' title='Multiple used in 8 places.'>WaitMode</a> == <a href='../S/99.html#L105' title='Defined at 105 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>SampleWait_Zeroes</a>)
+<a name='L113'> 113     <font color='red'>{</font>
+<a name='L114'> 114         <i><font color='green'>// Do we have all zeros?</font></i>
+<a name='L115'> 115         <b>if</b> (<a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>.<a href='../Y/1019.html' title='Multiple used in 2 places.'>IsAllZeroes</a>())
+<a name='L116'> 116         <font color='red'>{</font>
+<a name='L117'> 117             <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a> == 0);
+<a name='L118'> 118             <a href='../Y/2436.html' title='Multiple used in 8 places.'>WaitMode</a> = <a href='../S/99.html#L106' title='Defined at 106 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>SampleWait_Match</a>;
+<a name='L119'> 119             <a href='../Y/1358.html' title='Multiple used in 8 places.'>MatchCount</a> = 0;
+<a name='L120'> 120         <font color='red'>}</font>
+<a name='L121'> 121         <b>return</b>;
+<a name='L122'> 122     <font color='red'>}</font>
+<a name='L123'> 123 
+<a name='L124'> 124     <i><font color='green'>// We are in Match Mode. Wait until all colors are matched or timeout,</font></i>
+<a name='L125'> 125     <i><font color='green'>// at which point we go back to zeros.</font></i>
+<a name='L126'> 126 
+<a name='L127'> 127     <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L128'> 128     <font color='red'>{</font>
+<a name='L129'> 129         <b>int</b> <a href='../Y/4247.html' title='Multiple used in 4 places.'>recordIndex</a> = 0;
+<a name='L130'> 130         <b>int</b> <a href='../Y/2895.html' title='Multiple used in 5 places.'>consecutiveMatch</a>  = 0;
+<a name='L131'> 131 
+<a name='L132'> 132         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/1806.html' title='Multiple used in 8 places.'>ReadbackIndex</a> != 0);
+<a name='L133'> 133 
+<a name='L134'> 134         <b>if</b> (<a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>.<a href='../Y/605.html' title='Multiple used in 2 places.'>FindReadbackIndex</a>(&amp;<a href='../Y/4247.html' title='Multiple used in 4 places.'>recordIndex</a>, <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/1806.html' title='Multiple used in 8 places.'>ReadbackIndex</a>))
+<a name='L135'> 135         <font color='red'>{</font>
+<a name='L136'> 136             <i><font color='green'>// Advance forward to see that we have several more matches.</font></i>
+<a name='L137'> 137             <b>int</b>  <a href='../Y/4306.html' title='Multiple used in 3 places.'>ri</a> = <a href='../Y/4247.html' title='Multiple used in 4 places.'>recordIndex</a> + 1;
+<a name='L138'> 138             <b>int</b>  <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>  = <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> + 1;
+<a name='L139'> 139 
+<a name='L140'> 140             <a href='../Y/2895.html' title='Multiple used in 5 places.'>consecutiveMatch</a>++;
+<a name='L141'> 141 
+<a name='L142'> 142             <b>for</b> (; (<a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a> &lt; <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>) &amp;&amp; (<a href='../Y/4306.html' title='Multiple used in 3 places.'>ri</a> &lt; <a href='../D/1241.html' title='Multiple defined in 5 places.'>Util</a>::<a href='../S/110.html#L82' title='Defined at 82 in ovr/sdk/src/Util/Util_LatencyTest2.h.'>FrameTimeRecordSet</a>::<a href='../D/941.html' title='Multiple defined in 2 places.'>RecordCount</a>); <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>++, <a href='../Y/4306.html' title='Multiple used in 3 places.'>ri</a>++)
+<a name='L143'> 143             <font color='red'>{</font>
+<a name='L144'> 144                 <b>if</b> (<a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>[<a href='../Y/4306.html' title='Multiple used in 3 places.'>ri</a>].<a href='../Y/1806.html' title='Multiple used in 8 places.'>ReadbackIndex</a> != <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>].<a href='../Y/1806.html' title='Multiple used in 8 places.'>ReadbackIndex</a>)
+<a name='L145'> 145                     <b>break</b>;
+<a name='L146'> 146                 <a href='../Y/2895.html' title='Multiple used in 5 places.'>consecutiveMatch</a>++;
+<a name='L147'> 147             <font color='red'>}</font>
+<a name='L148'> 148 
+<a name='L149'> 149             <i><font color='green'>// Match at least 2 items in the row, to avoid accidentally matching color.</font></i>
+<a name='L150'> 150             <b>if</b> (<a href='../Y/2895.html' title='Multiple used in 5 places.'>consecutiveMatch</a> &gt; 1)
+<a name='L151'> 151             <font color='red'>{</font>
+<a name='L152'> 152                 <i><font color='green'>// Record latency values for all but last samples. Keep last 2 samples</font></i>
+<a name='L153'> 153                 <i><font color='green'>// for the future to simplify matching.</font></i>
+<a name='L154'> 154                 <b>for</b> (<b>int</b> <a href='../Y/4207.html' title='Multiple used in 84 places.'>q</a> = 0; <a href='../Y/4207.html' title='Multiple used in 84 places.'>q</a> &lt; <a href='../Y/2895.html' title='Multiple used in 5 places.'>consecutiveMatch</a>; <a href='../Y/4207.html' title='Multiple used in 84 places.'>q</a>++)
+<a name='L155'> 155                 <font color='red'>{</font>
+<a name='L156'> 156                     <b>const</b> <a href='../D/1241.html' title='Multiple defined in 5 places.'>Util</a>::<a href='../S/110.html#L50' title='Defined at 50 in ovr/sdk/src/Util/Util_LatencyTest2.h.'>FrameTimeRecord</a> &amp;<a href='../Y/4352.html' title='Multiple used in 5 places.'>scanoutFrame</a> = <a href='../Y/4216.html' title='Multiple used in 113 places.'>r</a>[<a href='../Y/4247.html' title='Multiple used in 4 places.'>recordIndex</a>+<a href='../Y/4207.html' title='Multiple used in 84 places.'>q</a>];
+<a name='L157'> 157                     <a href='../Y/643.html' title='Multiple used in 3 places.'>FrameTimeRecordEx</a>           &amp;<a href='../Y/4261.html' title='Multiple used in 7 places.'>renderFrame</a>  = <a href='../Y/635.html' title='Multiple used in 11 places.'>FrameEndTimes</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>+<a href='../Y/4207.html' title='Multiple used in 84 places.'>q</a>];
+<a name='L158'> 158                     
+<a name='L159'> 159                     <b>if</b> (!<a href='../Y/4261.html' title='Multiple used in 7 places.'>renderFrame</a>.<a href='../Y/1364.html' title='Multiple used in 4 places.'>MatchedRecord</a>)
+<a name='L160'> 160                     <font color='red'>{</font>
+<a name='L161'> 161                         <b>double</b> <a href='../Y/2977.html' title='Multiple used in 3 places.'>deltaSeconds</a> = <a href='../Y/4352.html' title='Multiple used in 5 places.'>scanoutFrame</a>.<a href='../Y/2256.html' title='Multiple used in 16 places.'>TimeSeconds</a> - <a href='../Y/4261.html' title='Multiple used in 7 places.'>renderFrame</a>.<a href='../Y/2256.html' title='Multiple used in 16 places.'>TimeSeconds</a>;
+<a name='L162'> 162                         <b>if</b> (<a href='../Y/2977.html' title='Multiple used in 3 places.'>deltaSeconds</a> &gt; 0.0)
+<a name='L163'> 163                         <font color='red'>{</font>
+<a name='L164'> 164                             <a href='../Y/634.html' title='Multiple used in 6 places.'>FrameDeltas</a>.<a href='../S/98.html#L624' title='Defined at 624 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>AddTimeDelta</a>(<a href='../Y/2977.html' title='Multiple used in 3 places.'>deltaSeconds</a>);
+<a name='L165'> 165                             <a href='../Y/1232.html' title='Multiple used in 3 places.'>LatencyRecordTime</a>      = <a href='../Y/4352.html' title='Multiple used in 5 places.'>scanoutFrame</a>.<a href='../Y/2256.html' title='Multiple used in 16 places.'>TimeSeconds</a>;
+<a name='L166'> 166                             <a href='../Y/1854.html' title='Multiple used in 5 places.'>RenderLatencySeconds</a>   = <a href='../Y/4352.html' title='Multiple used in 5 places.'>scanoutFrame</a>.<a href='../Y/2256.html' title='Multiple used in 16 places.'>TimeSeconds</a> - <a href='../Y/4261.html' title='Multiple used in 7 places.'>renderFrame</a>.<a href='../Y/1852.html' title='Multiple used in 9 places.'>RenderIMUTimeSeconds</a>;
+<a name='L167'> 167                             <a href='../Y/2265.html' title='Multiple used in 5 places.'>TimewarpLatencySeconds</a> = (<a href='../Y/4261.html' title='Multiple used in 7 places.'>renderFrame</a>.<a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a> == 0.0)  ?  0.0 :
+<a name='L168'> 168                                                      (<a href='../Y/4352.html' title='Multiple used in 5 places.'>scanoutFrame</a>.<a href='../Y/2256.html' title='Multiple used in 16 places.'>TimeSeconds</a> - <a href='../Y/4261.html' title='Multiple used in 7 places.'>renderFrame</a>.<a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a>);
+<a name='L169'> 169                         <font color='red'>}</font>
+<a name='L170'> 170 
+<a name='L171'> 171                         <a href='../Y/4261.html' title='Multiple used in 7 places.'>renderFrame</a>.<a href='../Y/1364.html' title='Multiple used in 4 places.'>MatchedRecord</a> = <b>true</b>;
+<a name='L172'> 172                         <a href='../Y/1358.html' title='Multiple used in 8 places.'>MatchCount</a>++;
+<a name='L173'> 173                     <font color='red'>}</font>
+<a name='L174'> 174                 <font color='red'>}</font>
+<a name='L175'> 175 
+<a name='L176'> 176                 <i><font color='green'>// Exit for.</font></i>
+<a name='L177'> 177                 <b>break</b>;
+<a name='L178'> 178             <font color='red'>}</font>
+<a name='L179'> 179         <font color='red'>}</font>
+<a name='L180'> 180     <font color='red'>}</font> <i><font color='green'>// for ( i =&gt; FrameIndex )</font></i>
+<a name='L181'> 181 
+<a name='L182'> 182 
+<a name='L183'> 183     <i><font color='green'>// If we matched all frames, start over.</font></i>
+<a name='L184'> 184     <b>if</b> (<a href='../Y/1358.html' title='Multiple used in 8 places.'>MatchCount</a> == <a href='../S/99.html#L76' title='Defined at 76 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>FramesTracked</a>)
+<a name='L185'> 185     <font color='red'>{</font>
+<a name='L186'> 186         <a href='../Y/2436.html' title='Multiple used in 8 places.'>WaitMode</a>   =  <a href='../S/99.html#L105' title='Defined at 105 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>SampleWait_Zeroes</a>;
+<a name='L187'> 187         <a href='../Y/1358.html' title='Multiple used in 8 places.'>MatchCount</a> = 0;
+<a name='L188'> 188         <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a> = 0;
+<a name='L189'> 189     <font color='red'>}</font>
+<a name='L190'> 190 <font color='red'>}</font>
+<a name='L191'> 191 
+<a name='L192'> 192 
+<a name='L193'> 193 <b>void</b> <a href='../S/98.html#L37' title='Defined at 37 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameLatencyTracker</a>::<a href='../R/348.html' title='Multiple refered from 5 places.'>GetLatencyTimings</a>(<b>float</b> <a href='../Y/3543.html' title='Multiple used in 13 places.'>latencies</a>[3])
+<a name='L194'> 194 <font color='red'>{</font>
+<a name='L195'> 195     <b>if</b> (<a href='../Y/3898.html' title='Multiple used in 15 places.'>ovr_GetTimeInSeconds</a>() &gt; (<a href='../Y/1232.html' title='Multiple used in 3 places.'>LatencyRecordTime</a> + 2.0))
+<a name='L196'> 196     <font color='red'>{</font>
+<a name='L197'> 197         <a href='../Y/3543.html' title='Multiple used in 13 places.'>latencies</a>[0] = 0.0f;
+<a name='L198'> 198         <a href='../Y/3543.html' title='Multiple used in 13 places.'>latencies</a>[1] = 0.0f;
+<a name='L199'> 199         <a href='../Y/3543.html' title='Multiple used in 13 places.'>latencies</a>[2] = 0.0f;
+<a name='L200'> 200     <font color='red'>}</font>
+<a name='L201'> 201     <b>else</b>
+<a name='L202'> 202     <font color='red'>{</font>
+<a name='L203'> 203         <a href='../Y/3543.html' title='Multiple used in 13 places.'>latencies</a>[0] = (<b>float</b>)<a href='../Y/1854.html' title='Multiple used in 5 places.'>RenderLatencySeconds</a>;
+<a name='L204'> 204         <a href='../Y/3543.html' title='Multiple used in 13 places.'>latencies</a>[1] = (<b>float</b>)<a href='../Y/2265.html' title='Multiple used in 5 places.'>TimewarpLatencySeconds</a>;
+<a name='L205'> 205         <a href='../Y/3543.html' title='Multiple used in 13 places.'>latencies</a>[2] = (<b>float</b>)<a href='../Y/634.html' title='Multiple used in 6 places.'>FrameDeltas</a>.<a href='../S/98.html#L639' title='Defined at 639 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetMedianTimeDelta</a>();
+<a name='L206'> 206     <font color='red'>}</font>    
+<a name='L207'> 207 <font color='red'>}</font>
+<a name='L208'> 208     
+<a name='L209'> 209     
+<a name='L210'> 210 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L211'> 211 
+<a name='L212'> 212 <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::FrameTimeManager(<b>bool</b> <a href='../Y/4821.html' title='Multiple used in 6 places.'>vsyncEnabled</a>)
+<a name='L213'> 213     : <a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>(<a href='../Y/4821.html' title='Multiple used in 6 places.'>vsyncEnabled</a>), DynamicPrediction(<b>true</b>), SdkRender(<b>false</b>),
+<a name='L214'> 214       <a href='../R/270.html' title='Multiple refered from 28 places.'>FrameTiming</a>()
+<a name='L215'> 215 <font color='red'>{</font>    
+<a name='L216'> 216     <a href='../Y/1852.html' title='Multiple used in 9 places.'>RenderIMUTimeSeconds</a> = 0.0;
+<a name='L217'> 217     <a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a> = 0.0;
+<a name='L218'> 218     
+<a name='L219'> 219     <i><font color='green'>// HACK: SyncToScanoutDelay observed close to 1 frame in video cards.</font></i>
+<a name='L220'> 220     <i><font color='green'>//       Overwritten by dynamic latency measurement on DK2.</font></i>
+<a name='L221'> 221     <a href='../Y/2387.html' title='Multiple used in 3 places.'>VSyncToScanoutDelay</a>   = 0.013f;
+<a name='L222'> 222     <a href='../Y/1467.html' title='Multiple used in 5 places.'>NoVSyncToScanoutDelay</a> = 0.004f;
+<a name='L223'> 223 <font color='red'>}</font>
+<a name='L224'> 224 
+<a name='L225'> 225 <b>void</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/451.html' title='Multiple refered from 10 places.'>Init</a>(<a href='../Y/927.html' title='Multiple used in 20 places.'>HmdRenderInfo</a>&amp; <a href='../Y/4263.html' title='Multiple used in 85 places.'>renderInfo</a>)
+<a name='L226'> 226 <font color='red'>{</font>
+<a name='L227'> 227     <i><font color='green'>// Set up prediction distances.</font></i>
+<a name='L228'> 228     <i><font color='green'>// With-Vsync timings.</font></i>
+<a name='L229'> 229     <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a> = <a href='../Y/4263.html' title='Multiple used in 85 places.'>renderInfo</a>;
+<a name='L230'> 230 
+<a name='L231'> 231     <a href='../Y/1974.html' title='Multiple used in 5 places.'>ScreenSwitchingDelay</a> = <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/1671.html' title='Multiple used in 21 places.'>PixelSettleTime</a> * 0.5f + 
+<a name='L232'> 232                            <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/1668.html' title='Multiple used in 21 places.'>PixelPersistence</a> * 0.5f;
+<a name='L233'> 233 <font color='red'>}</font>
+<a name='L234'> 234 
+<a name='L235'> 235 <b>void</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/907.html' title='Multiple refered from 4 places.'>ResetFrameTiming</a>(<b>unsigned</b> <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>,
+<a name='L236'> 236                                         <b>bool</b> <a href='../Y/3089.html' title='Multiple used in 3 places.'>dynamicPrediction</a>,
+<a name='L237'> 237                                         <b>bool</b> <a href='../Y/4363.html' title='Multiple used in 3 places.'>sdkRender</a>)
+<a name='L238'> 238 <font color='red'>{</font>    
+<a name='L239'> 239     <a href='../Y/476.html' title='Multiple used in 3 places.'>DynamicPrediction</a>   = <a href='../Y/3089.html' title='Multiple used in 3 places.'>dynamicPrediction</a>;
+<a name='L240'> 240     <a href='../Y/1975.html' title='Multiple used in 3 places.'>SdkRender</a>           = <a href='../Y/4363.html' title='Multiple used in 3 places.'>sdkRender</a>;
+<a name='L241'> 241 
+<a name='L242'> 242     <a href='../Y/641.html' title='Multiple used in 5 places.'>FrameTimeDeltas</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L243'> 243     <a href='../Y/442.html' title='Multiple used in 5 places.'>DistortionRenderTimes</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L244'> 244     <a href='../Y/1971.html' title='Multiple used in 8 places.'>ScreenLatencyTracker</a>.<a href='../D/965.html' title='Multiple defined in 4 places.'>Reset</a>();
+<a name='L245'> 245 
+<a name='L246'> 246     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>               = <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>;
+<a name='L247'> 247     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a>            = 0.0;
+<a name='L248'> 248     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/2228.html' title='Multiple used in 9 places.'>ThisFrameTime</a>            = 0.0;
+<a name='L249'> 249     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/633.html' title='Multiple used in 6 places.'>FrameDelta</a>        = <a href='../S/98.html#L257' title='Defined at 257 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>calcFrameDelta</a>();
+<a name='L250'> 250     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/1969.html' title='Multiple used in 6 places.'>ScreenDelay</a>       = <a href='../S/98.html#L282' title='Defined at 282 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>calcScreenDelay</a>();
+<a name='L251'> 251     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/2269.html' title='Multiple used in 7 places.'>TimewarpWaitDelta</a> = 0.0f;
+<a name='L252'> 252 
+<a name='L253'> 253     <a href='../Y/1298.html' title='Multiple used in 6 places.'>LocklessTiming</a>.<a href='../Y/2053.html' title='Multiple used in 10 places.'>SetState</a>(<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>);
+<a name='L254'> 254 <font color='red'>}</font>
+<a name='L255'> 255 
+<a name='L256'> 256 
+<a name='L257'> 257 <b>double</b>  <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/1237.html' title='Multiple refered from 3 places.'>calcFrameDelta</a>() <b>const</b>
+<a name='L258'> 258 <font color='red'>{</font>
+<a name='L259'> 259     <i><font color='green'>// Timing difference between frame is tracked by FrameTimeDeltas, or</font></i>
+<a name='L260'> 260     <i><font color='green'>// is a hard-coded value of 1/FrameRate.</font></i>
+<a name='L261'> 261     <b>double</b>  <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;    
+<a name='L262'> 262 
+<a name='L263'> 263     <b>if</b> (!<a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>)
+<a name='L264'> 264     <font color='red'>{</font>
+<a name='L265'> 265         <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> = 0.0;
+<a name='L266'> 266     <font color='red'>}</font>
+<a name='L267'> 267     <b>else</b> <b>if</b> (<a href='../Y/641.html' title='Multiple used in 5 places.'>FrameTimeDeltas</a>.<a href='../Y/739.html' title='Multiple used in 4 places.'>GetCount</a>() &gt; 3)
+<a name='L268'> 268     <font color='red'>{</font>
+<a name='L269'> 269         <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> = <a href='../Y/641.html' title='Multiple used in 5 places.'>FrameTimeDeltas</a>.<a href='../S/98.html#L639' title='Defined at 639 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetMedianTimeDelta</a>();
+<a name='L270'> 270         <b>if</b> (<a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> &gt; (<a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/2422.html' title='Multiple used in 31 places.'>VsyncToNextVsync</a> + 0.001))
+<a name='L271'> 271             <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> = <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/2422.html' title='Multiple used in 31 places.'>VsyncToNextVsync</a>;
+<a name='L272'> 272     <font color='red'>}</font>
+<a name='L273'> 273     <b>else</b>
+<a name='L274'> 274     <font color='red'>{</font>
+<a name='L275'> 275         <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> = <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../Y/2422.html' title='Multiple used in 31 places.'>VsyncToNextVsync</a>;
+<a name='L276'> 276     <font color='red'>}</font>
+<a name='L277'> 277 
+<a name='L278'> 278     <b>return</b> <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L279'> 279 <font color='red'>}</font>
+<a name='L280'> 280 
+<a name='L281'> 281 
+<a name='L282'> 282 <b>double</b>  <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/1240.html' title='Multiple refered from 3 places.'>calcScreenDelay</a>() <b>const</b>
+<a name='L283'> 283 <font color='red'>{</font>
+<a name='L284'> 284     <b>double</b>  <a href='../Y/4360.html' title='Multiple used in 5 places.'>screenDelay</a> = <a href='../Y/1974.html' title='Multiple used in 5 places.'>ScreenSwitchingDelay</a>;
+<a name='L285'> 285     <b>double</b>  <a href='../Y/3662.html' title='Multiple used in 4 places.'>measuredVSyncToScanout</a>;
+<a name='L286'> 286 
+<a name='L287'> 287     <i><font color='green'>// Use real-time DK2 latency tester HW for prediction if its is working.</font></i>
+<a name='L288'> 288     <i><font color='green'>// Do sanity check under 60 ms</font></i>
+<a name='L289'> 289     <b>if</b> (!<a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>)
+<a name='L290'> 290     <font color='red'>{</font>
+<a name='L291'> 291         <a href='../Y/4360.html' title='Multiple used in 5 places.'>screenDelay</a> += <a href='../Y/1467.html' title='Multiple used in 5 places.'>NoVSyncToScanoutDelay</a>;
+<a name='L292'> 292     <font color='red'>}</font>
+<a name='L293'> 293     <b>else</b> <b>if</b> ( <a href='../Y/476.html' title='Multiple used in 3 places.'>DynamicPrediction</a> &amp;&amp;
+<a name='L294'> 294               (<a href='../Y/1971.html' title='Multiple used in 8 places.'>ScreenLatencyTracker</a>.<a href='../Y/634.html' title='Multiple used in 6 places.'>FrameDeltas</a>.<a href='../Y/739.html' title='Multiple used in 4 places.'>GetCount</a>() &gt; 3) &amp;&amp;
+<a name='L295'> 295               (<a href='../Y/3662.html' title='Multiple used in 4 places.'>measuredVSyncToScanout</a> = <a href='../Y/1971.html' title='Multiple used in 8 places.'>ScreenLatencyTracker</a>.<a href='../Y/634.html' title='Multiple used in 6 places.'>FrameDeltas</a>.<a href='../S/98.html#L639' title='Defined at 639 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetMedianTimeDelta</a>(),
+<a name='L296'> 296                (<a href='../Y/3662.html' title='Multiple used in 4 places.'>measuredVSyncToScanout</a> &gt; 0.0001) &amp;&amp; (<a href='../Y/3662.html' title='Multiple used in 4 places.'>measuredVSyncToScanout</a> &lt; 0.06)) ) 
+<a name='L297'> 297     <font color='red'>{</font>
+<a name='L298'> 298         <a href='../Y/4360.html' title='Multiple used in 5 places.'>screenDelay</a> += <a href='../Y/3662.html' title='Multiple used in 4 places.'>measuredVSyncToScanout</a>;
+<a name='L299'> 299     <font color='red'>}</font>
+<a name='L300'> 300     <b>else</b>
+<a name='L301'> 301     <font color='red'>{</font>
+<a name='L302'> 302         <a href='../Y/4360.html' title='Multiple used in 5 places.'>screenDelay</a> += <a href='../Y/2387.html' title='Multiple used in 3 places.'>VSyncToScanoutDelay</a>;
+<a name='L303'> 303     <font color='red'>}</font>
+<a name='L304'> 304 
+<a name='L305'> 305     <b>return</b> <a href='../Y/4360.html' title='Multiple used in 5 places.'>screenDelay</a>;
+<a name='L306'> 306 <font color='red'>}</font>
+<a name='L307'> 307 
+<a name='L308'> 308 
+<a name='L309'> 309 <b>double</b>  <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/1241.html' title='Multiple refered from 2 places.'>calcTimewarpWaitDelta</a>() <b>const</b>
+<a name='L310'> 310 <font color='red'>{</font>
+<a name='L311'> 311     <i><font color='green'>// If timewarp timing hasn't been calculated, we should wait.</font></i>
+<a name='L312'> 312     <b>if</b> (!<a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>)
+<a name='L313'> 313         <b>return</b> 0.0;
+<a name='L314'> 314 
+<a name='L315'> 315     <b>if</b> (<a href='../Y/1975.html' title='Multiple used in 3 places.'>SdkRender</a>)
+<a name='L316'> 316     <font color='red'>{</font>
+<a name='L317'> 317         <b>if</b> (<a href='../S/98.html#L577' title='Defined at 577 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>NeedDistortionTimeMeasurement</a>())
+<a name='L318'> 318             <b>return</b> 0.0;
+<a name='L319'> 319         <b>return</b> -(<a href='../Y/442.html' title='Multiple used in 5 places.'>DistortionRenderTimes</a>.<a href='../S/98.html#L639' title='Defined at 639 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetMedianTimeDelta</a>() + 0.002);
+<a name='L320'> 320     <font color='red'>}</font>
+<a name='L321'> 321    
+<a name='L322'> 322     <i><font color='green'>// Just a hard-coded "high" value for game-drawn code.</font></i>
+<a name='L323'> 323     <i><font color='green'>// TBD: Just return 0 and let users calculate this themselves?</font></i>
+<a name='L324'> 324     <b>return</b> -0.003;   
+<a name='L325'> 325 <font color='red'>}</font>
+<a name='L326'> 326 
+<a name='L327'> 327 
+<a name='L328'> 328 
+<a name='L329'> 329 <b>void</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../D/1178.html' title='Multiple defined in 2 places.'>Timing</a>::<a href='../R/456.html' title='Multiple refered from 4 places.'>InitTimingFromInputs</a>(<b>const</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::TimingInputs&amp; <a href='../Y/3469.html' title='Multiple used in 6 places.'>inputs</a>,
+<a name='L330'> 330                                                     HmdShutterTypeEnum <a href='../Y/4399.html' title='Multiple used in 9 places.'>shutterType</a>,
+<a name='L331'> 331                                                     <b>double</b> <a href='../Y/4590.html' title='Multiple used in 11 places.'>thisFrameTime</a>, <b>unsigned</b> <b>int</b> <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>)
+<a name='L332'> 332 <font color='red'>{</font>    
+<a name='L333'> 333     <i><font color='green'>// ThisFrameTime comes from the end of last frame, unless it it changed.  </font></i>
+<a name='L334'> 334     <b>double</b>  <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a>;
+<a name='L335'> 335     <b>double</b>  <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> = <a href='../Y/3469.html' title='Multiple used in 6 places.'>inputs</a>.<a href='../Y/633.html' title='Multiple used in 6 places.'>FrameDelta</a>;
+<a name='L336'> 336 
+<a name='L337'> 337     <a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>        = <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>;
+<a name='L338'> 338 
+<a name='L339'> 339     <a href='../Y/2228.html' title='Multiple used in 9 places.'>ThisFrameTime</a>     = <a href='../Y/4590.html' title='Multiple used in 11 places.'>thisFrameTime</a>;
+<a name='L340'> 340     <a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a>     = <a href='../Y/2228.html' title='Multiple used in 9 places.'>ThisFrameTime</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L341'> 341     <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a>     = <a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a> + <a href='../Y/3469.html' title='Multiple used in 6 places.'>inputs</a>.<a href='../Y/1969.html' title='Multiple used in 6 places.'>ScreenDelay</a>;
+<a name='L342'> 342     <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>      = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> * 0.5;
+<a name='L343'> 343     <a href='../Y/2268.html' title='Multiple used in 5 places.'>TimewarpPointTime</a> = (<a href='../Y/3469.html' title='Multiple used in 6 places.'>inputs</a>.<a href='../Y/2269.html' title='Multiple used in 7 places.'>TimewarpWaitDelta</a> == 0.0) ?
+<a name='L344'> 344                         0.0 : (<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a> + <a href='../Y/3469.html' title='Multiple used in 6 places.'>inputs</a>.<a href='../Y/2269.html' title='Multiple used in 7 places.'>TimewarpWaitDelta</a>);
+<a name='L345'> 345 
+<a name='L346'> 346     <i><font color='green'>// Calculate absolute points in time when eye rendering or corresponding time-warp</font></i>
+<a name='L347'> 347     <i><font color='green'>// screen edges will become visible.</font></i>
+<a name='L348'> 348     <i><font color='green'>// This only matters with VSync.</font></i>
+<a name='L349'> 349     <b>switch</b>(<a href='../Y/4399.html' title='Multiple used in 9 places.'>shutterType</a>)
+<a name='L350'> 350     <font color='red'>{</font>            
+<a name='L351'> 351     <b>case</b> <a href='../Y/933.html' title='Multiple used in 8 places.'>HmdShutter_RollingTopToBottom</a>:
+<a name='L352'> 352         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[0]               = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L353'> 353         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[1]               = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L354'> 354         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][0]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a>;
+<a name='L355'> 355         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][1]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L356'> 356         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][0]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a>;
+<a name='L357'> 357         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][1]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L358'> 358         <b>break</b>;
+<a name='L359'> 359     <b>case</b> <a href='../Y/931.html' title='Multiple used in 4 places.'>HmdShutter_RollingLeftToRight</a>:
+<a name='L360'> 360         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[0]               = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> * 0.25;
+<a name='L361'> 361         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[1]               = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> * 0.75;
+<a name='L362'> 362 
+<a name='L363'> 363         <i><font color='green'>/*</font></i>
+<a name='L364'> 364 <i><font color='green'>        // TBD: MA: It is probably better if mesh sets it up per-eye.</font></i>
+<a name='L365'> 365 <i><font color='green'>        // Would apply if screen is 0 -&gt; 1 for each eye mesh</font></i>
+<a name='L366'> 366 <i><font color='green'>        TimeWarpStartEndTimes[0][0]     = nextFrameBase;</font></i>
+<a name='L367'> 367 <i><font color='green'>        TimeWarpStartEndTimes[0][1]     = MidpointTime;</font></i>
+<a name='L368'> 368 <i><font color='green'>        TimeWarpStartEndTimes[1][0]     = MidpointTime;</font></i>
+<a name='L369'> 369 <i><font color='green'>        TimeWarpStartEndTimes[1][1]     = nextFrameBase + frameDelta;</font></i>
+<a name='L370'> 370 <i><font color='green'>        */</font></i>
+<a name='L371'> 371 
+<a name='L372'> 372         <i><font color='green'>// Mesh is set up to vary from Edge of scree 0 -&gt; 1 across both eyes</font></i>
+<a name='L373'> 373         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][0]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a>;
+<a name='L374'> 374         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][1]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L375'> 375         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][0]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a>;
+<a name='L376'> 376         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][1]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L377'> 377 
+<a name='L378'> 378         <b>break</b>;
+<a name='L379'> 379     <b>case</b> <a href='../Y/932.html' title='Multiple used in 12 places.'>HmdShutter_RollingRightToLeft</a>:
+<a name='L380'> 380 
+<a name='L381'> 381         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[0]               = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> * 0.75;
+<a name='L382'> 382         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[1]               = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> * 0.25;
+<a name='L383'> 383         
+<a name='L384'> 384         <i><font color='green'>// This is *Correct* with Tom's distortion mesh organization.</font></i>
+<a name='L385'> 385         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][0]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> ;
+<a name='L386'> 386         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][1]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L387'> 387         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][0]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> ;
+<a name='L388'> 388         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][1]     = <a href='../Y/3759.html' title='Multiple used in 19 places.'>nextFrameBase</a> + <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>;
+<a name='L389'> 389         <b>break</b>;
+<a name='L390'> 390     <b>case</b> <a href='../Y/929.html' title='Multiple used in 5 places.'>HmdShutter_Global</a>:
+<a name='L391'> 391         <i><font color='green'>// TBD</font></i>
+<a name='L392'> 392         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[0]               = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L393'> 393         <a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[1]               = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L394'> 394         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][0]     = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L395'> 395         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[0][1]     = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L396'> 396         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][0]     = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L397'> 397         <a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[1][1]     = <a href='../Y/1421.html' title='Multiple used in 12 places.'>MidpointTime</a>;
+<a name='L398'> 398         <b>break</b>;
+<a name='L399'> 399     <b>default</b>:
+<a name='L400'> 400         <b>break</b>;
+<a name='L401'> 401     <font color='red'>}</font>
+<a name='L402'> 402 <font color='red'>}</font>
+<a name='L403'> 403 
+<a name='L404'> 404   
+<a name='L405'> 405 <b>double</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/66.html' title='Multiple refered from 2 places.'>BeginFrame</a>(<b>unsigned</b> <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>)
+<a name='L406'> 406 <font color='red'>{</font>    
+<a name='L407'> 407     <a href='../Y/1852.html' title='Multiple used in 9 places.'>RenderIMUTimeSeconds</a> = 0.0;
+<a name='L408'> 408     <a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a> = 0.0;
+<a name='L409'> 409 
+<a name='L410'> 410     <i><font color='green'>// ThisFrameTime comes from the end of last frame, unless it it changed.</font></i>
+<a name='L411'> 411     <b>double</b> <a href='../Y/4590.html' title='Multiple used in 11 places.'>thisFrameTime</a> = (<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a> != 0.0) ?
+<a name='L412'> 412                            <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a> : <a href='../Y/3898.html' title='Multiple used in 15 places.'>ovr_GetTimeInSeconds</a>();
+<a name='L413'> 413     
+<a name='L414'> 414     <i><font color='green'>// We are starting to process a new frame...</font></i>
+<a name='L415'> 415     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../S/98.html#L329' title='Defined at 329 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>InitTimingFromInputs</a>(<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>, <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a>,
+<a name='L416'> 416                                      <a href='../Y/4590.html' title='Multiple used in 11 places.'>thisFrameTime</a>, <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>);
+<a name='L417'> 417 
+<a name='L418'> 418     <b>return</b> <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/2228.html' title='Multiple used in 9 places.'>ThisFrameTime</a>;
+<a name='L419'> 419 <font color='red'>}</font>
+<a name='L420'> 420 
+<a name='L421'> 421 
+<a name='L422'> 422 <b>void</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/219.html' title='Multiple refered from 5 places.'>EndFrame</a>()
+<a name='L423'> 423 <font color='red'>{</font>
+<a name='L424'> 424     <i><font color='green'>// Record timing since last frame; must be called after Present &amp; sync.</font></i>
+<a name='L425'> 425     <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a> = <a href='../Y/3898.html' title='Multiple used in 15 places.'>ovr_GetTimeInSeconds</a>();    
+<a name='L426'> 426     <b>if</b> (<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/2228.html' title='Multiple used in 9 places.'>ThisFrameTime</a> &gt; 0.0)
+<a name='L427'> 427     <font color='red'>{</font>
+<a name='L428'> 428         <a href='../Y/641.html' title='Multiple used in 5 places.'>FrameTimeDeltas</a>.<a href='../S/98.html#L624' title='Defined at 624 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>AddTimeDelta</a>(<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a> - <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/2228.html' title='Multiple used in 9 places.'>ThisFrameTime</a>);
+<a name='L429'> 429         <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/633.html' title='Multiple used in 6 places.'>FrameDelta</a> = <a href='../S/98.html#L257' title='Defined at 257 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>calcFrameDelta</a>();
+<a name='L430'> 430     <font color='red'>}</font>
+<a name='L431'> 431 
+<a name='L432'> 432     <i><font color='green'>// Write to Lock-less</font></i>
+<a name='L433'> 433     <a href='../Y/1298.html' title='Multiple used in 6 places.'>LocklessTiming</a>.<a href='../Y/2053.html' title='Multiple used in 10 places.'>SetState</a>(<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>);
+<a name='L434'> 434 <font color='red'>}</font>
+<a name='L435'> 435 
+<a name='L436'> 436 
+<a name='L437'> 437 
+<a name='L438'> 438 <i><font color='green'>// Thread-safe function to query timing for a future frame</font></i>
+<a name='L439'> 439 
+<a name='L440'> 440 <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../D/1178.html' title='Multiple defined in 2 places.'>Timing</a> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/332.html' title='Multiple refered from 6 places.'>GetFrameTiming</a>(<b>unsigned</b> <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>)
+<a name='L441'> 441 <font color='red'>{</font>
+<a name='L442'> 442     <a href='../D/1178.html' title='Multiple defined in 2 places.'>Timing</a> <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a> = <a href='../Y/1298.html' title='Multiple used in 6 places.'>LocklessTiming</a>.<a href='../Y/817.html' title='Multiple used in 7 places.'>GetState</a>();
+<a name='L443'> 443 
+<a name='L444'> 444     <b>if</b> (<a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../Y/2228.html' title='Multiple used in 9 places.'>ThisFrameTime</a> != 0.0)
+<a name='L445'> 445     <font color='red'>{</font>
+<a name='L446'> 446         <i><font color='green'>// If timing hasn't been initialized, starting based on "now" is the best guess.</font></i>
+<a name='L447'> 447         <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../S/98.html#L329' title='Defined at 329 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>InitTimingFromInputs</a>(<a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>, <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a>,
+<a name='L448'> 448                                          <a href='../Y/3898.html' title='Multiple used in 15 places.'>ovr_GetTimeInSeconds</a>(), <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>);
+<a name='L449'> 449     <font color='red'>}</font>
+<a name='L450'> 450     
+<a name='L451'> 451     <b>else</b> <b>if</b> (<a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a> &gt; <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>)
+<a name='L452'> 452     <font color='red'>{</font>
+<a name='L453'> 453         <b>unsigned</b> <a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>    = <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a> - <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../Y/637.html' title='Multiple used in 25 places.'>FrameIndex</a>;
+<a name='L454'> 454         <b>double</b>   <a href='../Y/4590.html' title='Multiple used in 11 places.'>thisFrameTime</a> = <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a> +
+<a name='L455'> 455                                  <b>double</b>(<a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a>-1) * <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/633.html' title='Multiple used in 6 places.'>FrameDelta</a>;
+<a name='L456'> 456         <i><font color='green'>// Don't run away too far into the future beyond rendering.</font></i>
+<a name='L457'> 457         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3253.html' title='Multiple used in 23 places.'>frameDelta</a> &lt; 6);
+<a name='L458'> 458 
+<a name='L459'> 459         <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../S/98.html#L329' title='Defined at 329 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>InitTimingFromInputs</a>(<a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>, <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>.<a href='../Y/2089.html' title='Multiple used in 117 places.'>Shutter</a>.<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a>,
+<a name='L460'> 460                                          <a href='../Y/4590.html' title='Multiple used in 11 places.'>thisFrameTime</a>, <a href='../Y/3254.html' title='Multiple used in 27 places.'>frameIndex</a>);
+<a name='L461'> 461     <font color='red'>}</font>    
+<a name='L462'> 462      
+<a name='L463'> 463     <b>return</b> <a href='../Y/3258.html' title='Multiple used in 22 places.'>frameTiming</a>;
+<a name='L464'> 464 <font color='red'>}</font>
+<a name='L465'> 465 
+<a name='L466'> 466 
+<a name='L467'> 467 <b>double</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/321.html' title='Multiple refered from 2 places.'>GetEyePredictionTime</a>(<a href='../Y/3838.html' title='Multiple used in 7 places.'>ovrEyeType</a> <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>)
+<a name='L468'> 468 <font color='red'>{</font>
+<a name='L469'> 469     <b>if</b> (<a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>)
+<a name='L470'> 470     <font color='red'>{</font>
+<a name='L471'> 471         <b>return</b> <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/564.html' title='Multiple used in 14 places.'>EyeRenderTimes</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>];
+<a name='L472'> 472     <font color='red'>}</font>
+<a name='L473'> 473 
+<a name='L474'> 474     <i><font color='green'>// No VSync: Best guess for the near future</font></i>
+<a name='L475'> 475     <b>return</b> <a href='../Y/3898.html' title='Multiple used in 15 places.'>ovr_GetTimeInSeconds</a>() + <a href='../Y/1974.html' title='Multiple used in 5 places.'>ScreenSwitchingDelay</a> + <a href='../Y/1467.html' title='Multiple used in 5 places.'>NoVSyncToScanoutDelay</a>;
+<a name='L476'> 476 <font color='red'>}</font>
+<a name='L477'> 477 
+<a name='L478'> 478 <a href='../S/177.html#L1159' title='Defined at 1159 in ovr/sdk/src/Kernel/OVR_Math.h.'>Transformf</a> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/320.html' title='Multiple refered from 2 places.'>GetEyePredictionPose</a>(<a href='../Y/3840.html' title='Multiple used in 7 places.'>ovrHmd</a> <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>, <a href='../Y/3838.html' title='Multiple used in 7 places.'>ovrEyeType</a> <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>)
+<a name='L479'> 479 <font color='red'>{</font>
+<a name='L480'> 480     <b>double</b>         <a href='../Y/3171.html' title='Multiple used in 2 places.'>eyeRenderTime</a> = <a href='../S/98.html#L467' title='Defined at 467 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetEyePredictionTime</a>(<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>);
+<a name='L481'> 481     <a href='../D/1503.html' title='Multiple defined in 2 places.'>ovrSensorState</a> <a href='../Y/3172.html' title='Multiple used in 3 places.'>eyeState</a>      = <a href='../Y/3871.html' title='Multiple used in 6 places.'>ovrHmd_GetSensorState</a>(<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>, <a href='../Y/3171.html' title='Multiple used in 2 places.'>eyeRenderTime</a>);
+<a name='L482'> 482 
+<a name='L483'> 483 <i><font color='green'>//    EyeRenderPoses[eye] = eyeState.Predicted.Pose;</font></i>
+<a name='L484'> 484 
+<a name='L485'> 485     <i><font color='green'>// Record view pose sampling time for Latency reporting.</font></i>
+<a name='L486'> 486     <b>if</b> (<a href='../Y/1852.html' title='Multiple used in 9 places.'>RenderIMUTimeSeconds</a> == 0.0)
+<a name='L487'> 487         <a href='../Y/1852.html' title='Multiple used in 9 places.'>RenderIMUTimeSeconds</a> = <a href='../Y/3172.html' title='Multiple used in 3 places.'>eyeState</a>.<a href='../Y/1818.html' title='Multiple used in 10 places.'>Recorded</a>.<a href='../Y/2254.html' title='Multiple used in 24 places.'>TimeInSeconds</a>;
+<a name='L488'> 488 
+<a name='L489'> 489     <b>return</b> <a href='../Y/3172.html' title='Multiple used in 3 places.'>eyeState</a>.<a href='../Y/1693.html' title='Multiple used in 13 places.'>Predicted</a>.<a href='../Y/1683.html' title='Multiple used in 65 places.'>Pose</a>;
+<a name='L490'> 490 <font color='red'>}</font>
+<a name='L491'> 491 
+<a name='L492'> 492 
+<a name='L493'> 493 <b>void</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/397.html' title='Multiple refered from 2 places.'>GetTimewarpPredictions</a>(<a href='../Y/3838.html' title='Multiple used in 7 places.'>ovrEyeType</a> <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>, <b>double</b> <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[2])
+<a name='L494'> 494 <font color='red'>{</font>
+<a name='L495'> 495     <b>if</b> (<a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>)
+<a name='L496'> 496     <font color='red'>{</font>
+<a name='L497'> 497         <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[0] = <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>][0];
+<a name='L498'> 498         <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[1] = <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/2258.html' title='Multiple used in 19 places.'>TimeWarpStartEndTimes</a>[<a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>][1];
+<a name='L499'> 499         <b>return</b>;
+<a name='L500'> 500     <font color='red'>}</font>    
+<a name='L501'> 501 
+<a name='L502'> 502     <i><font color='green'>// Free-running, so this will be displayed immediately.</font></i>
+<a name='L503'> 503     <i><font color='green'>// Unfortunately we have no idea which bit of the screen is actually going to be displayed.</font></i>
+<a name='L504'> 504     <i><font color='green'>// TODO: guess which bit of the screen is being displayed!</font></i>
+<a name='L505'> 505     <i><font color='green'>// (e.g. use DONOTWAIT on present and see when the return isn't WASSTILLWAITING?)</font></i>
+<a name='L506'> 506 
+<a name='L507'> 507     <i><font color='green'>// We have no idea where scan-out is currently, so we can't usefully warp the screen spatially.</font></i>
+<a name='L508'> 508     <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[0] = <a href='../Y/3898.html' title='Multiple used in 15 places.'>ovr_GetTimeInSeconds</a>() + <a href='../Y/1974.html' title='Multiple used in 5 places.'>ScreenSwitchingDelay</a> + <a href='../Y/1467.html' title='Multiple used in 5 places.'>NoVSyncToScanoutDelay</a>;
+<a name='L509'> 509     <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[1] = <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[0];
+<a name='L510'> 510 <font color='red'>}</font>
+<a name='L511'> 511 
+<a name='L512'> 512 
+<a name='L513'> 513 <b>void</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/396.html' title='Multiple refered from 2 places.'>GetTimewarpMatrices</a>(<a href='../Y/3840.html' title='Multiple used in 7 places.'>ovrHmd</a> <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>, <a href='../Y/3838.html' title='Multiple used in 7 places.'>ovrEyeType</a> <a href='../Y/3164.html' title='Multiple used in 12 places.'>eyeId</a>,
+<a name='L514'> 514                                            <a href='../Y/3889.html' title='Multiple used in 2 places.'>ovrPosef</a> <a href='../Y/4264.html' title='Multiple used in 12 places.'>renderPose</a>, ovrMatrix4f <a href='../Y/4666.html' title='Multiple used in 7 places.'>twmOut</a>[2])
+<a name='L515'> 515 <font color='red'>{</font>
+<a name='L516'> 516     <b>if</b> (!<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>)
+<a name='L517'> 517     <font color='red'>{</font>
+<a name='L518'> 518         <b>return</b>;
+<a name='L519'> 519     <font color='red'>}</font>
+<a name='L520'> 520 
+<a name='L521'> 521     <b>double</b> <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[2] = <font color='red'>{</font> 0.0, 0.0 <font color='red'>}</font>;    
+<a name='L522'> 522     <a href='../S/98.html#L493' title='Defined at 493 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>GetTimewarpPredictions</a>(<a href='../Y/3164.html' title='Multiple used in 12 places.'>eyeId</a>, <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>);
+<a name='L523'> 523       
+<a name='L524'> 524     <a href='../D/1503.html' title='Multiple defined in 2 places.'>ovrSensorState</a> <a href='../Y/4463.html' title='Multiple used in 3 places.'>startState</a> = <a href='../Y/3871.html' title='Multiple used in 6 places.'>ovrHmd_GetSensorState</a>(<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>, <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[0]);
+<a name='L525'> 525     <a href='../D/1503.html' title='Multiple defined in 2 places.'>ovrSensorState</a> <a href='../Y/3116.html' title='Multiple used in 2 places.'>endState</a>   = <a href='../Y/3871.html' title='Multiple used in 6 places.'>ovrHmd_GetSensorState</a>(<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>, <a href='../Y/4621.html' title='Multiple used in 10 places.'>timewarpStartEnd</a>[1]);
+<a name='L526'> 526 
+<a name='L527'> 527     <b>if</b> (<a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a> == 0.0)
+<a name='L528'> 528         <a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a> = <a href='../Y/4463.html' title='Multiple used in 3 places.'>startState</a>.<a href='../Y/1818.html' title='Multiple used in 10 places.'>Recorded</a>.<a href='../Y/2254.html' title='Multiple used in 24 places.'>TimeInSeconds</a>;
+<a name='L529'> 529 
+<a name='L530'> 530     <a href='../S/177.html#L1085' title='Defined at 1085 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatf</a> <a href='../Y/4213.html' title='Multiple used in 2 places.'>quatFromStart</a> = <a href='../Y/4463.html' title='Multiple used in 3 places.'>startState</a>.<a href='../Y/1693.html' title='Multiple used in 13 places.'>Predicted</a>.<a href='../Y/1683.html' title='Multiple used in 65 places.'>Pose</a>.<a href='../Y/1553.html' title='Multiple used in 7 places.'>Orientation</a>;
+<a name='L531'> 531     <a href='../S/177.html#L1085' title='Defined at 1085 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatf</a> <a href='../Y/4211.html' title='Multiple used in 2 places.'>quatFromEnd</a>   = <a href='../Y/3116.html' title='Multiple used in 2 places.'>endState</a>.<a href='../Y/1693.html' title='Multiple used in 13 places.'>Predicted</a>.<a href='../Y/1683.html' title='Multiple used in 65 places.'>Pose</a>.<a href='../Y/1553.html' title='Multiple used in 7 places.'>Orientation</a>;
+<a name='L532'> 532     <a href='../S/177.html#L1085' title='Defined at 1085 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatf</a> <a href='../Y/4212.html' title='Multiple used in 4 places.'>quatFromEye</a>   = <a href='../Y/4264.html' title='Multiple used in 12 places.'>renderPose</a>.<a href='../Y/1553.html' title='Multiple used in 7 places.'>Orientation</a>; <i><font color='green'>//EyeRenderPoses[eyeId].Orientation;</font></i>
+<a name='L533'> 533     <a href='../Y/4212.html' title='Multiple used in 4 places.'>quatFromEye</a>.<a href='../Y/1015.html' title='Multiple used in 3 places.'>Invert</a>();
+<a name='L534'> 534     
+<a name='L535'> 535     <a href='../S/177.html#L1085' title='Defined at 1085 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatf</a> <a href='../Y/4622.html' title='Multiple used in 2 places.'>timewarpStartQuat</a> = <a href='../Y/4212.html' title='Multiple used in 4 places.'>quatFromEye</a> * <a href='../Y/4213.html' title='Multiple used in 2 places.'>quatFromStart</a>;
+<a name='L536'> 536     <a href='../S/177.html#L1085' title='Defined at 1085 in ovr/sdk/src/Kernel/OVR_Math.h.'>Quatf</a> <a href='../Y/4618.html' title='Multiple used in 2 places.'>timewarpEndQuat</a>   = <a href='../Y/4212.html' title='Multiple used in 4 places.'>quatFromEye</a> * <a href='../Y/4211.html' title='Multiple used in 2 places.'>quatFromEnd</a>;
+<a name='L537'> 537 
+<a name='L538'> 538     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>(<a href='../Y/4622.html' title='Multiple used in 2 places.'>timewarpStartQuat</a>);
+<a name='L539'> 539     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>(<a href='../Y/4618.html' title='Multiple used in 2 places.'>timewarpEndQuat</a>);
+<a name='L540'> 540     
+<a name='L541'> 541 
+<a name='L542'> 542     <i><font color='green'>// The real-world orientations have:                                  X=right, Y=up,   Z=backwards.</font></i>
+<a name='L543'> 543     <i><font color='green'>// The vectors inside the mesh are in NDC to keep the shader simple: X=right, Y=down, Z=forwards.</font></i>
+<a name='L544'> 544     <i><font color='green'>// So we need to perform a similarity transform on this delta matrix.</font></i>
+<a name='L545'> 545     <i><font color='green'>// The verbose code would look like this:</font></i>
+<a name='L546'> 546     <i><font color='green'>/*</font></i>
+<a name='L547'> 547 <i><font color='green'>    Matrix4f matBasisChange;</font></i>
+<a name='L548'> 548 <i><font color='green'>    matBasisChange.SetIdentity();</font></i>
+<a name='L549'> 549 <i><font color='green'>    matBasisChange.M[0][0] =  1.0f;</font></i>
+<a name='L550'> 550 <i><font color='green'>    matBasisChange.M[1][1] = -1.0f;</font></i>
+<a name='L551'> 551 <i><font color='green'>    matBasisChange.M[2][2] = -1.0f;</font></i>
+<a name='L552'> 552 <i><font color='green'>    Matrix4f matBasisChangeInv = matBasisChange.Inverted();</font></i>
+<a name='L553'> 553 <i><font color='green'>    matRenderFromNow = matBasisChangeInv * matRenderFromNow * matBasisChange;</font></i>
+<a name='L554'> 554 <i><font color='green'>    */</font></i>
+<a name='L555'> 555     <i><font color='green'>// ...but of course all the above is a constant transform and much more easily done.</font></i>
+<a name='L556'> 556     <i><font color='green'>// We flip the signs of the Y&amp;Z row, then flip the signs of the Y&amp;Z column,</font></i>
+<a name='L557'> 557     <i><font color='green'>// and of course most of the flips cancel:</font></i>
+<a name='L558'> 558     <i><font color='green'>// +++                        +--                     +--</font></i>
+<a name='L559'> 559     <i><font color='green'>// +++ -&gt; flip Y&amp;Z columns -&gt; +-- -&gt; flip Y&amp;Z rows -&gt; -++</font></i>
+<a name='L560'> 560     <i><font color='green'>// +++                        +--                     -++</font></i>
+<a name='L561'> 561     <a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][1] = -<a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][1];
+<a name='L562'> 562     <a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][2] = -<a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][2];
+<a name='L563'> 563     <a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[1][0] = -<a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[1][0];
+<a name='L564'> 564     <a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[2][0] = -<a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>.<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[2][0];
+<a name='L565'> 565 
+<a name='L566'> 566     <a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][1] = -<a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][1];
+<a name='L567'> 567     <a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][2] = -<a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[0][2];
+<a name='L568'> 568     <a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[1][0] = -<a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[1][0];
+<a name='L569'> 569     <a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[2][0] = -<a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>  .<a href='../Y/1328.html' title='Multiple used in 304 places.'>M</a>[2][0];
+<a name='L570'> 570 
+<a name='L571'> 571     <a href='../Y/4666.html' title='Multiple used in 7 places.'>twmOut</a>[0] = <a href='../Y/4620.html' title='Multiple used in 6 places.'>timewarpStart</a>;
+<a name='L572'> 572     <a href='../Y/4666.html' title='Multiple used in 7 places.'>twmOut</a>[1] = <a href='../Y/4617.html' title='Multiple used in 6 places.'>timewarpEnd</a>;
+<a name='L573'> 573 <font color='red'>}</font>
+<a name='L574'> 574 
+<a name='L575'> 575 
+<a name='L576'> 576 <i><font color='green'>// Used by renderer to determine if it should time distortion rendering.</font></i>
+<a name='L577'> 577 <b>bool</b>  <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/599.html' title='Multiple refered from 3 places.'>NeedDistortionTimeMeasurement</a>() <b>const</b>
+<a name='L578'> 578 <font color='red'>{</font>
+<a name='L579'> 579     <b>if</b> (!<a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>)
+<a name='L580'> 580         <b>return</b> <b>false</b>;
+<a name='L581'> 581     <b>return</b> <a href='../Y/442.html' title='Multiple used in 5 places.'>DistortionRenderTimes</a>.<a href='../Y/739.html' title='Multiple used in 4 places.'>GetCount</a>() &lt; 10;
+<a name='L582'> 582 <font color='red'>}</font>
+<a name='L583'> 583 
+<a name='L584'> 584 
+<a name='L585'> 585 <b>void</b>  <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/11.html' title='Multiple refered from 2 places.'>AddDistortionTimeMeasurement</a>(<b>double</b> <a href='../Y/3056.html' title='Multiple used in 3 places.'>distortionTimeSeconds</a>)
+<a name='L586'> 586 <font color='red'>{</font>
+<a name='L587'> 587     <a href='../Y/442.html' title='Multiple used in 5 places.'>DistortionRenderTimes</a>.<a href='../S/98.html#L624' title='Defined at 624 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>AddTimeDelta</a>(<a href='../Y/3056.html' title='Multiple used in 3 places.'>distortionTimeSeconds</a>);
+<a name='L588'> 588 
+<a name='L589'> 589     <i><font color='green'>// If timewarp timing changes based on this sample, update it.</font></i>
+<a name='L590'> 590     <b>double</b> <a href='../Y/3749.html' title='Multiple used in 3 places.'>newTimewarpWaitDelta</a> = <a href='../S/98.html#L309' title='Defined at 309 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>calcTimewarpWaitDelta</a>();
+<a name='L591'> 591     <b>if</b> (<a href='../Y/3749.html' title='Multiple used in 3 places.'>newTimewarpWaitDelta</a> != <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/2269.html' title='Multiple used in 7 places.'>TimewarpWaitDelta</a>)
+<a name='L592'> 592     <font color='red'>{</font>
+<a name='L593'> 593         <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/2269.html' title='Multiple used in 7 places.'>TimewarpWaitDelta</a> = <a href='../Y/3749.html' title='Multiple used in 3 places.'>newTimewarpWaitDelta</a>;
+<a name='L594'> 594         <a href='../Y/1298.html' title='Multiple used in 6 places.'>LocklessTiming</a>.<a href='../Y/2053.html' title='Multiple used in 10 places.'>SetState</a>(<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>);
+<a name='L595'> 595     <font color='red'>}</font>
+<a name='L596'> 596 <font color='red'>}</font>
+<a name='L597'> 597 
+<a name='L598'> 598 
+<a name='L599'> 599 <b>void</b> <a href='../Y/642.html' title='Multiple used in 29 places.'>FrameTimeManager</a>::<a href='../R/1160.html' title='Multiple refered from 2 places.'>UpdateFrameLatencyTrackingAfterEndFrame</a>(
+<a name='L600'> 600                                     <b>unsigned</b> <b>char</b> <a href='../Y/3256.html' title='Multiple used in 3 places.'>frameLatencyTestColor</a>,
+<a name='L601'> 601                                     <b>const</b> <a href='../Y/2378.html' title='Multiple used in 2 places.'>Util</a>::<a href='../Y/644.html' title='Multiple used in 2 places.'>FrameTimeRecordSet</a>&amp; <a href='../Y/4323.html' title='Multiple used in 3 places.'>rs</a>)
+<a name='L602'> 602 <font color='red'>{</font>    
+<a name='L603'> 603     <i><font color='green'>// FrameTiming.NextFrameTime in this context (after EndFrame) is the end frame time.</font></i>
+<a name='L604'> 604     <a href='../Y/1971.html' title='Multiple used in 8 places.'>ScreenLatencyTracker</a>.<a href='../S/98.html#L68' title='Defined at 68 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>SaveDrawColor</a>(<a href='../Y/3256.html' title='Multiple used in 3 places.'>frameLatencyTestColor</a>,
+<a name='L605'> 605                                        <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/1459.html' title='Multiple used in 13 places.'>NextFrameTime</a>,
+<a name='L606'> 606                                        <a href='../Y/1852.html' title='Multiple used in 9 places.'>RenderIMUTimeSeconds</a>,
+<a name='L607'> 607                                        <a href='../Y/2264.html' title='Multiple used in 10 places.'>TimewarpIMUTimeSeconds</a>);
+<a name='L608'> 608 
+<a name='L609'> 609     <a href='../Y/1971.html' title='Multiple used in 8 places.'>ScreenLatencyTracker</a>.<a href='../S/98.html#L107' title='Defined at 107 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>MatchRecord</a>(<a href='../Y/4323.html' title='Multiple used in 3 places.'>rs</a>);
+<a name='L610'> 610 
+<a name='L611'> 611     <i><font color='green'>// If screen delay changed, update timing.</font></i>
+<a name='L612'> 612     <b>double</b> <a href='../Y/3744.html' title='Multiple used in 3 places.'>newScreenDelay</a> = <a href='../S/98.html#L282' title='Defined at 282 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>calcScreenDelay</a>();
+<a name='L613'> 613     <b>if</b> (<a href='../Y/3744.html' title='Multiple used in 3 places.'>newScreenDelay</a> != <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/1969.html' title='Multiple used in 6 places.'>ScreenDelay</a>)
+<a name='L614'> 614     <font color='red'>{</font>
+<a name='L615'> 615         <a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>.<a href='../Y/994.html' title='Multiple used in 13 places.'>Inputs</a>.<a href='../Y/1969.html' title='Multiple used in 6 places.'>ScreenDelay</a> = <a href='../Y/3744.html' title='Multiple used in 3 places.'>newScreenDelay</a>;
+<a name='L616'> 616         <a href='../Y/1298.html' title='Multiple used in 6 places.'>LocklessTiming</a>.<a href='../Y/2053.html' title='Multiple used in 10 places.'>SetState</a>(<a href='../S/98.html#L214' title='Defined at 214 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp.'>FrameTiming</a>);
+<a name='L617'> 617     <font color='red'>}</font>
+<a name='L618'> 618 <font color='red'>}</font>
+<a name='L619'> 619 
+<a name='L620'> 620 
+<a name='L621'> 621 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L622'> 622 <i><font color='green'>// ***** TimeDeltaCollector</font></i>
+<a name='L623'> 623 
+<a name='L624'> 624 <b>void</b> <a href='../S/99.html#L42' title='Defined at 42 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>TimeDeltaCollector</a>::<a href='../R/22.html' title='Multiple refered from 4 places.'>AddTimeDelta</a>(<b>double</b> <a href='../Y/4607.html' title='Multiple used in 10 places.'>timeSeconds</a>)
+<a name='L625'> 625 <font color='red'>{</font>
+<a name='L626'> 626     <i><font color='green'>// avoid adding invalid timing values</font></i>
+<a name='L627'> 627     <b>if</b>(<a href='../Y/4607.html' title='Multiple used in 10 places.'>timeSeconds</a> &lt; 0.0f)
+<a name='L628'> 628         <b>return</b>;
+<a name='L629'> 629 
+<a name='L630'> 630     <b>if</b> (<a href='../Y/265.html' title='Multiple used in 11 places.'>Count</a> == <a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a>)
+<a name='L631'> 631     <font color='red'>{</font>
+<a name='L632'> 632         <b>for</b>(<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>=0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>&lt; <a href='../Y/265.html' title='Multiple used in 11 places.'>Count</a>-1; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L633'> 633             <a href='../Y/2250.html' title='Multiple used in 5 places.'>TimeBufferSeconds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>] = <a href='../Y/2250.html' title='Multiple used in 5 places.'>TimeBufferSeconds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>+1];
+<a name='L634'> 634         <a href='../Y/265.html' title='Multiple used in 11 places.'>Count</a>--;
+<a name='L635'> 635     <font color='red'>}</font>
+<a name='L636'> 636     <a href='../Y/2250.html' title='Multiple used in 5 places.'>TimeBufferSeconds</a>[<a href='../Y/265.html' title='Multiple used in 11 places.'>Count</a>++] = <a href='../Y/4607.html' title='Multiple used in 10 places.'>timeSeconds</a>;
+<a name='L637'> 637 <font color='red'>}</font>
+<a name='L638'> 638 
+<a name='L639'> 639 <b>double</b> <a href='../S/99.html#L42' title='Defined at 42 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>TimeDeltaCollector</a>::<a href='../R/356.html' title='Multiple refered from 5 places.'>GetMedianTimeDelta</a>() <b>const</b>
+<a name='L640'> 640 <font color='red'>{</font>
+<a name='L641'> 641     <b>double</b>  <a href='../Y/2108.html' title='Multiple used in 4 places.'>SortedList</a>[<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a>];
+<a name='L642'> 642     <b>bool</b>    <a href='../Y/4746.html' title='Multiple used in 4 places.'>used</a>[<a href='../S/99.html#L53' title='Defined at 53 in ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h.'>Capacity</a>];
+<a name='L643'> 643 
+<a name='L644'> 644     <a href='../Y/3671.html' title='Multiple used in 35 places.'>memset</a>(<a href='../Y/4746.html' title='Multiple used in 4 places.'>used</a>, 0, <b>sizeof</b>(<a href='../Y/4746.html' title='Multiple used in 4 places.'>used</a>));
+<a name='L645'> 645     <a href='../Y/2108.html' title='Multiple used in 4 places.'>SortedList</a>[0] = 0.0; <i><font color='green'>// In case Count was 0...</font></i>
+<a name='L646'> 646 
+<a name='L647'> 647     <i><font color='green'>// Probably the slowest way to find median...</font></i>
+<a name='L648'> 648     <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>=0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>&lt;<a href='../Y/265.html' title='Multiple used in 11 places.'>Count</a>; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L649'> 649     <font color='red'>{</font>
+<a name='L650'> 650         <b>double</b> <a href='../Y/4427.html' title='Multiple used in 4 places.'>smallestDelta</a> = 1000000.0;
+<a name='L651'> 651         <b>int</b>    <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a> = 0;
+<a name='L652'> 652 
+<a name='L653'> 653         <b>for</b> (<b>int</b> <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a> = 0; <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a> &lt; <a href='../Y/265.html' title='Multiple used in 11 places.'>Count</a>; <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>++)
+<a name='L654'> 654         <font color='red'>{</font>
+<a name='L655'> 655             <b>if</b> (!<a href='../Y/4746.html' title='Multiple used in 4 places.'>used</a>[<a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>])
+<a name='L656'> 656             <font color='red'>{</font>                
+<a name='L657'> 657                 <b>if</b> (<a href='../Y/2250.html' title='Multiple used in 5 places.'>TimeBufferSeconds</a>[<a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>] &lt; <a href='../Y/4427.html' title='Multiple used in 4 places.'>smallestDelta</a>)
+<a name='L658'> 658                 <font color='red'>{</font>
+<a name='L659'> 659                     <a href='../Y/4427.html' title='Multiple used in 4 places.'>smallestDelta</a> = <a href='../Y/2250.html' title='Multiple used in 5 places.'>TimeBufferSeconds</a>[<a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>];
+<a name='L660'> 660                     <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a> = <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>;
+<a name='L661'> 661                 <font color='red'>}</font>
+<a name='L662'> 662             <font color='red'>}</font>
+<a name='L663'> 663         <font color='red'>}</font>
+<a name='L664'> 664 
+<a name='L665'> 665         <i><font color='green'>// Mark as used</font></i>
+<a name='L666'> 666         <a href='../Y/4746.html' title='Multiple used in 4 places.'>used</a>[<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>]   = <b>true</b>;
+<a name='L667'> 667         <a href='../Y/2108.html' title='Multiple used in 4 places.'>SortedList</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>] = <a href='../Y/4427.html' title='Multiple used in 4 places.'>smallestDelta</a>;
+<a name='L668'> 668     <font color='red'>}</font>
+<a name='L669'> 669 
+<a name='L670'> 670     <b>return</b> <a href='../Y/2108.html' title='Multiple used in 4 places.'>SortedList</a>[<a href='../Y/265.html' title='Multiple used in 11 places.'>Count</a>/2];
+<a name='L671'> 671 <font color='red'>}</font>
+<a name='L672'> 672       
+<a name='L673'> 673 
+<a name='L674'> 674 <font color='red'>}</font><font color='red'>}</font> <i><font color='green'>// namespace OVR::CAPI</font></i>
+<a name='L675'> 675 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L42'>[^]</a><a href='#L639'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

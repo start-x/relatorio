@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>fractionalBits</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L413'>fractionalBits</a>    413 ovr/sdk/src/OVR_Stereo.cpp UInt16 EncodeFixedPointUInt16 ( float val, UInt16 zeroVal, int fractionalBits )
+<a href='../S/88.html#L415'>fractionalBits</a>    415 ovr/sdk/src/OVR_Stereo.cpp     OVR_ASSERT ( ( fractionalBits &gt;= 0 ) &amp;&amp; ( fractionalBits &lt; 31 ) );
+<a href='../S/88.html#L416'>fractionalBits</a>    416 ovr/sdk/src/OVR_Stereo.cpp     float valWhole = val * (float)( 1 &lt;&lt; fractionalBits );
+<a href='../S/88.html#L423'>fractionalBits</a>    423 ovr/sdk/src/OVR_Stereo.cpp float DecodeFixedPointUInt16 ( UInt16 val, UInt16 zeroVal, int fractionalBits )
+<a href='../S/88.html#L425'>fractionalBits</a>    425 ovr/sdk/src/OVR_Stereo.cpp     OVR_ASSERT ( ( fractionalBits &gt;= 0 ) &amp;&amp; ( fractionalBits &lt; 31 ) );
+<a href='../S/88.html#L428'>fractionalBits</a>    428 ovr/sdk/src/OVR_Stereo.cpp     valFloat *= 1.0f / (float)( 1 &lt;&lt; fractionalBits );
+</pre>
+</body>
+</html>

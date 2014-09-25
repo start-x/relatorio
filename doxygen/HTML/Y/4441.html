@@ -1,0 +1,225 @@
+<html>
+<head>
+<title>src</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/103.html#L502'>src</a>               502 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool Compile(const char* src)
+<a href='../S/103.html#L507'>src</a>               507 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 		glShaderSource(GLShader, 1, &amp;src, 0);
+<a href='../S/103.html#L516'>src</a>               516 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 				OVR_DEBUG_LOG(("Compiling shader\n%s\nfailed: %s\n", src, msg));
+<a href='../S/147.html#L616'>src</a>               616 ovr/sdk/src/Kernel/OVR_Alg.h void AppendArray(CDst&amp; dst, const CSrc&amp; src)
+<a href='../S/147.html#L619'>src</a>               619 ovr/sdk/src/Kernel/OVR_Alg.h     for(i = 0; i &lt; src.GetSize(); i++) 
+<a href='../S/147.html#L620'>src</a>               620 ovr/sdk/src/Kernel/OVR_Alg.h         dst.PushBack(src[i]);
+<a href='../S/175.html#L60'>src</a>                60 ovr/sdk/src/Kernel/OVR_Allocator.cpp     UPInt src = UPInt(p) - *(((UPInt*)p)-1);
+<a href='../S/175.html#L61'>src</a>                61 ovr/sdk/src/Kernel/OVR_Allocator.cpp     Free((void*)src);
+<a href='../S/163.html#L93'>src</a>                93 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void CopyArrayForward(T* dst, const T* src, UPInt count)
+<a href='../S/163.html#L95'>src</a>                95 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         memmove(dst, src, count * sizeof(T));
+<a href='../S/163.html#L98'>src</a>                98 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void CopyArrayBackward(T* dst, const T* src, UPInt count)
+<a href='../S/163.html#L100'>src</a>               100 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         memmove(dst, src, count * sizeof(T));
+<a href='../S/163.html#L166'>src</a>               166 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void CopyArrayForward(T* dst, const T* src, UPInt count)
+<a href='../S/163.html#L168'>src</a>               168 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         memmove(dst, src, count * sizeof(T));
+<a href='../S/163.html#L171'>src</a>               171 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void CopyArrayBackward(T* dst, const T* src, UPInt count)
+<a href='../S/163.html#L173'>src</a>               173 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h         memmove(dst, src, count * sizeof(T));
+<a href='../S/163.html#L239'>src</a>               239 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void CopyArrayForward(T* dst, const T* src, UPInt count)
+<a href='../S/163.html#L242'>src</a>               242 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h             dst[i] = src[i];
+<a href='../S/163.html#L245'>src</a>               245 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h     static void CopyArrayBackward(T* dst, const T* src, UPInt count)
+<a href='../S/163.html#L248'>src</a>               248 ovr/sdk/src/Kernel/OVR_ContainerAllocator.h             dst[i-1] = src[i-1];
+<a href='../S/179.html#L206'>src</a>               206 ovr/sdk/src/Kernel/OVR_Hash.h     HashSetBase(const SelfType&amp; src) : pTable(NULL)    { Assign(this, src); }
+<a href='../S/179.html#L226'>src</a>               226 ovr/sdk/src/Kernel/OVR_Hash.h     void Assign(const SelfType&amp; src)
+<a href='../S/179.html#L229'>src</a>               229 ovr/sdk/src/Kernel/OVR_Hash.h         if (src.IsEmpty() == false)
+<a href='../S/179.html#L231'>src</a>               231 ovr/sdk/src/Kernel/OVR_Hash.h             SetCapacity(src.GetSize());
+<a href='../S/179.html#L233'>src</a>               233 ovr/sdk/src/Kernel/OVR_Hash.h             for (ConstIterator it = src.Begin(); it != src.End(); ++it)
+<a href='../S/179.html#L921'>src</a>               921 ovr/sdk/src/Kernel/OVR_Hash.h     HashSet(const SelfType&amp; src) : BaseType(src)   {   }
+<a href='../S/179.html#L924'>src</a>               924 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)   { BaseType::Assign(src); }
+<a href='../S/179.html#L971'>src</a>               971 ovr/sdk/src/Kernel/OVR_Hash.h     HashSetUncached(const SelfType&amp; src) : BaseType(src)     { }
+<a href='../S/179.html#L974'>src</a>               974 ovr/sdk/src/Kernel/OVR_Hash.h     void    operator = (const SelfType&amp; src)
+<a href='../S/179.html#L976'>src</a>               976 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::operator = (src);
+<a href='../S/179.html#L1004'>src</a>              1004 ovr/sdk/src/Kernel/OVR_Hash.h         NodeRef(const NodeRef&amp; src)     : pFirst(src.pFirst), pSecond(src.pSecond) { }
+<a href='../S/179.html#L1013'>src</a>              1013 ovr/sdk/src/Kernel/OVR_Hash.h      HashNode(const HashNode&amp; src) : First(src.First), Second(src.Second)    { }
+<a href='../S/179.html#L1014'>src</a>              1014 ovr/sdk/src/Kernel/OVR_Hash.h      HashNode(const NodeRef&amp; src) : First(*src.pFirst), Second(*src.pSecond)  { }
+<a href='../S/179.html#L1015'>src</a>              1015 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const NodeRef&amp; src)  { First  = *src.pFirst; Second = *src.pSecond; }
+<a href='../S/179.html#L1018'>src</a>              1018 ovr/sdk/src/Kernel/OVR_Hash.h     bool operator == (const K&amp; src) const   { return (First == src); }
+<a href='../S/179.html#L1140'>src</a>              1140 ovr/sdk/src/Kernel/OVR_Hash.h     Hash(const SelfType&amp; src) : mHash(src.mHash)                { }
+<a href='../S/179.html#L1143'>src</a>              1143 ovr/sdk/src/Kernel/OVR_Hash.h     void    operator = (const SelfType&amp; src)    { mHash = src.mHash; }
+<a href='../S/179.html#L1269'>src</a>              1269 ovr/sdk/src/Kernel/OVR_Hash.h     HashUncached(const SelfType&amp; src) : BaseType(src)     { }
+<a href='../S/179.html#L1271'>src</a>              1271 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)                 { BaseType::operator = (src); }
+<a href='../S/179.html#L1289'>src</a>              1289 ovr/sdk/src/Kernel/OVR_Hash.h     HashIdentity(const SelfType&amp; src) : BaseType(src)     { }
+<a href='../S/179.html#L1291'>src</a>              1291 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)                 { BaseType::operator = (src); }
+<a href='../S/180.html#L203'>src</a>               203 ovr/sdk/src/Kernel/OVR_List.h     void PushListToFront(List&lt;T&gt;&amp; src)
+<a href='../S/180.html#L205'>src</a>               205 ovr/sdk/src/Kernel/OVR_List.h         if (!src.IsEmpty())
+<a href='../S/180.html#L207'>src</a>               207 ovr/sdk/src/Kernel/OVR_List.h             ValueType* pfirst = src.GetFirst();
+<a href='../S/180.html#L208'>src</a>               208 ovr/sdk/src/Kernel/OVR_List.h             ValueType* plast  = src.GetLast();
+<a href='../S/180.html#L209'>src</a>               209 ovr/sdk/src/Kernel/OVR_List.h             src.Clear();
+<a href='../S/180.html#L217'>src</a>               217 ovr/sdk/src/Kernel/OVR_List.h     void PushListToBack(List&lt;T&gt;&amp; src)
+<a href='../S/180.html#L219'>src</a>               219 ovr/sdk/src/Kernel/OVR_List.h         if (!src.IsEmpty())
+<a href='../S/180.html#L221'>src</a>               221 ovr/sdk/src/Kernel/OVR_List.h             ValueType* pfirst = src.GetFirst();
+<a href='../S/180.html#L222'>src</a>               222 ovr/sdk/src/Kernel/OVR_List.h             ValueType* plast  = src.GetLast();
+<a href='../S/180.html#L223'>src</a>               223 ovr/sdk/src/Kernel/OVR_List.h             src.Clear();
+<a href='../S/180.html#L233'>src</a>               233 ovr/sdk/src/Kernel/OVR_List.h     void    PushFollowingListItemsToFront(List&lt;T&gt;&amp; src, ValueType *pfirst)
+<a href='../S/180.html#L235'>src</a>               235 ovr/sdk/src/Kernel/OVR_List.h         if (pfirst != &amp;src.Root)
+<a href='../S/180.html#L237'>src</a>               237 ovr/sdk/src/Kernel/OVR_List.h             ValueType *plast = src.Root.pPrev;
+<a href='../S/180.html#L240'>src</a>               240 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev-&gt;pNext = (ValueType*)&amp;src.Root;
+<a href='../S/180.html#L241'>src</a>               241 ovr/sdk/src/Kernel/OVR_List.h             src.Root.pPrev      = pfirst-&gt;pPrev;
+<a href='../S/180.html#L252'>src</a>               252 ovr/sdk/src/Kernel/OVR_List.h     void    PushPrecedingListItemsToFront(List&lt;T&gt;&amp; src, ValueType *ptail)
+<a href='../S/180.html#L254'>src</a>               254 ovr/sdk/src/Kernel/OVR_List.h         if (src.GetFirst() != ptail)
+<a href='../S/180.html#L256'>src</a>               256 ovr/sdk/src/Kernel/OVR_List.h             ValueType *pfirst = src.Root.pNext;
+<a href='../S/180.html#L260'>src</a>               260 ovr/sdk/src/Kernel/OVR_List.h             ptail-&gt;pPrev      = (ValueType*)&amp;src.Root;
+<a href='../S/180.html#L261'>src</a>               261 ovr/sdk/src/Kernel/OVR_List.h             src.Root.pNext    = ptail;            
+<a href='../S/177.html#L269'>src</a>               269 ovr/sdk/src/Kernel/OVR_Math.h     explicit Vector2(const Vector2&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L270'>src</a>               270 ovr/sdk/src/Kernel/OVR_Math.h         : x((T)src.x), y((T)src.y) { }
+<a href='../S/177.html#L402'>src</a>               402 ovr/sdk/src/Kernel/OVR_Math.h     explicit Vector3(const Vector3&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L403'>src</a>               403 ovr/sdk/src/Kernel/OVR_Math.h         : x((T)src.x), y((T)src.y), z((T)src.z) { }
+<a href='../S/177.html#L591'>src</a>               591 ovr/sdk/src/Kernel/OVR_Math.h     explicit Size(const Size&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L592'>src</a>               592 ovr/sdk/src/Kernel/OVR_Math.h         : w((T)src.w), h((T)src.h) { }
+<a href='../S/177.html#L702'>src</a>               702 ovr/sdk/src/Kernel/OVR_Math.h     explicit Quat(const Quat&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L703'>src</a>               703 ovr/sdk/src/Kernel/OVR_Math.h         : x((T)src.x), y((T)src.y), z((T)src.z), w((T)src.w) { }
+<a href='../S/177.html#L1252'>src</a>              1252 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Matrix4&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L1256'>src</a>              1256 ovr/sdk/src/Kernel/OVR_Math.h                 M[i][j] = (T)src.M[i][j];
+<a href='../S/177.html#L1282'>src</a>              1282 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 FromString(const char* src)
+<a href='../S/177.html#L1288'>src</a>              1288 ovr/sdk/src/Kernel/OVR_Math.h                 result.M[r][c] = (T)atof(src);
+<a href='../S/177.html#L1289'>src</a>              1289 ovr/sdk/src/Kernel/OVR_Math.h                 while (src &amp;&amp; *src != ' ')
+<a href='../S/177.html#L1290'>src</a>              1290 ovr/sdk/src/Kernel/OVR_Math.h                     src++;
+<a href='../S/177.html#L1291'>src</a>              1291 ovr/sdk/src/Kernel/OVR_Math.h                 while (src &amp;&amp; *src == ' ')
+<a href='../S/177.html#L1292'>src</a>              1292 ovr/sdk/src/Kernel/OVR_Math.h                     src++;
+<a href='../S/177.html#L1927'>src</a>              1927 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Matrix4&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L1931'>src</a>              1931 ovr/sdk/src/Kernel/OVR_Math.h 				M[i][j] = (T)src.M[i][j];
+<a href='../S/177.html#L1957'>src</a>              1957 ovr/sdk/src/Kernel/OVR_Math.h 	static Matrix3 FromString(const char* src)
+<a href='../S/177.html#L1963'>src</a>              1963 ovr/sdk/src/Kernel/OVR_Math.h 				result.M[r][c] = (T)atof(src);
+<a href='../S/177.html#L1964'>src</a>              1964 ovr/sdk/src/Kernel/OVR_Math.h 				while (src &amp;&amp; *src != ' ')
+<a href='../S/177.html#L1965'>src</a>              1965 ovr/sdk/src/Kernel/OVR_Math.h 					src++;
+<a href='../S/177.html#L1966'>src</a>              1966 ovr/sdk/src/Kernel/OVR_Math.h 				while (src &amp;&amp; *src == ' ')
+<a href='../S/177.html#L1967'>src</a>              1967 ovr/sdk/src/Kernel/OVR_Math.h 					src++;
+<a href='../S/166.html#L378'>src</a>               378 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr(const Ptr&lt;C&gt; &amp;src)
+<a href='../S/166.html#L380'>src</a>               380 ovr/sdk/src/Kernel/OVR_RefCount.h         if (src.pObject) src.pObject-&gt;AddRef();     
+<a href='../S/166.html#L381'>src</a>               381 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = src.pObject;
+<a href='../S/166.html#L385'>src</a>               385 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr(Ptr&lt;R&gt; &amp;src)
+<a href='../S/166.html#L387'>src</a>               387 ovr/sdk/src/Kernel/OVR_RefCount.h         if (src) src-&gt;AddRef();
+<a href='../S/166.html#L388'>src</a>               388 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = src;
+<a href='../S/166.html#L414'>src</a>               414 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE const Ptr&lt;C&gt;&amp; operator = (const Ptr&lt;R&gt; &amp;src)
+<a href='../S/166.html#L416'>src</a>               416 ovr/sdk/src/Kernel/OVR_RefCount.h         if (src) src-&gt;AddRef();
+<a href='../S/166.html#L418'>src</a>               418 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = src;
+<a href='../S/166.html#L422'>src</a>               422 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE const Ptr&lt;C&gt;&amp; operator = (const Ptr&lt;C&gt; &amp;src)
+<a href='../S/166.html#L424'>src</a>               424 ovr/sdk/src/Kernel/OVR_RefCount.h         if (src) src-&gt;AddRef();
+<a href='../S/166.html#L426'>src</a>               426 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = src;
+<a href='../S/166.html#L437'>src</a>               437 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE const Ptr&lt;C&gt;&amp; operator = (C &amp;src)
+<a href='../S/166.html#L440'>src</a>               440 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = &amp;src;
+<a href='../S/166.html#L443'>src</a>               443 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; operator = (Pickable&lt;C&gt; src)
+<a href='../S/166.html#L445'>src</a>               445 ovr/sdk/src/Kernel/OVR_RefCount.h         return Pick(src);
+<a href='../S/166.html#L448'>src</a>               448 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; operator = (Pickable&lt;R&gt; src)
+<a href='../S/166.html#L450'>src</a>               450 ovr/sdk/src/Kernel/OVR_RefCount.h         return Pick(src);
+<a href='../S/166.html#L455'>src</a>               455 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; SetPtr(const Ptr&lt;R&gt; &amp;src)
+<a href='../S/166.html#L457'>src</a>               457 ovr/sdk/src/Kernel/OVR_RefCount.h         if (src) src-&gt;AddRef();
+<a href='../S/166.html#L459'>src</a>               459 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = src;
+<a href='../S/166.html#L463'>src</a>               463 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; SetPtr(const Ptr&lt;C&gt; &amp;src)
+<a href='../S/166.html#L465'>src</a>               465 ovr/sdk/src/Kernel/OVR_RefCount.h         if (src) src-&gt;AddRef();
+<a href='../S/166.html#L467'>src</a>               467 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = src;
+<a href='../S/166.html#L478'>src</a>               478 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; SetPtr(C &amp;src)
+<a href='../S/166.html#L481'>src</a>               481 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = &amp;src;
+<a href='../S/166.html#L484'>src</a>               484 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; SetPtr(Pickable&lt;C&gt; src)
+<a href='../S/166.html#L486'>src</a>               486 ovr/sdk/src/Kernel/OVR_RefCount.h         return Pick(src);
+<a href='../S/169.html#L66'>src</a>                66 ovr/sdk/src/Kernel/OVR_Std.cpp wchar_t* OVR_CDECL OVR_wcscpy(wchar_t* dest, UPInt destsize, const wchar_t* src)
+<a href='../S/169.html#L69'>src</a>                69 ovr/sdk/src/Kernel/OVR_Std.cpp     wcscpy_s(dest, destsize, src);
+<a href='../S/169.html#L73'>src</a>                73 ovr/sdk/src/Kernel/OVR_Std.cpp     wcscpy(dest, src);
+<a href='../S/169.html#L76'>src</a>                76 ovr/sdk/src/Kernel/OVR_Std.cpp     UPInt l = OVR_wcslen(src) + 1; // incl term null
+<a href='../S/169.html#L78'>src</a>                78 ovr/sdk/src/Kernel/OVR_Std.cpp     memcpy(dest, src, l * sizeof(wchar_t));
+<a href='../S/169.html#L83'>src</a>                83 ovr/sdk/src/Kernel/OVR_Std.cpp wchar_t* OVR_CDECL OVR_wcsncpy(wchar_t* dest, UPInt destsize, const wchar_t* src, UPInt count)
+<a href='../S/169.html#L86'>src</a>                86 ovr/sdk/src/Kernel/OVR_Std.cpp     wcsncpy_s(dest, destsize, src, count);
+<a href='../S/169.html#L89'>src</a>                89 ovr/sdk/src/Kernel/OVR_Std.cpp     UPInt srclen = OVR_wcslen(src);
+<a href='../S/169.html#L92'>src</a>                92 ovr/sdk/src/Kernel/OVR_Std.cpp     memcpy(dest, src, l * sizeof(wchar_t));
+<a href='../S/169.html#L105'>src</a>               105 ovr/sdk/src/Kernel/OVR_Std.cpp wchar_t* OVR_CDECL OVR_wcscat(wchar_t* dest, UPInt destsize, const wchar_t* src)
+<a href='../S/169.html#L108'>src</a>               108 ovr/sdk/src/Kernel/OVR_Std.cpp     wcscat_s(dest, destsize, src);
+<a href='../S/169.html#L112'>src</a>               112 ovr/sdk/src/Kernel/OVR_Std.cpp     wcscat(dest, src);
+<a href='../S/169.html#L116'>src</a>               116 ovr/sdk/src/Kernel/OVR_Std.cpp     UPInt srclen = OVR_wcslen(src) + 1; // incl term null
+<a href='../S/169.html#L118'>src</a>               118 ovr/sdk/src/Kernel/OVR_Std.cpp     memcpy(dest + dstlen, src, copylen * sizeof(wchar_t));
+<a href='../S/173.html#L148'>src</a>               148 ovr/sdk/src/Kernel/OVR_Std.h inline char* OVR_CDECL OVR_strcpy(char* dest, UPInt destsize, const char* src)
+<a href='../S/173.html#L151'>src</a>               151 ovr/sdk/src/Kernel/OVR_Std.h     strcpy_s(dest, destsize, src);
+<a href='../S/173.html#L155'>src</a>               155 ovr/sdk/src/Kernel/OVR_Std.h     return strcpy(dest, src);
+<a href='../S/173.html#L159'>src</a>               159 ovr/sdk/src/Kernel/OVR_Std.h inline char* OVR_CDECL OVR_strncpy(char* dest, UPInt destsize, const char* src, UPInt count)
+<a href='../S/173.html#L162'>src</a>               162 ovr/sdk/src/Kernel/OVR_Std.h     strncpy_s(dest, destsize, src, count);
+<a href='../S/173.html#L166'>src</a>               166 ovr/sdk/src/Kernel/OVR_Std.h     return strncpy(dest, src, count);
+<a href='../S/173.html#L170'>src</a>               170 ovr/sdk/src/Kernel/OVR_Std.h inline char * OVR_CDECL OVR_strcat(char* dest, UPInt destsize, const char* src)
+<a href='../S/173.html#L173'>src</a>               173 ovr/sdk/src/Kernel/OVR_Std.h     strcat_s(dest, destsize, src);
+<a href='../S/173.html#L177'>src</a>               177 ovr/sdk/src/Kernel/OVR_Std.h     return strcat(dest, src);
+<a href='../S/173.html#L181'>src</a>               181 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_strcmp(const char* dest, const char* src)
+<a href='../S/173.html#L183'>src</a>               183 ovr/sdk/src/Kernel/OVR_Std.h     return strcmp(dest, src);
+<a href='../S/173.html#L277'>src</a>               277 ovr/sdk/src/Kernel/OVR_Std.h int OVR_CDECL OVR_stricmp(const char* dest, const char* src);
+<a href='../S/173.html#L278'>src</a>               278 ovr/sdk/src/Kernel/OVR_Std.h int OVR_CDECL OVR_strnicmp(const char* dest, const char* src, UPInt count);
+<a href='../S/173.html#L346'>src</a>               346 ovr/sdk/src/Kernel/OVR_Std.h wchar_t* OVR_CDECL OVR_wcscpy(wchar_t* dest, UPInt destsize, const wchar_t* src);
+<a href='../S/173.html#L347'>src</a>               347 ovr/sdk/src/Kernel/OVR_Std.h wchar_t* OVR_CDECL OVR_wcsncpy(wchar_t* dest, UPInt destsize, const wchar_t* src, UPInt count);
+<a href='../S/173.html#L348'>src</a>               348 ovr/sdk/src/Kernel/OVR_Std.h wchar_t* OVR_CDECL OVR_wcscat(wchar_t* dest, UPInt destsize, const wchar_t* src);
+<a href='../S/184.html#L77'>src</a>                77 ovr/sdk/src/Kernel/OVR_String.cpp String::String(const InitStruct&amp; src, UPInt size)
+<a href='../S/184.html#L80'>src</a>                80 ovr/sdk/src/Kernel/OVR_String.cpp     src.InitString(GetData()-&gt;Data, size);
+<a href='../S/184.html#L83'>src</a>                83 ovr/sdk/src/Kernel/OVR_String.cpp String::String(const String&amp; src)
+<a href='../S/184.html#L85'>src</a>                85 ovr/sdk/src/Kernel/OVR_String.cpp     pData = src.GetData();
+<a href='../S/184.html#L89'>src</a>                89 ovr/sdk/src/Kernel/OVR_String.cpp String::String(const StringBuffer&amp; src)
+<a href='../S/184.html#L91'>src</a>                91 ovr/sdk/src/Kernel/OVR_String.cpp     pData = AllocDataCopy1(src.GetSize(), 0, src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L264'>src</a>               264 ovr/sdk/src/Kernel/OVR_String.cpp void    String::AssignString(const InitStruct&amp; src, UPInt size)
+<a href='../S/184.html#L268'>src</a>               268 ovr/sdk/src/Kernel/OVR_String.cpp     src.InitString(pnewData-&gt;Data, size);
+<a href='../S/184.html#L297'>src</a>               297 ovr/sdk/src/Kernel/OVR_String.cpp void    String::operator = (const String&amp; src)
+<a href='../S/184.html#L299'>src</a>               299 ovr/sdk/src/Kernel/OVR_String.cpp     DataDesc*    psdata = src.GetData();
+<a href='../S/184.html#L308'>src</a>               308 ovr/sdk/src/Kernel/OVR_String.cpp void    String::operator = (const StringBuffer&amp; src)
+<a href='../S/184.html#L311'>src</a>               311 ovr/sdk/src/Kernel/OVR_String.cpp     SetData(AllocDataCopy1(src.GetSize(), 0, src.ToCStr(), src.GetSize()));
+<a href='../S/184.html#L315'>src</a>               315 ovr/sdk/src/Kernel/OVR_String.cpp void    String::operator += (const String&amp; src)
+<a href='../S/184.html#L318'>src</a>               318 ovr/sdk/src/Kernel/OVR_String.cpp                *psrcData = src.GetData();
+<a href='../S/184.html#L336'>src</a>               336 ovr/sdk/src/Kernel/OVR_String.cpp String   String::operator + (const String&amp; src) const
+<a href='../S/184.html#L339'>src</a>               339 ovr/sdk/src/Kernel/OVR_String.cpp     tmp1 += src;
+<a href='../S/184.html#L581'>src</a>               581 ovr/sdk/src/Kernel/OVR_String.cpp StringBuffer::StringBuffer(const String&amp; src)
+<a href='../S/184.html#L584'>src</a>               584 ovr/sdk/src/Kernel/OVR_String.cpp     AppendString(src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L587'>src</a>               587 ovr/sdk/src/Kernel/OVR_String.cpp StringBuffer::StringBuffer(const StringBuffer&amp; src)
+<a href='../S/184.html#L590'>src</a>               590 ovr/sdk/src/Kernel/OVR_String.cpp     AppendString(src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L724'>src</a>               724 ovr/sdk/src/Kernel/OVR_String.cpp void      StringBuffer::operator = (const String&amp; src)
+<a href='../S/184.html#L726'>src</a>               726 ovr/sdk/src/Kernel/OVR_String.cpp     Resize(src.GetSize());
+<a href='../S/184.html#L727'>src</a>               727 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData, src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L730'>src</a>               730 ovr/sdk/src/Kernel/OVR_String.cpp void      StringBuffer::operator = (const StringBuffer&amp; src)
+<a href='../S/184.html#L733'>src</a>               733 ovr/sdk/src/Kernel/OVR_String.cpp 	AppendString(src.ToCStr(), src.GetSize());
+<a href='../S/161.html#L164'>src</a>               164 ovr/sdk/src/Kernel/OVR_String.h     String(const String&amp; src);
+<a href='../S/161.html#L165'>src</a>               165 ovr/sdk/src/Kernel/OVR_String.h     String(const StringBuffer&amp; src);
+<a href='../S/161.html#L166'>src</a>               166 ovr/sdk/src/Kernel/OVR_String.h     String(const InitStruct&amp; src, UPInt size);
+<a href='../S/161.html#L209'>src</a>               209 ovr/sdk/src/Kernel/OVR_String.h     void        AssignString(const InitStruct&amp; src, UPInt size);
+<a href='../S/161.html#L282'>src</a>               282 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const String&amp; src);
+<a href='../S/161.html#L283'>src</a>               283 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const StringBuffer&amp; src);
+<a href='../S/161.html#L286'>src</a>               286 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const String&amp; src);
+<a href='../S/161.html#L291'>src</a>               291 ovr/sdk/src/Kernel/OVR_String.h     String      operator +  (const String&amp; src)  const;
+<a href='../S/161.html#L419'>src</a>               419 ovr/sdk/src/Kernel/OVR_String.h     StringBuffer(const String&amp; src);
+<a href='../S/161.html#L420'>src</a>               420 ovr/sdk/src/Kernel/OVR_String.h     StringBuffer(const StringBuffer&amp; src);
+<a href='../S/161.html#L476'>src</a>               476 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const String&amp; src);
+<a href='../S/161.html#L477'>src</a>               477 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const StringBuffer&amp; src);
+<a href='../S/161.html#L480'>src</a>               480 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const String&amp; src)      { AppendString(src.ToCStr(),src.GetSize()); }
+<a href='../S/164.html#L54'>src</a>                54 ovr/sdk/src/Kernel/OVR_StringHash.h     void    operator = (const SelfType&amp; src) { BaseType::operator = (src); }
+<a href='../S/142.html#L50'>src</a>                50 ovr/sdk/src/OVR_CAPI.cpp FovPort::FovPort(const ovrFovPort &amp;src)
+<a href='../S/142.html#L51'>src</a>                51 ovr/sdk/src/OVR_CAPI.cpp     : UpTan(src.UpTan), DownTan(src.DownTan), LeftTan(src.LeftTan), RightTan(src.RightTan)
+<a href='../S/108.html#L377'>src</a>               377 ovr/sdk/src/OVR_Device.h     void operator = (const HMDInfo&amp; src)
+<a href='../S/108.html#L379'>src</a>               379 ovr/sdk/src/OVR_Device.h         HmdType                          = src.HmdType;
+<a href='../S/108.html#L380'>src</a>               380 ovr/sdk/src/OVR_Device.h         ResolutionInPixels               = src.ResolutionInPixels;      
+<a href='../S/108.html#L381'>src</a>               381 ovr/sdk/src/OVR_Device.h         ScreenSizeInMeters               = src.ScreenSizeInMeters;
+<a href='../S/108.html#L382'>src</a>               382 ovr/sdk/src/OVR_Device.h         ScreenGapSizeInMeters            = src.ScreenGapSizeInMeters;
+<a href='../S/108.html#L383'>src</a>               383 ovr/sdk/src/OVR_Device.h         CenterFromTopInMeters            = src.CenterFromTopInMeters;
+<a href='../S/108.html#L384'>src</a>               384 ovr/sdk/src/OVR_Device.h         LensSeparationInMeters           = src.LensSeparationInMeters;
+<a href='../S/108.html#L385'>src</a>               385 ovr/sdk/src/OVR_Device.h         DesktopX                         = src.DesktopX;
+<a href='../S/108.html#L386'>src</a>               386 ovr/sdk/src/OVR_Device.h         DesktopY                         = src.DesktopY;
+<a href='../S/108.html#L387'>src</a>               387 ovr/sdk/src/OVR_Device.h         Shutter                          = src.Shutter;
+<a href='../S/108.html#L388'>src</a>               388 ovr/sdk/src/OVR_Device.h         memcpy(DisplayDeviceName, src.DisplayDeviceName, sizeof(DisplayDeviceName));
+<a href='../S/108.html#L390'>src</a>               390 ovr/sdk/src/OVR_Device.h         DisplayId                        = src.DisplayId;
+<a href='../S/89.html#L42'>src</a>                42 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceHandle::DeviceHandle(const DeviceHandle&amp; src) : pImpl(src.pImpl)
+<a href='../S/89.html#L54'>src</a>                54 ovr/sdk/src/OVR_DeviceHandle.cpp void DeviceHandle::operator = (const DeviceHandle&amp; src)
+<a href='../S/89.html#L56'>src</a>                56 ovr/sdk/src/OVR_DeviceHandle.cpp     if (src.pImpl)
+<a href='../S/89.html#L57'>src</a>                57 ovr/sdk/src/OVR_DeviceHandle.cpp         src.pImpl-&gt;AddRef();
+<a href='../S/89.html#L60'>src</a>                60 ovr/sdk/src/OVR_DeviceHandle.cpp     pImpl = src.pImpl;
+<a href='../S/126.html#L62'>src</a>                62 ovr/sdk/src/OVR_DeviceHandle.h 	DeviceHandle(const DeviceHandle&amp; src);
+<a href='../S/126.html#L65'>src</a>                65 ovr/sdk/src/OVR_DeviceHandle.h 	void operator = (const DeviceHandle&amp; src);
+<a href='../S/127.html#L64'>src</a>                64 ovr/sdk/src/OVR_SensorFusion.h     explicit PoseState(const PoseState&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/127.html#L65'>src</a>                65 ovr/sdk/src/OVR_SensorFusion.h         : Pose(src.Pose),
+<a href='../S/127.html#L66'>src</a>                66 ovr/sdk/src/OVR_SensorFusion.h           AngularVelocity(src.AngularVelocity), LinearVelocity(src.LinearVelocity),
+<a href='../S/127.html#L67'>src</a>                67 ovr/sdk/src/OVR_SensorFusion.h           AngularAcceleration(src.AngularAcceleration), LinearAcceleration(src.LinearAcceleration),
+<a href='../S/127.html#L68'>src</a>                68 ovr/sdk/src/OVR_SensorFusion.h           TimeInSeconds(src.TimeInSeconds)
+<a href='../S/127.html#L72'>src</a>                72 ovr/sdk/src/OVR_SensorFusion.h     PoseState(const typename CompatibleTypes&lt;PoseState&lt;T&gt; &gt;::Type&amp; src)
+<a href='../S/127.html#L73'>src</a>                73 ovr/sdk/src/OVR_SensorFusion.h         : Pose(src.Pose),
+<a href='../S/127.html#L74'>src</a>                74 ovr/sdk/src/OVR_SensorFusion.h           AngularVelocity(src.AngularVelocity), LinearVelocity(src.LinearVelocity),
+<a href='../S/127.html#L75'>src</a>                75 ovr/sdk/src/OVR_SensorFusion.h           AngularAcceleration(src.AngularAcceleration), LinearAcceleration(src.LinearAcceleration),
+<a href='../S/127.html#L76'>src</a>                76 ovr/sdk/src/OVR_SensorFusion.h           TimeInSeconds(src.TimeInSeconds)
+<a href='../S/131.html#L78'>src</a>                78 ovr/sdk/src/OVR_Stereo.h     FovPort(const ovrFovPort&amp; src);
+</pre>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>temperatureReports</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/128.html#L107'>temperatureReports</a>  107 ovr/sdk/src/OVR_SensorCalibration.cpp 	Array&lt;Array&lt;TemperatureReport&gt; &gt; temperatureReports;
+<a href='../S/128.html#L108'>temperatureReports</a>  108 ovr/sdk/src/OVR_SensorCalibration.cpp 	pSensor-&gt;GetAllTemperatureReports(&amp;temperatureReports);
+<a href='../S/128.html#L110'>temperatureReports</a>  110 ovr/sdk/src/OVR_SensorCalibration.cpp 	OVR_ASSERT(temperatureReports.GetSize() &gt; 0);
+<a href='../S/128.html#L111'>temperatureReports</a>  111 ovr/sdk/src/OVR_SensorCalibration.cpp 	OVR_ASSERT(temperatureReports[0].GetSize() &gt; 0);
+<a href='../S/128.html#L270'>temperatureReports</a>  270 ovr/sdk/src/OVR_SensorCalibration.cpp void OffsetInterpolator::Initialize(Array&lt;Array&lt;TemperatureReport&gt; &gt; const&amp; temperatureReports, int coord)
+<a href='../S/128.html#L272'>temperatureReports</a>  272 ovr/sdk/src/OVR_SensorCalibration.cpp     int bins = (int) temperatureReports.GetSize();
+<a href='../S/128.html#L280'>temperatureReports</a>  280 ovr/sdk/src/OVR_SensorCalibration.cpp         OVR_ASSERT(temperatureReports[bin].GetSize() == temperatureReports[0].GetSize());
+<a href='../S/128.html#L281'>temperatureReports</a>  281 ovr/sdk/src/OVR_SensorCalibration.cpp         const TemperatureReport&amp; report = median(temperatureReports[bin], coord);
+<a href='../S/141.html#L38'>temperatureReports</a>   38 ovr/sdk/src/OVR_SensorCalibration.h     void Initialize(Array&lt;Array&lt;TemperatureReport&gt; &gt; const&amp; temperatureReports, int coord);
+</pre>
+</body>
+</html>

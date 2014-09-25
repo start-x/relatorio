@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>eye</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L467'>eye</a>               467 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp double FrameTimeManager::GetEyePredictionTime(ovrEyeType eye)
+<a href='../S/98.html#L471'>eye</a>               471 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         return FrameTiming.EyeRenderTimes[eye];
+<a href='../S/98.html#L478'>eye</a>               478 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp Transformf FrameTimeManager::GetEyePredictionPose(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/98.html#L480'>eye</a>               480 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     double         eyeRenderTime = GetEyePredictionTime(eye);
+<a href='../S/98.html#L493'>eye</a>               493 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::GetTimewarpPredictions(ovrEyeType eye, double timewarpStartEnd[2])
+<a href='../S/98.html#L497'>eye</a>               497 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         timewarpStartEnd[0] = FrameTiming.TimeWarpStartEndTimes[eye][0];
+<a href='../S/98.html#L498'>eye</a>               498 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         timewarpStartEnd[1] = FrameTiming.TimeWarpStartEndTimes[eye][1];
+<a href='../S/99.html#L194'>eye</a>               194 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     double  GetEyePredictionTime(ovrEyeType eye);
+<a href='../S/99.html#L195'>eye</a>               195 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     Transformf GetEyePredictionPose(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/99.html#L197'>eye</a>               197 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     void    GetTimewarpPredictions(ovrEyeType eye, double timewarpStartEnd[2]); 
+<a href='../S/99.html#L198'>eye</a>               198 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     void    GetTimewarpMatrices(ovrHmd hmd, ovrEyeType eye, ovrPosef renderPose, ovrMatrix4f twmOut[2]);
+<a href='../S/107.html#L111'>eye</a>               111 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp ovrSizei HMDRenderState::GetFOVTextureSize(int eye, ovrFovPort fov, float pixelsPerDisplayPixel)
+<a href='../S/107.html#L113'>eye</a>               113 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     OVR_ASSERT((unsigned)eye &lt; 2);
+<a href='../S/107.html#L114'>eye</a>               114 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     StereoEye seye = (eye == ovrEye_Left) ? StereoEye_Left : StereoEye_Right;
+<a href='../S/107.html#L115'>eye</a>               115 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     return CalculateIdealPixelSize(seye, Distortion[eye], fov, pixelsPerDisplayPixel);
+<a href='../S/107.html#L121'>eye</a>               121 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     StereoEye        eye   = (eyeType == ovrEye_Left) ? StereoEye_Left : StereoEye_Right;
+<a href='../S/107.html#L126'>eye</a>               126 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     e0.ViewAdjust                = CalculateEyeVirtualCameraOffset(hmdri, eye, false);
+<a href='../S/107.html#L127'>eye</a>               127 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     e0.DistortedViewport         = GetFramebufferViewport(eye, hmdri);
+<a href='../S/100.html#L58'>eye</a>                58 ovr/sdk/src/CAPI/CAPI_HMDRenderState.h     ovrSizei   GetFOVTextureSize(int eye, ovrFovPort fov, float pixelsPerDisplayPixel);
+<a href='../S/97.html#L758'>eye</a>               758 ovr/sdk/src/CAPI/CAPI_HMDState.cpp ovrPosef HMDState::BeginEyeRender(ovrEyeType eye)
+<a href='../S/97.html#L765'>eye</a>               765 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     OVR_ASSERT_LOG(eye == ovrEye_Left || eye == ovrEye_Right,
+<a href='../S/97.html#L767'>eye</a>               767 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     OVR_ASSERT_LOG(EyeRenderActive[eye] == false,
+<a href='../S/97.html#L770'>eye</a>               770 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     EyeRenderActive[eye] = true;
+<a href='../S/97.html#L773'>eye</a>               773 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     if (pRenderer &amp;&amp; eye == 0)
+<a href='../S/97.html#L778'>eye</a>               778 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     return ovrHmd_GetEyePose(this, eye);
+<a href='../S/97.html#L782'>eye</a>               782 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::EndEyeRender(ovrEyeType eye, ovrPosef renderPose, ovrTexture* eyeTexture)
+<a href='../S/97.html#L788'>eye</a>               788 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     if (!EyeRenderActive[eye])
+<a href='../S/97.html#L795'>eye</a>               795 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     RenderState.EyeRenderPoses[eye] = renderPose;
+<a href='../S/97.html#L798'>eye</a>               798 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         pRenderer-&gt;SubmitEye(eye, eyeTexture);
+<a href='../S/97.html#L800'>eye</a>               800 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     EyeRenderActive[eye] = false;
+<a href='../S/101.html#L166'>eye</a>               166 ovr/sdk/src/CAPI/CAPI_HMDState.h     ovrPosef    BeginEyeRender(ovrEyeType eye);
+<a href='../S/101.html#L167'>eye</a>               167 ovr/sdk/src/CAPI/CAPI_HMDState.h     void        EndEyeRender(ovrEyeType eye, ovrPosef renderPose, ovrTexture* eyeTexture);
+<a href='../S/177.html#L1741'>eye</a>              1741 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 LookAtRH(const Vector3&lt;T&gt;&amp; eye, const Vector3&lt;T&gt;&amp; at, const Vector3&lt;T&gt;&amp; up)
+<a href='../S/177.html#L1743'>eye</a>              1743 ovr/sdk/src/Kernel/OVR_Math.h         Vector3&lt;T&gt; z = (eye - at).Normalized();  // Forward
+<a href='../S/177.html#L1747'>eye</a>              1747 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(x.x,  x.y,  x.z,  -(x.Dot(eye)),
+<a href='../S/177.html#L1748'>eye</a>              1748 ovr/sdk/src/Kernel/OVR_Math.h                   y.x,  y.y,  y.z,  -(y.Dot(eye)),
+<a href='../S/177.html#L1749'>eye</a>              1749 ovr/sdk/src/Kernel/OVR_Math.h                   z.x,  z.y,  z.z,  -(z.Dot(eye)),
+<a href='../S/177.html#L1757'>eye</a>              1757 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 LookAtLH(const Vector3&lt;T&gt;&amp; eye, const Vector3&lt;T&gt;&amp; at, const Vector3&lt;T&gt;&amp; up)
+<a href='../S/177.html#L1759'>eye</a>              1759 ovr/sdk/src/Kernel/OVR_Math.h         Vector3&lt;T&gt; z = (at - eye).Normalized();  // Forward
+<a href='../S/177.html#L1763'>eye</a>              1763 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(x.x,  x.y,  x.z,  -(x.Dot(eye)),
+<a href='../S/177.html#L1764'>eye</a>              1764 ovr/sdk/src/Kernel/OVR_Math.h                   y.x,  y.y,  y.z,  -(y.Dot(eye)),
+<a href='../S/177.html#L1765'>eye</a>              1765 ovr/sdk/src/Kernel/OVR_Math.h                   z.x,  z.y,  z.z,  -(z.Dot(eye)),
+<a href='../S/142.html#L404'>eye</a>               404 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrSizei ovrHmd_GetFovTextureSize(ovrHmd hmd, ovrEyeType eye, ovrFovPort fov,
+<a href='../S/142.html#L410'>eye</a>               410 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;RenderState.GetFOVTextureSize(eye, fov, pixelsPerDisplayPixel);
+<a href='../S/142.html#L509'>eye</a>               509 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrPosef ovrHmd_BeginEyeRender(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/142.html#L513'>eye</a>               513 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;BeginEyeRender(eye);
+<a href='../S/142.html#L516'>eye</a>               516 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_EndEyeRender(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/142.html#L521'>eye</a>               521 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;EndEyeRender(eye, renderPose, eyeTexture);
+<a href='../S/142.html#L621'>eye</a>               621 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrPosef ovrHmd_GetEyePose(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/142.html#L627'>eye</a>               627 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;TimeManager.GetEyePredictionPose(hmd, eye);
+<a href='../S/142.html#L631'>eye</a>               631 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_GetEyeTimewarpMatrices(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/142.html#L641'>eye</a>               641 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.GetTimewarpMatrices(hmd, eye, renderPose, twmOut);
+<a href='../S/187.html#L498'>eye</a>               498 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrSizei ovrHmd_GetFovTextureSize(ovrHmd hmd, ovrEyeType eye, ovrFovPort fov,
+<a href='../S/187.html#L567'>eye</a>               567 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrPosef ovrHmd_BeginEyeRender(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/187.html#L575'>eye</a>               575 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_EndEyeRender(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/187.html#L676'>eye</a>               676 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrPosef ovrHmd_GetEyePose(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/187.html#L683'>eye</a>               683 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_GetEyeTimewarpMatrices(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/117.html#L438'>eye</a>               438 ovr/sdk/src/Util/Util_Render_Stereo.cpp const StereoEyeParamsWithOrtho&amp; StereoConfig::GetEyeRenderParams(StereoEye eye)
+<a href='../S/117.html#L447'>eye</a>               447 ovr/sdk/src/Util/Util_Render_Stereo.cpp     OVR_ASSERT(eye &lt; sizeof(eyeParamIndices));
+<a href='../S/117.html#L448'>eye</a>               448 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return EyeRenderParams[eyeParamIndices[eye]];
+<a href='../S/117.html#L760'>eye</a>               760 ovr/sdk/src/Util/Util_Render_Stereo.cpp Matrix4f StereoConfig::GetProjectionWithZoom ( StereoEye eye, float fovZoom ) const
+<a href='../S/117.html#L762'>eye</a>               762 ovr/sdk/src/Util/Util_Render_Stereo.cpp     int eyeNum = ( eye == StereoEye_Right ) ? 1 : 0;
+<a href='../S/115.html#L164'>eye</a>               164 ovr/sdk/src/Util/Util_Render_Stereo.h     const StereoEyeParamsWithOrtho&amp; GetEyeRenderParams(StereoEye eye);
+<a href='../S/115.html#L242'>eye</a>               242 ovr/sdk/src/Util/Util_Render_Stereo.h     Matrix4f    GetProjectionWithZoom ( StereoEye eye, float fovZoom ) const;
+</pre>
+</body>
+</html>

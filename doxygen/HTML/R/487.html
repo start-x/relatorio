@@ -1,0 +1,211 @@
+<html>
+<head>
+<title>JSON</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/84.html#L122'>JSON</a>              122 ovr/sdk/src/OVR_JSON.cpp JSON::JSON(JSONItemType itemType)
+<a href='../S/84.html#L127'>JSON</a>              127 ovr/sdk/src/OVR_JSON.cpp JSON::~JSON()
+<a href='../S/84.html#L129'>JSON</a>              129 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L141'>JSON</a>              141 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseNumber(const char *num)
+<a href='../S/84.html#L228'>JSON</a>              228 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseString(const char* str, const char** perror)
+<a href='../S/84.html#L413'>JSON</a>              413 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::Parse(const char* buff, const char** perror)
+<a href='../S/84.html#L416'>JSON</a>              416 ovr/sdk/src/OVR_JSON.cpp 	JSON*       json = new JSON();
+<a href='../S/84.html#L436'>JSON</a>              436 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::ParseBuffer(const char *buff, int len, const char** perror)
+<a href='../S/84.html#L444'>JSON</a>              444 ovr/sdk/src/OVR_JSON.cpp 	JSON *objJson = Parse(termStr, perror);
+<a href='../S/84.html#L453'>JSON</a>              453 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseValue(const char* buff, const char** perror)
+<a href='../S/84.html#L503'>JSON</a>              503 ovr/sdk/src/OVR_JSON.cpp char* JSON::PrintValue(int depth, bool fmt)
+<a href='../S/84.html#L528'>JSON</a>              528 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseArray(const char* buff, const char** perror)
+<a href='../S/84.html#L530'>JSON</a>              530 ovr/sdk/src/OVR_JSON.cpp 	JSON *child;
+<a href='../S/84.html#L542'>JSON</a>              542 ovr/sdk/src/OVR_JSON.cpp     child = new JSON();
+<a href='../S/84.html#L553'>JSON</a>              553 ovr/sdk/src/OVR_JSON.cpp 		JSON *new_item = new JSON();
+<a href='../S/84.html#L572'>JSON</a>              572 ovr/sdk/src/OVR_JSON.cpp char* JSON::PrintArray(int depth, bool fmt)
+<a href='../S/84.html#L596'>JSON</a>              596 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L657'>JSON</a>              657 ovr/sdk/src/OVR_JSON.cpp const char* JSON::parseObject(const char* buff, const char** perror)
+<a href='../S/84.html#L669'>JSON</a>              669 ovr/sdk/src/OVR_JSON.cpp     JSON* child = new JSON();
+<a href='../S/84.html#L689'>JSON</a>              689 ovr/sdk/src/OVR_JSON.cpp         child = new JSON();
+<a href='../S/84.html#L721'>JSON</a>              721 ovr/sdk/src/OVR_JSON.cpp char* JSON::PrintObject(int depth, bool fmt)
+<a href='../S/84.html#L770'>JSON</a>              770 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L864'>JSON</a>              864 ovr/sdk/src/OVR_JSON.cpp unsigned JSON::GetItemCount() const
+<a href='../S/84.html#L867'>JSON</a>              867 ovr/sdk/src/OVR_JSON.cpp     for(const JSON* p = Children.GetFirst(); !Children.IsNull(p); p = p-&gt;pNext)
+<a href='../S/84.html#L872'>JSON</a>              872 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::GetItemByIndex(unsigned index)
+<a href='../S/84.html#L875'>JSON</a>              875 ovr/sdk/src/OVR_JSON.cpp     JSON*    child = 0;
+<a href='../S/84.html#L897'>JSON</a>              897 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::GetItemByName(const char* name)
+<a href='../S/84.html#L899'>JSON</a>              899 ovr/sdk/src/OVR_JSON.cpp     JSON* child = 0;
+<a href='../S/84.html#L921'>JSON</a>              921 ovr/sdk/src/OVR_JSON.cpp void JSON::AddItem(const char *string, JSON *item)
+<a href='../S/84.html#L970'>JSON</a>              970 ovr/sdk/src/OVR_JSON.cpp void JSON::RemoveLast()
+<a href='../S/84.html#L972'>JSON</a>              972 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetLast();
+<a href='../S/84.html#L981'>JSON</a>              981 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::createHelper(JSONItemType itemType, double dval, const char* strVal)
+<a href='../S/84.html#L983'>JSON</a>              983 ovr/sdk/src/OVR_JSON.cpp     JSON *item = new JSON(itemType);
+<a href='../S/84.html#L995'>JSON</a>              995 ovr/sdk/src/OVR_JSON.cpp double JSON::GetNumberByName(const char *name, double defValue)
+<a href='../S/84.html#L997'>JSON</a>              997 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1006'>JSON</a>             1006 ovr/sdk/src/OVR_JSON.cpp int JSON::GetIntByName(const char *name, int defValue)
+<a href='../S/84.html#L1008'>JSON</a>             1008 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1017'>JSON</a>             1017 ovr/sdk/src/OVR_JSON.cpp bool JSON::GetBoolByName(const char *name, bool defValue)
+<a href='../S/84.html#L1019'>JSON</a>             1019 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1028'>JSON</a>             1028 ovr/sdk/src/OVR_JSON.cpp String JSON::GetStringByName(const char *name, const String &amp;defValue)
+<a href='../S/84.html#L1030'>JSON</a>             1030 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1041'>JSON</a>             1041 ovr/sdk/src/OVR_JSON.cpp void JSON::AddArrayElement(JSON *item)
+<a href='../S/84.html#L1050'>JSON</a>             1050 ovr/sdk/src/OVR_JSON.cpp void JSON::InsertArrayElement(int index, JSON *item)
+<a href='../S/84.html#L1061'>JSON</a>             1061 ovr/sdk/src/OVR_JSON.cpp     JSON* iter = Children.GetFirst();
+<a href='../S/84.html#L1076'>JSON</a>             1076 ovr/sdk/src/OVR_JSON.cpp int JSON::GetArraySize()
+<a href='../S/84.html#L1085'>JSON</a>             1085 ovr/sdk/src/OVR_JSON.cpp double JSON::GetArrayNumber(int index)
+<a href='../S/84.html#L1089'>JSON</a>             1089 ovr/sdk/src/OVR_JSON.cpp         JSON* number = GetItemByIndex(index);
+<a href='../S/84.html#L1099'>JSON</a>             1099 ovr/sdk/src/OVR_JSON.cpp const char* JSON::GetArrayString(int index)
+<a href='../S/84.html#L1103'>JSON</a>             1103 ovr/sdk/src/OVR_JSON.cpp         JSON* number = GetItemByIndex(index);
+<a href='../S/84.html#L1112'>JSON</a>             1112 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::Copy()
+<a href='../S/84.html#L1114'>JSON</a>             1114 ovr/sdk/src/OVR_JSON.cpp     JSON* copy = new JSON(Type);
+<a href='../S/84.html#L1119'>JSON</a>             1119 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L1132'>JSON</a>             1132 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::Load(const char* path, const char** perror)
+<a href='../S/84.html#L1155'>JSON</a>             1155 ovr/sdk/src/OVR_JSON.cpp     JSON* json = JSON::Parse((char*)buff, perror);
+<a href='../S/84.html#L1162'>JSON</a>             1162 ovr/sdk/src/OVR_JSON.cpp bool JSON::Save(const char* path)
+<a href='../S/78.html#L58'>JSON</a>               58 ovr/sdk/src/OVR_JSON.h class JSON : public RefCountBase&lt;JSON&gt;, public ListNode&lt;JSON&gt;
+<a href='../S/78.html#L61'>JSON</a>               61 ovr/sdk/src/OVR_JSON.h     List&lt;JSON&gt;      Children;
+<a href='../S/78.html#L70'>JSON</a>               70 ovr/sdk/src/OVR_JSON.h     ~JSON();
+<a href='../S/78.html#L74'>JSON</a>               74 ovr/sdk/src/OVR_JSON.h     static JSON*    CreateObject()               { return new JSON(JSON_Object);}
+<a href='../S/78.html#L75'>JSON</a>               75 ovr/sdk/src/OVR_JSON.h     static JSON*    CreateNull()                 { return new JSON(JSON_Null); }
+<a href='../S/78.html#L76'>JSON</a>               76 ovr/sdk/src/OVR_JSON.h     static JSON*    CreateArray()                { return new JSON(JSON_Array); }
+<a href='../S/78.html#L77'>JSON</a>               77 ovr/sdk/src/OVR_JSON.h     static JSON*    CreateBool(bool b)           { return createHelper(JSON_Bool, b ? 1.0 : 0.0); }
+<a href='../S/78.html#L78'>JSON</a>               78 ovr/sdk/src/OVR_JSON.h     static JSON*    CreateNumber(double num)     { return createHelper(JSON_Number, num); }
+<a href='../S/78.html#L79'>JSON</a>               79 ovr/sdk/src/OVR_JSON.h     static JSON*    CreateString(const char *s)  { return createHelper(JSON_String, 0.0, s); }
+<a href='../S/78.html#L83'>JSON</a>               83 ovr/sdk/src/OVR_JSON.h     static JSON*    Parse(const char* buff, const char** perror = 0);
+<a href='../S/78.html#L86'>JSON</a>               86 ovr/sdk/src/OVR_JSON.h 	static JSON*	ParseBuffer(const char *buff, int len, const char** perror = 0);
+<a href='../S/78.html#L90'>JSON</a>               90 ovr/sdk/src/OVR_JSON.h     static JSON*    Load(const char* path, const char** perror = 0);
+<a href='../S/78.html#L100'>JSON</a>              100 ovr/sdk/src/OVR_JSON.h     JSON*           GetFirstItem()           { return (!Children.IsEmpty()) ? Children.GetFirst() : 0; }
+<a href='../S/78.html#L101'>JSON</a>              101 ovr/sdk/src/OVR_JSON.h     JSON*           GetLastItem()            { return (!Children.IsEmpty()) ? Children.GetLast() : 0; }
+<a href='../S/78.html#L105'>JSON</a>              105 ovr/sdk/src/OVR_JSON.h     JSON*           GetItemByIndex(unsigned i);
+<a href='../S/78.html#L106'>JSON</a>              106 ovr/sdk/src/OVR_JSON.h     JSON*           GetItemByName(const char* name);
+<a href='../S/78.html#L115'>JSON</a>              115 ovr/sdk/src/OVR_JSON.h     JSON*           GetNextItem(JSON* item)  { return Children.IsNull(item-&gt;pNext) ? 0 : item-&gt;pNext; }
+<a href='../S/78.html#L116'>JSON</a>              116 ovr/sdk/src/OVR_JSON.h     JSON*           GetPrevItem(JSON* item)  { return Children.IsNull(item-&gt;pPrev) ? 0 : item-&gt;pPrev; }
+<a href='../S/78.html#L120'>JSON</a>              120 ovr/sdk/src/OVR_JSON.h     void            AddItem(const char *string, JSON* item);
+<a href='../S/78.html#L132'>JSON</a>              132 ovr/sdk/src/OVR_JSON.h     void            AddArrayElement(JSON *item);
+<a href='../S/78.html#L133'>JSON</a>              133 ovr/sdk/src/OVR_JSON.h     void            InsertArrayElement(int index, JSON* item);
+<a href='../S/78.html#L142'>JSON</a>              142 ovr/sdk/src/OVR_JSON.h     JSON*           Copy();  // Create a copy of this object
+<a href='../S/78.html#L145'>JSON</a>              145 ovr/sdk/src/OVR_JSON.h     JSON(JSONItemType itemType = JSON_Object);
+<a href='../S/78.html#L147'>JSON</a>              147 ovr/sdk/src/OVR_JSON.h     static JSON*    createHelper(JSONItemType itemType, double dval, const char* strVal = 0);
+<a href='../S/139.html#L185'>JSON</a>              185 ovr/sdk/src/OVR_Profile.cpp static JSON* FindTaggedData(JSON* data, const char** tag_names, const char** qtags, int num_qtags)
+<a href='../S/139.html#L190'>JSON</a>              190 ovr/sdk/src/OVR_Profile.cpp     JSON* tagged_item = data-&gt;GetFirstItem();
+<a href='../S/139.html#L193'>JSON</a>              193 ovr/sdk/src/OVR_Profile.cpp         JSON* tags = tagged_item-&gt;GetItemByName("tags");
+<a href='../S/139.html#L200'>JSON</a>              200 ovr/sdk/src/OVR_Profile.cpp                 JSON* tag = tags-&gt;GetFirstItem();
+<a href='../S/139.html#L203'>JSON</a>              203 ovr/sdk/src/OVR_Profile.cpp                     JSON* tagval = tag-&gt;GetFirstItem();
+<a href='../S/139.html#L217'>JSON</a>              217 ovr/sdk/src/OVR_Profile.cpp                 JSON* vals = tagged_item-&gt;GetItemByName("vals");
+<a href='../S/139.html#L228'>JSON</a>              228 ovr/sdk/src/OVR_Profile.cpp static void FilterTaggedData(JSON* data, const char* tag_name, const char* qtag, Array&lt;JSON*&gt;&amp; items)
+<a href='../S/139.html#L233'>JSON</a>              233 ovr/sdk/src/OVR_Profile.cpp     JSON* tagged_item = data-&gt;GetFirstItem();
+<a href='../S/139.html#L236'>JSON</a>              236 ovr/sdk/src/OVR_Profile.cpp         JSON* tags = tagged_item-&gt;GetItemByName("tags");
+<a href='../S/139.html#L240'>JSON</a>              240 ovr/sdk/src/OVR_Profile.cpp             JSON* tag = tags-&gt;GetFirstItem();
+<a href='../S/139.html#L243'>JSON</a>              243 ovr/sdk/src/OVR_Profile.cpp                 JSON* tagval = tag-&gt;GetFirstItem();
+<a href='../S/139.html#L329'>JSON</a>              329 ovr/sdk/src/OVR_Profile.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+<a href='../S/139.html#L333'>JSON</a>              333 ovr/sdk/src/OVR_Profile.cpp         root = *JSON::Load(path);
+<a href='../S/139.html#L339'>JSON</a>              339 ovr/sdk/src/OVR_Profile.cpp                 root = *JSON::CreateObject();
+<a href='../S/139.html#L341'>JSON</a>              341 ovr/sdk/src/OVR_Profile.cpp                 root-&gt;AddItem("Users", JSON::CreateArray());
+<a href='../S/139.html#L342'>JSON</a>              342 ovr/sdk/src/OVR_Profile.cpp                 root-&gt;AddItem("TaggedData", JSON::CreateArray());
+<a href='../S/139.html#L350'>JSON</a>              350 ovr/sdk/src/OVR_Profile.cpp         JSON* version_item = root-&gt;GetFirstItem();
+<a href='../S/139.html#L368'>JSON</a>              368 ovr/sdk/src/OVR_Profile.cpp         JSON* version_item = root-&gt;GetFirstItem();
+<a href='../S/139.html#L384'>JSON</a>              384 ovr/sdk/src/OVR_Profile.cpp void ProfileManager::LoadV1Profiles(JSON* v1)
+<a href='../S/139.html#L386'>JSON</a>              386 ovr/sdk/src/OVR_Profile.cpp     JSON* item0 = v1-&gt;GetFirstItem();
+<a href='../S/139.html#L387'>JSON</a>              387 ovr/sdk/src/OVR_Profile.cpp     JSON* item1 = v1-&gt;GetNextItem(item0);
+<a href='../S/139.html#L388'>JSON</a>              388 ovr/sdk/src/OVR_Profile.cpp     JSON* item2 = v1-&gt;GetNextItem(item1);
+<a href='../S/139.html#L391'>JSON</a>              391 ovr/sdk/src/OVR_Profile.cpp     Ptr&lt;JSON&gt; root = *JSON::CreateObject();
+<a href='../S/139.html#L393'>JSON</a>              393 ovr/sdk/src/OVR_Profile.cpp     root-&gt;AddItem("Users", JSON::CreateArray());
+<a href='../S/139.html#L394'>JSON</a>              394 ovr/sdk/src/OVR_Profile.cpp     root-&gt;AddItem("TaggedData", JSON::CreateArray());
+<a href='../S/139.html#L401'>JSON</a>              401 ovr/sdk/src/OVR_Profile.cpp     JSON* profileItem  = item2;
+<a href='../S/139.html#L413'>JSON</a>              413 ovr/sdk/src/OVR_Profile.cpp             JSON* item = profileItem-&gt;GetFirstItem();
+<a href='../S/139.html#L458'>JSON</a>              458 ovr/sdk/src/OVR_Profile.cpp                         JSON* device_item = item-&gt;GetFirstItem();
+<a href='../S/139.html#L527'>JSON</a>              527 ovr/sdk/src/OVR_Profile.cpp     JSON* users = ProfileCache-&gt;GetItemByName("Users");
+<a href='../S/139.html#L545'>JSON</a>              545 ovr/sdk/src/OVR_Profile.cpp     JSON* users = ProfileCache-&gt;GetItemByName("Users");
+<a href='../S/139.html#L548'>JSON</a>              548 ovr/sdk/src/OVR_Profile.cpp         users = JSON::CreateArray();
+<a href='../S/139.html#L554'>JSON</a>              554 ovr/sdk/src/OVR_Profile.cpp     JSON* user_item = users-&gt;GetFirstItem();
+<a href='../S/139.html#L558'>JSON</a>              558 ovr/sdk/src/OVR_Profile.cpp         JSON* userid = user_item-&gt;GetItemByName("User");
+<a href='../S/139.html#L562'>JSON</a>              562 ovr/sdk/src/OVR_Profile.cpp             JSON* name_item = user_item-&gt;GetItemByName("Name");
+<a href='../S/139.html#L580'>JSON</a>              580 ovr/sdk/src/OVR_Profile.cpp     JSON* new_user = JSON::CreateObject();
+<a href='../S/139.html#L608'>JSON</a>              608 ovr/sdk/src/OVR_Profile.cpp     JSON* users = ProfileCache-&gt;GetItemByName("Users");
+<a href='../S/139.html#L612'>JSON</a>              612 ovr/sdk/src/OVR_Profile.cpp         JSON* user_item = users-&gt;GetItemByIndex(index);
+<a href='../S/139.html#L615'>JSON</a>              615 ovr/sdk/src/OVR_Profile.cpp             JSON* user = user_item-&gt;GetFirstItem();
+<a href='../S/139.html#L618'>JSON</a>              618 ovr/sdk/src/OVR_Profile.cpp                 JSON* userid = user_item-&gt;GetItemByName(OVR_KEY_USER);
+<a href='../S/139.html#L640'>JSON</a>              640 ovr/sdk/src/OVR_Profile.cpp     JSON* users = ProfileCache-&gt;GetItemByName("Users");
+<a href='../S/139.html#L645'>JSON</a>              645 ovr/sdk/src/OVR_Profile.cpp     JSON* user_item = users-&gt;GetFirstItem();
+<a href='../S/139.html#L648'>JSON</a>              648 ovr/sdk/src/OVR_Profile.cpp         JSON* userid = user_item-&gt;GetItemByName("User");
+<a href='../S/139.html#L661'>JSON</a>              661 ovr/sdk/src/OVR_Profile.cpp     JSON* tagged_data = ProfileCache-&gt;GetItemByName("TaggedData");
+<a href='../S/139.html#L662'>JSON</a>              662 ovr/sdk/src/OVR_Profile.cpp     Array&lt;JSON*&gt; user_items;
+<a href='../S/139.html#L758'>JSON</a>              758 ovr/sdk/src/OVR_Profile.cpp     JSON* tagged_data = ProfileCache-&gt;GetItemByName("TaggedData");
+<a href='../S/139.html#L765'>JSON</a>              765 ovr/sdk/src/OVR_Profile.cpp     JSON* vals = FindTaggedData(tagged_data, tag_names, tags, num_tags);
+<a href='../S/139.html#L768'>JSON</a>              768 ovr/sdk/src/OVR_Profile.cpp         JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L798'>JSON</a>              798 ovr/sdk/src/OVR_Profile.cpp     JSON* tagged_data = ProfileCache-&gt;GetItemByName("TaggedData");
+<a href='../S/139.html#L804'>JSON</a>              804 ovr/sdk/src/OVR_Profile.cpp     JSON* vals = FindTaggedData(tagged_data, tag_names, tags, num_tags);
+<a href='../S/139.html#L807'>JSON</a>              807 ovr/sdk/src/OVR_Profile.cpp         JSON* tagged_item = JSON::CreateObject();
+<a href='../S/139.html#L808'>JSON</a>              808 ovr/sdk/src/OVR_Profile.cpp         JSON* taglist = JSON::CreateArray();
+<a href='../S/139.html#L811'>JSON</a>              811 ovr/sdk/src/OVR_Profile.cpp             JSON* k = JSON::CreateObject();
+<a href='../S/139.html#L816'>JSON</a>              816 ovr/sdk/src/OVR_Profile.cpp         vals = JSON::CreateObject();
+<a href='../S/139.html#L826'>JSON</a>              826 ovr/sdk/src/OVR_Profile.cpp         JSON* value = profile-&gt;Values[i];
+<a href='../S/139.html#L829'>JSON</a>              829 ovr/sdk/src/OVR_Profile.cpp         JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L843'>JSON</a>              843 ovr/sdk/src/OVR_Profile.cpp                             JSON* value_element = value-&gt;GetFirstItem();
+<a href='../S/139.html#L844'>JSON</a>              844 ovr/sdk/src/OVR_Profile.cpp                             JSON* item_element = item-&gt;GetFirstItem();
+<a href='../S/139.html#L979'>JSON</a>              979 ovr/sdk/src/OVR_Profile.cpp void Profile::CopyItems(JSON* root, String prefix)
+<a href='../S/139.html#L981'>JSON</a>              981 ovr/sdk/src/OVR_Profile.cpp     JSON* item = root-&gt;GetFirstItem();
+<a href='../S/139.html#L1015'>JSON</a>             1015 ovr/sdk/src/OVR_Profile.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+<a href='../S/139.html#L1020'>JSON</a>             1020 ovr/sdk/src/OVR_Profile.cpp     JSON* version = root-&gt;GetFirstItem();
+<a href='../S/139.html#L1033'>JSON</a>             1033 ovr/sdk/src/OVR_Profile.cpp     JSON* device = root-&gt;GetNextItem(version);
+<a href='../S/139.html#L1038'>JSON</a>             1038 ovr/sdk/src/OVR_Profile.cpp             JSON* product_item = device-&gt;GetItemByName("ProductID");
+<a href='../S/139.html#L1039'>JSON</a>             1039 ovr/sdk/src/OVR_Profile.cpp             JSON* serial_item = device-&gt;GetItemByName("Serial");
+<a href='../S/139.html#L1113'>JSON</a>             1113 ovr/sdk/src/OVR_Profile.cpp bool Profile::LoadUser(JSON* root, 
+<a href='../S/139.html#L1126'>JSON</a>             1126 ovr/sdk/src/OVR_Profile.cpp     JSON* data = root-&gt;GetItemByName("TaggedData");
+<a href='../S/139.html#L1154'>JSON</a>             1154 ovr/sdk/src/OVR_Profile.cpp                 JSON* vals = FindTaggedData(data, tag_names+i, tags+i, combos);
+<a href='../S/139.html#L1163'>JSON</a>             1163 ovr/sdk/src/OVR_Profile.cpp                     JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L1184'>JSON</a>             1184 ovr/sdk/src/OVR_Profile.cpp bool Profile::LoadProfile(JSON* root,
+<a href='../S/139.html#L1199'>JSON</a>             1199 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1217'>JSON</a>             1217 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1232'>JSON</a>             1232 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1247'>JSON</a>             1247 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1257'>JSON</a>             1257 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1267'>JSON</a>             1267 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1277'>JSON</a>             1277 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1281'>JSON</a>             1281 ovr/sdk/src/OVR_Profile.cpp         JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1305'>JSON</a>             1305 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1315'>JSON</a>             1315 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1319'>JSON</a>             1319 ovr/sdk/src/OVR_Profile.cpp         JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1341'>JSON</a>             1341 ovr/sdk/src/OVR_Profile.cpp void Profile::SetValue(JSON* val)
+<a href='../S/139.html#L1355'>JSON</a>             1355 ovr/sdk/src/OVR_Profile.cpp         JSON* value = val-&gt;Copy();
+<a href='../S/139.html#L1367'>JSON</a>             1367 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1374'>JSON</a>             1374 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateString(val);
+<a href='../S/139.html#L1388'>JSON</a>             1388 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1395'>JSON</a>             1395 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateBool(val);
+<a href='../S/139.html#L1418'>JSON</a>             1418 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1429'>JSON</a>             1429 ovr/sdk/src/OVR_Profile.cpp             JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1446'>JSON</a>             1446 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateArray();
+<a href='../S/139.html#L1460'>JSON</a>             1460 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1467'>JSON</a>             1467 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateNumber(val);
+<a href='../S/139.html#L1478'>JSON</a>             1478 ovr/sdk/src/OVR_Profile.cpp     JSON* value = NULL;
+<a href='../S/139.html#L1489'>JSON</a>             1489 ovr/sdk/src/OVR_Profile.cpp             JSON* item = value-&gt;GetFirstItem();
+<a href='../S/139.html#L1506'>JSON</a>             1506 ovr/sdk/src/OVR_Profile.cpp         value = JSON::CreateArray();
+<a href='../S/133.html#L46'>JSON</a>               46 ovr/sdk/src/OVR_Profile.h class JSON;
+<a href='../S/133.html#L73'>JSON</a>               73 ovr/sdk/src/OVR_Profile.h     Ptr&lt;JSON&gt;           ProfileCache;
+<a href='../S/133.html#L101'>JSON</a>              101 ovr/sdk/src/OVR_Profile.h     void                LoadV1Profiles(JSON* v1);
+<a href='../S/133.html#L116'>JSON</a>              116 ovr/sdk/src/OVR_Profile.h     OVR::Hash&lt;String, JSON*, String::HashFunctor&gt;   ValMap;
+<a href='../S/133.html#L117'>JSON</a>              117 ovr/sdk/src/OVR_Profile.h     OVR::Array&lt;JSON*&gt;   Values;  
+<a href='../S/133.html#L147'>JSON</a>              147 ovr/sdk/src/OVR_Profile.h     void                SetValue(JSON* val);
+<a href='../S/133.html#L153'>JSON</a>              153 ovr/sdk/src/OVR_Profile.h     void                CopyItems(JSON* root, String prefix);
+<a href='../S/133.html#L158'>JSON</a>              158 ovr/sdk/src/OVR_Profile.h     bool                LoadProfile(JSON* root,
+<a href='../S/133.html#L163'>JSON</a>              163 ovr/sdk/src/OVR_Profile.h     bool                LoadUser(JSON* root,
+<a href='../S/190.html#L865'>JSON</a>              865 ovr/sdk/src/OVR_SensorImpl.cpp     JSON* calibration = JSON::CreateObject();
+<a href='../S/190.html#L904'>JSON</a>              904 ovr/sdk/src/OVR_SensorImpl.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+<a href='../S/190.html#L907'>JSON</a>              907 ovr/sdk/src/OVR_SensorImpl.cpp         JSON* version = root-&gt;GetFirstItem();
+<a href='../S/190.html#L925'>JSON</a>              925 ovr/sdk/src/OVR_SensorImpl.cpp     JSON* device = NULL;
+<a href='../S/190.html#L935'>JSON</a>              935 ovr/sdk/src/OVR_SensorImpl.cpp                 JSON* item = device-&gt;GetItemByName("Serial");
+<a href='../S/190.html#L943'>JSON</a>              943 ovr/sdk/src/OVR_SensorImpl.cpp                             JSON* name = item-&gt;GetItemByName("Name");
+<a href='../S/190.html#L974'>JSON</a>              974 ovr/sdk/src/OVR_SensorImpl.cpp         root = *JSON::CreateObject();
+<a href='../S/190.html#L980'>JSON</a>              980 ovr/sdk/src/OVR_SensorImpl.cpp         device = JSON::CreateObject();
+<a href='../S/190.html#L1013'>JSON</a>             1013 ovr/sdk/src/OVR_SensorImpl.cpp     Ptr&lt;JSON&gt; root = *JSON::Load(path);
+<a href='../S/190.html#L1018'>JSON</a>             1018 ovr/sdk/src/OVR_SensorImpl.cpp     JSON* version = root-&gt;GetFirstItem();
+<a href='../S/190.html#L1030'>JSON</a>             1030 ovr/sdk/src/OVR_SensorImpl.cpp     JSON* device = root-&gt;GetNextItem(version);
+<a href='../S/190.html#L1036'>JSON</a>             1036 ovr/sdk/src/OVR_SensorImpl.cpp             JSON* item = device-&gt;GetItemByName("Serial");
+<a href='../S/190.html#L1040'>JSON</a>             1040 ovr/sdk/src/OVR_SensorImpl.cpp                 JSON* autoyaw = device-&gt;GetItemByName("EnableYawCorrection");
+<a href='../S/190.html#L1052'>JSON</a>             1052 ovr/sdk/src/OVR_SensorImpl.cpp                         JSON* calibration = item;
+<a href='../S/190.html#L1053'>JSON</a>             1053 ovr/sdk/src/OVR_SensorImpl.cpp                         JSON* name = calibration-&gt;GetItemByName("Name");
+<a href='../S/190.html#L1058'>JSON</a>             1058 ovr/sdk/src/OVR_SensorImpl.cpp                             JSON* version = calibration-&gt;GetItemByName("Version");
+<a href='../S/190.html#L1069'>JSON</a>             1069 ovr/sdk/src/OVR_SensorImpl.cpp                                 JSON* caltime = calibration-&gt;GetItemByName("Time");
+<a href='../S/190.html#L1097'>JSON</a>             1097 ovr/sdk/src/OVR_SensorImpl.cpp                                 JSON* cal = calibration-&gt;GetItemByName("CalibrationMatrix");
+</pre>
+</body>
+</html>

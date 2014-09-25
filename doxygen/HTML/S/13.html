@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>device/msp430dev/main.c</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/212.html'>device</a>/<a href='../files/213.html'>msp430dev</a>/main.c</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L5'>[^]</a>[v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L5' title='Defined at 5.'>main</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <font color='darkred'>#include</font>&lt;msp430g2553.h&gt;
+<a name='L2'>   2 
+<a name='L3'>   3 <font color='darkred'>#include</font> "<a href='14.html'>launchpad.h</a>"
+<a name='L4'>   4 
+<a name='L5'>   5 <b>int</b> main()
+<a name='L6'>   6 <font color='red'>{</font>
+<a name='L7'>   7         <a href='../S/11.html#L9' title='Defined at 9 in device/msp430dev/launchpad.c.'>desabWDT</a>();
+<a name='L8'>   8         <i><font color='green'>//botao();</font></i>
+<a name='L9'>   9         <a href='../S/11.html#L97' title='Defined at 97 in device/msp430dev/launchpad.c.'>dco1mhz</a>();
+<a name='L10'>  10         <a href='../S/11.html#L121' title='Defined at 121 in device/msp430dev/launchpad.c.'>hserial</a>();
+<a name='L11'>  11         
+<a name='L12'>  12         <a href='../S/11.html#L36' title='Defined at 36 in device/msp430dev/launchpad.c.'>hled</a>(<a href='../S/14.html#L13' title='Defined at 13 in device/msp430dev/launchpad.h.'>VERM</a>);
+<a name='L13'>  13         <a href='../S/11.html#L72' title='Defined at 72 in device/msp430dev/launchpad.c.'>desled</a>(<a href='../S/14.html#L13' title='Defined at 13 in device/msp430dev/launchpad.h.'>VERM</a>);
+<a name='L14'>  14         
+<a name='L15'>  15         <b>for</b>(;;)
+<a name='L16'>  16         <font color='red'>{</font>
+<a name='L17'>  17                 <b>if</b> (<a href='../S/11.html#L134' title='Defined at 134 in device/msp430dev/launchpad.c.'>rcserial</a>()=='R')
+<a name='L18'>  18                 <font color='red'>{</font>
+<a name='L19'>  19                         <a href='../S/11.html#L66' title='Defined at 66 in device/msp430dev/launchpad.c.'>ligled</a>(<a href='../S/14.html#L13' title='Defined at 13 in device/msp430dev/launchpad.h.'>VERM</a>);
+<a name='L20'>  20                         <a href='../S/11.html#L84' title='Defined at 84 in device/msp430dev/launchpad.c.'>dly_coxa</a>(3);
+<a name='L21'>  21                         <a href='../S/11.html#L144' title='Defined at 144 in device/msp430dev/launchpad.c.'>wsserial</a>("Ligado\n");
+<a name='L22'>  22                 <font color='red'>}</font>
+<a name='L23'>  23                 <b>else</b> <b>if</b>(<a href='../S/11.html#L134' title='Defined at 134 in device/msp430dev/launchpad.c.'>rcserial</a>()=='r')
+<a name='L24'>  24                 <font color='red'>{</font>
+<a name='L25'>  25                         <a href='../S/11.html#L72' title='Defined at 72 in device/msp430dev/launchpad.c.'>desled</a>(<a href='../S/14.html#L13' title='Defined at 13 in device/msp430dev/launchpad.h.'>VERM</a>);
+<a name='L26'>  26                         <a href='../S/11.html#L84' title='Defined at 84 in device/msp430dev/launchpad.c.'>dly_coxa</a>(3);
+<a name='L27'>  27                         <a href='../S/11.html#L144' title='Defined at 144 in device/msp430dev/launchpad.c.'>wsserial</a>("desligado\n");
+<a name='L28'>  28                 <font color='red'>}</font>
+<a name='L29'>  29                 
+<a name='L30'>  30                         
+<a name='L31'>  31         <font color='red'>}</font>
+<a name='L32'>  32 
+<a name='L33'>  33         <b>return</b> 0;
+<a name='L34'>  34 <font color='red'>}</font>
+<a name='L35'>  35 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^]<a href='#L5'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

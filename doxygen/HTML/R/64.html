@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>BaseType</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/152.html#L223'>BaseType</a>          223 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType() { }
+<a href='../S/152.html#L226'>BaseType</a>          226 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType() { Resize(size); }
+<a href='../S/152.html#L229'>BaseType</a>          229 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(a.Policy) { Append(a.Data, a.Size); }
+<a href='../S/152.html#L235'>BaseType</a>          235 ovr/sdk/src/Kernel/OVR_Array.h         BaseType::ResizeNoConstruct(newSize);
+<a href='../S/152.html#L242'>BaseType</a>          242 ovr/sdk/src/Kernel/OVR_Array.h         BaseType::ResizeNoConstruct(this-&gt;Size + 1);
+<a href='../S/152.html#L249'>BaseType</a>          249 ovr/sdk/src/Kernel/OVR_Array.h         BaseType::ResizeNoConstruct(this-&gt;Size + 1);
+<a href='../S/152.html#L259'>BaseType</a>          259 ovr/sdk/src/Kernel/OVR_Array.h             BaseType::ResizeNoConstruct(this-&gt;Size + count);
+<a href='../S/152.html#L282'>BaseType</a>          282 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(), DefaultValue(defval) { }
+<a href='../S/152.html#L285'>BaseType</a>          285 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(), DefaultValue(defval) { Resize(size); }
+<a href='../S/152.html#L288'>BaseType</a>          288 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(a.Policy), DefaultValue(a.DefaultValue) { Append(a.Data, a.Size); }
+<a href='../S/152.html#L294'>BaseType</a>          294 ovr/sdk/src/Kernel/OVR_Array.h         BaseType::ResizeNoConstruct(newSize);
+<a href='../S/152.html#L301'>BaseType</a>          301 ovr/sdk/src/Kernel/OVR_Array.h         BaseType::ResizeNoConstruct(this-&gt;Size + 1);
+<a href='../S/152.html#L308'>BaseType</a>          308 ovr/sdk/src/Kernel/OVR_Array.h         BaseType::ResizeNoConstruct(this-&gt;Size + 1);
+<a href='../S/152.html#L318'>BaseType</a>          318 ovr/sdk/src/Kernel/OVR_Array.h             BaseType::ResizeNoConstruct(this-&gt;Size + count);
+<a href='../S/152.html#L756'>BaseType</a>          756 ovr/sdk/src/Kernel/OVR_Array.h     Array() : BaseType() {}
+<a href='../S/152.html#L757'>BaseType</a>          757 ovr/sdk/src/Kernel/OVR_Array.h     Array(UPInt size) : BaseType(size) {}
+<a href='../S/152.html#L758'>BaseType</a>          758 ovr/sdk/src/Kernel/OVR_Array.h     Array(const SizePolicyType&amp; p) : BaseType() { SetSizePolicy(p); }
+<a href='../S/152.html#L759'>BaseType</a>          759 ovr/sdk/src/Kernel/OVR_Array.h     Array(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L760'>BaseType</a>          760 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L778'>BaseType</a>          778 ovr/sdk/src/Kernel/OVR_Array.h     ArrayPOD() : BaseType() {}
+<a href='../S/152.html#L779'>BaseType</a>          779 ovr/sdk/src/Kernel/OVR_Array.h     ArrayPOD(UPInt size) : BaseType(size) {}
+<a href='../S/152.html#L780'>BaseType</a>          780 ovr/sdk/src/Kernel/OVR_Array.h     ArrayPOD(const SizePolicyType&amp; p) : BaseType() { SetSizePolicy(p); }
+<a href='../S/152.html#L781'>BaseType</a>          781 ovr/sdk/src/Kernel/OVR_Array.h     ArrayPOD(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L782'>BaseType</a>          782 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L800'>BaseType</a>          800 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCPP() : BaseType() {}
+<a href='../S/152.html#L801'>BaseType</a>          801 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCPP(UPInt size) : BaseType(size) {}
+<a href='../S/152.html#L802'>BaseType</a>          802 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCPP(const SizePolicyType&amp; p) : BaseType() { SetSizePolicy(p); }
+<a href='../S/152.html#L803'>BaseType</a>          803 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCPP(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L804'>BaseType</a>          804 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L824'>BaseType</a>          824 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCC(const ValueType&amp; defval) : BaseType(defval) {}
+<a href='../S/152.html#L825'>BaseType</a>          825 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCC(const ValueType&amp; defval, UPInt size) : BaseType(defval, size) {}
+<a href='../S/152.html#L826'>BaseType</a>          826 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCC(const ValueType&amp; defval, const SizePolicyType&amp; p) : BaseType(defval) { SetSizePolicy(p); }
+<a href='../S/152.html#L827'>BaseType</a>          827 ovr/sdk/src/Kernel/OVR_Array.h     ArrayCC(const SelfType&amp; a) : BaseType(a) {}
+<a href='../S/152.html#L828'>BaseType</a>          828 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/179.html#L920'>BaseType</a>          920 ovr/sdk/src/Kernel/OVR_Hash.h     HashSet(int sizeHint) : BaseType(sizeHint)     {   }
+<a href='../S/179.html#L921'>BaseType</a>          921 ovr/sdk/src/Kernel/OVR_Hash.h     HashSet(const SelfType&amp; src) : BaseType(src)   {   }
+<a href='../S/179.html#L924'>BaseType</a>          924 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)   { BaseType::Assign(src); }
+<a href='../S/179.html#L932'>BaseType</a>          932 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::Set(key);
+<a href='../S/179.html#L938'>BaseType</a>          938 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::Add(key);
+<a href='../S/179.html#L944'>BaseType</a>          944 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::SetCapacity(n);
+<a href='../S/179.html#L952'>BaseType</a>          952 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::SetCapacity(newSize);
+<a href='../S/179.html#L970'>BaseType</a>          970 ovr/sdk/src/Kernel/OVR_Hash.h     HashSetUncached(int sizeHint) : BaseType(sizeHint)       { }
+<a href='../S/179.html#L971'>BaseType</a>          971 ovr/sdk/src/Kernel/OVR_Hash.h     HashSetUncached(const SelfType&amp; src) : BaseType(src)     { }
+<a href='../S/179.html#L976'>BaseType</a>          976 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::operator = (src);
+<a href='../S/179.html#L1268'>BaseType</a>         1268 ovr/sdk/src/Kernel/OVR_Hash.h     HashUncached(int sizeHint) : BaseType(sizeHint)       { }
+<a href='../S/179.html#L1269'>BaseType</a>         1269 ovr/sdk/src/Kernel/OVR_Hash.h     HashUncached(const SelfType&amp; src) : BaseType(src)     { }
+<a href='../S/179.html#L1271'>BaseType</a>         1271 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)                 { BaseType::operator = (src); }
+<a href='../S/179.html#L1288'>BaseType</a>         1288 ovr/sdk/src/Kernel/OVR_Hash.h     HashIdentity(int sizeHint) : BaseType(sizeHint)       { }
+<a href='../S/179.html#L1289'>BaseType</a>         1289 ovr/sdk/src/Kernel/OVR_Hash.h     HashIdentity(const SelfType&amp; src) : BaseType(src)     { }
+<a href='../S/179.html#L1291'>BaseType</a>         1291 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)                 { BaseType::operator = (src); }
+<a href='../S/164.html#L54'>BaseType</a>           54 ovr/sdk/src/Kernel/OVR_StringHash.h     void    operator = (const SelfType&amp; src) { BaseType::operator = (src); }
+<a href='../S/164.html#L59'>BaseType</a>           59 ovr/sdk/src/Kernel/OVR_StringHash.h         return BaseType::GetAlt(ikey, pvalue);
+<a href='../S/164.html#L65'>BaseType</a>           65 ovr/sdk/src/Kernel/OVR_StringHash.h         return BaseType::GetAlt(ikey);
+<a href='../S/164.html#L70'>BaseType</a>           70 ovr/sdk/src/Kernel/OVR_StringHash.h         return BaseType::GetAlt(ikey);
+<a href='../S/164.html#L79'>BaseType</a>           79 ovr/sdk/src/Kernel/OVR_StringHash.h         return BaseType::FindAlt(ikey);
+<a href='../S/164.html#L87'>BaseType</a>           87 ovr/sdk/src/Kernel/OVR_StringHash.h         if (it != BaseType::End())
+<a href='../S/164.html#L93'>BaseType</a>           93 ovr/sdk/src/Kernel/OVR_StringHash.h             BaseType::Add(key, value);
+</pre>
+</body>
+</html>

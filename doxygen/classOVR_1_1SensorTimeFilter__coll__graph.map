@@ -1,0 +1,5 @@
+<map id="OVR::SensorTimeFilter" name="OVR::SensorTimeFilter">
+<area shape="rect" id="node2" href="$classOVR_1_1SensorTimeFilter_1_1MinRecordBuffer.html" title="{OVR::SensorTimeFilter\l::MinRecordBuffer\n|&#45; Head\l&#45; Tail\l|+ MinRecordBuffer()\l+ Reset()\l+ IsEmpty()\l+ GetOldest()\l+ GetNewest()\l+ AddRecord()\l&#45; advanceIndex()\l}" alt="" coords="13,176,171,371"/>
+<area shape="rect" id="node3" href="$classOVR_1_1SensorTimeFilter.html#structOVR_1_1SensorTimeFilter_1_1MinRecord" title="{OVR::SensorTimeFilter\l::MinRecord\n|+ MinClockDelta\l+ LastSampleDeviceTime\l|}" alt="" coords="5,5,179,112"/>
+<area shape="rect" id="node4" href="$structOVR_1_1SensorTimeFilter_1_1Settings.html" title="{OVR::SensorTimeFilter\l::Settings\n|+ MinSamples\l+ ClockDeltaAdjust\l+ FutureClamp\l+ PastSampleResetSeconds\l+ MaxChangeRate\l+ MaxCorrectRate\l|+ Settings()\l}" alt="" coords="195,191,385,356"/>
+</map>

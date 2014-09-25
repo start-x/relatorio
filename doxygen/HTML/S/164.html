@@ -1,0 +1,119 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_StringHash.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_StringHash.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='133.html#L40' title='Included from 40 in ovr/sdk/src/OVR_Profile.h.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   None</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_StringHash.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   String hash table used when optional case-insensitive</font></i>
+<a name='L6'>   6 <i><font color='green'>                lookup is required.</font></i>
+<a name='L7'>   7 <i><font color='green'>Created     :   September 19, 2012</font></i>
+<a name='L8'>   8 <i><font color='green'>Notes       : </font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L11'>  11 <i><font color='green'></font></i>
+<a name='L12'>  12 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L13'>  13 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L14'>  14 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L15'>  15 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L20'>  20 <i><font color='green'></font></i>
+<a name='L21'>  21 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L22'>  22 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L23'>  23 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L24'>  24 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L25'>  25 <i><font color='green'>limitations under the License.</font></i>
+<a name='L26'>  26 <i><font color='green'></font></i>
+<a name='L27'>  27 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L28'>  28 
+<a name='L29'>  29 <font color='darkred'>#ifndef</font> <a href='../S/164.html#L30' title='Defined at 30 in ovr/sdk/src/Kernel/OVR_StringHash.h.'>OVR_StringHash_h</a>
+<a name='L30'>  30 <font color='darkred'>#define</font> <a href='../S/164.html#L29' title='Refered from 29 in ovr/sdk/src/Kernel/OVR_StringHash.h.'>OVR_StringHash_h</a>
+<a name='L31'>  31 
+<a name='L32'>  32 <font color='darkred'>#include</font> "<a href='161.html'>OVR_String.h</a>"
+<a name='L33'>  33 <font color='darkred'>#include</font> "<a href='179.html'>OVR_Hash.h</a>"
+<a name='L34'>  34 
+<a name='L35'>  35 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L36'>  36 
+<a name='L37'>  37 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L38'>  38 <i><font color='green'>// *** StringHash</font></i>
+<a name='L39'>  39 
+<a name='L40'>  40 <i><font color='green'>// This is a custom string hash table that supports case-insensitive</font></i>
+<a name='L41'>  41 <i><font color='green'>// searches through special functions such as GetCaseInsensitive, etc.</font></i>
+<a name='L42'>  42 <i><font color='green'>// This class is used for Flash labels, exports and other case-insensitive tables.</font></i>
+<a name='L43'>  43 
+<a name='L44'>  44 <a href='../Y/4566.html' title='Multiple used in 260 places.'>template</a>&lt;<a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>, <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../D/37.html' title='Multiple defined in 12 places.'>Allocator</a> = <a href='../Y/250.html' title='Multiple used in 14 places.'>ContainerAllocator</a>&lt;<a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>&gt; &gt;
+<a name='L45'>  45 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/2154.html' title='Multiple used in 2 places.'>StringHash</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/902.html' title='Multiple used in 12 places.'>Hash</a>&lt;<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>, <a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>, <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../D/638.html' title='Multiple defined in 2 places.'>NoCaseHashFunctor</a>, <a href='../D/37.html' title='Multiple defined in 12 places.'>Allocator</a>&gt;
+<a name='L46'>  46 <font color='red'>{</font>
+<a name='L47'>  47 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L48'>  48     <b>typedef</b> <a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>                                                        <a href='../R/1167.html' title='Multiple refered from 88 places.'>ValueType</a>;
+<a name='L49'>  49     <b>typedef</b> <a href='../Y/2154.html' title='Multiple used in 2 places.'>StringHash</a>&lt;<a href='../R/1135.html' title='Multiple refered from 37 places.'>U</a>, <a href='../Y/51.html' title='Multiple used in 6 places.'>Allocator</a>&gt;                                 <a href='../R/946.html' title='Multiple refered from 50 places.'>SelfType</a>;
+<a name='L50'>  50     <b>typedef</b> <a href='../Y/902.html' title='Multiple used in 12 places.'>Hash</a>&lt;<a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>, <a href='../R/1135.html' title='Multiple refered from 37 places.'>U</a>, <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>::<a href='../S/164.html#L45' title='Refered from 45 in ovr/sdk/src/Kernel/OVR_StringHash.h.'>NoCaseHashFunctor</a>, <a href='../Y/51.html' title='Multiple used in 6 places.'>Allocator</a>&gt;    <a href='../R/64.html' title='Multiple refered from 57 places.'>BaseType</a>;
+<a name='L51'>  51 
+<a name='L52'>  52 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:    
+<a name='L53'>  53 
+<a name='L54'>  54     <b>void</b>    <a href='../Y/3818.html' title='Multiple used in 298 places.'>operator</a> = (<b>const</b> <a href='../D/1008.html' title='Multiple defined in 18 places.'>SelfType</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>) <font color='red'>{</font> <a href='../D/69.html' title='Multiple defined in 11 places.'>BaseType</a>::<a href='../Y/3818.html' title='Multiple used in 298 places.'>operator</a> = (<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>); <font color='red'>}</font>
+<a name='L55'>  55 
+<a name='L56'>  56     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>    <a href='../Y/735.html' title='Multiple used in 3 places.'>GetCaseInsensitive</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>, <a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>* <a href='../Y/4201.html' title='Multiple used in 8 places.'>pvalue</a>) <b>const</b>
+<a name='L57'>  57     <font color='red'>{</font>
+<a name='L58'>  58         <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L358' title='Defined at 358 in ovr/sdk/src/Kernel/OVR_String.h.'>NoCaseKey</a> <a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>(<a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>);
+<a name='L59'>  59         <b>return</b> <a href='../D/69.html' title='Multiple defined in 11 places.'>BaseType</a>::<a href='../Y/730.html' title='Multiple used in 15 places.'>GetAlt</a>(<a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>, <a href='../Y/4201.html' title='Multiple used in 8 places.'>pvalue</a>);
+<a name='L60'>  60     <font color='red'>}</font>
+<a name='L61'>  61     <i><font color='green'>// Pointer-returning get variety.</font></i>
+<a name='L62'>  62     <b>const</b> <a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>* <a href='../Y/735.html' title='Multiple used in 3 places.'>GetCaseInsensitive</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>) <b>const</b>   
+<a name='L63'>  63     <font color='red'>{</font>
+<a name='L64'>  64         <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L358' title='Defined at 358 in ovr/sdk/src/Kernel/OVR_String.h.'>NoCaseKey</a> <a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>(<a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>);
+<a name='L65'>  65         <b>return</b> <a href='../D/69.html' title='Multiple defined in 11 places.'>BaseType</a>::<a href='../Y/730.html' title='Multiple used in 15 places.'>GetAlt</a>(<a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>);
+<a name='L66'>  66     <font color='red'>}</font>
+<a name='L67'>  67     <a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>*  <a href='../Y/735.html' title='Multiple used in 3 places.'>GetCaseInsensitive</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>)
+<a name='L68'>  68     <font color='red'>{</font>
+<a name='L69'>  69         <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L358' title='Defined at 358 in ovr/sdk/src/Kernel/OVR_String.h.'>NoCaseKey</a> <a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>(<a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>);
+<a name='L70'>  70         <b>return</b> <a href='../D/69.html' title='Multiple defined in 11 places.'>BaseType</a>::<a href='../Y/730.html' title='Multiple used in 15 places.'>GetAlt</a>(<a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>);
+<a name='L71'>  71     <font color='red'>}</font>
+<a name='L72'>  72 
+<a name='L73'>  73     
+<a name='L74'>  74     <b>typedef</b> <a href='../Y/4676.html' title='Multiple used in 92 places.'>typename</a> BaseType::<a href='../Y/1056.html' title='Multiple used in 2 places.'>Iterator</a> <a href='../R/1235.html' title='Multiple refered from 2 places.'>base_iterator</a>;
+<a name='L75'>  75 
+<a name='L76'>  76     <a href='../S/164.html#L74' title='Defined at 74 in ovr/sdk/src/Kernel/OVR_StringHash.h.'>base_iterator</a>    <a href='../Y/601.html' title='Multiple used in 2 places.'>FindCaseInsensitive</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>)
+<a name='L77'>  77     <font color='red'>{</font>
+<a name='L78'>  78         <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L358' title='Defined at 358 in ovr/sdk/src/Kernel/OVR_String.h.'>NoCaseKey</a> <a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>(<a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>);
+<a name='L79'>  79         <b>return</b> <a href='../D/69.html' title='Multiple defined in 11 places.'>BaseType</a>::<a href='../Y/600.html' title='Multiple used in 7 places.'>FindAlt</a>(<a href='../Y/3444.html' title='Multiple used in 8 places.'>ikey</a>);
+<a name='L80'>  80     <font color='red'>}</font>
+<a name='L81'>  81 
+<a name='L82'>  82     <i><font color='green'>// Set just uses a find and assigns value if found. The key is not modified;</font></i>
+<a name='L83'>  83     <i><font color='green'>// this behavior is identical to Flash string variable assignment.    </font></i>
+<a name='L84'>  84     <b>void</b>    SetCaseInsensitive(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>, <b>const</b> <a href='../D/1211.html' title='Multiple defined in 11 places.'>U</a>&amp; <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>)
+<a name='L85'>  85     <font color='red'>{</font>
+<a name='L86'>  86         <a href='../S/164.html#L74' title='Defined at 74 in ovr/sdk/src/Kernel/OVR_StringHash.h.'>base_iterator</a> <a href='../Y/3505.html' title='Multiple used in 30 places.'>it</a> = <a href='../Y/601.html' title='Multiple used in 2 places.'>FindCaseInsensitive</a>(<a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>);
+<a name='L87'>  87         <b>if</b> (<a href='../Y/3505.html' title='Multiple used in 30 places.'>it</a> != <a href='../D/69.html' title='Multiple defined in 11 places.'>BaseType</a>::<a href='../S/137.html#L58' title='Defined at 58 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>End</a>())
+<a name='L88'>  88         <font color='red'>{</font>
+<a name='L89'>  89             <a href='../Y/3505.html' title='Multiple used in 30 places.'>it</a>-&gt;<a href='../Y/1976.html' title='Multiple used in 11 places.'>Second</a> = <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>;
+<a name='L90'>  90         <font color='red'>}</font>
+<a name='L91'>  91         <b>else</b>
+<a name='L92'>  92         <font color='red'>{</font>
+<a name='L93'>  93             <a href='../D/69.html' title='Multiple defined in 11 places.'>BaseType</a>::<a href='../Y/33.html' title='Multiple used in 9 places.'>Add</a>(<a href='../Y/3529.html' title='Multiple used in 155 places.'>key</a>, <a href='../Y/4781.html' title='Multiple used in 266 places.'>value</a>);
+<a name='L94'>  94         <font color='red'>}</font>
+<a name='L95'>  95     <font color='red'>}</font> 
+<a name='L96'>  96 <font color='red'>}</font>;
+<a name='L97'>  97 
+<a name='L98'>  98 <font color='red'>}</font> <i><font color='green'>// OVR </font></i>
+<a name='L99'>  99 
+<a name='L100'> 100 <font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

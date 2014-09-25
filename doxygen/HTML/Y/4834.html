@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>wchar_t</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/173.html#L346'>wchar_t</a>           346 ovr/sdk/src/Kernel/OVR_Std.h wchar_t* OVR_CDECL OVR_wcscpy(wchar_t* dest, UPInt destsize, const wchar_t* src);
+<a href='../S/173.html#L347'>wchar_t</a>           347 ovr/sdk/src/Kernel/OVR_Std.h wchar_t* OVR_CDECL OVR_wcsncpy(wchar_t* dest, UPInt destsize, const wchar_t* src, UPInt count);
+<a href='../S/173.html#L348'>wchar_t</a>           348 ovr/sdk/src/Kernel/OVR_Std.h wchar_t* OVR_CDECL OVR_wcscat(wchar_t* dest, UPInt destsize, const wchar_t* src);
+<a href='../S/173.html#L349'>wchar_t</a>           349 ovr/sdk/src/Kernel/OVR_Std.h UPInt    OVR_CDECL OVR_wcslen(const wchar_t* str);
+<a href='../S/173.html#L350'>wchar_t</a>           350 ovr/sdk/src/Kernel/OVR_Std.h int      OVR_CDECL OVR_wcscmp(const wchar_t* a, const wchar_t* b);
+<a href='../S/173.html#L351'>wchar_t</a>           351 ovr/sdk/src/Kernel/OVR_Std.h int      OVR_CDECL OVR_wcsicmp(const wchar_t* a, const wchar_t* b);
+<a href='../S/173.html#L353'>wchar_t</a>           353 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_wcsicoll(const wchar_t* a, const wchar_t* b)
+<a href='../S/173.html#L367'>wchar_t</a>           367 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_wcscoll(const wchar_t* a, const wchar_t* b)
+<a href='../S/173.html#L379'>wchar_t</a>           379 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL UnicodeCharIs(const UInt16* table, wchar_t charCode)
+<a href='../S/173.html#L401'>wchar_t</a>           401 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswalnum (wchar_t charCode) { return UnicodeCharIs(UnicodeAlnumBits,  charCode); }
+<a href='../S/173.html#L402'>wchar_t</a>           402 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswalpha (wchar_t charCode) { return UnicodeCharIs(UnicodeAlphaBits,  charCode); }
+<a href='../S/173.html#L403'>wchar_t</a>           403 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswdigit (wchar_t charCode) { return UnicodeCharIs(UnicodeDigitBits,  charCode); }
+<a href='../S/173.html#L404'>wchar_t</a>           404 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswspace (wchar_t charCode) { return UnicodeCharIs(UnicodeSpaceBits,  charCode); }
+<a href='../S/173.html#L405'>wchar_t</a>           405 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswxdigit(wchar_t charCode) { return UnicodeCharIs(UnicodeXDigitBits, charCode); }
+<a href='../S/173.html#L415'>wchar_t</a>           415 ovr/sdk/src/Kernel/OVR_Std.h int OVR_CDECL OVR_towupper(wchar_t charCode);
+<a href='../S/173.html#L416'>wchar_t</a>           416 ovr/sdk/src/Kernel/OVR_Std.h int OVR_CDECL OVR_towlower(wchar_t charCode);
+<a href='../S/173.html#L420'>wchar_t</a>           420 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswspace(wchar_t c)
+<a href='../S/173.html#L425'>wchar_t</a>           425 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswdigit(wchar_t c)
+<a href='../S/173.html#L430'>wchar_t</a>           430 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswxdigit(wchar_t c)
+<a href='../S/173.html#L435'>wchar_t</a>           435 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswalpha(wchar_t c)
+<a href='../S/173.html#L440'>wchar_t</a>           440 ovr/sdk/src/Kernel/OVR_Std.h inline int OVR_CDECL OVR_iswalnum(wchar_t c)
+<a href='../S/173.html#L445'>wchar_t</a>           445 ovr/sdk/src/Kernel/OVR_Std.h inline wchar_t OVR_CDECL OVR_towlower(wchar_t c)
+<a href='../S/173.html#L447'>wchar_t</a>           447 ovr/sdk/src/Kernel/OVR_Std.h     return (wchar_t)towlower(c);
+<a href='../S/173.html#L450'>wchar_t</a>           450 ovr/sdk/src/Kernel/OVR_Std.h inline wchar_t OVR_towupper(wchar_t c)
+<a href='../S/173.html#L452'>wchar_t</a>           452 ovr/sdk/src/Kernel/OVR_Std.h     return (wchar_t)towupper(c);
+<a href='../S/173.html#L470'>wchar_t</a>           470 ovr/sdk/src/Kernel/OVR_Std.h inline double OVR_CDECL OVR_wcstod(const wchar_t* string, wchar_t** tailptr)
+<a href='../S/173.html#L491'>wchar_t</a>           491 ovr/sdk/src/Kernel/OVR_Std.h inline long OVR_CDECL OVR_wcstol(const wchar_t* string, wchar_t** tailptr, int radix)
+<a href='../S/161.html#L167'>wchar_t</a>           167 ovr/sdk/src/Kernel/OVR_String.h     explicit String(const wchar_t* data);      
+<a href='../S/161.html#L205'>wchar_t</a>           205 ovr/sdk/src/Kernel/OVR_String.h     void        AppendString(const wchar_t* pstr, SPInt len = -1);
+<a href='../S/161.html#L281'>wchar_t</a>           281 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const wchar_t* str);
+<a href='../S/161.html#L288'>wchar_t</a>           288 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const wchar_t* psrc)    { AppendString(psrc); }
+<a href='../S/161.html#L421'>wchar_t</a>           421 ovr/sdk/src/Kernel/OVR_String.h     explicit StringBuffer(const wchar_t* data);
+<a href='../S/161.html#L461'>wchar_t</a>           461 ovr/sdk/src/Kernel/OVR_String.h     void        AppendString(const wchar_t* pstr, SPInt len = -1);
+<a href='../S/161.html#L475'>wchar_t</a>           475 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const wchar_t* str);
+<a href='../S/161.html#L482'>wchar_t</a>           482 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const wchar_t* psrc)    { AppendString(psrc); }
+<a href='../S/154.html#L56'>wchar_t</a>            56 ovr/sdk/src/Kernel/OVR_UTF8Util.h SPInt    OVR_STDCALL GetEncodeStringSize(const wchar_t* pchar, SPInt length = -1);
+<a href='../S/154.html#L60'>wchar_t</a>            60 ovr/sdk/src/Kernel/OVR_UTF8Util.h void     OVR_STDCALL EncodeString(char *pbuff, const wchar_t* pchar, SPInt length = -1);
+<a href='../S/154.html#L65'>wchar_t</a>            65 ovr/sdk/src/Kernel/OVR_UTF8Util.h UPInt    OVR_STDCALL DecodeString(wchar_t *pbuff, const char* putf8str, SPInt bytesLen = -1);
+</pre>
+</body>
+</html>

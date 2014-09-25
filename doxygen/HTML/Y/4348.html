@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>scaledSampleIntervalTimeUnit</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/188.html#L810'>scaledSampleIntervalTimeUnit</a>  810 ovr/sdk/src/OVR_Sensor2Impl.cpp     double          scaledSampleIntervalTimeUnit  = sampleIntervalTimeUnit;
+<a href='../S/188.html#L832'>scaledSampleIntervalTimeUnit</a>  832 ovr/sdk/src/OVR_Sensor2Impl.cpp         scaledSampleIntervalTimeUnit = TimeFilter.ScaleTimeUnit(sampleIntervalTimeUnit);
+<a href='../S/188.html#L841'>scaledSampleIntervalTimeUnit</a>  841 ovr/sdk/src/OVR_Sensor2Impl.cpp                 sensors.AbsoluteTimeSeconds = absoluteTimeSeconds - s.NumSamples * scaledSampleIntervalTimeUnit;
+<a href='../S/188.html#L842'>scaledSampleIntervalTimeUnit</a>  842 ovr/sdk/src/OVR_Sensor2Impl.cpp                 sensors.TimeDelta     = (float) ((runningSampleCountDelta - LastNumSamples) * scaledSampleIntervalTimeUnit);
+<a href='../S/188.html#L873'>scaledSampleIntervalTimeUnit</a>  873 ovr/sdk/src/OVR_Sensor2Impl.cpp             sensors.TimeDelta = (float) ((s.NumSamples - 1) * scaledSampleIntervalTimeUnit);
+<a href='../S/188.html#L877'>scaledSampleIntervalTimeUnit</a>  877 ovr/sdk/src/OVR_Sensor2Impl.cpp             sensors.TimeDelta = (float) scaledSampleIntervalTimeUnit;
+<a href='../S/188.html#L882'>scaledSampleIntervalTimeUnit</a>  882 ovr/sdk/src/OVR_Sensor2Impl.cpp             sensors.AbsoluteTimeSeconds = absoluteTimeSeconds - ( iterations - 1 - i ) * scaledSampleIntervalTimeUnit;
+<a href='../S/188.html#L892'>scaledSampleIntervalTimeUnit</a>  892 ovr/sdk/src/OVR_Sensor2Impl.cpp             sensors.TimeDelta = (float) scaledSampleIntervalTimeUnit;
+</pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>FileIndex</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/186.html#L419'>FileIndex</a>         419 ovr/sdk/src/Kernel/OVR_File.h     int         Tell()              { return FileIndex; }
+<a href='../S/186.html#L420'>FileIndex</a>         420 ovr/sdk/src/Kernel/OVR_File.h     SInt64      LTell()             { return (SInt64) FileIndex; }
+<a href='../S/186.html#L443'>FileIndex</a>         443 ovr/sdk/src/Kernel/OVR_File.h         if (FileIndex + numBytes &gt; FileSize)
+<a href='../S/186.html#L445'>FileIndex</a>         445 ovr/sdk/src/Kernel/OVR_File.h             numBytes = FileSize - FileIndex;
+<a href='../S/186.html#L450'>FileIndex</a>         450 ovr/sdk/src/Kernel/OVR_File.h             ::memcpy (pbufer, &amp;FileData [FileIndex], numBytes);
+<a href='../S/186.html#L452'>FileIndex</a>         452 ovr/sdk/src/Kernel/OVR_File.h             FileIndex += numBytes;
+<a href='../S/186.html#L460'>FileIndex</a>         460 ovr/sdk/src/Kernel/OVR_File.h         if (FileIndex + numBytes &gt; FileSize)
+<a href='../S/186.html#L462'>FileIndex</a>         462 ovr/sdk/src/Kernel/OVR_File.h             numBytes = FileSize - FileIndex;
+<a href='../S/186.html#L465'>FileIndex</a>         465 ovr/sdk/src/Kernel/OVR_File.h         FileIndex += numBytes;
+<a href='../S/186.html#L472'>FileIndex</a>         472 ovr/sdk/src/Kernel/OVR_File.h         return (FileSize - FileIndex);
+<a href='../S/186.html#L479'>FileIndex</a>         479 ovr/sdk/src/Kernel/OVR_File.h         case Seek_Set : FileIndex  = offset;               break;
+<a href='../S/186.html#L480'>FileIndex</a>         480 ovr/sdk/src/Kernel/OVR_File.h         case Seek_Cur : FileIndex += offset;               break;
+<a href='../S/186.html#L481'>FileIndex</a>         481 ovr/sdk/src/Kernel/OVR_File.h         case Seek_End : FileIndex  = FileSize - offset;  break;
+<a href='../S/186.html#L484'>FileIndex</a>         484 ovr/sdk/src/Kernel/OVR_File.h         return FileIndex;
+<a href='../S/186.html#L499'>FileIndex</a>         499 ovr/sdk/src/Kernel/OVR_File.h         FileIndex = 0;
+<a href='../S/186.html#L509'>FileIndex</a>         509 ovr/sdk/src/Kernel/OVR_File.h         FileIndex = 0;
+<a href='../S/186.html#L517'>FileIndex</a>         517 ovr/sdk/src/Kernel/OVR_File.h     int          FileIndex;
+</pre>
+</body>
+</html>
