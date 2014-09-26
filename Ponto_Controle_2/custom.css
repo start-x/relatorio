@@ -1,0 +1,64 @@
+/* We can customize the theme CSS here */
+
+
+@import url(../css_support/font/cabinsketch.ttf);
+@import url(../css_support/font/Dadhand.ttf);
+
+
+@import url(https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch.css);
+/*@import url('http://www.fontsaddict.com/fontface/dadhand.ttf');*/
+
+@font-face {
+  font-family: 'Dadhand';
+  src: url(../css_support/font/Dadhand.ttf);
+  src: url('http://www.fontsaddict.com/fontface/dadhand.ttf');
+}
+
+@font-face {
+  font-family: 'Cabin Sketch';
+  src: url(../css_support/font/cabinsketch.ttf);
+  src: url('https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch.ttf');
+}
+
+
+
+body {
+    color: #fff; /*Base font color*/
+    background-color: #000; /* Colour outside of slide */
+    font-family:'Dadhand','Purisa', monospace
+}
+
+div.presentation, div.slide {
+  background-color: #022; /* colour of the slide */
+}
+
+div.slide h1, div.slide h2, div.slide h3, div.slide h4, div.slide h5, div.slide h6 {
+  color: #fff;
+  font-weight: normal;
+  font-family: 'Cabin Sketch', 'Dadhand', sans-serif;
+}
+
+div.slide h1, div.slide h2, div.slide h3{
+  text-align:center;
+}
+
+figure figcaption{
+ text-align:center; 
+ font-size:50%;
+}
+
+img{
+  width:100%;
+}
+
+sup{
+	color: #559;
+  /*background:#52a2df;*/
+	font-size:50%;
+	font-family:'Purisa','Dadhand', monospace;
+  position: absolute;
+  bottom: 0;
+  width: 644px;
+  height: 20px;
+  margin: 0 auto;
+}
