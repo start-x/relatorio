@@ -1,0 +1,27 @@
+var classOVR_1_1StringDataPtr =
+[
+    [ "HashFunctor", "structOVR_1_1StringDataPtr_1_1HashFunctor.html", "structOVR_1_1StringDataPtr_1_1HashFunctor" ],
+    [ "StringDataPtr", "classOVR_1_1StringDataPtr.html#ad4a6b4bc687ef29bc0604e83c42bd186", null ],
+    [ "StringDataPtr", "classOVR_1_1StringDataPtr.html#af00eccd44d029033f88fd3d4cced864f", null ],
+    [ "StringDataPtr", "classOVR_1_1StringDataPtr.html#a916e83e268acd44712f5b9e50ab3f937", null ],
+    [ "StringDataPtr", "classOVR_1_1StringDataPtr.html#a50453311b099fadbb21f2c6d63bb2b52", null ],
+    [ "StringDataPtr", "classOVR_1_1StringDataPtr.html#aefdc48c6945030468c06167ae8d2ae54", null ],
+    [ "StringDataPtr", "classOVR_1_1StringDataPtr.html#a17c6e1115cc8161b8d4bcc55d3d28b53", null ],
+    [ "Begin", "classOVR_1_1StringDataPtr.html#a8622610c8a62fd438910c83b33e10f7a", null ],
+    [ "End", "classOVR_1_1StringDataPtr.html#aafaa29333e3ef209da7919197479376b", null ],
+    [ "FindChar", "classOVR_1_1StringDataPtr.html#a331c59651eec58c9bc5cb7e1e5620984", null ],
+    [ "FindLastChar", "classOVR_1_1StringDataPtr.html#a56dd6f6fe7b31ce79570122d4fa214a3", null ],
+    [ "GetNextToken", "classOVR_1_1StringDataPtr.html#af0ee7c55ce4e6f95890bb2af554f3899", null ],
+    [ "GetSize", "classOVR_1_1StringDataPtr.html#a4f2122c1eebce7c3a69afea734c834fa", null ],
+    [ "GetTrimLeft", "classOVR_1_1StringDataPtr.html#aa127a5a69efd192405887dcaa19f68e9", null ],
+    [ "GetTrimRight", "classOVR_1_1StringDataPtr.html#aa6e66283f971527b9d3eb07b581df126", null ],
+    [ "IsEmpty", "classOVR_1_1StringDataPtr.html#a39ef70faed21b2cfd4f2d36f45f5a0d7", null ],
+    [ "IsPrefix", "classOVR_1_1StringDataPtr.html#a17b4311721f2997225dc6f6c39fe48b9", null ],
+    [ "IsSuffix", "classOVR_1_1StringDataPtr.html#ac1f2e6657603d386f2b0f4e16a84eb96", null ],
+    [ "operator==", "classOVR_1_1StringDataPtr.html#aa03859a146ab48667502f29286236492", null ],
+    [ "ToCStr", "classOVR_1_1StringDataPtr.html#a9575a1dd2495fd53aa410d92a9744cc8", null ],
+    [ "TrimLeft", "classOVR_1_1StringDataPtr.html#a3591ae433f27344d6c8b041d9d7ce045", null ],
+    [ "TrimRight", "classOVR_1_1StringDataPtr.html#a1556e3a620a1eb247fcf91689a153180", null ],
+    [ "pStr", "classOVR_1_1StringDataPtr.html#a3a81879fc0b6377cff42389e97d4a0fc", null ],
+    [ "Size", "classOVR_1_1StringDataPtr.html#acd624ad1000eabc03c94c4a1c6726923", null ]
+];

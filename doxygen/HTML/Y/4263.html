@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>renderInfo</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L225'>renderInfo</a>        225 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::Init(HmdRenderInfo&amp; renderInfo)
+<a href='../S/98.html#L229'>renderInfo</a>        229 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     RenderInfo = renderInfo;
+<a href='../S/99.html#L178'>renderInfo</a>        178 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     void    Init(HmdRenderInfo&amp; renderInfo);
+<a href='../S/88.html#L140'>renderInfo</a>        140 ovr/sdk/src/OVR_Stereo.cpp void SetEyeCup(HmdRenderInfo* renderInfo, const char* cup)
+<a href='../S/88.html#L143'>renderInfo</a>        143 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups = EyeCup_DK1A;
+<a href='../S/88.html#L145'>renderInfo</a>        145 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups = EyeCup_DK1B;
+<a href='../S/88.html#L147'>renderInfo</a>        147 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups = EyeCup_DK1C;
+<a href='../S/88.html#L149'>renderInfo</a>        149 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups =  EyeCup_OrangeA;
+<a href='../S/88.html#L151'>renderInfo</a>        151 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups = EyeCup_RedA;
+<a href='../S/88.html#L153'>renderInfo</a>        153 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups = EyeCup_PinkA;
+<a href='../S/88.html#L155'>renderInfo</a>        155 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups = EyeCup_BlueA;
+<a href='../S/88.html#L157'>renderInfo</a>        157 ovr/sdk/src/OVR_Stereo.cpp         renderInfo-&gt;EyeCups = EyeCup_DK1A;
+<a href='../S/88.html#L667'>renderInfo</a>        667 ovr/sdk/src/OVR_Stereo.cpp     HmdRenderInfo renderInfo;
+<a href='../S/88.html#L669'>renderInfo</a>        669 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.HmdType                              = hmdInfo.HmdType;
+<a href='../S/88.html#L670'>renderInfo</a>        670 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.ResolutionInPixels                   = hmdInfo.ResolutionInPixels;
+<a href='../S/88.html#L671'>renderInfo</a>        671 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.ScreenSizeInMeters                   = hmdInfo.ScreenSizeInMeters;
+<a href='../S/88.html#L672'>renderInfo</a>        672 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.CenterFromTopInMeters                = hmdInfo.CenterFromTopInMeters;
+<a href='../S/88.html#L673'>renderInfo</a>        673 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.ScreenGapSizeInMeters                = hmdInfo.ScreenGapSizeInMeters;
+<a href='../S/88.html#L674'>renderInfo</a>        674 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.LensSeparationInMeters               = hmdInfo.LensSeparationInMeters;
+<a href='../S/88.html#L676'>renderInfo</a>        676 ovr/sdk/src/OVR_Stereo.cpp     OVR_ASSERT ( sizeof(renderInfo.Shutter) == sizeof(hmdInfo.Shutter) );   // Try to keep the files in sync!
+<a href='../S/88.html#L677'>renderInfo</a>        677 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.Type                         = hmdInfo.Shutter.Type;
+<a href='../S/88.html#L678'>renderInfo</a>        678 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.VsyncToNextVsync             = hmdInfo.Shutter.VsyncToNextVsync;
+<a href='../S/88.html#L679'>renderInfo</a>        679 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.VsyncToFirstScanline         = hmdInfo.Shutter.VsyncToFirstScanline;
+<a href='../S/88.html#L680'>renderInfo</a>        680 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.FirstScanlineToLastScanline  = hmdInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/88.html#L681'>renderInfo</a>        681 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.PixelSettleTime              = hmdInfo.Shutter.PixelSettleTime;
+<a href='../S/88.html#L682'>renderInfo</a>        682 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.PixelPersistence             = hmdInfo.Shutter.PixelPersistence;
+<a href='../S/88.html#L684'>renderInfo</a>        684 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.LensDiameterInMeters                 = 0.035f;
+<a href='../S/88.html#L685'>renderInfo</a>        685 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.LensSurfaceToMidplateInMeters        = 0.025f;
+<a href='../S/88.html#L686'>renderInfo</a>        686 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeCups                              = EyeCup_DK1A;
+<a href='../S/88.html#L691'>renderInfo</a>        691 ovr/sdk/src/OVR_Stereo.cpp         memcpy(renderInfo.DistortionK, DistortionK, sizeof(float)*4);
+<a href='../S/88.html#L692'>renderInfo</a>        692 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.DistortionEqn = Distortion_RecipPoly4;
+<a href='../S/88.html#L697'>renderInfo</a>        697 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.NoseToPupilInMeters   = 0.032f;
+<a href='../S/88.html#L698'>renderInfo</a>        698 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.ReliefInMeters        = 0.012f;
+<a href='../S/88.html#L705'>renderInfo</a>        705 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.SetToIdentity();
+<a href='../S/88.html#L706'>renderInfo</a>        706 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.MetersPerTanAngleAtCenter = 0.0449f;
+<a href='../S/88.html#L707'>renderInfo</a>        707 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.Eqn       = Distortion_RecipPoly4;
+<a href='../S/88.html#L708'>renderInfo</a>        708 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.K[0]      =  1.0f;
+<a href='../S/88.html#L709'>renderInfo</a>        709 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.K[1]      = -0.494165344f;
+<a href='../S/88.html#L710'>renderInfo</a>        710 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.K[2]      = 0.587046423f;
+<a href='../S/88.html#L711'>renderInfo</a>        711 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.K[3]      = -0.841887126f;
+<a href='../S/88.html#L712'>renderInfo</a>        712 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.MaxR      = 1.0f;
+<a href='../S/88.html#L714'>renderInfo</a>        714 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[0] = -0.006f;
+<a href='../S/88.html#L715'>renderInfo</a>        715 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[1] =  0.0f;
+<a href='../S/88.html#L716'>renderInfo</a>        716 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[2] =  0.014f;
+<a href='../S/88.html#L717'>renderInfo</a>        717 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeLeft.Distortion.ChromaticAberration[3] =  0.0f;
+<a href='../S/88.html#L719'>renderInfo</a>        719 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.EyeRight = renderInfo.EyeLeft;
+<a href='../S/88.html#L727'>renderInfo</a>        727 ovr/sdk/src/OVR_Stereo.cpp             SetEyeCup(&amp;renderInfo, eyecup);
+<a href='../S/88.html#L739'>renderInfo</a>        739 ovr/sdk/src/OVR_Stereo.cpp         if ( ( renderInfo.EyeCups != EyeCup_DK1A ) &amp;&amp;
+<a href='../S/88.html#L740'>renderInfo</a>        740 ovr/sdk/src/OVR_Stereo.cpp              ( renderInfo.EyeCups != EyeCup_DK1B ) &amp;&amp;
+<a href='../S/88.html#L741'>renderInfo</a>        741 ovr/sdk/src/OVR_Stereo.cpp              ( renderInfo.EyeCups != EyeCup_DK1C ) )
+<a href='../S/88.html#L743'>renderInfo</a>        743 ovr/sdk/src/OVR_Stereo.cpp             renderInfo.EyeCups = EyeCup_DK1A;
+<a href='../S/88.html#L748'>renderInfo</a>        748 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeCups = EyeCup_DKHD2A;
+<a href='../S/88.html#L751'>renderInfo</a>        751 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeCups = EyeCup_PinkA;
+<a href='../S/88.html#L754'>renderInfo</a>        754 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeCups = EyeCup_DK2A;
+<a href='../S/88.html#L762'>renderInfo</a>        762 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeCups = eyeCupOverride;
+<a href='../S/88.html#L765'>renderInfo</a>        765 ovr/sdk/src/OVR_Stereo.cpp     switch ( renderInfo.EyeCups )
+<a href='../S/88.html#L770'>renderInfo</a>        770 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.LensDiameterInMeters                   = 0.035f;
+<a href='../S/88.html#L771'>renderInfo</a>        771 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.LensSurfaceToMidplateInMeters          = 0.02357f;
+<a href='../S/88.html#L773'>renderInfo</a>        773 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeLeft.ReliefInMeters                 = 0.010f; 
+<a href='../S/88.html#L774'>renderInfo</a>        774 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeRight.ReliefInMeters                = 0.010f; 
+<a href='../S/88.html#L777'>renderInfo</a>        777 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.LensDiameterInMeters                   = 0.035f;
+<a href='../S/88.html#L778'>renderInfo</a>        778 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.LensSurfaceToMidplateInMeters          = 0.02357f;
+<a href='../S/88.html#L780'>renderInfo</a>        780 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeLeft.ReliefInMeters                 = 0.010f; 
+<a href='../S/88.html#L781'>renderInfo</a>        781 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeRight.ReliefInMeters                = 0.010f; 
+<a href='../S/88.html#L785'>renderInfo</a>        785 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.LensDiameterInMeters                   = 0.04f;      // approximate
+<a href='../S/88.html#L786'>renderInfo</a>        786 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.LensSurfaceToMidplateInMeters          = 0.01965f;
+<a href='../S/88.html#L788'>renderInfo</a>        788 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeLeft.ReliefInMeters                 = 0.012f;
+<a href='../S/88.html#L789'>renderInfo</a>        789 ovr/sdk/src/OVR_Stereo.cpp         renderInfo.EyeRight.ReliefInMeters                = 0.012f;
+<a href='../S/88.html#L803'>renderInfo</a>        803 ovr/sdk/src/OVR_Stereo.cpp                 renderInfo.EyeLeft.NoseToPupilInMeters = eye2nose[0];
+<a href='../S/88.html#L804'>renderInfo</a>        804 ovr/sdk/src/OVR_Stereo.cpp                 renderInfo.EyeRight.NoseToPupilInMeters = eye2nose[1];
+<a href='../S/88.html#L809'>renderInfo</a>        809 ovr/sdk/src/OVR_Stereo.cpp                 renderInfo.EyeLeft.NoseToPupilInMeters = 0.5f * ipd;
+<a href='../S/88.html#L810'>renderInfo</a>        810 ovr/sdk/src/OVR_Stereo.cpp                 renderInfo.EyeRight.NoseToPupilInMeters = 0.5f * ipd;
+<a href='../S/88.html#L818'>renderInfo</a>        818 ovr/sdk/src/OVR_Stereo.cpp                 renderInfo.EyeLeft.ReliefInMeters = eye2plate[0] - renderInfo.LensSurfaceToMidplateInMeters;
+<a href='../S/88.html#L819'>renderInfo</a>        819 ovr/sdk/src/OVR_Stereo.cpp                 renderInfo.EyeRight.ReliefInMeters = eye2plate[1] - renderInfo.LensSurfaceToMidplateInMeters;
+<a href='../S/88.html#L825'>renderInfo</a>        825 ovr/sdk/src/OVR_Stereo.cpp                     renderInfo.EyeLeft.ReliefInMeters -= ((10 - dial) * 0.001f);
+<a href='../S/88.html#L826'>renderInfo</a>        826 ovr/sdk/src/OVR_Stereo.cpp                     renderInfo.EyeRight.ReliefInMeters -= ((10 - dial) * 0.001f);
+<a href='../S/88.html#L836'>renderInfo</a>        836 ovr/sdk/src/OVR_Stereo.cpp                     renderInfo.EyeLeft.ReliefInMeters = 0.007f + (dial * 0.001f);
+<a href='../S/88.html#L837'>renderInfo</a>        837 ovr/sdk/src/OVR_Stereo.cpp                     renderInfo.EyeRight.ReliefInMeters = 0.007f + (dial * 0.001f);
+<a href='../S/88.html#L849'>renderInfo</a>        849 ovr/sdk/src/OVR_Stereo.cpp         HmdRenderInfo::EyeConfig *pHmdEyeConfig = ( eyeNum == 0 ) ? &amp;(renderInfo.EyeLeft) : &amp;(renderInfo.EyeRight);
+<a href='../S/88.html#L852'>renderInfo</a>        852 ovr/sdk/src/OVR_Stereo.cpp         LensConfig distortionConfig = GenerateLensConfigFromEyeRelief ( eye_relief, renderInfo, distortionType );
+<a href='../S/88.html#L856'>renderInfo</a>        856 ovr/sdk/src/OVR_Stereo.cpp     return renderInfo;
+<a href='../S/117.html#L1327'>renderInfo</a>       1327 ovr/sdk/src/Util/Util_Render_Stereo.cpp void TimewarpMachine::Reset(HmdRenderInfo&amp; renderInfo, bool vsyncEnabled, double timeNow)
+<a href='../S/117.html#L1329'>renderInfo</a>       1329 ovr/sdk/src/Util/Util_Render_Stereo.cpp     RenderInfo = renderInfo;
+<a href='../S/117.html#L1331'>renderInfo</a>       1331 ovr/sdk/src/Util/Util_Render_Stereo.cpp     CurrentPredictionValues = PredictionGetDeviceValues ( renderInfo, true, VsyncEnabled );
+<a href='../S/115.html#L427'>renderInfo</a>        427 ovr/sdk/src/Util/Util_Render_Stereo.h     void        Reset ( HmdRenderInfo&amp; renderInfo, bool vsyncEnabled, double timeNow );
+</pre>
+</body>
+</html>

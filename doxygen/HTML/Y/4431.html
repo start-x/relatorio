@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>sourceCoordNDC</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/117.html#L867'>sourceCoordNDC</a>    867 ovr/sdk/src/Util/Util_Render_Stereo.cpp             Vector2f sourceCoordNDC;
+<a href='../S/117.html#L869'>sourceCoordNDC</a>    869 ovr/sdk/src/Util/Util_Render_Stereo.cpp             sourceCoordNDC.x = 2.0f * ( (float)x / (float)DMA_GridSize ) - 1.0f;
+<a href='../S/117.html#L870'>sourceCoordNDC</a>    870 ovr/sdk/src/Util/Util_Render_Stereo.cpp             sourceCoordNDC.y = 2.0f * ( (float)y / (float)DMA_GridSize ) - 1.0f;
+<a href='../S/117.html#L871'>sourceCoordNDC</a>    871 ovr/sdk/src/Util/Util_Render_Stereo.cpp             Vector2f tanEyeAngle = TransformRendertargetNDCToTanFovSpace ( eyeToSourceNDC, sourceCoordNDC );
+<a href='../S/117.html#L918'>sourceCoordNDC</a>    918 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                      ( 1.0f - Alg::Max ( Alg::Abs ( sourceCoordNDC.x ), Alg::Abs ( sourceCoordNDC.y ) ) );
+<a href='../S/117.html#L1085'>sourceCoordNDC</a>   1085 ovr/sdk/src/Util/Util_Render_Stereo.cpp             Vector2f sourceCoordNDC;
+<a href='../S/117.html#L1087'>sourceCoordNDC</a>   1087 ovr/sdk/src/Util/Util_Render_Stereo.cpp             sourceCoordNDC.x = 2.0f * ( (float)x / (float)HMA_GridSize ) - 1.0f;
+<a href='../S/117.html#L1088'>sourceCoordNDC</a>   1088 ovr/sdk/src/Util/Util_Render_Stereo.cpp             sourceCoordNDC.y = 2.0f * ( (float)y / (float)HMA_GridSize ) - 1.0f;
+<a href='../S/117.html#L1089'>sourceCoordNDC</a>   1089 ovr/sdk/src/Util/Util_Render_Stereo.cpp             Vector2f tanEyeAngle = TransformRendertargetNDCToTanFovSpace ( eyeToSourceNDC, sourceCoordNDC );
+<a href='../S/117.html#L1101'>sourceCoordNDC</a>   1101 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = sourceCoordNDC.x * 0.25f + 0.25f;
+<a href='../S/117.html#L1109'>sourceCoordNDC</a>   1109 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = 0.75f - sourceCoordNDC.x * 0.25f;
+<a href='../S/117.html#L1117'>sourceCoordNDC</a>   1117 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = sourceCoordNDC.y * 0.5f + 0.5f;
+<a href='../S/117.html#L1127'>sourceCoordNDC</a>   1127 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;ScreenPosNDC.x = sourceCoordNDC.x;
+<a href='../S/117.html#L1128'>sourceCoordNDC</a>   1128 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;ScreenPosNDC.y = -sourceCoordNDC.y;
+</pre>
+</body>
+</html>

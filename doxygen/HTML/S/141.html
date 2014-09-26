@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_SensorCalibration.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_SensorCalibration.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/119.html' title='Multiple included from 2 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_SensorCalibration.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Calibration data implementation for the IMU messages </font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   January 28, 2014</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Max Katsev</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#ifndef</font> <a href='../S/141.html#L28' title='Defined at 28 in ovr/sdk/src/OVR_SensorCalibration.h.'>OVR_SensorCalibration_h</a>
+<a name='L28'>  28 <font color='darkred'>#define</font> <a href='../S/141.html#L27' title='Refered from 27 in ovr/sdk/src/OVR_SensorCalibration.h.'>OVR_SensorCalibration_h</a>
+<a name='L29'>  29 
+<a name='L30'>  30 <font color='darkred'>#include</font> "<a href='108.html'>OVR_Device.h</a>"
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='119.html'>OVR_SensorFilter.h</a>"
+<a name='L32'>  32 
+<a name='L33'>  33 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L34'>  34 
+<a name='L35'>  35 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/1535.html' title='Multiple used in 4 places.'>OffsetInterpolator</a>
+<a name='L36'>  36 <font color='red'>{</font>
+<a name='L37'>  37 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L38'>  38     <b>void</b> <a href='../D/475.html' title='Multiple defined in 10 places.'>Initialize</a>(<a href='../Y/62.html' title='Multiple used in 95 places.'>Array</a>&lt;<a href='../Y/62.html' title='Multiple used in 95 places.'>Array</a>&lt;<a href='../S/108.html#L886' title='Defined at 886 in ovr/sdk/src/OVR_Device.h.'>TemperatureReport</a>&gt; &gt; <b>const</b>&amp; <a href='../Y/4564.html' title='Multiple used in 9 places.'>temperatureReports</a>, <b>int</b> <a href='../Y/2902.html' title='Multiple used in 10 places.'>coord</a>);
+<a name='L39'>  39     <b>double</b> <a href='../S/128.html#L290' title='Defined at 290 in ovr/sdk/src/OVR_SensorCalibration.cpp.'>GetOffset</a>(<b>double</b> <a href='../Y/4560.html' title='Multiple used in 14 places.'>targetTemperature</a>, <b>double</b> <a href='../Y/2729.html' title='Multiple used in 4 places.'>autoTemperature</a>, <b>double</b> <a href='../Y/2730.html' title='Multiple used in 5 places.'>autoValue</a>);
+<a name='L40'>  40 
+<a name='L41'>  41     <a href='../Y/62.html' title='Multiple used in 95 places.'>Array</a>&lt;<b>double</b>&gt; <a href='../Y/2200.html' title='Multiple used in 19 places.'>Temperatures</a>;
+<a name='L42'>  42     <a href='../Y/62.html' title='Multiple used in 95 places.'>Array</a>&lt;<b>double</b>&gt; <a href='../Y/2393.html' title='Multiple used in 19 places.'>Values</a>;
+<a name='L43'>  43 <font color='red'>}</font>;
+<a name='L44'>  44 
+<a name='L45'>  45 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/1986.html' title='Multiple used in 10 places.'>SensorCalibration</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/1454.html' title='Multiple used in 15 places.'>NewOverrideBase</a>
+<a name='L46'>  46 <font color='red'>{</font>
+<a name='L47'>  47 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L48'>  48     <a href='../Y/1986.html' title='Multiple used in 10 places.'>SensorCalibration</a>(<a href='../Y/1989.html' title='Multiple used in 36 places.'>SensorDevice</a>* <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>);
+<a name='L49'>  49 
+<a name='L50'>  50     <i><font color='green'>// Load data from the HW and perform the necessary preprocessing</font></i>
+<a name='L51'>  51     <b>void</b> <a href='../D/475.html' title='Multiple defined in 10 places.'>Initialize</a>();
+<a name='L52'>  52     <i><font color='green'>// Apply the calibration</font></i>
+<a name='L53'>  53     <b>void</b> <a href='../S/128.html#L137' title='Defined at 137 in ovr/sdk/src/OVR_SensorCalibration.cpp.'>Apply</a>(<a href='../Y/1395.html' title='Multiple used in 15 places.'>MessageBodyFrame</a>&amp; <a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>);
+<a name='L54'>  54     <i><font color='green'>// Is mag calibration available?</font></i>
+<a name='L55'>  55     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../S/190.html#L579' title='Defined at 579 in ovr/sdk/src/OVR_SensorImpl.cpp.'>IsMagCalibrated</a>() <font color='red'>{</font> <b>return</b> <a href='../Y/1334.html' title='Multiple used in 9 places.'>MagCalibrated</a>; <font color='red'>}</font>
+<a name='L56'>  56 
+<a name='L57'>  57 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L58'>  58     <b>void</b> <a href='../S/128.html#L181' title='Defined at 181 in ovr/sdk/src/OVR_SensorCalibration.cpp.'>StoreAutoOffset</a>();
+<a name='L59'>  59     <b>void</b> <a href='../S/128.html#L153' title='Defined at 153 in ovr/sdk/src/OVR_SensorCalibration.cpp.'>AutocalibrateGyro</a>(<a href='../Y/1395.html' title='Multiple used in 15 places.'>MessageBodyFrame</a> <b>const</b>&amp; <a href='../Y/3704.html' title='Multiple used in 71 places.'>msg</a>);
+<a name='L60'>  60 
+<a name='L61'>  61         <b>void</b> <a href='../S/128.html#L77' title='Defined at 77 in ovr/sdk/src/OVR_SensorCalibration.cpp.'>DebugPrintLocalTemperatureTable</a>();
+<a name='L62'>  62         <b>void</b> <a href='../S/128.html#L101' title='Defined at 101 in ovr/sdk/src/OVR_SensorCalibration.cpp.'>DebugClearHeadsetTemperatureReports</a>();
+<a name='L63'>  63 
+<a name='L64'>  64     <a href='../Y/1989.html' title='Multiple used in 36 places.'>SensorDevice</a>* <a href='../Y/3981.html' title='Multiple used in 41 places.'>pSensor</a>;
+<a name='L65'>  65 
+<a name='L66'>  66     <i><font color='green'>// Factory calibration data</font></i>
+<a name='L67'>  67     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/1334.html' title='Multiple used in 9 places.'>MagCalibrated</a>;
+<a name='L68'>  68     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <a href='../Y/18.html' title='Multiple used in 14 places.'>AccelMatrix</a>, <a href='../Y/840.html' title='Multiple used in 14 places.'>GyroMatrix</a>, <a href='../Y/1337.html' title='Multiple used in 3 places.'>MagMatrix</a>;
+<a name='L69'>  69     <a href='../S/177.html#L554' title='Defined at 554 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3f</a> <a href='../Y/19.html' title='Multiple used in 22 places.'>AccelOffset</a>;
+<a name='L70'>  70     
+<a name='L71'>  71     <i><font color='green'>// Temperature based data</font></i>
+<a name='L72'>  72     <a href='../Y/62.html' title='Multiple used in 95 places.'>Array</a>&lt;<a href='../Y/62.html' title='Multiple used in 95 places.'>Array</a>&lt;<a href='../S/108.html#L886' title='Defined at 886 in ovr/sdk/src/OVR_Device.h.'>TemperatureReport</a>&gt; &gt; <a href='../Y/2199.html' title='Multiple used in 17 places.'>TemperatureReports</a>;
+<a name='L73'>  73     <a href='../Y/1535.html' title='Multiple used in 4 places.'>OffsetInterpolator</a> <a href='../Y/1011.html' title='Multiple used in 4 places.'>Interpolators</a>[3];
+<a name='L74'>  74 
+<a name='L75'>  75     <i><font color='green'>// Autocalibration data</font></i>
+<a name='L76'>  76     <a href='../S/119.html#L221' title='Defined at 221 in ovr/sdk/src/OVR_SensorFilter.h.'>SensorFilterf</a> <a href='../Y/839.html' title='Multiple used in 8 places.'>GyroFilter</a>;
+<a name='L77'>  77     <a href='../S/177.html#L554' title='Defined at 554 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3f</a> <a href='../Y/836.html' title='Multiple used in 7 places.'>GyroAutoOffset</a>;
+<a name='L78'>  78     <b>float</b> <a href='../S/128.html#L40' title='Defined at 40 in ovr/sdk/src/OVR_SensorCalibration.cpp.'>GyroAutoTemperature</a>;
+<a name='L79'>  79 <font color='red'>}</font>;
+<a name='L80'>  80 
+<a name='L81'>  81 <font color='red'>}</font> <i><font color='green'>// namespace OVR</font></i>
+<a name='L82'>  82 <font color='darkred'>#endif</font> <i><font color='green'>//OVR_SensorCalibration_h</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

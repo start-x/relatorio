@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>TimeManager</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/93.html#L52'>TimeManager</a>        52 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h         : RenderAPI(api), HMD(hmd), TimeManager(timeManager), RState(renderState)
+<a href='../S/93.html#L108'>TimeManager</a>       108 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h     FrameTimeManager&amp;       TimeManager;
+<a href='../S/97.html#L51'>TimeManager</a>        51 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     TimeManager.Init(RenderState.RenderInfo);
+<a href='../S/97.html#L83'>TimeManager</a>        83 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     TimeManager.Init(RenderState.RenderInfo);
+<a href='../S/97.html#L456'>TimeManager</a>       456 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             TimeManager.ResetFrameTiming(TimeManager.GetFrameTiming().FrameIndex,
+<a href='../S/97.html#L464'>TimeManager</a>       464 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         TimeManager.SetVsync((hmdCaps &amp; ovrHmdCap_NoVSync) ? false : true);
+<a href='../S/97.html#L547'>TimeManager</a>       547 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             TimeManager.GetLatencyTimings(data);
+<a href='../S/97.html#L731'>TimeManager</a>       731 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     TimeManager.ResetFrameTiming(0,
+<a href='../S/97.html#L743'>TimeManager</a>       743 ovr/sdk/src/CAPI/CAPI_HMDState.cpp                         [apiConfig-&gt;Header.API](this, TimeManager, RenderState);
+<a href='../S/101.html#L313'>TimeManager</a>       313 ovr/sdk/src/CAPI/CAPI_HMDState.h     FrameTimeManager        TimeManager;
+<a href='../S/104.html#L190'>TimeManager</a>       190 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     if (!TimeManager.NeedDistortionTimeMeasurement())
+<a href='../S/104.html#L195'>TimeManager</a>       195 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 			FlushGpuAndWaitTillTime(TimeManager.GetFrameTiming().TimewarpPointTime);
+<a href='../S/104.html#L210'>TimeManager</a>       210 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp         TimeManager.AddDistortionTimeMeasurement(ovr_GetTimeInSeconds() - distortionStartTime);
+<a href='../S/142.html#L436'>TimeManager</a>       436 ovr/sdk/src/OVR_CAPI.cpp     return ((HMDState*)hmd)-&gt;TimeManager.SetVsync(vsync? true : false);
+<a href='../S/142.html#L477'>TimeManager</a>       477 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;LatencyTest2DrawColor[0] = hmds-&gt;TimeManager.GetFrameLatencyTestDrawColor();
+<a href='../S/142.html#L499'>TimeManager</a>       499 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;TimeManager.UpdateFrameLatencyTrackingAfterEndFrame(
+<a href='../S/142.html#L537'>TimeManager</a>       537 ovr/sdk/src/OVR_CAPI.cpp         FrameTimeManager::Timing frameTiming = hmds-&gt;TimeManager.GetFrameTiming(frameIndex);
+<a href='../S/142.html#L570'>TimeManager</a>       570 ovr/sdk/src/OVR_CAPI.cpp     double thisFrameTime = hmds-&gt;TimeManager.BeginFrame(frameIndex);        
+<a href='../S/142.html#L572'>TimeManager</a>       572 ovr/sdk/src/OVR_CAPI.cpp     const FrameTimeManager::Timing &amp;frameTiming = hmds-&gt;TimeManager.GetFrameTiming();
+<a href='../S/142.html#L602'>TimeManager</a>       602 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.EndFrame();   
+<a href='../S/142.html#L612'>TimeManager</a>       612 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.ResetFrameTiming(frameIndex, 
+<a href='../S/142.html#L627'>TimeManager</a>       627 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;TimeManager.GetEyePredictionPose(hmd, eye);
+<a href='../S/142.html#L641'>TimeManager</a>       641 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.GetTimewarpMatrices(hmd, eye, renderPose, twmOut);
+<a href='../S/142.html#L795'>TimeManager</a>       795 ovr/sdk/src/OVR_CAPI.cpp     p-&gt;TimeManager.GetLatencyTimings(latencies);
+</pre>
+</body>
+</html>

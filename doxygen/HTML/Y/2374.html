@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>UseCount</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/159.html#L109'>UseCount</a>          109 ovr/sdk/src/Kernel/OVR_Atomic.cpp         oldUseCount = UseCount;
+<a href='../S/159.html#L116'>UseCount</a>          116 ovr/sdk/src/Kernel/OVR_Atomic.cpp             if (AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, 0, LockInitMarker))
+<a href='../S/159.html#L120'>UseCount</a>          120 ovr/sdk/src/Kernel/OVR_Atomic.cpp                 while (!AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, LockInitMarker, 1));
+<a href='../S/159.html#L126'>UseCount</a>          126 ovr/sdk/src/Kernel/OVR_Atomic.cpp     } while (!AtomicOps&lt;int&gt;::CompareAndSet_NoSync(&amp;UseCount, oldUseCount, oldUseCount + 1));
+<a href='../S/159.html#L139'>UseCount</a>          139 ovr/sdk/src/Kernel/OVR_Atomic.cpp         oldUseCount = UseCount;
+<a href='../S/159.html#L145'>UseCount</a>          145 ovr/sdk/src/Kernel/OVR_Atomic.cpp             if (AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, 1, LockInitMarker))
+<a href='../S/159.html#L150'>UseCount</a>          150 ovr/sdk/src/Kernel/OVR_Atomic.cpp                 while (!AtomicOps&lt;int&gt;::CompareAndSet_Sync(&amp;UseCount, LockInitMarker, 0));
+<a href='../S/159.html#L157'>UseCount</a>          157 ovr/sdk/src/Kernel/OVR_Atomic.cpp     } while (!AtomicOps&lt;int&gt;::CompareAndSet_NoSync(&amp;UseCount, oldUseCount, oldUseCount - 1));
+<a href='../S/145.html#L874'>UseCount</a>          874 ovr/sdk/src/Kernel/OVR_Atomic.h     SharedLock() : UseCount(0) {}
+<a href='../S/145.html#L883'>UseCount</a>          883 ovr/sdk/src/Kernel/OVR_Atomic.h     volatile int    UseCount;
+</pre>
+</body>
+</html>

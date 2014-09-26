@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>FAccelInImuFrame</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L149'>FAccelInImuFrame</a>  149 ovr/sdk/src/OVR_SensorFusion.cpp     FAccelInImuFrame.Clear();
+<a href='../S/189.html#L304'>FAccelInImuFrame</a>  304 ovr/sdk/src/OVR_SensorFusion.cpp     FAccelInImuFrame.Update(accel, DeltaT, Quatd(gyro, gyro.Length() * DeltaT));
+<a href='../S/189.html#L590'>FAccelInImuFrame</a>  590 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInWorldFrame = WorldFromImu.Pose.Rotate(FAccelInImuFrame.GetFilteredValue());
+<a href='../S/189.html#L594'>FAccelInImuFrame</a>  594 ovr/sdk/src/OVR_SensorFusion.cpp     if (FAccelInImuFrame.GetSize() == 1 || 
+<a href='../S/189.html#L595'>FAccelInImuFrame</a>  595 ovr/sdk/src/OVR_SensorFusion.cpp         ((Alg::Abs(error.w) &lt; cos(snapThreshold / 2) &amp;&amp; FAccelInImuFrame.Confidence() &gt; 0.75)))
+<a href='../S/189.html#L599'>FAccelInImuFrame</a>  599 ovr/sdk/src/OVR_SensorFusion.cpp     else if (FAccelInImuFrame.Confidence() &gt; 0.5)
+<a href='../S/189.html#L616'>FAccelInImuFrame</a>  616 ovr/sdk/src/OVR_SensorFusion.cpp         accel = FAccelInImuFrame.GetFilteredValue();
+<a href='../S/127.html#L416'>FAccelInImuFrame</a>  416 ovr/sdk/src/OVR_SensorFusion.h     SensorFilterBodyFrame   FAccelInImuFrame, FAccelInCameraFrame;
+</pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>LatencyVertex</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L85'>LatencyVertex</a>      85 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     LatencyVertex (const Vector3f&amp; p) : Pos(p) {}
+<a href='../S/104.html#L509'>LatencyVertex</a>     509 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     LatencyTesterQuadVB-&gt;Data(Buffer_Vertex, NULL, numQuadVerts * sizeof(LatencyVertex));
+<a href='../S/104.html#L510'>LatencyVertex</a>     510 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     LatencyVertex* vertices = (LatencyVertex*)LatencyTesterQuadVB-&gt;Map(0, numQuadVerts * sizeof(LatencyVertex), Map_Discard);
+<a href='../S/104.html#L522'>LatencyVertex</a>     522 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     vertices[0] = LatencyVertex(Vector3f(left,  top,    0.0f));
+<a href='../S/104.html#L523'>LatencyVertex</a>     523 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     vertices[1] = LatencyVertex(Vector3f(left,  bottom, 0.0f));
+<a href='../S/104.html#L524'>LatencyVertex</a>     524 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     vertices[2] = LatencyVertex(Vector3f(right, top,    0.0f));
+<a href='../S/104.html#L525'>LatencyVertex</a>     525 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     vertices[3] = LatencyVertex(Vector3f(right, bottom, 0.0f));
+<a href='../S/104.html#L654'>LatencyVertex</a>     654 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 				glVertexAttribPointer(locs[0], 3, GL_FLOAT, false, sizeof(LatencyVertex), reinterpret_cast&lt;char*&gt;(offset)+offsetof(LatencyVertex, Pos));
+</pre>
+</body>
+</html>

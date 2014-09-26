@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>buffer</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/8.html#L5'>buffer</a>              5 device/Battery.cpp 	data = buffer[BATTERY];
+<a href='../S/26.html#L5'>buffer</a>              5 device/Break.cpp 	buffer[BREAK] = data;
+<a href='../S/15.html#L3'>buffer</a>              3 device/Device.cpp char Device::buffer[256];
+<a href='../S/23.html#L16'>buffer</a>             16 device/Device.h 	static char buffer[256];
+<a href='../S/16.html#L5'>buffer</a>              5 device/Direction.cpp 	data = buffer[DIRECTION];
+<a href='../S/17.html#L5'>buffer</a>              5 device/Oximetry.cpp 	data = buffer[OXIMETRY];
+<a href='../S/35.html#L7'>buffer</a>              7 device/Passive.cpp 	buffer[0] = 's';
+<a href='../S/35.html#L8'>buffer</a>              8 device/Passive.cpp 	buffer[1] = 'o';
+<a href='../S/35.html#L9'>buffer</a>              9 device/Passive.cpp 	buffer[2] = 'm';
+<a href='../S/35.html#L10'>buffer</a>             10 device/Passive.cpp 	buffer[3] = 'e';
+<a href='../S/35.html#L11'>buffer</a>             11 device/Passive.cpp 	buffer[4] = 'd';
+<a href='../S/35.html#L12'>buffer</a>             12 device/Passive.cpp 	buffer[5] = 'a';
+<a href='../S/35.html#L13'>buffer</a>             13 device/Passive.cpp 	buffer[6] = 't';
+<a href='../S/35.html#L14'>buffer</a>             14 device/Passive.cpp 	buffer[7] = 'a';
+<a href='../S/24.html#L5'>buffer</a>              5 device/Speed.cpp 	data = buffer[SPEED];
+<a href='../S/102.html#L215'>buffer</a>            215 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool Buffer::Data(int use, const void* buffer, size_t size)
+<a href='../S/102.html#L233'>buffer</a>            233 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     glBufferData(Use, size, buffer, mode);
+<a href='../S/103.html#L253'>buffer</a>            253 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool   Data(int use, const void* buffer, size_t size);
+<a href='../S/147.html#L986'>buffer</a>            986 ovr/sdk/src/Kernel/OVR_Alg.h inline UInt16 DecodeUInt16(const UByte* buffer)
+<a href='../S/147.html#L988'>buffer</a>            988 ovr/sdk/src/Kernel/OVR_Alg.h     return ByteUtil::LEToSystem ( *(const UInt16*)buffer );
+<a href='../S/147.html#L991'>buffer</a>            991 ovr/sdk/src/Kernel/OVR_Alg.h inline SInt16 DecodeSInt16(const UByte* buffer)
+<a href='../S/147.html#L993'>buffer</a>            993 ovr/sdk/src/Kernel/OVR_Alg.h     return ByteUtil::LEToSystem ( *(const SInt16*)buffer );
+<a href='../S/147.html#L996'>buffer</a>            996 ovr/sdk/src/Kernel/OVR_Alg.h inline UInt32 DecodeUInt32(const UByte* buffer)
+<a href='../S/147.html#L998'>buffer</a>            998 ovr/sdk/src/Kernel/OVR_Alg.h     return ByteUtil::LEToSystem ( *(const UInt32*)buffer );
+<a href='../S/147.html#L1001'>buffer</a>           1001 ovr/sdk/src/Kernel/OVR_Alg.h inline SInt32 DecodeSInt32(const UByte* buffer)
+<a href='../S/147.html#L1003'>buffer</a>           1003 ovr/sdk/src/Kernel/OVR_Alg.h     return ByteUtil::LEToSystem ( *(const SInt32*)buffer );
+<a href='../S/147.html#L1006'>buffer</a>           1006 ovr/sdk/src/Kernel/OVR_Alg.h inline float DecodeFloat(const UByte* buffer)
+<a href='../S/147.html#L1013'>buffer</a>           1013 ovr/sdk/src/Kernel/OVR_Alg.h     U = DecodeUInt32(buffer);
+<a href='../S/147.html#L1017'>buffer</a>           1017 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeUInt16(UByte* buffer, UInt16 val)
+<a href='../S/147.html#L1019'>buffer</a>           1019 ovr/sdk/src/Kernel/OVR_Alg.h     *(UInt16*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1022'>buffer</a>           1022 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeSInt16(UByte* buffer, SInt16 val)
+<a href='../S/147.html#L1024'>buffer</a>           1024 ovr/sdk/src/Kernel/OVR_Alg.h     *(SInt16*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1027'>buffer</a>           1027 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeUInt32(UByte* buffer, UInt32 val)
+<a href='../S/147.html#L1029'>buffer</a>           1029 ovr/sdk/src/Kernel/OVR_Alg.h     *(UInt32*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1032'>buffer</a>           1032 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeSInt32(UByte* buffer, SInt32 val)
+<a href='../S/147.html#L1034'>buffer</a>           1034 ovr/sdk/src/Kernel/OVR_Alg.h     *(SInt32*)buffer = ByteUtil::SystemToLE ( val );
+<a href='../S/147.html#L1037'>buffer</a>           1037 ovr/sdk/src/Kernel/OVR_Alg.h inline void EncodeFloat(UByte* buffer, float val)
+<a href='../S/147.html#L1045'>buffer</a>           1045 ovr/sdk/src/Kernel/OVR_Alg.h     EncodeUInt32(buffer, U);
+<a href='../S/167.html#L65'>buffer</a>             65 ovr/sdk/src/Kernel/OVR_Log.cpp     char buffer[MaxLogBufferMessageSize];
+<a href='../S/167.html#L66'>buffer</a>             66 ovr/sdk/src/Kernel/OVR_Log.cpp     FormatLog(buffer, MaxLogBufferMessageSize, messageType, fmt, argList);
+<a href='../S/167.html#L67'>buffer</a>             67 ovr/sdk/src/Kernel/OVR_Log.cpp     DefaultLogOutput(buffer, IsDebugMessage(messageType));
+<a href='../S/167.html#L79'>buffer</a>             79 ovr/sdk/src/Kernel/OVR_Log.cpp void Log::FormatLog(char* buffer, unsigned bufferSize, LogMessageType messageType,
+<a href='../S/167.html#L86'>buffer</a>             86 ovr/sdk/src/Kernel/OVR_Log.cpp     case Log_Error:         OVR_strcpy(buffer, bufferSize, "Error: ");     break;
+<a href='../S/167.html#L87'>buffer</a>             87 ovr/sdk/src/Kernel/OVR_Log.cpp     case Log_Debug:         OVR_strcpy(buffer, bufferSize, "Debug: ");     break;
+<a href='../S/167.html#L88'>buffer</a>             88 ovr/sdk/src/Kernel/OVR_Log.cpp     case Log_Assert:        OVR_strcpy(buffer, bufferSize, "Assert: ");    break;
+<a href='../S/167.html#L89'>buffer</a>             89 ovr/sdk/src/Kernel/OVR_Log.cpp     case Log_Text:       buffer[0] = 0; addNewline = false; break;
+<a href='../S/167.html#L90'>buffer</a>             90 ovr/sdk/src/Kernel/OVR_Log.cpp     case Log_DebugText:  buffer[0] = 0; addNewline = false; break;
+<a href='../S/167.html#L92'>buffer</a>             92 ovr/sdk/src/Kernel/OVR_Log.cpp         buffer[0] = 0;
+<a href='../S/167.html#L97'>buffer</a>             97 ovr/sdk/src/Kernel/OVR_Log.cpp     UPInt prefixLength = OVR_strlen(buffer);
+<a href='../S/167.html#L98'>buffer</a>             98 ovr/sdk/src/Kernel/OVR_Log.cpp     char *buffer2      = buffer + prefixLength;
+<a href='../S/167.html#L102'>buffer</a>            102 ovr/sdk/src/Kernel/OVR_Log.cpp         OVR_strcat(buffer, bufferSize, "\n");
+<a href='../S/155.html#L128'>buffer</a>            128 ovr/sdk/src/Kernel/OVR_Log.h     static void     FormatLog(char* buffer, unsigned bufferSize, LogMessageType messageType,
+<a href='../S/169.html#L203'>buffer</a>            203 ovr/sdk/src/Kernel/OVR_Std.cpp         char buffer[347 + 1];
+<a href='../S/169.html#L205'>buffer</a>            205 ovr/sdk/src/Kernel/OVR_Std.cpp         OVR_strcpy(buffer, sizeof(buffer), string);
+<a href='../S/169.html#L207'>buffer</a>            207 ovr/sdk/src/Kernel/OVR_Std.cpp         for (char* c = buffer; *c != '\0'; ++c)
+<a href='../S/169.html#L216'>buffer</a>            216 ovr/sdk/src/Kernel/OVR_Std.cpp         return strtod(buffer, tailptr);
+<a href='../S/173.html#L474'>buffer</a>            474 ovr/sdk/src/Kernel/OVR_Std.h     char buffer[64];
+<a href='../S/173.html#L482'>buffer</a>            482 ovr/sdk/src/Kernel/OVR_Std.h         buffer[i] = ((c) &lt; 128 ? (char)c : '!');
+<a href='../S/173.html#L484'>buffer</a>            484 ovr/sdk/src/Kernel/OVR_Std.h     buffer[max] = 0;
+<a href='../S/173.html#L485'>buffer</a>            485 ovr/sdk/src/Kernel/OVR_Std.h     return OVR_strtod(buffer, &amp;tp);
+<a href='../S/173.html#L495'>buffer</a>            495 ovr/sdk/src/Kernel/OVR_Std.h     char buffer[64];
+<a href='../S/173.html#L503'>buffer</a>            503 ovr/sdk/src/Kernel/OVR_Std.h         buffer[i] = ((c) &lt; 128 ? (char)c : '!');
+<a href='../S/173.html#L505'>buffer</a>            505 ovr/sdk/src/Kernel/OVR_Std.h     buffer[max] = 0;
+<a href='../S/173.html#L506'>buffer</a>            506 ovr/sdk/src/Kernel/OVR_Std.h     return strtol(buffer, &amp;tp, radix);
+<a href='../S/184.html#L401'>buffer</a>            401 ovr/sdk/src/Kernel/OVR_String.cpp     char        buffer[512];
+<a href='../S/184.html#L407'>buffer</a>            407 ovr/sdk/src/Kernel/OVR_String.cpp             UTF8Util::EncodeChar(buffer, &amp;bufferOffset, OVR_towupper(wchar_t(c)));
+<a href='../S/184.html#L408'>buffer</a>            408 ovr/sdk/src/Kernel/OVR_String.cpp         } while ((psource &lt; pend) &amp;&amp; (bufferOffset &lt; SPInt(sizeof(buffer)-8)));
+<a href='../S/184.html#L411'>buffer</a>            411 ovr/sdk/src/Kernel/OVR_String.cpp         str.AppendString(buffer, bufferOffset);
+<a href='../S/184.html#L425'>buffer</a>            425 ovr/sdk/src/Kernel/OVR_String.cpp     char        buffer[512];
+<a href='../S/184.html#L431'>buffer</a>            431 ovr/sdk/src/Kernel/OVR_String.cpp             UTF8Util::EncodeChar(buffer, &amp;bufferOffset, OVR_towlower(wchar_t(c)));
+<a href='../S/184.html#L432'>buffer</a>            432 ovr/sdk/src/Kernel/OVR_String.cpp         } while ((psource &lt; pend) &amp;&amp; (bufferOffset &lt; SPInt(sizeof(buffer)-8)));
+<a href='../S/184.html#L435'>buffer</a>            435 ovr/sdk/src/Kernel/OVR_String.cpp         str.AppendString(buffer, bufferOffset);
+<a href='../S/158.html#L40'>buffer</a>             40 ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp     char* buffer = (char*) OVR_ALLOC(sizeof(char) * (size+1));
+<a href='../S/158.html#L43'>buffer</a>             43 ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp     UPInt result = OVR_vsprintf(buffer, size+1, format, argList);
+<a href='../S/158.html#L48'>buffer</a>             48 ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp     AppendString(buffer);
+<a href='../S/158.html#L50'>buffer</a>             50 ovr/sdk/src/Kernel/OVR_String_FormatUtil.cpp     OVR_FREE(buffer);
+<a href='../S/87.html#L42'>buffer</a>             42 ovr/sdk/src/OVR_LatencyTestImpl.cpp static void UnpackSamples(const UByte* buffer, UByte* r, UByte* g, UByte* b)
+<a href='../S/87.html#L44'>buffer</a>             44 ovr/sdk/src/OVR_LatencyTestImpl.cpp     *r = buffer[0];
+<a href='../S/87.html#L45'>buffer</a>             45 ovr/sdk/src/OVR_LatencyTestImpl.cpp     *g = buffer[1];
+<a href='../S/87.html#L46'>buffer</a>             46 ovr/sdk/src/OVR_LatencyTestImpl.cpp     *b = buffer[2];
+<a href='../S/87.html#L73'>buffer</a>             73 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestMessageType Decode(const UByte* buffer, int size)
+<a href='../S/87.html#L80'>buffer</a>             80 ovr/sdk/src/OVR_LatencyTestImpl.cpp         SampleCount		= buffer[1];
+<a href='../S/87.html#L81'>buffer</a>             81 ovr/sdk/src/OVR_LatencyTestImpl.cpp         Timestamp		= DecodeUInt16(buffer + 2);
+<a href='../S/87.html#L85'>buffer</a>             85 ovr/sdk/src/OVR_LatencyTestImpl.cpp             UnpackSamples(buffer + 4 + (3 * i),  &amp;Samples[i].Value[0], &amp;Samples[i].Value[1], &amp;Samples[i].Value[2]);
+<a href='../S/87.html#L98'>buffer</a>             98 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool DecodeLatencyTestSamplesMessage(LatencyTestSamplesMessage* message, UByte* buffer, int size)
+<a href='../S/87.html#L108'>buffer</a>            108 ovr/sdk/src/OVR_LatencyTestImpl.cpp     switch (buffer[0])
+<a href='../S/87.html#L111'>buffer</a>            111 ovr/sdk/src/OVR_LatencyTestImpl.cpp         message-&gt;Type = message-&gt;Samples.Decode(buffer, size);
+<a href='../S/87.html#L130'>buffer</a>            130 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestMessageType Decode(const UByte* buffer, int size)
+<a href='../S/87.html#L135'>buffer</a>            135 ovr/sdk/src/OVR_LatencyTestImpl.cpp         CommandID = DecodeUInt16(buffer + 1);
+<a href='../S/87.html#L136'>buffer</a>            136 ovr/sdk/src/OVR_LatencyTestImpl.cpp         Timestamp = DecodeUInt16(buffer + 3);
+<a href='../S/87.html#L137'>buffer</a>            137 ovr/sdk/src/OVR_LatencyTestImpl.cpp         Elapsed = DecodeUInt16(buffer + 5);
+<a href='../S/87.html#L138'>buffer</a>            138 ovr/sdk/src/OVR_LatencyTestImpl.cpp         memcpy(TriggerValue, buffer + 7, 3);
+<a href='../S/87.html#L139'>buffer</a>            139 ovr/sdk/src/OVR_LatencyTestImpl.cpp         memcpy(TargetValue, buffer + 10, 3);
+<a href='../S/87.html#L151'>buffer</a>            151 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool DecodeLatencyTestColorDetectedMessage(LatencyTestColorDetectedMessage* message, UByte* buffer, int size)
+<a href='../S/87.html#L161'>buffer</a>            161 ovr/sdk/src/OVR_LatencyTestImpl.cpp     switch (buffer[0])
+<a href='../S/87.html#L164'>buffer</a>            164 ovr/sdk/src/OVR_LatencyTestImpl.cpp         message-&gt;Type = message-&gt;ColorDetected.Decode(buffer, size);
+<a href='../S/87.html#L181'>buffer</a>            181 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestMessageType Decode(const UByte* buffer, int size)
+<a href='../S/87.html#L186'>buffer</a>            186 ovr/sdk/src/OVR_LatencyTestImpl.cpp         CommandID = DecodeUInt16(buffer + 1);
+<a href='../S/87.html#L187'>buffer</a>            187 ovr/sdk/src/OVR_LatencyTestImpl.cpp         Timestamp = DecodeUInt16(buffer + 3);
+<a href='../S/87.html#L188'>buffer</a>            188 ovr/sdk/src/OVR_LatencyTestImpl.cpp         memcpy(TargetValue, buffer + 5, 3);
+<a href='../S/87.html#L200'>buffer</a>            200 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool DecodeLatencyTestStartedMessage(LatencyTestStartedMessage* message, UByte* buffer, int size)
+<a href='../S/87.html#L210'>buffer</a>            210 ovr/sdk/src/OVR_LatencyTestImpl.cpp     switch (buffer[0])
+<a href='../S/87.html#L213'>buffer</a>            213 ovr/sdk/src/OVR_LatencyTestImpl.cpp         message-&gt;Type = message-&gt;TestStarted.Decode(buffer, size);
+<a href='../S/87.html#L229'>buffer</a>            229 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestMessageType Decode(const UByte* buffer, int size)
+<a href='../S/87.html#L234'>buffer</a>            234 ovr/sdk/src/OVR_LatencyTestImpl.cpp         CommandID = DecodeUInt16(buffer + 1);
+<a href='../S/87.html#L235'>buffer</a>            235 ovr/sdk/src/OVR_LatencyTestImpl.cpp         Timestamp = DecodeUInt16(buffer + 3);
+<a href='../S/87.html#L247'>buffer</a>            247 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool DecodeLatencyTestButtonMessage(LatencyTestButtonMessage* message, UByte* buffer, int size)
+<a href='../S/87.html#L257'>buffer</a>            257 ovr/sdk/src/OVR_LatencyTestImpl.cpp     switch (buffer[0])
+<a href='../S/87.html#L260'>buffer</a>            260 ovr/sdk/src/OVR_LatencyTestImpl.cpp         message-&gt;Type = message-&gt;Button.Decode(buffer, size);
+<a href='../S/188.html#L75'>buffer</a>             75 ovr/sdk/src/OVR_Sensor2Impl.cpp     Tracker2MessageType Decode(const UByte* buffer, int size)
+<a href='../S/188.html#L80'>buffer</a>             80 ovr/sdk/src/OVR_Sensor2Impl.cpp 		LastCommandID		= DecodeUInt16(buffer + 1);
+<a href='../S/188.html#L81'>buffer</a>             81 ovr/sdk/src/OVR_Sensor2Impl.cpp         NumSamples			= buffer[3];
+<a href='../S/188.html#L82'>buffer</a>             82 ovr/sdk/src/OVR_Sensor2Impl.cpp         RunningSampleCount	= DecodeUInt16(buffer + 4);
+<a href='../S/188.html#L83'>buffer</a>             83 ovr/sdk/src/OVR_Sensor2Impl.cpp         Temperature			= DecodeSInt16(buffer + 6);
+<a href='../S/188.html#L84'>buffer</a>             84 ovr/sdk/src/OVR_Sensor2Impl.cpp         SampleTimestamp		= DecodeUInt32(buffer + 8);
+<a href='../S/188.html#L91'>buffer</a>             91 ovr/sdk/src/OVR_Sensor2Impl.cpp 			UnpackSensor(buffer + 12 + 16 * i, &amp;Samples[i].AccelX, &amp;Samples[i].AccelY, &amp;Samples[i].AccelZ);
+<a href='../S/188.html#L92'>buffer</a>             92 ovr/sdk/src/OVR_Sensor2Impl.cpp             UnpackSensor(buffer + 20 + 16 * i, &amp;Samples[i].GyroX,  &amp;Samples[i].GyroY,  &amp;Samples[i].GyroZ);
+<a href='../S/188.html#L95'>buffer</a>             95 ovr/sdk/src/OVR_Sensor2Impl.cpp         MagX = DecodeSInt16(buffer + 44);
+<a href='../S/188.html#L96'>buffer</a>             96 ovr/sdk/src/OVR_Sensor2Impl.cpp         MagY = DecodeSInt16(buffer + 46);
+<a href='../S/188.html#L97'>buffer</a>             97 ovr/sdk/src/OVR_Sensor2Impl.cpp         MagZ = DecodeSInt16(buffer + 48);
+<a href='../S/188.html#L99'>buffer</a>             99 ovr/sdk/src/OVR_Sensor2Impl.cpp 		FrameCount = DecodeUInt16(buffer + 50);
+<a href='../S/188.html#L101'>buffer</a>            101 ovr/sdk/src/OVR_Sensor2Impl.cpp 		FrameTimestamp		= DecodeUInt32(buffer + 52);
+<a href='../S/188.html#L102'>buffer</a>            102 ovr/sdk/src/OVR_Sensor2Impl.cpp 		FrameID				= buffer[56];
+<a href='../S/188.html#L103'>buffer</a>            103 ovr/sdk/src/OVR_Sensor2Impl.cpp 		CameraPattern		= buffer[57];
+<a href='../S/188.html#L104'>buffer</a>            104 ovr/sdk/src/OVR_Sensor2Impl.cpp 		CameraFrameCount	= DecodeUInt16(buffer + 58);
+<a href='../S/188.html#L105'>buffer</a>            105 ovr/sdk/src/OVR_Sensor2Impl.cpp 		CameraTimestamp		= DecodeUInt32(buffer + 60);
+<a href='../S/188.html#L151'>buffer</a>            151 ovr/sdk/src/OVR_Sensor2Impl.cpp bool  Sensor2DeviceImpl::decodeTracker2Message(Tracker2Message* message, UByte* buffer, int size)
+<a href='../S/188.html#L161'>buffer</a>            161 ovr/sdk/src/OVR_Sensor2Impl.cpp     switch (buffer[0])
+<a href='../S/188.html#L164'>buffer</a>            164 ovr/sdk/src/OVR_Sensor2Impl.cpp         message-&gt;Type = message-&gt;Sensors.Decode(buffer, size);
+<a href='../S/90.html#L99'>buffer</a>             99 ovr/sdk/src/OVR_Sensor2Impl.h     bool                decodeTracker2Message(Tracker2Message* message, UByte* buffer, int size);
+<a href='../S/190.html#L82'>buffer</a>             82 ovr/sdk/src/OVR_SensorImpl.cpp     TrackerMessageType Decode(const UByte* buffer, int size)
+<a href='../S/190.html#L87'>buffer</a>             87 ovr/sdk/src/OVR_SensorImpl.cpp         SampleCount		= buffer[1];
+<a href='../S/190.html#L88'>buffer</a>             88 ovr/sdk/src/OVR_SensorImpl.cpp         Timestamp		= DecodeUInt16(buffer + 2);
+<a href='../S/190.html#L89'>buffer</a>             89 ovr/sdk/src/OVR_SensorImpl.cpp         LastCommandID	= DecodeUInt16(buffer + 4);
+<a href='../S/190.html#L90'>buffer</a>             90 ovr/sdk/src/OVR_SensorImpl.cpp         Temperature		= DecodeSInt16(buffer + 6);
+<a href='../S/190.html#L100'>buffer</a>            100 ovr/sdk/src/OVR_SensorImpl.cpp             UnpackSensor(buffer + 8 + 16 * i,  &amp;Samples[i].AccelX, &amp;Samples[i].AccelY, &amp;Samples[i].AccelZ);
+<a href='../S/190.html#L101'>buffer</a>            101 ovr/sdk/src/OVR_SensorImpl.cpp             UnpackSensor(buffer + 16 + 16 * i, &amp;Samples[i].GyroX,  &amp;Samples[i].GyroY,  &amp;Samples[i].GyroZ);
+<a href='../S/190.html#L104'>buffer</a>            104 ovr/sdk/src/OVR_SensorImpl.cpp         MagX = DecodeSInt16(buffer + 56);
+<a href='../S/190.html#L105'>buffer</a>            105 ovr/sdk/src/OVR_SensorImpl.cpp         MagY = DecodeSInt16(buffer + 58);
+<a href='../S/190.html#L106'>buffer</a>            106 ovr/sdk/src/OVR_SensorImpl.cpp         MagZ = DecodeSInt16(buffer + 60);
+<a href='../S/190.html#L666'>buffer</a>            666 ovr/sdk/src/OVR_SensorImpl.cpp bool  SensorDeviceImpl::decodeTrackerMessage(TrackerMessage* message, UByte* buffer, int size)
+<a href='../S/190.html#L676'>buffer</a>            676 ovr/sdk/src/OVR_SensorImpl.cpp     switch (buffer[0])
+<a href='../S/190.html#L679'>buffer</a>            679 ovr/sdk/src/OVR_SensorImpl.cpp         message-&gt;Type = message-&gt;Sensors.Decode(buffer, size);
+<a href='../S/135.html#L259'>buffer</a>            259 ovr/sdk/src/OVR_SensorImpl.h 	bool			decodeTrackerMessage(TrackerMessage* message, UByte* buffer, int size);
+<a href='../S/144.html#L33'>buffer</a>             33 ovr/sdk/src/OVR_SensorImpl_Common.cpp void UnpackSensor(const UByte* buffer, SInt32* x, SInt32* y, SInt32* z)
+<a href='../S/144.html#L39'>buffer</a>             39 ovr/sdk/src/OVR_SensorImpl_Common.cpp     *x = s.x = (buffer[0] &lt;&lt; 13) | (buffer[1] &lt;&lt; 5) | ((buffer[2] &amp; 0xF8) &gt;&gt; 3);
+<a href='../S/144.html#L40'>buffer</a>             40 ovr/sdk/src/OVR_SensorImpl_Common.cpp     *y = s.x = ((buffer[2] &amp; 0x07) &lt;&lt; 18) | (buffer[3] &lt;&lt; 10) | (buffer[4] &lt;&lt; 2) |
+<a href='../S/144.html#L41'>buffer</a>             41 ovr/sdk/src/OVR_SensorImpl_Common.cpp                ((buffer[5] &amp; 0xC0) &gt;&gt; 6);
+<a href='../S/144.html#L42'>buffer</a>             42 ovr/sdk/src/OVR_SensorImpl_Common.cpp     *z = s.x = ((buffer[5] &amp; 0x3F) &lt;&lt; 15) | (buffer[6] &lt;&lt; 7) | (buffer[7] &gt;&gt; 1);
+<a href='../S/144.html#L45'>buffer</a>             45 ovr/sdk/src/OVR_SensorImpl_Common.cpp void PackSensor(UByte* buffer, SInt32 x, SInt32 y, SInt32 z)
+<a href='../S/144.html#L48'>buffer</a>             48 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[0] = UByte(x &gt;&gt; 13);
+<a href='../S/144.html#L49'>buffer</a>             49 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[1] = UByte(x &gt;&gt; 5);
+<a href='../S/144.html#L50'>buffer</a>             50 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[2] = UByte((x &lt;&lt; 3) | ((y &gt;&gt; 18) &amp; 0x07));
+<a href='../S/144.html#L51'>buffer</a>             51 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[3] = UByte(y &gt;&gt; 10);
+<a href='../S/144.html#L52'>buffer</a>             52 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[4] = UByte(y &gt;&gt; 2);
+<a href='../S/144.html#L53'>buffer</a>             53 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[5] = UByte((y &lt;&lt; 6) | ((z &gt;&gt; 15) &amp; 0x3F));
+<a href='../S/144.html#L54'>buffer</a>             54 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[6] = UByte(z &gt;&gt; 7);
+<a href='../S/144.html#L55'>buffer</a>             55 ovr/sdk/src/OVR_SensorImpl_Common.cpp     buffer[7] = UByte(z &lt;&lt; 1);
+<a href='../S/138.html#L36'>buffer</a>             36 ovr/sdk/src/OVR_SensorImpl_Common.h void UnpackSensor(const UByte* buffer, SInt32* x, SInt32* y, SInt32* z);
+<a href='../S/138.html#L37'>buffer</a>             37 ovr/sdk/src/OVR_SensorImpl_Common.h void PackSensor(UByte* buffer, SInt32 x, SInt32 y, SInt32 z);
+<a href='../S/88.html#L558'>buffer</a>            558 ovr/sdk/src/OVR_Stereo.cpp     UByte buffer[bufferSize];
+<a href='../S/88.html#L561'>buffer</a>            561 ovr/sdk/src/OVR_Stereo.cpp     success = SaveLensConfig ( buffer, bufferSize, config );
+<a href='../S/88.html#L564'>buffer</a>            564 ovr/sdk/src/OVR_Stereo.cpp     success = LoadLensConfig ( &amp;testConfig, buffer, bufferSize );
+<a href='../S/137.html#L277'>buffer</a>            277 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             UByte* buffer = CommandBuffer.Write(command.GetSize());
+<a href='../S/137.html#L278'>buffer</a>            278 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             if  (buffer)
+<a href='../S/137.html#L280'>buffer</a>            280 ovr/sdk/src/OVR_ThreadCommandQueue.cpp                 ThreadCommand* c = command.CopyConstruct(buffer);
+<a href='../S/137.html#L314'>buffer</a>            314 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     UByte* buffer = CommandBuffer.ReadBegin();
+<a href='../S/137.html#L315'>buffer</a>            315 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     if (!buffer)
+<a href='../S/137.html#L322'>buffer</a>            322 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     popBuffer-&gt;InitFromBuffer(buffer);
+<a href='../S/197.html#L413'>buffer</a>            413 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( int v, char* buffer, int bufferSize )
+<a href='../S/197.html#L415'>buffer</a>            415 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%d", v );
+<a href='../S/197.html#L419'>buffer</a>            419 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( unsigned v, char* buffer, int bufferSize )
+<a href='../S/197.html#L421'>buffer</a>            421 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%u", v );
+<a href='../S/197.html#L425'>buffer</a>            425 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( bool v, char* buffer, int bufferSize )
+<a href='../S/197.html#L427'>buffer</a>            427 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%d", v ? 1 : 0 );
+<a href='../S/197.html#L431'>buffer</a>            431 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( float v, char* buffer, int bufferSize )
+<a href='../S/197.html#L433'>buffer</a>            433 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%g", v );
+<a href='../S/197.html#L437'>buffer</a>            437 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLUtil::ToStr( double v, char* buffer, int bufferSize )
+<a href='../S/197.html#L439'>buffer</a>            439 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXML_SNPRINTF( buffer, bufferSize, "%g", v );
+<a href='../S/196.html#L85'>buffer</a>             85 ovr/sdk/third_party/tinyxml/tinyxml2.h inline int TIXML_SNPRINTF( char* buffer, size_t size, const char* format, ... )
+<a href='../S/196.html#L89'>buffer</a>             89 ovr/sdk/third_party/tinyxml/tinyxml2.h     int result = vsnprintf_s( buffer, size, _TRUNCATE, format, va );
+<a href='../S/196.html#L500'>buffer</a>            500 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( int v, char* buffer, int bufferSize );
+<a href='../S/196.html#L501'>buffer</a>            501 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( unsigned v, char* buffer, int bufferSize );
+<a href='../S/196.html#L502'>buffer</a>            502 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( bool v, char* buffer, int bufferSize );
+<a href='../S/196.html#L503'>buffer</a>            503 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( float v, char* buffer, int bufferSize );
+<a href='../S/196.html#L504'>buffer</a>            504 ovr/sdk/third_party/tinyxml/tinyxml2.h     static void ToStr( double v, char* buffer, int bufferSize );
+</pre>
+</body>
+</html>

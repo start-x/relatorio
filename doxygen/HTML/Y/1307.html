@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>LogMask_Debug</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/155.html#L44'>LogMask_Debug</a>      44 ovr/sdk/src/Kernel/OVR_Log.h     LogMask_Debug   = 0x200,
+<a href='../S/155.html#L46'>LogMask_Debug</a>      46 ovr/sdk/src/Kernel/OVR_Log.h     LogMask_All     = LogMask_Regular|LogMask_Debug
+<a href='../S/155.html#L82'>LogMask_Debug</a>      82 ovr/sdk/src/Kernel/OVR_Log.h     Log_DebugText   = LogMask_Debug | 0,
+<a href='../S/155.html#L83'>LogMask_Debug</a>      83 ovr/sdk/src/Kernel/OVR_Log.h     Log_Debug       = LogMask_Debug | 1,   // "Debug: %s\n".
+<a href='../S/155.html#L84'>LogMask_Debug</a>      84 ovr/sdk/src/Kernel/OVR_Log.h     Log_Assert      = LogMask_Debug | 2,   // "Assert: %s\n".
+<a href='../S/155.html#L107'>LogMask_Debug</a>     107 ovr/sdk/src/Kernel/OVR_Log.h     Log(unsigned logMask = LogMask_Debug) : LoggingMask(logMask) { }
+<a href='../S/155.html#L139'>LogMask_Debug</a>     139 ovr/sdk/src/Kernel/OVR_Log.h         return (messageType &amp; LogMask_Debug) != 0;
+<a href='../S/155.html#L157'>LogMask_Debug</a>     157 ovr/sdk/src/Kernel/OVR_Log.h     static Log*     ConfigureDefaultLog(unsigned logMask = LogMask_Debug)
+<a href='../S/165.html#L52'>LogMask_Debug</a>      52 ovr/sdk/src/Kernel/OVR_System.h     System(Log* log = Log::ConfigureDefaultLog(LogMask_Debug),
+<a href='../S/165.html#L68'>LogMask_Debug</a>      68 ovr/sdk/src/Kernel/OVR_System.h     static void OVR_CDECL Init(Log* log = Log::ConfigureDefaultLog(LogMask_Debug),
+</pre>
+</body>
+</html>

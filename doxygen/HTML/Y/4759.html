@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>utf8StrSz</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/184.html#L249'>utf8StrSz</a>         249 ovr/sdk/src/Kernel/OVR_String.cpp void String::AppendString(const char* putf8str, SPInt utf8StrSz)
+<a href='../S/184.html#L251'>utf8StrSz</a>         251 ovr/sdk/src/Kernel/OVR_String.cpp     if (!putf8str || !utf8StrSz)
+<a href='../S/184.html#L253'>utf8StrSz</a>         253 ovr/sdk/src/Kernel/OVR_String.cpp     if (utf8StrSz == -1)
+<a href='../S/184.html#L254'>utf8StrSz</a>         254 ovr/sdk/src/Kernel/OVR_String.cpp         utf8StrSz = (SPInt)OVR_strlen(putf8str);
+<a href='../S/184.html#L259'>utf8StrSz</a>         259 ovr/sdk/src/Kernel/OVR_String.cpp     SetData(AllocDataCopy2(oldSize + (UPInt)utf8StrSz, 0,
+<a href='../S/184.html#L260'>utf8StrSz</a>         260 ovr/sdk/src/Kernel/OVR_String.cpp                            pdata-&gt;Data, oldSize, putf8str, (UPInt)utf8StrSz));
+<a href='../S/184.html#L693'>utf8StrSz</a>         693 ovr/sdk/src/Kernel/OVR_String.cpp void      StringBuffer::AppendString(const char* putf8str, SPInt utf8StrSz)
+<a href='../S/184.html#L695'>utf8StrSz</a>         695 ovr/sdk/src/Kernel/OVR_String.cpp     if (!putf8str || !utf8StrSz)
+<a href='../S/184.html#L697'>utf8StrSz</a>         697 ovr/sdk/src/Kernel/OVR_String.cpp     if (utf8StrSz == -1)
+<a href='../S/184.html#L698'>utf8StrSz</a>         698 ovr/sdk/src/Kernel/OVR_String.cpp         utf8StrSz = (SPInt)OVR_strlen(putf8str);
+<a href='../S/184.html#L701'>utf8StrSz</a>         701 ovr/sdk/src/Kernel/OVR_String.cpp     UPInt   size        = utf8StrSz + origSize;
+<a href='../S/184.html#L704'>utf8StrSz</a>         704 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData + origSize, putf8str, utf8StrSz);
+<a href='../S/161.html#L206'>utf8StrSz</a>         206 ovr/sdk/src/Kernel/OVR_String.h     void        AppendString(const char* putf8str, SPInt utf8StrSz = -1);
+<a href='../S/161.html#L462'>utf8StrSz</a>         462 ovr/sdk/src/Kernel/OVR_String.h     void        AppendString(const char* putf8str, SPInt utf8StrSz = -1);
+</pre>
+</body>
+</html>

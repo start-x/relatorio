@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>hInst</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/102.html#L130'>hInst</a>             130 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	HINSTANCE hInst = LoadLibrary(L"Opengl32.dll");
+<a href='../S/102.html#L131'>hInst</a>             131 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	if (!hInst)
+<a href='../S/102.html#L134'>hInst</a>             134 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glGetFloatv =                       (PFNGLGETFLOATVPROC)                       GetProcAddress(hInst, "glGetFloatv");
+<a href='../S/102.html#L135'>hInst</a>             135 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glGetIntegerv =                     (PFNGLGETINTEGERVPROC)                     GetProcAddress(hInst, "glGetIntegerv");
+<a href='../S/102.html#L136'>hInst</a>             136 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glGetString =                       (PFNGLGETSTRINGPROC)                       GetProcAddress(hInst, "glGetString");
+<a href='../S/102.html#L137'>hInst</a>             137 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glEnable =                          (PFNGLENABLEPROC)                          GetProcAddress(hInst, "glEnable");
+<a href='../S/102.html#L138'>hInst</a>             138 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glDisable =                         (PFNGLDISABLEPROC)                         GetProcAddress(hInst, "glDisable");
+<a href='../S/102.html#L139'>hInst</a>             139 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glColorMask =                       (PFNGLCOLORMASKPROC)                       GetProcAddress(hInst, "glColorMask");
+<a href='../S/102.html#L140'>hInst</a>             140 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glClear =                           (PFNGLCLEARPROC)                           GetProcAddress(hInst, "glClear" );
+<a href='../S/102.html#L141'>hInst</a>             141 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glClearColor =                      (PFNGLCLEARCOLORPROC)                      GetProcAddress(hInst, "glClearColor");
+<a href='../S/102.html#L142'>hInst</a>             142 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glClearDepth =                      (PFNGLCLEARDEPTHPROC)                      GetProcAddress(hInst, "glClearDepth");
+<a href='../S/102.html#L143'>hInst</a>             143 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glViewport =                        (PFNGLVIEWPORTPROC)                        GetProcAddress(hInst, "glViewport");
+<a href='../S/102.html#L144'>hInst</a>             144 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glFlush =                           (PFNGLFLUSHPROC)                           GetProcAddress(hInst, "glFlush");
+<a href='../S/102.html#L145'>hInst</a>             145 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glFinish =                          (PFNGLFINISHPROC)                          GetProcAddress(hInst, "glFinish");
+<a href='../S/102.html#L146'>hInst</a>             146 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     glDrawArrays =                      (PFNGLDRAWARRAYSPROC)                      GetProcAddress(hInst, "glDrawArrays");
+<a href='../S/102.html#L147'>hInst</a>             147 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glDrawElements =                    (PFNGLDRAWELEMENTSPROC)                    GetProcAddress(hInst, "glDrawElements");
+<a href='../S/102.html#L148'>hInst</a>             148 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     glGenTextures =                     (PFNGLGENTEXTURESPROC)                     GetProcAddress(hInst,"glGenTextures");
+<a href='../S/102.html#L149'>hInst</a>             149 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     glDeleteTextures =                  (PFNGLDELETETEXTURESPROC)                  GetProcAddress(hInst,"glDeleteTextures");
+<a href='../S/102.html#L150'>hInst</a>             150 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     glBindTexture =                     (PFNGLBINDTEXTUREPROC)                     GetProcAddress(hInst,"glBindTexture");
+<a href='../S/102.html#L151'>hInst</a>             151 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	glTexParameteri =                   (PFNGLTEXPARAMETERIPROC)                   GetProcAddress(hInst, "glTexParameteri");
+<a href='../S/102.html#L153'>hInst</a>             153 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     wglGetProcAddress =                 (PFNWGLGETPROCADDRESS)                     GetProcAddress(hInst, "wglGetProcAddress");
+<a href='../S/111.html#L102'>hInst</a>             102 ovr/sdk/src/Util/Util_ImageWindow.cpp 	HINSTANCE hInst = LoadLibrary( L"d2d1.dll" );
+<a href='../S/111.html#L108'>hInst</a>             108 ovr/sdk/src/Util/Util_ImageWindow.cpp 	if( hInst )
+<a href='../S/111.html#L110'>hInst</a>             110 ovr/sdk/src/Util/Util_ImageWindow.cpp 		createFactory = (D2D1CreateFactoryFn)GetProcAddress( hInst, "D2D1CreateFactory" );
+</pre>
+</body>
+</html>

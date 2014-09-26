@@ -1,0 +1,517 @@
+<html>
+<head>
+<title>ovr/sdk/src/Util/Util_Render_Stereo.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/222.html'>Util</a>/Util_Render_Stereo.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/144.html' title='Multiple included from 4 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   OVR.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   Util_Render_Stereo.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Sample stereo rendering configuration classes.</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   October 22, 2012</font></i>
+<a name='L7'>   7 <i><font color='green'>Authors     :   Michael Antonov, Tom Forsyth</font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#ifndef</font> <a href='../S/115.html#L29' title='Defined at 29 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>OVR_Util_Render_Stereo_h</a>
+<a name='L29'>  29 <font color='darkred'>#define</font> <a href='../S/115.html#L28' title='Refered from 28 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>OVR_Util_Render_Stereo_h</a>
+<a name='L30'>  30 
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='131.html'>../OVR_Stereo.h</a>"
+<a name='L32'>  32 
+<a name='L33'>  33 
+<a name='L34'>  34 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L35'>  35 
+<a name='L36'>  36 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../S/189.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SensorFusion</a>;
+<a name='L37'>  37 
+<a name='L38'>  38 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/1241.html' title='Multiple defined in 5 places.'>Util</a> <font color='red'>{</font> <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../S/117.html#L30' title='Defined at 30 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>Render</a> <font color='red'>{</font>
+<a name='L39'>  39 
+<a name='L40'>  40 
+<a name='L41'>  41 
+<a name='L42'>  42 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L43'>  43 <i><font color='green'>// **** Useful debug functions.</font></i>
+<a name='L44'>  44 <i><font color='green'>//</font></i>
+<a name='L45'>  45 <i><font color='green'>// Purely for debugging - the results are not very end-user-friendly.</font></i>
+<a name='L46'>  46 <b>char</b> <b>const</b>* <a href='../S/117.html#L36' title='Defined at 36 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetDebugNameEyeCupType</a> ( <a href='../S/85.html#L115' title='Defined at 115 in ovr/sdk/src/OVR_DeviceConstants.h.'>EyeCupType</a> <a href='../Y/3162.html' title='Multiple used in 3 places.'>eyeCupType</a> );
+<a name='L47'>  47 <b>char</b> <b>const</b>* <a href='../S/117.html#L58' title='Defined at 58 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetDebugNameHmdType</a> ( <a href='../S/85.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_DeviceConstants.h.'>HmdTypeEnum</a> <a href='../Y/3421.html' title='Multiple used in 31 places.'>hmdType</a> );
+<a name='L48'>  48 
+<a name='L49'>  49 
+<a name='L50'>  50 
+<a name='L51'>  51 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L52'>  52 <i><font color='green'>// **** Higher-level utility functions.</font></i>
+<a name='L53'>  53 
+<a name='L54'>  54 <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <a href='../D/98.html' title='Multiple defined in 2 places.'>CalculateRecommendedTextureSize</a>    ( <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L55'>  55                                            <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2746.html' title='Multiple used in 17 places.'>bRendertargetSharedByBothEyes</a>,
+<a name='L56'>  56                                            <b>float</b> <a href='../Y/4059.html' title='Multiple used in 6 places.'>pixelDensityInCenter</a> = 1.0f );
+<a name='L57'>  57 
+<a name='L58'>  58 <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../S/117.html#L315' title='Defined at 315 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>CalculateRecommendedFov</a>          ( <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L59'>  59                                            <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>,
+<a name='L60'>  60                                            <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2744.html' title='Multiple used in 3 places.'>bMakeFovSymmetrical</a> = <a href='../Y/3198.html' title='Multiple used in 97 places.'>false</a>);
+<a name='L61'>  61 
+<a name='L62'>  62 <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <a href='../S/117.html#L277' title='Defined at 277 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>CalculateStereoEyeParams</a> ( <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L63'>  63                                            <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>,
+<a name='L64'>  64                                            <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> &amp;<a href='../Y/2681.html' title='Multiple used in 30 places.'>actualRendertargetSurfaceSize</a>,
+<a name='L65'>  65                                            <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2746.html' title='Multiple used in 17 places.'>bRendertargetSharedByBothEyes</a>,
+<a name='L66'>  66                                            <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2747.html' title='Multiple used in 5 places.'>bRightHanded</a> = <a href='../Y/4657.html' title='Multiple used in 68 places.'>true</a>,
+<a name='L67'>  67                                            <b>float</b> <a href='../Y/4894.html' title='Multiple used in 17 places.'>zNear</a> = 0.01f, <b>float</b> <a href='../Y/4893.html' title='Multiple used in 18 places.'>zFar</a> = 10000.0f,
+<a name='L68'>  68                                                                                    <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> *<a href='../Y/3966.html' title='Multiple used in 4 places.'>pOverrideRenderedPixelSize</a> = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>,
+<a name='L69'>  69                                            <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <b>const</b> *<a href='../Y/3965.html' title='Multiple used in 4 places.'>pOverrideFovport</a> = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>,
+<a name='L70'>  70                                            <b>float</b> <a href='../Y/4900.html' title='Multiple used in 5 places.'>zoomFactor</a> = 1.0f );
+<a name='L71'>  71 
+<a name='L72'>  72 <a href='../S/177.html#L554' title='Defined at 554 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector3f</a> <a href='../S/117.html#L222' title='Defined at 222 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>CalculateEyeVirtualCameraOffset</a>(<a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> <b>const</b> &amp;<a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>,
+<a name='L73'>  73                                          <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3176.html' title='Multiple used in 76 places.'>eyeType</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2745.html' title='Multiple used in 7 places.'>bMonoRenderingMode</a> );
+<a name='L74'>  74 
+<a name='L75'>  75 
+<a name='L76'>  76 <i><font color='green'>// These are two components from StereoEyeParams that can be changed</font></i>
+<a name='L77'>  77 <i><font color='green'>// very easily without full recomputation of everything.</font></i>
+<a name='L78'>  78 <b>struct</b> <a href='../R/1175.html' title='Multiple refered from 12 places.'>ViewportScaleAndOffset</a>
+<a name='L79'>  79 <font color='red'>{</font>
+<a name='L80'>  80     <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a>               <a href='../Y/1861.html' title='Multiple used in 8 places.'>RenderedViewport</a>;
+<a name='L81'>  81     <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a>    <a href='../Y/568.html' title='Multiple used in 11 places.'>EyeToSourceUV</a>;
+<a name='L82'>  82 <font color='red'>}</font>;
+<a name='L83'>  83 
+<a name='L84'>  84 <i><font color='green'>// Three ways to override the size of the render view dynamically.</font></i>
+<a name='L85'>  85 <i><font color='green'>// None of these require changing the distortion parameters or the regenerating the distortion mesh,</font></i>
+<a name='L86'>  86 <i><font color='green'>// and can be called every frame if desired.</font></i>
+<a name='L87'>  87 <a href='../S/115.html#L78' title='Defined at 78 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffset</a> <a href='../S/117.html#L335' title='Defined at 335 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>ModifyRenderViewport</a> ( <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <b>const</b> &amp;<a href='../Y/3999.html' title='Multiple used in 29 places.'>params</a>,
+<a name='L88'>  88                                               <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> &amp;<a href='../Y/2681.html' title='Multiple used in 30 places.'>actualRendertargetSurfaceSize</a>,
+<a name='L89'>  89                                               <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a> <b>const</b> &amp;<a href='../Y/4269.html' title='Multiple used in 10 places.'>renderViewport</a> );
+<a name='L90'>  90 
+<a name='L91'>  91 <a href='../S/115.html#L78' title='Defined at 78 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffset</a> <a href='../S/117.html#L342' title='Defined at 342 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>ModifyRenderSize</a> ( <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <b>const</b> &amp;<a href='../Y/3999.html' title='Multiple used in 29 places.'>params</a>,
+<a name='L92'>  92                                           <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> &amp;<a href='../Y/2681.html' title='Multiple used in 30 places.'>actualRendertargetSurfaceSize</a>,
+<a name='L93'>  93                                           <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> &amp;<a href='../Y/4282.html' title='Multiple used in 3 places.'>requestedRenderSize</a>,
+<a name='L94'>  94                                           <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2746.html' title='Multiple used in 17 places.'>bRendertargetSharedByBothEyes</a> = <a href='../Y/3198.html' title='Multiple used in 97 places.'>false</a> );
+<a name='L95'>  95 
+<a name='L96'>  96 <a href='../S/115.html#L78' title='Defined at 78 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffset</a> <a href='../S/117.html#L351' title='Defined at 351 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>ModifyRenderDensity</a> ( <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> <b>const</b> &amp;<a href='../Y/3999.html' title='Multiple used in 29 places.'>params</a>,
+<a name='L97'>  97                                              <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> &amp;<a href='../Y/2681.html' title='Multiple used in 30 places.'>actualRendertargetSurfaceSize</a>,
+<a name='L98'>  98                                              <b>float</b> <a href='../Y/4058.html' title='Multiple used in 3 places.'>pixelDensity</a> = 1.0f,
+<a name='L99'>  99                                              <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/2746.html' title='Multiple used in 17 places.'>bRendertargetSharedByBothEyes</a> = <a href='../Y/3198.html' title='Multiple used in 97 places.'>false</a> );
+<a name='L100'> 100 
+<a name='L101'> 101 
+<a name='L102'> 102 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L103'> 103 <i><font color='green'>// *****  StereoConfig</font></i>
+<a name='L104'> 104 
+<a name='L105'> 105 <i><font color='green'>// StereoConfig maintains a scene stereo state and allow switching between different</font></i>
+<a name='L106'> 106 <i><font color='green'>// stereo rendering modes. To support rendering, StereoConfig keeps track of HMD</font></i>
+<a name='L107'> 107 <i><font color='green'>// variables such as screen size, eye-to-screen distance and distortion, and computes</font></i>
+<a name='L108'> 108 <i><font color='green'>// extra data such as FOV and distortion center offsets based on it. Rendering</font></i>
+<a name='L109'> 109 <i><font color='green'>// parameters are returned though StereoEyeParams for each eye.</font></i>
+<a name='L110'> 110 <i><font color='green'>//</font></i>
+<a name='L111'> 111 <i><font color='green'>// Beyond regular 3D projection, this class supports rendering a 2D orthographic</font></i>
+<a name='L112'> 112 <i><font color='green'>// surface for UI and text. The 2D surface will be defined by CreateOrthoSubProjection().</font></i>
+<a name='L113'> 113 <i><font color='green'>// The (0,0) coordinate corresponds to eye center location.</font></i>
+<a name='L114'> 114 <i><font color='green'>// </font></i>
+<a name='L115'> 115 <i><font color='green'>// Applications are not required to use this class, but they should be doing very</font></i>
+<a name='L116'> 116 <i><font color='green'>// similar sequences of operations, and it may be useful to start with this class</font></i>
+<a name='L117'> 117 <i><font color='green'>// and modify it.</font></i>
+<a name='L118'> 118 
+<a name='L119'> 119 <b>struct</b> <a href='../R/1054.html' title='Multiple refered from 3 places.'>StereoEyeParamsWithOrtho</a>
+<a name='L120'> 120 <font color='red'>{</font>
+<a name='L121'> 121     <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a>         <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a>;
+<a name='L122'> 122     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>                <a href='../Y/1555.html' title='Multiple used in 6 places.'>OrthoProjection</a>;
+<a name='L123'> 123 <font color='red'>}</font>;
+<a name='L124'> 124 
+<a name='L125'> 125 <b>struct</b> <a href='../R/1176.html' title='Multiple refered from 9 places.'>ViewportScaleAndOffsetBothEyes</a>
+<a name='L126'> 126 <font color='red'>{</font>
+<a name='L127'> 127     <a href='../S/115.html#L78' title='Defined at 78 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffset</a>  <a href='../Y/1265.html' title='Multiple used in 3 places.'>Left</a>;
+<a name='L128'> 128     <a href='../S/115.html#L78' title='Defined at 78 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffset</a>  <a href='../Y/1878.html' title='Multiple used in 3 places.'>Right</a>;
+<a name='L129'> 129 <font color='red'>}</font>;
+<a name='L130'> 130 
+<a name='L131'> 131 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/2137.html' title='Multiple used in 19 places.'>StereoConfig</a>
+<a name='L132'> 132 <font color='red'>{</font>
+<a name='L133'> 133 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L134'> 134 
+<a name='L135'> 135     <i><font color='green'>// StereoMode describes rendering modes that can be used by StereoConfig.</font></i>
+<a name='L136'> 136     <i><font color='green'>// These modes control whether stereo rendering is used or not (Stereo_None),</font></i>
+<a name='L137'> 137     <i><font color='green'>// and how it is implemented.</font></i>
+<a name='L138'> 138     <b>enum</b> <a href='../R/1055.html' title='Multiple refered from 4 places.'>StereoMode</a>
+<a name='L139'> 139     <font color='red'>{</font>
+<a name='L140'> 140         <a href='../Y/2145.html' title='Multiple used in 2 places.'>Stereo_None</a>                     = 0,        <i><font color='green'>// Single eye</font></i>
+<a name='L141'> 141         <a href='../Y/2144.html' title='Multiple used in 3 places.'>Stereo_LeftRight_Multipass</a>      = 1,        <i><font color='green'>// One frustum per eye</font></i>
+<a name='L142'> 142     <font color='red'>}</font>;
+<a name='L143'> 143 
+<a name='L144'> 144 
+<a name='L145'> 145     <a href='../Y/2137.html' title='Multiple used in 19 places.'>StereoConfig</a>(<a href='../S/115.html#L138' title='Defined at 138 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>StereoMode</a> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a> = <a href='../Y/2144.html' title='Multiple used in 3 places.'>Stereo_LeftRight_Multipass</a>);
+<a name='L146'> 146  
+<a name='L147'> 147     <i><font color='green'>//---------------------------------------------------------------------------------------------</font></i>
+<a name='L148'> 148     <i><font color='green'>// *** Core functions - every app MUST call these functions at least once.</font></i>
+<a name='L149'> 149 
+<a name='L150'> 150     <i><font color='green'>// Sets HMD parameters; also initializes distortion coefficients.</font></i>
+<a name='L151'> 151     <b>void</b>        <a href='../S/117.html#L426' title='Defined at 426 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetHmdRenderInfo</a>(<b>const</b> <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a>&amp; <a href='../Y/3413.html' title='Multiple used in 210 places.'>hmd</a>);
+<a name='L152'> 152 
+<a name='L153'> 153     <i><font color='green'>// Set the physical size of the rendertarget surface the app created,</font></i>
+<a name='L154'> 154     <i><font color='green'>// and whether one RT is shared by both eyes, or each eye has its own RT:</font></i>
+<a name='L155'> 155     <i><font color='green'>// true: both eyes are rendered to the same RT. Left eye starts at top-left, right eye starts at top-middle.</font></i>
+<a name='L156'> 156     <i><font color='green'>// false: each eye is rendered to its own RT. Some GPU architectures prefer this arrangement.</font></i>
+<a name='L157'> 157     <i><font color='green'>// Typically, the app would call CalculateRecommendedTextureSize() to suggest the choice of RT size.</font></i>
+<a name='L158'> 158     <i><font color='green'>// This setting must be exactly the size of the actual RT created, or the UVs produced will be incorrect.</font></i>
+<a name='L159'> 159     <i><font color='green'>// If the app wants to render to a subsection of the RT, it should use SetRenderSize()</font></i>
+<a name='L160'> 160     <b>void</b>        <a href='../S/117.html#L471' title='Defined at 471 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetRendertargetSize</a> (<a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>&lt;<b>int</b>&gt; <b>const</b> <a href='../Y/4278.html' title='Multiple used in 3 places.'>rendertargetSize</a>,
+<a name='L161'> 161                                      <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4276.html' title='Multiple used in 3 places.'>rendertargetIsSharedByBothEyes</a> );
+<a name='L162'> 162 
+<a name='L163'> 163     <i><font color='green'>// Returns full set of Stereo rendering parameters for the specified eye.</font></i>
+<a name='L164'> 164     <b>const</b> <a href='../S/115.html#L119' title='Defined at 119 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>StereoEyeParamsWithOrtho</a>&amp; <a href='../S/117.html#L438' title='Defined at 438 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetEyeRenderParams</a>(<a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>);
+<a name='L165'> 165 
+<a name='L166'> 166 
+<a name='L167'> 167 
+<a name='L168'> 168     <i><font color='green'>//---------------------------------------------------------------------------------------------</font></i>
+<a name='L169'> 169     <i><font color='green'>// *** Optional functions - an app may call these to override default behaviours.</font></i>
+<a name='L170'> 170 
+<a name='L171'> 171     <b>const</b> <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a>&amp; GetHmdRenderInfo() <b>const</b> <font color='red'>{</font> <b>return</b> <a href='../Y/923.html' title='Multiple used in 37 places.'>Hmd</a>; <font color='red'>}</font>
+<a name='L172'> 172 
+<a name='L173'> 173     <i><font color='green'>// Returns the recommended size of rendertargets.</font></i>
+<a name='L174'> 174     <i><font color='green'>// If rendertargetIsSharedByBothEyes is true, this is the size of the combined buffer.</font></i>
+<a name='L175'> 175     <i><font color='green'>// If rendertargetIsSharedByBothEyes is false, this is the size of each individual buffer.</font></i>
+<a name='L176'> 176     <i><font color='green'>// pixelDensityInCenter may be set to any number - by default it will match the HMD resolution in the center of the image.</font></i>
+<a name='L177'> 177     <i><font color='green'>// After creating the rendertargets, the application MUST call SetRendertargetSize() with the actual size created</font></i>
+<a name='L178'> 178     <i><font color='green'>// (which can be larger or smaller as the app wishes, but StereoConfig needs to know either way)</font></i>
+<a name='L179'> 179     <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a>       <a href='../D/98.html' title='Multiple defined in 2 places.'>CalculateRecommendedTextureSize</a> ( <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4277.html' title='Multiple used in 3 places.'>rendertargetSharedByBothEyes</a>,
+<a name='L180'> 180                                                   <b>float</b> <a href='../Y/4059.html' title='Multiple used in 6 places.'>pixelDensityInCenter</a> = 1.0f );
+<a name='L181'> 181 
+<a name='L182'> 182     <i><font color='green'>// Sets a stereo rendering mode and updates internal cached</font></i>
+<a name='L183'> 183     <i><font color='green'>// state (matrices, per-eye view) based on it.</font></i>
+<a name='L184'> 184     <b>void</b>        SetStereoMode(<a href='../S/115.html#L138' title='Defined at 138 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>StereoMode</a> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>)  <font color='red'>{</font> <a href='../Y/1433.html' title='Multiple used in 11 places.'>Mode</a> = <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>; <a href='../S/117.html#L366' title='Defined at 366 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>DirtyFlag</a> = <a href='../Y/4657.html' title='Multiple used in 68 places.'>true</a>; <font color='red'>}</font>
+<a name='L185'> 185     <a href='../S/115.html#L138' title='Defined at 138 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>StereoMode</a>  GetStereoMode() <b>const</b>           <font color='red'>{</font> <b>return</b> <a href='../Y/1433.html' title='Multiple used in 11 places.'>Mode</a>; <font color='red'>}</font>
+<a name='L186'> 186 
+<a name='L187'> 187     <i><font color='green'>// Sets the fieldOfView that the 2D coordinate area stretches to.</font></i>
+<a name='L188'> 188     <b>void</b>        <a href='../S/117.html#L432' title='Defined at 432 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>Set2DAreaFov</a>(<b>float</b> <a href='../Y/3243.html' title='Multiple used in 3 places.'>fovRadians</a>);
+<a name='L189'> 189 
+<a name='L190'> 190     <i><font color='green'>// Really only for science experiments - no normal app should ever need to override</font></i>
+<a name='L191'> 191     <i><font color='green'>// the HMD's lens descriptors. Passing NULL removes the override.</font></i>
+<a name='L192'> 192     <i><font color='green'>// Supply both = set left and right.</font></i>
+<a name='L193'> 193     <i><font color='green'>// Supply just left = set both to the same.</font></i>
+<a name='L194'> 194     <i><font color='green'>// Supply neither = remove override.</font></i>
+<a name='L195'> 195     <b>void</b>        <a href='../S/117.html#L451' title='Defined at 451 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetLensOverride</a> ( <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a> <b>const</b> *<a href='../Y/3955.html' title='Multiple used in 5 places.'>pLensOverrideLeft</a>  = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>,
+<a name='L196'> 196                                   <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a> <b>const</b> *<a href='../Y/3956.html' title='Multiple used in 4 places.'>pLensOverrideRight</a> = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a> );
+<a name='L197'> 197  
+<a name='L198'> 198     <i><font color='green'>// Override the rendered FOV in various ways. All angles in tangent units.</font></i>
+<a name='L199'> 199     <i><font color='green'>// This is not clamped to the physical FOV of the display - you'll need to do that yourself!</font></i>
+<a name='L200'> 200     <i><font color='green'>// Supply both = set left and right.</font></i>
+<a name='L201'> 201     <i><font color='green'>// Supply just left = set both to the same.</font></i>
+<a name='L202'> 202     <i><font color='green'>// Supply neither = remove override.</font></i>
+<a name='L203'> 203     <b>void</b>        <a href='../S/117.html#L479' title='Defined at 479 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetFov</a> ( <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <b>const</b> *<a href='../Y/4047.html' title='Multiple used in 5 places.'>pfovLeft</a>  = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>,
+<a name='L204'> 204                                              <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <b>const</b> *<a href='../Y/4048.html' title='Multiple used in 4 places.'>pfovRight</a> = <a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a> );
+<a name='L205'> 205     
+<a name='L206'> 206     <b>void</b>        SetFovPortRadians ( <b>float</b> <a href='../Y/3427.html' title='Multiple used in 2 places.'>horizontal</a>, <b>float</b> <a href='../Y/4792.html' title='Multiple used in 2 places.'>vertical</a> )
+<a name='L207'> 207     <font color='red'>{</font>
+<a name='L208'> 208         <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a> <a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a> = <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>::<a href='../Y/274.html' title='Multiple used in 3 places.'>CreateFromRadians</a>(<a href='../Y/3427.html' title='Multiple used in 2 places.'>horizontal</a>, <a href='../Y/4792.html' title='Multiple used in 2 places.'>vertical</a>);
+<a name='L209'> 209         <a href='../S/117.html#L479' title='Defined at 479 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetFov</a>( &amp;<a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a>, &amp;<a href='../Y/3241.html' title='Multiple used in 61 places.'>fov</a> );
+<a name='L210'> 210     <font color='red'>}</font>
+<a name='L211'> 211 
+<a name='L212'> 212 
+<a name='L213'> 213     <i><font color='green'>// This forces a "zero IPD" mode where there is just a single render with an FOV that</font></i>
+<a name='L214'> 214     <i><font color='green'>//   is the union of the two calculated FOVs.</font></i>
+<a name='L215'> 215     <i><font color='green'>// The calculated render is for the left eye. Any size &amp; FOV overrides for the right</font></i>
+<a name='L216'> 216     <i><font color='green'>//   eye will be ignored.</font></i>
+<a name='L217'> 217     <i><font color='green'>// If you query the right eye's size, you will get the same render</font></i>
+<a name='L218'> 218     <i><font color='green'>//   size &amp; position as the left eye - you should not actually do the render of course!</font></i>
+<a name='L219'> 219     <i><font color='green'>//   The distortion values will be different, because it goes to a different place on the framebuffer.</font></i>
+<a name='L220'> 220     <i><font color='green'>// Note that if you do this, the rendertarget does not need to be twice the width of</font></i>
+<a name='L221'> 221     <i><font color='green'>//   the render size any more.</font></i>
+<a name='L222'> 222     <b>void</b>        <a href='../S/117.html#L500' title='Defined at 500 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetZeroVirtualIpdOverride</a> ( <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/3108.html' title='Multiple used in 3 places.'>enableOverride</a> );
+<a name='L223'> 223 
+<a name='L224'> 224     <i><font color='green'>// Allows the app to specify near and far clip planes and the right/left-handedness of the projection matrix.</font></i>
+<a name='L225'> 225     <b>void</b>        <a href='../S/117.html#L507' title='Defined at 507 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetZClipPlanesAndHandedness</a> ( <b>float</b> <a href='../Y/4894.html' title='Multiple used in 17 places.'>zNear</a> = 0.01f, <b>float</b> <a href='../Y/4893.html' title='Multiple used in 18 places.'>zFar</a> = 10000.0f,
+<a name='L226'> 226                                               <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4313.html' title='Multiple used in 3 places.'>rightHandedProjection</a> = <a href='../Y/4657.html' title='Multiple used in 68 places.'>true</a> );
+<a name='L227'> 227 
+<a name='L228'> 228     <i><font color='green'>// Allows the app to specify how much extra eye rotation to allow when determining the visible FOV.</font></i>
+<a name='L229'> 229     <b>void</b>        <a href='../S/117.html#L515' title='Defined at 515 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetExtraEyeRotation</a> ( <b>float</b> <a href='../Y/3153.html' title='Multiple used in 15 places.'>extraEyeRotationInRadians</a> = 0.0f );
+<a name='L230'> 230 
+<a name='L231'> 231     <i><font color='green'>// The dirty flag is set by any of the above calls. Just handy for the app to know</font></i>
+<a name='L232'> 232     <i><font color='green'>// if e.g. the distortion mesh needs regeneration.</font></i>
+<a name='L233'> 233     <b>void</b>        SetDirty() <font color='red'>{</font> <a href='../S/117.html#L366' title='Defined at 366 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>DirtyFlag</a> = <a href='../Y/4657.html' title='Multiple used in 68 places.'>true</a>; <font color='red'>}</font>
+<a name='L234'> 234     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>        IsDirty() <font color='red'>{</font> <b>return</b> <a href='../S/117.html#L366' title='Defined at 366 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>DirtyFlag</a>; <font color='red'>}</font>
+<a name='L235'> 235 
+<a name='L236'> 236     <i><font color='green'>// An app never needs to call this - GetEyeRenderParams will call it internally if</font></i>
+<a name='L237'> 237     <i><font color='green'>// the state is dirty. However apps can call this explicitly to control when and where</font></i>
+<a name='L238'> 238     <i><font color='green'>// computation is performed (e.g. not inside critical loops)</font></i>
+<a name='L239'> 239     <b>void</b>        <a href='../S/117.html#L529' title='Defined at 529 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>UpdateComputedState</a>();
+<a name='L240'> 240 
+<a name='L241'> 241     <i><font color='green'>// This returns the projection matrix with a "zoom". Does not modify any internal state.</font></i>
+<a name='L242'> 242     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>    <a href='../S/117.html#L760' title='Defined at 760 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetProjectionWithZoom</a> ( <a href='../S/131.html#L44' title='Defined at 44 in ovr/sdk/src/OVR_Stereo.h.'>StereoEye</a> <a href='../Y/3157.html' title='Multiple used in 64 places.'>eye</a>, <b>float</b> <a href='../Y/3247.html' title='Multiple used in 3 places.'>fovZoom</a> ) <b>const</b>;
+<a name='L243'> 243 
+<a name='L244'> 244 
+<a name='L245'> 245     <i><font color='green'>//---------------------------------------------------------------------------------------------</font></i>
+<a name='L246'> 246     <i><font color='green'>// The SetRender* functions are special.</font></i>
+<a name='L247'> 247     <i><font color='green'>//</font></i>
+<a name='L248'> 248     <i><font color='green'>// They do not require a full recalculation of state, and they do not change anything but the</font></i>
+<a name='L249'> 249     <i><font color='green'>// ViewportScaleAndOffset data for the eyes (which they return), and do not set the dirty flag!</font></i>
+<a name='L250'> 250     <i><font color='green'>// This means they can be called without regenerating the distortion mesh, and thus </font></i>
+<a name='L251'> 251     <i><font color='green'>// can happily be called every frame without causing performance problems. Dynamic rescaling </font></i>
+<a name='L252'> 252     <i><font color='green'>// of the rendertarget can help keep framerate up in demanding VR applications.</font></i>
+<a name='L253'> 253     <i><font color='green'>// See the documentation for more details on their use.</font></i>
+<a name='L254'> 254 
+<a name='L255'> 255     <i><font color='green'>// Specify a pixel density - how many rendered pixels per pixel in the physical display.</font></i>
+<a name='L256'> 256     <a href='../S/115.html#L125' title='Defined at 125 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffsetBothEyes</a> <a href='../S/117.html#L735' title='Defined at 735 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetRenderDensity</a> ( <b>float</b> <a href='../Y/4065.html' title='Multiple used in 13 places.'>pixelsPerDisplayPixel</a> );
+<a name='L257'> 257 
+<a name='L258'> 258     <i><font color='green'>// Supply the size directly. Will be clamped to the physical rendertarget size.</font></i>
+<a name='L259'> 259     <a href='../S/115.html#L125' title='Defined at 125 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffsetBothEyes</a> <a href='../S/117.html#L743' title='Defined at 743 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetRenderSize</a> ( <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> &amp;<a href='../Y/4265.html' title='Multiple used in 3 places.'>renderSizeLeft</a>, <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a> <b>const</b> &amp;<a href='../Y/4266.html' title='Multiple used in 3 places.'>renderSizeRight</a> );
+<a name='L260'> 260 
+<a name='L261'> 261     <i><font color='green'>// Supply the viewport directly. This is not clamped to the physical rendertarget - careful now!</font></i>
+<a name='L262'> 262     <a href='../S/115.html#L125' title='Defined at 125 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffsetBothEyes</a> <a href='../S/117.html#L752' title='Defined at 752 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>SetRenderViewport</a> ( <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a> <b>const</b> &amp;<a href='../Y/4270.html' title='Multiple used in 3 places.'>renderViewportLeft</a>, <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a> <b>const</b> &amp;<a href='../Y/4271.html' title='Multiple used in 3 places.'>renderViewportRight</a> );
+<a name='L263'> 263 
+<a name='L264'> 264 <a href='../Y/4115.html' title='Multiple used in 56 places.'>private</a>:
+<a name='L265'> 265 
+<a name='L266'> 266     <i><font color='green'>// *** Modifiable State</font></i>
+<a name='L267'> 267 
+<a name='L268'> 268     <a href='../S/115.html#L138' title='Defined at 138 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>StereoMode</a>         <a href='../Y/1433.html' title='Multiple used in 11 places.'>Mode</a>;
+<a name='L269'> 269     <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a>      <a href='../Y/923.html' title='Multiple used in 37 places.'>Hmd</a>;
+<a name='L270'> 270 
+<a name='L271'> 271     <b>float</b>              <a href='../Y/61.html' title='Multiple used in 3 places.'>Area2DFov</a>;           <i><font color='green'>// FOV range mapping to the 2D area.</font></i>
+<a name='L272'> 272 
+<a name='L273'> 273     <i><font color='green'>// Only one of these three overrides can be true!</font></i>
+<a name='L274'> 274     <b>enum</b> SetViewportModeEnum
+<a name='L275'> 275     <font color='red'>{</font>
+<a name='L276'> 276         <a href='../Y/1923.html' title='Multiple used in 4 places.'>SVPM_Density</a>,
+<a name='L277'> 277         <a href='../Y/1924.html' title='Multiple used in 3 places.'>SVPM_Size</a>,
+<a name='L278'> 278         <a href='../Y/1925.html' title='Multiple used in 3 places.'>SVPM_Viewport</a>,
+<a name='L279'> 279     <font color='red'>}</font>                  <a href='../Y/2068.html' title='Multiple used in 6 places.'>SetViewportMode</a>;
+<a name='L280'> 280     <i><font color='green'>// ...and depending which it is, one of the following are used.</font></i>
+<a name='L281'> 281     <b>float</b>              <a href='../Y/2069.html' title='Multiple used in 4 places.'>SetViewportPixelsPerDisplayPixel</a>;
+<a name='L282'> 282     <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a>              <a href='../Y/2070.html' title='Multiple used in 7 places.'>SetViewportSize</a>[2];
+<a name='L283'> 283     <a href='../S/177.html#L681' title='Defined at 681 in ovr/sdk/src/Kernel/OVR_Math.h.'>Recti</a>           <a href='../Y/2067.html' title='Multiple used in 7 places.'>SetViewport</a>[2];
+<a name='L284'> 284 
+<a name='L285'> 285     <i><font color='green'>// Other overrides.</font></i>
+<a name='L286'> 286     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>               <a href='../Y/1560.html' title='Multiple used in 5 places.'>OverrideLens</a>;
+<a name='L287'> 287     <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a>         <a href='../Y/1274.html' title='Multiple used in 3 places.'>LensOverrideLeft</a>;
+<a name='L288'> 288     <a href='../S/131.html#L174' title='Defined at 174 in ovr/sdk/src/OVR_Stereo.h.'>LensConfig</a>         <a href='../Y/1275.html' title='Multiple used in 4 places.'>LensOverrideRight</a>;
+<a name='L289'> 289     <a href='../S/177.html#L636' title='Defined at 636 in ovr/sdk/src/Kernel/OVR_Math.h.'>Sizei</a>              <a href='../Y/1863.html' title='Multiple used in 10 places.'>RendertargetSize</a>;
+<a name='L290'> 290     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>               <a href='../Y/1561.html' title='Multiple used in 5 places.'>OverrideTanHalfFov</a>;
+<a name='L291'> 291     <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>            <a href='../Y/627.html' title='Multiple used in 3 places.'>FovOverrideLeft</a>;
+<a name='L292'> 292     <a href='../S/131.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_Stereo.h.'>FovPort</a>            <a href='../Y/628.html' title='Multiple used in 4 places.'>FovOverrideRight</a>;
+<a name='L293'> 293     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>               <a href='../Y/1562.html' title='Multiple used in 12 places.'>OverrideZeroIpd</a>;
+<a name='L294'> 294     <b>float</b>              <a href='../Y/2513.html' title='Multiple used in 5 places.'>ZNear</a>;
+<a name='L295'> 295     <b>float</b>              <a href='../Y/2512.html' title='Multiple used in 5 places.'>ZFar</a>;
+<a name='L296'> 296     <b>float</b>              <a href='../Y/539.html' title='Multiple used in 4 places.'>ExtraEyeRotationInRadians</a>;
+<a name='L297'> 297     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>               <a href='../Y/1044.html' title='Multiple used in 6 places.'>IsRendertargetSharedByBothEyes</a>;
+<a name='L298'> 298     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>               <a href='../Y/1879.html' title='Multiple used in 5 places.'>RightHandedProjection</a>;
+<a name='L299'> 299 
+<a name='L300'> 300     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>               <a href='../S/117.html#L366' title='Defined at 366 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>DirtyFlag</a>;   <i><font color='green'>// Set when any if the modifiable state changed. Does NOT get set by SetRender*()</font></i>
+<a name='L301'> 301 
+<a name='L302'> 302     <i><font color='green'>// Utility function.</font></i>
+<a name='L303'> 303     <a href='../S/115.html#L125' title='Defined at 125 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>ViewportScaleAndOffsetBothEyes</a> <a href='../S/117.html#L671' title='Defined at 671 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>setupViewportScaleAndOffsets</a>();
+<a name='L304'> 304 
+<a name='L305'> 305     <i><font color='green'>// *** Computed State</font></i>
+<a name='L306'> 306 
+<a name='L307'> 307 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:     <i><font color='green'>// Small hack for the config tool. Normal code should never read EyeRenderParams directly - use GetEyeRenderParams() instead.</font></i>
+<a name='L308'> 308     <i><font color='green'>// 0/1 = left/right main views.</font></i>
+<a name='L309'> 309     <a href='../S/115.html#L119' title='Defined at 119 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>StereoEyeParamsWithOrtho</a>    <a href='../Y/562.html' title='Multiple used in 42 places.'>EyeRenderParams</a>[2];
+<a name='L310'> 310 <font color='red'>}</font>;
+<a name='L311'> 311 
+<a name='L312'> 312 
+<a name='L313'> 313 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L314'> 314 <i><font color='green'>// *****  Distortion Mesh Rendering</font></i>
+<a name='L315'> 315 <i><font color='green'>//</font></i>
+<a name='L316'> 316 
+<a name='L317'> 317 <i><font color='green'>// Stores both texture UV coords, or tan(angle) values.</font></i>
+<a name='L318'> 318 <i><font color='green'>// Use whichever set of data the specific distortion algorithm requires.</font></i>
+<a name='L319'> 319 <i><font color='green'>// This struct *must* be binary compatible with CAPI ovrDistortionVertex.</font></i>
+<a name='L320'> 320 <b>struct</b> <a href='../R/202.html' title='Multiple refered from 15 places.'>DistortionMeshVertexData</a>
+<a name='L321'> 321 <font color='red'>{</font>
+<a name='L322'> 322     <i><font color='green'>// [-1,+1],[-1,+1] over the entire framebuffer.</font></i>
+<a name='L323'> 323     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>    <a href='../Y/1972.html' title='Multiple used in 7 places.'>ScreenPosNDC</a>;
+<a name='L324'> 324     <i><font color='green'>// [0.0-1.0] interpolation value for timewarping - see documentation for details.</font></i>
+<a name='L325'> 325     <b>float</b>       <a href='../Y/2266.html' title='Multiple used in 15 places.'>TimewarpLerp</a>;
+<a name='L326'> 326     <i><font color='green'>// [0.0-1.0] fade-to-black at the edges to reduce peripheral vision noise.</font></i>
+<a name='L327'> 327     <b>float</b>       <a href='../Y/2076.html' title='Multiple used in 3 places.'>Shade</a>;        
+<a name='L328'> 328     <i><font color='green'>// The red, green, and blue vectors in tan(angle) space.</font></i>
+<a name='L329'> 329     <i><font color='green'>// Scale and offset by the values in StereoEyeParams.EyeToSourceUV.Scale</font></i>
+<a name='L330'> 330     <i><font color='green'>// and StereoParams.EyeToSourceUV.Offset to get to real texture UV coords.</font></i>
+<a name='L331'> 331     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>    <a href='../Y/2191.html' title='Multiple used in 3 places.'>TanEyeAnglesR</a>;
+<a name='L332'> 332     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>    <a href='../Y/2190.html' title='Multiple used in 3 places.'>TanEyeAnglesG</a>;
+<a name='L333'> 333     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>    <a href='../Y/2189.html' title='Multiple used in 3 places.'>TanEyeAnglesB</a>;    
+<a name='L334'> 334 <font color='red'>}</font>;
+<a name='L335'> 335 
+<a name='L336'> 336 
+<a name='L337'> 337 <b>void</b> <a href='../D/207.html' title='Multiple defined in 2 places.'>DistortionMeshCreate</a> ( <a href='../S/115.html#L320' title='Defined at 320 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>DistortionMeshVertexData</a> **<a href='../Y/4098.html' title='Multiple used in 22 places.'>ppVertices</a>, <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> **<a href='../Y/4097.html' title='Multiple used in 22 places.'>ppTriangleListIndices</a>,
+<a name='L338'> 338                             <b>int</b> *<a href='../Y/3963.html' title='Multiple used in 16 places.'>pNumVertices</a>, <b>int</b> *<a href='../Y/3962.html' title='Multiple used in 16 places.'>pNumTriangles</a>,
+<a name='L339'> 339                             <b>const</b> <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> &amp;<a href='../Y/4479.html' title='Multiple used in 8 places.'>stereoParams</a>, <b>const</b> <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> &amp;<a href='../Y/3420.html' title='Multiple used in 30 places.'>hmdRenderInfo</a> );
+<a name='L340'> 340 
+<a name='L341'> 341 <i><font color='green'>// Generate distortion mesh for a eye. This version requires less data then stereoParms, supporting</font></i>
+<a name='L342'> 342 <i><font color='green'>// dynamic change in render target viewport.</font></i>
+<a name='L343'> 343 <b>void</b> <a href='../D/207.html' title='Multiple defined in 2 places.'>DistortionMeshCreate</a>( <a href='../S/115.html#L320' title='Defined at 320 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>DistortionMeshVertexData</a> **<a href='../Y/4098.html' title='Multiple used in 22 places.'>ppVertices</a>, <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> **<a href='../Y/4097.html' title='Multiple used in 22 places.'>ppTriangleListIndices</a>,
+<a name='L344'> 344                            <b>int</b> *<a href='../Y/3963.html' title='Multiple used in 16 places.'>pNumVertices</a>, <b>int</b> *<a href='../Y/3962.html' title='Multiple used in 16 places.'>pNumTriangles</a>,
+<a name='L345'> 345                            <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4309.html' title='Multiple used in 14 places.'>rightEye</a>,
+<a name='L346'> 346                            <b>const</b> <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> &amp;<a href='../Y/3420.html' title='Multiple used in 30 places.'>hmdRenderInfo</a>, 
+<a name='L347'> 347                            <b>const</b> <a href='../S/131.html#L237' title='Defined at 237 in ovr/sdk/src/OVR_Stereo.h.'>DistortionRenderDesc</a> &amp;<a href='../Y/3046.html' title='Multiple used in 54 places.'>distortion</a>, <b>const</b> <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a> &amp;<a href='../Y/3174.html' title='Multiple used in 20 places.'>eyeToSourceNDC</a> );
+<a name='L348'> 348 
+<a name='L349'> 349 <b>void</b> <a href='../S/117.html#L790' title='Defined at 790 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>DistortionMeshDestroy</a> ( <a href='../S/115.html#L320' title='Defined at 320 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>DistortionMeshVertexData</a> *<a href='../Y/3993.html' title='Multiple used in 6 places.'>pVertices</a>, <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> *<a href='../Y/3988.html' title='Multiple used in 6 places.'>pTriangleMeshIndices</a> );
+<a name='L350'> 350 
+<a name='L351'> 351 
+<a name='L352'> 352 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L353'> 353 <i><font color='green'>// *****  Heightmap Mesh Rendering</font></i>
+<a name='L354'> 354 <i><font color='green'>//</font></i>
+<a name='L355'> 355 
+<a name='L356'> 356 <i><font color='green'>// Stores both texture UV coords, or tan(angle) values.</font></i>
+<a name='L357'> 357 <i><font color='green'>// This struct *must* be binary compatible with CAPI ovrHeightmapVertex.</font></i>
+<a name='L358'> 358 <b>struct</b> <a href='../R/443.html' title='Multiple refered from 5 places.'>HeightmapMeshVertexData</a>
+<a name='L359'> 359 <font color='red'>{</font>
+<a name='L360'> 360     <i><font color='green'>// [-1,+1],[-1,+1] over the entire framebuffer.</font></i>
+<a name='L361'> 361     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>    <a href='../Y/1972.html' title='Multiple used in 7 places.'>ScreenPosNDC</a>;
+<a name='L362'> 362     <i><font color='green'>// [0.0-1.0] interpolation value for timewarping - see documentation for details.</font></i>
+<a name='L363'> 363     <b>float</b>       <a href='../Y/2266.html' title='Multiple used in 15 places.'>TimewarpLerp</a>;
+<a name='L364'> 364     <i><font color='green'>// The vectors in tan(angle) space.</font></i>
+<a name='L365'> 365     <i><font color='green'>// Scale and offset by the values in StereoEyeParams.EyeToSourceUV.Scale</font></i>
+<a name='L366'> 366     <i><font color='green'>// and StereoParams.EyeToSourceUV.Offset to get to real texture UV coords.</font></i>
+<a name='L367'> 367     <a href='../S/177.html#L382' title='Defined at 382 in ovr/sdk/src/Kernel/OVR_Math.h.'>Vector2f</a>    <a href='../Y/2188.html' title='Multiple used in 2 places.'>TanEyeAngles</a>;    
+<a name='L368'> 368 <font color='red'>}</font>;
+<a name='L369'> 369 
+<a name='L370'> 370 
+<a name='L371'> 371 <b>void</b> <a href='../D/458.html' title='Multiple defined in 2 places.'>HeightmapMeshCreate</a> ( <a href='../S/115.html#L358' title='Defined at 358 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>HeightmapMeshVertexData</a> **<a href='../Y/4098.html' title='Multiple used in 22 places.'>ppVertices</a>, <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> **<a href='../Y/4097.html' title='Multiple used in 22 places.'>ppTriangleListIndices</a>,
+<a name='L372'> 372     <b>int</b> *<a href='../Y/3963.html' title='Multiple used in 16 places.'>pNumVertices</a>, <b>int</b> *<a href='../Y/3962.html' title='Multiple used in 16 places.'>pNumTriangles</a>,
+<a name='L373'> 373     <b>const</b> <a href='../S/131.html#L409' title='Defined at 409 in ovr/sdk/src/OVR_Stereo.h.'>StereoEyeParams</a> &amp;<a href='../Y/4479.html' title='Multiple used in 8 places.'>stereoParams</a>, <b>const</b> <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> &amp;<a href='../Y/3420.html' title='Multiple used in 30 places.'>hmdRenderInfo</a> );
+<a name='L374'> 374 
+<a name='L375'> 375 <i><font color='green'>// Generate heightmap mesh for a eye. This version requires less data then stereoParms, supporting</font></i>
+<a name='L376'> 376 <i><font color='green'>// dynamic change in render target viewport.</font></i>
+<a name='L377'> 377 <b>void</b> <a href='../D/458.html' title='Multiple defined in 2 places.'>HeightmapMeshCreate</a>( <a href='../S/115.html#L358' title='Defined at 358 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>HeightmapMeshVertexData</a> **<a href='../Y/4098.html' title='Multiple used in 22 places.'>ppVertices</a>, <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> **<a href='../Y/4097.html' title='Multiple used in 22 places.'>ppTriangleListIndices</a>,
+<a name='L378'> 378     <b>int</b> *<a href='../Y/3963.html' title='Multiple used in 16 places.'>pNumVertices</a>, <b>int</b> *<a href='../Y/3962.html' title='Multiple used in 16 places.'>pNumTriangles</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4309.html' title='Multiple used in 14 places.'>rightEye</a>,
+<a name='L379'> 379     <b>const</b> <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> &amp;<a href='../Y/3420.html' title='Multiple used in 30 places.'>hmdRenderInfo</a>, <b>const</b> <a href='../S/131.html#L141' title='Defined at 141 in ovr/sdk/src/OVR_Stereo.h.'>ScaleAndOffset2D</a> &amp;<a href='../Y/3174.html' title='Multiple used in 20 places.'>eyeToSourceNDC</a> );
+<a name='L380'> 380 
+<a name='L381'> 381 <b>void</b> <a href='../S/117.html#L1016' title='Defined at 1016 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>HeightmapMeshDestroy</a> ( <a href='../S/115.html#L358' title='Defined at 358 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>HeightmapMeshVertexData</a> *<a href='../Y/3993.html' title='Multiple used in 6 places.'>pVertices</a>, <a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a> *<a href='../Y/3988.html' title='Multiple used in 6 places.'>pTriangleMeshIndices</a> );
+<a name='L382'> 382 
+<a name='L383'> 383 
+<a name='L384'> 384 
+<a name='L385'> 385 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L386'> 386 <i><font color='green'>// ***** Prediction and timewarp.</font></i>
+<a name='L387'> 387 <i><font color='green'>//</font></i>
+<a name='L388'> 388 
+<a name='L389'> 389 <b>struct</b> <a href='../R/837.html' title='Multiple refered from 4 places.'>PredictionValues</a>
+<a name='L390'> 390 <font color='red'>{</font>
+<a name='L391'> 391     <i><font color='green'>// All values in seconds.</font></i>
+<a name='L392'> 392     <i><font color='green'>// These are the times in seconds from a present+flush to the relevant display element.</font></i>
+<a name='L393'> 393     <i><font color='green'>// The time is measured to the middle of that element's visibility window,</font></i>
+<a name='L394'> 394     <i><font color='green'>// e.g. if the device is a full-persistence display, the element will be visible for</font></i>
+<a name='L395'> 395     <i><font color='green'>// an entire frame, so the time measures to the middle of that period, i.e. half the frame time.</font></i>
+<a name='L396'> 396     <b>float</b> <a href='../Y/1697.html' title='Multiple used in 10 places.'>PresentFlushToRenderedScene</a>;        <i><font color='green'>// To the overall rendered 3D scene being visible.</font></i>
+<a name='L397'> 397     <b>float</b> <a href='../Y/1699.html' title='Multiple used in 8 places.'>PresentFlushToTimewarpStart</a>;        <i><font color='green'>// To when the first timewarped scanline will be visible.</font></i>
+<a name='L398'> 398     <b>float</b> <a href='../Y/1698.html' title='Multiple used in 4 places.'>PresentFlushToTimewarpEnd</a>;          <i><font color='green'>// To when the last timewarped scanline will be visible.</font></i>
+<a name='L399'> 399     <b>float</b> <a href='../Y/1695.html' title='Multiple used in 4 places.'>PresentFlushToPresentFlush</a>;         <i><font color='green'>// To the next present+flush, i.e. the ideal framerate.</font></i>
+<a name='L400'> 400 
+<a name='L401'> 401     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>  <a href='../Y/2446.html' title='Multiple used in 2 places.'>WithTimewarp</a>;
+<a name='L402'> 402     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>  <a href='../Y/2447.html' title='Multiple used in 2 places.'>WithVsync</a>;
+<a name='L403'> 403 <font color='red'>}</font>;
+<a name='L404'> 404 
+<a name='L405'> 405 <i><font color='green'>// Calculates the values from the HMD info.</font></i>
+<a name='L406'> 406 <a href='../S/115.html#L389' title='Defined at 389 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>PredictionValues</a> <a href='../S/117.html#L1209' title='Defined at 1209 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>PredictionGetDeviceValues</a> ( <b>const</b> <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a> &amp;<a href='../Y/3420.html' title='Multiple used in 30 places.'>hmdRenderInfo</a>,
+<a name='L407'> 407                                              <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4859.html' title='Multiple used in 3 places.'>withTimewarp</a> = <a href='../Y/4657.html' title='Multiple used in 68 places.'>true</a>,
+<a name='L408'> 408                                              <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4860.html' title='Multiple used in 4 places.'>withVsync</a> = <a href='../Y/4657.html' title='Multiple used in 68 places.'>true</a> );
+<a name='L409'> 409 
+<a name='L410'> 410 <i><font color='green'>// Pass in an orientation used to render the scene, and then the predicted orientation</font></i>
+<a name='L411'> 411 <i><font color='green'>// (which may have been computed later on, and thus is more accurate), and this</font></i>
+<a name='L412'> 412 <i><font color='green'>// will return the matrix to pass to the timewarp distortion shader.</font></i>
+<a name='L413'> 413 <i><font color='green'>// TODO: deal with different handedness?</font></i>
+<a name='L414'> 414 <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <a href='../S/117.html#L1275' title='Defined at 1275 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>TimewarpComputePoseDelta</a> ( <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <b>const</b> &amp;<a href='../Y/4274.html' title='Multiple used in 6 places.'>renderedViewFromWorld</a>, <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <b>const</b> &amp;<a href='../Y/4099.html' title='Multiple used in 6 places.'>predictedViewFromWorld</a>, <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <b>const</b>&amp;<a href='../Y/3178.html' title='Multiple used in 8 places.'>eyeViewAdjust</a> );
+<a name='L415'> 415 <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <a href='../S/117.html#L1309' title='Defined at 1309 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>TimewarpComputePoseDeltaPosition</a> ( <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <b>const</b> &amp;<a href='../Y/4274.html' title='Multiple used in 6 places.'>renderedViewFromWorld</a>, <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <b>const</b> &amp;<a href='../Y/4099.html' title='Multiple used in 6 places.'>predictedViewFromWorld</a>, <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a> <b>const</b>&amp;<a href='../Y/3178.html' title='Multiple used in 8 places.'>eyeViewAdjust</a> );
+<a name='L416'> 416 
+<a name='L417'> 417 
+<a name='L418'> 418 
+<a name='L419'> 419 <i><font color='green'>// TimewarpMachine helps keep track of rendered frame timing and</font></i>
+<a name='L420'> 420 <i><font color='green'>// handles predictions for time-warp rendering.</font></i>
+<a name='L421'> 421 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../S/117.html#L1317' title='Defined at 1317 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>TimewarpMachine</a>
+<a name='L422'> 422 <font color='red'>{</font>
+<a name='L423'> 423 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L424'> 424     <a href='../S/117.html#L1317' title='Defined at 1317 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>TimewarpMachine</a>();
+<a name='L425'> 425    
+<a name='L426'> 426     <i><font color='green'>// Call this on and every time something about the setup changes.</font></i>
+<a name='L427'> 427     <b>void</b>        <a href='../D/965.html' title='Multiple defined in 4 places.'>Reset</a> ( <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a>&amp; <a href='../Y/4263.html' title='Multiple used in 85 places.'>renderInfo</a>, <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/4821.html' title='Multiple used in 6 places.'>vsyncEnabled</a>, <b>double</b> <a href='../Y/4606.html' title='Multiple used in 15 places.'>timeNow</a> );
+<a name='L428'> 428 
+<a name='L429'> 429     <i><font color='green'>// The only reliable time in most engines is directly after the frame-present and GPU flush-and-wait.</font></i>
+<a name='L430'> 430     <i><font color='green'>// This call should be done right after that to give this system the timing info it needs.</font></i>
+<a name='L431'> 431     <b>void</b>        <a href='../S/117.html#L1339' title='Defined at 1339 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>AfterPresentAndFlush</a>(<b>double</b> <a href='../Y/4606.html' title='Multiple used in 15 places.'>timeNow</a>);
+<a name='L432'> 432 
+<a name='L433'> 433     <i><font color='green'>// The "average" time the rendered frame will show up,</font></i>
+<a name='L434'> 434     <i><font color='green'>// and the predicted pose of the HMD at that time.</font></i>
+<a name='L435'> 435     <i><font color='green'>// You usually only need to call one of these functions.</font></i>
+<a name='L436'> 436     <b>double</b>      <a href='../S/117.html#L1346' title='Defined at 1346 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetViewRenderPredictionTime</a>();
+<a name='L437'> 437     <a href='../S/177.html#L1159' title='Defined at 1159 in ovr/sdk/src/Kernel/OVR_Math.h.'>Transformf</a>  <a href='../S/117.html#L1352' title='Defined at 1352 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetViewRenderPredictionPose</a>(<a href='../S/189.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SensorFusion</a> &amp;<a href='../Y/4394.html' title='Multiple used in 15 places.'>sfusion</a>);
+<a name='L438'> 438 
+<a name='L439'> 439 
+<a name='L440'> 440     <i><font color='green'>// Timewarp prediction functions. You usually only need to call one of these three sets of functions.</font></i>
+<a name='L441'> 441 
+<a name='L442'> 442     <i><font color='green'>// The predicted times that the first and last pixel will be visible on-screen.</font></i>
+<a name='L443'> 443     <b>double</b>      <a href='../S/117.html#L1358' title='Defined at 1358 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetVisiblePixelTimeStart</a>();
+<a name='L444'> 444     <b>double</b>      <a href='../S/117.html#L1363' title='Defined at 1363 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetVisiblePixelTimeEnd</a>();
+<a name='L445'> 445     <i><font color='green'>// Predicted poses of the HMD at those first and last pixels.</font></i>
+<a name='L446'> 446     <a href='../S/177.html#L1159' title='Defined at 1159 in ovr/sdk/src/Kernel/OVR_Math.h.'>Transformf</a>  <a href='../S/117.html#L1368' title='Defined at 1368 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetPredictedVisiblePixelPoseStart</a>(<a href='../S/189.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SensorFusion</a> &amp;<a href='../Y/4394.html' title='Multiple used in 15 places.'>sfusion</a>);
+<a name='L447'> 447     <a href='../S/177.html#L1159' title='Defined at 1159 in ovr/sdk/src/Kernel/OVR_Math.h.'>Transformf</a>  <a href='../S/117.html#L1373' title='Defined at 1373 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetPredictedVisiblePixelPoseEnd</a>  (<a href='../S/189.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SensorFusion</a> &amp;<a href='../Y/4394.html' title='Multiple used in 15 places.'>sfusion</a>);
+<a name='L448'> 448     <i><font color='green'>// The delta matrices to feed to the timewarp distortion code,</font></i>
+<a name='L449'> 449     <i><font color='green'>// given the pose that was used for rendering.</font></i>
+<a name='L450'> 450     <i><font color='green'>// (usually the one returned by GetViewRenderPredictionPose() earlier)</font></i>
+<a name='L451'> 451     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>    <a href='../S/117.html#L1378' title='Defined at 1378 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetTimewarpDeltaStart</a>(<a href='../S/189.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SensorFusion</a> &amp;<a href='../Y/4394.html' title='Multiple used in 15 places.'>sfusion</a>, <a href='../S/177.html#L1159' title='Defined at 1159 in ovr/sdk/src/Kernel/OVR_Math.h.'>Transformf</a> <b>const</b> &amp;<a href='../Y/4273.html' title='Multiple used in 6 places.'>renderedPose</a>);
+<a name='L452'> 452     <a href='../S/177.html#L1834' title='Defined at 1834 in ovr/sdk/src/Kernel/OVR_Math.h.'>Matrix4f</a>    <a href='../S/117.html#L1386' title='Defined at 1386 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>GetTimewarpDeltaEnd</a>  (<a href='../S/189.html#L72' title='Defined at 72 in ovr/sdk/src/OVR_SensorFusion.cpp.'>SensorFusion</a> &amp;<a href='../Y/4394.html' title='Multiple used in 15 places.'>sfusion</a>, <a href='../S/177.html#L1159' title='Defined at 1159 in ovr/sdk/src/Kernel/OVR_Math.h.'>Transformf</a> <b>const</b> &amp;<a href='../Y/4273.html' title='Multiple used in 6 places.'>renderedPose</a>);
+<a name='L453'> 453 
+<a name='L454'> 454 
+<a name='L455'> 455     <i><font color='green'>// Just-In-Time distortion aims to delay the second sensor reading &amp; distortion</font></i>
+<a name='L456'> 456     <i><font color='green'>// until the very last moment to improve prediction. However, it is a little scary,</font></i>
+<a name='L457'> 457     <i><font color='green'>// since the delay might wait too long and miss the vsync completely!</font></i>
+<a name='L458'> 458     <i><font color='green'>// Use of the JustInTime_* functions is entirely optional, and we advise allowing</font></i>
+<a name='L459'> 459     <i><font color='green'>// users to turn it off in their video options to cope with odd machine configurations.</font></i>
+<a name='L460'> 460 
+<a name='L461'> 461     <i><font color='green'>// What time should the app wait until before starting distortion?</font></i>
+<a name='L462'> 462     <b>double</b>      <a href='../S/117.html#L1397' title='Defined at 1397 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>JustInTime_GetDistortionWaitUntilTime</a>();
+<a name='L463'> 463 
+<a name='L464'> 464     <i><font color='green'>// Used to time the distortion rendering</font></i>
+<a name='L465'> 465     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>        <a href='../S/117.html#L1419' title='Defined at 1419 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>JustInTime_NeedDistortionTimeMeasurement</a>() <b>const</b>;
+<a name='L466'> 466     <b>void</b>        <a href='../S/117.html#L1428' title='Defined at 1428 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>JustInTime_BeforeDistortionTimeMeasurement</a>(<b>double</b> <a href='../Y/4606.html' title='Multiple used in 15 places.'>timeNow</a>);
+<a name='L467'> 467     <b>void</b>        <a href='../S/117.html#L1433' title='Defined at 1433 in ovr/sdk/src/Util/Util_Render_Stereo.cpp.'>JustInTime_AfterDistortionTimeMeasurement</a>(<b>double</b> <a href='../Y/4606.html' title='Multiple used in 15 places.'>timeNow</a>);
+<a name='L468'> 468 
+<a name='L469'> 469 
+<a name='L470'> 470 <a href='../Y/4115.html' title='Multiple used in 56 places.'>private</a>:
+<a name='L471'> 471 
+<a name='L472'> 472     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>                <a href='../Y/2418.html' title='Multiple used in 15 places.'>VsyncEnabled</a>;
+<a name='L473'> 473     <a href='../S/131.html#L257' title='Defined at 257 in ovr/sdk/src/OVR_Stereo.h.'>HmdRenderInfo</a>       <a href='../Y/1853.html' title='Multiple used in 23 places.'>RenderInfo</a>;
+<a name='L474'> 474     <a href='../S/115.html#L389' title='Defined at 389 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>PredictionValues</a>    <a href='../Y/294.html' title='Multiple used in 6 places.'>CurrentPredictionValues</a>;
+<a name='L475'> 475 
+<a name='L476'> 476     <b>enum</b> <font color='red'>{</font> <a href='../R/620.html' title='Multiple refered from 7 places.'>NumDistortionTimes</a> = 10 <font color='red'>}</font>;
+<a name='L477'> 477     <b>int</b>                 <a href='../Y/446.html' title='Multiple used in 9 places.'>DistortionTimeCount</a>;
+<a name='L478'> 478     <b>double</b>              <a href='../Y/447.html' title='Multiple used in 3 places.'>DistortionTimeCurrentStart</a>;
+<a name='L479'> 479     <b>float</b>               <a href='../Y/448.html' title='Multiple used in 6 places.'>DistortionTimes</a>[<a href='../S/115.html#L476' title='Defined at 476 in ovr/sdk/src/Util/Util_Render_Stereo.h.'>NumDistortionTimes</a>];
+<a name='L480'> 480     <b>float</b>               <a href='../Y/445.html' title='Multiple used in 4 places.'>DistortionTimeAverage</a>;
+<a name='L481'> 481 
+<a name='L482'> 482     <i><font color='green'>// Pose at which last time the eye was rendered.</font></i>
+<a name='L483'> 483     <a href='../S/177.html#L1159' title='Defined at 1159 in ovr/sdk/src/Kernel/OVR_Math.h.'>Transformf</a>               <a href='../Y/563.html' title='Multiple used in 5 places.'>EyeRenderPoses</a>[2];
+<a name='L484'> 484 
+<a name='L485'> 485     <i><font color='green'>// Absolute time of the last present+flush</font></i>
+<a name='L486'> 486     <b>double</b>              <a href='../Y/1211.html' title='Multiple used in 6 places.'>LastFramePresentFlushTime</a>;
+<a name='L487'> 487     <i><font color='green'>// Seconds between presentflushes</font></i>
+<a name='L488'> 488     <b>float</b>               <a href='../Y/1696.html' title='Multiple used in 4 places.'>PresentFlushToPresentFlushSeconds</a>;
+<a name='L489'> 489     <i><font color='green'>// Predicted absolute time of the next present+flush</font></i>
+<a name='L490'> 490     <b>double</b>              <a href='../Y/1457.html' title='Multiple used in 5 places.'>NextFramePresentFlushTime</a>;
+<a name='L491'> 491 
+<a name='L492'> 492 <font color='red'>}</font>;
+<a name='L493'> 493 
+<a name='L494'> 494 
+<a name='L495'> 495 
+<a name='L496'> 496 <font color='red'>}</font><font color='red'>}</font><font color='red'>}</font>  <i><font color='green'>// OVR::Util::Render</font></i>
+<a name='L497'> 497 
+<a name='L498'> 498 <font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

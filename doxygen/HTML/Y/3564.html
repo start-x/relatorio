@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>lerpVal</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L1086'>lerpVal</a>          1086 ovr/sdk/src/OVR_Stereo.cpp     float lerpVal = 0.0f;
+<a href='../S/88.html#L1091'>lerpVal</a>          1091 ovr/sdk/src/OVR_Stereo.cpp         lerpVal = 0.0f;
+<a href='../S/88.html#L1102'>lerpVal</a>          1102 ovr/sdk/src/OVR_Stereo.cpp                 lerpVal = ( eyeReliefInMeters - pLower-&gt;EyeRelief ) / ( pUpper-&gt;EyeRelief - pLower-&gt;EyeRelief );
+<a href='../S/88.html#L1123'>lerpVal</a>          1123 ovr/sdk/src/OVR_Stereo.cpp         lerpVal = ( eyeReliefInMeters - pLower-&gt;EyeRelief ) / ( pUpper-&gt;EyeRelief - pLower-&gt;EyeRelief );
+<a href='../S/88.html#L1137'>lerpVal</a>          1137 ovr/sdk/src/OVR_Stereo.cpp         lerpVal = 0.0f;
+<a href='../S/88.html#L1140'>lerpVal</a>          1140 ovr/sdk/src/OVR_Stereo.cpp     float invLerpVal = 1.0f - lerpVal;
+<a href='../S/88.html#L1147'>lerpVal</a>          1147 ovr/sdk/src/OVR_Stereo.cpp     float maxValidRadius = invLerpVal * pLower-&gt;MaxRadius + lerpVal * pUpper-&gt;MaxRadius;
+<a href='../S/88.html#L1164'>lerpVal</a>          1164 ovr/sdk/src/OVR_Stereo.cpp             float radiusLerp = invLerpVal * pLower-&gt;SampleRadius[ctrlPt-1] + lerpVal * pUpper-&gt;SampleRadius[ctrlPt-1];
+<a href='../S/88.html#L1169'>lerpVal</a>          1169 ovr/sdk/src/OVR_Stereo.cpp             fitY[ctrlPt] = 1.0f / ( invLerpVal * fitYLower + lerpVal * fitYUpper );
+<a href='../S/88.html#L1190'>lerpVal</a>          1190 ovr/sdk/src/OVR_Stereo.cpp         result.K[0] = invLerpVal * pLower-&gt;Config.K[0] + lerpVal * pUpper-&gt;Config.K[0];
+<a href='../S/88.html#L1198'>lerpVal</a>          1198 ovr/sdk/src/OVR_Stereo.cpp             float fitLerp = invLerpVal * fitYLower + lerpVal * fitYUpper;
+<a href='../S/88.html#L1224'>lerpVal</a>          1224 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[0] = invLerpVal * pLower-&gt;Config.ChromaticAberration[0] + lerpVal * pUpper-&gt;Config.ChromaticAberration[0];
+<a href='../S/88.html#L1225'>lerpVal</a>          1225 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[1] = invLerpVal * pLower-&gt;Config.ChromaticAberration[1] + lerpVal * pUpper-&gt;Config.ChromaticAberration[1];
+<a href='../S/88.html#L1226'>lerpVal</a>          1226 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[2] = invLerpVal * pLower-&gt;Config.ChromaticAberration[2] + lerpVal * pUpper-&gt;Config.ChromaticAberration[2];
+<a href='../S/88.html#L1227'>lerpVal</a>          1227 ovr/sdk/src/OVR_Stereo.cpp     result.ChromaticAberration[3] = invLerpVal * pLower-&gt;Config.ChromaticAberration[3] + lerpVal * pUpper-&gt;Config.ChromaticAberration[3];
+<a href='../S/88.html#L1231'>lerpVal</a>          1231 ovr/sdk/src/OVR_Stereo.cpp                                         pUpper-&gt;Config.MetersPerTanAngleAtCenter * lerpVal;
+</pre>
+</body>
+</html>

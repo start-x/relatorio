@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>SensorFusion</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/101.html#L287'>SensorFusion</a>      287 ovr/sdk/src/CAPI/CAPI_HMDState.h     SensorFusion            SFusion;
+<a href='../S/142.html#L919'>SensorFusion</a>      919 ovr/sdk/src/OVR_CAPI.cpp OVR::SensorFusion* ovrHmd_GetSensorFusion(ovrHmd hmd)
+<a href='../S/189.html#L52'>SensorFusion</a>       52 ovr/sdk/src/OVR_SensorFusion.cpp SensorFusion::SensorFusion(SensorDevice* sensor)
+<a href='../S/189.html#L72'>SensorFusion</a>       72 ovr/sdk/src/OVR_SensorFusion.cpp SensorFusion::~SensorFusion()
+<a href='../S/189.html#L77'>SensorFusion</a>       77 ovr/sdk/src/OVR_SensorFusion.cpp bool SensorFusion::AttachToSensor(SensorDevice* sensor)
+<a href='../S/189.html#L125'>SensorFusion</a>      125 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::Reset()
+<a href='../S/189.html#L158'>SensorFusion</a>      158 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnVisionFailure()
+<a href='../S/189.html#L164'>SensorFusion</a>      164 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnVisionPreviousFrame(const Transform&lt;double&gt;&amp; cameraFromImu)
+<a href='../S/189.html#L172'>SensorFusion</a>      172 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnVisionSuccess(const Transform&lt;double&gt;&amp; cameraFromImu, UInt32 exposureCounter)
+<a href='../S/189.html#L224'>SensorFusion</a>      224 ovr/sdk/src/OVR_SensorFusion.cpp PoseStated SensorFusion::computeVisionError()
+<a href='../S/189.html#L240'>SensorFusion</a>      240 ovr/sdk/src/OVR_SensorFusion.cpp Transform&lt;double&gt; SensorFusion::GetVisionPrediction(UInt32 exposureCounter)
+<a href='../S/189.html#L285'>SensorFusion</a>      285 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::handleMessage(const MessageBodyFrame&amp; msg)
+<a href='../S/189.html#L398'>SensorFusion</a>      398 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::handleExposure(const MessageExposureFrame&amp; msg)
+<a href='../S/189.html#L412'>SensorFusion</a>      412 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::setNeckPivotFromPose(Transformd const &amp;worldFromImu)
+<a href='../S/189.html#L439'>SensorFusion</a>      439 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::applyPositionCorrection(double deltaT)
+<a href='../S/189.html#L485'>SensorFusion</a>      485 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::applyVisionYawCorrection(double deltaT)
+<a href='../S/189.html#L510'>SensorFusion</a>      510 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::applyMagYawCorrection(Vector3d mag, double deltaT)
+<a href='../S/189.html#L584'>SensorFusion</a>      584 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::applyTiltCorrection(double deltaT)
+<a href='../S/189.html#L608'>SensorFusion</a>      608 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::applyCameraTiltCorrection(Vector3d accel, double deltaT)
+<a href='../S/189.html#L684'>SensorFusion</a>      684 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::applyFocusCorrection(double deltaT)
+<a href='../S/189.html#L726'>SensorFusion</a>      726 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetFocusDirection()
+<a href='../S/189.html#L731'>SensorFusion</a>      731 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetFocusDirection(Vector3d direction)
+<a href='../S/189.html#L736'>SensorFusion</a>      736 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetFocusFOV(double fov)
+<a href='../S/189.html#L742'>SensorFusion</a>      742 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::ClearFocus()
+<a href='../S/189.html#L752'>SensorFusion</a>      752 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetUserHeadDimensions(Profile const &amp;profile, HmdRenderInfo const &amp;hmdRenderInfo)
+<a href='../S/189.html#L781'>SensorFusion</a>      781 ovr/sdk/src/OVR_SensorFusion.cpp Vector3f SensorFusion::GetHeadModel() const
+<a href='../S/189.html#L786'>SensorFusion</a>      786 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetHeadModel(const Vector3f &amp;headModel, bool resetNeckPivot /*= true*/ )
+<a href='../S/189.html#L801'>SensorFusion</a>      801 ovr/sdk/src/OVR_SensorFusion.cpp float SensorFusion::GetCenterPupilDepth() const
+<a href='../S/189.html#L806'>SensorFusion</a>      806 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetCenterPupilDepth(float centerPupilDepth)
+<a href='../S/189.html#L852'>SensorFusion</a>      852 ovr/sdk/src/OVR_SensorFusion.cpp Transformf SensorFusion::GetPoseAtTime(double absoluteTime) const
+<a href='../S/189.html#L859'>SensorFusion</a>      859 ovr/sdk/src/OVR_SensorFusion.cpp SensorState SensorFusion::GetSensorStateAtTime(double absoluteTime) const
+<a href='../S/189.html#L880'>SensorFusion</a>      880 ovr/sdk/src/OVR_SensorFusion.cpp unsigned SensorFusion::GetStatus() const
+<a href='../S/189.html#L887'>SensorFusion</a>      887 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::OnMessage(const MessageBodyFrame&amp; msg)
+<a href='../S/189.html#L895'>SensorFusion</a>      895 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::BodyFrameHandler::OnMessage(const Message&amp; msg)
+<a href='../S/127.html#L189'>SensorFusion</a>      189 ovr/sdk/src/OVR_SensorFusion.h class SensorFusion : public NewOverrideBase, public VisionHandler
+<a href='../S/127.html#L203'>SensorFusion</a>      203 ovr/sdk/src/OVR_SensorFusion.h     SensorFusion(SensorDevice* sensor = 0);
+<a href='../S/127.html#L204'>SensorFusion</a>      204 ovr/sdk/src/OVR_SensorFusion.h     ~SensorFusion();
+<a href='../S/127.html#L313'>SensorFusion</a>      313 ovr/sdk/src/OVR_SensorFusion.h         SensorFusion* pFusion;
+<a href='../S/127.html#L315'>SensorFusion</a>      315 ovr/sdk/src/OVR_SensorFusion.h         BodyFrameHandler(SensorFusion* fusion) 
+<a href='../S/127.html#L483'>SensorFusion</a>      483 ovr/sdk/src/OVR_SensorFusion.h inline bool SensorFusion::IsAttachedToSensor() const  
+<a href='../S/127.html#L488'>SensorFusion</a>      488 ovr/sdk/src/OVR_SensorFusion.h inline void SensorFusion::SetGravityEnabled(bool enableGravity)     
+<a href='../S/127.html#L493'>SensorFusion</a>      493 ovr/sdk/src/OVR_SensorFusion.h inline bool SensorFusion::IsGravityEnabled() const
+<a href='../S/127.html#L498'>SensorFusion</a>      498 ovr/sdk/src/OVR_SensorFusion.h inline void SensorFusion::SetYawCorrectionEnabled(bool enable)
+<a href='../S/127.html#L503'>SensorFusion</a>      503 ovr/sdk/src/OVR_SensorFusion.h inline bool SensorFusion::IsYawCorrectionEnabled() const          
+<a href='../S/127.html#L508'>SensorFusion</a>      508 ovr/sdk/src/OVR_SensorFusion.h inline bool SensorFusion::IsVisionPositionEnabled() const             
+<a href='../S/127.html#L513'>SensorFusion</a>      513 ovr/sdk/src/OVR_SensorFusion.h inline void SensorFusion::SetVisionPositionEnabled(bool enableVisionPosition)  
+<a href='../S/127.html#L518'>SensorFusion</a>      518 ovr/sdk/src/OVR_SensorFusion.h inline void SensorFusion::SetCameraTiltCorrectionEnabled(bool enable)   
+<a href='../S/127.html#L523'>SensorFusion</a>      523 ovr/sdk/src/OVR_SensorFusion.h inline bool SensorFusion::IsCameraTiltCorrectionEnabled() const       
+<a href='../S/127.html#L528'>SensorFusion</a>      528 ovr/sdk/src/OVR_SensorFusion.h inline double SensorFusion::GetVisionLatency() const
+<a href='../S/127.html#L533'>SensorFusion</a>      533 ovr/sdk/src/OVR_SensorFusion.h inline double SensorFusion::GetTime() const 
+<a href='../S/127.html#L538'>SensorFusion</a>      538 ovr/sdk/src/OVR_SensorFusion.h inline SensorFusion::BodyFrameHandler::~BodyFrameHandler()
+<a href='../S/127.html#L543'>SensorFusion</a>      543 ovr/sdk/src/OVR_SensorFusion.h inline bool SensorFusion::BodyFrameHandler::SupportsMessageType(MessageType type) const
+<a href='../S/124.html#L39'>SensorFusion</a>       39 ovr/sdk/src/OVR_SensorFusionDebug.h 	SensorFusion *	sf;
+<a href='../S/124.html#L43'>SensorFusion</a>       43 ovr/sdk/src/OVR_SensorFusionDebug.h 	SensorFusionDebug (SensorFusion * const sf) :
+<a href='../S/115.html#L36'>SensorFusion</a>       36 ovr/sdk/src/Util/Util_Render_Stereo.h class SensorFusion;
+<a href='../S/115.html#L437'>SensorFusion</a>      437 ovr/sdk/src/Util/Util_Render_Stereo.h     Transformf  GetViewRenderPredictionPose(SensorFusion &amp;sfusion);
+<a href='../S/115.html#L446'>SensorFusion</a>      446 ovr/sdk/src/Util/Util_Render_Stereo.h     Transformf  GetPredictedVisiblePixelPoseStart(SensorFusion &amp;sfusion);
+<a href='../S/115.html#L447'>SensorFusion</a>      447 ovr/sdk/src/Util/Util_Render_Stereo.h     Transformf  GetPredictedVisiblePixelPoseEnd  (SensorFusion &amp;sfusion);
+<a href='../S/115.html#L451'>SensorFusion</a>      451 ovr/sdk/src/Util/Util_Render_Stereo.h     Matrix4f    GetTimewarpDeltaStart(SensorFusion &amp;sfusion, Transformf const &amp;renderedPose);
+<a href='../S/115.html#L452'>SensorFusion</a>      452 ovr/sdk/src/Util/Util_Render_Stereo.h     Matrix4f    GetTimewarpDeltaEnd  (SensorFusion &amp;sfusion, Transformf const &amp;renderedPose);
+</pre>
+</body>
+</html>

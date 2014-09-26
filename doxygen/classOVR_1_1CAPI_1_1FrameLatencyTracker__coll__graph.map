@@ -1,0 +1,5 @@
+<map id="OVR::CAPI::FrameLatencyTracker" name="OVR::CAPI::FrameLatencyTracker">
+<area shape="rect" id="node2" href="$structOVR_1_1CAPI_1_1FrameLatencyTracker_1_1FrameTimeRecordEx.html" title="{OVR::CAPI::FrameLatencyTracker\l::FrameTimeRecordEx\n|+ MatchedRecord\l+ RenderIMUTimeSeconds\l+ TimewarpIMUTimeSeconds\l|}" alt="" coords="5,178,232,299"/>
+<area shape="rect" id="node3" href="$structOVR_1_1Util_1_1FrameTimeRecord.html" title="{OVR::Util::FrameTimeRecord\n|+ ReadbackIndex\l+ TimeSeconds\l|+ ColorToReadbackIndex()\l+ ReadbackIndexToColor()\l}" alt="" coords="21,5,216,112"/>
+<area shape="rect" id="node4" href="$structOVR_1_1CAPI_1_1TimeDeltaCollector.html" title="{OVR::CAPI::TimeDeltaCollector\n|&#45; Count\l&#45; TimeBufferSeconds\l|+ TimeDeltaCollector()\l+ AddTimeDelta()\l+ Clear()\l+ GetMedianTimeDelta()\l+ GetCount()\l}" alt="" coords="256,163,465,314"/>
+</map>

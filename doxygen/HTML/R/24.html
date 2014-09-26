@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>Alg</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L520'>Alg</a>               520 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     unsigned count = Alg::Min(destSize, sourceSize);
+<a href='../S/147.html#L34'>Alg</a>                34 ovr/sdk/src/Kernel/OVR_Alg.h namespace OVR { namespace Alg {
+<a href='../S/186.html#L218'>Alg</a>               218 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUByte(UByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L219'>Alg</a>               219 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSByte(SByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L220'>Alg</a>               220 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt8(UByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L221'>Alg</a>               221 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt8(SByte v)         { PWrite8((UByte)Alg::ByteUtil::SystemToLE(v));     }
+<a href='../S/186.html#L222'>Alg</a>               222 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt16(UInt16 v)       { PWrite16((UInt16)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L223'>Alg</a>               223 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16(SInt16 v)       { PWrite16((UInt16)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L224'>Alg</a>               224 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt32(UInt32 v)       { PWrite32((UInt32)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L225'>Alg</a>               225 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt32(SInt32 v)       { PWrite32((UInt32)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L226'>Alg</a>               226 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt64(UInt64 v)       { PWrite64((UInt64)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L227'>Alg</a>               227 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt64(SInt64 v)       { PWrite64((UInt64)Alg::ByteUtil::SystemToLE(v));   }
+<a href='../S/186.html#L228'>Alg</a>               228 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteFloat(float v)         { v = Alg::ByteUtil::SystemToLE(v); Write((UByte*)&amp;v, 4); } 
+<a href='../S/186.html#L229'>Alg</a>               229 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteDouble(double v)       { v = Alg::ByteUtil::SystemToLE(v); Write((UByte*)&amp;v, 8); }
+<a href='../S/186.html#L231'>Alg</a>               231 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUByteBE(UByte v)       { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L232'>Alg</a>               232 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSByteBE(SByte v)       { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L233'>Alg</a>               233 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt8BE(UInt16 v)      { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L234'>Alg</a>               234 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt8BE(SInt16 v)      { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L235'>Alg</a>               235 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L236'>Alg</a>               236 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L237'>Alg</a>               237 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L238'>Alg</a>               238 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L239'>Alg</a>               239 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt64BE(UInt64 v)     { PWrite64((UInt64)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L240'>Alg</a>               240 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt64BE(UInt64 v)     { PWrite64((UInt64)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L241'>Alg</a>               241 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteFloatBE(float v)       { v = Alg::ByteUtil::SystemToBE(v); Write((UByte*)&amp;v, 4); }
+<a href='../S/186.html#L242'>Alg</a>               242 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteDoubleBE(double v)     { v = Alg::ByteUtil::SystemToBE(v); Write((UByte*)&amp;v, 8); }
+<a href='../S/186.html#L245'>Alg</a>               245 ovr/sdk/src/Kernel/OVR_File.h     inline UByte   ReadUByte()                 { return (UByte)Alg::ByteUtil::LEToSystem(PRead8());    }
+<a href='../S/186.html#L246'>Alg</a>               246 ovr/sdk/src/Kernel/OVR_File.h     inline SByte   ReadSByte()                 { return (SByte)Alg::ByteUtil::LEToSystem(PRead8());    }
+<a href='../S/186.html#L247'>Alg</a>               247 ovr/sdk/src/Kernel/OVR_File.h     inline UByte   ReadUInt8()                 { return (UByte)Alg::ByteUtil::LEToSystem(PRead8());    }
+<a href='../S/186.html#L248'>Alg</a>               248 ovr/sdk/src/Kernel/OVR_File.h     inline SByte   ReadSInt8()                 { return (SByte)Alg::ByteUtil::LEToSystem(PRead8());    }
+<a href='../S/186.html#L249'>Alg</a>               249 ovr/sdk/src/Kernel/OVR_File.h     inline UInt16  ReadUInt16()                { return (UInt16)Alg::ByteUtil::LEToSystem(PRead16());  }
+<a href='../S/186.html#L250'>Alg</a>               250 ovr/sdk/src/Kernel/OVR_File.h     inline SInt16  ReadSInt16()                { return (SInt16)Alg::ByteUtil::LEToSystem(PRead16());  }
+<a href='../S/186.html#L251'>Alg</a>               251 ovr/sdk/src/Kernel/OVR_File.h     inline UInt32  ReadUInt32()                { return (UInt32)Alg::ByteUtil::LEToSystem(PRead32());  }
+<a href='../S/186.html#L252'>Alg</a>               252 ovr/sdk/src/Kernel/OVR_File.h     inline SInt32  ReadSInt32()                { return (SInt32)Alg::ByteUtil::LEToSystem(PRead32());  }
+<a href='../S/186.html#L253'>Alg</a>               253 ovr/sdk/src/Kernel/OVR_File.h     inline UInt64  ReadUInt64()                { return (UInt64)Alg::ByteUtil::LEToSystem(PRead64());  }
+<a href='../S/186.html#L254'>Alg</a>               254 ovr/sdk/src/Kernel/OVR_File.h     inline SInt64  ReadSInt64()                { return (SInt64)Alg::ByteUtil::LEToSystem(PRead64());  }
+<a href='../S/186.html#L255'>Alg</a>               255 ovr/sdk/src/Kernel/OVR_File.h     inline float   ReadFloat()                 { float v = 0.0f; Read((UByte*)&amp;v, 4); return Alg::ByteUtil::LEToSystem(v); }
+<a href='../S/186.html#L256'>Alg</a>               256 ovr/sdk/src/Kernel/OVR_File.h     inline double  ReadDouble()                { double v = 0.0; Read((UByte*)&amp;v, 8); return Alg::ByteUtil::LEToSystem(v); }
+<a href='../S/186.html#L258'>Alg</a>               258 ovr/sdk/src/Kernel/OVR_File.h     inline UByte   ReadUByteBE()               { return (UByte)Alg::ByteUtil::BEToSystem(PRead8());    }
+<a href='../S/186.html#L259'>Alg</a>               259 ovr/sdk/src/Kernel/OVR_File.h     inline SByte   ReadSByteBE()               { return (SByte)Alg::ByteUtil::BEToSystem(PRead8());    }
+<a href='../S/186.html#L260'>Alg</a>               260 ovr/sdk/src/Kernel/OVR_File.h     inline UByte   ReadUInt8BE()               { return (UByte)Alg::ByteUtil::BEToSystem(PRead8());    }
+<a href='../S/186.html#L261'>Alg</a>               261 ovr/sdk/src/Kernel/OVR_File.h     inline SByte   ReadSInt8BE()               { return (SByte)Alg::ByteUtil::BEToSystem(PRead8());    }
+<a href='../S/186.html#L262'>Alg</a>               262 ovr/sdk/src/Kernel/OVR_File.h     inline UInt16  ReadUInt16BE()              { return (UInt16)Alg::ByteUtil::BEToSystem(PRead16());  }
+<a href='../S/186.html#L263'>Alg</a>               263 ovr/sdk/src/Kernel/OVR_File.h     inline SInt16  ReadSInt16BE()              { return (SInt16)Alg::ByteUtil::BEToSystem(PRead16());  }
+<a href='../S/186.html#L264'>Alg</a>               264 ovr/sdk/src/Kernel/OVR_File.h     inline UInt32  ReadUInt32BE()              { return (UInt32)Alg::ByteUtil::BEToSystem(PRead32());  }
+<a href='../S/186.html#L265'>Alg</a>               265 ovr/sdk/src/Kernel/OVR_File.h     inline SInt32  ReadSInt32BE()              { return (SInt32)Alg::ByteUtil::BEToSystem(PRead32());  }
+<a href='../S/186.html#L266'>Alg</a>               266 ovr/sdk/src/Kernel/OVR_File.h     inline UInt64  ReadUInt64BE()              { return (UInt64)Alg::ByteUtil::BEToSystem(PRead64());  }
+<a href='../S/186.html#L267'>Alg</a>               267 ovr/sdk/src/Kernel/OVR_File.h     inline SInt64  ReadSInt64BE()              { return (SInt64)Alg::ByteUtil::BEToSystem(PRead64());  }
+<a href='../S/186.html#L268'>Alg</a>               268 ovr/sdk/src/Kernel/OVR_File.h     inline float   ReadFloatBE()               { float v = 0.0f; Read((UByte*)&amp;v, 4); return Alg::ByteUtil::BEToSystem(v); }
+<a href='../S/186.html#L269'>Alg</a>               269 ovr/sdk/src/Kernel/OVR_File.h     inline double  ReadDoubleBE()              { double v = 0.0; Read((UByte*)&amp;v, 8); return Alg::ByteUtil::BEToSystem(v); }
+<a href='../S/179.html#L852'>Alg</a>               852 ovr/sdk/src/Kernel/OVR_Hash.h             int bits = Alg::UpperBit(newSize-1) + 1; // Chop( Log2f((float)(newSize-1)) + 1);
+<a href='../S/177.html#L902'>Alg</a>               902 ovr/sdk/src/Kernel/OVR_Math.h 		return 2 * Acos(Alg::Abs(Dot(q)));
+<a href='../S/169.html#L90'>Alg</a>                90 ovr/sdk/src/Kernel/OVR_Std.cpp     UPInt l = Alg::Min(srclen, count);
+<a href='../S/169.html#L95'>Alg</a>                95 ovr/sdk/src/Kernel/OVR_Std.cpp         UPInt remLen = Alg::Min(destsize - l, (count - srclen));
+<a href='../S/169.html#L1005'>Alg</a>              1005 ovr/sdk/src/Kernel/OVR_Std.cpp         UPInt idx = Alg::LowerBoundSliced(
+<a href='../S/169.html#L1023'>Alg</a>              1023 ovr/sdk/src/Kernel/OVR_Std.cpp         UPInt idx = Alg::LowerBoundSliced(
+<a href='../S/184.html#L610'>Alg</a>               610 ovr/sdk/src/Kernel/OVR_String.cpp         UByte bits = Alg::UpperBit(UInt32(growSize-1));
+<a href='../S/161.html#L582'>Alg</a>               582 ovr/sdk/src/Kernel/OVR_String.h         size = Alg::PMin(GetSize(), size);
+<a href='../S/161.html#L590'>Alg</a>               590 ovr/sdk/src/Kernel/OVR_String.h         size = Alg::PMin(GetSize(), size);
+<a href='../S/161.html#L617'>Alg</a>               617 ovr/sdk/src/Kernel/OVR_String.h         size = Alg::PMin(GetSize(), size);
+<a href='../S/161.html#L627'>Alg</a>               627 ovr/sdk/src/Kernel/OVR_String.h         size = Alg::PMin(GetSize(), size);
+<a href='../S/129.html#L107'>Alg</a>               107 ovr/sdk/src/OVR_Common_HMDDevice.cpp                         int firm_major = Alg::DecodeBCD((sinfo.Version &gt;&gt; 8) &amp; 0x00ff);
+<a href='../S/129.html#L108'>Alg</a>               108 ovr/sdk/src/OVR_Common_HMDDevice.cpp                         int firm_minor = Alg::DecodeBCD(sinfo.Version &amp; 0xff);
+<a href='../S/108.html#L550'>Alg</a>               550 ovr/sdk/src/OVR_Device.h     Alg::EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/108.html#L557'>Alg</a>               557 ovr/sdk/src/OVR_Device.h 		Settings.CommandId = Alg::DecodeUInt16(Buffer+1);
+<a href='../S/87.html#L32'>Alg</a>                32 ovr/sdk/src/OVR_LatencyTestImpl.cpp using namespace Alg;
+<a href='../S/139.html#L1280'>Alg</a>              1280 ovr/sdk/src/OVR_Profile.cpp         int val_count = Alg::Min(value-&gt;GetArraySize(), num_vals);
+<a href='../S/139.html#L1318'>Alg</a>              1318 ovr/sdk/src/OVR_Profile.cpp         int val_count = Alg::Min(value-&gt;GetArraySize(), num_vals);
+<a href='../S/192.html#L36'>Alg</a>                36 ovr/sdk/src/OVR_Sensor2ImplUtil.h using namespace Alg;
+<a href='../S/128.html#L34'>Alg</a>                34 ovr/sdk/src/OVR_SensorCalibration.cpp using namespace Alg;
+<a href='../S/143.html#L42'>Alg</a>                42 ovr/sdk/src/OVR_SensorFilter.cpp         result[coord] = Alg::Median(ArrayAdaptor(slice, this-&gt;ElemCount));
+<a href='../S/119.html#L200'>Alg</a>               200 ovr/sdk/src/OVR_SensorFilter.h         T result = Alg::Median(ArrayAdaptor(copy));
+<a href='../S/119.html#L273'>Alg</a>               273 ovr/sdk/src/OVR_SensorFilter.h         return Alg::Clamp(0.48 - 0.1 * log(StdDev()), 0.0, 1.0) * this-&gt;ElemCount / this-&gt;Capacity;
+<a href='../S/189.html#L493'>Alg</a>               493 ovr/sdk/src/OVR_SensorFusion.cpp     if (Alg::Abs(yawError.w) &lt; cos(snapThreshold / 2)) // angle(yawError) &gt; snapThreshold
+<a href='../S/189.html#L560'>Alg</a>               560 ovr/sdk/src/OVR_SensorFusion.cpp         if (Alg::Abs(magRefInWorldFrame.y - magInWorldFrame.y) &gt; maxTiltError)
+<a href='../S/189.html#L595'>Alg</a>               595 ovr/sdk/src/OVR_SensorFusion.cpp         ((Alg::Abs(error.w) &lt; cos(snapThreshold / 2) &amp;&amp; FAccelInImuFrame.Confidence() &gt; 0.75)))
+<a href='../S/189.html#L652'>Alg</a>               652 ovr/sdk/src/OVR_SensorFusion.cpp         (Alg::Abs(error.w) &lt; cos(snapThreshold / 2) &amp;&amp; confidence &gt; confidenceThreshold))
+<a href='../S/190.html#L43'>Alg</a>                43 ovr/sdk/src/OVR_SensorImpl.cpp using namespace Alg;
+<a href='../S/144.html#L221'>Alg</a>               221 ovr/sdk/src/OVR_SensorImpl_Common.cpp     Temperature = (float) Alg::DecodeSInt16(Buffer + 67) / 100.0f;
+<a href='../S/88.html#L40'>Alg</a>                40 ovr/sdk/src/OVR_Stereo.cpp using namespace Alg;
+<a href='../S/88.html#L91'>Alg</a>                91 ovr/sdk/src/OVR_Stereo.cpp     scaledValFloor = Alg::Max ( 0.0f, Alg::Min ( (float)(NumSegments-1), scaledValFloor ) );
+<a href='../S/88.html#L1208'>Alg</a>              1208 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( Alg::Abs ( val - result.K[ctrlPt] ) &lt; 0.0001f );
+<a href='../S/88.html#L1343'>Alg</a>              1343 ovr/sdk/src/OVR_Stereo.cpp         extraEyeRotationInRadians = Alg::Min ( DegreeToRad ( 30.0f ), Alg::Max ( 0.0f, extraEyeRotationInRadians ) );
+<a href='../S/88.html#L1353'>Alg</a>              1353 ovr/sdk/src/OVR_Stereo.cpp         fovPort.UpTan    = Alg::Max ( fovPort.UpTan   , ( halfLensDiameter + offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1354'>Alg</a>              1354 ovr/sdk/src/OVR_Stereo.cpp         fovPort.DownTan  = Alg::Max ( fovPort.DownTan , ( halfLensDiameter - offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1355'>Alg</a>              1355 ovr/sdk/src/OVR_Stereo.cpp         fovPort.LeftTan  = Alg::Max ( fovPort.LeftTan , ( halfLensDiameter + offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1356'>Alg</a>              1356 ovr/sdk/src/OVR_Stereo.cpp         fovPort.RightTan = Alg::Max ( fovPort.RightTan, ( halfLensDiameter - offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1386'>Alg</a>              1386 ovr/sdk/src/OVR_Stereo.cpp     eyeReliefInMeters = Alg::Max(eyeReliefInMeters, 0.006f);
+<a href='../S/88.html#L1438'>Alg</a>              1438 ovr/sdk/src/OVR_Stereo.cpp                 result.LeftTan  = Alg::Max ( result.LeftTan,  -tanEyeAngle.x );
+<a href='../S/88.html#L1439'>Alg</a>              1439 ovr/sdk/src/OVR_Stereo.cpp                 result.RightTan = Alg::Max ( result.RightTan,  tanEyeAngle.x );
+<a href='../S/88.html#L1440'>Alg</a>              1440 ovr/sdk/src/OVR_Stereo.cpp                 result.UpTan    = Alg::Max ( result.UpTan,    -tanEyeAngle.y );
+<a href='../S/88.html#L1441'>Alg</a>              1441 ovr/sdk/src/OVR_Stereo.cpp                 result.DownTan  = Alg::Max ( result.DownTan,   tanEyeAngle.y );
+<a href='../S/88.html#L1465'>Alg</a>              1465 ovr/sdk/src/OVR_Stereo.cpp     resultFovPort.LeftTan  = Alg::Min ( inputFovPort.LeftTan,  phsyicalFovPort.LeftTan );
+<a href='../S/88.html#L1466'>Alg</a>              1466 ovr/sdk/src/OVR_Stereo.cpp     resultFovPort.RightTan = Alg::Min ( inputFovPort.RightTan, phsyicalFovPort.RightTan );
+<a href='../S/88.html#L1467'>Alg</a>              1467 ovr/sdk/src/OVR_Stereo.cpp     resultFovPort.UpTan    = Alg::Min ( inputFovPort.UpTan,    phsyicalFovPort.UpTan );
+<a href='../S/88.html#L1468'>Alg</a>              1468 ovr/sdk/src/OVR_Stereo.cpp     resultFovPort.DownTan  = Alg::Min ( inputFovPort.DownTan,  phsyicalFovPort.DownTan );
+<a href='../S/131.html#L109'>Alg</a>               109 ovr/sdk/src/OVR_Stereo.h         return Alg::Max(Alg::Max(UpTan, DownTan), Alg::Max(LeftTan, RightTan));
+<a href='../S/131.html#L119'>Alg</a>               119 ovr/sdk/src/OVR_Stereo.h         FovPort fov( Alg::Min( a.UpTan   , b.UpTan    ),   
+<a href='../S/131.html#L120'>Alg</a>               120 ovr/sdk/src/OVR_Stereo.h                      Alg::Min( a.DownTan , b.DownTan  ),
+<a href='../S/131.html#L121'>Alg</a>               121 ovr/sdk/src/OVR_Stereo.h                      Alg::Min( a.LeftTan , b.LeftTan  ),
+<a href='../S/131.html#L122'>Alg</a>               122 ovr/sdk/src/OVR_Stereo.h                      Alg::Min( a.RightTan, b.RightTan ) );
+<a href='../S/131.html#L128'>Alg</a>               128 ovr/sdk/src/OVR_Stereo.h         FovPort fov( Alg::Max( a.UpTan   , b.UpTan    ),   
+<a href='../S/131.html#L129'>Alg</a>               129 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.DownTan , b.DownTan  ),
+<a href='../S/131.html#L130'>Alg</a>               130 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.LeftTan , b.LeftTan  ),
+<a href='../S/131.html#L131'>Alg</a>               131 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.RightTan, b.RightTan ) );
+<a href='../S/114.html#L471'>Alg</a>               471 ovr/sdk/src/Util/Util_LatencyTest.cpp                         minTime1To2 = Alg::Min(elapsed, minTime1To2);
+<a href='../S/114.html#L472'>Alg</a>               472 ovr/sdk/src/Util/Util_LatencyTest.cpp                         maxTime1To2 = Alg::Max(elapsed, maxTime1To2);
+<a href='../S/114.html#L485'>Alg</a>               485 ovr/sdk/src/Util/Util_LatencyTest.cpp                         minTime2To1 = Alg::Min(elapsed, minTime2To1);
+<a href='../S/114.html#L486'>Alg</a>               486 ovr/sdk/src/Util/Util_LatencyTest.cpp                         maxTime2To1 = Alg::Max(elapsed, maxTime2To1);
+<a href='../S/114.html#L493'>Alg</a>               493 ovr/sdk/src/Util/Util_LatencyTest.cpp                 minUSBTripMilliS = Alg::Min(usbRountripElapsedMilliS, minUSBTripMilliS);
+<a href='../S/114.html#L494'>Alg</a>               494 ovr/sdk/src/Util/Util_LatencyTest.cpp                 maxUSBTripMilliS = Alg::Max(usbRountripElapsedMilliS, maxUSBTripMilliS);
+<a href='../S/114.html#L552'>Alg</a>               552 ovr/sdk/src/Util/Util_LatencyTest.cpp     elapsedMilliS = Alg::Min(elapsedMilliS, (UInt32) 100);   // Clamp at 100mS in case we're not being called very often.
+<a href='../S/117.html#L126'>Alg</a>               126 ovr/sdk/src/Util/Util_Render_Stereo.cpp         renderedViewport.w = Alg::Min ( actualRendertargetSurfaceSize.w, requestedRenderedPixelSize.w );
+<a href='../S/117.html#L127'>Alg</a>               127 ovr/sdk/src/Util/Util_Render_Stereo.cpp         renderedViewport.h = Alg::Min ( actualRendertargetSurfaceSize.h, requestedRenderedPixelSize.h );
+<a href='../S/117.html#L134'>Alg</a>               134 ovr/sdk/src/Util/Util_Render_Stereo.cpp         renderedViewport.w = Alg::Min ( actualRendertargetSurfaceSize.w/2, requestedRenderedPixelSize.w );
+<a href='../S/117.html#L135'>Alg</a>               135 ovr/sdk/src/Util/Util_Render_Stereo.cpp         renderedViewport.h = Alg::Min ( actualRendertargetSurfaceSize.h,  requestedRenderedPixelSize.h );
+<a href='../S/117.html#L268'>Alg</a>               268 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.w = Alg::Max ( idealPixelSize[0].w, idealPixelSize[1].w );
+<a href='../S/117.html#L269'>Alg</a>               269 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.h = Alg::Max ( idealPixelSize[0].h, idealPixelSize[1].h );
+<a href='../S/117.html#L325'>Alg</a>               325 ovr/sdk/src/Util/Util_Render_Stereo.cpp         float fovTanH = Alg::Max ( fov.LeftTan, fov.RightTan );
+<a href='../S/117.html#L326'>Alg</a>               326 ovr/sdk/src/Util/Util_Render_Stereo.cpp         float fovTanV = Alg::Max ( fov.UpTan, fov.DownTan );
+<a href='../S/117.html#L597'>Alg</a>               597 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.UpTan    = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.UpTan   , EyeRenderParams[1].StereoEye.Fov.UpTan    );
+<a href='../S/117.html#L598'>Alg</a>               598 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.DownTan  = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.DownTan , EyeRenderParams[1].StereoEye.Fov.DownTan  );
+<a href='../S/117.html#L599'>Alg</a>               599 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.LeftTan  = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.LeftTan , EyeRenderParams[1].StereoEye.Fov.LeftTan  );
+<a href='../S/117.html#L600'>Alg</a>               600 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.RightTan = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.RightTan, EyeRenderParams[1].StereoEye.Fov.RightTan );
+<a href='../S/117.html#L918'>Alg</a>               918 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                      ( 1.0f - Alg::Max ( Alg::Abs ( sourceCoordNDC.x ), Alg::Abs ( sourceCoordNDC.y ) ) );
+<a href='../S/117.html#L921'>Alg</a>               921 ovr/sdk/src/Util/Util_Render_Stereo.cpp                                      ( 1.0f - Alg::Max ( Alg::Abs ( screenNDC.x ), Alg::Abs ( screenNDC.y ) ) );
+<a href='../S/117.html#L922'>Alg</a>               922 ovr/sdk/src/Util/Util_Render_Stereo.cpp             edgeFadeIn = Alg::Min ( edgeFadeInScreen, edgeFadeIn );
+<a href='../S/117.html#L925'>Alg</a>               925 ovr/sdk/src/Util/Util_Render_Stereo.cpp             screenNDC.x = Alg::Max ( -1.0f, Alg::Min ( screenNDC.x, 1.0f ) );
+<a href='../S/117.html#L926'>Alg</a>               926 ovr/sdk/src/Util/Util_Render_Stereo.cpp             screenNDC.y = Alg::Max ( -1.0f, Alg::Min ( screenNDC.y, 1.0f ) );
+<a href='../S/117.html#L928'>Alg</a>               928 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;Shade = Alg::Max ( 0.0f, Alg::Min ( edgeFadeIn, 1.0f ) );
+</pre>
+</body>
+</html>

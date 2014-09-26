@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>parent</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/129.html#L282'>parent</a>            282 ovr/sdk/src/OVR_Common_HMDDevice.cpp bool HMDDevice::Initialize(DeviceBase* parent)
+<a href='../S/129.html#L284'>parent</a>            284 ovr/sdk/src/OVR_Common_HMDDevice.cpp     pParent = parent;
+<a href='../S/191.html#L322'>parent</a>            322 ovr/sdk/src/OVR_DeviceImpl.cpp bool DeviceManagerImpl::Initialize(DeviceBase* parent)
+<a href='../S/191.html#L324'>parent</a>            324 ovr/sdk/src/OVR_DeviceImpl.cpp     OVR_UNUSED(parent);
+<a href='../S/191.html#L361'>parent</a>            361 ovr/sdk/src/OVR_DeviceImpl.cpp DeviceBase* DeviceManagerImpl::CreateDevice_MgrThread(DeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/191.html#L376'>parent</a>            376 ovr/sdk/src/OVR_DeviceImpl.cpp     if (!parent)
+<a href='../S/191.html#L377'>parent</a>            377 ovr/sdk/src/OVR_DeviceImpl.cpp         parent = this;
+<a href='../S/191.html#L383'>parent</a>            383 ovr/sdk/src/OVR_DeviceImpl.cpp         if (device-&gt;getDeviceCommon()-&gt;Initialize(parent))
+<a href='../S/80.html#L209'>parent</a>            209 ovr/sdk/src/OVR_DeviceImpl.h     DeviceCommon(DeviceCreateDesc* createDesc, DeviceBase* device, DeviceBase* parent)
+<a href='../S/80.html#L210'>parent</a>            210 ovr/sdk/src/OVR_DeviceImpl.h         : RefCount(1), pCreateDesc(createDesc), pParent(parent),
+<a href='../S/80.html#L222'>parent</a>            222 ovr/sdk/src/OVR_DeviceImpl.h     virtual bool Initialize(DeviceBase* parent) = 0;
+<a href='../S/80.html#L235'>parent</a>            235 ovr/sdk/src/OVR_DeviceImpl.h     DeviceImpl(DeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/80.html#L236'>parent</a>            236 ovr/sdk/src/OVR_DeviceImpl.h         : DeviceCommon(createDesc, getThis(), parent)        
+<a href='../S/80.html#L345'>parent</a>            345 ovr/sdk/src/OVR_DeviceImpl.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/80.html#L389'>parent</a>            389 ovr/sdk/src/OVR_DeviceImpl.h     DeviceBase* CreateDevice_MgrThread(DeviceCreateDesc* createDesc, DeviceBase* parent = 0);
+<a href='../S/123.html#L58'>parent</a>             58 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDeviceImpl(HIDDeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/123.html#L59'>parent</a>             59 ovr/sdk/src/OVR_HIDDeviceImpl.h      :  DeviceImpl&lt;B&gt;(createDesc, parent)        
+<a href='../S/123.html#L100'>parent</a>            100 ovr/sdk/src/OVR_HIDDeviceImpl.h     virtual bool Initialize(DeviceBase* parent)
+<a href='../S/123.html#L117'>parent</a>            117 ovr/sdk/src/OVR_HIDDeviceImpl.h         DeviceImpl&lt;B&gt;::pParent = parent;
+<a href='../S/87.html#L492'>parent</a>            492 ovr/sdk/src/OVR_LatencyTestImpl.cpp bool LatencyTestDeviceImpl::Initialize(DeviceBase* parent)
+<a href='../S/87.html#L494'>parent</a>            494 ovr/sdk/src/OVR_LatencyTestImpl.cpp     if (HIDDeviceImpl&lt;OVR::LatencyTestDevice&gt;::Initialize(parent))
+<a href='../S/122.html#L105'>parent</a>            105 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/130.html#L50'>parent</a>             50 ovr/sdk/src/OVR_Linux_DeviceManager.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/125.html#L130'>parent</a>            130 ovr/sdk/src/OVR_Linux_HMDDevice.h     virtual bool Initialize(DeviceBase* parent);
+<a href='../S/190.html#L333'>parent</a>            333 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceImpl::Initialize(DeviceBase* parent)
+<a href='../S/190.html#L335'>parent</a>            335 ovr/sdk/src/OVR_SensorImpl.cpp     if (HIDDeviceImpl&lt;OVR::SensorDevice&gt;::Initialize(parent))
+<a href='../S/135.html#L196'>parent</a>            196 ovr/sdk/src/OVR_SensorImpl.h     virtual bool Initialize(DeviceBase* parent);
+</pre>
+</body>
+</html>

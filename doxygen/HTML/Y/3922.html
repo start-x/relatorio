@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>pData</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/184.html#L46'>pData</a>              46 ovr/sdk/src/Kernel/OVR_String.cpp     pData = &amp;NullData;
+<a href='../S/184.html#L47'>pData</a>              47 ovr/sdk/src/Kernel/OVR_String.cpp     pData-&gt;AddRef();
+<a href='../S/184.html#L54'>pData</a>              54 ovr/sdk/src/Kernel/OVR_String.cpp     pData = AllocDataCopy1(size, 0, pdata, size);
+<a href='../S/184.html#L67'>pData</a>              67 ovr/sdk/src/Kernel/OVR_String.cpp     pData = pdataDesc;    
+<a href='../S/184.html#L73'>pData</a>              73 ovr/sdk/src/Kernel/OVR_String.cpp     pData = AllocDataCopy1(size, 0, pdata, size);
+<a href='../S/184.html#L79'>pData</a>              79 ovr/sdk/src/Kernel/OVR_String.cpp     pData = AllocData(size, 0);
+<a href='../S/184.html#L85'>pData</a>              85 ovr/sdk/src/Kernel/OVR_String.cpp     pData = src.GetData();
+<a href='../S/184.html#L86'>pData</a>              86 ovr/sdk/src/Kernel/OVR_String.cpp     pData-&gt;AddRef();
+<a href='../S/184.html#L91'>pData</a>              91 ovr/sdk/src/Kernel/OVR_String.cpp     pData = AllocDataCopy1(src.GetSize(), 0, src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L96'>pData</a>              96 ovr/sdk/src/Kernel/OVR_String.cpp     pData = &amp;NullData;
+<a href='../S/184.html#L97'>pData</a>              97 ovr/sdk/src/Kernel/OVR_String.cpp     pData-&gt;AddRef();
+<a href='../S/184.html#L363'>pData</a>             363 ovr/sdk/src/Kernel/OVR_String.cpp                            pData-&gt;Data + bytePos + removeSize, (oldSize - bytePos - removeSize)));
+<a href='../S/184.html#L559'>pData</a>             559 ovr/sdk/src/Kernel/OVR_String.cpp     : pData(NULL), Size(0), BufferSize(0), GrowSize(OVR_SBUFF_DEFAULT_GROW_SIZE), LengthIsSize(false)
+<a href='../S/184.html#L564'>pData</a>             564 ovr/sdk/src/Kernel/OVR_String.cpp     : pData(NULL), Size(0), BufferSize(0), GrowSize(OVR_SBUFF_DEFAULT_GROW_SIZE), LengthIsSize(false)
+<a href='../S/184.html#L570'>pData</a>             570 ovr/sdk/src/Kernel/OVR_String.cpp     : pData(NULL), Size(0), BufferSize(0), GrowSize(OVR_SBUFF_DEFAULT_GROW_SIZE), LengthIsSize(false)
+<a href='../S/184.html#L576'>pData</a>             576 ovr/sdk/src/Kernel/OVR_String.cpp     : pData(NULL), Size(0), BufferSize(0), GrowSize(OVR_SBUFF_DEFAULT_GROW_SIZE), LengthIsSize(false)
+<a href='../S/184.html#L582'>pData</a>             582 ovr/sdk/src/Kernel/OVR_String.cpp     : pData(NULL), Size(0), BufferSize(0), GrowSize(OVR_SBUFF_DEFAULT_GROW_SIZE), LengthIsSize(false)
+<a href='../S/184.html#L588'>pData</a>             588 ovr/sdk/src/Kernel/OVR_String.cpp     : pData(NULL), Size(0), BufferSize(0), GrowSize(OVR_SBUFF_DEFAULT_GROW_SIZE), LengthIsSize(false)
+<a href='../S/184.html#L594'>pData</a>             594 ovr/sdk/src/Kernel/OVR_String.cpp     : pData(NULL), Size(0), BufferSize(0), GrowSize(OVR_SBUFF_DEFAULT_GROW_SIZE), LengthIsSize(false)
+<a href='../S/184.html#L601'>pData</a>             601 ovr/sdk/src/Kernel/OVR_String.cpp     if (pData)
+<a href='../S/184.html#L602'>pData</a>             602 ovr/sdk/src/Kernel/OVR_String.cpp         OVR_FREE(pData);
+<a href='../S/184.html#L622'>pData</a>             622 ovr/sdk/src/Kernel/OVR_String.cpp     length = (UPInt)UTF8Util::GetLength(pData, (UPInt)GetSize());
+<a href='../S/184.html#L634'>pData</a>             634 ovr/sdk/src/Kernel/OVR_String.cpp         if (!pData)
+<a href='../S/184.html#L635'>pData</a>             635 ovr/sdk/src/Kernel/OVR_String.cpp             pData = (char*)OVR_ALLOC(BufferSize);
+<a href='../S/184.html#L637'>pData</a>             637 ovr/sdk/src/Kernel/OVR_String.cpp             pData = (char*)OVR_REALLOC(pData, BufferSize);
+<a href='../S/184.html#L645'>pData</a>             645 ovr/sdk/src/Kernel/OVR_String.cpp     if (pData)
+<a href='../S/184.html#L646'>pData</a>             646 ovr/sdk/src/Kernel/OVR_String.cpp         pData[Size] = 0;
+<a href='../S/184.html#L676'>pData</a>             676 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData + origSize, buff, srcSize);
+<a href='../S/184.html#L690'>pData</a>             690 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeString(pData + origSize,  pstr, len);
+<a href='../S/184.html#L704'>pData</a>             704 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData + origSize, putf8str, utf8StrSz);
+<a href='../S/184.html#L713'>pData</a>             713 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData, pstr, size);
+<a href='../S/184.html#L721'>pData</a>             721 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeString(pData, pstr);
+<a href='../S/184.html#L727'>pData</a>             727 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy(pData, src.ToCStr(), src.GetSize());
+<a href='../S/184.html#L743'>pData</a>             743 ovr/sdk/src/Kernel/OVR_String.cpp                            (UPInt)UTF8Util::GetByteIndex(posAt, pData, (SPInt)Size);
+<a href='../S/184.html#L748'>pData</a>             748 ovr/sdk/src/Kernel/OVR_String.cpp     memmove(pData + byteIndex + insertSize, pData + byteIndex, oldSize - byteIndex + 1);
+<a href='../S/184.html#L749'>pData</a>             749 ovr/sdk/src/Kernel/OVR_String.cpp     memcpy (pData + byteIndex, substr, insertSize);
+<a href='../S/184.html#L752'>pData</a>             752 ovr/sdk/src/Kernel/OVR_String.cpp     pData[Size] = 0;
+<a href='../S/161.html#L111'>pData</a>             111 ovr/sdk/src/Kernel/OVR_String.h         DataDesc* pData;
+<a href='../S/161.html#L115'>pData</a>             115 ovr/sdk/src/Kernel/OVR_String.h         DataDesc* pData;
+<a href='../S/161.html#L124'>pData</a>             124 ovr/sdk/src/Kernel/OVR_String.h         u.pData    = pData;
+<a href='../S/161.html#L126'>pData</a>             126 ovr/sdk/src/Kernel/OVR_String.h         return u.pData;
+<a href='../S/161.html#L132'>pData</a>             132 ovr/sdk/src/Kernel/OVR_String.h         pData = pdesc;
+<a href='../S/161.html#L406'>pData</a>             406 ovr/sdk/src/Kernel/OVR_String.h     char*           pData;
+<a href='../S/161.html#L435'>pData</a>             435 ovr/sdk/src/Kernel/OVR_String.h     operator const char*() const        { return (pData) ? pData : ""; }
+<a href='../S/161.html#L437'>pData</a>             437 ovr/sdk/src/Kernel/OVR_String.h     const char* ToCStr() const          { return (pData) ? pData : ""; }
+<a href='../S/161.html#L491'>pData</a>             491 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/161.html#L496'>pData</a>             496 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/161.html#L502'>pData</a>             502 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/161.html#L507'>pData</a>             507 ovr/sdk/src/Kernel/OVR_String.h         return pData[index];
+<a href='../S/140.html#L129'>pData</a>             129 ovr/sdk/src/OVR_HIDDevice.h         virtual void OnInputReport(UByte* pData, UInt32 length)
+<a href='../S/140.html#L130'>pData</a>             130 ovr/sdk/src/OVR_HIDDevice.h         { OVR_UNUSED2(pData, length); }
+<a href='../S/87.html#L510'>pData</a>             510 ovr/sdk/src/OVR_LatencyTestImpl.cpp void LatencyTestDeviceImpl::OnInputReport(UByte* pData, UInt32 length)
+<a href='../S/87.html#L517'>pData</a>             517 ovr/sdk/src/OVR_LatencyTestImpl.cpp         if (DecodeLatencyTestSamplesMessage(&amp;message, pData, length))     
+<a href='../S/87.html#L527'>pData</a>             527 ovr/sdk/src/OVR_LatencyTestImpl.cpp         if (DecodeLatencyTestColorDetectedMessage(&amp;message, pData, length))     
+<a href='../S/87.html#L537'>pData</a>             537 ovr/sdk/src/OVR_LatencyTestImpl.cpp         if (DecodeLatencyTestStartedMessage(&amp;message, pData, length))     
+<a href='../S/87.html#L547'>pData</a>             547 ovr/sdk/src/OVR_LatencyTestImpl.cpp         if (DecodeLatencyTestButtonMessage(&amp;message, pData, length))     
+<a href='../S/122.html#L109'>pData</a>             109 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual void OnInputReport(UByte* pData, UInt32 length);
+<a href='../S/188.html#L1017'>pData</a>            1017 ovr/sdk/src/OVR_Sensor2Impl.cpp void Sensor2DeviceImpl::OnInputReport(UByte* pData, UInt32 length)
+<a href='../S/188.html#L1023'>pData</a>            1023 ovr/sdk/src/OVR_Sensor2Impl.cpp         if (decodeTracker2Message(&amp;message, pData, length))
+<a href='../S/90.html#L60'>pData</a>              60 ovr/sdk/src/OVR_Sensor2Impl.h     virtual void        OnInputReport(UByte* pData, UInt32 length);
+<a href='../S/190.html#L411'>pData</a>             411 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::OnInputReport(UByte* pData, UInt32 length)
+<a href='../S/190.html#L418'>pData</a>             418 ovr/sdk/src/OVR_SensorImpl.cpp         if (decodeTrackerMessage(&amp;message, pData, length))
+<a href='../S/135.html#L202'>pData</a>             202 ovr/sdk/src/OVR_SensorImpl.h     virtual void OnInputReport(UByte* pData, UInt32 length);
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>ImuOnlyDelta</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L207'>ImuOnlyDelta</a>      207 ovr/sdk/src/OVR_SensorFusion.cpp     if (LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds &gt; 0.001)
+<a href='../S/189.html#L210'>ImuOnlyDelta</a>      210 ovr/sdk/src/OVR_SensorFusion.cpp                                             LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds;
+<a href='../S/189.html#L213'>ImuOnlyDelta</a>      213 ovr/sdk/src/OVR_SensorFusion.cpp         Vector3d imuVelocityInWorldFrame = LastVisionExposureRecord.ImuOnlyDelta.LinearVelocity -
+<a href='../S/189.html#L214'>ImuOnlyDelta</a>      214 ovr/sdk/src/OVR_SensorFusion.cpp             LastVisionExposureRecord.ImuOnlyDelta.Pose.Translation / LastVisionExposureRecord.ImuOnlyDelta.TimeInSeconds;
+<a href='../S/189.html#L253'>ImuOnlyDelta</a>      253 ovr/sdk/src/OVR_SensorFusion.cpp         delta.AdvanceByDelta(record.ImuOnlyDelta);
+<a href='../S/189.html#L256'>ImuOnlyDelta</a>      256 ovr/sdk/src/OVR_SensorFusion.cpp     record.ImuOnlyDelta = delta;
+<a href='../S/189.html#L368'>ImuOnlyDelta</a>      368 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.StoreAndIntegrateGyro(gyro, DeltaT);
+<a href='../S/189.html#L369'>ImuOnlyDelta</a>      369 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.StoreAndIntegrateAccelerometer(accelInWorldFrame, DeltaT);
+<a href='../S/189.html#L370'>ImuOnlyDelta</a>      370 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.TimeInSeconds = WorldFromImu.TimeInSeconds - LastMessageExposureFrame.CameraTimeSeconds;
+<a href='../S/189.html#L403'>ImuOnlyDelta</a>      403 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.TimeInSeconds = msg.CameraTimeSeconds - LastMessageExposureFrame.CameraTimeSeconds;
+<a href='../S/189.html#L457'>ImuOnlyDelta</a>      457 ovr/sdk/src/OVR_SensorFusion.cpp             worldFromImuVision.AdvanceByDelta(ExposureRecordHistory.PeekFront(i).ImuOnlyDelta);
+<a href='../S/189.html#L458'>ImuOnlyDelta</a>      458 ovr/sdk/src/OVR_SensorFusion.cpp         worldFromImuVision.AdvanceByDelta(NextExposureRecord.ImuOnlyDelta);
+<a href='../S/127.html#L352'>ImuOnlyDelta</a>      352 ovr/sdk/src/OVR_SensorFusion.h         PoseState&lt;double&gt; ImuOnlyDelta;
+<a href='../S/127.html#L360'>ImuOnlyDelta</a>      360 ovr/sdk/src/OVR_SensorFusion.h               WorldFromImu(worldFromImu), ImuOnlyDelta(imuOnlyDelta), VisionTrackingAvailable(true) { }
+</pre>
+</body>
+</html>

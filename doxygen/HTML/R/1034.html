@@ -1,0 +1,237 @@
+<html>
+<head>
+<title>Settings</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L533'>Settings</a>          533 ovr/sdk/src/OVR_Device.h     SerialReport Settings;
+<a href='../S/108.html#L542'>Settings</a>          542 ovr/sdk/src/OVR_Device.h 			:Settings(settings)
+<a href='../S/108.html#L550'>Settings</a>          550 ovr/sdk/src/OVR_Device.h     Alg::EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/108.html#L551'>Settings</a>          551 ovr/sdk/src/OVR_Device.h 	for (int i = 0; i &lt; Settings.SERIAL_NUMBER_SIZE; ++i)
+<a href='../S/108.html#L552'>Settings</a>          552 ovr/sdk/src/OVR_Device.h 		Buffer[3 + i] = Settings.SerialNumberValue[i];
+<a href='../S/108.html#L557'>Settings</a>          557 ovr/sdk/src/OVR_Device.h 		Settings.CommandId = Alg::DecodeUInt16(Buffer+1);
+<a href='../S/108.html#L558'>Settings</a>          558 ovr/sdk/src/OVR_Device.h 		for (int i = 0; i &lt; Settings.SERIAL_NUMBER_SIZE; ++i)
+<a href='../S/108.html#L559'>Settings</a>          559 ovr/sdk/src/OVR_Device.h 			Settings.SerialNumberValue[i] = Buffer[3 + i];
+<a href='../S/188.html#L189'>Settings</a>          189 ovr/sdk/src/OVR_Sensor2Impl.cpp     TimeFilter = SensorTimeFilter(SensorTimeFilter::Settings(15));
+<a href='../S/188.html#L288'>Settings</a>          288 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = ci.Settings;
+<a href='../S/188.html#L331'>Settings</a>          331 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = di.Settings;
+<a href='../S/188.html#L380'>Settings</a>          380 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = mci.Settings;
+<a href='../S/188.html#L421'>Settings</a>          421 ovr/sdk/src/OVR_Sensor2Impl.cpp 			*data = pci.Settings;
+<a href='../S/188.html#L432'>Settings</a>          432 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = pci.Settings;
+<a href='../S/188.html#L513'>Settings</a>          513 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = cpi.Settings;
+<a href='../S/188.html#L556'>Settings</a>          556 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = mi.Settings;
+<a href='../S/188.html#L599'>Settings</a>          599 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = ui.Settings;
+<a href='../S/188.html#L642'>Settings</a>          642 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = ui.Settings;
+<a href='../S/188.html#L685'>Settings</a>          685 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = kami.Settings;
+<a href='../S/188.html#L722'>Settings</a>          722 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = ti.Settings;
+<a href='../S/188.html#L797'>Settings</a>          797 ovr/sdk/src/OVR_Sensor2Impl.cpp         *data = goi.Settings;
+<a href='../S/192.html#L44'>Settings</a>           44 ovr/sdk/src/OVR_Sensor2ImplUtil.h     TrackingReport  Settings;
+<a href='../S/192.html#L57'>Settings</a>           57 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		:	Settings(settings)
+<a href='../S/192.html#L66'>Settings</a>           66 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+1, Settings.CommandId );
+<a href='../S/192.html#L67'>Settings</a>           67 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.Pattern;
+<a href='../S/192.html#L68'>Settings</a>           68 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[4] = UByte(Settings.Enable &lt;&lt; 0 |
+<a href='../S/192.html#L69'>Settings</a>           69 ovr/sdk/src/OVR_Sensor2ImplUtil.h                           Settings.Autoincrement &lt;&lt; 1 |
+<a href='../S/192.html#L70'>Settings</a>           70 ovr/sdk/src/OVR_Sensor2ImplUtil.h                           Settings.UseCarrier &lt;&lt; 2 |
+<a href='../S/192.html#L71'>Settings</a>           71 ovr/sdk/src/OVR_Sensor2ImplUtil.h                           Settings.SyncInput &lt;&lt; 3 |
+<a href='../S/192.html#L72'>Settings</a>           72 ovr/sdk/src/OVR_Sensor2ImplUtil.h                           Settings.VsyncLock &lt;&lt; 4 |
+<a href='../S/192.html#L73'>Settings</a>           73 ovr/sdk/src/OVR_Sensor2ImplUtil.h                           Settings.CustomPattern &lt;&lt; 5);
+<a href='../S/192.html#L75'>Settings</a>           75 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+6, Settings.ExposureLength );
+<a href='../S/192.html#L76'>Settings</a>           76 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+8, Settings.FrameInterval );
+<a href='../S/192.html#L77'>Settings</a>           77 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+10, Settings.VsyncOffset );
+<a href='../S/192.html#L78'>Settings</a>           78 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[12] = Settings.DutyCycle;
+<a href='../S/192.html#L83'>Settings</a>           83 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L84'>Settings</a>           84 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Pattern = Buffer[3];
+<a href='../S/192.html#L85'>Settings</a>           85 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Enable = (Buffer[4] &amp; 0x01) != 0;
+<a href='../S/192.html#L86'>Settings</a>           86 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Autoincrement = (Buffer[4] &amp; 0x02) != 0;
+<a href='../S/192.html#L87'>Settings</a>           87 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.UseCarrier = (Buffer[4] &amp; 0x04) != 0;
+<a href='../S/192.html#L88'>Settings</a>           88 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.SyncInput = (Buffer[4] &amp; 0x08) != 0;
+<a href='../S/192.html#L89'>Settings</a>           89 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.VsyncLock = (Buffer[4] &amp; 0x10) != 0;
+<a href='../S/192.html#L90'>Settings</a>           90 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CustomPattern = (Buffer[4] &amp; 0x20) != 0;
+<a href='../S/192.html#L91'>Settings</a>           91 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.ExposureLength = DecodeUInt16(Buffer+6);
+<a href='../S/192.html#L92'>Settings</a>           92 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.FrameInterval = DecodeUInt16(Buffer+8);
+<a href='../S/192.html#L93'>Settings</a>           93 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.VsyncOffset = DecodeUInt16(Buffer+10);
+<a href='../S/192.html#L94'>Settings</a>           94 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.DutyCycle = Buffer[12];
+<a href='../S/192.html#L104'>Settings</a>          104 ovr/sdk/src/OVR_Sensor2ImplUtil.h     DisplayReport Settings;
+<a href='../S/192.html#L117'>Settings</a>          117 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		:	Settings(settings)
+<a href='../S/192.html#L126'>Settings</a>          126 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+1, Settings.CommandId );
+<a href='../S/192.html#L127'>Settings</a>          127 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.Brightness;
+<a href='../S/192.html#L128'>Settings</a>          128 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[4] = UByte(  (Settings.ShutterType &amp; 0x0F) |
+<a href='../S/192.html#L129'>Settings</a>          129 ovr/sdk/src/OVR_Sensor2ImplUtil.h                             (Settings.CurrentLimit &amp; 0x03) &lt;&lt; 4 |
+<a href='../S/192.html#L130'>Settings</a>          130 ovr/sdk/src/OVR_Sensor2ImplUtil.h                             (Settings.UseRolling ? 0x40 : 0) |
+<a href='../S/192.html#L131'>Settings</a>          131 ovr/sdk/src/OVR_Sensor2ImplUtil.h                             (Settings.ReverseRolling ? 0x80 : 0));
+<a href='../S/192.html#L132'>Settings</a>          132 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[5] = UByte(  (Settings.HighBrightness ? 0x01 : 0) |
+<a href='../S/192.html#L133'>Settings</a>          133 ovr/sdk/src/OVR_Sensor2ImplUtil.h                             (Settings.SelfRefresh ? 0x02 : 0) |
+<a href='../S/192.html#L134'>Settings</a>          134 ovr/sdk/src/OVR_Sensor2ImplUtil.h                             (Settings.ReadPixel ? 0x04 : 0) |
+<a href='../S/192.html#L135'>Settings</a>          135 ovr/sdk/src/OVR_Sensor2ImplUtil.h                             (Settings.DirectPentile ? 0x08 : 0));
+<a href='../S/192.html#L136'>Settings</a>          136 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+8, Settings.Persistence );
+<a href='../S/192.html#L137'>Settings</a>          137 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+10, Settings.LightingOffset );
+<a href='../S/192.html#L138'>Settings</a>          138 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+12, Settings.PixelSettle );
+<a href='../S/192.html#L139'>Settings</a>          139 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16 ( Buffer+14, Settings.TotalRows );
+<a href='../S/192.html#L145'>Settings</a>          145 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L146'>Settings</a>          146 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Brightness = Buffer[3];
+<a href='../S/192.html#L147'>Settings</a>          147 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.ShutterType = DisplayReport::ShutterTypeEnum(Buffer[4] &amp; 0x0F);
+<a href='../S/192.html#L148'>Settings</a>          148 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CurrentLimit = DisplayReport::CurrentLimitEnum((Buffer[4] &gt;&gt; 4) &amp; 0x02);
+<a href='../S/192.html#L149'>Settings</a>          149 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.UseRolling = (Buffer[4] &amp; 0x40) != 0;
+<a href='../S/192.html#L150'>Settings</a>          150 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.ReverseRolling = (Buffer[4] &amp; 0x80) != 0;
+<a href='../S/192.html#L151'>Settings</a>          151 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.HighBrightness = (Buffer[5] &amp; 0x01) != 0;
+<a href='../S/192.html#L152'>Settings</a>          152 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.SelfRefresh = (Buffer[5] &amp; 0x02) != 0;
+<a href='../S/192.html#L153'>Settings</a>          153 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.ReadPixel = (Buffer[5] &amp; 0x04) != 0;
+<a href='../S/192.html#L154'>Settings</a>          154 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.DirectPentile = (Buffer[5] &amp; 0x08) != 0;
+<a href='../S/192.html#L155'>Settings</a>          155 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Persistence = DecodeUInt16(Buffer+8);
+<a href='../S/192.html#L156'>Settings</a>          156 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.LightingOffset = DecodeUInt16(Buffer+10);
+<a href='../S/192.html#L157'>Settings</a>          157 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.PixelSettle = DecodeUInt16(Buffer+12);
+<a href='../S/192.html#L158'>Settings</a>          158 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.TotalRows = DecodeUInt16(Buffer+14);
+<a href='../S/192.html#L168'>Settings</a>          168 ovr/sdk/src/OVR_Sensor2ImplUtil.h     MagCalibrationReport Settings;
+<a href='../S/192.html#L177'>Settings</a>          177 ovr/sdk/src/OVR_Sensor2ImplUtil.h         :	Settings(settings)
+<a href='../S/192.html#L185'>Settings</a>          185 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L186'>Settings</a>          186 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.Version;
+<a href='../S/192.html#L191'>Settings</a>          191 ovr/sdk/src/OVR_Sensor2ImplUtil.h                 SInt32 value = SInt32(Settings.Calibration.M[i][j] * 1e4f);
+<a href='../S/192.html#L198'>Settings</a>          198 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L199'>Settings</a>          199 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Version = Buffer[3];
+<a href='../S/192.html#L205'>Settings</a>          205 ovr/sdk/src/OVR_Sensor2ImplUtil.h                 Settings.Calibration.M[i][j] = (float)value * 1e-4f;
+<a href='../S/192.html#L219'>Settings</a>          219 ovr/sdk/src/OVR_Sensor2ImplUtil.h 	PositionCalibrationReport Settings;
+<a href='../S/192.html#L232'>Settings</a>          232 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		:	Settings(settings)
+<a href='../S/192.html#L241'>Settings</a>          241 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L242'>Settings</a>          242 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Buffer[3] = Settings.Version;
+<a href='../S/192.html#L244'>Settings</a>          244 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Vector3d position = Settings.Position * 1e6;
+<a href='../S/192.html#L249'>Settings</a>          249 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Vector3d normal = Settings.Normal * 1e6;
+<a href='../S/192.html#L254'>Settings</a>          254 ovr/sdk/src/OVR_Sensor2ImplUtil.h         double rotation = Settings.Angle * 1e4;
+<a href='../S/192.html#L257'>Settings</a>          257 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+24, Settings.PositionIndex);
+<a href='../S/192.html#L258'>Settings</a>          258 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+26, Settings.NumPositions);
+<a href='../S/192.html#L259'>Settings</a>          259 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+28, UInt16(Settings.PositionType));
+<a href='../S/192.html#L264'>Settings</a>          264 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L265'>Settings</a>          265 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Version = Buffer[3];
+<a href='../S/192.html#L267'>Settings</a>          267 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Position.x = DecodeSInt32(Buffer + 4) * 1e-6;
+<a href='../S/192.html#L268'>Settings</a>          268 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Position.y = DecodeSInt32(Buffer + 8) * 1e-6;
+<a href='../S/192.html#L269'>Settings</a>          269 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Position.z = DecodeSInt32(Buffer + 12) * 1e-6;
+<a href='../S/192.html#L271'>Settings</a>          271 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Normal.x = DecodeSInt16(Buffer + 16) * 1e-6;
+<a href='../S/192.html#L272'>Settings</a>          272 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Normal.y = DecodeSInt16(Buffer + 18) * 1e-6;
+<a href='../S/192.html#L273'>Settings</a>          273 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Normal.z = DecodeSInt16(Buffer + 20) * 1e-6;
+<a href='../S/192.html#L275'>Settings</a>          275 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Angle = DecodeSInt16(Buffer + 22) * 1e-4;
+<a href='../S/192.html#L277'>Settings</a>          277 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.PositionIndex = DecodeUInt16(Buffer + 24);
+<a href='../S/192.html#L278'>Settings</a>          278 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.NumPositions  = DecodeUInt16(Buffer + 26);
+<a href='../S/192.html#L280'>Settings</a>          280 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.PositionType  = PositionCalibrationReport::PositionTypeEnum(DecodeUInt16(Buffer + 28));
+<a href='../S/192.html#L289'>Settings</a>          289 ovr/sdk/src/OVR_Sensor2ImplUtil.h 	PositionCalibrationReport Settings;
+<a href='../S/192.html#L302'>Settings</a>          302 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		:	Settings(settings)
+<a href='../S/192.html#L311'>Settings</a>          311 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L312'>Settings</a>          312 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Buffer[3] = Settings.Version;
+<a href='../S/192.html#L314'>Settings</a>          314 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Vector3d position = Settings.Position * 1e6;
+<a href='../S/192.html#L319'>Settings</a>          319 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+16, Settings.PositionIndex);
+<a href='../S/192.html#L320'>Settings</a>          320 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+18, Settings.NumPositions);
+<a href='../S/192.html#L321'>Settings</a>          321 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+20, UInt16(Settings.PositionType));
+<a href='../S/192.html#L327'>Settings</a>          327 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L328'>Settings</a>          328 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Version = Buffer[3];
+<a href='../S/192.html#L330'>Settings</a>          330 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Position.x = DecodeSInt32(Buffer + 4) * 1e-6;
+<a href='../S/192.html#L331'>Settings</a>          331 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Position.y = DecodeSInt32(Buffer + 8) * 1e-6;
+<a href='../S/192.html#L332'>Settings</a>          332 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Position.z = DecodeSInt32(Buffer + 12) * 1e-6;
+<a href='../S/192.html#L334'>Settings</a>          334 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.PositionIndex = DecodeUInt16(Buffer + 16);
+<a href='../S/192.html#L335'>Settings</a>          335 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.NumPositions  = DecodeUInt16(Buffer + 18);
+<a href='../S/192.html#L336'>Settings</a>          336 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.PositionType  = PositionCalibrationReport::PositionTypeEnum(DecodeUInt16(Buffer + 20));
+<a href='../S/192.html#L346'>Settings</a>          346 ovr/sdk/src/OVR_Sensor2ImplUtil.h     CustomPatternReport Settings;
+<a href='../S/192.html#L359'>Settings</a>          359 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		:	Settings(settings)
+<a href='../S/192.html#L368'>Settings</a>          368 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L369'>Settings</a>          369 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.SequenceLength;
+<a href='../S/192.html#L370'>Settings</a>          370 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt32(Buffer+4 , Settings.Sequence);
+<a href='../S/192.html#L371'>Settings</a>          371 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+8 , Settings.LEDIndex);
+<a href='../S/192.html#L372'>Settings</a>          372 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+10, Settings.NumLEDs);
+<a href='../S/192.html#L377'>Settings</a>          377 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L378'>Settings</a>          378 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.SequenceLength = Buffer[3];
+<a href='../S/192.html#L379'>Settings</a>          379 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Sequence = DecodeUInt32(Buffer+4);
+<a href='../S/192.html#L380'>Settings</a>          380 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.LEDIndex = DecodeUInt16(Buffer+8);
+<a href='../S/192.html#L381'>Settings</a>          381 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.NumLEDs = DecodeUInt16(Buffer+10);
+<a href='../S/192.html#L391'>Settings</a>          391 ovr/sdk/src/OVR_Sensor2ImplUtil.h     ManufacturingReport Settings;
+<a href='../S/192.html#L400'>Settings</a>          400 ovr/sdk/src/OVR_Sensor2ImplUtil.h         :   Settings(settings)
+<a href='../S/192.html#L408'>Settings</a>          408 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L409'>Settings</a>          409 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.NumStages;
+<a href='../S/192.html#L410'>Settings</a>          410 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[4] = Settings.Stage;
+<a href='../S/192.html#L411'>Settings</a>          411 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[5] = Settings.StageVersion;
+<a href='../S/192.html#L412'>Settings</a>          412 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+6, Settings.StageLocation);
+<a href='../S/192.html#L413'>Settings</a>          413 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt32(Buffer+8, Settings.StageTime);
+<a href='../S/192.html#L414'>Settings</a>          414 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt32(Buffer+12, Settings.Result);
+<a href='../S/192.html#L419'>Settings</a>          419 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L420'>Settings</a>          420 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.NumStages = Buffer[3];
+<a href='../S/192.html#L421'>Settings</a>          421 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Stage = Buffer[4];
+<a href='../S/192.html#L422'>Settings</a>          422 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.StageVersion = Buffer[5];
+<a href='../S/192.html#L423'>Settings</a>          423 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.StageLocation = DecodeUInt16(Buffer+6);
+<a href='../S/192.html#L424'>Settings</a>          424 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.StageTime = DecodeUInt32(Buffer+8);
+<a href='../S/192.html#L425'>Settings</a>          425 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Result = DecodeUInt32(Buffer+12);
+<a href='../S/192.html#L435'>Settings</a>          435 ovr/sdk/src/OVR_Sensor2ImplUtil.h     UUIDReport Settings;
+<a href='../S/192.html#L444'>Settings</a>          444 ovr/sdk/src/OVR_Sensor2ImplUtil.h         :   Settings(settings)
+<a href='../S/192.html#L452'>Settings</a>          452 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L454'>Settings</a>          454 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			Buffer[3 + i] = Settings.UUIDValue[i];
+<a href='../S/192.html#L459'>Settings</a>          459 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L461'>Settings</a>          461 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			Settings.UUIDValue[i] = Buffer[3 + i];
+<a href='../S/192.html#L471'>Settings</a>          471 ovr/sdk/src/OVR_Sensor2ImplUtil.h     LensDistortionReport Settings;
+<a href='../S/192.html#L480'>Settings</a>          480 ovr/sdk/src/OVR_Sensor2ImplUtil.h         :   Settings(settings)
+<a href='../S/192.html#L488'>Settings</a>          488 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L490'>Settings</a>          490 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Buffer[3] = Settings.NumDistortions;
+<a href='../S/192.html#L491'>Settings</a>          491 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Buffer[4] = Settings.DistortionIndex;
+<a href='../S/192.html#L492'>Settings</a>          492 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Buffer[5] = Settings.Bitmask;
+<a href='../S/192.html#L493'>Settings</a>          493 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+6, Settings.LensType);
+<a href='../S/192.html#L494'>Settings</a>          494 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+8, Settings.Version);
+<a href='../S/192.html#L495'>Settings</a>          495 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+10, Settings.EyeRelief);
+<a href='../S/192.html#L498'>Settings</a>          498 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			EncodeUInt16(Buffer+12+2*i, Settings.KCoefficients[i]);
+<a href='../S/192.html#L500'>Settings</a>          500 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+34, Settings.MaxR);
+<a href='../S/192.html#L501'>Settings</a>          501 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+36, Settings.MetersPerTanAngleAtCenter);
+<a href='../S/192.html#L504'>Settings</a>          504 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			EncodeUInt16(Buffer+38+2*i, Settings.ChromaticAberration[i]);
+<a href='../S/192.html#L509'>Settings</a>          509 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L511'>Settings</a>          511 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.NumDistortions = Buffer[3];
+<a href='../S/192.html#L512'>Settings</a>          512 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.DistortionIndex = Buffer[4];
+<a href='../S/192.html#L513'>Settings</a>          513 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Bitmask = Buffer[5];
+<a href='../S/192.html#L514'>Settings</a>          514 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.LensType = DecodeUInt16(Buffer+6);
+<a href='../S/192.html#L515'>Settings</a>          515 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.Version = DecodeUInt16(Buffer+8);
+<a href='../S/192.html#L516'>Settings</a>          516 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.EyeRelief = DecodeUInt16(Buffer+10);
+<a href='../S/192.html#L519'>Settings</a>          519 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			Settings.KCoefficients[i] = DecodeUInt16(Buffer+12+2*i);
+<a href='../S/192.html#L521'>Settings</a>          521 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.MaxR = DecodeUInt16(Buffer+34);
+<a href='../S/192.html#L522'>Settings</a>          522 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.MetersPerTanAngleAtCenter = DecodeUInt16(Buffer+36);
+<a href='../S/192.html#L525'>Settings</a>          525 ovr/sdk/src/OVR_Sensor2ImplUtil.h 			Settings.ChromaticAberration[i] = DecodeUInt16(Buffer+38+2*i);
+<a href='../S/192.html#L535'>Settings</a>          535 ovr/sdk/src/OVR_Sensor2ImplUtil.h     KeepAliveMuxReport Settings;
+<a href='../S/192.html#L544'>Settings</a>          544 ovr/sdk/src/OVR_Sensor2ImplUtil.h         :   Settings(settings)
+<a href='../S/192.html#L552'>Settings</a>          552 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+1, Settings.CommandId);
+<a href='../S/192.html#L553'>Settings</a>          553 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.INReport;
+<a href='../S/192.html#L554'>Settings</a>          554 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer+4, Settings.Interval);
+<a href='../S/192.html#L559'>Settings</a>          559 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer+1);
+<a href='../S/192.html#L560'>Settings</a>          560 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.INReport = Buffer[3];
+<a href='../S/192.html#L561'>Settings</a>          561 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Interval = DecodeUInt16(Buffer+4);
+<a href='../S/192.html#L571'>Settings</a>          571 ovr/sdk/src/OVR_Sensor2ImplUtil.h     TemperatureReport Settings;
+<a href='../S/192.html#L580'>Settings</a>          580 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		:	Settings(settings)
+<a href='../S/192.html#L589'>Settings</a>          589 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt16(Buffer + 1, Settings.CommandId);
+<a href='../S/192.html#L590'>Settings</a>          590 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = Settings.Version;
+<a href='../S/192.html#L592'>Settings</a>          592 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[4] = Settings.NumBins;
+<a href='../S/192.html#L593'>Settings</a>          593 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[5] = Settings.Bin;
+<a href='../S/192.html#L594'>Settings</a>          594 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[6] = Settings.NumSamples;
+<a href='../S/192.html#L595'>Settings</a>          595 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[7] = Settings.Sample;
+<a href='../S/192.html#L597'>Settings</a>          597 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeSInt16(Buffer + 8 , SInt16(Settings.TargetTemperature * 1e2));
+<a href='../S/192.html#L598'>Settings</a>          598 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeSInt16(Buffer + 10, SInt16(Settings.ActualTemperature * 1e2));
+<a href='../S/192.html#L600'>Settings</a>          600 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeUInt32(Buffer + 12, Settings.Time);
+<a href='../S/192.html#L602'>Settings</a>          602 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Vector3d offset = Settings.Offset * 1e4;
+<a href='../S/192.html#L608'>Settings</a>          608 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId = DecodeUInt16(Buffer + 1);
+<a href='../S/192.html#L609'>Settings</a>          609 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Version = Buffer[3];
+<a href='../S/192.html#L611'>Settings</a>          611 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.NumBins    = Buffer[4];
+<a href='../S/192.html#L612'>Settings</a>          612 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Bin        = Buffer[5];
+<a href='../S/192.html#L613'>Settings</a>          613 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.NumSamples = Buffer[6];
+<a href='../S/192.html#L614'>Settings</a>          614 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Sample     = Buffer[7];
+<a href='../S/192.html#L616'>Settings</a>          616 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.TargetTemperature = DecodeSInt16(Buffer + 8) * 1e-2;
+<a href='../S/192.html#L617'>Settings</a>          617 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.ActualTemperature = DecodeSInt16(Buffer + 10) * 1e-2;
+<a href='../S/192.html#L619'>Settings</a>          619 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Time = DecodeUInt32(Buffer + 12);
+<a href='../S/192.html#L623'>Settings</a>          623 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Offset = Vector3d(x, y, z) * 1e-4;
+<a href='../S/192.html#L633'>Settings</a>          633 ovr/sdk/src/OVR_Sensor2ImplUtil.h     GyroOffsetReport Settings;
+<a href='../S/192.html#L642'>Settings</a>          642 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		:	Settings(settings)
+<a href='../S/192.html#L651'>Settings</a>          651 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[1] = UByte(Settings.CommandId &amp; 0xFF);
+<a href='../S/192.html#L652'>Settings</a>          652 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[2] = UByte(Settings.CommandId &gt;&gt; 8);
+<a href='../S/192.html#L653'>Settings</a>          653 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Buffer[3] = UByte(Settings.Version);
+<a href='../S/192.html#L655'>Settings</a>          655 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Vector3d offset = Settings.Offset * 1e4;
+<a href='../S/192.html#L658'>Settings</a>          658 ovr/sdk/src/OVR_Sensor2ImplUtil.h         EncodeSInt16(Buffer + 16, SInt16(Settings.Temperature * 1e2));
+<a href='../S/192.html#L663'>Settings</a>          663 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.CommandId   = DecodeUInt16(Buffer + 1);
+<a href='../S/192.html#L664'>Settings</a>          664 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Version     = GyroOffsetReport::VersionEnum(Buffer[3]);
+<a href='../S/192.html#L668'>Settings</a>          668 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Offset      = Vector3d(x, y, z) * 1e-4f;
+<a href='../S/192.html#L670'>Settings</a>          670 ovr/sdk/src/OVR_Sensor2ImplUtil.h         Settings.Temperature = DecodeSInt16(Buffer + 16) * 1e-2;
+<a href='../S/190.html#L1158'>Settings</a>         1158 ovr/sdk/src/OVR_SensorImpl.cpp         *data = di.Settings;
+<a href='../S/134.html#L71'>Settings</a>           71 ovr/sdk/src/OVR_SensorTimeFilter.h         Settings(int minSamples = 50,
+<a href='../S/134.html#L108'>Settings</a>          108 ovr/sdk/src/OVR_SensorTimeFilter.h     SensorTimeFilter(const Settings&amp; settings = Settings());
+<a href='../S/134.html#L197'>Settings</a>          197 ovr/sdk/src/OVR_SensorTimeFilter.h     Settings    FilterSettings;
+</pre>
+</body>
+</html>

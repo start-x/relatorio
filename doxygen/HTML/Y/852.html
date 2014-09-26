@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>HIDDeviceCreateDesc</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/123.html#L36'>HIDDeviceCreateDesc</a>   36 ovr/sdk/src/OVR_HIDDeviceImpl.h class HIDDeviceCreateDesc : public DeviceCreateDesc
+<a href='../S/123.html#L39'>HIDDeviceCreateDesc</a>   39 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDeviceCreateDesc(DeviceFactory* factory, DeviceType type, const HIDDeviceDesc&amp; hidDesc)
+<a href='../S/123.html#L41'>HIDDeviceCreateDesc</a>   41 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDeviceCreateDesc(const HIDDeviceCreateDesc&amp; other)
+<a href='../S/123.html#L58'>HIDDeviceCreateDesc</a>   58 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDeviceImpl(HIDDeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/123.html#L192'>HIDDeviceCreateDesc</a>  192 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDeviceCreateDesc* getCreateDesc() const
+<a href='../S/123.html#L193'>HIDDeviceCreateDesc</a>  193 ovr/sdk/src/OVR_HIDDeviceImpl.h     { return (HIDDeviceCreateDesc*) &amp;(*DeviceImpl&lt;B&gt;::pCreateDesc); }
+<a href='../S/122.html#L58'>HIDDeviceCreateDesc</a>   58 ovr/sdk/src/OVR_LatencyTestImpl.h class LatencyTestDeviceCreateDesc : public HIDDeviceCreateDesc
+<a href='../S/122.html#L62'>HIDDeviceCreateDesc</a>   62 ovr/sdk/src/OVR_LatencyTestImpl.h         : HIDDeviceCreateDesc(factory, Device_LatencyTester, hidDesc) { }
+<a href='../S/135.html#L61'>HIDDeviceCreateDesc</a>   61 ovr/sdk/src/OVR_SensorImpl.h class SensorDeviceCreateDesc : public HIDDeviceCreateDesc
+<a href='../S/135.html#L65'>HIDDeviceCreateDesc</a>   65 ovr/sdk/src/OVR_SensorImpl.h         : HIDDeviceCreateDesc(factory, Device_Sensor, hidDesc) { }
+<a href='../S/135.html#L102'>HIDDeviceCreateDesc</a>  102 ovr/sdk/src/OVR_SensorImpl.h class BootLoaderDeviceCreateDesc : public HIDDeviceCreateDesc
+<a href='../S/135.html#L106'>HIDDeviceCreateDesc</a>  106 ovr/sdk/src/OVR_SensorImpl.h         : HIDDeviceCreateDesc(factory, Device_BootLoader, hidDesc) { }
+</pre>
+</body>
+</html>

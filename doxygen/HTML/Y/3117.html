@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>endTag</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L111'>endTag</a>            111 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* StrPair::ParseText( char* p, const char* endTag, int strFlags )
+<a href='../S/197.html#L113'>endTag</a>            113 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXMLASSERT( endTag &amp;&amp; *endTag );
+<a href='../S/197.html#L116'>endTag</a>            116 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char  endChar = *endTag;
+<a href='../S/197.html#L117'>endTag</a>            117 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     size_t length = strlen( endTag );
+<a href='../S/197.html#L121'>endTag</a>            121 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( *p == endChar &amp;&amp; strncmp( p, endTag, length ) == 0 ) {
+<a href='../S/197.html#L804'>endTag</a>            804 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         StrPair endTag;
+<a href='../S/197.html#L805'>endTag</a>            805 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = node-&gt;ParseDeep( p, &amp;endTag );
+<a href='../S/197.html#L829'>endTag</a>            829 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( endTag.Empty() &amp;&amp; ele-&gt;ClosingType() == XMLElement::OPEN ) {
+<a href='../S/197.html#L833'>endTag</a>            833 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             else if ( !endTag.Empty() &amp;&amp; ele-&gt;ClosingType() != XMLElement::OPEN ) {
+<a href='../S/197.html#L837'>endTag</a>            837 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             else if ( !endTag.Empty() ) {
+<a href='../S/197.html#L838'>endTag</a>            838 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 if ( !XMLUtil::StringEqual( endTag.GetStr(), node-&gt;Value() )) {
+<a href='../S/197.html#L1067'>endTag</a>           1067 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char endTag[2] = { *p, 0 };
+<a href='../S/197.html#L1070'>endTag</a>           1070 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = _value.ParseText( p, endTag, processEntities ? StrPair::ATTRIBUTE_VALUE : StrPair::ATTRIBUTE_VALUE_LEAVE_ENTITIES );
+<a href='../S/196.html#L163'>endTag</a>            163 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseText( char* in, const char* endTag, int strFlags );
+<a href='../S/196.html#L829'>endTag</a>            829 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseDeep( char*, StrPair* endTag );
+<a href='../S/196.html#L858'>endTag</a>            858 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseDeep( char*, StrPair* endTag );
+<a href='../S/196.html#L896'>endTag</a>            896 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseDeep( char*, StrPair* endTag );
+<a href='../S/196.html#L928'>endTag</a>            928 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseDeep( char*, StrPair* endTag );
+<a href='../S/196.html#L1323'>endTag</a>           1323 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* ParseDeep( char* p, StrPair* endTag );
+</pre>
+</body>
+</html>

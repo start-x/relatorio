@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>tr</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/128.html#L84'>tr</a>                 84 ovr/sdk/src/OVR_SensorCalibration.cpp 			TemperatureReport&amp; tr = TemperatureReports[i][j];
+<a href='../S/128.html#L90'>tr</a>                 90 ovr/sdk/src/OVR_SensorCalibration.cpp 					"Time=%d\n",	i, j, tr.Version,
+<a href='../S/128.html#L91'>tr</a>                 91 ovr/sdk/src/OVR_SensorCalibration.cpp 									tr.Bin, tr.NumBins,
+<a href='../S/128.html#L92'>tr</a>                 92 ovr/sdk/src/OVR_SensorCalibration.cpp 									tr.Sample, tr.NumSamples,
+<a href='../S/128.html#L93'>tr</a>                 93 ovr/sdk/src/OVR_SensorCalibration.cpp 									tr.TargetTemperature,
+<a href='../S/128.html#L94'>tr</a>                 94 ovr/sdk/src/OVR_SensorCalibration.cpp 									tr.ActualTemperature,
+<a href='../S/128.html#L95'>tr</a>                 95 ovr/sdk/src/OVR_SensorCalibration.cpp 									tr.Offset.x, tr.Offset.y, tr.Offset.z,
+<a href='../S/128.html#L96'>tr</a>                 96 ovr/sdk/src/OVR_SensorCalibration.cpp 									tr.Time);
+<a href='../S/128.html#L113'>tr</a>                113 ovr/sdk/src/OVR_SensorCalibration.cpp 	TemperatureReport&amp; tr = TemperatureReports[0][0];
+<a href='../S/128.html#L115'>tr</a>                115 ovr/sdk/src/OVR_SensorCalibration.cpp 	tr.ActualTemperature = 0.0;
+<a href='../S/128.html#L116'>tr</a>                116 ovr/sdk/src/OVR_SensorCalibration.cpp 	tr.Time = 0;
+<a href='../S/128.html#L117'>tr</a>                117 ovr/sdk/src/OVR_SensorCalibration.cpp 	tr.Version = 0;
+<a href='../S/128.html#L118'>tr</a>                118 ovr/sdk/src/OVR_SensorCalibration.cpp 	tr.Offset.x = tr.Offset.y = tr.Offset.z = 0.0;
+<a href='../S/128.html#L120'>tr</a>                120 ovr/sdk/src/OVR_SensorCalibration.cpp 	for (UByte i = 0; i &lt; tr.NumBins; i++)
+<a href='../S/128.html#L122'>tr</a>                122 ovr/sdk/src/OVR_SensorCalibration.cpp 		tr.Bin = i;
+<a href='../S/128.html#L124'>tr</a>                124 ovr/sdk/src/OVR_SensorCalibration.cpp 		for (UByte j = 0; j &lt; tr.NumSamples; j++)
+<a href='../S/128.html#L126'>tr</a>                126 ovr/sdk/src/OVR_SensorCalibration.cpp 			tr.Sample = j;
+<a href='../S/128.html#L128'>tr</a>                128 ovr/sdk/src/OVR_SensorCalibration.cpp 			result = pSensor-&gt;SetTemperatureReport(tr);
+</pre>
+</body>
+</html>

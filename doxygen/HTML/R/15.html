@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>AddItem</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/78.html#L120'>AddItem</a>           120 ovr/sdk/src/OVR_JSON.h     void            AddItem(const char *string, JSON* item);
+<a href='../S/78.html#L121'>AddItem</a>           121 ovr/sdk/src/OVR_JSON.h     void            AddNullItem(const char* name)                    { AddItem(name, CreateNull()); }
+<a href='../S/78.html#L122'>AddItem</a>           122 ovr/sdk/src/OVR_JSON.h     void            AddBoolItem(const char* name, bool b)            { AddItem(name, CreateBool(b)); }
+<a href='../S/78.html#L123'>AddItem</a>           123 ovr/sdk/src/OVR_JSON.h     void            AddNumberItem(const char* name, double n)        { AddItem(name, CreateNumber(n)); }
+<a href='../S/78.html#L124'>AddItem</a>           124 ovr/sdk/src/OVR_JSON.h     void            AddStringItem(const char* name, const char* s)   { AddItem(name, CreateString(s)); }
+<a href='../S/139.html#L341'>AddItem</a>           341 ovr/sdk/src/OVR_Profile.cpp                 root-&gt;AddItem("Users", JSON::CreateArray());
+<a href='../S/139.html#L342'>AddItem</a>           342 ovr/sdk/src/OVR_Profile.cpp                 root-&gt;AddItem("TaggedData", JSON::CreateArray());
+<a href='../S/139.html#L393'>AddItem</a>           393 ovr/sdk/src/OVR_Profile.cpp     root-&gt;AddItem("Users", JSON::CreateArray());
+<a href='../S/139.html#L394'>AddItem</a>           394 ovr/sdk/src/OVR_Profile.cpp     root-&gt;AddItem("TaggedData", JSON::CreateArray());
+<a href='../S/139.html#L549'>AddItem</a>           549 ovr/sdk/src/OVR_Profile.cpp         ProfileCache-&gt;AddItem("Users", users);
+<a href='../S/139.html#L818'>AddItem</a>           818 ovr/sdk/src/OVR_Profile.cpp         tagged_item-&gt;AddItem("tags", taglist);
+<a href='../S/139.html#L819'>AddItem</a>           819 ovr/sdk/src/OVR_Profile.cpp         tagged_item-&gt;AddItem("vals", vals);
+<a href='../S/139.html#L907'>AddItem</a>           907 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddItem(value-&gt;Name, value-&gt;Copy());
+<a href='../S/190.html#L987'>AddItem</a>           987 ovr/sdk/src/OVR_SensorImpl.cpp         root-&gt;AddItem("Device", device);
+<a href='../S/190.html#L991'>AddItem</a>           991 ovr/sdk/src/OVR_SensorImpl.cpp     device-&gt;AddItem("MagCalibration", calibration);
+</pre>
+</body>
+</html>

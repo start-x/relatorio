@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>ScreenSizeInMeters</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L533'>ScreenSizeInMeters</a>  533 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             float data[2] = { HMDInfo.ScreenSizeInMeters.w, HMDInfo.ScreenSizeInMeters.h };
+<a href='../S/129.html#L47'>ScreenSizeInMeters</a>   47 ovr/sdk/src/OVR_Common_HMDDevice.cpp     ScreenSizeInMeters = Sizef(hsize, vsize);
+<a href='../S/129.html#L73'>ScreenSizeInMeters</a>   73 ovr/sdk/src/OVR_Common_HMDDevice.cpp         if ( ScreenSizeInMeters.w &gt; 0.1497f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1498f )
+<a href='../S/129.html#L81'>ScreenSizeInMeters</a>   81 ovr/sdk/src/OVR_Common_HMDDevice.cpp         if ( ScreenSizeInMeters.w &gt; 0.1209f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1210f )
+<a href='../S/129.html#L86'>ScreenSizeInMeters</a>   86 ovr/sdk/src/OVR_Common_HMDDevice.cpp         else if ( ScreenSizeInMeters.w &gt; 0.1257f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1258f )
+<a href='../S/129.html#L118'>ScreenSizeInMeters</a>  118 ovr/sdk/src/OVR_Common_HMDDevice.cpp         else if (ScreenSizeInMeters.w &gt; 0.1295f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1297f)
+<a href='../S/129.html#L163'>ScreenSizeInMeters</a>  163 ovr/sdk/src/OVR_Common_HMDDevice.cpp         hmdInfo-&gt;ScreenSizeInMeters     = ScreenSizeInMeters;        // Includes ScreenGapSizeInMeters
+<a href='../S/108.html#L325'>ScreenSizeInMeters</a>  325 ovr/sdk/src/OVR_Device.h     Size&lt;float&gt; ScreenSizeInMeters;
+<a href='../S/108.html#L359'>ScreenSizeInMeters</a>  359 ovr/sdk/src/OVR_Device.h           ScreenSizeInMeters(0.0f),
+<a href='../S/108.html#L381'>ScreenSizeInMeters</a>  381 ovr/sdk/src/OVR_Device.h         ScreenSizeInMeters               = src.ScreenSizeInMeters;
+<a href='../S/120.html#L50'>ScreenSizeInMeters</a>   50 ovr/sdk/src/OVR_Linux_HMDDevice.cpp     ScreenSizeInMeters = Sizef(0.0f);
+<a href='../S/120.html#L64'>ScreenSizeInMeters</a>   64 ovr/sdk/src/OVR_Linux_HMDDevice.cpp     ScreenSizeInMeters     = other.ScreenSizeInMeters;
+<a href='../S/120.html#L91'>ScreenSizeInMeters</a>   91 ovr/sdk/src/OVR_Linux_HMDDevice.cpp             (ScreenSizeInMeters == s2.ScreenSizeInMeters) )
+<a href='../S/120.html#L101'>ScreenSizeInMeters</a>  101 ovr/sdk/src/OVR_Linux_HMDDevice.cpp         (ScreenSizeInMeters == s2.ScreenSizeInMeters))
+<a href='../S/120.html#L143'>ScreenSizeInMeters</a>  143 ovr/sdk/src/OVR_Linux_HMDDevice.cpp         ScreenSizeInMeters = s2.ScreenSizeInMeters;        
+<a href='../S/125.html#L75'>ScreenSizeInMeters</a>   75 ovr/sdk/src/OVR_Linux_HMDDevice.h     Sizef               ScreenSizeInMeters;
+<a href='../S/88.html#L610'>ScreenSizeInMeters</a>  610 ovr/sdk/src/OVR_Stereo.cpp         info.ScreenSizeInMeters                     = Sizef ( 0.1498f, 0.0936f );
+<a href='../S/88.html#L625'>ScreenSizeInMeters</a>  625 ovr/sdk/src/OVR_Stereo.cpp         info.ScreenSizeInMeters                     = Sizef ( 0.12576f, 0.07074f );
+<a href='../S/88.html#L627'>ScreenSizeInMeters</a>  627 ovr/sdk/src/OVR_Stereo.cpp         info.CenterFromTopInMeters                  = info.ScreenSizeInMeters.h * 0.5f;
+<a href='../S/88.html#L640'>ScreenSizeInMeters</a>  640 ovr/sdk/src/OVR_Stereo.cpp         info.ScreenSizeInMeters                     = Sizef ( 0.12576f, 0.07074f );
+<a href='../S/88.html#L642'>ScreenSizeInMeters</a>  642 ovr/sdk/src/OVR_Stereo.cpp         info.CenterFromTopInMeters                  = info.ScreenSizeInMeters.h * 0.5f;
+<a href='../S/88.html#L671'>ScreenSizeInMeters</a>  671 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.ScreenSizeInMeters                   = hmdInfo.ScreenSizeInMeters;
+<a href='../S/88.html#L1281'>ScreenSizeInMeters</a> 1281 ovr/sdk/src/OVR_Stereo.cpp     Sizef pixelsPerMeter(hmd.ResolutionInPixels.w / ( hmd.ScreenSizeInMeters.w - hmd.ScreenGapSizeInMeters ),
+<a href='../S/88.html#L1282'>ScreenSizeInMeters</a> 1282 ovr/sdk/src/OVR_Stereo.cpp                          hmd.ResolutionInPixels.h / hmd.ScreenSizeInMeters.h);
+<a href='../S/88.html#L1288'>ScreenSizeInMeters</a> 1288 ovr/sdk/src/OVR_Stereo.cpp                                        (hmd.ScreenSizeInMeters / localDistortion.Lens.MetersPerTanAngleAtCenter).ToVector());
+<a href='../S/88.html#L1298'>ScreenSizeInMeters</a> 1298 ovr/sdk/src/OVR_Stereo.cpp     float visibleWidthOfOneEye = 0.5f * ( hmd.ScreenSizeInMeters.w - hmd.ScreenGapSizeInMeters );
+<a href='../S/88.html#L1299'>ScreenSizeInMeters</a> 1299 ovr/sdk/src/OVR_Stereo.cpp     float centerFromLeftInMeters = ( hmd.ScreenSizeInMeters.w - hmd.LensSeparationInMeters ) * 0.5f;
+<a href='../S/88.html#L1301'>ScreenSizeInMeters</a> 1301 ovr/sdk/src/OVR_Stereo.cpp     localDistortion.LensCenter.y = ( hmd.CenterFromTopInMeters  / hmd.ScreenSizeInMeters.h ) * 2.0f - 1.0f;
+<a href='../S/131.html#L266'>ScreenSizeInMeters</a>  266 ovr/sdk/src/OVR_Stereo.h     Size&lt;float&gt; ScreenSizeInMeters;
+<a href='../S/131.html#L305'>ScreenSizeInMeters</a>  305 ovr/sdk/src/OVR_Stereo.h         ScreenSizeInMeters.w = 0.0f;
+<a href='../S/131.html#L306'>ScreenSizeInMeters</a>  306 ovr/sdk/src/OVR_Stereo.h         ScreenSizeInMeters.h = 0.0f;
+<a href='../S/117.html#L373'>ScreenSizeInMeters</a>  373 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd.ScreenSizeInMeters                              = Sizef(0.1498f, 0.0936f);
+</pre>
+</body>
+</html>

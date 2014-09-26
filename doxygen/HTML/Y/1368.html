@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Matrix4</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/174.html#L78'>Matrix4</a>            78 ovr/sdk/src/Kernel/OVR_Math.cpp const Matrix4&lt;float&gt; Matrix4&lt;float&gt;::IdentityValue = Matrix4&lt;float&gt;(1.0f, 0.0f, 0.0f, 0.0f, 
+<a href='../S/174.html#L84'>Matrix4</a>            84 ovr/sdk/src/Kernel/OVR_Math.cpp const Matrix4&lt;double&gt; Matrix4&lt;double&gt;::IdentityValue = Matrix4&lt;double&gt;(1.0, 0.0, 0.0, 0.0, 
+<a href='../S/177.html#L127'>Matrix4</a>           127 ovr/sdk/src/Kernel/OVR_Math.h template&lt;class T&gt; class Matrix4;
+<a href='../S/177.html#L144'>Matrix4</a>           144 ovr/sdk/src/Kernel/OVR_Math.h template&lt;&gt; struct CompatibleTypes&lt;Matrix4&lt;float&gt; &gt;  { typedef ovrMatrix4f Type; };
+<a href='../S/177.html#L773'>Matrix4</a>           773 ovr/sdk/src/Kernel/OVR_Math.h     explicit Quat(const Matrix4&lt;T&gt;&amp; m)
+<a href='../S/177.html#L1192'>Matrix4</a>          1192 ovr/sdk/src/Kernel/OVR_Math.h class Matrix4
+<a href='../S/177.html#L1194'>Matrix4</a>          1194 ovr/sdk/src/Kernel/OVR_Math.h     static const Matrix4 IdentityValue;
+<a href='../S/177.html#L1202'>Matrix4</a>          1202 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4(NoInitType) { }
+<a href='../S/177.html#L1205'>Matrix4</a>          1205 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4()
+<a href='../S/177.html#L1210'>Matrix4</a>          1210 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4(T m11, T m12, T m13, T m14,
+<a href='../S/177.html#L1221'>Matrix4</a>          1221 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4(T m11, T m12, T m13,
+<a href='../S/177.html#L1231'>Matrix4</a>          1231 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Quat&lt;T&gt;&amp; q)
+<a href='../S/177.html#L1244'>Matrix4</a>          1244 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Transform&lt;T&gt;&amp; p)
+<a href='../S/177.html#L1246'>Matrix4</a>          1246 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(p.Rotation);
+<a href='../S/177.html#L1252'>Matrix4</a>          1252 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Matrix4&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L1260'>Matrix4</a>          1260 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4(const typename CompatibleTypes&lt;Matrix4&lt;T&gt; &gt;::Type&amp; s) 
+<a href='../S/177.html#L1262'>Matrix4</a>          1262 ovr/sdk/src/Kernel/OVR_Math.h         OVR_COMPILER_ASSERT(sizeof(s) == sizeof(Matrix4));
+<a href='../S/177.html#L1266'>Matrix4</a>          1266 ovr/sdk/src/Kernel/OVR_Math.h     operator typename CompatibleTypes&lt;Matrix4&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L1268'>Matrix4</a>          1268 ovr/sdk/src/Kernel/OVR_Math.h         typename CompatibleTypes&lt;Matrix4&lt;T&gt; &gt;::Type result;
+<a href='../S/177.html#L1269'>Matrix4</a>          1269 ovr/sdk/src/Kernel/OVR_Math.h         OVR_COMPILER_ASSERT(sizeof(result) == sizeof(Matrix4));
+<a href='../S/177.html#L1282'>Matrix4</a>          1282 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 FromString(const char* src)
+<a href='../S/177.html#L1284'>Matrix4</a>          1284 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result;
+<a href='../S/177.html#L1297'>Matrix4</a>          1297 ovr/sdk/src/Kernel/OVR_Math.h     static const Matrix4&amp; Identity()  { return IdentityValue; }
+<a href='../S/177.html#L1307'>Matrix4</a>          1307 ovr/sdk/src/Kernel/OVR_Math.h 	bool operator== (const Matrix4&amp; b) const
+<a href='../S/177.html#L1317'>Matrix4</a>          1317 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator+ (const Matrix4&amp; b) const
+<a href='../S/177.html#L1319'>Matrix4</a>          1319 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1324'>Matrix4</a>          1324 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator+= (const Matrix4&amp; b)
+<a href='../S/177.html#L1332'>Matrix4</a>          1332 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator- (const Matrix4&amp; b) const
+<a href='../S/177.html#L1334'>Matrix4</a>          1334 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1339'>Matrix4</a>          1339 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator-= (const Matrix4&amp; b)
+<a href='../S/177.html#L1348'>Matrix4</a>          1348 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4&amp; Multiply(Matrix4* d, const Matrix4&amp; a, const Matrix4&amp; b)
+<a href='../S/177.html#L1362'>Matrix4</a>          1362 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator* (const Matrix4&amp; b) const
+<a href='../S/177.html#L1364'>Matrix4</a>          1364 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(Matrix4::NoInit);
+<a href='../S/177.html#L1369'>Matrix4</a>          1369 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator*= (const Matrix4&amp; b)
+<a href='../S/177.html#L1371'>Matrix4</a>          1371 ovr/sdk/src/Kernel/OVR_Math.h         return Multiply(this, Matrix4(*this), b);
+<a href='../S/177.html#L1374'>Matrix4</a>          1374 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator* (T s) const
+<a href='../S/177.html#L1376'>Matrix4</a>          1376 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1381'>Matrix4</a>          1381 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator*= (T s)
+<a href='../S/177.html#L1390'>Matrix4</a>          1390 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator/ (T s) const
+<a href='../S/177.html#L1392'>Matrix4</a>          1392 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 result(*this);
+<a href='../S/177.html#L1397'>Matrix4</a>          1397 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator/= (T s)
+<a href='../S/177.html#L1412'>Matrix4</a>          1412 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 Transposed() const
+<a href='../S/177.html#L1414'>Matrix4</a>          1414 ovr/sdk/src/Kernel/OVR_Math.h         return Matrix4(M[0][0], M[1][0], M[2][0], M[3][0],
+<a href='../S/177.html#L1444'>Matrix4</a>          1444 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 Adjugated() const
+<a href='../S/177.html#L1446'>Matrix4</a>          1446 ovr/sdk/src/Kernel/OVR_Math.h         return Matrix4(Cofactor(0,0), Cofactor(1,0), Cofactor(2,0), Cofactor(3,0), 
+<a href='../S/177.html#L1452'>Matrix4</a>          1452 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 Inverted() const
+<a href='../S/177.html#L1466'>Matrix4</a>          1466 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix4 InvertedHomogeneousTransform() const
+<a href='../S/177.html#L1469'>Matrix4</a>          1469 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix4 rinv = this-&gt;Transposed();
+<a href='../S/177.html#L1473'>Matrix4</a>          1473 ovr/sdk/src/Kernel/OVR_Math.h 		Matrix4 tinv = Matrix4::Translation(tvinv);
+<a href='../S/177.html#L1564'>Matrix4</a>          1564 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 AxisConversion(const WorldAxes&amp; to, const WorldAxes&amp; from)
+<a href='../S/177.html#L1575'>Matrix4</a>          1575 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(0,  0,  0, 
+<a href='../S/177.html#L1588'>Matrix4</a>          1588 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Translation(const Vector3&lt;T&gt;&amp; v)
+<a href='../S/177.html#L1590'>Matrix4</a>          1590 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1598'>Matrix4</a>          1598 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Translation(T x, T y, T z = 0.0f)
+<a href='../S/177.html#L1600'>Matrix4</a>          1600 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1621'>Matrix4</a>          1621 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Scaling(const Vector3&lt;T&gt;&amp; v)
+<a href='../S/177.html#L1623'>Matrix4</a>          1623 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1631'>Matrix4</a>          1631 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Scaling(T x, T y, T z)
+<a href='../S/177.html#L1633'>Matrix4</a>          1633 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1641'>Matrix4</a>          1641 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Scaling(T s)
+<a href='../S/177.html#L1643'>Matrix4</a>          1643 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 t;
+<a href='../S/177.html#L1651'>Matrix4</a>          1651 ovr/sdk/src/Kernel/OVR_Math.h 	T Distance(const Matrix4&amp; m2) const           
+<a href='../S/177.html#L1666'>Matrix4</a>          1666 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 RotationAxis(Axis A, T angle, RotateDirection d, HandedSystem s)
+<a href='../S/177.html#L1674'>Matrix4</a>          1674 ovr/sdk/src/Kernel/OVR_Math.h             return Matrix4(1,  0,     0, 
+<a href='../S/177.html#L1678'>Matrix4</a>          1678 ovr/sdk/src/Kernel/OVR_Math.h             return Matrix4(cosa,  0,   sina, 
+<a href='../S/177.html#L1682'>Matrix4</a>          1682 ovr/sdk/src/Kernel/OVR_Math.h             return Matrix4(cosa,  -sina,  0, 
+<a href='../S/177.html#L1696'>Matrix4</a>          1696 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 RotationX(T angle)
+<a href='../S/177.html#L1700'>Matrix4</a>          1700 ovr/sdk/src/Kernel/OVR_Math.h         return Matrix4(1,  0,     0, 
+<a href='../S/177.html#L1712'>Matrix4</a>          1712 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 RotationY(T angle)
+<a href='../S/177.html#L1716'>Matrix4</a>          1716 ovr/sdk/src/Kernel/OVR_Math.h         return Matrix4(cosa,  0,   sina, 
+<a href='../S/177.html#L1728'>Matrix4</a>          1728 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 RotationZ(T angle)
+<a href='../S/177.html#L1732'>Matrix4</a>          1732 ovr/sdk/src/Kernel/OVR_Math.h         return Matrix4(cosa,  -sina,  0, 
+<a href='../S/177.html#L1741'>Matrix4</a>          1741 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 LookAtRH(const Vector3&lt;T&gt;&amp; eye, const Vector3&lt;T&gt;&amp; at, const Vector3&lt;T&gt;&amp; up)
+<a href='../S/177.html#L1747'>Matrix4</a>          1747 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(x.x,  x.y,  x.z,  -(x.Dot(eye)),
+<a href='../S/177.html#L1757'>Matrix4</a>          1757 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 LookAtLH(const Vector3&lt;T&gt;&amp; eye, const Vector3&lt;T&gt;&amp; at, const Vector3&lt;T&gt;&amp; up)
+<a href='../S/177.html#L1763'>Matrix4</a>          1763 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m(x.x,  x.y,  x.z,  -(x.Dot(eye)),
+<a href='../S/177.html#L1779'>Matrix4</a>          1779 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 PerspectiveRH(T yfov, T aspect, T znear, T zfar)
+<a href='../S/177.html#L1781'>Matrix4</a>          1781 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m;
+<a href='../S/177.html#L1803'>Matrix4</a>          1803 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 PerspectiveLH(T yfov, T aspect, T znear, T zfar)
+<a href='../S/177.html#L1805'>Matrix4</a>          1805 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m;
+<a href='../S/177.html#L1822'>Matrix4</a>          1822 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Ortho2D(T w, T h)
+<a href='../S/177.html#L1824'>Matrix4</a>          1824 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4 m;
+<a href='../S/177.html#L1834'>Matrix4</a>          1834 ovr/sdk/src/Kernel/OVR_Math.h typedef Matrix4&lt;float&gt;  Matrix4f;
+<a href='../S/177.html#L1835'>Matrix4</a>          1835 ovr/sdk/src/Kernel/OVR_Math.h typedef Matrix4&lt;double&gt; Matrix4d;
+<a href='../S/177.html#L1927'>Matrix4</a>          1927 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Matrix4&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L1993'>Matrix4</a>          1993 ovr/sdk/src/Kernel/OVR_Math.h         Matrix4&lt;T&gt; result(*this);
+</pre>
+</body>
+</html>

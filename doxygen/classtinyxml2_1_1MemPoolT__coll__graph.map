@@ -1,0 +1,7 @@
+<map id="tinyxml2::MemPoolT&lt; SIZE &gt;" name="tinyxml2::MemPoolT&lt; SIZE &gt;">
+<area shape="rect" id="node2" href="$classtinyxml2_1_1MemPool.html" title="{tinyxml2::MemPool\n||+ MemPool()\l+ ~MemPool()\l+ ItemSize()\l+ Alloc()\l+ Free()\l+ SetTracked()\l}" alt="" coords="5,633,139,783"/>
+<area shape="rect" id="node3" href="$classtinyxml2_1_1MemPoolT.html#uniontinyxml2_1_1MemPoolT_1_1Chunk" title="{tinyxml2::MemPoolT\l\&lt; SIZE \&gt;::Chunk\n|+ mem\l|}" alt="" coords="173,6,315,98"/>
+<area shape="rect" id="node5" href="$classtinyxml2_1_1MemPoolT.html#structtinyxml2_1_1MemPoolT_1_1Block" title="{tinyxml2::MemPoolT\l\&lt; SIZE \&gt;::Block\n||}" alt="" coords="215,279,357,371"/>
+<area shape="rect" id="node4" href="$classtinyxml2_1_1DynArray.html" title="{tinyxml2::DynArray\l\&lt; tinyxml2::MemPoolT\l::Block *, 10 \&gt;\n|&#45; _allocated\l&#45; _size\l|+ DynArray()\l+ ~DynArray()\l+ Push()\l+ PushArr()\l+ Pop()\l+ PopArr()\l+ Empty()\l+ operator[]()\l+ operator[]()\l+ Size()\l+ Capacity()\l+ Mem()\l+ Mem()\l&#45; EnsureCapacity()\l}" alt="" coords="215,552,368,864"/>
+<area shape="rect" id="node6" href="$classtinyxml2_1_1DynArray.html" title="{tinyxml2::DynArray\l\&lt; T, INIT \&gt;\n|&#45; _allocated\l&#45; _size\l|+ DynArray()\l+ ~DynArray()\l+ Push()\l+ PushArr()\l+ Pop()\l+ PopArr()\l+ Empty()\l+ operator[]()\l+ operator[]()\l+ Size()\l+ Capacity()\l+ Mem()\l+ Mem()\l&#45; EnsureCapacity()\l}" alt="" coords="382,177,516,474"/>
+</map>

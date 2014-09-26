@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Inverted</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L953'>Inverted</a>          953 ovr/sdk/src/Kernel/OVR_Math.h         return ((*this * Quat&lt;T&gt;(v.x, v.y, v.z, T(0))) * Inverted()).Imag();
+<a href='../S/177.html#L957'>Inverted</a>          957 ovr/sdk/src/Kernel/OVR_Math.h     Quat        Inverted() const
+<a href='../S/177.html#L1152'>Inverted</a>         1152 ovr/sdk/src/Kernel/OVR_Math.h     Transform Inverted() const   
+<a href='../S/177.html#L1154'>Inverted</a>         1154 ovr/sdk/src/Kernel/OVR_Math.h         Quat&lt;T&gt; inv = Rotation.Inverted();
+<a href='../S/177.html#L1452'>Inverted</a>         1452 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 Inverted() const
+<a href='../S/177.html#L1461'>Inverted</a>         1461 ovr/sdk/src/Kernel/OVR_Math.h         *this = Inverted();
+<a href='../S/119.html#L288'>Inverted</a>          288 ovr/sdk/src/OVR_SensorFilter.h             output = deltaQ.Inverted().Rotate(output);
+<a href='../S/119.html#L301'>Inverted</a>          301 ovr/sdk/src/OVR_SensorFilter.h         return Q.Inverted().Rotate(this-&gt;Mean());
+<a href='../S/189.html#L99'>Inverted</a>           99 ovr/sdk/src/OVR_SensorFusion.cpp             ImuFromScreen = Transformd(Quatd(imu.Normal, imu.Angle), imu.Position).Inverted();
+<a href='../S/189.html#L131'>Inverted</a>          131 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose                   = ImuFromCpf.Inverted(); // place CPF at the origin, not the IMU
+<a href='../S/189.html#L216'>Inverted</a>          216 ovr/sdk/src/OVR_SensorFusion.cpp             WorldFromCamera.Inverted().Rotate(imuVelocityInWorldFrame);
+<a href='../S/189.html#L232'>Inverted</a>          232 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord.WorldFromImu.Pose.Rotation.Inverted();
+<a href='../S/189.html#L265'>Inverted</a>          265 ovr/sdk/src/OVR_SensorFusion.cpp             LastVisionExposureRecord.WorldFromImu.Pose.Inverted() * record.WorldFromImu.Pose;
+<a href='../S/189.html#L278'>Inverted</a>          278 ovr/sdk/src/OVR_SensorFusion.cpp                 WorldFromCamera.Inverted().Rotate(delta.Pose.Translation)
+<a href='../S/189.html#L356'>Inverted</a>          356 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose = WorldFromNeck * (ImuFromCpf * CpfFromNeck).Inverted();
+<a href='../S/189.html#L618'>Inverted</a>          618 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImu = WorldFromCamera.Inverted() * VisionError.Pose * WorldFromImu.Pose;
+<a href='../S/189.html#L783'>Inverted</a>          783 ovr/sdk/src/OVR_SensorFusion.cpp     return (Vector3f)CpfFromNeck.Inverted().Translation;
+<a href='../S/189.html#L794'>Inverted</a>          794 ovr/sdk/src/OVR_SensorFusion.cpp     CpfFromNeck = Transformd(Quatd(), (Vector3d)headModel).Inverted();
+<a href='../S/190.html#L895'>Inverted</a>          895 ovr/sdk/src/OVR_SensorImpl.cpp     center = tmp.Inverted().Transform(center);
+<a href='../S/117.html#L1314'>Inverted</a>         1314 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return matRenderXform.Inverted();
+</pre>
+</body>
+</html>

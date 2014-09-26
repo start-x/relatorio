@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>CameraFromImu</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L132'>CameraFromImu</a>     132 ovr/sdk/src/OVR_SensorFusion.cpp     CameraFromImu                       = PoseState&lt;double&gt;();
+<a href='../S/189.html#L169'>CameraFromImu</a>     169 ovr/sdk/src/OVR_SensorFusion.cpp     CameraFromImu.Pose = cameraFromImu;
+<a href='../S/189.html#L200'>CameraFromImu</a>     200 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImuPrev = CameraFromImu.Pose;
+<a href='../S/189.html#L201'>CameraFromImu</a>     201 ovr/sdk/src/OVR_SensorFusion.cpp     CameraFromImu.Pose = cameraFromImu; 
+<a href='../S/189.html#L202'>CameraFromImu</a>     202 ovr/sdk/src/OVR_SensorFusion.cpp     CameraFromImu.TimeInSeconds = LastVisionExposureRecord.ExposureTime;
+<a href='../S/189.html#L215'>CameraFromImu</a>     215 ovr/sdk/src/OVR_SensorFusion.cpp         CameraFromImu.LinearVelocity = visionVelocityInImuFrame + 
+<a href='../S/189.html#L220'>CameraFromImu</a>     220 ovr/sdk/src/OVR_SensorFusion.cpp         CameraFromImu.LinearVelocity = Vector3d(0,0,0);
+<a href='../S/189.html#L226'>CameraFromImu</a>     226 ovr/sdk/src/OVR_SensorFusion.cpp     PoseStated worldFromImuVision = WorldFromCamera * CameraFromImu;
+<a href='../S/189.html#L264'>CameraFromImu</a>     264 ovr/sdk/src/OVR_SensorFusion.cpp         result = CameraFromImu.Pose *
+<a href='../S/189.html#L276'>CameraFromImu</a>     276 ovr/sdk/src/OVR_SensorFusion.cpp                 CameraFromImu.Pose.Rotation * delta.Pose.Rotation,
+<a href='../S/189.html#L277'>CameraFromImu</a>     277 ovr/sdk/src/OVR_SensorFusion.cpp                 CameraFromImu.Pose.Translation + CameraFromImu.LinearVelocity * delta.TimeInSeconds +
+<a href='../S/189.html#L455'>CameraFromImu</a>     455 ovr/sdk/src/OVR_SensorFusion.cpp         PoseStated worldFromImuVision = WorldFromCamera * CameraFromImu;
+<a href='../S/189.html#L635'>CameraFromImu</a>     635 ovr/sdk/src/OVR_SensorFusion.cpp     if (CameraFromImu.Pose.Rotate(forward).Angle(forward) &gt; 1)
+<a href='../S/189.html#L668'>CameraFromImu</a>     668 ovr/sdk/src/OVR_SensorFusion.cpp     newWorldFromCamera.Translation += (WorldFromCamera * CameraFromImu.Pose).Translation -
+<a href='../S/189.html#L669'>CameraFromImu</a>     669 ovr/sdk/src/OVR_SensorFusion.cpp         (newWorldFromCamera * CameraFromImu.Pose).Translation;
+<a href='../S/127.html#L388'>CameraFromImu</a>     388 ovr/sdk/src/OVR_SensorFusion.h     PoseState&lt;double&gt;       CameraFromImu;    
+<a href='../S/127.html#L530'>CameraFromImu</a>     530 ovr/sdk/src/OVR_SensorFusion.h     return LastVisionAbsoluteTime - CameraFromImu.TimeInSeconds;
+</pre>
+</body>
+</html>

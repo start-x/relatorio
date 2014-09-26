@@ -1,0 +1,3 @@
+<map id="OVR::HmdRenderInfo::EyeConfig" name="OVR::HmdRenderInfo::EyeConfig">
+<area shape="rect" id="node2" href="$structOVR_1_1LensConfig.html" title="{OVR::LensConfig\n|+ Eqn\l+ K\l+ MaxR\l+ MetersPerTanAngleAtCenter\l+ ChromaticAberration\l+ InvK\l+ MaxInvR\l|+ DistortionFnScaleRadiusSquared()\l+ DistortionFnScaleRadiusSquared\lChroma()\l+ DistortionFn()\l+ DistortionFnInverse()\l+ DistortionFnInverseApprox()\l+ SetUpInverseApprox()\l+ SetToIdentity()\l}" alt="" coords="4,6,237,274"/>
+</map>

@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Elem</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/162.html#L32'>Elem</a>               32 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L44'>Elem</a>               44 ovr/sdk/src/Kernel/OVR_Deque.h     virtual void         PushBack   (const Elem &amp;Item);    // Adds Item to the end
+<a href='../S/162.html#L45'>Elem</a>               45 ovr/sdk/src/Kernel/OVR_Deque.h     virtual void         PushFront  (const Elem &amp;Item);    // Adds Item to the beginning
+<a href='../S/162.html#L46'>Elem</a>               46 ovr/sdk/src/Kernel/OVR_Deque.h     virtual Elem         PopBack    (void);                // Removes Item from the end
+<a href='../S/162.html#L47'>Elem</a>               47 ovr/sdk/src/Kernel/OVR_Deque.h     virtual Elem         PopFront   (void);                // Removes Item from the beginning
+<a href='../S/162.html#L48'>Elem</a>               48 ovr/sdk/src/Kernel/OVR_Deque.h     virtual const Elem&amp;  PeekBack   (int count = 0) const; // Returns count-th Item from the end
+<a href='../S/162.html#L49'>Elem</a>               49 ovr/sdk/src/Kernel/OVR_Deque.h     virtual const Elem&amp;  PeekFront  (int count = 0) const; // Returns count-th Item from the beginning
+<a href='../S/162.html#L58'>Elem</a>               58 ovr/sdk/src/Kernel/OVR_Deque.h     Elem        *Data;          // The actual Data array
+<a href='../S/162.html#L69'>Elem</a>               69 ovr/sdk/src/Kernel/OVR_Deque.h     Deque(const Deque&lt;Elem&gt; &amp;OtherDeque) { };
+<a href='../S/162.html#L72'>Elem</a>               72 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L73'>Elem</a>               73 ovr/sdk/src/Kernel/OVR_Deque.h class InPlaceMutableDeque : public Deque&lt;Elem&gt;
+<a href='../S/162.html#L76'>Elem</a>               76 ovr/sdk/src/Kernel/OVR_Deque.h     InPlaceMutableDeque( int capacity = Deque&lt;Elem&gt;::DefaultCapacity ) : Deque&lt;Elem&gt;( capacity ) {}
+<a href='../S/162.html#L79'>Elem</a>               79 ovr/sdk/src/Kernel/OVR_Deque.h     using Deque&lt;Elem&gt;::PeekBack;
+<a href='../S/162.html#L80'>Elem</a>               80 ovr/sdk/src/Kernel/OVR_Deque.h     using Deque&lt;Elem&gt;::PeekFront;
+<a href='../S/162.html#L81'>Elem</a>               81 ovr/sdk/src/Kernel/OVR_Deque.h 	virtual Elem&amp; PeekBack  (int count = 0); // Returns count-th Item from the end
+<a href='../S/162.html#L82'>Elem</a>               82 ovr/sdk/src/Kernel/OVR_Deque.h 	virtual Elem&amp; PeekFront (int count = 0); // Returns count-th Item from the beginning
+<a href='../S/162.html#L87'>Elem</a>               87 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L88'>Elem</a>               88 ovr/sdk/src/Kernel/OVR_Deque.h class CircularBuffer : public InPlaceMutableDeque&lt;Elem&gt;
+<a href='../S/162.html#L91'>Elem</a>               91 ovr/sdk/src/Kernel/OVR_Deque.h     CircularBuffer(int MaxSize = Deque&lt;Elem&gt;::DefaultCapacity) : InPlaceMutableDeque&lt;Elem&gt;(MaxSize) { };
+<a href='../S/162.html#L95'>Elem</a>               95 ovr/sdk/src/Kernel/OVR_Deque.h     inline virtual void PushBack  (const Elem &amp;Item);    // Adds Item to the end, overwriting the oldest element at the beginning if necessary
+<a href='../S/162.html#L96'>Elem</a>               96 ovr/sdk/src/Kernel/OVR_Deque.h     inline virtual void PushFront (const Elem &amp;Item);    // Adds Item to the beginning, overwriting the oldest element at the end if necessary
+<a href='../S/162.html#L102'>Elem</a>              102 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L103'>Elem</a>              103 ovr/sdk/src/Kernel/OVR_Deque.h Deque&lt;Elem&gt;::Deque(int capacity) :
+<a href='../S/162.html#L106'>Elem</a>              106 ovr/sdk/src/Kernel/OVR_Deque.h     Data = (Elem*) OVR_ALLOC(Capacity * sizeof(Elem));
+<a href='../S/162.html#L107'>Elem</a>              107 ovr/sdk/src/Kernel/OVR_Deque.h     ConstructArray&lt;Elem&gt;(Data, Capacity);
+<a href='../S/162.html#L111'>Elem</a>              111 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L112'>Elem</a>              112 ovr/sdk/src/Kernel/OVR_Deque.h Deque&lt;Elem&gt;::~Deque(void)
+<a href='../S/162.html#L114'>Elem</a>              114 ovr/sdk/src/Kernel/OVR_Deque.h     DestructArray&lt;Elem&gt;(Data, Capacity);
+<a href='../S/162.html#L118'>Elem</a>              118 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L119'>Elem</a>              119 ovr/sdk/src/Kernel/OVR_Deque.h void Deque&lt;Elem&gt;::Clear()
+<a href='../S/162.html#L125'>Elem</a>              125 ovr/sdk/src/Kernel/OVR_Deque.h     DestructArray&lt;Elem&gt;(Data, Capacity);
+<a href='../S/162.html#L126'>Elem</a>              126 ovr/sdk/src/Kernel/OVR_Deque.h     ConstructArray&lt;Elem&gt;(Data, Capacity);
+<a href='../S/162.html#L130'>Elem</a>              130 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L131'>Elem</a>              131 ovr/sdk/src/Kernel/OVR_Deque.h void Deque&lt;Elem&gt;::PushBack(const Elem &amp;Item)
+<a href='../S/162.html#L145'>Elem</a>              145 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L146'>Elem</a>              146 ovr/sdk/src/Kernel/OVR_Deque.h void Deque&lt;Elem&gt;::PushFront(const Elem &amp;Item)
+<a href='../S/162.html#L162'>Elem</a>              162 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L163'>Elem</a>              163 ovr/sdk/src/Kernel/OVR_Deque.h Elem Deque&lt;Elem&gt;::PopFront(void)
+<a href='../S/162.html#L168'>Elem</a>              168 ovr/sdk/src/Kernel/OVR_Deque.h 	Elem ReturnValue = Data[ Beginning ];
+<a href='../S/162.html#L169'>Elem</a>              169 ovr/sdk/src/Kernel/OVR_Deque.h     Destruct&lt;Elem&gt;(&amp;Data[ Beginning ]);
+<a href='../S/162.html#L170'>Elem</a>              170 ovr/sdk/src/Kernel/OVR_Deque.h     Construct&lt;Elem&gt;(&amp;Data[ Beginning ]);
+<a href='../S/162.html#L182'>Elem</a>              182 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L183'>Elem</a>              183 ovr/sdk/src/Kernel/OVR_Deque.h Elem Deque&lt;Elem&gt;::PopBack(void)
+<a href='../S/162.html#L195'>Elem</a>              195 ovr/sdk/src/Kernel/OVR_Deque.h     Elem ReturnValue = Data[ End ];
+<a href='../S/162.html#L196'>Elem</a>              196 ovr/sdk/src/Kernel/OVR_Deque.h     Destruct&lt;Elem&gt;(&amp;Data[ End ]);
+<a href='../S/162.html#L197'>Elem</a>              197 ovr/sdk/src/Kernel/OVR_Deque.h     Construct&lt;Elem&gt;(&amp;Data[ End ]);
+<a href='../S/162.html#L203'>Elem</a>              203 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L204'>Elem</a>              204 ovr/sdk/src/Kernel/OVR_Deque.h const Elem&amp; Deque&lt;Elem&gt;::PeekFront(int count) const
+<a href='../S/162.html#L215'>Elem</a>              215 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L216'>Elem</a>              216 ovr/sdk/src/Kernel/OVR_Deque.h const Elem&amp; Deque&lt;Elem&gt;::PeekBack(int count) const
+<a href='../S/162.html#L228'>Elem</a>              228 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L229'>Elem</a>              229 ovr/sdk/src/Kernel/OVR_Deque.h Elem&amp; InPlaceMutableDeque&lt;Elem&gt;::PeekFront(int count)
+<a href='../S/162.html#L232'>Elem</a>              232 ovr/sdk/src/Kernel/OVR_Deque.h     OVR_ASSERT( Deque&lt;Elem&gt;::ElemCount &gt; count );
+<a href='../S/162.html#L234'>Elem</a>              234 ovr/sdk/src/Kernel/OVR_Deque.h     int idx = Deque&lt;Elem&gt;::Beginning + count;
+<a href='../S/162.html#L235'>Elem</a>              235 ovr/sdk/src/Kernel/OVR_Deque.h     if (idx &gt;= Deque&lt;Elem&gt;::Capacity)
+<a href='../S/162.html#L236'>Elem</a>              236 ovr/sdk/src/Kernel/OVR_Deque.h         idx -= Deque&lt;Elem&gt;::Capacity;
+<a href='../S/162.html#L237'>Elem</a>              237 ovr/sdk/src/Kernel/OVR_Deque.h     return Deque&lt;Elem&gt;::Data[ idx ];
+<a href='../S/162.html#L240'>Elem</a>              240 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L241'>Elem</a>              241 ovr/sdk/src/Kernel/OVR_Deque.h Elem&amp; InPlaceMutableDeque&lt;Elem&gt;::PeekBack(int count)
+<a href='../S/162.html#L244'>Elem</a>              244 ovr/sdk/src/Kernel/OVR_Deque.h     OVR_ASSERT( Deque&lt;Elem&gt;::ElemCount &gt; count );
+<a href='../S/162.html#L246'>Elem</a>              246 ovr/sdk/src/Kernel/OVR_Deque.h     int idx = Deque&lt;Elem&gt;::End - count - 1;
+<a href='../S/162.html#L248'>Elem</a>              248 ovr/sdk/src/Kernel/OVR_Deque.h         idx += Deque&lt;Elem&gt;::Capacity;
+<a href='../S/162.html#L249'>Elem</a>              249 ovr/sdk/src/Kernel/OVR_Deque.h     return Deque&lt;Elem&gt;::Data[ idx ];
+<a href='../S/162.html#L252'>Elem</a>              252 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L253'>Elem</a>              253 ovr/sdk/src/Kernel/OVR_Deque.h inline UPInt Deque&lt;Elem&gt;::GetCapacity(void) const
+<a href='../S/162.html#L255'>Elem</a>              255 ovr/sdk/src/Kernel/OVR_Deque.h     return Deque&lt;Elem&gt;::Capacity;
+<a href='../S/162.html#L258'>Elem</a>              258 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L259'>Elem</a>              259 ovr/sdk/src/Kernel/OVR_Deque.h inline UPInt Deque&lt;Elem&gt;::GetSize(void) const
+<a href='../S/162.html#L261'>Elem</a>              261 ovr/sdk/src/Kernel/OVR_Deque.h     return Deque&lt;Elem&gt;::ElemCount;
+<a href='../S/162.html#L264'>Elem</a>              264 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L265'>Elem</a>              265 ovr/sdk/src/Kernel/OVR_Deque.h inline bool Deque&lt;Elem&gt;::IsEmpty(void) const
+<a href='../S/162.html#L267'>Elem</a>              267 ovr/sdk/src/Kernel/OVR_Deque.h     return Deque&lt;Elem&gt;::ElemCount==0;
+<a href='../S/162.html#L270'>Elem</a>              270 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L271'>Elem</a>              271 ovr/sdk/src/Kernel/OVR_Deque.h inline bool Deque&lt;Elem&gt;::IsFull(void) const
+<a href='../S/162.html#L273'>Elem</a>              273 ovr/sdk/src/Kernel/OVR_Deque.h     return Deque&lt;Elem&gt;::ElemCount==Deque&lt;Elem&gt;::Capacity;
+<a href='../S/162.html#L278'>Elem</a>              278 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L279'>Elem</a>              279 ovr/sdk/src/Kernel/OVR_Deque.h void CircularBuffer&lt;Elem&gt;::PushBack(const Elem &amp;Item)
+<a href='../S/162.html#L283'>Elem</a>              283 ovr/sdk/src/Kernel/OVR_Deque.h     Deque&lt;Elem&gt;::PushBack(Item);
+<a href='../S/162.html#L286'>Elem</a>              286 ovr/sdk/src/Kernel/OVR_Deque.h template &lt;class Elem&gt;
+<a href='../S/162.html#L287'>Elem</a>              287 ovr/sdk/src/Kernel/OVR_Deque.h void CircularBuffer&lt;Elem&gt;::PushFront(const Elem &amp;Item)
+<a href='../S/162.html#L291'>Elem</a>              291 ovr/sdk/src/Kernel/OVR_Deque.h     Deque&lt;Elem&gt;::PushFront(Item);
+</pre>
+</body>
+</html>

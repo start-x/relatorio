@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>refCount</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/191.html#L409'>refCount</a>          409 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 refCount = devCommon-&gt;RefCount;
+<a href='../S/191.html#L411'>refCount</a>          411 ovr/sdk/src/OVR_DeviceImpl.cpp         if (refCount &gt; 1)
+<a href='../S/191.html#L413'>refCount</a>          413 ovr/sdk/src/OVR_DeviceImpl.cpp             if (devCommon-&gt;RefCount.CompareAndSet_NoSync(refCount, refCount-1))
+<a href='../S/191.html#L651'>refCount</a>          651 ovr/sdk/src/OVR_DeviceImpl.cpp         UInt32 refCount = RefCount;
+<a href='../S/191.html#L652'>refCount</a>          652 ovr/sdk/src/OVR_DeviceImpl.cpp         OVR_ASSERT(refCount &gt; 0);
+<a href='../S/191.html#L654'>refCount</a>          654 ovr/sdk/src/OVR_DeviceImpl.cpp         if (refCount == 1)
+<a href='../S/191.html#L674'>refCount</a>          674 ovr/sdk/src/OVR_DeviceImpl.cpp         else if (RefCount.CompareAndSet_NoSync(refCount, refCount-1))
+</pre>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>pcurVert</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/117.html#L860'>pcurVert</a>          860 ovr/sdk/src/Util/Util_Render_Stereo.cpp     DistortionMeshVertexData* pcurVert = *ppVertices;
+<a href='../S/117.html#L882'>pcurVert</a>          882 ovr/sdk/src/Util/Util_Render_Stereo.cpp 			pcurVert-&gt;TanEyeAnglesR = tanEyeAnglesR;
+<a href='../S/117.html#L883'>pcurVert</a>          883 ovr/sdk/src/Util/Util_Render_Stereo.cpp 			pcurVert-&gt;TanEyeAnglesG = tanEyeAnglesG;
+<a href='../S/117.html#L884'>pcurVert</a>          884 ovr/sdk/src/Util/Util_Render_Stereo.cpp 			pcurVert-&gt;TanEyeAnglesB = tanEyeAnglesB;
+<a href='../S/117.html#L891'>pcurVert</a>          891 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = 0.0f;
+<a href='../S/117.html#L895'>pcurVert</a>          895 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = screenNDC.x * 0.25f + 0.25f;
+<a href='../S/117.html#L898'>pcurVert</a>          898 ovr/sdk/src/Util/Util_Render_Stereo.cpp                     pcurVert-&gt;TimewarpLerp += 0.5f;
+<a href='../S/117.html#L903'>pcurVert</a>          903 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = 0.75f - screenNDC.x * 0.25f;
+<a href='../S/117.html#L906'>pcurVert</a>          906 ovr/sdk/src/Util/Util_Render_Stereo.cpp                     pcurVert-&gt;TimewarpLerp -= 0.5f;
+<a href='../S/117.html#L911'>pcurVert</a>          911 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = screenNDC.y * 0.5f + 0.5f;
+<a href='../S/117.html#L928'>pcurVert</a>          928 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;Shade = Alg::Max ( 0.0f, Alg::Min ( edgeFadeIn, 1.0f ) );
+<a href='../S/117.html#L929'>pcurVert</a>          929 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;ScreenPosNDC.x = 0.5f * screenNDC.x - 0.5f + xOffset;
+<a href='../S/117.html#L930'>pcurVert</a>          930 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;ScreenPosNDC.y = -screenNDC.y;
+<a href='../S/117.html#L932'>pcurVert</a>          932 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert++;
+<a href='../S/117.html#L1079'>pcurVert</a>         1079 ovr/sdk/src/Util/Util_Render_Stereo.cpp     HeightmapMeshVertexData* pcurVert = *ppVertices;
+<a href='../S/117.html#L1091'>pcurVert</a>         1091 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;TanEyeAngles = tanEyeAngle;
+<a href='../S/117.html#L1097'>pcurVert</a>         1097 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = 0.0f;
+<a href='../S/117.html#L1101'>pcurVert</a>         1101 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = sourceCoordNDC.x * 0.25f + 0.25f;
+<a href='../S/117.html#L1104'>pcurVert</a>         1104 ovr/sdk/src/Util/Util_Render_Stereo.cpp                     pcurVert-&gt;TimewarpLerp += 0.5f;
+<a href='../S/117.html#L1109'>pcurVert</a>         1109 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = 0.75f - sourceCoordNDC.x * 0.25f;
+<a href='../S/117.html#L1112'>pcurVert</a>         1112 ovr/sdk/src/Util/Util_Render_Stereo.cpp                     pcurVert-&gt;TimewarpLerp -= 0.5f;
+<a href='../S/117.html#L1117'>pcurVert</a>         1117 ovr/sdk/src/Util/Util_Render_Stereo.cpp                 pcurVert-&gt;TimewarpLerp = sourceCoordNDC.y * 0.5f + 0.5f;
+<a href='../S/117.html#L1127'>pcurVert</a>         1127 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;ScreenPosNDC.x = sourceCoordNDC.x;
+<a href='../S/117.html#L1128'>pcurVert</a>         1128 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert-&gt;ScreenPosNDC.y = -sourceCoordNDC.y;
+<a href='../S/117.html#L1130'>pcurVert</a>         1130 ovr/sdk/src/Util/Util_Render_Stereo.cpp             pcurVert++;
+</pre>
+</body>
+</html>

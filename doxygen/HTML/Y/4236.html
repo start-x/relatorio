@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>rcp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L298'>rcp</a>               298 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator/  (T s) const               { T rcp = T(1)/s;
+<a href='../S/177.html#L299'>rcp</a>               299 ovr/sdk/src/Kernel/OVR_Math.h                                                     return Vector2(x*rcp, y*rcp); }
+<a href='../S/177.html#L300'>rcp</a>               300 ovr/sdk/src/Kernel/OVR_Math.h     Vector2&amp; operator/= (T s)                     { T rcp = T(1)/s;
+<a href='../S/177.html#L301'>rcp</a>               301 ovr/sdk/src/Kernel/OVR_Math.h                                                     x *= rcp; y *= rcp;
+<a href='../S/177.html#L430'>rcp</a>               430 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator/  (T s) const               { T rcp = T(1)/s;
+<a href='../S/177.html#L431'>rcp</a>               431 ovr/sdk/src/Kernel/OVR_Math.h                                                     return Vector3(x*rcp, y*rcp, z*rcp); }
+<a href='../S/177.html#L432'>rcp</a>               432 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&amp; operator/= (T s)                     { T rcp = T(1)/s;
+<a href='../S/177.html#L433'>rcp</a>               433 ovr/sdk/src/Kernel/OVR_Math.h                                                     x *= rcp; y *= rcp; z *= rcp;
+<a href='../S/177.html#L866'>rcp</a>               866 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator/  (T s) const            { T rcp = T(1)/s; return Quat(x * rcp, y * rcp, z * rcp, w *rcp); }
+<a href='../S/177.html#L867'>rcp</a>               867 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator/= (T s)                  { T rcp = T(1)/s; w *= rcp; x *= rcp; y *= rcp; z *= rcp; return *this; }
+</pre>
+</body>
+</html>

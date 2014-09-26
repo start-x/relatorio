@@ -1,0 +1,7 @@
+<map id="OVR::WaitCondition" name="OVR::WaitCondition">
+<area shape="rect" id="node2" href="$classOVR_1_1WaitConditionImpl.html" title="{OVR::WaitConditionImpl\n||+ WaitConditionImpl()\l+ ~WaitConditionImpl()\l+ Wait()\l+ Notify()\l+ NotifyAll()\l}" alt="" coords="190,405,356,541"/>
+<area shape="rect" id="node3" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="5,249,169,327"/>
+<area shape="rect" id="node4" href="$namespaceOVR.html#unionOVR_1_1pthread__mutex__t" title="{OVR::pthread_mutex_t\n|+ __size\l+ __align\l|}" alt="" coords="195,242,351,334"/>
+<area shape="rect" id="node5" href="$namespaceOVR.html#structOVR_1_1pthread__mutex__t_1_1____pthread__mutex__s" title="{OVR::pthread_mutex\l_t::__pthread_mutex_s\n|+ __lock\l+ __count\l+ __owner\l+ __kind\l+ __nusers\l+ @16\l|}" alt="" coords="196,5,349,171"/>
+<area shape="rect" id="node6" href="$namespaceOVR.html#unionOVR_1_1pthread__cond__t" title="{OVR::pthread_cond_t\n|+ __data\l+ __size\l+ __align\l|}" alt="" coords="375,235,523,341"/>
+</map>

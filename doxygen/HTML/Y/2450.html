@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>WorldFromImu</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L130'>WorldFromImu</a>      130 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu                        = PoseState&lt;double&gt;();
+<a href='../S/189.html#L131'>WorldFromImu</a>      131 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose                   = ImuFromCpf.Inverted(); // place CPF at the origin, not the IMU
+<a href='../S/189.html#L152'>WorldFromImu</a>      152 ovr/sdk/src/OVR_SensorFusion.cpp     setNeckPivotFromPose ( WorldFromImu.Pose );
+<a href='../S/189.html#L193'>WorldFromImu</a>      193 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord = ExposureRecord(exposureCounter, GetTime(), WorldFromImu, PoseState&lt;double&gt;());
+<a href='../S/189.html#L232'>WorldFromImu</a>      232 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord.WorldFromImu.Pose.Rotation.Inverted();
+<a href='../S/189.html#L234'>WorldFromImu</a>      234 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord.WorldFromImu.Pose.Translation;
+<a href='../S/189.html#L236'>WorldFromImu</a>      236 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord.WorldFromImu.LinearVelocity;
+<a href='../S/189.html#L265'>WorldFromImu</a>      265 ovr/sdk/src/OVR_SensorFusion.cpp             LastVisionExposureRecord.WorldFromImu.Pose.Inverted() * record.WorldFromImu.Pose;
+<a href='../S/189.html#L297'>WorldFromImu</a>      297 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.TimeInSeconds = msg.AbsoluteTimeSeconds;
+<a href='../S/189.html#L308'>WorldFromImu</a>      308 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInWorldFrame = WorldFromImu.Pose.Rotate(accel) - Vector3d(0, 9.8, 0);
+<a href='../S/189.html#L314'>WorldFromImu</a>      314 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.StoreAndIntegrateGyro(gyro, DeltaT);
+<a href='../S/189.html#L336'>WorldFromImu</a>      336 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose.Rotation.Normalize();
+<a href='../S/189.html#L344'>WorldFromImu</a>      344 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.StoreAndIntegrateAccelerometer(accelInWorldFrame + AccelOffset, DeltaT);
+<a href='../S/189.html#L348'>WorldFromImu</a>      348 ovr/sdk/src/OVR_SensorFusion.cpp         setNeckPivotFromPose(WorldFromImu.Pose);
+<a href='../S/189.html#L355'>WorldFromImu</a>      355 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromNeck.Rotation = WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L356'>WorldFromImu</a>      356 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose = WorldFromNeck * (ImuFromCpf * CpfFromNeck).Inverted();
+<a href='../S/189.html#L359'>WorldFromImu</a>      359 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.LinearVelocity = Vector3d(0,0,0);
+<a href='../S/189.html#L360'>WorldFromImu</a>      360 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.LinearAcceleration = accelInWorldFrame;
+<a href='../S/189.html#L364'>WorldFromImu</a>      364 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.AngularAcceleration = (FAngV.GetSize() &gt;= 12 &amp;&amp; DeltaT &gt; 0) ? 
+<a href='../S/189.html#L370'>WorldFromImu</a>      370 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.ImuOnlyDelta.TimeInSeconds = WorldFromImu.TimeInSeconds - LastMessageExposureFrame.CameraTimeSeconds;
+<a href='../S/189.html#L373'>WorldFromImu</a>      373 ovr/sdk/src/OVR_SensorFusion.cpp 	Recording::GetRecorder().LogData("sfTimeSeconds", WorldFromImu.TimeInSeconds);
+<a href='../S/189.html#L375'>WorldFromImu</a>      375 ovr/sdk/src/OVR_SensorFusion.cpp 	Recording::GetRecorder().LogData("sfPose", WorldFromImu.Pose);
+<a href='../S/189.html#L392'>WorldFromImu</a>      392 ovr/sdk/src/OVR_SensorFusion.cpp     lstate.State        = WorldFromImu;
+<a href='../S/189.html#L402'>WorldFromImu</a>      402 ovr/sdk/src/OVR_SensorFusion.cpp     NextExposureRecord.WorldFromImu = WorldFromImu;
+<a href='../S/189.html#L460'>WorldFromImu</a>      460 ovr/sdk/src/OVR_SensorFusion.cpp         correctionPos = worldFromImuVision.Pose.Translation - WorldFromImu.Pose.Translation;
+<a href='../S/189.html#L461'>WorldFromImu</a>      461 ovr/sdk/src/OVR_SensorFusion.cpp         correctionVel = worldFromImuVision.LinearVelocity - WorldFromImu.LinearVelocity;
+<a href='../S/189.html#L471'>WorldFromImu</a>      471 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose.Translation += correctionPos;
+<a href='../S/189.html#L472'>WorldFromImu</a>      472 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.LinearVelocity += correctionVel;
+<a href='../S/189.html#L475'>WorldFromImu</a>      475 ovr/sdk/src/OVR_SensorFusion.cpp     LastVisionExposureRecord.WorldFromImu.Pose.Translation += correctionPos;
+<a href='../S/189.html#L476'>WorldFromImu</a>      476 ovr/sdk/src/OVR_SensorFusion.cpp     LastVisionExposureRecord.WorldFromImu.LinearVelocity += correctionVel;
+<a href='../S/189.html#L479'>WorldFromImu</a>      479 ovr/sdk/src/OVR_SensorFusion.cpp         PoseStated&amp; state = ExposureRecordHistory.PeekBack(i).WorldFromImu;
+<a href='../S/189.html#L499'>WorldFromImu</a>      499 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L502'>WorldFromImu</a>      502 ovr/sdk/src/OVR_SensorFusion.cpp     LastVisionExposureRecord.WorldFromImu.Pose.Rotation = correction * LastVisionExposureRecord.WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L505'>WorldFromImu</a>      505 ovr/sdk/src/OVR_SensorFusion.cpp         PoseStated&amp; state = ExposureRecordHistory.PeekBack(i).WorldFromImu;
+<a href='../S/189.html#L518'>WorldFromImu</a>      518 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d magInWorldFrame = WorldFromImu.Pose.Rotate(mag);
+<a href='../S/189.html#L550'>WorldFromImu</a>      550 ovr/sdk/src/OVR_SensorFusion.cpp             MagRefs.PushBack(MagReferencePoint(mag, WorldFromImu.Pose, 1000));
+<a href='../S/189.html#L556'>WorldFromImu</a>      556 ovr/sdk/src/OVR_SensorFusion.cpp         Vector3d magRefInWorldFrame = MagRefs[MagRefIdx].WorldFromImu.Rotate(MagRefs[MagRefIdx].InImuFrame);
+<a href='../S/189.html#L580'>WorldFromImu</a>      580 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L590'>WorldFromImu</a>      590 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInWorldFrame = WorldFromImu.Pose.Rotate(FAccelInImuFrame.GetFilteredValue());
+<a href='../S/189.html#L605'>WorldFromImu</a>      605 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L618'>WorldFromImu</a>      618 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImu = WorldFromCamera.Inverted() * VisionError.Pose * WorldFromImu.Pose;
+<a href='../S/189.html#L688'>WorldFromImu</a>      688 ovr/sdk/src/OVR_SensorFusion.cpp 	Vector3d currentDir = WorldFromImu.Pose.Rotate(Vector3d(0, 0, 1));
+<a href='../S/189.html#L719'>WorldFromImu</a>      719 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.Pose.Rotation = correction * WorldFromImu.Pose.Rotation;
+<a href='../S/189.html#L728'>WorldFromImu</a>      728 ovr/sdk/src/OVR_SensorFusion.cpp 	SetFocusDirection(WorldFromImu.Pose.Rotate(Vector3d(0.0, 0.0, 1.0)));
+<a href='../S/189.html#L797'>WorldFromImu</a>      797 ovr/sdk/src/OVR_SensorFusion.cpp         setNeckPivotFromPose ( WorldFromImu.Pose );
+<a href='../S/189.html#L813'>WorldFromImu</a>      813 ovr/sdk/src/OVR_SensorFusion.cpp     setNeckPivotFromPose ( WorldFromImu.Pose );
+<a href='../S/127.html#L350'>WorldFromImu</a>      350 ovr/sdk/src/OVR_SensorFusion.h         PoseState&lt;double&gt; WorldFromImu;  
+<a href='../S/127.html#L360'>WorldFromImu</a>      360 ovr/sdk/src/OVR_SensorFusion.h               WorldFromImu(worldFromImu), ImuOnlyDelta(imuOnlyDelta), VisionTrackingAvailable(true) { }
+<a href='../S/127.html#L370'>WorldFromImu</a>      370 ovr/sdk/src/OVR_SensorFusion.h         Transformd        WorldFromImu;
+<a href='../S/127.html#L375'>WorldFromImu</a>      375 ovr/sdk/src/OVR_SensorFusion.h             : InImuFrame(inImuFrame), WorldFromImu(worldFromImu), Score(score) { }
+<a href='../S/127.html#L381'>WorldFromImu</a>      381 ovr/sdk/src/OVR_SensorFusion.h 	PoseState&lt;double&gt; WorldFromImu;
+<a href='../S/124.html#L77'>WorldFromImu</a>       77 ovr/sdk/src/OVR_SensorFusionDebug.h 	*magPose = sf-&gt;MagRefs[idx].WorldFromImu.Rotation;
+</pre>
+</body>
+</html>

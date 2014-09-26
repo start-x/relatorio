@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>numBytes</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L242'>numBytes</a>          242 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::Write(const UByte *psourceBuffer, int numBytes)
+<a href='../S/172.html#L247'>numBytes</a>          247 ovr/sdk/src/Kernel/OVR_File.cpp         if ((FILEBUFFER_SIZE-(int)Pos)&lt;numBytes)
+<a href='../S/172.html#L251'>numBytes</a>          251 ovr/sdk/src/Kernel/OVR_File.cpp             if (numBytes&gt;FILEBUFFER_TOLERANCE)
+<a href='../S/172.html#L253'>numBytes</a>          253 ovr/sdk/src/Kernel/OVR_File.cpp                 int sz = pFile-&gt;Write(psourceBuffer,numBytes);
+<a href='../S/172.html#L261'>numBytes</a>          261 ovr/sdk/src/Kernel/OVR_File.cpp         memcpy(pBuffer+Pos, psourceBuffer, numBytes);
+<a href='../S/172.html#L262'>numBytes</a>          262 ovr/sdk/src/Kernel/OVR_File.cpp         Pos += numBytes;
+<a href='../S/172.html#L263'>numBytes</a>          263 ovr/sdk/src/Kernel/OVR_File.cpp         return numBytes;
+<a href='../S/172.html#L265'>numBytes</a>          265 ovr/sdk/src/Kernel/OVR_File.cpp     int sz = pFile-&gt;Write(psourceBuffer,numBytes);
+<a href='../S/172.html#L271'>numBytes</a>          271 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::Read(UByte *pdestBuffer, int numBytes)
+<a href='../S/172.html#L276'>numBytes</a>          276 ovr/sdk/src/Kernel/OVR_File.cpp         if ((int)(DataSize-Pos) &gt;= numBytes)
+<a href='../S/172.html#L278'>numBytes</a>          278 ovr/sdk/src/Kernel/OVR_File.cpp             memcpy(pdestBuffer, pBuffer+Pos, numBytes);
+<a href='../S/172.html#L279'>numBytes</a>          279 ovr/sdk/src/Kernel/OVR_File.cpp             Pos += numBytes;
+<a href='../S/172.html#L280'>numBytes</a>          280 ovr/sdk/src/Kernel/OVR_File.cpp             return numBytes;
+<a href='../S/172.html#L286'>numBytes</a>          286 ovr/sdk/src/Kernel/OVR_File.cpp         numBytes    -= readBytes;
+<a href='../S/172.html#L292'>numBytes</a>          292 ovr/sdk/src/Kernel/OVR_File.cpp         if (numBytes&gt;FILEBUFFER_TOLERANCE)
+<a href='../S/172.html#L294'>numBytes</a>          294 ovr/sdk/src/Kernel/OVR_File.cpp             numBytes = pFile-&gt;Read(pdestBuffer,numBytes);
+<a href='../S/172.html#L295'>numBytes</a>          295 ovr/sdk/src/Kernel/OVR_File.cpp             if (numBytes &gt; 0)
+<a href='../S/172.html#L297'>numBytes</a>          297 ovr/sdk/src/Kernel/OVR_File.cpp                 FilePos += numBytes;
+<a href='../S/172.html#L300'>numBytes</a>          300 ovr/sdk/src/Kernel/OVR_File.cpp             return readBytes + ((numBytes==-1) ? 0 : numBytes);
+<a href='../S/172.html#L306'>numBytes</a>          306 ovr/sdk/src/Kernel/OVR_File.cpp         if ((int)(DataSize-Pos) &lt; numBytes)
+<a href='../S/172.html#L307'>numBytes</a>          307 ovr/sdk/src/Kernel/OVR_File.cpp             numBytes = (int)DataSize-Pos;
+<a href='../S/172.html#L309'>numBytes</a>          309 ovr/sdk/src/Kernel/OVR_File.cpp         memcpy(pdestBuffer, pBuffer+Pos, numBytes);
+<a href='../S/172.html#L310'>numBytes</a>          310 ovr/sdk/src/Kernel/OVR_File.cpp         Pos += numBytes;
+<a href='../S/172.html#L311'>numBytes</a>          311 ovr/sdk/src/Kernel/OVR_File.cpp         return numBytes + readBytes;
+<a href='../S/172.html#L337'>numBytes</a>          337 ovr/sdk/src/Kernel/OVR_File.cpp     int sz = pFile-&gt;Read(pdestBuffer,numBytes);
+<a href='../S/172.html#L344'>numBytes</a>          344 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::SkipBytes(int numBytes)
+<a href='../S/172.html#L351'>numBytes</a>          351 ovr/sdk/src/Kernel/OVR_File.cpp         skippedBytes = (((int)DataSize-(int)Pos) &gt;= numBytes) ? numBytes : (DataSize-Pos);
+<a href='../S/172.html#L353'>numBytes</a>          353 ovr/sdk/src/Kernel/OVR_File.cpp         numBytes     -= skippedBytes;
+<a href='../S/172.html#L356'>numBytes</a>          356 ovr/sdk/src/Kernel/OVR_File.cpp     if (numBytes)
+<a href='../S/172.html#L358'>numBytes</a>          358 ovr/sdk/src/Kernel/OVR_File.cpp         numBytes = pFile-&gt;SkipBytes(numBytes);
+<a href='../S/172.html#L360'>numBytes</a>          360 ovr/sdk/src/Kernel/OVR_File.cpp         if (numBytes!=-1)
+<a href='../S/172.html#L362'>numBytes</a>          362 ovr/sdk/src/Kernel/OVR_File.cpp             skippedBytes += numBytes;
+<a href='../S/172.html#L363'>numBytes</a>          363 ovr/sdk/src/Kernel/OVR_File.cpp             FilePos += numBytes;
+<a href='../S/186.html#L159'>numBytes</a>          159 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Write(const UByte *pbufer, int numBytes) = 0;
+<a href='../S/186.html#L164'>numBytes</a>          164 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Read(UByte *pbufer, int numBytes) = 0;
+<a href='../S/186.html#L168'>numBytes</a>          168 ovr/sdk/src/Kernel/OVR_File.h     virtual int         SkipBytes(int numBytes) = 0;
+<a href='../S/186.html#L190'>numBytes</a>          190 ovr/sdk/src/Kernel/OVR_File.h     int                 Skip(int numBytes)     {return Seek(numBytes,Seek_Cur); }
+<a href='../S/186.html#L307'>numBytes</a>          307 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Write(const UByte *pbuffer, int numBytes)   { return pFile-&gt;Write(pbuffer,numBytes); }  
+<a href='../S/186.html#L308'>numBytes</a>          308 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Read(UByte *pbuffer, int numBytes)          { return pFile-&gt;Read(pbuffer,numBytes); }   
+<a href='../S/186.html#L310'>numBytes</a>          310 ovr/sdk/src/Kernel/OVR_File.h     virtual int         SkipBytes(int numBytes)                     { return pFile-&gt;SkipBytes(numBytes); }      
+<a href='../S/186.html#L386'>numBytes</a>          386 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Write(const UByte *pbufer, int numBytes);
+<a href='../S/186.html#L387'>numBytes</a>          387 ovr/sdk/src/Kernel/OVR_File.h     virtual int         Read(UByte *pbufer, int numBytes);
+<a href='../S/186.html#L389'>numBytes</a>          389 ovr/sdk/src/Kernel/OVR_File.h     virtual int         SkipBytes(int numBytes);
+<a href='../S/186.html#L436'>numBytes</a>          436 ovr/sdk/src/Kernel/OVR_File.h     int         Write(const UByte *pbuffer, int numBytes)
+<a href='../S/186.html#L437'>numBytes</a>          437 ovr/sdk/src/Kernel/OVR_File.h     {   OVR_UNUSED2(pbuffer, numBytes);
+<a href='../S/186.html#L441'>numBytes</a>          441 ovr/sdk/src/Kernel/OVR_File.h     int         Read(UByte *pbufer, int numBytes)
+<a href='../S/186.html#L443'>numBytes</a>          443 ovr/sdk/src/Kernel/OVR_File.h         if (FileIndex + numBytes &gt; FileSize)
+<a href='../S/186.html#L445'>numBytes</a>          445 ovr/sdk/src/Kernel/OVR_File.h             numBytes = FileSize - FileIndex;
+<a href='../S/186.html#L448'>numBytes</a>          448 ovr/sdk/src/Kernel/OVR_File.h         if (numBytes &gt; 0)
+<a href='../S/186.html#L450'>numBytes</a>          450 ovr/sdk/src/Kernel/OVR_File.h             ::memcpy (pbufer, &amp;FileData [FileIndex], numBytes);
+<a href='../S/186.html#L452'>numBytes</a>          452 ovr/sdk/src/Kernel/OVR_File.h             FileIndex += numBytes;
+<a href='../S/186.html#L455'>numBytes</a>          455 ovr/sdk/src/Kernel/OVR_File.h         return numBytes;
+<a href='../S/186.html#L458'>numBytes</a>          458 ovr/sdk/src/Kernel/OVR_File.h     int         SkipBytes(int numBytes)
+<a href='../S/186.html#L460'>numBytes</a>          460 ovr/sdk/src/Kernel/OVR_File.h         if (FileIndex + numBytes &gt; FileSize)
+<a href='../S/186.html#L462'>numBytes</a>          462 ovr/sdk/src/Kernel/OVR_File.h             numBytes = FileSize - FileIndex;
+<a href='../S/186.html#L465'>numBytes</a>          465 ovr/sdk/src/Kernel/OVR_File.h         FileIndex += numBytes;
+<a href='../S/186.html#L467'>numBytes</a>          467 ovr/sdk/src/Kernel/OVR_File.h         return numBytes;
+<a href='../S/149.html#L168'>numBytes</a>          168 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual int         Write(const UByte *pbuffer, int numBytes);
+<a href='../S/149.html#L169'>numBytes</a>          169 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual int         Read(UByte *pbuffer, int numBytes);
+<a href='../S/149.html#L170'>numBytes</a>          170 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual int         SkipBytes(int numBytes);
+<a href='../S/149.html#L335'>numBytes</a>          335 ovr/sdk/src/Kernel/OVR_FileFILE.cpp int     FILEFile::Write(const UByte *pbuffer, int numBytes)
+<a href='../S/149.html#L340'>numBytes</a>          340 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     int written = (int) fwrite(pbuffer, 1, numBytes, fs);
+<a href='../S/149.html#L341'>numBytes</a>          341 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     if (written &lt; numBytes)
+<a href='../S/149.html#L352'>numBytes</a>          352 ovr/sdk/src/Kernel/OVR_FileFILE.cpp int     FILEFile::Read(UByte *pbuffer, int numBytes)
+<a href='../S/149.html#L357'>numBytes</a>          357 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     int read = (int) fread(pbuffer, 1, numBytes, fs);
+<a href='../S/149.html#L358'>numBytes</a>          358 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     if (read &lt; numBytes)
+<a href='../S/149.html#L381'>numBytes</a>          381 ovr/sdk/src/Kernel/OVR_FileFILE.cpp int     FILEFile::SkipBytes(int numBytes)
+<a href='../S/149.html#L384'>numBytes</a>          384 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     SInt64 newPos = LSeek(numBytes, Seek_Cur);
+<a href='../S/156.html#L62'>numBytes</a>           62 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual int         Write(const UByte *pbuffer, int numBytes)     { return -1; OVR_UNUSED2(pbuffer, numBytes); }
+<a href='../S/156.html#L63'>numBytes</a>           63 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual int         Read(UByte *pbuffer, int numBytes)            { return -1; OVR_UNUSED2(pbuffer, numBytes); }
+<a href='../S/156.html#L64'>numBytes</a>           64 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual int         SkipBytes(int numBytes)                       { return 0;  OVR_UNUSED(numBytes); }
+</pre>
+</body>
+</html>

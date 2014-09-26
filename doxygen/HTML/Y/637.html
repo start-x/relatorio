@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>FrameIndex</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L46'>FrameIndex</a>         46 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameIndex             = 0;    
+<a href='../S/98.html#L58'>FrameIndex</a>         58 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         (FrameIndex &gt;= FramesTracked))
+<a href='../S/98.html#L63'>FrameIndex</a>         63 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     OVR_ASSERT(FrameIndex &lt; FramesTracked);    
+<a href='../S/98.html#L64'>FrameIndex</a>         64 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     return (unsigned char)Util::FrameTimeRecord::ReadbackIndexToColor(FrameIndex+1);
+<a href='../S/98.html#L74'>FrameIndex</a>         74 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     if (FrameIndex &lt; FramesTracked)
+<a href='../S/98.html#L76'>FrameIndex</a>         76 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         OVR_ASSERT(Util::FrameTimeRecord::ReadbackIndexToColor(FrameIndex+1) == drawColor);
+<a href='../S/98.html#L80'>FrameIndex</a>         80 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameEndTimes[FrameIndex].ReadbackIndex         = FrameIndex + 1;
+<a href='../S/98.html#L81'>FrameIndex</a>         81 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameEndTimes[FrameIndex].TimeSeconds           = endFrameTime;
+<a href='../S/98.html#L82'>FrameIndex</a>         82 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameEndTimes[FrameIndex].RenderIMUTimeSeconds  = renderIMUTime;
+<a href='../S/98.html#L83'>FrameIndex</a>         83 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameEndTimes[FrameIndex].TimewarpIMUTimeSeconds= timewarpIMUTime;
+<a href='../S/98.html#L84'>FrameIndex</a>         84 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameEndTimes[FrameIndex].MatchedRecord         = false;
+<a href='../S/98.html#L85'>FrameIndex</a>         85 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameIndex++;
+<a href='../S/98.html#L90'>FrameIndex</a>         90 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         if (endFrameTime &gt; (FrameEndTimes[FrameIndex-1].TimeSeconds + 0.15))
+<a href='../S/98.html#L101'>FrameIndex</a>        101 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp             FrameIndex = 0;
+<a href='../S/98.html#L117'>FrameIndex</a>        117 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp             OVR_ASSERT(FrameIndex == 0);
+<a href='../S/98.html#L127'>FrameIndex</a>        127 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     for (int i = 0; i &lt; FrameIndex; i++)
+<a href='../S/98.html#L142'>FrameIndex</a>        142 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp             for (; (j &lt; FrameIndex) &amp;&amp; (ri &lt; Util::FrameTimeRecordSet::RecordCount); j++, ri++)
+<a href='../S/98.html#L188'>FrameIndex</a>        188 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         FrameIndex = 0;
+<a href='../S/98.html#L246'>FrameIndex</a>        246 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameTiming.FrameIndex               = frameIndex;
+<a href='../S/98.html#L337'>FrameIndex</a>        337 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameIndex        = frameIndex;
+<a href='../S/98.html#L451'>FrameIndex</a>        451 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     else if (frameIndex &gt; frameTiming.FrameIndex)
+<a href='../S/98.html#L453'>FrameIndex</a>        453 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         unsigned frameDelta    = frameIndex - frameTiming.FrameIndex;
+<a href='../S/99.html#L113'>FrameIndex</a>        113 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     int                   FrameIndex;
+<a href='../S/99.html#L156'>FrameIndex</a>        156 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h         unsigned int        FrameIndex;
+<a href='../S/97.html#L456'>FrameIndex</a>        456 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             TimeManager.ResetFrameTiming(TimeManager.GetFrameTiming().FrameIndex,
+</pre>
+</body>
+</html>

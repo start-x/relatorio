@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>ch</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/184.html#L214'>ch</a>                214 ovr/sdk/src/Kernel/OVR_String.cpp void String::AppendChar(UInt32 ch)
+<a href='../S/184.html#L222'>ch</a>                222 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buff, &amp;encodeSize, ch);
+<a href='../S/184.html#L663'>ch</a>                663 ovr/sdk/src/Kernel/OVR_String.cpp void     StringBuffer::AppendChar(UInt32 ch)
+<a href='../S/184.html#L671'>ch</a>                671 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buff, &amp;srcSize, ch);
+<a href='../S/161.html#L202'>ch</a>                202 ovr/sdk/src/Kernel/OVR_String.h     void        AppendChar(UInt32 ch);
+<a href='../S/161.html#L289'>ch</a>                289 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (char  ch)               { AppendChar(ch); }
+<a href='../S/161.html#L458'>ch</a>                458 ovr/sdk/src/Kernel/OVR_String.h     void        AppendChar(UInt32 ch);
+<a href='../S/161.html#L483'>ch</a>                483 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (char  ch)               { AppendChar(ch); }
+<a href='../S/157.html#L339'>ch</a>                339 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UInt32 ch = DecodeNextChar_Advance0(&amp;putf8str);
+<a href='../S/157.html#L340'>ch</a>                340 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             if (ch == 0)
+<a href='../S/157.html#L342'>ch</a>                342 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             else if (ch &gt;= 0xFFFF)
+<a href='../S/157.html#L343'>ch</a>                343 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                 ch = 0xFFFD;
+<a href='../S/157.html#L344'>ch</a>                344 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             *pbuff++ = wchar_t(ch);
+<a href='../S/157.html#L352'>ch</a>                352 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UInt32 ch = DecodeNextChar_Advance0(&amp;p);
+<a href='../S/157.html#L353'>ch</a>                353 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             if (ch &gt;= 0xFFFF)
+<a href='../S/157.html#L354'>ch</a>                354 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                 ch = 0xFFFD;
+<a href='../S/157.html#L355'>ch</a>                355 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             *pbuff++ = wchar_t(ch);
+<a href='../S/154.html#L90'>ch</a>                 90 ovr/sdk/src/Kernel/OVR_UTF8Util.h     UInt32 ch = DecodeNextChar_Advance0(putf8Buffer);
+<a href='../S/154.html#L91'>ch</a>                 91 ovr/sdk/src/Kernel/OVR_UTF8Util.h     if (ch == 0)
+<a href='../S/154.html#L93'>ch</a>                 93 ovr/sdk/src/Kernel/OVR_UTF8Util.h     return ch;
+</pre>
+</body>
+</html>

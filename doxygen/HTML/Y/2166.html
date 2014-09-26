@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>SystemToBE</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/147.html#L916'>SystemToBE</a>        916 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    SystemToBE(UByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L917'>SystemToBE</a>        917 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    SystemToBE(SByte  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L918'>SystemToBE</a>        918 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   SystemToBE(UInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L919'>SystemToBE</a>        919 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToBE(SInt16 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L920'>SystemToBE</a>        920 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToBE(UInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L921'>SystemToBE</a>        921 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SystemToBE(SInt32 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L922'>SystemToBE</a>        922 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   SystemToBE(UInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L923'>SystemToBE</a>        923 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToBE(SInt64 v)    { return SwapOrder(v); }
+<a href='../S/147.html#L924'>SystemToBE</a>        924 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    SystemToBE(float  v)    { return SwapOrder(v); }
+<a href='../S/147.html#L925'>SystemToBE</a>        925 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   SystemToBE(double v)    { return SwapOrder(v); }
+<a href='../S/147.html#L965'>SystemToBE</a>        965 ovr/sdk/src/Kernel/OVR_Alg.h     inline UByte    SystemToBE(UByte  v)    { return v; }
+<a href='../S/147.html#L966'>SystemToBE</a>        966 ovr/sdk/src/Kernel/OVR_Alg.h     inline SByte    SystemToBE(SByte  v)    { return v; }
+<a href='../S/147.html#L967'>SystemToBE</a>        967 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt16   SystemToBE(UInt16 v)    { return v; }
+<a href='../S/147.html#L968'>SystemToBE</a>        968 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt16   SystemToBE(SInt16 v)    { return v; }
+<a href='../S/147.html#L969'>SystemToBE</a>        969 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt32   SystemToBE(UInt32 v)    { return v; }
+<a href='../S/147.html#L970'>SystemToBE</a>        970 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt32   SystemToBE(SInt32 v)    { return v; }
+<a href='../S/147.html#L971'>SystemToBE</a>        971 ovr/sdk/src/Kernel/OVR_Alg.h     inline UInt64   SystemToBE(UInt64 v)    { return v; }
+<a href='../S/147.html#L972'>SystemToBE</a>        972 ovr/sdk/src/Kernel/OVR_Alg.h     inline SInt64   SystemToBE(SInt64 v)    { return v; }
+<a href='../S/147.html#L973'>SystemToBE</a>        973 ovr/sdk/src/Kernel/OVR_Alg.h     inline float    SystemToBE(float  v)    { return v; }
+<a href='../S/147.html#L974'>SystemToBE</a>        974 ovr/sdk/src/Kernel/OVR_Alg.h     inline double   SystemToBE(double v)    { return v; }
+<a href='../S/186.html#L231'>SystemToBE</a>        231 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUByteBE(UByte v)       { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L232'>SystemToBE</a>        232 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSByteBE(SByte v)       { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L233'>SystemToBE</a>        233 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt8BE(UInt16 v)      { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L234'>SystemToBE</a>        234 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt8BE(SInt16 v)      { PWrite8((UByte)Alg::ByteUtil::SystemToBE(v));     }
+<a href='../S/186.html#L235'>SystemToBE</a>        235 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L236'>SystemToBE</a>        236 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt16BE(UInt16 v)     { PWrite16((UInt16)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L237'>SystemToBE</a>        237 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L238'>SystemToBE</a>        238 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt32BE(UInt32 v)     { PWrite32((UInt32)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L239'>SystemToBE</a>        239 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteUInt64BE(UInt64 v)     { PWrite64((UInt64)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L240'>SystemToBE</a>        240 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteSInt64BE(UInt64 v)     { PWrite64((UInt64)Alg::ByteUtil::SystemToBE(v));   }
+<a href='../S/186.html#L241'>SystemToBE</a>        241 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteFloatBE(float v)       { v = Alg::ByteUtil::SystemToBE(v); Write((UByte*)&amp;v, 4); }
+<a href='../S/186.html#L242'>SystemToBE</a>        242 ovr/sdk/src/Kernel/OVR_File.h     inline void    WriteDoubleBE(double v)     { v = Alg::ByteUtil::SystemToBE(v); Write((UByte*)&amp;v, 8); }
+</pre>
+</body>
+</html>

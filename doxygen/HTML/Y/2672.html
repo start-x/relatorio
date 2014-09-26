@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>absTime</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L257'>absTime</a>           257 ovr/sdk/src/CAPI/CAPI_HMDState.cpp ovrSensorState HMDState::PredictedSensorState(double absTime)
+<a href='../S/97.html#L267'>absTime</a>           267 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         ss = SFusion.GetSensorStateAtTime(absTime);
+<a href='../S/97.html#L299'>absTime</a>           299 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         ss.Recorded.TimeInSeconds  = absTime;
+<a href='../S/97.html#L300'>absTime</a>           300 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         ss.Predicted.TimeInSeconds = absTime;
+<a href='../S/101.html#L146'>absTime</a>           146 ovr/sdk/src/CAPI/CAPI_HMDState.h     ovrSensorState  PredictedSensorState(double absTime);
+<a href='../S/104.html#L265'>absTime</a>           265 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp double DistortionRenderer::FlushGpuAndWaitTillTime(double absTime)
+<a href='../S/104.html#L268'>absTime</a>           268 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 	if (initialTime &gt;= absTime)
+<a href='../S/104.html#L277'>absTime</a>           277 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 	while (newTime &lt; absTime)
+<a href='../S/106.html#L58'>absTime</a>            58 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h 	double       FlushGpuAndWaitTillTime(double absTime);
+<a href='../S/142.html#L188'>absTime</a>           188 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT double ovr_WaitTillTime(double absTime)
+<a href='../S/142.html#L194'>absTime</a>           194 ovr/sdk/src/OVR_CAPI.cpp     while(newTime &lt; absTime)
+<a href='../S/142.html#L377'>absTime</a>           377 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrSensorState ovrHmd_GetSensorState(ovrHmd hmd, double absTime)
+<a href='../S/142.html#L380'>absTime</a>           380 ovr/sdk/src/OVR_CAPI.cpp     return p-&gt;PredictedSensorState(absTime);
+<a href='../S/187.html#L480'>absTime</a>           480 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrSensorState ovrHmd_GetSensorState(ovrHmd hmd, double absTime);
+<a href='../S/187.html#L706'>absTime</a>           706 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT double   ovr_WaitTillTime(double absTime);
+</pre>
+</body>
+</html>

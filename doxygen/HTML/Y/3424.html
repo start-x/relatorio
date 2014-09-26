@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>hmds</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/142.html#L276'>hmds</a>              276 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = new HMDState(device);
+<a href='../S/142.html#L277'>hmds</a>              277 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds)
+<a href='../S/142.html#L280'>hmds</a>              280 ovr/sdk/src/OVR_CAPI.cpp     return hmds;
+<a href='../S/142.html#L288'>hmds</a>              288 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = new HMDState(type);    
+<a href='../S/142.html#L289'>hmds</a>              289 ovr/sdk/src/OVR_CAPI.cpp     return hmds;
+<a href='../S/142.html#L297'>hmds</a>              297 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L301'>hmds</a>              301 ovr/sdk/src/OVR_CAPI.cpp         ThreadChecker::Scope checkScope(&amp;hmds-&gt;RenderAPIThreadChecker, "ovrHmd_Destroy");
+<a href='../S/142.html#L398'>hmds</a>              398 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;    
+<a href='../S/142.html#L399'>hmds</a>              399 ovr/sdk/src/OVR_CAPI.cpp     *desc = hmds-&gt;RenderState.GetDesc();
+<a href='../S/142.html#L409'>hmds</a>              409 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L410'>hmds</a>              410 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;RenderState.GetFOVTextureSize(eye, fov, pixelsPerDisplayPixel);
+<a href='../S/142.html#L442'>hmds</a>              442 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L443'>hmds</a>              443 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds)
+<a href='../S/142.html#L451'>hmds</a>              451 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;checkRenderingConfigured("ovrHmd_BeginFrame");
+<a href='../S/142.html#L452'>hmds</a>              452 ovr/sdk/src/OVR_CAPI.cpp     OVR_ASSERT_LOG(hmds-&gt;BeginFrameCalled == false, ("ovrHmd_BeginFrame called multiple times."));
+<a href='../S/142.html#L453'>hmds</a>              453 ovr/sdk/src/OVR_CAPI.cpp     ThreadChecker::Scope checkScope(&amp;hmds-&gt;RenderAPIThreadChecker, "ovrHmd_BeginFrame");
+<a href='../S/142.html#L455'>hmds</a>              455 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;BeginFrameCalled   = true;
+<a href='../S/142.html#L456'>hmds</a>              456 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;BeginFrameThreadId = OVR::GetCurrentThreadId();
+<a href='../S/142.html#L465'>hmds</a>              465 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L466'>hmds</a>              466 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds) return;
+<a href='../S/142.html#L469'>hmds</a>              469 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;checkBeginFrameScope("ovrHmd_EndFrame");
+<a href='../S/142.html#L470'>hmds</a>              470 ovr/sdk/src/OVR_CAPI.cpp     ThreadChecker::Scope checkScope(&amp;hmds-&gt;RenderAPIThreadChecker, "ovrHmd_EndFrame");  
+<a href='../S/142.html#L473'>hmds</a>              473 ovr/sdk/src/OVR_CAPI.cpp     bool dk2LatencyTest = (hmds-&gt;HMDInfo.HmdType == HmdType_DK2) &amp;&amp;
+<a href='../S/142.html#L474'>hmds</a>              474 ovr/sdk/src/OVR_CAPI.cpp                            (hmds-&gt;EnabledHmdCaps &amp; ovrHmdCap_LatencyTest);
+<a href='../S/142.html#L477'>hmds</a>              477 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;LatencyTest2DrawColor[0] = hmds-&gt;TimeManager.GetFrameLatencyTestDrawColor();
+<a href='../S/142.html#L478'>hmds</a>              478 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;LatencyTest2DrawColor[1] = hmds-&gt;LatencyTest2DrawColor[0];
+<a href='../S/142.html#L479'>hmds</a>              479 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;LatencyTest2DrawColor[2] = hmds-&gt;LatencyTest2DrawColor[0];
+<a href='../S/142.html#L482'>hmds</a>              482 ovr/sdk/src/OVR_CAPI.cpp     if (hmds-&gt;pRenderer)
+<a href='../S/142.html#L484'>hmds</a>              484 ovr/sdk/src/OVR_CAPI.cpp 		hmds-&gt;pRenderer-&gt;SaveGraphicsState();
+<a href='../S/142.html#L485'>hmds</a>              485 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;pRenderer-&gt;EndFrame(true,
+<a href='../S/142.html#L486'>hmds</a>              486 ovr/sdk/src/OVR_CAPI.cpp                                   hmds-&gt;LatencyTestActive ? hmds-&gt;LatencyTestDrawColor : NULL,
+<a href='../S/142.html#L489'>hmds</a>              489 ovr/sdk/src/OVR_CAPI.cpp                                   dk2LatencyTest ? hmds-&gt;LatencyTest2DrawColor : 0
+<a href='../S/142.html#L492'>hmds</a>              492 ovr/sdk/src/OVR_CAPI.cpp 		hmds-&gt;pRenderer-&gt;RestoreGraphicsState();
+<a href='../S/142.html#L499'>hmds</a>              499 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;TimeManager.UpdateFrameLatencyTrackingAfterEndFrame(
+<a href='../S/142.html#L500'>hmds</a>              500 ovr/sdk/src/OVR_CAPI.cpp             hmds-&gt;LatencyTest2DrawColor[0], hmds-&gt;LatencyUtil2.GetLocklessState());
+<a href='../S/142.html#L504'>hmds</a>              504 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;BeginFrameThreadId = 0;
+<a href='../S/142.html#L505'>hmds</a>              505 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;BeginFrameCalled   = false;
+<a href='../S/142.html#L511'>hmds</a>              511 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L512'>hmds</a>              512 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds) return ovrPosef();
+<a href='../S/142.html#L513'>hmds</a>              513 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;BeginEyeRender(eye);
+<a href='../S/142.html#L519'>hmds</a>              519 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L520'>hmds</a>              520 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds) return;
+<a href='../S/142.html#L521'>hmds</a>              521 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;EndEyeRender(eye, renderPose, eyeTexture);
+<a href='../S/142.html#L534'>hmds</a>              534 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L535'>hmds</a>              535 ovr/sdk/src/OVR_CAPI.cpp     if (hmds)
+<a href='../S/142.html#L537'>hmds</a>              537 ovr/sdk/src/OVR_CAPI.cpp         FrameTimeManager::Timing frameTiming = hmds-&gt;TimeManager.GetFrameTiming(frameIndex);
+<a href='../S/142.html#L547'>hmds</a>              547 ovr/sdk/src/OVR_CAPI.cpp         f.DeltaSeconds = (hmds-&gt;LastGetFrameTimeSeconds == 0.0f) ? 0.0f :
+<a href='../S/142.html#L548'>hmds</a>              548 ovr/sdk/src/OVR_CAPI.cpp                          (float) (f.ThisFrameSeconds - hmds-&gt;LastFrameTimeSeconds);    
+<a href='../S/142.html#L549'>hmds</a>              549 ovr/sdk/src/OVR_CAPI.cpp         hmds-&gt;LastGetFrameTimeSeconds = f.ThisFrameSeconds;
+<a href='../S/142.html#L562'>hmds</a>              562 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L563'>hmds</a>              563 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds) return f;
+<a href='../S/142.html#L566'>hmds</a>              566 ovr/sdk/src/OVR_CAPI.cpp     OVR_ASSERT_LOG(hmds-&gt;BeginFrameTimingCalled == false,
+<a href='../S/142.html#L568'>hmds</a>              568 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;BeginFrameTimingCalled = true;
+<a href='../S/142.html#L570'>hmds</a>              570 ovr/sdk/src/OVR_CAPI.cpp     double thisFrameTime = hmds-&gt;TimeManager.BeginFrame(frameIndex);        
+<a href='../S/142.html#L572'>hmds</a>              572 ovr/sdk/src/OVR_CAPI.cpp     const FrameTimeManager::Timing &amp;frameTiming = hmds-&gt;TimeManager.GetFrameTiming();
+<a href='../S/142.html#L582'>hmds</a>              582 ovr/sdk/src/OVR_CAPI.cpp     f.DeltaSeconds = (hmds-&gt;LastFrameTimeSeconds == 0.0f) ? 0.0f :
+<a href='../S/142.html#L583'>hmds</a>              583 ovr/sdk/src/OVR_CAPI.cpp                      (float) (thisFrameTime - hmds-&gt;LastFrameTimeSeconds);    
+<a href='../S/142.html#L584'>hmds</a>              584 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;LastFrameTimeSeconds = thisFrameTime;
+<a href='../S/142.html#L594'>hmds</a>              594 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L595'>hmds</a>              595 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds) return;
+<a href='../S/142.html#L598'>hmds</a>              598 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;checkBeginFrameTimingScope("ovrHmd_EndTiming");
+<a href='../S/142.html#L602'>hmds</a>              602 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.EndFrame();   
+<a href='../S/142.html#L603'>hmds</a>              603 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;BeginFrameTimingCalled = false;
+<a href='../S/142.html#L609'>hmds</a>              609 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L610'>hmds</a>              610 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds) return;
+<a href='../S/142.html#L612'>hmds</a>              612 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.ResetFrameTiming(frameIndex, 
+<a href='../S/142.html#L614'>hmds</a>              614 ovr/sdk/src/OVR_CAPI.cpp                                        hmds-&gt;RenderingConfigured);
+<a href='../S/142.html#L615'>hmds</a>              615 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;LastFrameTimeSeconds    = 0.0;
+<a href='../S/142.html#L616'>hmds</a>              616 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;LastGetFrameTimeSeconds = 0.0;
+<a href='../S/142.html#L623'>hmds</a>              623 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L624'>hmds</a>              624 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds) return ovrPosef();    
+<a href='../S/142.html#L626'>hmds</a>              626 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;checkBeginFrameTimingScope("ovrHmd_GetEyePose");
+<a href='../S/142.html#L627'>hmds</a>              627 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;TimeManager.GetEyePredictionPose(hmd, eye);
+<a href='../S/142.html#L634'>hmds</a>              634 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L639'>hmds</a>              639 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;checkBeginFrameTimingScope("ovrHmd_GetTimewarpEyeMatrices");   
+<a href='../S/142.html#L641'>hmds</a>              641 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.GetTimewarpMatrices(hmd, eye, renderPose, twmOut);
+<a href='../S/142.html#L661'>hmds</a>              661 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L662'>hmds</a>              662 ovr/sdk/src/OVR_CAPI.cpp     if (!hmds)
+<a href='../S/142.html#L668'>hmds</a>              668 ovr/sdk/src/OVR_CAPI.cpp     return hmds-&gt;RenderState.calcRenderDesc(eyeType, fov);
+<a href='../S/142.html#L686'>hmds</a>              686 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L710'>hmds</a>              710 ovr/sdk/src/OVR_CAPI.cpp     const HmdRenderInfo&amp;  hmdri          = hmds-&gt;RenderState.RenderInfo;    
+<a href='../S/142.html#L713'>hmds</a>              713 ovr/sdk/src/OVR_CAPI.cpp     const DistortionRenderDesc&amp; distortion = hmds-&gt;RenderState.Distortion[eyeType];
+<a href='../S/142.html#L806'>hmds</a>              806 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L807'>hmds</a>              807 ovr/sdk/src/OVR_CAPI.cpp     if (hmds)
+<a href='../S/142.html#L809'>hmds</a>              809 ovr/sdk/src/OVR_CAPI.cpp 		return hmds-&gt;getFloatValue(propertyName, defaultVal);
+<a href='../S/142.html#L817'>hmds</a>              817 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L818'>hmds</a>              818 ovr/sdk/src/OVR_CAPI.cpp     if (hmds)
+<a href='../S/142.html#L820'>hmds</a>              820 ovr/sdk/src/OVR_CAPI.cpp         return hmds-&gt;setFloatValue(propertyName, value);
+<a href='../S/142.html#L830'>hmds</a>              830 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L831'>hmds</a>              831 ovr/sdk/src/OVR_CAPI.cpp     if (hmds)
+<a href='../S/142.html#L833'>hmds</a>              833 ovr/sdk/src/OVR_CAPI.cpp 		return hmds-&gt;getFloatArray(propertyName, values, arraySize);
+<a href='../S/142.html#L844'>hmds</a>              844 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L845'>hmds</a>              845 ovr/sdk/src/OVR_CAPI.cpp     if (hmds)
+<a href='../S/142.html#L847'>hmds</a>              847 ovr/sdk/src/OVR_CAPI.cpp         return hmds-&gt;setFloatArray(propertyName, values, arraySize);
+<a href='../S/142.html#L856'>hmds</a>              856 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L857'>hmds</a>              857 ovr/sdk/src/OVR_CAPI.cpp     if (hmds)
+<a href='../S/142.html#L859'>hmds</a>              859 ovr/sdk/src/OVR_CAPI.cpp 		return hmds-&gt;getString(propertyName, defaultVal);
+<a href='../S/142.html#L896'>hmds</a>              896 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L897'>hmds</a>              897 ovr/sdk/src/OVR_CAPI.cpp     if (hmds &amp;&amp; hmds-&gt;pHMD)
+<a href='../S/142.html#L900'>hmds</a>              900 ovr/sdk/src/OVR_CAPI.cpp         Profile* p = hmds-&gt;pHMD-&gt;GetProfile();
+</pre>
+</body>
+</html>

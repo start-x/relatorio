@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>PresentFlushToTimewarpStart</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/117.html#L1236'>PresentFlushToTimewarpStart</a> 1236 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart  = extraFramesOfBufferingKludge * hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1238'>PresentFlushToTimewarpStart</a> 1238 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.VsyncToFirstScanline;
+<a href='../S/117.html#L1240'>PresentFlushToTimewarpStart</a> 1240 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.PixelSettleTime * 0.5f;
+<a href='../S/117.html#L1242'>PresentFlushToTimewarpStart</a> 1242 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.PixelPersistence * 0.5f;
+<a href='../S/117.html#L1245'>PresentFlushToTimewarpStart</a> 1245 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpEnd    = result.PresentFlushToTimewarpStart + hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1265'>PresentFlushToTimewarpStart</a> 1265 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart  = result.PresentFlushToRenderedScene;
+<a href='../S/117.html#L1361'>PresentFlushToTimewarpStart</a> 1361 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return NextFramePresentFlushTime + CurrentPredictionValues.PresentFlushToTimewarpStart;
+<a href='../S/115.html#L397'>PresentFlushToTimewarpStart</a>  397 ovr/sdk/src/Util/Util_Render_Stereo.h     float PresentFlushToTimewarpStart;        // To when the first timewarped scanline will be visible.
+</pre>
+</body>
+</html>

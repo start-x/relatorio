@@ -1,0 +1,10 @@
+<map id="OVR::HIDDevice" name="OVR::HIDDevice">
+<area shape="rect" id="node10" href="$classOVR_1_1Linux_1_1HIDDevice.html" title="{OVR::Linux::HIDDevice\n|&#45; InMinimalMode\l&#45; HIDManager\l&#45; DeviceHandle\l&#45; DevDesc\l&#45; ReadBuffer\l&#45; InputReportBufferLength\l&#45; OutputReportBufferLength\l&#45; FeatureReportBufferLength\l|+ HIDDevice()\l+ HIDDevice()\l+ ~HIDDevice()\l+ HIDInitialize()\l+ HIDShutdown()\l+ SetFeatureReport()\l+ GetFeatureReport()\l+ OnEvent()\l+ OnTicks()\l+ OnDeviceNotification()\l&#45; initInfo()\l&#45; openDevice()\l&#45; closeDevice()\l&#45; closeDeviceOnIOError()\l&#45; setupDevicePluggedInNotification()\l}" alt="" coords="145,979,379,1365"/>
+<area shape="rect" id="node2" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l HIDDevice \&gt;\n||+ RefCountBase()\l}" alt="" coords="53,642,205,734"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="51,350,245,442"/>
+<area shape="rect" id="node8" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="145,493,324,571"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+<area shape="rect" id="node9" href="$classOVR_1_1HIDDeviceBase.html" title="{OVR::HIDDeviceBase\n||+ ~HIDDeviceBase()\l+ SetFeatureReport()\l+ GetFeatureReport()\l}" alt="" coords="231,635,384,741"/>
+</map>

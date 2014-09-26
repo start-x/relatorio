@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_CAPI_GL.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_CAPI_GL.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='104.html#L20' title='Included from 20 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_CAPI_GL.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   GL specific structures used by the CAPI interface.</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   November 7, 2013</font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   Lee Cooper</font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2013 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Use of this software is subject to the terms of the Oculus Inc license</font></i>
+<a name='L11'>  11 <i><font color='green'>agreement provided at the time of installation or download, or which</font></i>
+<a name='L12'>  12 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L13'>  13 <i><font color='green'></font></i>
+<a name='L14'>  14 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L15'>  15 <font color='darkred'>#ifndef</font> <a href='../S/79.html#L16' title='Defined at 16 in ovr/sdk/src/OVR_CAPI_GL.h.'>OVR_CAPI_GL_h</a>
+<a name='L16'>  16 <font color='darkred'>#define</font> <a href='../S/79.html#L15' title='Refered from 15 in ovr/sdk/src/OVR_CAPI_GL.h.'>OVR_CAPI_GL_h</a>
+<a name='L17'>  17 
+<a name='L18'>  18 <font color='darkred'>#include</font> "<a href='187.html'>OVR_CAPI.h</a>"
+<a name='L19'>  19 
+<a name='L20'>  20 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L21'>  21 <i><font color='green'>// ***** GL Specific</font></i>
+<a name='L22'>  22 
+<a name='L23'>  23 <font color='darkred'>#if</font> <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L24'>  24 <font color='darkred'>    #include</font> &lt;Windows.h&gt;
+<a name='L25'>  25 <font color='darkred'>    #include</font> &lt;GL/gl.h&gt;
+<a name='L26'>  26 <font color='darkred'>    #include</font> &lt;GL/glext.h&gt;
+<a name='L27'>  27 <font color='darkred'>    #include</font> &lt;GL/wglext.h&gt;
+<a name='L28'>  28 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../S/168.html#L48' title='Defined at 48 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_OS_MAC</a>)
+<a name='L29'>  29 <font color='darkred'>    #include</font> &lt;OpenGL/gl3.h&gt;
+<a name='L30'>  30 <font color='darkred'>    #include</font> &lt;OpenGL/gl3ext.h&gt;
+<a name='L31'>  31 <font color='darkred'>    #include</font> &lt;OpenGL/OpenGL.h&gt;
+<a name='L32'>  32 <font color='darkred'>#else</font>
+<a name='L33'>  33 <font color='darkred'>    #include</font> &lt;GL/gl.h&gt;
+<a name='L34'>  34 <font color='darkred'>    #include</font> &lt;GL/glext.h&gt;
+<a name='L35'>  35 <font color='darkred'>    #include</font> &lt;GL/glx.h&gt;
+<a name='L36'>  36 <font color='darkred'>#endif</font>
+<a name='L37'>  37 
+<a name='L38'>  38 
+<a name='L39'>  39 <i><font color='green'>// Used to configure slave GL rendering (i.e. for devices created externally).</font></i>
+<a name='L40'>  40 <b>typedef</b> <b>struct</b> ovrGLConfigData_s
+<a name='L41'>  41 <font color='red'>{</font>
+<a name='L42'>  42     <i><font color='green'>// General device settings.</font></i>
+<a name='L43'>  43     <a href='../S/187.html#L359' title='Defined at 359 in ovr/sdk/src/OVR_CAPI.h.'>ovrRenderAPIConfigHeader</a> <a href='../Y/917.html' title='Multiple used in 11 places.'>Header</a>;
+<a name='L44'>  44 
+<a name='L45'>  45 <font color='darkred'>#if</font> <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L46'>  46     <a href='../Y/889.html' title='Multiple used in 4 places.'>HWND</a>   <a href='../Y/2443.html' title='Multiple used in 7 places.'>Window</a>;
+<a name='L47'>  47 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../S/168.html#L55' title='Defined at 55 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_OS_LINUX</a>)
+<a name='L48'>  48     <a href='../Y/418.html' title='Multiple used in 12 places.'>Display</a>* <a href='../Y/417.html' title='Multiple used in 8 places.'>Disp</a>;
+<a name='L49'>  49     <a href='../Y/2443.html' title='Multiple used in 7 places.'>Window</a>  <a href='../Y/2441.html' title='Multiple used in 8 places.'>Win</a>;
+<a name='L50'>  50 <font color='darkred'>#endif</font>
+<a name='L51'>  51 <font color='red'>}</font> <a href='../S/79.html#L56' title='Refered from 56 in ovr/sdk/src/OVR_CAPI_GL.h.'>ovrGLConfigData</a>;
+<a name='L52'>  52 
+<a name='L53'>  53 <b>union</b> <a href='../S/104.html#L123' title='Refered from 123 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>ovrGLConfig</a>
+<a name='L54'>  54 <font color='red'>{</font>
+<a name='L55'>  55     <a href='../S/187.html#L365' title='Defined at 365 in ovr/sdk/src/OVR_CAPI.h.'>ovrRenderAPIConfig</a> <a href='../Y/236.html' title='Multiple used in 103 places.'>Config</a>;
+<a name='L56'>  56     <a href='../S/79.html#L51' title='Defined at 51 in ovr/sdk/src/OVR_CAPI_GL.h.'>ovrGLConfigData</a> <a href='../Y/1490.html' title='Multiple used in 12 places.'>OGL</a>;
+<a name='L57'>  57 <font color='red'>}</font>;
+<a name='L58'>  58 
+<a name='L59'>  59 <i><font color='green'>// Used to pass GL eye texture data to ovrHmd_EndFrame.</font></i>
+<a name='L60'>  60 <b>typedef</b> <b>struct</b> ovrGLTextureData_s
+<a name='L61'>  61 <font color='red'>{</font>
+<a name='L62'>  62     <i><font color='green'>// General device settings.</font></i>
+<a name='L63'>  63     <a href='../S/187.html#L375' title='Defined at 375 in ovr/sdk/src/OVR_CAPI.h.'>ovrTextureHeader</a>          <a href='../Y/917.html' title='Multiple used in 11 places.'>Header</a>;
+<a name='L64'>  64     <a href='../Y/724.html' title='Multiple used in 20 places.'>GLuint</a>           <a href='../Y/2213.html' title='Multiple used in 12 places.'>TexId</a>;       
+<a name='L65'>  65 <font color='red'>}</font> <a href='../S/79.html#L70' title='Refered from 70 in ovr/sdk/src/OVR_CAPI_GL.h.'>ovrGLTextureData</a>;
+<a name='L66'>  66 
+<a name='L67'>  67 <b>typedef</b> <b>union</b> ovrGLTexture_s
+<a name='L68'>  68 <font color='red'>{</font>
+<a name='L69'>  69     <a href='../S/187.html#L381' title='Defined at 381 in ovr/sdk/src/OVR_CAPI.h.'>ovrTexture</a>          <a href='../S/102.html#L463' title='Defined at 463 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Texture</a>;
+<a name='L70'>  70     <a href='../S/79.html#L65' title='Defined at 65 in ovr/sdk/src/OVR_CAPI_GL.h.'>ovrGLTextureData</a>    <a href='../Y/1490.html' title='Multiple used in 12 places.'>OGL</a>;
+<a name='L71'>  71 <font color='red'>}</font> <a href='../S/104.html#L164' title='Refered from 164 in ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp.'>ovrGLTexture</a>;
+<a name='L72'>  72 
+<a name='L73'>  73 <font color='darkred'>#endif</font>  <i><font color='green'>// OVR_CAPI_GL_h</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

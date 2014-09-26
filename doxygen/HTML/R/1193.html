@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>XMLNode</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L52'>XMLNode</a>            52 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             node-&gt;~XMLNode();				\
+<a href='../S/197.html#L497'>XMLNode</a>           497 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLNode* returnNode = 0;
+<a href='../S/197.html#L573'>XMLNode</a>           573 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         for ( const XMLNode* node=FirstChild(); node; node=node-&gt;NextSibling() ) {
+<a href='../S/197.html#L585'>XMLNode</a>           585 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode::XMLNode( XMLDocument* doc ) :
+<a href='../S/197.html#L594'>XMLNode</a>           594 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode::~XMLNode()
+<a href='../S/197.html#L603'>XMLNode</a>           603 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLNode::SetValue( const char* str, bool staticMem )
+<a href='../S/197.html#L614'>XMLNode</a>           614 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLNode::DeleteChildren()
+<a href='../S/197.html#L617'>XMLNode</a>           617 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLNode* node = _firstChild;
+<a href='../S/197.html#L626'>XMLNode</a>           626 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLNode::Unlink( XMLNode* child )
+<a href='../S/197.html#L646'>XMLNode</a>           646 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLNode::DeleteChild( XMLNode* node )
+<a href='../S/197.html#L653'>XMLNode</a>           653 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLNode::InsertEndChild( XMLNode* addThis )
+<a href='../S/197.html#L677'>XMLNode</a>           677 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLNode::InsertFirstChild( XMLNode* addThis )
+<a href='../S/197.html#L702'>XMLNode</a>           702 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLNode::InsertAfterChild( XMLNode* afterThis, XMLNode* addThis )
+<a href='../S/197.html#L725'>XMLNode</a>           725 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::FirstChildElement( const char* value ) const
+<a href='../S/197.html#L727'>XMLNode</a>           727 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* node=_firstChild; node; node=node-&gt;_next ) {
+<a href='../S/197.html#L739'>XMLNode</a>           739 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::LastChildElement( const char* value ) const
+<a href='../S/197.html#L741'>XMLNode</a>           741 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* node=_lastChild; node; node=node-&gt;_prev ) {
+<a href='../S/197.html#L753'>XMLNode</a>           753 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::NextSiblingElement( const char* value ) const
+<a href='../S/197.html#L755'>XMLNode</a>           755 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* element=this-&gt;_next; element; element = element-&gt;_next ) {
+<a href='../S/197.html#L765'>XMLNode</a>           765 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLElement* XMLNode::PreviousSiblingElement( const char* value ) const
+<a href='../S/197.html#L767'>XMLNode</a>           767 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* element=_prev; element; element = element-&gt;_prev ) {
+<a href='../S/197.html#L777'>XMLNode</a>           777 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLNode::ParseDeep( char* p, StrPair* parentEnd )
+<a href='../S/197.html#L797'>XMLNode</a>           797 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLNode* node = 0;
+<a href='../S/197.html#L884'>XMLNode</a>           884 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLText::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L931'>XMLNode</a>           931 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLComment::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L978'>XMLNode</a>           978 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLDeclaration::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L1025'>XMLNode</a>          1025 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLUnknown::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L1433'>XMLNode</a>          1433 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     p = XMLNode::ParseDeep( p, strPair );
+<a href='../S/197.html#L1439'>XMLNode</a>          1439 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLElement::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L1480'>XMLNode</a>          1480 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         for ( const XMLNode* node=FirstChild(); node; node=node-&gt;NextSibling() ) {
+<a href='../S/196.html#L111'>XMLNode</a>           111 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLNode;
+<a href='../S/196.html#L540'>XMLNode</a>           540 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLNode
+<a href='../S/196.html#L618'>XMLNode</a>           618 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLNode*	Parent() const			{
+<a href='../S/196.html#L622'>XMLNode</a>           622 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode* Parent()						{
+<a href='../S/196.html#L632'>XMLNode</a>           632 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLNode*  FirstChild() const		{
+<a href='../S/196.html#L636'>XMLNode</a>           636 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*		FirstChild()			{
+<a href='../S/196.html#L646'>XMLNode</a>           646 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;FirstChildElement( value ));
+<a href='../S/196.html#L650'>XMLNode</a>           650 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLNode*	LastChild() const						{
+<a href='../S/196.html#L654'>XMLNode</a>           654 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*		LastChild()								{
+<a href='../S/196.html#L655'>XMLNode</a>           655 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLNode*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;LastChild() );
+<a href='../S/196.html#L664'>XMLNode</a>           664 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;LastChildElement(value) );
+<a href='../S/196.html#L668'>XMLNode</a>           668 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLNode*	PreviousSibling() const					{
+<a href='../S/196.html#L672'>XMLNode</a>           672 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*	PreviousSibling()							{
+<a href='../S/196.html#L680'>XMLNode</a>           680 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;PreviousSiblingElement( value ) );
+<a href='../S/196.html#L684'>XMLNode</a>           684 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLNode*	NextSibling() const						{
+<a href='../S/196.html#L688'>XMLNode</a>           688 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*	NextSibling()								{
+<a href='../S/196.html#L696'>XMLNode</a>           696 ovr/sdk/third_party/tinyxml/tinyxml2.h         return const_cast&lt;XMLElement*&gt;(const_cast&lt;const XMLNode*&gt;(this)-&gt;NextSiblingElement( value ) );
+<a href='../S/196.html#L702'>XMLNode</a>           702 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode* InsertEndChild( XMLNode* addThis );
+<a href='../S/196.html#L704'>XMLNode</a>           704 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode* LinkEndChild( XMLNode* addThis )	{
+<a href='../S/196.html#L710'>XMLNode</a>           710 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode* InsertFirstChild( XMLNode* addThis );
+<a href='../S/196.html#L714'>XMLNode</a>           714 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode* InsertAfterChild( XMLNode* afterThis, XMLNode* addThis );
+<a href='../S/196.html#L724'>XMLNode</a>           724 ovr/sdk/third_party/tinyxml/tinyxml2.h     void DeleteChild( XMLNode* node );
+<a href='../S/196.html#L735'>XMLNode</a>           735 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLNode* ShallowClone( XMLDocument* document ) const = 0;
+<a href='../S/196.html#L743'>XMLNode</a>           743 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool ShallowEqual( const XMLNode* compare ) const = 0;
+<a href='../S/196.html#L773'>XMLNode</a>           773 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode( XMLDocument* );
+<a href='../S/196.html#L774'>XMLNode</a>           774 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual ~XMLNode();
+<a href='../S/196.html#L775'>XMLNode</a>           775 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode( const XMLNode&amp; );	// not supported
+<a href='../S/196.html#L776'>XMLNode</a>           776 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode&amp; operator=( const XMLNode&amp; );	// not supported
+<a href='../S/196.html#L779'>XMLNode</a>           779 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*		_parent;
+<a href='../S/196.html#L782'>XMLNode</a>           782 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*		_firstChild;
+<a href='../S/196.html#L783'>XMLNode</a>           783 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*		_lastChild;
+<a href='../S/196.html#L785'>XMLNode</a>           785 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*		_prev;
+<a href='../S/196.html#L786'>XMLNode</a>           786 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode*		_next;
+<a href='../S/196.html#L790'>XMLNode</a>           790 ovr/sdk/third_party/tinyxml/tinyxml2.h     void Unlink( XMLNode* child );
+<a href='../S/196.html#L806'>XMLNode</a>           806 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLText : public XMLNode
+<a href='../S/196.html#L830'>XMLNode</a>           830 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLNode* ShallowClone( XMLDocument* document ) const;
+<a href='../S/196.html#L831'>XMLNode</a>           831 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool ShallowEqual( const XMLNode* compare ) const;
+<a href='../S/196.html#L834'>XMLNode</a>           834 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText( XMLDocument* doc )	: XMLNode( doc ), _isCData( false )	{}
+<a href='../S/196.html#L845'>XMLNode</a>           845 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLComment : public XMLNode
+<a href='../S/196.html#L859'>XMLNode</a>           859 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLNode* ShallowClone( XMLDocument* document ) const;
+<a href='../S/196.html#L860'>XMLNode</a>           860 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool ShallowEqual( const XMLNode* compare ) const;
+<a href='../S/196.html#L883'>XMLNode</a>           883 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLDeclaration : public XMLNode
+<a href='../S/196.html#L897'>XMLNode</a>           897 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLNode* ShallowClone( XMLDocument* document ) const;
+<a href='../S/196.html#L898'>XMLNode</a>           898 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool ShallowEqual( const XMLNode* compare ) const;
+<a href='../S/196.html#L915'>XMLNode</a>           915 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLUnknown : public XMLNode
+<a href='../S/196.html#L929'>XMLNode</a>           929 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLNode* ShallowClone( XMLDocument* document ) const;
+<a href='../S/196.html#L930'>XMLNode</a>           930 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool ShallowEqual( const XMLNode* compare ) const;
+<a href='../S/196.html#L1075'>XMLNode</a>          1075 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLElement : public XMLNode
+<a href='../S/196.html#L1324'>XMLNode</a>          1324 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLNode* ShallowClone( XMLDocument* document ) const;
+<a href='../S/196.html#L1325'>XMLNode</a>          1325 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool ShallowEqual( const XMLNode* compare ) const;
+<a href='../S/196.html#L1357'>XMLNode</a>          1357 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLDocument : public XMLNode
+<a href='../S/196.html#L1503'>XMLNode</a>          1503 ovr/sdk/third_party/tinyxml/tinyxml2.h     void DeleteNode( XMLNode* node )	{
+<a href='../S/196.html#L1529'>XMLNode</a>          1529 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* Identify( char* p, XMLNode** node );
+<a href='../S/196.html#L1531'>XMLNode</a>          1531 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLNode* ShallowClone( XMLDocument* /*document*/ ) const	{
+<a href='../S/196.html#L1534'>XMLNode</a>          1534 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool ShallowEqual( const XMLNode* /*compare*/ ) const	{
+<a href='../S/196.html#L1617'>XMLNode</a>          1617 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLHandle( XMLNode* node )												{
+<a href='../S/196.html#L1621'>XMLNode</a>          1621 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLHandle( XMLNode&amp; node )												{
+<a href='../S/196.html#L1668'>XMLNode</a>          1668 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode* ToNode()							{
+<a href='../S/196.html#L1689'>XMLNode</a>          1689 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode* _node;
+<a href='../S/196.html#L1700'>XMLNode</a>          1700 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLConstHandle( const XMLNode* node )											{
+<a href='../S/196.html#L1703'>XMLNode</a>          1703 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLConstHandle( const XMLNode&amp; node )											{
+<a href='../S/196.html#L1741'>XMLNode</a>          1741 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLNode* ToNode() const				{
+<a href='../S/196.html#L1758'>XMLNode</a>          1758 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLNode* _node;
+</pre>
+</body>
+</html>

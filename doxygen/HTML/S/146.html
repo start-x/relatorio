@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_SysFile.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_SysFile.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/76.html' title='Multiple included from 4 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   Kernel</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_SysFile.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Header for all internal file management - functions and structures</font></i>
+<a name='L6'>   6 <i><font color='green'>                to be inherited by OS specific subclasses.</font></i>
+<a name='L7'>   7 <i><font color='green'>Created     :   September 19, 2012</font></i>
+<a name='L8'>   8 <i><font color='green'>Notes       : </font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Notes       :   errno may not be preserved across use of GBaseFile member functions</font></i>
+<a name='L11'>  11 <i><font color='green'>            :   Directories cannot be deleted while files opened from them are in use</font></i>
+<a name='L12'>  12 <i><font color='green'>                (For the GetFullName function)</font></i>
+<a name='L13'>  13 <i><font color='green'></font></i>
+<a name='L14'>  14 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L17'>  17 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L18'>  18 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L19'>  19 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L20'>  20 <i><font color='green'></font></i>
+<a name='L21'>  21 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L22'>  22 <i><font color='green'></font></i>
+<a name='L23'>  23 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L26'>  26 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L27'>  27 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L28'>  28 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L29'>  29 <i><font color='green'>limitations under the License.</font></i>
+<a name='L30'>  30 <i><font color='green'></font></i>
+<a name='L31'>  31 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L32'>  32 
+<a name='L33'>  33 <font color='darkred'>#ifndef</font> <a href='../S/146.html#L34' title='Defined at 34 in ovr/sdk/src/Kernel/OVR_SysFile.h.'>OVR_SysFile_h</a>
+<a name='L34'>  34 <font color='darkred'>#define</font> <a href='../S/146.html#L33' title='Refered from 33 in ovr/sdk/src/Kernel/OVR_SysFile.h.'>OVR_SysFile_h</a>
+<a name='L35'>  35 
+<a name='L36'>  36 <font color='darkred'>#include</font> "<a href='186.html'>OVR_File.h</a>"
+<a name='L37'>  37 
+<a name='L38'>  38 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L39'>  39 
+<a name='L40'>  40 <i><font color='green'>// ***** Declared classes</font></i>
+<a name='L41'>  41 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a>   <a href='../D/1142.html' title='Multiple defined in 2 places.'>SysFile</a>;
+<a name='L42'>  42 
+<a name='L43'>  43 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L44'>  44 <i><font color='green'>// *** File Statistics</font></i>
+<a name='L45'>  45 
+<a name='L46'>  46 <i><font color='green'>// This class contents are similar to _stat, providing</font></i>
+<a name='L47'>  47 <i><font color='green'>// creation, modify and other information about the file.</font></i>
+<a name='L48'>  48 <b>struct</b> <a href='../R/247.html' title='Multiple refered from 2 places.'>FileStat</a>
+<a name='L49'>  49 <font color='red'>{</font>
+<a name='L50'>  50     <i><font color='green'>// No change or create time because they are not available on most systems</font></i>
+<a name='L51'>  51     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>  <a href='../Y/1438.html' title='Multiple used in 3 places.'>ModifyTime</a>;
+<a name='L52'>  52     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>  <a href='../Y/26.html' title='Multiple used in 3 places.'>AccessTime</a>;
+<a name='L53'>  53     <a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>  <a href='../Y/593.html' title='Multiple used in 14 places.'>FileSize</a>;
+<a name='L54'>  54 
+<a name='L55'>  55     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../Y/3818.html' title='Multiple used in 298 places.'>operator</a>== (<b>const</b> <a href='../S/146.html#L48' title='Defined at 48 in ovr/sdk/src/Kernel/OVR_SysFile.h.'>FileStat</a>&amp; <a href='../Y/4466.html' title='Multiple used in 6 places.'>stat</a>) <b>const</b>
+<a name='L56'>  56     <font color='red'>{</font>
+<a name='L57'>  57         <b>return</b> ( (<a href='../Y/1438.html' title='Multiple used in 3 places.'>ModifyTime</a> == <a href='../Y/4466.html' title='Multiple used in 6 places.'>stat</a>.<a href='../Y/1438.html' title='Multiple used in 3 places.'>ModifyTime</a>) &amp;&amp;
+<a name='L58'>  58                  (<a href='../Y/26.html' title='Multiple used in 3 places.'>AccessTime</a> == <a href='../Y/4466.html' title='Multiple used in 6 places.'>stat</a>.<a href='../Y/26.html' title='Multiple used in 3 places.'>AccessTime</a>) &amp;&amp;
+<a name='L59'>  59                  (<a href='../Y/593.html' title='Multiple used in 14 places.'>FileSize</a> == <a href='../Y/4466.html' title='Multiple used in 6 places.'>stat</a>.<a href='../Y/593.html' title='Multiple used in 14 places.'>FileSize</a>) );
+<a name='L60'>  60     <font color='red'>}</font>
+<a name='L61'>  61 <font color='red'>}</font>;
+<a name='L62'>  62 
+<a name='L63'>  63 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L64'>  64 <i><font color='green'>// *** System File</font></i>
+<a name='L65'>  65 
+<a name='L66'>  66 <i><font color='green'>// System file is created to access objects on file system directly</font></i>
+<a name='L67'>  67 <i><font color='green'>// This file can refer directly to path.</font></i>
+<a name='L68'>  68 <i><font color='green'>// System file can be open &amp; closed several times; however, such use is not recommended</font></i>
+<a name='L69'>  69 <i><font color='green'>// This class is realy a wrapper around an implementation of File interface for a </font></i>
+<a name='L70'>  70 <i><font color='green'>// particular platform.</font></i>
+<a name='L71'>  71 
+<a name='L72'>  72 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../D/1142.html' title='Multiple defined in 2 places.'>SysFile</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/364.html' title='Multiple used in 14 places.'>DelegatedFile</a>
+<a name='L73'>  73 <font color='red'>{</font>
+<a name='L74'>  74 <a href='../Y/4147.html' title='Multiple used in 57 places.'>protected</a>:
+<a name='L75'>  75   <a href='../D/1142.html' title='Multiple defined in 2 places.'>SysFile</a>(<b>const</b> <a href='../D/1142.html' title='Multiple defined in 2 places.'>SysFile</a> &amp;<a href='../Y/4430.html' title='Multiple used in 30 places.'>source</a>) : <a href='../Y/364.html' title='Multiple used in 14 places.'>DelegatedFile</a> () <font color='red'>{</font> <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/4430.html' title='Multiple used in 30 places.'>source</a>); <font color='red'>}</font>
+<a name='L76'>  76 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L77'>  77 
+<a name='L78'>  78     <i><font color='green'>// ** Constructor</font></i>
+<a name='L79'>  79     <a href='../D/1142.html' title='Multiple defined in 2 places.'>SysFile</a>();
+<a name='L80'>  80     <i><font color='green'>// Opens a file</font></i>
+<a name='L81'>  81     <a href='../D/1142.html' title='Multiple defined in 2 places.'>SysFile</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, <b>int</b> <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a> = <a href='../Y/1547.html' title='Multiple used in 8 places.'>Open_Read</a>|<a href='../Y/1544.html' title='Multiple used in 4 places.'>Open_Buffered</a>, <b>int</b> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a> = <a href='../Y/1436.html' title='Multiple used in 4 places.'>Mode_ReadWrite</a>); 
+<a name='L82'>  82 
+<a name='L83'>  83     <i><font color='green'>// ** Open &amp; management </font></i>
+<a name='L84'>  84     <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>  <a href='../D/856.html' title='Multiple defined in 2 places.'>Open</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, <b>int</b> <a href='../Y/3225.html' title='Multiple used in 25 places.'>flags</a> = <a href='../Y/1547.html' title='Multiple used in 8 places.'>Open_Read</a>|<a href='../Y/1544.html' title='Multiple used in 4 places.'>Open_Buffered</a>, <b>int</b> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a> = <a href='../Y/1436.html' title='Multiple used in 4 places.'>Mode_ReadWrite</a>);
+<a name='L85'>  85         
+<a name='L86'>  86     <a href='../D/725.html' title='Multiple defined in 3 places.'>OVR_FORCE_INLINE</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>  <a href='../D/138.html' title='Multiple defined in 4 places.'>Create</a>(<b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, <b>int</b> <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a> = <a href='../Y/1436.html' title='Multiple used in 4 places.'>Mode_ReadWrite</a>)
+<a name='L87'>  87     <font color='red'>{</font> <b>return</b> <a href='../D/856.html' title='Multiple defined in 2 places.'>Open</a>(<a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>, <a href='../Y/1548.html' title='Multiple used in 2 places.'>Open_ReadWrite</a>|<a href='../Y/1545.html' title='Multiple used in 4 places.'>Open_Create</a>, <a href='../Y/3697.html' title='Multiple used in 33 places.'>mode</a>); <font color='red'>}</font>
+<a name='L88'>  88 
+<a name='L89'>  89     <i><font color='green'>// Helper function: obtain file statistics information. In OVR, this is used to detect file changes.</font></i>
+<a name='L90'>  90     <i><font color='green'>// Return 0 if function failed, most likely because the file doesn't exist.</font></i>
+<a name='L91'>  91     <b>static</b> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a> <a href='../D/687.html' title='Multiple defined in 2 places.'>OVR_CDECL</a> <a href='../S/149.html#L571' title='Defined at 571 in ovr/sdk/src/Kernel/OVR_FileFILE.cpp.'>GetFileStat</a>(<a href='../S/146.html#L48' title='Defined at 48 in ovr/sdk/src/Kernel/OVR_SysFile.h.'>FileStat</a>* pfileStats, <b>const</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../Y/4004.html' title='Multiple used in 77 places.'>path</a>);
+<a name='L92'>  92     
+<a name='L93'>  93     <i><font color='green'>// ** Overrides</font></i>
+<a name='L94'>  94     <i><font color='green'>// Overridden to provide re-open support</font></i>
+<a name='L95'>  95     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>int</b>   <a href='../D/334.html' title='Multiple defined in 3 places.'>GetErrorCode</a>();
+<a name='L96'>  96 
+<a name='L97'>  97     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>  <a href='../D/500.html' title='Multiple defined in 3 places.'>IsValid</a>();
+<a name='L98'>  98 
+<a name='L99'>  99     <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <a href='../Y/2772.html' title='Multiple used in 684 places.'>bool</a>  <a href='../D/117.html' title='Multiple defined in 5 places.'>Close</a>();    
+<a name='L100'> 100 <font color='red'>}</font>;
+<a name='L101'> 101 
+<a name='L102'> 102 <font color='red'>}</font> <i><font color='green'>// Namespace OVR</font></i>
+<a name='L103'> 103 
+<a name='L104'> 104 <font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

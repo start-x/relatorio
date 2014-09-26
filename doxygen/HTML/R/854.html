@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>ProfileManager</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/129.html#L299'>ProfileManager</a>    299 ovr/sdk/src/OVR_Common_HMDDevice.cpp         ProfileManager* mgr = GetManager()-&gt;GetProfileManager();
+<a href='../S/129.html#L316'>ProfileManager</a>    316 ovr/sdk/src/OVR_Common_HMDDevice.cpp         ProfileManager* mgr = GetManager()-&gt;GetProfileManager();
+<a href='../S/108.html#L45'>ProfileManager</a>     45 ovr/sdk/src/OVR_Device.h class ProfileManager; // &lt;&lt; Should be renamed for consistency
+<a href='../S/108.html#L252'>ProfileManager</a>    252 ovr/sdk/src/OVR_Device.h     virtual ProfileManager* GetProfileManager() const = 0;
+<a href='../S/191.html#L328'>ProfileManager</a>    328 ovr/sdk/src/OVR_DeviceImpl.cpp     pProfileManager = *ProfileManager::Create();
+<a href='../S/80.html#L351'>ProfileManager</a>    351 ovr/sdk/src/OVR_DeviceImpl.h     virtual ProfileManager* GetProfileManager() const { return pProfileManager.GetPtr(); }
+<a href='../S/80.html#L422'>ProfileManager</a>    422 ovr/sdk/src/OVR_DeviceImpl.h     Ptr&lt;ProfileManager&gt;     pProfileManager;
+<a href='../S/139.html#L133'>ProfileManager</a>    133 ovr/sdk/src/OVR_Profile.cpp String ProfileManager::GetProfilePath(bool create_dir)
+<a href='../S/139.html#L140'>ProfileManager</a>    140 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::GetDeviceTags(const DeviceBase* device, String&amp; product, String&amp; serial)
+<a href='../S/139.html#L263'>ProfileManager</a>    263 ovr/sdk/src/OVR_Profile.cpp ProfileManager::ProfileManager()
+<a href='../S/139.html#L268'>ProfileManager</a>    268 ovr/sdk/src/OVR_Profile.cpp ProfileManager::~ProfileManager()
+<a href='../S/139.html#L273'>ProfileManager</a>    273 ovr/sdk/src/OVR_Profile.cpp ProfileManager* ProfileManager::Create()
+<a href='../S/139.html#L275'>ProfileManager</a>    275 ovr/sdk/src/OVR_Profile.cpp     return new ProfileManager();
+<a href='../S/139.html#L279'>ProfileManager</a>    279 ovr/sdk/src/OVR_Profile.cpp void ProfileManager::ClearCache()
+<a href='../S/139.html#L292'>ProfileManager</a>    292 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::GetDefaultProfile(const DeviceBase* device)
+<a href='../S/139.html#L321'>ProfileManager</a>    321 ovr/sdk/src/OVR_Profile.cpp void ProfileManager::LoadCache(bool create)
+<a href='../S/139.html#L384'>ProfileManager</a>    384 ovr/sdk/src/OVR_Profile.cpp void ProfileManager::LoadV1Profiles(JSON* v1)
+<a href='../S/139.html#L516'>ProfileManager</a>    516 ovr/sdk/src/OVR_Profile.cpp int ProfileManager::GetUserCount()
+<a href='../S/139.html#L534'>ProfileManager</a>    534 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::CreateUser(const char* user, const char* name)
+<a href='../S/139.html#L597'>ProfileManager</a>    597 ovr/sdk/src/OVR_Profile.cpp const char* ProfileManager::GetUser(unsigned int index)
+<a href='../S/139.html#L629'>ProfileManager</a>    629 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::RemoveUser(const char* user)
+<a href='../S/139.html#L674'>ProfileManager</a>    674 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::CreateProfile()
+<a href='../S/139.html#L681'>ProfileManager</a>    681 ovr/sdk/src/OVR_Profile.cpp const char* ProfileManager::GetDefaultUser(const DeviceBase* device)
+<a href='../S/139.html#L720'>ProfileManager</a>    720 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::SetDefaultUser(const DeviceBase* device, const char* user)
+<a href='../S/139.html#L747'>ProfileManager</a>    747 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::GetTaggedProfile(const char** tag_names, const char** tags, int num_tags)
+<a href='../S/139.html#L787'>ProfileManager</a>    787 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::SetTaggedProfile(const char** tag_names, const char** tags, int num_tags, Profile* profile)
+<a href='../S/139.html#L919'>ProfileManager</a>    919 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::GetProfile(const DeviceBase* device, const char* user)
+<a href='../S/133.html#L67'>ProfileManager</a>     67 ovr/sdk/src/OVR_Profile.h class ProfileManager : public RefCountBase&lt;ProfileManager&gt;
+<a href='../S/133.html#L78'>ProfileManager</a>     78 ovr/sdk/src/OVR_Profile.h     static ProfileManager* Create();
+<a href='../S/133.html#L96'>ProfileManager</a>     96 ovr/sdk/src/OVR_Profile.h     ProfileManager();
+<a href='../S/133.html#L97'>ProfileManager</a>     97 ovr/sdk/src/OVR_Profile.h     ~ProfileManager();
+<a href='../S/133.html#L169'>ProfileManager</a>    169 ovr/sdk/src/OVR_Profile.h     friend class ProfileManager;
+</pre>
+</body>
+</html>

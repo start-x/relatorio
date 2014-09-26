@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>halfLensDiameter</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L1328'>halfLensDiameter</a> 1328 ovr/sdk/src/OVR_Stereo.cpp     float halfLensDiameter = lensDiameterInMeters * 0.5f;
+<a href='../S/88.html#L1330'>halfLensDiameter</a> 1330 ovr/sdk/src/OVR_Stereo.cpp     fovPort.UpTan    = ( halfLensDiameter + offsetDownwardsInMeters ) / eyeReliefInMeters;
+<a href='../S/88.html#L1331'>halfLensDiameter</a> 1331 ovr/sdk/src/OVR_Stereo.cpp     fovPort.DownTan  = ( halfLensDiameter - offsetDownwardsInMeters ) / eyeReliefInMeters;
+<a href='../S/88.html#L1332'>halfLensDiameter</a> 1332 ovr/sdk/src/OVR_Stereo.cpp     fovPort.LeftTan  = ( halfLensDiameter + offsetToRightInMeters   ) / eyeReliefInMeters;
+<a href='../S/88.html#L1333'>halfLensDiameter</a> 1333 ovr/sdk/src/OVR_Stereo.cpp     fovPort.RightTan = ( halfLensDiameter - offsetToRightInMeters   ) / eyeReliefInMeters;
+<a href='../S/88.html#L1353'>halfLensDiameter</a> 1353 ovr/sdk/src/OVR_Stereo.cpp         fovPort.UpTan    = Alg::Max ( fovPort.UpTan   , ( halfLensDiameter + offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1354'>halfLensDiameter</a> 1354 ovr/sdk/src/OVR_Stereo.cpp         fovPort.DownTan  = Alg::Max ( fovPort.DownTan , ( halfLensDiameter - offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1355'>halfLensDiameter</a> 1355 ovr/sdk/src/OVR_Stereo.cpp         fovPort.LeftTan  = Alg::Max ( fovPort.LeftTan , ( halfLensDiameter + offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1356'>halfLensDiameter</a> 1356 ovr/sdk/src/OVR_Stereo.cpp         fovPort.RightTan = Alg::Max ( fovPort.RightTan, ( halfLensDiameter - offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+</pre>
+</body>
+</html>

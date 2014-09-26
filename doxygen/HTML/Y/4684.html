@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>uc</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/157.html#L137'>uc</a>                137 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     UInt32  uc;
+<a href='../S/157.html#L160'>uc</a>                160 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     uc = (c &amp; (mask)) &lt;&lt; (shift);
+<a href='../S/157.html#L167'>uc</a>                167 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     uc |= (c &amp; 0x3F) &lt;&lt; shift;
+<a href='../S/157.html#L182'>uc</a>                182 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         if (uc &lt; 0x80) return INVALID_CHAR;  // overlong
+<a href='../S/157.html#L183'>uc</a>                183 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         return uc;
+<a href='../S/157.html#L191'>uc</a>                191 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         if (uc &lt; 0x800) return INVALID_CHAR; // overlong
+<a href='../S/157.html#L196'>uc</a>                196 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         return uc;
+<a href='../S/157.html#L205'>uc</a>                205 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         if (uc &lt; 0x010000) return INVALID_CHAR;  // overlong
+<a href='../S/157.html#L206'>uc</a>                206 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         return uc;
+<a href='../S/157.html#L216'>uc</a>                216 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         if (uc &lt; 0x0200000) return INVALID_CHAR; // overlong
+<a href='../S/157.html#L217'>uc</a>                217 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         return uc;
+<a href='../S/157.html#L228'>uc</a>                228 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         if (uc &lt; 0x04000000) return INVALID_CHAR;    // overlong
+<a href='../S/157.html#L229'>uc</a>                229 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         return uc;
+<a href='../S/157.html#L436'>uc</a>                436 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         UInt32  uc = *line++;
+<a href='../S/157.html#L437'>uc</a>                437 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         if (uc == 0)
+<a href='../S/157.html#L442'>uc</a>                442 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         else if (uc != '\n'
+<a href='../S/157.html#L443'>uc</a>                443 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             &amp;&amp; (uc &lt; 32 || uc &gt; 127))
+<a href='../S/157.html#L446'>uc</a>                446 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             printf("&lt;U-%04X&gt;", uc);
+<a href='../S/157.html#L450'>uc</a>                450 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             printf("%c", (char) uc);
+<a href='../S/157.html#L509'>uc</a>                509 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UInt32  uc = UTF8Util::DecodeNextChar(&amp;p);
+<a href='../S/157.html#L510'>uc</a>                510 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         *q++ = uc;
+<a href='../S/157.html#L515'>uc</a>                515 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         if (uc == 0) break;
+<a href='../S/157.html#L523'>uc</a>                523 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UInt32  uc = *q++;
+<a href='../S/157.html#L526'>uc</a>                526 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UTF8Util::EncodeChar(reencoded_utf8, &amp;index, uc);
+<a href='../S/157.html#L528'>uc</a>                528 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         if (uc == 0) break;
+<a href='../S/84.html#L235'>uc</a>                235 ovr/sdk/src/OVR_JSON.cpp     unsigned    uc, uc2;
+<a href='../S/84.html#L276'>uc</a>                276 ovr/sdk/src/OVR_JSON.cpp                     p = ParseHex(&amp;uc, 4, ptr + 1);
+<a href='../S/84.html#L280'>uc</a>                280 ovr/sdk/src/OVR_JSON.cpp 					if ((uc&gt;=0xDC00 &amp;&amp; uc&lt;=0xDFFF) || uc==0)
+<a href='../S/84.html#L284'>uc</a>                284 ovr/sdk/src/OVR_JSON.cpp 					if (uc&gt;=0xD800 &amp;&amp; uc&lt;=0xDBFF)
+<a href='../S/84.html#L296'>uc</a>                296 ovr/sdk/src/OVR_JSON.cpp 						uc = 0x10000 + (((uc&amp;0x3FF)&lt;&lt;10) | (uc2&amp;0x3FF));
+<a href='../S/84.html#L301'>uc</a>                301 ovr/sdk/src/OVR_JSON.cpp                     if (uc&lt;0x80)
+<a href='../S/84.html#L303'>uc</a>                303 ovr/sdk/src/OVR_JSON.cpp                     else if (uc&lt;0x800)
+<a href='../S/84.html#L305'>uc</a>                305 ovr/sdk/src/OVR_JSON.cpp                     else if (uc&lt;0x10000)
+<a href='../S/84.html#L312'>uc</a>                312 ovr/sdk/src/OVR_JSON.cpp 						case 4: *--ptr2 =((uc | 0x80) &amp; 0xBF); uc &gt;&gt;= 6;
+<a href='../S/84.html#L313'>uc</a>                313 ovr/sdk/src/OVR_JSON.cpp 						case 3: *--ptr2 =((uc | 0x80) &amp; 0xBF); uc &gt;&gt;= 6;
+<a href='../S/84.html#L314'>uc</a>                314 ovr/sdk/src/OVR_JSON.cpp 						case 2: *--ptr2 =((uc | 0x80) &amp; 0xBF); uc &gt;&gt;= 6;
+<a href='../S/84.html#L315'>uc</a>                315 ovr/sdk/src/OVR_JSON.cpp 						case 1: *--ptr2 = (char)(uc | firstByteMark[len]);
+</pre>
+</body>
+</html>

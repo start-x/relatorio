@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>HMDState</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/95.html#L112'>HMDState</a>          112 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp     for(HMDState* hmd = HMDs.GetFirst(); !HMDs.IsNull(hmd); hmd = hmd-&gt;pNext)        
+<a href='../S/96.html#L59'>HMDState</a>           59 ovr/sdk/src/CAPI/CAPI_GlobalState.h     void        AddHMD(HMDState* hmd);
+<a href='../S/96.html#L60'>HMDState</a>           60 ovr/sdk/src/CAPI/CAPI_GlobalState.h     void        RemoveHMD(HMDState* hmd);
+<a href='../S/96.html#L77'>HMDState</a>           77 ovr/sdk/src/CAPI/CAPI_GlobalState.h     List&lt;HMDState&gt;      HMDs;
+<a href='../S/97.html#L37'>HMDState</a>           37 ovr/sdk/src/CAPI/CAPI_HMDState.cpp HMDState::HMDState(HMDDevice* device)
+<a href='../S/97.html#L68'>HMDState</a>           68 ovr/sdk/src/CAPI/CAPI_HMDState.cpp HMDState::HMDState(ovrHmdType hmdType)
+<a href='../S/97.html#L97'>HMDState</a>           97 ovr/sdk/src/CAPI/CAPI_HMDState.cpp HMDState::~HMDState()
+<a href='../S/97.html#L114'>HMDState</a>          114 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::StartSensor(unsigned supportedCaps, unsigned requiredCaps)
+<a href='../S/97.html#L220'>HMDState</a>          220 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::StopSensor()
+<a href='../S/97.html#L250'>HMDState</a>          250 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::ResetSensor()
+<a href='../S/97.html#L257'>HMDState</a>          257 ovr/sdk/src/CAPI/CAPI_HMDState.cpp ovrSensorState HMDState::PredictedSensorState(double absTime)
+<a href='../S/97.html#L308'>HMDState</a>          308 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool  HMDState::checkCreateSensor()
+<a href='../S/97.html#L353'>HMDState</a>          353 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::GetSensorDesc(ovrSensorDesc* descOut)
+<a href='../S/97.html#L372'>HMDState</a>          372 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::applyProfileToSensorFusion()
+<a href='../S/97.html#L385'>HMDState</a>          385 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::updateLowPersistenceMode(bool lowPersistence) const
+<a href='../S/97.html#L401'>HMDState</a>          401 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::updateLatencyTestForHmd(bool latencyTesting)
+<a href='../S/97.html#L424'>HMDState</a>          424 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::updateDK2FeaturesTiedToSensor(bool sensorCreatedJustNow)
+<a href='../S/97.html#L448'>HMDState</a>          448 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::SetEnabledHmdCaps(unsigned hmdCaps)
+<a href='../S/97.html#L485'>HMDState</a>          485 ovr/sdk/src/CAPI/CAPI_HMDState.cpp float HMDState::getFloatValue(const char* propertyName, float defaultVal)
+<a href='../S/97.html#L506'>HMDState</a>          506 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::setFloatValue(const char* propertyName, float value)
+<a href='../S/97.html#L527'>HMDState</a>          527 ovr/sdk/src/CAPI/CAPI_HMDState.cpp unsigned HMDState::getFloatArray(const char* propertyName, float values[], unsigned arraySize)
+<a href='../S/97.html#L579'>HMDState</a>          579 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::setFloatArray(const char* propertyName, float values[], unsigned arraySize)
+<a href='../S/97.html#L593'>HMDState</a>          593 ovr/sdk/src/CAPI/CAPI_HMDState.cpp const char* HMDState::getString(const char* propertyName, const char* defaultVal)
+<a href='../S/97.html#L613'>HMDState</a>          613 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::ProcessLatencyTest(unsigned char rgbColorOut[3])
+<a href='../S/97.html#L655'>HMDState</a>          655 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::ProcessLatencyTest2(unsigned char rgbColorOut[3], double startTime)
+<a href='../S/97.html#L701'>HMDState</a>          701 ovr/sdk/src/CAPI/CAPI_HMDState.cpp bool HMDState::ConfigureRendering(ovrEyeRenderDesc eyeRenderDescOut[2],
+<a href='../S/97.html#L758'>HMDState</a>          758 ovr/sdk/src/CAPI/CAPI_HMDState.cpp ovrPosef HMDState::BeginEyeRender(ovrEyeType eye)
+<a href='../S/97.html#L782'>HMDState</a>          782 ovr/sdk/src/CAPI/CAPI_HMDState.cpp void HMDState::EndEyeRender(ovrEyeType eye, ovrPosef renderPose, ovrTexture* eyeTexture)
+<a href='../S/101.html#L131'>HMDState</a>          131 ovr/sdk/src/CAPI/CAPI_HMDState.h class HMDState : public ListNode&lt;HMDState&gt;,
+<a href='../S/101.html#L136'>HMDState</a>          136 ovr/sdk/src/CAPI/CAPI_HMDState.h     HMDState(HMDDevice* device);
+<a href='../S/101.html#L137'>HMDState</a>          137 ovr/sdk/src/CAPI/CAPI_HMDState.h     HMDState(ovrHmdType hmdType);
+<a href='../S/101.html#L138'>HMDState</a>          138 ovr/sdk/src/CAPI/CAPI_HMDState.h     virtual ~HMDState();
+<a href='../S/101.html#L219'>HMDState</a>          219 ovr/sdk/src/CAPI/CAPI_HMDState.h     HMDState* getThis() { return this; }
+<a href='../S/142.html#L276'>HMDState</a>          276 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = new HMDState(device);
+<a href='../S/142.html#L288'>HMDState</a>          288 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = new HMDState(type);    
+<a href='../S/142.html#L297'>HMDState</a>          297 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L304'>HMDState</a>          304 ovr/sdk/src/OVR_CAPI.cpp     delete (HMDState*)hmd;
+<a href='../S/142.html#L317'>HMDState</a>          317 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L329'>HMDState</a>          329 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L337'>HMDState</a>          337 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L360'>HMDState</a>          360 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L367'>HMDState</a>          367 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L373'>HMDState</a>          373 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L379'>HMDState</a>          379 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L386'>HMDState</a>          386 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L398'>HMDState</a>          398 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;    
+<a href='../S/142.html#L409'>HMDState</a>          409 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L425'>HMDState</a>          425 ovr/sdk/src/OVR_CAPI.cpp     return ((HMDState*)hmd)-&gt;ConfigureRendering(eyeRenderDescOut, eyeFovIn,
+<a href='../S/142.html#L436'>HMDState</a>          436 ovr/sdk/src/OVR_CAPI.cpp     return ((HMDState*)hmd)-&gt;TimeManager.SetVsync(vsync? true : false);
+<a href='../S/142.html#L442'>HMDState</a>          442 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L465'>HMDState</a>          465 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L511'>HMDState</a>          511 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L519'>HMDState</a>          519 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L534'>HMDState</a>          534 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L562'>HMDState</a>          562 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L594'>HMDState</a>          594 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L609'>HMDState</a>          609 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L623'>HMDState</a>          623 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L634'>HMDState</a>          634 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L661'>HMDState</a>          661 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L686'>HMDState</a>          686 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L776'>HMDState</a>          776 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L785'>HMDState</a>          785 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L791'>HMDState</a>          791 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+<a href='../S/142.html#L806'>HMDState</a>          806 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L817'>HMDState</a>          817 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L830'>HMDState</a>          830 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L844'>HMDState</a>          844 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L856'>HMDState</a>          856 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L896'>HMDState</a>          896 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = (HMDState*)hmd;
+<a href='../S/142.html#L921'>HMDState</a>          921 ovr/sdk/src/OVR_CAPI.cpp     HMDState* p = (HMDState*)hmd;
+</pre>
+</body>
+</html>

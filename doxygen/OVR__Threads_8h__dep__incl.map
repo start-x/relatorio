@@ -1,0 +1,35 @@
+<map id="ovr/sdk/src/Kernel/OVR_Threads.h" name="ovr/sdk/src/Kernel/OVR_Threads.h">
+<area shape="rect" id="node2" href="$OVR__SensorFusion_8h.html" title="ovr/sdk/src/OVR_SensorFusion.h" alt="" coords="455,104,673,131"/>
+<area shape="rect" id="node11" href="$OVR__System_8cpp.html" title="ovr/sdk/src/Kernel\l/OVR_System.cpp" alt="" coords="702,97,833,138"/>
+<area shape="rect" id="node12" href="$OVR__ThreadsPthread_8cpp.html" title="ovr/sdk/src/Kernel\l/OVR_ThreadsPthread.cpp" alt="" coords="859,97,1037,138"/>
+<area shape="rect" id="node13" href="$OVR__DeviceImpl_8h.html" title="ovr/sdk/src/OVR_DeviceImpl.h" alt="" coords="1101,195,1304,221"/>
+<area shape="rect" id="node30" href="$OVR__ThreadCommandQueue_8h.html" title="ovr/sdk/src/OVR_ThreadCommand\lQueue.h" alt="" coords="1112,97,1339,138"/>
+<area shape="rect" id="node32" href="$OVR__SensorCalibration_8cpp.html" title="ovr/sdk/src/OVR_SensorCalibration.cpp" alt="" coords="1363,104,1617,131"/>
+<area shape="rect" id="node33" href="$Util__ImageWindow_8h.html" title="ovr/sdk/src/Util/Util\l_ImageWindow.h" alt="" coords="1642,97,1776,138"/>
+<area shape="rect" id="node3" href="$CAPI__HMDState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.h" alt="" coords="659,187,817,229"/>
+<area shape="rect" id="node8" href="$OVR__SensorFusion_8cpp.html" title="ovr/sdk/src/OVR_SensorFusion.cpp" alt="" coords="5,195,237,221"/>
+<area shape="rect" id="node9" href="$OVR__SensorFusionDebug_8h.html" title="ovr/sdk/src/OVR_SensorFusion\lDebug.h" alt="" coords="262,187,468,229"/>
+<area shape="rect" id="node10" href="$Util__Render__Stereo_8cpp.html" title="ovr/sdk/src/Util/Util\l_Render_Stereo.cpp" alt="" coords="493,187,633,229"/>
+<area shape="rect" id="node4" href="$CAPI__GlobalState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.h" alt="" coords="533,278,691,319"/>
+<area shape="rect" id="node6" href="$CAPI__HMDState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.cpp" alt="" coords="713,369,871,410"/>
+<area shape="rect" id="node7" href="$OVR__CAPI_8cpp.html" title="ovr/sdk/src/OVR_CAPI.cpp" alt="" coords="321,376,505,403"/>
+<area shape="rect" id="node5" href="$CAPI__GlobalState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.cpp" alt="" coords="530,369,688,410"/>
+<area shape="rect" id="node14" href="$OVR__DeviceHandle_8cpp.html" title="ovr/sdk/src/OVR_DeviceHandle.cpp" alt="" coords="947,285,1180,312"/>
+<area shape="rect" id="node15" href="$OVR__DeviceImpl_8cpp.html" title="ovr/sdk/src/OVR_DeviceImpl.cpp" alt="" coords="637,467,856,493"/>
+<area shape="rect" id="node16" href="$OVR__HIDDeviceImpl_8h.html" title="ovr/sdk/src/OVR_HIDDevice\lImpl.h" alt="" coords="1256,278,1448,319"/>
+<area shape="rect" id="node19" href="$OVR__Linux__SensorDevice_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_SensorDevice.cpp" alt="" coords="1166,459,1324,501"/>
+<area shape="rect" id="node26" href="$OVR__Linux__DeviceManager_8h.html" title="ovr/sdk/src/OVR_Linux\l_DeviceManager.h" alt="" coords="1531,278,1689,319"/>
+<area shape="rect" id="node17" href="$OVR__SensorImpl_8h.html" title="ovr/sdk/src/OVR_SensorImpl.h" alt="" coords="962,376,1165,403"/>
+<area shape="rect" id="node23" href="$OVR__LatencyTestImpl_8h.html" title="ovr/sdk/src/OVR_LatencyTest\lImpl.h" alt="" coords="1714,369,1912,410"/>
+<area shape="rect" id="node25" href="$OVR__Linux__HIDDevice_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_HIDDevice.cpp" alt="" coords="1349,459,1507,501"/>
+<area shape="rect" id="node18" href="$OVR__Linux__DeviceManager_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_DeviceManager.cpp" alt="" coords="1531,459,1689,501"/>
+<area shape="rect" id="node20" href="$OVR__Sensor2Impl_8h.html" title="ovr/sdk/src/OVR_Sensor2Impl.h" alt="" coords="931,467,1140,493"/>
+<area shape="rect" id="node22" href="$OVR__SensorImpl_8cpp.html" title="ovr/sdk/src/OVR_SensorImpl.cpp" alt="" coords="784,549,1003,576"/>
+<area shape="rect" id="node21" href="$OVR__Sensor2Impl_8cpp.html" title="ovr/sdk/src/OVR_Sensor2Impl.cpp" alt="" coords="1027,549,1252,576"/>
+<area shape="rect" id="node24" href="$OVR__LatencyTestImpl_8cpp.html" title="ovr/sdk/src/OVR_LatencyTest\lImpl.cpp" alt="" coords="1897,459,2095,501"/>
+<area shape="rect" id="node27" href="$OVR__Linux__HIDDevice_8h.html" title="ovr/sdk/src/OVR_Linux\l_HIDDevice.h" alt="" coords="1349,369,1507,410"/>
+<area shape="rect" id="node28" href="$OVR__Linux__HMDDevice_8h.html" title="ovr/sdk/src/OVR_Linux\l_HMDDevice.h" alt="" coords="1531,369,1689,410"/>
+<area shape="rect" id="node29" href="$OVR__Linux__HMDDevice_8cpp.html" title="ovr/sdk/src/OVR_Linux\l_HMDDevice.cpp" alt="" coords="1714,459,1872,501"/>
+<area shape="rect" id="node31" href="$OVR__ThreadCommandQueue_8cpp.html" title="ovr/sdk/src/OVR_ThreadCommand\lQueue.cpp" alt="" coords="1329,187,1556,229"/>
+<area shape="rect" id="node34" href="$Util__ImageWindow_8cpp.html" title="ovr/sdk/src/Util/Util\l_ImageWindow.cpp" alt="" coords="1641,187,1777,229"/>
+</map>

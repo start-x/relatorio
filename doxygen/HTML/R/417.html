@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>HIDDevice</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/140.html#L38'>HIDDevice</a>          38 ovr/sdk/src/OVR_HIDDevice.h class HIDDevice;
+<a href='../S/140.html#L69'>HIDDevice</a>          69 ovr/sdk/src/OVR_HIDDevice.h     virtual void Visit(HIDDevice&amp;, const HIDDeviceDesc&amp;) { }
+<a href='../S/140.html#L91'>HIDDevice</a>          91 ovr/sdk/src/OVR_HIDDevice.h     virtual HIDDevice* Open(const String&amp; path) = 0;
+<a href='../S/140.html#L104'>HIDDevice</a>         104 ovr/sdk/src/OVR_HIDDevice.h class HIDDevice : public RefCountBase&lt;HIDDevice&gt;, public HIDDeviceBase
+<a href='../S/140.html#L108'>HIDDevice</a>         108 ovr/sdk/src/OVR_HIDDevice.h     HIDDevice()
+<a href='../S/140.html#L113'>HIDDevice</a>         113 ovr/sdk/src/OVR_HIDDevice.h     virtual ~HIDDevice() {}
+<a href='../S/123.html#L55'>HIDDevice</a>          55 ovr/sdk/src/OVR_HIDDeviceImpl.h class HIDDeviceImpl : public DeviceImpl&lt;B&gt;, public HIDDevice::HIDHandler
+<a href='../S/123.html#L107'>HIDDevice</a>         107 ovr/sdk/src/OVR_HIDDeviceImpl.h         HIDDevice* device = pManager-&gt;Open(hidDesc.Path);
+<a href='../S/123.html#L184'>HIDDevice</a>         184 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDevice* GetInternalDevice() const
+<a href='../S/123.html#L196'>HIDDevice</a>         196 ovr/sdk/src/OVR_HIDDeviceImpl.h     Ptr&lt;HIDDevice&gt; InternalDevice;
+<a href='../S/132.html#L266'>HIDDevice</a>         266 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                         Linux::HIDDevice device(this, device_handle);
+<a href='../S/132.html#L286'>HIDDevice</a>         286 ovr/sdk/src/OVR_Linux_HIDDevice.cpp OVR::HIDDevice* HIDDeviceManager::Open(const String&amp; path)
+<a href='../S/132.html#L288'>HIDDevice</a>         288 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     Ptr&lt;Linux::HIDDevice&gt; device = *new Linux::HIDDevice(this);
+<a href='../S/132.html#L436'>HIDDevice</a>         436 ovr/sdk/src/OVR_Linux_HIDDevice.cpp HIDDevice::HIDDevice(HIDDeviceManager* manager)
+<a href='../S/132.html#L445'>HIDDevice</a>         445 ovr/sdk/src/OVR_Linux_HIDDevice.cpp HIDDevice::HIDDevice(HIDDeviceManager* manager, int device_handle)
+<a href='../S/132.html#L451'>HIDDevice</a>         451 ovr/sdk/src/OVR_Linux_HIDDevice.cpp HIDDevice::~HIDDevice()
+<a href='../S/132.html#L460'>HIDDevice</a>         460 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDevice::HIDInitialize(const String&amp; path)
+<a href='../S/132.html#L482'>HIDDevice</a>         482 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDevice::initInfo()
+<a href='../S/132.html#L556'>HIDDevice</a>         556 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDevice::openDevice(const char* device_path)
+<a href='../S/132.html#L597'>HIDDevice</a>         597 ovr/sdk/src/OVR_Linux_HIDDevice.cpp void HIDDevice::HIDShutdown()
+<a href='../S/132.html#L612'>HIDDevice</a>         612 ovr/sdk/src/OVR_Linux_HIDDevice.cpp void HIDDevice::closeDevice(bool wasUnplugged)
+<a href='../S/132.html#L627'>HIDDevice</a>         627 ovr/sdk/src/OVR_Linux_HIDDevice.cpp void HIDDevice::closeDeviceOnIOError()
+<a href='../S/132.html#L634'>HIDDevice</a>         634 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDevice::SetFeatureReport(UByte* data, UInt32 length)
+<a href='../S/132.html#L654'>HIDDevice</a>         654 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDevice::GetFeatureReport(UByte* data, UInt32 length)
+<a href='../S/132.html#L664'>HIDDevice</a>         664 ovr/sdk/src/OVR_Linux_HIDDevice.cpp double HIDDevice::OnTicks(double tickSeconds)
+<a href='../S/132.html#L675'>HIDDevice</a>         675 ovr/sdk/src/OVR_Linux_HIDDevice.cpp void HIDDevice::OnEvent(int i, int fd)
+<a href='../S/132.html#L695'>HIDDevice</a>         695 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDevice::OnDeviceNotification(MessageType messageType,
+<a href='../S/81.html#L40'>HIDDevice</a>          40 ovr/sdk/src/OVR_Linux_HIDDevice.h class HIDDevice : public OVR::HIDDevice, public DeviceManagerThread::Notifier
+<a href='../S/81.html#L46'>HIDDevice</a>          46 ovr/sdk/src/OVR_Linux_HIDDevice.h     HIDDevice(HIDDeviceManager* manager);
+<a href='../S/81.html#L50'>HIDDevice</a>          50 ovr/sdk/src/OVR_Linux_HIDDevice.h     HIDDevice(HIDDeviceManager* manager, int device_handle);
+<a href='../S/81.html#L52'>HIDDevice</a>          52 ovr/sdk/src/OVR_Linux_HIDDevice.h     virtual ~HIDDevice();
+<a href='../S/81.html#L94'>HIDDevice</a>          94 ovr/sdk/src/OVR_Linux_HIDDevice.h 	friend class HIDDevice;
+<a href='../S/81.html#L104'>HIDDevice</a>         104 ovr/sdk/src/OVR_Linux_HIDDevice.h     virtual OVR::HIDDevice* Open(const String&amp; path);
+<a href='../S/81.html#L121'>HIDDevice</a>         121 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool AddNotificationDevice(HIDDevice* device);
+<a href='../S/81.html#L122'>HIDDevice</a>         122 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool RemoveNotificationDevice(HIDDevice* device);
+<a href='../S/81.html#L130'>HIDDevice</a>         130 ovr/sdk/src/OVR_Linux_HIDDevice.h     Array&lt;HIDDevice*&gt;        NotificationDevices;
+</pre>
+</body>
+</html>

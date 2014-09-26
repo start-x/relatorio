@@ -1,0 +1,12 @@
+<map id="OVR::CAPI::GL::ShaderBase" name="OVR::CAPI::GL::ShaderBase">
+<area shape="rect" id="node2" href="$classOVR_1_1CAPI_1_1GL_1_1Shader.html" title="{OVR::CAPI::GL::Shader\n|# Stage\l|+ Shader()\l+ ~Shader()\l+ GetStage()\l+ Set()\l+ SetUniformBuffer()\l# SetUniform()\l# SetUniformBool()\l}" alt="" coords="47,792,211,957"/>
+<area shape="rect" id="node3" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt;\l Shader \&gt;\n||+ RefCountBase()\l}" alt="" coords="53,635,205,727"/>
+<area shape="rect" id="node4" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; RefCountImpl \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="51,350,245,442"/>
+<area shape="rect" id="node9" href="$classOVR_1_1RefCountBase.html" title="{OVR::RefCountBase\&lt; C \&gt;\n||+ RefCountBase()\l}" alt="" coords="145,493,324,571"/>
+<area shape="rect" id="node5" href="$classOVR_1_1RefCountImpl.html" title="{OVR::RefCountImpl\n||+ AddRef()\l+ Release()\l}" alt="" coords="19,193,159,285"/>
+<area shape="rect" id="node6" href="$classOVR_1_1RefCountImplCore.html" title="{OVR::RefCountImplCore\n|# RefCount\l|+ RefCountImplCore()\l+ ~RefCountImplCore()\l+ GetRefCount()\l+ operator=()\l+ checkInvalidDelete()\l}" alt="" coords="5,5,173,141"/>
+<area shape="rect" id="node7" href="$classOVR_1_1RefCountBaseStatImpl.html" title="{OVR::RefCountBaseStatImpl\l\&lt; Base \&gt;\n||+ RefCountBaseStatImpl()\l}" alt="" coords="184,193,379,285"/>
+<area shape="rect" id="node10" href="$classOVR_1_1CAPI_1_1GL_1_1ShaderBase.html#structOVR_1_1CAPI_1_1GL_1_1ShaderBase_1_1Uniform" title="{OVR::CAPI::GL::ShaderBase\l::Uniform\n|+ Name\l+ Type\l+ Offset\l+ Size\l|}" alt="" coords="236,807,431,943"/>
+<area shape="rect" id="node11" href="$namespaceOVR_1_1CAPI_1_1GL.html#structOVR_1_1CAPI_1_1GL_1_1RenderParams" title="{OVR::CAPI::GL::RenderParams\n|+ Multisample\l|}" alt="" coords="455,836,664,913"/>
+<area shape="rect" id="node12" href="$OVR__CAPI_8h.html#structovrSizei__" title="{ovrSizei_\n|+ w\l+ h\l|}" alt="" coords="522,635,597,727"/>
+</map>

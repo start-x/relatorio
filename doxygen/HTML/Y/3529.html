@@ -1,0 +1,166 @@
+<html>
+<head>
+<title>key</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/179.html#L126'>key</a>               126 ovr/sdk/src/Kernel/OVR_Hash.h     HashsetEntry(const C&amp; key, SPInt next)
+<a href='../S/179.html#L127'>key</a>               127 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }
+<a href='../S/179.html#L162'>key</a>               162 ovr/sdk/src/Kernel/OVR_Hash.h     HashsetCachedEntry(const C&amp; key, SPInt next)
+<a href='../S/179.html#L163'>key</a>               163 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }
+<a href='../S/179.html#L270'>key</a>               270 ovr/sdk/src/Kernel/OVR_Hash.h     void Set(const CRef&amp; key)
+<a href='../S/179.html#L272'>key</a>               272 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt  hashValue = HashF()(key);
+<a href='../S/179.html#L276'>key</a>               276 ovr/sdk/src/Kernel/OVR_Hash.h             index = findIndexCore(key, hashValue &amp; pTable-&gt;SizeMask);
+<a href='../S/179.html#L280'>key</a>               280 ovr/sdk/src/Kernel/OVR_Hash.h             E(index).Value = key;
+<a href='../S/179.html#L285'>key</a>               285 ovr/sdk/src/Kernel/OVR_Hash.h             add(key, hashValue);
+<a href='../S/179.html#L290'>key</a>               290 ovr/sdk/src/Kernel/OVR_Hash.h     inline void Add(const CRef&amp; key)
+<a href='../S/179.html#L292'>key</a>               292 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt hashValue = HashF()(key);
+<a href='../S/179.html#L293'>key</a>               293 ovr/sdk/src/Kernel/OVR_Hash.h         add(key, hashValue);
+<a href='../S/179.html#L298'>key</a>               298 ovr/sdk/src/Kernel/OVR_Hash.h     void RemoveAlt(const K&amp; key)
+<a href='../S/179.html#L303'>key</a>               303 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt   hashValue = AltHashF()(key);
+<a href='../S/179.html#L316'>key</a>               316 ovr/sdk/src/Kernel/OVR_Hash.h         while ((e-&gt;GetCachedHash(pTable-&gt;SizeMask) != (UPInt)naturalIndex) || !(e-&gt;Value == key))
+<a href='../S/179.html#L353'>key</a>               353 ovr/sdk/src/Kernel/OVR_Hash.h     void Remove(const CRef&amp; key)
+<a href='../S/179.html#L355'>key</a>               355 ovr/sdk/src/Kernel/OVR_Hash.h         RemoveAlt(key);
+<a href='../S/179.html#L362'>key</a>               362 ovr/sdk/src/Kernel/OVR_Hash.h     C* Get(const K&amp; key)
+<a href='../S/179.html#L364'>key</a>               364 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndex(key);
+<a href='../S/179.html#L371'>key</a>               371 ovr/sdk/src/Kernel/OVR_Hash.h     const C* Get(const K&amp; key) const
+<a href='../S/179.html#L373'>key</a>               373 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndex(key);
+<a href='../S/179.html#L381'>key</a>               381 ovr/sdk/src/Kernel/OVR_Hash.h     const C* GetAlt(const K&amp; key) const
+<a href='../S/179.html#L383'>key</a>               383 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndexAlt(key);
+<a href='../S/179.html#L390'>key</a>               390 ovr/sdk/src/Kernel/OVR_Hash.h     C* GetAlt(const K&amp; key)
+<a href='../S/179.html#L392'>key</a>               392 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndexAlt(key);
+<a href='../S/179.html#L399'>key</a>               399 ovr/sdk/src/Kernel/OVR_Hash.h     bool GetAlt(const K&amp; key, C* pval) const
+<a href='../S/179.html#L401'>key</a>               401 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt   index = findIndexAlt(key);
+<a href='../S/179.html#L574'>key</a>               574 ovr/sdk/src/Kernel/OVR_Hash.h         void RemoveAlt(const K&amp; key)
+<a href='../S/179.html#L580'>key</a>               580 ovr/sdk/src/Kernel/OVR_Hash.h             UPInt       hashValue = AltHashF()(key);
+<a href='../S/179.html#L593'>key</a>               593 ovr/sdk/src/Kernel/OVR_Hash.h             while ((e-&gt;GetCachedHash(phash-&gt;pTable-&gt;SizeMask) != (UPInt)naturalIndex) || !(e-&gt;Value == key))
+<a href='../S/179.html#L662'>key</a>               662 ovr/sdk/src/Kernel/OVR_Hash.h     Iterator Find(const K&amp; key)
+<a href='../S/179.html#L664'>key</a>               664 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt index = findIndex(key);
+<a href='../S/179.html#L671'>key</a>               671 ovr/sdk/src/Kernel/OVR_Hash.h     Iterator FindAlt(const K&amp; key)
+<a href='../S/179.html#L673'>key</a>               673 ovr/sdk/src/Kernel/OVR_Hash.h         SPInt index = findIndexAlt(key);
+<a href='../S/179.html#L680'>key</a>               680 ovr/sdk/src/Kernel/OVR_Hash.h     ConstIterator Find(const K&amp; key) const       { return const_cast&lt;SelfType*&gt;(this)-&gt;Find(key); }
+<a href='../S/179.html#L683'>key</a>               683 ovr/sdk/src/Kernel/OVR_Hash.h     ConstIterator FindAlt(const K&amp; key) const    { return const_cast&lt;SelfType*&gt;(this)-&gt;FindAlt(key); }
+<a href='../S/179.html#L688'>key</a>               688 ovr/sdk/src/Kernel/OVR_Hash.h     SPInt findIndex(const K&amp; key) const
+<a href='../S/179.html#L692'>key</a>               692 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt hashValue = HashF()(key) &amp; pTable-&gt;SizeMask;
+<a href='../S/179.html#L693'>key</a>               693 ovr/sdk/src/Kernel/OVR_Hash.h         return findIndexCore(key, hashValue);
+<a href='../S/179.html#L697'>key</a>               697 ovr/sdk/src/Kernel/OVR_Hash.h     SPInt findIndexAlt(const K&amp; key) const
+<a href='../S/179.html#L701'>key</a>               701 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt hashValue = AltHashF()(key) &amp; pTable-&gt;SizeMask;
+<a href='../S/179.html#L702'>key</a>               702 ovr/sdk/src/Kernel/OVR_Hash.h         return findIndexCore(key, hashValue);
+<a href='../S/179.html#L707'>key</a>               707 ovr/sdk/src/Kernel/OVR_Hash.h     SPInt findIndexCore(const K&amp; key, UPInt hashValue) const
+<a href='../S/179.html#L725'>key</a>               725 ovr/sdk/src/Kernel/OVR_Hash.h             if (e-&gt;GetCachedHash(pTable-&gt;SizeMask) == hashValue &amp;&amp; e-&gt;Value == key)
+<a href='../S/179.html#L732'>key</a>               732 ovr/sdk/src/Kernel/OVR_Hash.h             OVR_ASSERT(!(e-&gt;Value == key));
+<a href='../S/179.html#L748'>key</a>               748 ovr/sdk/src/Kernel/OVR_Hash.h     void add(const CRef&amp; key, UPInt hashValue)
+<a href='../S/179.html#L761'>key</a>               761 ovr/sdk/src/Kernel/OVR_Hash.h             new (naturalEntry) Entry(key, -1);
+<a href='../S/179.html#L781'>key</a>               781 ovr/sdk/src/Kernel/OVR_Hash.h                 naturalEntry-&gt;Value       = key;
+<a href='../S/179.html#L808'>key</a>               808 ovr/sdk/src/Kernel/OVR_Hash.h                 naturalEntry-&gt;Value       = key;
+<a href='../S/179.html#L930'>key</a>               930 ovr/sdk/src/Kernel/OVR_Hash.h     void Set(const CRef&amp; key)
+<a href='../S/179.html#L932'>key</a>               932 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::Set(key);
+<a href='../S/179.html#L936'>key</a>               936 ovr/sdk/src/Kernel/OVR_Hash.h     inline void Add(const CRef&amp; key)
+<a href='../S/179.html#L938'>key</a>               938 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::Add(key);
+<a href='../S/179.html#L1060'>key</a>              1060 ovr/sdk/src/Kernel/OVR_Hash.h     HashsetNodeEntry(const C&amp; key, SPInt next)
+<a href='../S/179.html#L1061'>key</a>              1061 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }    
+<a href='../S/179.html#L1095'>key</a>              1095 ovr/sdk/src/Kernel/OVR_Hash.h     HashsetCachedNodeEntry(const C&amp; key, SPInt next)
+<a href='../S/179.html#L1096'>key</a>              1096 ovr/sdk/src/Kernel/OVR_Hash.h         : NextInChain(next), Value(key) { }
+<a href='../S/179.html#L1151'>key</a>              1151 ovr/sdk/src/Kernel/OVR_Hash.h     inline void    Set(const C&amp; key, const U&amp; value)
+<a href='../S/179.html#L1153'>key</a>              1153 ovr/sdk/src/Kernel/OVR_Hash.h         typename HashNode::NodeRef e(key, value);
+<a href='../S/179.html#L1156'>key</a>              1156 ovr/sdk/src/Kernel/OVR_Hash.h     inline void    Add(const C&amp; key, const U&amp; value)
+<a href='../S/179.html#L1158'>key</a>              1158 ovr/sdk/src/Kernel/OVR_Hash.h         typename HashNode::NodeRef e(key, value);
+<a href='../S/179.html#L1163'>key</a>              1163 ovr/sdk/src/Kernel/OVR_Hash.h     inline void     Remove(const C&amp; key)
+<a href='../S/179.html#L1165'>key</a>              1165 ovr/sdk/src/Kernel/OVR_Hash.h         mHash.RemoveAlt(key);
+<a href='../S/179.html#L1168'>key</a>              1168 ovr/sdk/src/Kernel/OVR_Hash.h     inline void     RemoveAlt(const K&amp; key)
+<a href='../S/179.html#L1170'>key</a>              1170 ovr/sdk/src/Kernel/OVR_Hash.h         mHash.RemoveAlt(key);
+<a href='../S/179.html#L1177'>key</a>              1177 ovr/sdk/src/Kernel/OVR_Hash.h     bool    Get(const C&amp; key, U* pvalue) const   
+<a href='../S/179.html#L1179'>key</a>              1179 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1190'>key</a>              1190 ovr/sdk/src/Kernel/OVR_Hash.h     bool    GetAlt(const K&amp; key, U* pvalue) const   
+<a href='../S/179.html#L1192'>key</a>              1192 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1205'>key</a>              1205 ovr/sdk/src/Kernel/OVR_Hash.h     inline U*  Get(const C&amp; key)
+<a href='../S/179.html#L1207'>key</a>              1207 ovr/sdk/src/Kernel/OVR_Hash.h         HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1210'>key</a>              1210 ovr/sdk/src/Kernel/OVR_Hash.h     inline const U* Get(const C&amp; key) const
+<a href='../S/179.html#L1212'>key</a>              1212 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1217'>key</a>              1217 ovr/sdk/src/Kernel/OVR_Hash.h     inline U*  GetAlt(const K&amp; key)
+<a href='../S/179.html#L1219'>key</a>              1219 ovr/sdk/src/Kernel/OVR_Hash.h         HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1223'>key</a>              1223 ovr/sdk/src/Kernel/OVR_Hash.h     inline const U* GetAlt(const K&amp; key) const
+<a href='../S/179.html#L1225'>key</a>              1225 ovr/sdk/src/Kernel/OVR_Hash.h         const HashNode* p = mHash.GetAlt(key);
+<a href='../S/179.html#L1243'>key</a>              1243 ovr/sdk/src/Kernel/OVR_Hash.h     Iterator        Find(const C&amp; key)          { return mHash.FindAlt(key);  }
+<a href='../S/179.html#L1244'>key</a>              1244 ovr/sdk/src/Kernel/OVR_Hash.h     ConstIterator   Find(const C&amp; key) const    { return mHash.FindAlt(key);  }
+<a href='../S/179.html#L1247'>key</a>              1247 ovr/sdk/src/Kernel/OVR_Hash.h     Iterator        FindAlt(const K&amp; key)       { return mHash.FindAlt(key);  }
+<a href='../S/179.html#L1249'>key</a>              1249 ovr/sdk/src/Kernel/OVR_Hash.h     ConstIterator   FindAlt(const K&amp; key) const { return mHash.FindAlt(key);  }
+<a href='../S/169.html#L801'>key</a>               801 ovr/sdk/src/Kernel/OVR_Std.cpp static inline bool CmpUnicodeKey(const GUnicodePairType&amp; a, UInt16 key)
+<a href='../S/169.html#L803'>key</a>               803 ovr/sdk/src/Kernel/OVR_Std.cpp     return a.Key &lt; key;
+<a href='../S/164.html#L56'>key</a>                56 ovr/sdk/src/Kernel/OVR_StringHash.h     bool    GetCaseInsensitive(const String&amp; key, U* pvalue) const
+<a href='../S/164.html#L58'>key</a>                58 ovr/sdk/src/Kernel/OVR_StringHash.h         String::NoCaseKey ikey(key);
+<a href='../S/164.html#L62'>key</a>                62 ovr/sdk/src/Kernel/OVR_StringHash.h     const U* GetCaseInsensitive(const String&amp; key) const   
+<a href='../S/164.html#L64'>key</a>                64 ovr/sdk/src/Kernel/OVR_StringHash.h         String::NoCaseKey ikey(key);
+<a href='../S/164.html#L67'>key</a>                67 ovr/sdk/src/Kernel/OVR_StringHash.h     U*  GetCaseInsensitive(const String&amp; key)
+<a href='../S/164.html#L69'>key</a>                69 ovr/sdk/src/Kernel/OVR_StringHash.h         String::NoCaseKey ikey(key);
+<a href='../S/164.html#L76'>key</a>                76 ovr/sdk/src/Kernel/OVR_StringHash.h     base_iterator    FindCaseInsensitive(const String&amp; key)
+<a href='../S/164.html#L78'>key</a>                78 ovr/sdk/src/Kernel/OVR_StringHash.h         String::NoCaseKey ikey(key);
+<a href='../S/164.html#L84'>key</a>                84 ovr/sdk/src/Kernel/OVR_StringHash.h     void    SetCaseInsensitive(const String&amp; key, const U&amp; value)
+<a href='../S/164.html#L86'>key</a>                86 ovr/sdk/src/Kernel/OVR_StringHash.h         base_iterator it = FindCaseInsensitive(key);
+<a href='../S/164.html#L93'>key</a>                93 ovr/sdk/src/Kernel/OVR_StringHash.h             BaseType::Add(key, value);
+<a href='../S/81.html#L114'>key</a>               114 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool getIntProperty(udev_device* device, const char* key, int32_t* pResult);
+<a href='../S/139.html#L1197'>key</a>              1197 ovr/sdk/src/OVR_Profile.cpp char* Profile::GetValue(const char* key, char* val, int val_length) const
+<a href='../S/139.html#L1200'>key</a>              1200 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1213'>key</a>              1213 ovr/sdk/src/OVR_Profile.cpp const char* Profile::GetValue(const char* key)
+<a href='../S/139.html#L1218'>key</a>              1218 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1230'>key</a>              1230 ovr/sdk/src/OVR_Profile.cpp int Profile::GetNumValues(const char* key) const
+<a href='../S/139.html#L1233'>key</a>              1233 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1245'>key</a>              1245 ovr/sdk/src/OVR_Profile.cpp bool Profile::GetBoolValue(const char* key, bool default_val) const
+<a href='../S/139.html#L1248'>key</a>              1248 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Bool)
+<a href='../S/139.html#L1255'>key</a>              1255 ovr/sdk/src/OVR_Profile.cpp int Profile::GetIntValue(const char* key, int default_val) const
+<a href='../S/139.html#L1258'>key</a>              1258 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1265'>key</a>              1265 ovr/sdk/src/OVR_Profile.cpp float Profile::GetFloatValue(const char* key, float default_val) const
+<a href='../S/139.html#L1268'>key</a>              1268 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1275'>key</a>              1275 ovr/sdk/src/OVR_Profile.cpp int Profile::GetFloatValues(const char* key, float* values, int num_vals) const
+<a href='../S/139.html#L1278'>key</a>              1278 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1303'>key</a>              1303 ovr/sdk/src/OVR_Profile.cpp double Profile::GetDoubleValue(const char* key, double default_val) const
+<a href='../S/139.html#L1306'>key</a>              1306 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Number)
+<a href='../S/139.html#L1313'>key</a>              1313 ovr/sdk/src/OVR_Profile.cpp int Profile::GetDoubleValues(const char* key, double* values, int num_vals) const
+<a href='../S/139.html#L1316'>key</a>              1316 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value) &amp;&amp; value-&gt;Type == JSON_Array)
+<a href='../S/139.html#L1362'>key</a>              1362 ovr/sdk/src/OVR_Profile.cpp void Profile::SetValue(const char* key, const char* val)
+<a href='../S/139.html#L1364'>key</a>              1364 ovr/sdk/src/OVR_Profile.cpp     if (key == NULL || val == NULL)
+<a href='../S/139.html#L1368'>key</a>              1368 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1375'>key</a>              1375 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1378'>key</a>              1378 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1383'>key</a>              1383 ovr/sdk/src/OVR_Profile.cpp void Profile::SetBoolValue(const char* key, bool val)
+<a href='../S/139.html#L1385'>key</a>              1385 ovr/sdk/src/OVR_Profile.cpp     if (key == NULL)
+<a href='../S/139.html#L1389'>key</a>              1389 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1396'>key</a>              1396 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1399'>key</a>              1399 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1404'>key</a>              1404 ovr/sdk/src/OVR_Profile.cpp void Profile::SetIntValue(const char* key, int val)
+<a href='../S/139.html#L1406'>key</a>              1406 ovr/sdk/src/OVR_Profile.cpp     SetDoubleValue(key, val);
+<a href='../S/139.html#L1410'>key</a>              1410 ovr/sdk/src/OVR_Profile.cpp void Profile::SetFloatValue(const char* key, float val)
+<a href='../S/139.html#L1412'>key</a>              1412 ovr/sdk/src/OVR_Profile.cpp     SetDoubleValue(key, val);
+<a href='../S/139.html#L1416'>key</a>              1416 ovr/sdk/src/OVR_Profile.cpp void Profile::SetFloatValues(const char* key, const float* vals, int num_vals)
+<a href='../S/139.html#L1420'>key</a>              1420 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1447'>key</a>              1447 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1450'>key</a>              1450 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1458'>key</a>              1458 ovr/sdk/src/OVR_Profile.cpp void Profile::SetDoubleValue(const char* key, double val)
+<a href='../S/139.html#L1461'>key</a>              1461 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1468'>key</a>              1468 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1471'>key</a>              1471 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/139.html#L1476'>key</a>              1476 ovr/sdk/src/OVR_Profile.cpp void Profile::SetDoubleValues(const char* key, const double* vals, int num_vals)
+<a href='../S/139.html#L1480'>key</a>              1480 ovr/sdk/src/OVR_Profile.cpp     if (ValMap.Get(key, &amp;value))
+<a href='../S/139.html#L1507'>key</a>              1507 ovr/sdk/src/OVR_Profile.cpp         value-&gt;Name = key;
+<a href='../S/139.html#L1510'>key</a>              1510 ovr/sdk/src/OVR_Profile.cpp         ValMap.Set(key, value);
+<a href='../S/133.html#L123'>key</a>               123 ovr/sdk/src/OVR_Profile.h     int                 GetNumValues(const char* key) const;
+<a href='../S/133.html#L124'>key</a>               124 ovr/sdk/src/OVR_Profile.h     const char*         GetValue(const char* key);
+<a href='../S/133.html#L125'>key</a>               125 ovr/sdk/src/OVR_Profile.h     char*               GetValue(const char* key, char* val, int val_length) const;
+<a href='../S/133.html#L126'>key</a>               126 ovr/sdk/src/OVR_Profile.h     bool                GetBoolValue(const char* key, bool default_val) const;
+<a href='../S/133.html#L127'>key</a>               127 ovr/sdk/src/OVR_Profile.h     int                 GetIntValue(const char* key, int default_val) const;
+<a href='../S/133.html#L128'>key</a>               128 ovr/sdk/src/OVR_Profile.h     float               GetFloatValue(const char* key, float default_val) const;
+<a href='../S/133.html#L129'>key</a>               129 ovr/sdk/src/OVR_Profile.h     int                 GetFloatValues(const char* key, float* values, int num_vals) const;
+<a href='../S/133.html#L130'>key</a>               130 ovr/sdk/src/OVR_Profile.h     double              GetDoubleValue(const char* key, double default_val) const;
+<a href='../S/133.html#L131'>key</a>               131 ovr/sdk/src/OVR_Profile.h     int                 GetDoubleValues(const char* key, double* values, int num_vals) const;
+<a href='../S/133.html#L133'>key</a>               133 ovr/sdk/src/OVR_Profile.h     void                SetValue(const char* key, const char* val);
+<a href='../S/133.html#L134'>key</a>               134 ovr/sdk/src/OVR_Profile.h     void                SetBoolValue(const char* key, bool val);
+<a href='../S/133.html#L135'>key</a>               135 ovr/sdk/src/OVR_Profile.h     void                SetIntValue(const char* key, int val);
+<a href='../S/133.html#L136'>key</a>               136 ovr/sdk/src/OVR_Profile.h     void                SetFloatValue(const char* key, float val);
+<a href='../S/133.html#L137'>key</a>               137 ovr/sdk/src/OVR_Profile.h     void                SetFloatValues(const char* key, const float* vals, int num_vals);
+<a href='../S/133.html#L138'>key</a>               138 ovr/sdk/src/OVR_Profile.h     void                SetDoubleValue(const char* key, double val);
+<a href='../S/133.html#L139'>key</a>               139 ovr/sdk/src/OVR_Profile.h     void                SetDoubleValues(const char* key, const double* vals, int num_vals);
+</pre>
+</body>
+</html>

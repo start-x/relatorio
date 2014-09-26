@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_Allocator.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_Allocator.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L42'>[^]</a><a href='#L89'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L42' title='Defined at 42.'>AllocAligned</a>
+<li><a href='#L58' title='Defined at 58.'>FreeAligned</a>
+<li><a href='#L75' title='Defined at 75.'>AllocDebug</a>
+<li><a href='#L85' title='Defined at 85.'>Realloc</a>
+<li><a href='#L89' title='Defined at 89.'>Free</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_Allocator.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Installable memory allocator implementation</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   September 19, 2012</font></i>
+<a name='L6'>   6 <i><font color='green'>Notes       : </font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='182.html'>OVR_Allocator.h</a>"
+<a name='L28'>  28 <font color='darkred'>#ifdef</font> <a href='../S/168.html#L48' title='Defined at 48 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_OS_MAC</a>
+<a name='L29'>  29 <font color='darkred'> #include</font> &lt;stdlib.h&gt;
+<a name='L30'>  30 <font color='darkred'>#else</font>
+<a name='L31'>  31 <font color='darkred'> #include</font> &lt;malloc.h&gt;
+<a name='L32'>  32 <font color='darkred'>#endif</font>
+<a name='L33'>  33 
+<a name='L34'>  34 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font>
+<a name='L35'>  35 
+<a name='L36'>  36 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L37'>  37 <i><font color='green'>// ***** Allocator</font></i>
+<a name='L38'>  38 
+<a name='L39'>  39 <a href='../D/37.html' title='Multiple defined in 12 places.'>Allocator</a>* <a href='../D/37.html' title='Multiple defined in 12 places.'>Allocator</a>::<a href='../Y/3949.html' title='Multiple used in 25 places.'>pInstance</a> = 0;
+<a name='L40'>  40 
+<a name='L41'>  41 <i><font color='green'>// Default AlignedAlloc implementation will delegate to Alloc/Free after doing rounding.</font></i>
+<a name='L42'>  42 <b>void</b>* <a href='../D/37.html' title='Multiple defined in 12 places.'>Allocator</a>::<a href='../R/28.html' title='Multiple refered from 2 places.'>AllocAligned</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a>)
+<a name='L43'>  43 <font color='red'>{</font>
+<a name='L44'>  44     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>((<a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a> &amp; (<a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a>-1)) == 0);
+<a name='L45'>  45     <a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a> = (<a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a> &gt; <b>sizeof</b>(<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)) ? <a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a> : <b>sizeof</b>(<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>);
+<a name='L46'>  46     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a> = (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/175.html#L71' title='Defined at 71 in ovr/sdk/src/Kernel/OVR_Allocator.cpp.'>Alloc</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>+<a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a>);
+<a name='L47'>  47     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/2692.html' title='Multiple used in 6 places.'>aligned</a> = 0;
+<a name='L48'>  48     <b>if</b> (<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)
+<a name='L49'>  49     <font color='red'>{</font>
+<a name='L50'>  50         <a href='../Y/2692.html' title='Multiple used in 6 places.'>aligned</a> = (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>(<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>) + <a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a>-1) &amp; ~(<a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a>-1);
+<a name='L51'>  51         <b>if</b> (<a href='../Y/2692.html' title='Multiple used in 6 places.'>aligned</a> == <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>) 
+<a name='L52'>  52             <a href='../Y/2692.html' title='Multiple used in 6 places.'>aligned</a> += <a href='../Y/2691.html' title='Multiple used in 7 places.'>align</a>;
+<a name='L53'>  53         *(((<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>*)<a href='../Y/2692.html' title='Multiple used in 6 places.'>aligned</a>)-1) = <a href='../Y/2692.html' title='Multiple used in 6 places.'>aligned</a>-<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>;
+<a name='L54'>  54     <font color='red'>}</font>
+<a name='L55'>  55     <b>return</b> (<b>void</b>*)<a href='../Y/2692.html' title='Multiple used in 6 places.'>aligned</a>;
+<a name='L56'>  56 <font color='red'>}</font>
+<a name='L57'>  57 
+<a name='L58'>  58 <b>void</b> <a href='../D/37.html' title='Multiple defined in 12 places.'>Allocator</a>::<a href='../R/273.html' title='Multiple refered from 2 places.'>FreeAligned</a>(<b>void</b>* <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)
+<a name='L59'>  59 <font color='red'>{</font>
+<a name='L60'>  60     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a> = <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>(<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>) - *(((<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>*)<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)-1);
+<a name='L61'>  61     <a href='../S/175.html#L89' title='Defined at 89 in ovr/sdk/src/Kernel/OVR_Allocator.cpp.'>Free</a>((<b>void</b>*)<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>);
+<a name='L62'>  62 <font color='red'>}</font>
+<a name='L63'>  63 
+<a name='L64'>  64 
+<a name='L65'>  65 <i><font color='green'>//------------------------------------------------------------------------</font></i>
+<a name='L66'>  66 <i><font color='green'>// ***** Default Allocator</font></i>
+<a name='L67'>  67 
+<a name='L68'>  68 <i><font color='green'>// This allocator is created and used if no other allocator is installed.</font></i>
+<a name='L69'>  69 <i><font color='green'>// Default allocator delegates to system malloc.</font></i>
+<a name='L70'>  70 
+<a name='L71'>  71 <b>void</b>* <a href='../Y/355.html' title='Multiple used in 7 places.'>DefaultAllocator</a>::<a href='../R/27.html' title='Multiple refered from 25 places.'>Alloc</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>)
+<a name='L72'>  72 <font color='red'>{</font>
+<a name='L73'>  73     <b>return</b> <a href='../Y/3632.html' title='Multiple used in 4 places.'>malloc</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L74'>  74 <font color='red'>}</font>
+<a name='L75'>  75 <b>void</b>* <a href='../Y/355.html' title='Multiple used in 7 places.'>DefaultAllocator</a>::<a href='../R/33.html' title='Multiple refered from 4 places.'>AllocDebug</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <b>const</b> <b>char</b>* <a href='../Y/3204.html' title='Multiple used in 11 places.'>file</a>, <b>unsigned</b> <a href='../Y/3571.html' title='Multiple used in 12 places.'>line</a>)
+<a name='L76'>  76 <font color='red'>{</font>
+<a name='L77'>  77 <font color='darkred'>#if</font> <b>defined</b>(<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a>) &amp;&amp; <b>defined</b>(<a href='../S/168.html#L194' title='Defined at 194 in ovr/sdk/src/Kernel/OVR_Types.h.'>_CRTDBG_MAP_ALLOC</a>)
+<a name='L78'>  78     <b>return</b> _malloc_dbg(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, _NORMAL_BLOCK, <a href='../Y/3204.html' title='Multiple used in 11 places.'>file</a>, <a href='../Y/3571.html' title='Multiple used in 12 places.'>line</a>);
+<a name='L79'>  79 <font color='darkred'>#else</font>
+<a name='L80'>  80     <a href='../S/168.html#L429' title='Defined at 429 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED2</a>(<a href='../Y/3204.html' title='Multiple used in 11 places.'>file</a>, <a href='../Y/3571.html' title='Multiple used in 12 places.'>line</a>);
+<a name='L81'>  81     <b>return</b> <a href='../Y/3632.html' title='Multiple used in 4 places.'>malloc</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L82'>  82 <font color='darkred'>#endif</font>
+<a name='L83'>  83 <font color='red'>}</font>
+<a name='L84'>  84 
+<a name='L85'>  85 <b>void</b>* <a href='../Y/355.html' title='Multiple used in 7 places.'>DefaultAllocator</a>::<a href='../R/881.html' title='Multiple refered from 5 places.'>Realloc</a>(<b>void</b>* <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3745.html' title='Multiple used in 37 places.'>newSize</a>)
+<a name='L86'>  86 <font color='red'>{</font>
+<a name='L87'>  87     <b>return</b> realloc(<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>, <a href='../Y/3745.html' title='Multiple used in 37 places.'>newSize</a>);
+<a name='L88'>  88 <font color='red'>}</font>
+<a name='L89'>  89 <b>void</b> <a href='../Y/355.html' title='Multiple used in 7 places.'>DefaultAllocator</a>::<a href='../R/272.html' title='Multiple refered from 22 places.'>Free</a>(<b>void</b> *<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)
+<a name='L90'>  90 <font color='red'>{</font>
+<a name='L91'>  91     <b>return</b> <a href='../Y/3263.html' title='Multiple used in 4 places.'>free</a>(<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>);
+<a name='L92'>  92 <font color='red'>}</font>
+<a name='L93'>  93 
+<a name='L94'>  94 
+<a name='L95'>  95 <font color='red'>}</font> <i><font color='green'>// OVR</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L42'>[^]</a><a href='#L89'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

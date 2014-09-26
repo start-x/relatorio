@@ -1,0 +1,5 @@
+<map id="OVR::MessageExposureFrame" name="OVR::MessageExposureFrame">
+<area shape="rect" id="node2" href="$classOVR_1_1Message.html" title="{OVR::Message\n|+ Type\l|+ Message()\l}" alt="" coords="51,421,161,499"/>
+<area shape="rect" id="node3" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="25,133,188,357"/>
+<area shape="rect" id="node4" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="24,5,188,83"/>
+</map>

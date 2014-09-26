@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>frameIndex</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L235'>frameIndex</a>        235 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameTimeManager::ResetFrameTiming(unsigned frameIndex,
+<a href='../S/98.html#L246'>frameIndex</a>        246 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameTiming.FrameIndex               = frameIndex;
+<a href='../S/98.html#L331'>frameIndex</a>        331 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                                                     double thisFrameTime, unsigned int frameIndex)
+<a href='../S/98.html#L337'>frameIndex</a>        337 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameIndex        = frameIndex;
+<a href='../S/98.html#L405'>frameIndex</a>        405 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp double FrameTimeManager::BeginFrame(unsigned frameIndex)
+<a href='../S/98.html#L416'>frameIndex</a>        416 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                                      thisFrameTime, frameIndex);
+<a href='../S/98.html#L440'>frameIndex</a>        440 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp FrameTimeManager::Timing FrameTimeManager::GetFrameTiming(unsigned frameIndex)
+<a href='../S/98.html#L448'>frameIndex</a>        448 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                                          ovr_GetTimeInSeconds(), frameIndex);
+<a href='../S/98.html#L451'>frameIndex</a>        451 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     else if (frameIndex &gt; frameTiming.FrameIndex)
+<a href='../S/98.html#L453'>frameIndex</a>        453 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         unsigned frameDelta    = frameIndex - frameTiming.FrameIndex;
+<a href='../S/98.html#L460'>frameIndex</a>        460 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                                          thisFrameTime, frameIndex);
+<a href='../S/99.html#L173'>frameIndex</a>        173 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h                                   double thisFrameTime, unsigned int frameIndex);
+<a href='../S/99.html#L181'>frameIndex</a>        181 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     void    ResetFrameTiming(unsigned frameIndex,
+<a href='../S/99.html#L188'>frameIndex</a>        188 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     double  BeginFrame(unsigned frameIndex);
+<a href='../S/99.html#L192'>frameIndex</a>        192 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     Timing  GetFrameTiming(unsigned frameIndex);
+<a href='../S/142.html#L440'>frameIndex</a>        440 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrame(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L458'>frameIndex</a>        458 ovr/sdk/src/OVR_CAPI.cpp     return ovrHmd_BeginFrameTiming(hmd, frameIndex);
+<a href='../S/142.html#L529'>frameIndex</a>        529 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_GetFrameTiming(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L537'>frameIndex</a>        537 ovr/sdk/src/OVR_CAPI.cpp         FrameTimeManager::Timing frameTiming = hmds-&gt;TimeManager.GetFrameTiming(frameIndex);
+<a href='../S/142.html#L557'>frameIndex</a>        557 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrameTiming(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L570'>frameIndex</a>        570 ovr/sdk/src/OVR_CAPI.cpp     double thisFrameTime = hmds-&gt;TimeManager.BeginFrame(frameIndex);        
+<a href='../S/142.html#L607'>frameIndex</a>        607 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_ResetFrameTiming(ovrHmd hmd,  unsigned int frameIndex) 
+<a href='../S/142.html#L612'>frameIndex</a>        612 ovr/sdk/src/OVR_CAPI.cpp     hmds-&gt;TimeManager.ResetFrameTiming(frameIndex, 
+<a href='../S/187.html#L551'>frameIndex</a>        551 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrame(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L656'>frameIndex</a>        656 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_GetFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L661'>frameIndex</a>        661 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L671'>frameIndex</a>        671 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_ResetFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+</pre>
+</body>
+</html>

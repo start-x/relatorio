@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>DeviceManagerThread</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/193.html#L58'>DeviceManagerThread</a>   58 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     pThread = *new DeviceManagerThread();
+<a href='../S/193.html#L132'>DeviceManagerThread</a>  132 ovr/sdk/src/OVR_Linux_DeviceManager.cpp DeviceManagerThread::DeviceManagerThread()
+<a href='../S/193.html#L142'>DeviceManagerThread</a>  142 ovr/sdk/src/OVR_Linux_DeviceManager.cpp DeviceManagerThread::~DeviceManagerThread()
+<a href='../S/193.html#L152'>DeviceManagerThread</a>  152 ovr/sdk/src/OVR_Linux_DeviceManager.cpp bool DeviceManagerThread::AddSelectFd(Notifier* notify, int fd)
+<a href='../S/193.html#L166'>DeviceManagerThread</a>  166 ovr/sdk/src/OVR_Linux_DeviceManager.cpp bool DeviceManagerThread::RemoveSelectFd(Notifier* notify, int fd)
+<a href='../S/193.html#L184'>DeviceManagerThread</a>  184 ovr/sdk/src/OVR_Linux_DeviceManager.cpp int DeviceManagerThread::Run()
+<a href='../S/193.html#L270'>DeviceManagerThread</a>  270 ovr/sdk/src/OVR_Linux_DeviceManager.cpp bool DeviceManagerThread::AddTicksNotifier(Notifier* notify)
+<a href='../S/193.html#L276'>DeviceManagerThread</a>  276 ovr/sdk/src/OVR_Linux_DeviceManager.cpp bool DeviceManagerThread::RemoveTicksNotifier(Notifier* notify)
+<a href='../S/130.html#L38'>DeviceManagerThread</a>   38 ovr/sdk/src/OVR_Linux_DeviceManager.h class DeviceManagerThread;
+<a href='../S/130.html#L60'>DeviceManagerThread</a>   60 ovr/sdk/src/OVR_Linux_DeviceManager.h     Ptr&lt;DeviceManagerThread&gt; pThread;
+<a href='../S/130.html#L66'>DeviceManagerThread</a>   66 ovr/sdk/src/OVR_Linux_DeviceManager.h class DeviceManagerThread : public Thread, public ThreadCommandQueue
+<a href='../S/130.html#L71'>DeviceManagerThread</a>   71 ovr/sdk/src/OVR_Linux_DeviceManager.h     DeviceManagerThread();
+<a href='../S/130.html#L72'>DeviceManagerThread</a>   72 ovr/sdk/src/OVR_Linux_DeviceManager.h     ~DeviceManagerThread();
+<a href='../S/132.html#L671'>DeviceManagerThread</a>  671 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     return DeviceManagerThread::Notifier::OnTicks(tickSeconds);
+<a href='../S/81.html#L40'>DeviceManagerThread</a>   40 ovr/sdk/src/OVR_Linux_HIDDevice.h class HIDDevice : public OVR::HIDDevice, public DeviceManagerThread::Notifier
+<a href='../S/81.html#L92'>DeviceManagerThread</a>   92 ovr/sdk/src/OVR_Linux_HIDDevice.h class HIDDeviceManager : public OVR::HIDDeviceManager, public DeviceManagerThread::Notifier
+</pre>
+</body>
+</html>

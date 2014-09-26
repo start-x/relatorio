@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>OVR_EXPORT</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/142.html#L105'>OVR_EXPORT</a>        105 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrMatrix4f ovrMatrix4f_Projection(ovrFovPort fov, float znear, float zfar, ovrBool rightHanded)
+<a href='../S/142.html#L111'>OVR_EXPORT</a>        111 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrMatrix4f ovrMatrix4f_OrthoSubProjection(ovrMatrix4f projection, ovrVector2f orthoScale,
+<a href='../S/142.html#L182'>OVR_EXPORT</a>        182 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT double ovr_GetTimeInSeconds()
+<a href='../S/142.html#L188'>OVR_EXPORT</a>        188 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT double ovr_WaitTillTime(double absTime)
+<a href='../S/142.html#L211'>OVR_EXPORT</a>        211 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovr_Initialize()
+<a href='../S/142.html#L228'>OVR_EXPORT</a>        228 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovr_Shutdown()
+<a href='../S/142.html#L255'>OVR_EXPORT</a>        255 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT int ovrHmd_Detect()
+<a href='../S/142.html#L268'>OVR_EXPORT</a>        268 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrHmd ovrHmd_Create(int index)
+<a href='../S/142.html#L283'>OVR_EXPORT</a>        283 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrHmd ovrHmd_CreateDebug(ovrHmdType type)
+<a href='../S/142.html#L292'>OVR_EXPORT</a>        292 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_Destroy(ovrHmd hmd)
+<a href='../S/142.html#L308'>OVR_EXPORT</a>        308 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT const char* ovrHmd_GetLastError(ovrHmd hmd)
+<a href='../S/142.html#L327'>OVR_EXPORT</a>        327 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT unsigned int ovrHmd_GetEnabledCaps(ovrHmd hmd)
+<a href='../S/142.html#L335'>OVR_EXPORT</a>        335 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_SetEnabledCaps(ovrHmd hmd, unsigned int capsBits)
+<a href='../S/142.html#L358'>OVR_EXPORT</a>        358 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_StartSensor(ovrHmd hmd, unsigned int supportedCaps, unsigned int requiredCaps)
+<a href='../S/142.html#L365'>OVR_EXPORT</a>        365 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_StopSensor(ovrHmd hmd)
+<a href='../S/142.html#L371'>OVR_EXPORT</a>        371 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_ResetSensor(ovrHmd hmd)
+<a href='../S/142.html#L377'>OVR_EXPORT</a>        377 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrSensorState ovrHmd_GetSensorState(ovrHmd hmd, double absTime)
+<a href='../S/142.html#L384'>OVR_EXPORT</a>        384 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_GetSensorDesc(ovrHmd hmd, ovrSensorDesc* descOut)
+<a href='../S/142.html#L396'>OVR_EXPORT</a>        396 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_GetDesc(ovrHmd hmd, ovrHmdDesc* desc)
+<a href='../S/142.html#L404'>OVR_EXPORT</a>        404 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrSizei ovrHmd_GetFovTextureSize(ovrHmd hmd, ovrEyeType eye, ovrFovPort fov,
+<a href='../S/142.html#L417'>OVR_EXPORT</a>        417 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT 
+<a href='../S/142.html#L440'>OVR_EXPORT</a>        440 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrame(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L463'>OVR_EXPORT</a>        463 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_EndFrame(ovrHmd hmd)
+<a href='../S/142.html#L509'>OVR_EXPORT</a>        509 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrPosef ovrHmd_BeginEyeRender(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/142.html#L516'>OVR_EXPORT</a>        516 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_EndEyeRender(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/142.html#L529'>OVR_EXPORT</a>        529 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_GetFrameTiming(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L557'>OVR_EXPORT</a>        557 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrameTiming(ovrHmd hmd, unsigned int frameIndex)
+<a href='../S/142.html#L592'>OVR_EXPORT</a>        592 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_EndFrameTiming(ovrHmd hmd)
+<a href='../S/142.html#L607'>OVR_EXPORT</a>        607 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_ResetFrameTiming(ovrHmd hmd,  unsigned int frameIndex) 
+<a href='../S/142.html#L621'>OVR_EXPORT</a>        621 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrPosef ovrHmd_GetEyePose(ovrHmd hmd, ovrEyeType eye)
+<a href='../S/142.html#L631'>OVR_EXPORT</a>        631 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_GetEyeTimewarpMatrices(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/142.html#L656'>OVR_EXPORT</a>        656 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrEyeRenderDesc ovrHmd_GetRenderDesc(ovrHmd hmd,
+<a href='../S/142.html#L679'>OVR_EXPORT</a>        679 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_CreateDistortionMesh( ovrHmd hmd,
+<a href='../S/142.html#L740'>OVR_EXPORT</a>        740 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_DestroyDistortionMesh(ovrDistortionMesh* meshData)
+<a href='../S/142.html#L755'>OVR_EXPORT</a>        755 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_GetRenderScaleAndOffset( ovrFovPort fov,
+<a href='../S/142.html#L774'>OVR_EXPORT</a>        774 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_GetLatencyTestDrawColor(ovrHmd hmd, unsigned char rgbColorOut[3])
+<a href='../S/142.html#L783'>OVR_EXPORT</a>        783 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT const char*  ovrHmd_GetLatencyTestResult(ovrHmd hmd)
+<a href='../S/142.html#L789'>OVR_EXPORT</a>        789 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT double ovrHmd_GetMeasuredLatencyTest2(ovrHmd hmd)
+<a href='../S/142.html#L804'>OVR_EXPORT</a>        804 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT float ovrHmd_GetFloat(ovrHmd hmd, const char* propertyName, float defaultVal)
+<a href='../S/142.html#L815'>OVR_EXPORT</a>        815 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_SetFloat(ovrHmd hmd, const char* propertyName, float value)
+<a href='../S/142.html#L827'>OVR_EXPORT</a>        827 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT unsigned int ovrHmd_GetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/142.html#L841'>OVR_EXPORT</a>        841 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT ovrBool ovrHmd_SetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/142.html#L853'>OVR_EXPORT</a>        853 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT const char* ovrHmd_GetString(ovrHmd hmd, const char* propertyName,
+<a href='../S/142.html#L894'>OVR_EXPORT</a>        894 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT unsigned int ovrHmd_GetArraySize(ovrHmd hmd, const char* propertyName)
+<a href='../S/187.html#L36'>OVR_EXPORT</a>         36 ovr/sdk/src/OVR_CAPI.h #if !defined(OVR_EXPORT)
+<a href='../S/187.html#L417'>OVR_EXPORT</a>        417 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool  ovr_Initialize();
+<a href='../S/187.html#L418'>OVR_EXPORT</a>        418 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovr_Shutdown();
+<a href='../S/187.html#L423'>OVR_EXPORT</a>        423 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT int      ovrHmd_Detect();
+<a href='../S/187.html#L429'>OVR_EXPORT</a>        429 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrHmd   ovrHmd_Create(int index);
+<a href='../S/187.html#L430'>OVR_EXPORT</a>        430 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_Destroy(ovrHmd hmd);
+<a href='../S/187.html#L434'>OVR_EXPORT</a>        434 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrHmd   ovrHmd_CreateDebug(ovrHmdType type);
+<a href='../S/187.html#L440'>OVR_EXPORT</a>        440 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT const char* ovrHmd_GetLastError(ovrHmd hmd);
+<a href='../S/187.html#L448'>OVR_EXPORT</a>        448 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT unsigned int ovrHmd_GetEnabledCaps(ovrHmd hmd);
+<a href='../S/187.html#L452'>OVR_EXPORT</a>        452 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void         ovrHmd_SetEnabledCaps(ovrHmd hmd, unsigned int hmdCaps);
+<a href='../S/187.html#L468'>OVR_EXPORT</a>        468 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool  ovrHmd_StartSensor(ovrHmd hmd,	unsigned int supportedSensorCaps,
+<a href='../S/187.html#L471'>OVR_EXPORT</a>        471 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_StopSensor(ovrHmd hmd);
+<a href='../S/187.html#L473'>OVR_EXPORT</a>        473 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_ResetSensor(ovrHmd hmd);
+<a href='../S/187.html#L480'>OVR_EXPORT</a>        480 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrSensorState ovrHmd_GetSensorState(ovrHmd hmd, double absTime);
+<a href='../S/187.html#L484'>OVR_EXPORT</a>        484 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool     ovrHmd_GetSensorDesc(ovrHmd hmd, ovrSensorDesc* descOut);
+<a href='../S/187.html#L491'>OVR_EXPORT</a>        491 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_GetDesc(ovrHmd hmd, ovrHmdDesc* desc);
+<a href='../S/187.html#L498'>OVR_EXPORT</a>        498 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrSizei ovrHmd_GetFovTextureSize(ovrHmd hmd, ovrEyeType eye, ovrFovPort fov,
+<a href='../S/187.html#L540'>OVR_EXPORT</a>        540 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool ovrHmd_ConfigureRendering( ovrHmd hmd,
+<a href='../S/187.html#L551'>OVR_EXPORT</a>        551 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrame(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L557'>OVR_EXPORT</a>        557 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_EndFrame(ovrHmd hmd);
+<a href='../S/187.html#L567'>OVR_EXPORT</a>        567 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrPosef ovrHmd_BeginEyeRender(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/187.html#L575'>OVR_EXPORT</a>        575 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_EndEyeRender(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/187.html#L602'>OVR_EXPORT</a>        602 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrEyeRenderDesc ovrHmd_GetRenderDesc(ovrHmd hmd,
+<a href='../S/187.html#L638'>OVR_EXPORT</a>        638 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool  ovrHmd_CreateDistortionMesh( ovrHmd hmd,
+<a href='../S/187.html#L645'>OVR_EXPORT</a>        645 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_DestroyDistortionMesh( ovrDistortionMesh* meshData );
+<a href='../S/187.html#L649'>OVR_EXPORT</a>        649 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_GetRenderScaleAndOffset( ovrFovPort fov,
+<a href='../S/187.html#L656'>OVR_EXPORT</a>        656 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_GetFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L661'>OVR_EXPORT</a>        661 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrFrameTiming ovrHmd_BeginFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L666'>OVR_EXPORT</a>        666 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_EndFrameTiming(ovrHmd hmd);
+<a href='../S/187.html#L671'>OVR_EXPORT</a>        671 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_ResetFrameTiming(ovrHmd hmd, unsigned int frameIndex);
+<a href='../S/187.html#L676'>OVR_EXPORT</a>        676 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrPosef ovrHmd_GetEyePose(ovrHmd hmd, ovrEyeType eye);
+<a href='../S/187.html#L683'>OVR_EXPORT</a>        683 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_GetEyeTimewarpMatrices(ovrHmd hmd, ovrEyeType eye,
+<a href='../S/187.html#L692'>OVR_EXPORT</a>        692 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrMatrix4f ovrMatrix4f_Projection( ovrFovPort fov,
+<a href='../S/187.html#L698'>OVR_EXPORT</a>        698 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrMatrix4f ovrMatrix4f_OrthoSubProjection(ovrMatrix4f projection, ovrVector2f orthoScale,
+<a href='../S/187.html#L703'>OVR_EXPORT</a>        703 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT double   ovr_GetTimeInSeconds();
+<a href='../S/187.html#L706'>OVR_EXPORT</a>        706 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT double   ovr_WaitTillTime(double absTime);
+<a href='../S/187.html#L715'>OVR_EXPORT</a>        715 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool      ovrHmd_ProcessLatencyTest(ovrHmd hmd, unsigned char rgbColorOut[3]);
+<a href='../S/187.html#L719'>OVR_EXPORT</a>        719 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT const char*  ovrHmd_GetLatencyTestResult(ovrHmd hmd);
+<a href='../S/187.html#L723'>OVR_EXPORT</a>        723 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT double       ovrHmd_GetMeasuredLatencyTest2(ovrHmd hmd);
+<a href='../S/187.html#L759'>OVR_EXPORT</a>        759 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT float       ovrHmd_GetFloat(ovrHmd hmd, const char* propertyName, float defaultVal);
+<a href='../S/187.html#L762'>OVR_EXPORT</a>        762 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool      ovrHmd_SetFloat(ovrHmd hmd, const char* propertyName, float value);
+<a href='../S/187.html#L767'>OVR_EXPORT</a>        767 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT unsigned int ovrHmd_GetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/187.html#L771'>OVR_EXPORT</a>        771 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT ovrBool      ovrHmd_SetFloatArray(ovrHmd hmd, const char* propertyName,
+<a href='../S/187.html#L777'>OVR_EXPORT</a>        777 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT const char* ovrHmd_GetString(ovrHmd hmd, const char* propertyName,
+<a href='../S/187.html#L782'>OVR_EXPORT</a>        782 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT unsigned int ovrHmd_GetArraySize(ovrHmd hmd, const char* propertyName);
+</pre>
+</body>
+</html>

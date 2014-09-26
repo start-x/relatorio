@@ -1,0 +1,27 @@
+<map id="ovr/sdk/src/OVR_DeviceHandle.cpp" name="ovr/sdk/src/OVR_DeviceHandle.cpp">
+<area shape="rect" id="node2" href="$OVR__DeviceHandle_8h.html" title="OVR_DeviceHandle.h" alt="" coords="1903,304,2053,331"/>
+<area shape="rect" id="node4" href="$OVR__DeviceImpl_8h.html" title="OVR_DeviceImpl.h" alt="" coords="461,80,595,107"/>
+<area shape="rect" id="node3" href="$OVR__DeviceConstants_8h.html" title="OVR_DeviceConstants.h" alt="" coords="2027,379,2198,405"/>
+<area shape="rect" id="node5" href="$OVR__Device_8h.html" title="OVR_Device.h" alt="" coords="1160,155,1270,181"/>
+<area shape="rect" id="node31" href="$OVR__Atomic_8h.html" title="OVR_Atomic.h" alt="" coords="284,379,394,405"/>
+<area shape="rect" id="node34" href="$OVR__Log_8h.html" title="Kernel/OVR_Log.h" alt="" coords="419,379,549,405"/>
+<area shape="rect" id="node35" href="$OVR__System_8h.html" title="Kernel/OVR_System.h" alt="" coords="502,304,655,331"/>
+<area shape="rect" id="node36" href="$OVR__Threads_8h.html" title="Kernel/OVR_Threads.h" alt="" coords="283,229,441,256"/>
+<area shape="rect" id="node37" href="$OVR__ThreadCommandQueue_8h.html" title="OVR_ThreadCommandQueue.h" alt="" coords="143,155,349,181"/>
+<area shape="rect" id="node39" href="$OVR__HIDDevice_8h.html" title="OVR_HIDDevice.h" alt="" coords="904,229,1038,256"/>
+<area shape="rect" id="node6" href="$OVR__DeviceMessages_8h.html" title="OVR_DeviceMessages.h" alt="" coords="1509,229,1679,256"/>
+<area shape="rect" id="node16" href="$OVR__RefCount_8h.html" title="OVR_RefCount.h" alt="" coords="850,379,975,405"/>
+<area shape="rect" id="node29" href="$OVR__String_8h.html" title="Kernel/OVR_String.h" alt="" coords="899,304,1043,331"/>
+<area shape="rect" id="node33" href="$OVR__HIDDeviceBase_8h.html" title="OVR_HIDDeviceBase.h" alt="" coords="1335,304,1498,331"/>
+<area shape="rect" id="node7" href="$OVR__Math_8h.html" title="Kernel/OVR_Math.h" alt="" coords="1689,304,1827,331"/>
+<area shape="rect" id="node26" href="$OVR__Array_8h.html" title="Kernel/OVR_Array.h" alt="" coords="1169,304,1309,331"/>
+<area shape="rect" id="node28" href="$OVR__Color_8h.html" title="Kernel/OVR_Color.h" alt="" coords="1523,304,1663,331"/>
+<area shape="rect" id="node11" href="$OVR__Types_8h.html" title="OVR_Types.h" alt="" coords="687,528,791,555"/>
+<area shape="rect" id="node18" href="$OVR__Std_8h.html" title="OVR_Std.h" alt="" coords="1367,379,1455,405"/>
+<area shape="rect" id="node25" href="$OVR__Alg_8h.html" title="OVR_Alg.h" alt="" coords="1250,379,1338,405"/>
+<area shape="rect" id="node17" href="$OVR__Allocator_8h.html" title="OVR_Allocator.h" alt="" coords="777,453,897,480"/>
+<area shape="rect" id="node27" href="$OVR__ContainerAllocator_8h.html" title="OVR_ContainerAllocator.h" alt="" coords="999,379,1175,405"/>
+<area shape="rect" id="node30" href="$OVR__UTF8Util_8h.html" title="OVR_UTF8Util.h" alt="" coords="579,453,702,480"/>
+<area shape="rect" id="node38" href="$OVR__List_8h.html" title="Kernel/OVR_List.h" alt="" coords="27,229,157,256"/>
+<area shape="rect" id="node40" href="$OVR__Timer_8h.html" title="Kernel/OVR_Timer.h" alt="" coords="732,304,874,331"/>
+</map>

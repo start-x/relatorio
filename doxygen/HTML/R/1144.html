@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>UTF8Util</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/149.html#L227'>UTF8Util</a>          227 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     wchar_t *pwFileName = (wchar_t*)OVR_ALLOC((UTF8Util::GetLength(FileName.ToCStr())+1) * sizeof(wchar_t));
+<a href='../S/149.html#L228'>UTF8Util</a>          228 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     UTF8Util::DecodeString(pwFileName, FileName.ToCStr());
+<a href='../S/149.html#L230'>UTF8Util</a>          230 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     UTF8Util::DecodeString(womode, omode);
+<a href='../S/149.html#L577'>UTF8Util</a>          577 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     wchar_t *pwpath = (wchar_t*)OVR_ALLOC((UTF8Util::GetLength(path.ToCStr())+1)*sizeof(wchar_t));
+<a href='../S/149.html#L578'>UTF8Util</a>          578 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     UTF8Util::DecodeString(pwpath, path.ToCStr());
+<a href='../S/184.html#L151'>UTF8Util</a>          151 ovr/sdk/src/Kernel/OVR_String.cpp     length = (UPInt)UTF8Util::GetLength(pdata-&gt;Data, (UPInt)size);
+<a href='../S/184.html#L174'>UTF8Util</a>          174 ovr/sdk/src/Kernel/OVR_String.cpp         return UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/184.html#L177'>UTF8Util</a>          177 ovr/sdk/src/Kernel/OVR_String.cpp     c = UTF8Util::GetCharAt(index, buf, pdata-&gt;GetSize());
+<a href='../S/184.html#L191'>UTF8Util</a>          191 ovr/sdk/src/Kernel/OVR_String.cpp         c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/184.html#L209'>UTF8Util</a>          209 ovr/sdk/src/Kernel/OVR_String.cpp     return UTF8Util::DecodeNextChar(offset);
+<a href='../S/184.html#L222'>UTF8Util</a>          222 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buff, &amp;encodeSize, ch);
+<a href='../S/184.html#L238'>UTF8Util</a>          238 ovr/sdk/src/Kernel/OVR_String.cpp     UPInt       encodeSize = (UPInt)UTF8Util::GetEncodeStringSize(pstr, len);
+<a href='../S/184.html#L242'>UTF8Util</a>          242 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeString(pnewData-&gt;Data + oldSize,  pstr, len);
+<a href='../S/184.html#L288'>UTF8Util</a>          288 ovr/sdk/src/Kernel/OVR_String.cpp     UPInt       size = pwstr ? (UPInt)UTF8Util::GetEncodeStringSize(pwstr) : 0;
+<a href='../S/184.html#L291'>UTF8Util</a>          291 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeString(pnewData-&gt;Data, pwstr);
+<a href='../S/184.html#L358'>UTF8Util</a>          358 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt bytePos    = UTF8Util::GetByteIndex(posAt, pdata-&gt;Data, oldSize);
+<a href='../S/184.html#L359'>UTF8Util</a>          359 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt removeSize = UTF8Util::GetByteIndex(removeLength, pdata-&gt;Data + bytePos, oldSize-bytePos);
+<a href='../S/184.html#L381'>UTF8Util</a>          381 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt byteStart = UTF8Util::GetByteIndex(start, pdata-&gt;Data, pdata-&gt;GetSize());
+<a href='../S/184.html#L382'>UTF8Util</a>          382 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt byteSize  = UTF8Util::GetByteIndex(end - start, pdata-&gt;Data + byteStart, pdata-&gt;GetSize()-byteStart);
+<a href='../S/184.html#L406'>UTF8Util</a>          406 ovr/sdk/src/Kernel/OVR_String.cpp             c = UTF8Util::DecodeNextChar_Advance0(&amp;psource);
+<a href='../S/184.html#L407'>UTF8Util</a>          407 ovr/sdk/src/Kernel/OVR_String.cpp             UTF8Util::EncodeChar(buffer, &amp;bufferOffset, OVR_towupper(wchar_t(c)));
+<a href='../S/184.html#L430'>UTF8Util</a>          430 ovr/sdk/src/Kernel/OVR_String.cpp             c = UTF8Util::DecodeNextChar_Advance0(&amp;psource);
+<a href='../S/184.html#L431'>UTF8Util</a>          431 ovr/sdk/src/Kernel/OVR_String.cpp             UTF8Util::EncodeChar(buffer, &amp;bufferOffset, OVR_towlower(wchar_t(c)));
+<a href='../S/184.html#L450'>UTF8Util</a>          450 ovr/sdk/src/Kernel/OVR_String.cpp                             posAt : (UPInt)UTF8Util::GetByteIndex(posAt, poldData-&gt;Data, oldSize);
+<a href='../S/184.html#L479'>UTF8Util</a>          479 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buf, &amp;index, c);
+<a href='../S/184.html#L622'>UTF8Util</a>          622 ovr/sdk/src/Kernel/OVR_String.cpp     length = (UPInt)UTF8Util::GetLength(pData, (UPInt)GetSize());
+<a href='../S/184.html#L671'>UTF8Util</a>          671 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buff, &amp;srcSize, ch);
+<a href='../S/184.html#L685'>UTF8Util</a>          685 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt   srcSize     = UTF8Util::GetEncodeStringSize(pstr, len);
+<a href='../S/184.html#L690'>UTF8Util</a>          690 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeString(pData + origSize,  pstr, len);
+<a href='../S/184.html#L719'>UTF8Util</a>          719 ovr/sdk/src/Kernel/OVR_String.cpp     UPInt size = (UPInt)UTF8Util::GetEncodeStringSize(pstr);
+<a href='../S/184.html#L721'>UTF8Util</a>          721 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeString(pData, pstr);
+<a href='../S/184.html#L743'>UTF8Util</a>          743 ovr/sdk/src/Kernel/OVR_String.cpp                            (UPInt)UTF8Util::GetByteIndex(posAt, pData, (SPInt)Size);
+<a href='../S/184.html#L760'>UTF8Util</a>          760 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buf, &amp;len, c);
+<a href='../S/161.html#L239'>UTF8Util</a>          239 ovr/sdk/src/Kernel/OVR_String.h     UPInt       GetByteIndex(UPInt index) const { return (UPInt)UTF8Util::GetByteIndex(index, GetData()-&gt;Data); }
+<a href='../S/171.html#L42'>UTF8Util</a>           42 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     UInt32 charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L56'>UTF8Util</a>           56 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp         charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L79'>UTF8Util</a>           79 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     UInt32 charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L87'>UTF8Util</a>           87 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp             charVal2 = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L88'>UTF8Util</a>           88 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp             charVal  = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L92'>UTF8Util</a>           92 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp         charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L121'>UTF8Util</a>          121 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp     UInt32 charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L132'>UTF8Util</a>          132 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp             charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/171.html#L144'>UTF8Util</a>          144 ovr/sdk/src/Kernel/OVR_String_PathUtil.cpp         charVal = UTF8Util::DecodeNextChar(&amp;url);
+<a href='../S/157.html#L43'>UTF8Util</a>           43 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UTF8Util::DecodeNextChar_Advance0(&amp;p);
+<a href='../S/157.html#L49'>UTF8Util</a>           49 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while (UTF8Util::DecodeNextChar_Advance0(&amp;p))
+<a href='../S/157.html#L65'>UTF8Util</a>           65 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L76'>UTF8Util</a>           76 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L98'>UTF8Util</a>           98 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L107'>UTF8Util</a>          107 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         UInt32 c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L509'>UTF8Util</a>          509 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UInt32  uc = UTF8Util::DecodeNextChar(&amp;p);
+<a href='../S/157.html#L526'>UTF8Util</a>          526 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp                         UTF8Util::EncodeChar(reencoded_utf8, &amp;index, uc);
+<a href='../S/154.html#L33'>UTF8Util</a>           33 ovr/sdk/src/Kernel/OVR_UTF8Util.h namespace OVR { namespace UTF8Util {
+<a href='../S/139.html#L79'>UTF8Util</a>           79 ovr/sdk/src/OVR_Profile.cpp         OVR::UTF8Util::DecodeString(wpath, path.ToCStr());
+</pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>ts</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/181.html#L298'>ts</a>                298 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         timespec ts;
+<a href='../S/181.html#L303'>ts</a>                303 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         ts.tv_sec = tv.tv_sec + (delay / 1000);
+<a href='../S/181.html#L304'>ts</a>                304 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         ts.tv_nsec = (tv.tv_usec + (delay % 1000) * 1000) * 1000;
+<a href='../S/181.html#L306'>ts</a>                306 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         if (ts.tv_nsec &gt; 999999999)
+<a href='../S/181.html#L308'>ts</a>                308 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp             ts.tv_sec++;
+<a href='../S/181.html#L309'>ts</a>                309 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp             ts.tv_nsec -= 1000000000;
+<a href='../S/181.html#L311'>ts</a>                311 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         int r = pthread_cond_timedwait(&amp;Condv,&amp;SMutex, &amp;ts);
+<a href='../S/87.html#L741'>ts</a>                741 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestStarted&amp; ts = message-&gt;TestStarted;
+<a href='../S/87.html#L749'>ts</a>                749 ovr/sdk/src/OVR_LatencyTestImpl.cpp         started.TargetValue = Color(ts.TargetValue[0], ts.TargetValue[1], ts.TargetValue[2]);
+<a href='../S/188.html#L1009'>ts</a>               1009 ovr/sdk/src/OVR_Sensor2Impl.cpp         SensorTimestampMapping&amp; ts  = *timestamps[updateIndices[i]];
+<a href='../S/188.html#L1011'>ts</a>               1011 ovr/sdk/src/OVR_Sensor2Impl.cpp         ts.TimeSeconds = tf.SampleToSystemTime(((double)ts.TimestampMks) * mksToSec,
+<a href='../S/188.html#L1012'>ts</a>               1012 ovr/sdk/src/OVR_Sensor2Impl.cpp                                                now, ts.TimeSeconds, ts.DebugTag);
+</pre>
+</body>
+</html>

@@ -1,0 +1,3 @@
+<map id="tinyxml2::XMLVisitor" name="tinyxml2::XMLVisitor">
+<area shape="rect" id="node2" href="$classtinyxml2_1_1XMLPrinter.html" title="{tinyxml2::XMLPrinter\n|&#45; _elementJustOpened\l&#45; _firstElement\l&#45; _fp\l&#45; _depth\l&#45; _textDepth\l&#45; _processEntities\l&#45; _compactMode\l&#45; _entityFlag\l&#45; _restrictedEntityFlag\l&#45; _stack\l&#45; _buffer\l|+ XMLPrinter()\l+ ~XMLPrinter()\l+ PushHeader()\l+ OpenElement()\l+ PushAttribute()\l+ PushAttribute()\l+ PushAttribute()\l+ PushAttribute()\l+ PushAttribute()\l+ CloseElement()\land 19 more...\l&#45; SealElement()\l&#45; PrintSpace()\l&#45; PrintString()\l&#45; Print()\l}" alt="" coords="5,248,157,677"/>
+</map>

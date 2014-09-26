@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Policy</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/152.html#L95'>Policy</a>             95 ovr/sdk/src/Kernel/OVR_Array.h         : Data(0), Size(0), Policy() {}
+<a href='../S/152.html#L98'>Policy</a>             98 ovr/sdk/src/Kernel/OVR_Array.h         : Data(0), Size(0), Policy(p) {}
+<a href='../S/152.html#L108'>Policy</a>            108 ovr/sdk/src/Kernel/OVR_Array.h         return Policy.GetCapacity(); 
+<a href='../S/152.html#L117'>Policy</a>            117 ovr/sdk/src/Kernel/OVR_Array.h         Policy.SetCapacity(0);
+<a href='../S/152.html#L122'>Policy</a>            122 ovr/sdk/src/Kernel/OVR_Array.h         if (Policy.NeverShrinking() &amp;&amp; newCapacity &lt; GetCapacity())
+<a href='../S/152.html#L125'>Policy</a>            125 ovr/sdk/src/Kernel/OVR_Array.h         if (newCapacity &lt; Policy.GetMinCapacity())
+<a href='../S/152.html#L126'>Policy</a>            126 ovr/sdk/src/Kernel/OVR_Array.h             newCapacity = Policy.GetMinCapacity();
+<a href='../S/152.html#L136'>Policy</a>            136 ovr/sdk/src/Kernel/OVR_Array.h             Policy.SetCapacity(0);
+<a href='../S/152.html#L140'>Policy</a>            140 ovr/sdk/src/Kernel/OVR_Array.h             UPInt gran = Policy.GetGranularity();
+<a href='../S/152.html#L171'>Policy</a>            171 ovr/sdk/src/Kernel/OVR_Array.h             Policy.SetCapacity(newCapacity);
+<a href='../S/152.html#L186'>Policy</a>            186 ovr/sdk/src/Kernel/OVR_Array.h             if (newSize &lt; (Policy.GetCapacity() &gt;&gt; 1))
+<a href='../S/152.html#L191'>Policy</a>            191 ovr/sdk/src/Kernel/OVR_Array.h         else if(newSize &gt;= Policy.GetCapacity())
+<a href='../S/152.html#L203'>Policy</a>            203 ovr/sdk/src/Kernel/OVR_Array.h     SizePolicy  Policy;
+<a href='../S/152.html#L229'>Policy</a>            229 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(a.Policy) { Append(a.Data, a.Size); }
+<a href='../S/152.html#L288'>Policy</a>            288 ovr/sdk/src/Kernel/OVR_Array.h         : BaseType(a.Policy), DefaultValue(a.DefaultValue) { Append(a.Data, a.Size); }
+<a href='../S/152.html#L372'>Policy</a>            372 ovr/sdk/src/Kernel/OVR_Array.h     SizePolicyType* GetSizePolicy() const                  { return Data.Policy; }
+<a href='../S/152.html#L373'>Policy</a>            373 ovr/sdk/src/Kernel/OVR_Array.h     void            SetSizePolicy(const SizePolicyType&amp; p) { Data.Policy = p; }
+<a href='../S/152.html#L375'>Policy</a>            375 ovr/sdk/src/Kernel/OVR_Array.h     bool    NeverShrinking()const       { return Data.Policy.NeverShrinking(); }
+</pre>
+</body>
+</html>

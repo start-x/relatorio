@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>pArray</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/152.html#L596'>pArray</a>            596 ovr/sdk/src/Kernel/OVR_Array.h         SelfType*       pArray;
+<a href='../S/152.html#L600'>pArray</a>            600 ovr/sdk/src/Kernel/OVR_Array.h         Iterator() : pArray(0), CurIndex(-1) {}
+<a href='../S/152.html#L601'>pArray</a>            601 ovr/sdk/src/Kernel/OVR_Array.h         Iterator(SelfType* parr, SPInt idx = 0) : pArray(parr), CurIndex(idx) {}
+<a href='../S/152.html#L603'>pArray</a>            603 ovr/sdk/src/Kernel/OVR_Array.h         bool operator==(const Iterator&amp; it) const { return pArray == it.pArray &amp;&amp; CurIndex == it.CurIndex; }
+<a href='../S/152.html#L604'>pArray</a>            604 ovr/sdk/src/Kernel/OVR_Array.h         bool operator!=(const Iterator&amp; it) const { return pArray != it.pArray || CurIndex != it.CurIndex; }
+<a href='../S/152.html#L608'>pArray</a>            608 ovr/sdk/src/Kernel/OVR_Array.h             if (pArray)
+<a href='../S/152.html#L610'>pArray</a>            610 ovr/sdk/src/Kernel/OVR_Array.h                 if (CurIndex &lt; (SPInt)pArray-&gt;GetSize())
+<a href='../S/152.html#L623'>pArray</a>            623 ovr/sdk/src/Kernel/OVR_Array.h             if (pArray)
+<a href='../S/152.html#L638'>pArray</a>            638 ovr/sdk/src/Kernel/OVR_Array.h             return Iterator(pArray, CurIndex + delta);
+<a href='../S/152.html#L642'>pArray</a>            642 ovr/sdk/src/Kernel/OVR_Array.h             return Iterator(pArray, CurIndex - delta);
+<a href='../S/152.html#L646'>pArray</a>            646 ovr/sdk/src/Kernel/OVR_Array.h             OVR_ASSERT(pArray == right.pArray);
+<a href='../S/152.html#L649'>pArray</a>            649 ovr/sdk/src/Kernel/OVR_Array.h         ValueType&amp; operator*() const    { OVR_ASSERT(pArray); return  (*pArray)[CurIndex]; }
+<a href='../S/152.html#L650'>pArray</a>            650 ovr/sdk/src/Kernel/OVR_Array.h         ValueType* operator-&gt;() const   { OVR_ASSERT(pArray); return &amp;(*pArray)[CurIndex]; }
+<a href='../S/152.html#L651'>pArray</a>            651 ovr/sdk/src/Kernel/OVR_Array.h         ValueType* GetPtr() const       { OVR_ASSERT(pArray); return &amp;(*pArray)[CurIndex]; }
+<a href='../S/152.html#L653'>pArray</a>            653 ovr/sdk/src/Kernel/OVR_Array.h         bool IsFinished() const { return !pArray || CurIndex &lt; 0 || CurIndex &gt;= (int)pArray-&gt;GetSize(); }
+<a href='../S/152.html#L658'>pArray</a>            658 ovr/sdk/src/Kernel/OVR_Array.h                 pArray-&gt;RemoveAt(CurIndex);
+<a href='../S/152.html#L670'>pArray</a>            670 ovr/sdk/src/Kernel/OVR_Array.h         const SelfType* pArray;
+<a href='../S/152.html#L674'>pArray</a>            674 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator() : pArray(0), CurIndex(-1) {}
+<a href='../S/152.html#L675'>pArray</a>            675 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator(const SelfType* parr, SPInt idx = 0) : pArray(parr), CurIndex(idx) {}
+<a href='../S/152.html#L677'>pArray</a>            677 ovr/sdk/src/Kernel/OVR_Array.h         bool operator==(const ConstIterator&amp; it) const { return pArray == it.pArray &amp;&amp; CurIndex == it.CurIndex; }
+<a href='../S/152.html#L678'>pArray</a>            678 ovr/sdk/src/Kernel/OVR_Array.h         bool operator!=(const ConstIterator&amp; it) const { return pArray != it.pArray || CurIndex != it.CurIndex; }
+<a href='../S/152.html#L682'>pArray</a>            682 ovr/sdk/src/Kernel/OVR_Array.h             if (pArray)
+<a href='../S/152.html#L684'>pArray</a>            684 ovr/sdk/src/Kernel/OVR_Array.h                 if (CurIndex &lt; (int)pArray-&gt;GetSize())
+<a href='../S/152.html#L697'>pArray</a>            697 ovr/sdk/src/Kernel/OVR_Array.h             if (pArray)
+<a href='../S/152.html#L712'>pArray</a>            712 ovr/sdk/src/Kernel/OVR_Array.h             return ConstIterator(pArray, CurIndex + delta);
+<a href='../S/152.html#L716'>pArray</a>            716 ovr/sdk/src/Kernel/OVR_Array.h             return ConstIterator(pArray, CurIndex - delta);
+<a href='../S/152.html#L720'>pArray</a>            720 ovr/sdk/src/Kernel/OVR_Array.h             OVR_ASSERT(pArray == right.pArray);
+<a href='../S/152.html#L723'>pArray</a>            723 ovr/sdk/src/Kernel/OVR_Array.h         const ValueType&amp; operator*() const  { OVR_ASSERT(pArray); return  (*pArray)[CurIndex]; }
+<a href='../S/152.html#L724'>pArray</a>            724 ovr/sdk/src/Kernel/OVR_Array.h         const ValueType* operator-&gt;() const { OVR_ASSERT(pArray); return &amp;(*pArray)[CurIndex]; }
+<a href='../S/152.html#L725'>pArray</a>            725 ovr/sdk/src/Kernel/OVR_Array.h         const ValueType* GetPtr() const     { OVR_ASSERT(pArray); return &amp;(*pArray)[CurIndex]; }
+<a href='../S/152.html#L727'>pArray</a>            727 ovr/sdk/src/Kernel/OVR_Array.h         bool IsFinished() const { return !pArray || CurIndex &lt; 0 || CurIndex &gt;= (int)pArray-&gt;GetSize(); }
+</pre>
+</body>
+</html>

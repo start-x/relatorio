@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>value_element</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/139.html#L843'>value_element</a>     843 ovr/sdk/src/OVR_Profile.cpp                             JSON* value_element = value-&gt;GetFirstItem();
+<a href='../S/139.html#L845'>value_element</a>     845 ovr/sdk/src/OVR_Profile.cpp                             while (item_element &amp;&amp; value_element)
+<a href='../S/139.html#L847'>value_element</a>     847 ovr/sdk/src/OVR_Profile.cpp                                 if (value_element-&gt;Type == JSON_String)
+<a href='../S/139.html#L849'>value_element</a>     849 ovr/sdk/src/OVR_Profile.cpp                                     if (item_element-&gt;Value != value_element-&gt;Value)
+<a href='../S/139.html#L851'>value_element</a>     851 ovr/sdk/src/OVR_Profile.cpp                                         item_element-&gt;Value = value_element-&gt;Value;
+<a href='../S/139.html#L856'>value_element</a>     856 ovr/sdk/src/OVR_Profile.cpp                                     if (item_element-&gt;dValue != value_element-&gt;dValue)
+<a href='../S/139.html#L858'>value_element</a>     858 ovr/sdk/src/OVR_Profile.cpp                                         item_element-&gt;dValue = value_element-&gt;dValue;
+<a href='../S/139.html#L863'>value_element</a>     863 ovr/sdk/src/OVR_Profile.cpp                                 value_element = value-&gt;GetNextItem(value_element);
+</pre>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>BufferedFile</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L47'>BufferedFile</a>       47 ovr/sdk/src/Kernel/OVR_File.cpp BufferedFile::BufferedFile() : DelegatedFile(0)
+<a href='../S/172.html#L57'>BufferedFile</a>       57 ovr/sdk/src/Kernel/OVR_File.cpp BufferedFile::BufferedFile(File *pfile) : DelegatedFile(pfile)
+<a href='../S/172.html#L68'>BufferedFile</a>       68 ovr/sdk/src/Kernel/OVR_File.cpp BufferedFile::~BufferedFile()
+<a href='../S/172.html#L97'>BufferedFile</a>       97 ovr/sdk/src/Kernel/OVR_File.cpp bool    BufferedFile::SetBufferMode(BufferModeType mode)
+<a href='../S/172.html#L118'>BufferedFile</a>      118 ovr/sdk/src/Kernel/OVR_File.cpp void    BufferedFile::FlushBuffer()
+<a href='../S/172.html#L142'>BufferedFile</a>      142 ovr/sdk/src/Kernel/OVR_File.cpp void    BufferedFile::LoadBuffer()
+<a href='../S/172.html#L164'>BufferedFile</a>      164 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::Tell()
+<a href='../S/172.html#L180'>BufferedFile</a>      180 ovr/sdk/src/Kernel/OVR_File.cpp SInt64  BufferedFile::LTell()
+<a href='../S/172.html#L195'>BufferedFile</a>      195 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::GetLength()
+<a href='../S/172.html#L207'>BufferedFile</a>      207 ovr/sdk/src/Kernel/OVR_File.cpp SInt64  BufferedFile::LGetLength()
+<a href='../S/172.html#L242'>BufferedFile</a>      242 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::Write(const UByte *psourceBuffer, int numBytes)
+<a href='../S/172.html#L271'>BufferedFile</a>      271 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::Read(UByte *pdestBuffer, int numBytes)
+<a href='../S/172.html#L344'>BufferedFile</a>      344 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::SkipBytes(int numBytes)
+<a href='../S/172.html#L372'>BufferedFile</a>      372 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::BytesAvailable()
+<a href='../S/172.html#L392'>BufferedFile</a>      392 ovr/sdk/src/Kernel/OVR_File.cpp bool    BufferedFile::Flush()
+<a href='../S/172.html#L399'>BufferedFile</a>      399 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::Seek(int offset, int origin)
+<a href='../S/172.html#L464'>BufferedFile</a>      464 ovr/sdk/src/Kernel/OVR_File.cpp SInt64  BufferedFile::LSeek(SInt64 offset, int origin)
+<a href='../S/172.html#L524'>BufferedFile</a>      524 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::CopyFromStream(File *pstream, int byteSize)
+<a href='../S/172.html#L551'>BufferedFile</a>      551 ovr/sdk/src/Kernel/OVR_File.cpp bool    BufferedFile::Close()
+<a href='../S/186.html#L49'>BufferedFile</a>       49 ovr/sdk/src/Kernel/OVR_File.h class   BufferedFile;
+<a href='../S/186.html#L334'>BufferedFile</a>      334 ovr/sdk/src/Kernel/OVR_File.h class BufferedFile : public DelegatedFile
+<a href='../S/186.html#L364'>BufferedFile</a>      364 ovr/sdk/src/Kernel/OVR_File.h     BufferedFile();
+<a href='../S/186.html#L365'>BufferedFile</a>      365 ovr/sdk/src/Kernel/OVR_File.h     inline BufferedFile(const BufferedFile &amp;source) : DelegatedFile() { OVR_UNUSED(source); }
+<a href='../S/186.html#L370'>BufferedFile</a>      370 ovr/sdk/src/Kernel/OVR_File.h     BufferedFile(File *pfile);
+<a href='../S/186.html#L371'>BufferedFile</a>      371 ovr/sdk/src/Kernel/OVR_File.h     ~BufferedFile();
+<a href='../S/156.html#L109'>BufferedFile</a>      109 ovr/sdk/src/Kernel/OVR_SysFile.cpp         pFile = *new BufferedFile(pFile);
+</pre>
+</body>
+</html>

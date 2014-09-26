@@ -1,0 +1,4 @@
+<map id="OVR::SensorFusion" name="OVR::SensorFusion">
+<area shape="rect" id="node2" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="5,28,169,105"/>
+<area shape="rect" id="node3" href="$classOVR_1_1VisionHandler.html" title="{OVR::VisionHandler\n||+ OnVisionSuccess()\l+ OnVisionPreviousFrame()\l+ OnVisionFailure()\l+ GetVisionPrediction()\l}" alt="" coords="195,6,377,127"/>
+</map>

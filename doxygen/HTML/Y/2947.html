@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>d</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/19.html#L15'>d</a>                  15 device/tests/tests.cpp 	Direction d;
+<a href='../S/19.html#L30'>d</a>                  30 device/tests/tests.cpp 	d.getData(data);
+<a href='../S/107.html#L55'>d</a>                  55 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     ovrHmdDesc d;
+<a href='../S/107.html#L56'>d</a>                  56 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     memset(&amp;d, 0, sizeof(d));
+<a href='../S/107.html#L58'>d</a>                  58 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.Type = ovrHmd_Other;
+<a href='../S/107.html#L60'>d</a>                  60 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.ProductName       = HMDInfo.ProductName;    
+<a href='../S/107.html#L61'>d</a>                  61 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.Manufacturer      = HMDInfo.Manufacturer;
+<a href='../S/107.html#L62'>d</a>                  62 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.Resolution.w      = HMDInfo.ResolutionInPixels.w;
+<a href='../S/107.html#L63'>d</a>                  63 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.Resolution.h      = HMDInfo.ResolutionInPixels.h;
+<a href='../S/107.html#L64'>d</a>                  64 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.WindowsPos.x      = HMDInfo.DesktopX;
+<a href='../S/107.html#L65'>d</a>                  65 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.WindowsPos.y      = HMDInfo.DesktopY;
+<a href='../S/107.html#L66'>d</a>                  66 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.DisplayDeviceName = HMDInfo.DisplayDeviceName;
+<a href='../S/107.html#L67'>d</a>                  67 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.DisplayId         = HMDInfo.DisplayId;
+<a href='../S/107.html#L69'>d</a>                  69 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.HmdCaps           = ovrHmdCap_Present | ovrHmdCap_NoVSync;
+<a href='../S/107.html#L70'>d</a>                  70 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.SensorCaps        = ovrSensorCap_YawCorrection | ovrSensorCap_Orientation;
+<a href='../S/107.html#L71'>d</a>                  71 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.DistortionCaps    = ovrDistortionCap_Chromatic | ovrDistortionCap_TimeWarp | ovrDistortionCap_Vignette;
+<a href='../S/107.html#L75'>d</a>                  75 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.Type = ovrHmd_DK1;        
+<a href='../S/107.html#L79'>d</a>                  79 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.Type        = ovrHmd_DK2;
+<a href='../S/107.html#L80'>d</a>                  80 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.HmdCaps    |= ovrHmdCap_LowPersistence |
+<a href='../S/107.html#L82'>d</a>                  82 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.SensorCaps |= ovrSensorCap_Position;
+<a href='../S/107.html#L89'>d</a>                  89 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.DefaultEyeFov[0] = CalculateFovFromHmdInfo(StereoEye_Left, leftDistortion, RenderInfo, OVR_DEFAULT_EXTRA_EYE_ROTATION);
+<a href='../S/107.html#L90'>d</a>                  90 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.DefaultEyeFov[1] = CalculateFovFromHmdInfo(StereoEye_Right, rightDistortion, RenderInfo, OVR_DEFAULT_EXTRA_EYE_ROTATION);
+<a href='../S/107.html#L93'>d</a>                  93 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.MaxEyeFov[0] = GetPhysicalScreenFov(StereoEye_Left, leftDistortion);
+<a href='../S/107.html#L94'>d</a>                  94 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.MaxEyeFov[1] = GetPhysicalScreenFov(StereoEye_Right, rightDistortion);
+<a href='../S/107.html#L98'>d</a>                  98 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.EyeRenderOrder[0] = ovrEye_Right;
+<a href='../S/107.html#L99'>d</a>                  99 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.EyeRenderOrder[1] = ovrEye_Left;
+<a href='../S/107.html#L103'>d</a>                 103 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.EyeRenderOrder[0] = ovrEye_Left;
+<a href='../S/107.html#L104'>d</a>                 104 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp         d.EyeRenderOrder[1] = ovrEye_Right;
+<a href='../S/107.html#L107'>d</a>                 107 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     return d;
+<a href='../S/148.html#L117'>d</a>                 117 ovr/sdk/src/Kernel/OVR_Lockless.cpp         TestData d;
+<a href='../S/148.html#L125'>d</a>                 125 ovr/sdk/src/Kernel/OVR_Lockless.cpp                 d = TestDataUpdater.GetState();
+<a href='../S/148.html#L128'>d</a>                 128 ovr/sdk/src/Kernel/OVR_Lockless.cpp             newValue = d.ReadAndCheckConsistency(oldValue);
+<a href='../S/148.html#L177'>d</a>                 177 ovr/sdk/src/Kernel/OVR_Lockless.cpp             TestData d;
+<a href='../S/148.html#L178'>d</a>                 178 ovr/sdk/src/Kernel/OVR_Lockless.cpp             d.Set(testVal);
+<a href='../S/148.html#L182'>d</a>                 182 ovr/sdk/src/Kernel/OVR_Lockless.cpp                 TestDataUpdater.SetState(d);
+<a href='../S/177.html#L740'>d</a>                 740 ovr/sdk/src/Kernel/OVR_Math.h     Quat(Axis A, T angle, RotateDirection d = Rotate_CCW, HandedSystem s = Handed_R)
+<a href='../S/177.html#L742'>d</a>                 742 ovr/sdk/src/Kernel/OVR_Math.h         T sinHalfAngle = s * d *sin(angle * T(0.5));
+<a href='../S/177.html#L1348'>d</a>                1348 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4&amp; Multiply(Matrix4* d, const Matrix4&amp; a, const Matrix4&amp; b)
+<a href='../S/177.html#L1350'>d</a>                1350 ovr/sdk/src/Kernel/OVR_Math.h         OVR_ASSERT((d != &amp;a) &amp;&amp; (d != &amp;b));
+<a href='../S/177.html#L1353'>d</a>                1353 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][0] = a.M[i][0] * b.M[0][0] + a.M[i][1] * b.M[1][0] + a.M[i][2] * b.M[2][0] + a.M[i][3] * b.M[3][0];
+<a href='../S/177.html#L1354'>d</a>                1354 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][1] = a.M[i][0] * b.M[0][1] + a.M[i][1] * b.M[1][1] + a.M[i][2] * b.M[2][1] + a.M[i][3] * b.M[3][1];
+<a href='../S/177.html#L1355'>d</a>                1355 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][2] = a.M[i][0] * b.M[0][2] + a.M[i][1] * b.M[1][2] + a.M[i][2] * b.M[2][2] + a.M[i][3] * b.M[3][2];
+<a href='../S/177.html#L1356'>d</a>                1356 ovr/sdk/src/Kernel/OVR_Math.h             d-&gt;M[i][3] = a.M[i][0] * b.M[0][3] + a.M[i][1] * b.M[1][3] + a.M[i][2] * b.M[2][3] + a.M[i][3] * b.M[3][3];
+<a href='../S/177.html#L1359'>d</a>                1359 ovr/sdk/src/Kernel/OVR_Math.h         return *d;
+<a href='../S/177.html#L1653'>d</a>                1653 ovr/sdk/src/Kernel/OVR_Math.h 		T d = fabs(M[0][0] - m2.M[0][0]) + fabs(M[0][1] - m2.M[0][1]);
+<a href='../S/177.html#L1654'>d</a>                1654 ovr/sdk/src/Kernel/OVR_Math.h 		d += fabs(M[0][2] - m2.M[0][2]) + fabs(M[0][3] - m2.M[0][3]);
+<a href='../S/177.html#L1655'>d</a>                1655 ovr/sdk/src/Kernel/OVR_Math.h 		d += fabs(M[1][0] - m2.M[1][0]) + fabs(M[1][1] - m2.M[1][1]);
+<a href='../S/177.html#L1656'>d</a>                1656 ovr/sdk/src/Kernel/OVR_Math.h 		d += fabs(M[1][2] - m2.M[1][2]) + fabs(M[1][3] - m2.M[1][3]);
+<a href='../S/177.html#L1657'>d</a>                1657 ovr/sdk/src/Kernel/OVR_Math.h 		d += fabs(M[2][0] - m2.M[2][0]) + fabs(M[2][1] - m2.M[2][1]);
+<a href='../S/177.html#L1658'>d</a>                1658 ovr/sdk/src/Kernel/OVR_Math.h 		d += fabs(M[2][2] - m2.M[2][2]) + fabs(M[2][3] - m2.M[2][3]);
+<a href='../S/177.html#L1659'>d</a>                1659 ovr/sdk/src/Kernel/OVR_Math.h 		d += fabs(M[3][0] - m2.M[3][0]) + fabs(M[3][1] - m2.M[3][1]);
+<a href='../S/177.html#L1660'>d</a>                1660 ovr/sdk/src/Kernel/OVR_Math.h 		d += fabs(M[3][2] - m2.M[3][2]) + fabs(M[3][3] - m2.M[3][3]);
+<a href='../S/177.html#L1661'>d</a>                1661 ovr/sdk/src/Kernel/OVR_Math.h 		return d; 
+<a href='../S/177.html#L1666'>d</a>                1666 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 RotationAxis(Axis A, T angle, RotateDirection d, HandedSystem s)
+<a href='../S/177.html#L1668'>d</a>                1668 ovr/sdk/src/Kernel/OVR_Math.h         T sina = s * d *sin(angle);
+<a href='../S/177.html#L2046'>d</a>                2046 ovr/sdk/src/Kernel/OVR_Math.h 	static Matrix3&amp; Multiply(Matrix3* d, const Matrix3&amp; a, const Matrix3&amp; b)
+<a href='../S/177.html#L2048'>d</a>                2048 ovr/sdk/src/Kernel/OVR_Math.h 		OVR_ASSERT((d != &amp;a) &amp;&amp; (d != &amp;b));
+<a href='../S/177.html#L2051'>d</a>                2051 ovr/sdk/src/Kernel/OVR_Math.h 			d-&gt;M[i][0] = a.M[i][0] * b.M[0][0] + a.M[i][1] * b.M[1][0] + a.M[i][2] * b.M[2][0];
+<a href='../S/177.html#L2052'>d</a>                2052 ovr/sdk/src/Kernel/OVR_Math.h 			d-&gt;M[i][1] = a.M[i][0] * b.M[0][1] + a.M[i][1] * b.M[1][1] + a.M[i][2] * b.M[2][1];
+<a href='../S/177.html#L2053'>d</a>                2053 ovr/sdk/src/Kernel/OVR_Math.h 			d-&gt;M[i][2] = a.M[i][0] * b.M[0][2] + a.M[i][1] * b.M[1][2] + a.M[i][2] * b.M[2][2];
+<a href='../S/177.html#L2056'>d</a>                2056 ovr/sdk/src/Kernel/OVR_Math.h 		return *d;
+<a href='../S/177.html#L2167'>d</a>                2167 ovr/sdk/src/Kernel/OVR_Math.h 		T d; 
+<a href='../S/177.html#L2169'>d</a>                2169 ovr/sdk/src/Kernel/OVR_Math.h 		d  = m.M[0][0] * (m.M[1][1]*m.M[2][2] - m.M[1][2] * m.M[2][1]);
+<a href='../S/177.html#L2170'>d</a>                2170 ovr/sdk/src/Kernel/OVR_Math.h 		d -= m.M[0][1] * (m.M[1][0]*m.M[2][2] - m.M[1][2] * m.M[2][0]);
+<a href='../S/177.html#L2171'>d</a>                2171 ovr/sdk/src/Kernel/OVR_Math.h 		d += m.M[0][2] * (m.M[1][0]*m.M[2][1] - m.M[1][1] * m.M[2][0]);
+<a href='../S/177.html#L2173'>d</a>                2173 ovr/sdk/src/Kernel/OVR_Math.h 		return d;
+<a href='../S/177.html#L2180'>d</a>                2180 ovr/sdk/src/Kernel/OVR_Math.h         T d = Determinant();
+<a href='../S/177.html#L2182'>d</a>                2182 ovr/sdk/src/Kernel/OVR_Math.h         assert(d != 0);
+<a href='../S/177.html#L2183'>d</a>                2183 ovr/sdk/src/Kernel/OVR_Math.h         T s = T(1)/d;
+<a href='../S/177.html#L2286'>d</a>                2286 ovr/sdk/src/Kernel/OVR_Math.h 		SymMat3 d;
+<a href='../S/177.html#L2287'>d</a>                2287 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[0] = v[0]*s; 
+<a href='../S/177.html#L2288'>d</a>                2288 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[1] = v[1]*s; 
+<a href='../S/177.html#L2289'>d</a>                2289 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[2] = v[2]*s; 
+<a href='../S/177.html#L2290'>d</a>                2290 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[3] = v[3]*s; 
+<a href='../S/177.html#L2291'>d</a>                2291 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[4] = v[4]*s; 
+<a href='../S/177.html#L2292'>d</a>                2292 ovr/sdk/src/Kernel/OVR_Math.h 		d.v[5] = v[5]*s; 
+<a href='../S/177.html#L2294'>d</a>                2294 ovr/sdk/src/Kernel/OVR_Math.h 		return d;
+<a href='../S/177.html#L2298'>d</a>                2298 ovr/sdk/src/Kernel/OVR_Math.h 	static SymMat3&amp; Multiply(SymMat3* d, const SymMat3&amp; a, const SymMat3&amp; b)
+<a href='../S/177.html#L2302'>d</a>                2302 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[0] = a.v[0] * b.v[0];
+<a href='../S/177.html#L2303'>d</a>                2303 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[1] = a.v[0] * b.v[1] + a.v[1] * b.v[3];
+<a href='../S/177.html#L2304'>d</a>                2304 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[2] = a.v[0] * b.v[2] + a.v[1] * b.v[4];
+<a href='../S/177.html#L2306'>d</a>                2306 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[3] = a.v[3] * b.v[3];
+<a href='../S/177.html#L2307'>d</a>                2307 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[4] = a.v[3] * b.v[4] + a.v[4] * b.v[5];
+<a href='../S/177.html#L2309'>d</a>                2309 ovr/sdk/src/Kernel/OVR_Math.h 		d-&gt;v[5] = a.v[5] * b.v[5];
+<a href='../S/177.html#L2311'>d</a>                2311 ovr/sdk/src/Kernel/OVR_Math.h 		return *d;
+<a href='../S/177.html#L2317'>d</a>                2317 ovr/sdk/src/Kernel/OVR_Math.h 		T d; 
+<a href='../S/177.html#L2319'>d</a>                2319 ovr/sdk/src/Kernel/OVR_Math.h 		d  = m(0,0) * (m(1,1)*m(2,2) - m(1,2) * m(2,1));
+<a href='../S/177.html#L2320'>d</a>                2320 ovr/sdk/src/Kernel/OVR_Math.h 		d -= m(0,1) * (m(1,0)*m(2,2) - m(1,2) * m(2,0));
+<a href='../S/177.html#L2321'>d</a>                2321 ovr/sdk/src/Kernel/OVR_Math.h 		d += m(0,2) * (m(1,0)*m(2,1) - m(1,1) * m(2,0));
+<a href='../S/177.html#L2323'>d</a>                2323 ovr/sdk/src/Kernel/OVR_Math.h 		return d;
+<a href='../S/177.html#L2330'>d</a>                2330 ovr/sdk/src/Kernel/OVR_Math.h 		T d = Determinant();
+<a href='../S/177.html#L2332'>d</a>                2332 ovr/sdk/src/Kernel/OVR_Math.h 		assert(d != 0);
+<a href='../S/177.html#L2333'>d</a>                2333 ovr/sdk/src/Kernel/OVR_Math.h 		T s = T(1)/d;
+<a href='../S/177.html#L2493'>d</a>                2493 ovr/sdk/src/Kernel/OVR_Math.h     Plane(const Vector3&lt;T&gt;&amp; n, T d) : N(n), D(d) {}
+<a href='../S/177.html#L2494'>d</a>                2494 ovr/sdk/src/Kernel/OVR_Math.h     Plane(T x, T y, T z, T d) : N(x,y,z), D(d) {}
+<a href='../S/168.html#L457'>d</a>                 457 ovr/sdk/src/Kernel/OVR_Types.h #define OVR_DEBUG_SELECT(d, nd)  d
+<a href='../S/168.html#L460'>d</a>                 460 ovr/sdk/src/Kernel/OVR_Types.h #define OVR_DEBUG_SELECT(d, nd)  nd
+<a href='../S/84.html#L81'>d</a>                  81 ovr/sdk/src/OVR_JSON.cpp static char* PrintNumber(double d)
+<a href='../S/84.html#L85'>d</a>                  85 ovr/sdk/src/OVR_JSON.cpp     int valueint = (int)d;
+<a href='../S/84.html#L86'>d</a>                  86 ovr/sdk/src/OVR_JSON.cpp 	if (fabs(((double)valueint)-d)&lt;=DBL_EPSILON &amp;&amp; d&lt;=INT_MAX &amp;&amp; d&gt;=INT_MIN)
+<a href='../S/84.html#L97'>d</a>                  97 ovr/sdk/src/OVR_JSON.cpp 			if (fabs(floor(d)-d)&lt;=DBL_EPSILON &amp;&amp; fabs(d)&lt;1.0e60)
+<a href='../S/84.html#L98'>d</a>                  98 ovr/sdk/src/OVR_JSON.cpp                 OVR_sprintf(str, 64, "%.0f", d);
+<a href='../S/84.html#L99'>d</a>                  99 ovr/sdk/src/OVR_JSON.cpp 			else if (fabs(d)&lt;1.0e-6 || fabs(d)&gt;1.0e9)
+<a href='../S/84.html#L100'>d</a>                 100 ovr/sdk/src/OVR_JSON.cpp                 OVR_sprintf(str, 64, "%e", d);
+<a href='../S/84.html#L102'>d</a>                 102 ovr/sdk/src/OVR_JSON.cpp                 OVR_sprintf(str, 64, "%f", d);
+<a href='../S/88.html#L218'>d</a>                 218 ovr/sdk/src/OVR_Stereo.cpp     float s, d;
+<a href='../S/88.html#L224'>d</a>                 224 ovr/sdk/src/OVR_Stereo.cpp     d = fabs(r - DistortionFn(s));
+<a href='../S/88.html#L233'>d</a>                 233 ovr/sdk/src/OVR_Stereo.cpp         if (dUp &lt; d)
+<a href='../S/88.html#L236'>d</a>                 236 ovr/sdk/src/OVR_Stereo.cpp             d = dUp;
+<a href='../S/88.html#L238'>d</a>                 238 ovr/sdk/src/OVR_Stereo.cpp         else if (dDown &lt; d)
+<a href='../S/88.html#L241'>d</a>                 241 ovr/sdk/src/OVR_Stereo.cpp             d = dDown;
+<a href='../S/131.html#L74'>d</a>                  74 ovr/sdk/src/OVR_Stereo.h     FovPort ( float u, float d, float l, float r ) :
+<a href='../S/131.html#L75'>d</a>                  75 ovr/sdk/src/OVR_Stereo.h         UpTan(u), DownTan(d), LeftTan(l), RightTan(r) { }
+<a href='../S/196.html#L1014'>d</a>                1014 ovr/sdk/third_party/tinyxml/tinyxml2.h         double d=0;
+<a href='../S/196.html#L1015'>d</a>                1015 ovr/sdk/third_party/tinyxml/tinyxml2.h         QueryDoubleValue( &amp;d );
+<a href='../S/196.html#L1016'>d</a>                1016 ovr/sdk/third_party/tinyxml/tinyxml2.h         return d;
+<a href='../S/196.html#L1146'>d</a>                1146 ovr/sdk/third_party/tinyxml/tinyxml2.h         double d=0;
+<a href='../S/196.html#L1147'>d</a>                1147 ovr/sdk/third_party/tinyxml/tinyxml2.h         QueryDoubleAttribute( name, &amp;d );
+<a href='../S/196.html#L1148'>d</a>                1148 ovr/sdk/third_party/tinyxml/tinyxml2.h         return d;
+</pre>
+</body>
+</html>

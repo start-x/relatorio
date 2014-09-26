@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>profile</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L376'>profile</a>           376 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     Profile* profile = pHMD-&gt;GetProfile();
+<a href='../S/97.html#L377'>profile</a>           377 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     if (!profile)
+<a href='../S/97.html#L382'>profile</a>           382 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     SFusion.SetUserHeadDimensions ( *profile, RenderState.RenderInfo );
+<a href='../S/139.html#L297'>profile</a>           297 ovr/sdk/src/OVR_Profile.cpp     Profile* profile = CreateProfile();
+<a href='../S/139.html#L298'>profile</a>           298 ovr/sdk/src/OVR_Profile.cpp     profile-&gt;SetValue(OVR_KEY_USER, "default");
+<a href='../S/139.html#L299'>profile</a>           299 ovr/sdk/src/OVR_Profile.cpp     profile-&gt;SetValue(OVR_KEY_NAME, "Default");
+<a href='../S/139.html#L300'>profile</a>           300 ovr/sdk/src/OVR_Profile.cpp     profile-&gt;SetValue(OVR_KEY_GENDER, OVR_DEFAULT_GENDER);
+<a href='../S/139.html#L301'>profile</a>           301 ovr/sdk/src/OVR_Profile.cpp     profile-&gt;SetFloatValue(OVR_KEY_PLAYER_HEIGHT, OVR_DEFAULT_PLAYER_HEIGHT);
+<a href='../S/139.html#L302'>profile</a>           302 ovr/sdk/src/OVR_Profile.cpp     profile-&gt;SetFloatValue(OVR_KEY_EYE_HEIGHT, 1.675f);
+<a href='../S/139.html#L303'>profile</a>           303 ovr/sdk/src/OVR_Profile.cpp     profile-&gt;SetFloatValue(OVR_KEY_IPD, OVR_DEFAULT_IPD);
+<a href='../S/139.html#L305'>profile</a>           305 ovr/sdk/src/OVR_Profile.cpp     profile-&gt;SetFloatValues(OVR_KEY_NECK_TO_EYE_DISTANCE, dist, 2);
+<a href='../S/139.html#L314'>profile</a>           314 ovr/sdk/src/OVR_Profile.cpp     return profile;
+<a href='../S/139.html#L676'>profile</a>           676 ovr/sdk/src/OVR_Profile.cpp     Profile* profile = new Profile();
+<a href='../S/139.html#L677'>profile</a>           677 ovr/sdk/src/OVR_Profile.cpp     return profile;
+<a href='../S/139.html#L763'>profile</a>           763 ovr/sdk/src/OVR_Profile.cpp     Profile* profile = new Profile();
+<a href='../S/139.html#L773'>profile</a>           773 ovr/sdk/src/OVR_Profile.cpp             profile-&gt;SetValue(item);
+<a href='../S/139.html#L777'>profile</a>           777 ovr/sdk/src/OVR_Profile.cpp         return profile;
+<a href='../S/139.html#L781'>profile</a>           781 ovr/sdk/src/OVR_Profile.cpp         profile-&gt;Release();
+<a href='../S/139.html#L787'>profile</a>           787 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::SetTaggedProfile(const char** tag_names, const char** tags, int num_tags, Profile* profile)
+<a href='../S/139.html#L824'>profile</a>           824 ovr/sdk/src/OVR_Profile.cpp     for (unsigned int i=0; i&lt;profile-&gt;Values.GetSize(); i++)
+<a href='../S/139.html#L826'>profile</a>           826 ovr/sdk/src/OVR_Profile.cpp         JSON* value = profile-&gt;Values[i];
+<a href='../S/139.html#L930'>profile</a>           930 ovr/sdk/src/OVR_Profile.cpp     Profile* profile = new Profile();
+<a href='../S/139.html#L934'>profile</a>           934 ovr/sdk/src/OVR_Profile.cpp         if (!profile-&gt;LoadDeviceProfile(device) &amp;&amp; (user == NULL))
+<a href='../S/139.html#L936'>profile</a>           936 ovr/sdk/src/OVR_Profile.cpp             profile-&gt;Release();
+<a href='../S/139.html#L950'>profile</a>           950 ovr/sdk/src/OVR_Profile.cpp         if (!profile-&gt;LoadProfile(ProfileCache.GetPtr(), user, product_str, serial_str))
+<a href='../S/139.html#L952'>profile</a>           952 ovr/sdk/src/OVR_Profile.cpp             profile-&gt;Release();
+<a href='../S/139.html#L957'>profile</a>           957 ovr/sdk/src/OVR_Profile.cpp     return profile;
+<a href='../S/133.html#L91'>profile</a>            91 ovr/sdk/src/OVR_Profile.h     bool                SetTaggedProfile(const char** key_names, const char** keys, int num_keys, Profile* profile);
+<a href='../S/133.html#L152'>profile</a>           152 ovr/sdk/src/OVR_Profile.h                                     Profile** profile);
+<a href='../S/189.html#L752'>profile</a>           752 ovr/sdk/src/OVR_SensorFusion.cpp void SensorFusion::SetUserHeadDimensions(Profile const &amp;profile, HmdRenderInfo const &amp;hmdRenderInfo)
+<a href='../S/189.html#L755'>profile</a>           755 ovr/sdk/src/OVR_SensorFusion.cpp     int count = profile.GetFloatValues(OVR_KEY_NECK_TO_EYE_DISTANCE, neckeye, 2);
+<a href='../S/127.html#L216'>profile</a>           216 ovr/sdk/src/OVR_SensorFusion.h     void SetUserHeadDimensions(Profile const &amp;profile, HmdRenderInfo const &amp;hmdRenderInfo);
+<a href='../S/88.html#L663'>profile</a>           663 ovr/sdk/src/OVR_Stereo.cpp                                                  Profile const *profile /*=NULL*/,
+<a href='../S/88.html#L723'>profile</a>           723 ovr/sdk/src/OVR_Stereo.cpp     if ( profile != NULL )
+<a href='../S/88.html#L726'>profile</a>           726 ovr/sdk/src/OVR_Stereo.cpp         if (profile-&gt;GetValue(OVR_KEY_EYE_CUP, eyecup, 16))
+<a href='../S/88.html#L794'>profile</a>           794 ovr/sdk/src/OVR_Stereo.cpp     if ( profile != NULL )
+<a href='../S/88.html#L798'>profile</a>           798 ovr/sdk/src/OVR_Stereo.cpp         if (profile-&gt;GetBoolValue(OVR_KEY_CUSTOM_EYE_RENDER, true))
+<a href='../S/88.html#L801'>profile</a>           801 ovr/sdk/src/OVR_Stereo.cpp             if (profile-&gt;GetFloatValues(OVR_KEY_EYE_TO_NOSE_DISTANCE, eye2nose, 2) == 2)
+<a href='../S/88.html#L808'>profile</a>           808 ovr/sdk/src/OVR_Stereo.cpp                 float ipd = profile-&gt;GetFloatValue(OVR_KEY_IPD, OVR_DEFAULT_IPD);
+<a href='../S/88.html#L814'>profile</a>           814 ovr/sdk/src/OVR_Stereo.cpp             if (profile-&gt;GetFloatValues(OVR_KEY_MAX_EYE_TO_PLATE_DISTANCE, eye2plate, 2) == 2)
+<a href='../S/88.html#L822'>profile</a>           822 ovr/sdk/src/OVR_Stereo.cpp                 int dial = profile-&gt;GetIntValue(OVR_KEY_EYE_RELIEF_DIAL, -1);
+<a href='../S/88.html#L832'>profile</a>           832 ovr/sdk/src/OVR_Stereo.cpp                 int dial = profile-&gt;GetIntValue(OVR_KEY_EYE_RELIEF_DIAL, -1);
+<a href='../S/131.html#L357'>profile</a>           357 ovr/sdk/src/OVR_Stereo.h                                                        Profile const *profile = NULL,
+</pre>
+</body>
+</html>

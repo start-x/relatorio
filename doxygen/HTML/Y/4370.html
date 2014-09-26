@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>sensor</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/129.html#L96'>sensor</a>             96 ovr/sdk/src/OVR_Common_HMDDevice.cpp                 Ptr&lt;SensorDevice&gt; sensor = *((HMDDevice*)pDevice)-&gt;GetSensor();
+<a href='../S/129.html#L99'>sensor</a>             99 ovr/sdk/src/OVR_Common_HMDDevice.cpp                 if (sensor &amp;&amp; sensor-&gt;GetDeviceInfo(&amp;sinfo))
+<a href='../S/129.html#L355'>sensor</a>            355 ovr/sdk/src/OVR_Common_HMDDevice.cpp     SensorDevice* sensor = NULL;
+<a href='../S/129.html#L366'>sensor</a>            366 ovr/sdk/src/OVR_Common_HMDDevice.cpp             sensor = enumerator.CreateDevice();
+<a href='../S/129.html#L373'>sensor</a>            373 ovr/sdk/src/OVR_Common_HMDDevice.cpp     if (sensor == NULL)
+<a href='../S/129.html#L375'>sensor</a>            375 ovr/sdk/src/OVR_Common_HMDDevice.cpp         sensor = GetManager()-&gt;EnumerateDevices&lt;SensorDevice&gt;().CreateDevice();
+<a href='../S/129.html#L378'>sensor</a>            378 ovr/sdk/src/OVR_Common_HMDDevice.cpp     if (sensor)
+<a href='../S/129.html#L380'>sensor</a>            380 ovr/sdk/src/OVR_Common_HMDDevice.cpp         sensor-&gt;SetCoordinateFrame(SensorDevice::Coord_HMD);
+<a href='../S/129.html#L383'>sensor</a>            383 ovr/sdk/src/OVR_Common_HMDDevice.cpp     return sensor;
+<a href='../S/139.html#L149'>sensor</a>            149 ovr/sdk/src/OVR_Profile.cpp         Ptr&lt;SensorDevice&gt; sensor = *(hmd-&gt;GetSensor());
+<a href='../S/139.html#L150'>sensor</a>            150 ovr/sdk/src/OVR_Profile.cpp         if (sensor)
+<a href='../S/139.html#L153'>sensor</a>            153 ovr/sdk/src/OVR_Profile.cpp             sensor-&gt;GetDeviceInfo(&amp;sinfo);
+<a href='../S/139.html#L1071'>sensor</a>           1071 ovr/sdk/src/OVR_Profile.cpp     SensorDevice* sensor = NULL;
+<a href='../S/139.html#L1076'>sensor</a>           1076 ovr/sdk/src/OVR_Profile.cpp         sensor = ((HMDDevice*)device)-&gt;GetSensor();
+<a href='../S/139.html#L1077'>sensor</a>           1077 ovr/sdk/src/OVR_Profile.cpp         device = sensor;
+<a href='../S/139.html#L1084'>sensor</a>           1084 ovr/sdk/src/OVR_Profile.cpp         SensorDevice* sensor = (SensorDevice*)device;
+<a href='../S/139.html#L1087'>sensor</a>           1087 ovr/sdk/src/OVR_Profile.cpp         sensor-&gt;GetDeviceInfo(&amp;sinfo);
+<a href='../S/139.html#L1106'>sensor</a>           1106 ovr/sdk/src/OVR_Profile.cpp     if (sensor)
+<a href='../S/139.html#L1107'>sensor</a>           1107 ovr/sdk/src/OVR_Profile.cpp         sensor-&gt;Release();    // release the sensor handle
+<a href='../S/189.html#L52'>sensor</a>             52 ovr/sdk/src/OVR_SensorFusion.cpp SensorFusion::SensorFusion(SensorDevice* sensor)
+<a href='../S/189.html#L66'>sensor</a>             66 ovr/sdk/src/OVR_SensorFusion.cpp    if (sensor)
+<a href='../S/189.html#L67'>sensor</a>             67 ovr/sdk/src/OVR_SensorFusion.cpp        AttachToSensor(sensor);
+<a href='../S/189.html#L77'>sensor</a>             77 ovr/sdk/src/OVR_SensorFusion.cpp bool SensorFusion::AttachToSensor(SensorDevice* sensor)
+<a href='../S/189.html#L82'>sensor</a>             82 ovr/sdk/src/OVR_SensorFusion.cpp     if (sensor != NULL)
+<a href='../S/189.html#L85'>sensor</a>             85 ovr/sdk/src/OVR_SensorFusion.cpp         MagCalibrated = sensor-&gt;IsMagCalibrated();
+<a href='../S/189.html#L89'>sensor</a>             89 ovr/sdk/src/OVR_SensorFusion.cpp         bool result = sensor-&gt;GetAllPositionCalibrationReports(&amp;reports);
+<a href='../S/189.html#L102'>sensor</a>            102 ovr/sdk/src/OVR_SensorFusion.cpp             Recording::GetRecorder().RecordDeviceIfcVersion(sensor-&gt;GetDeviceInterfaceVersion());
+<a href='../S/189.html#L109'>sensor</a>            109 ovr/sdk/src/OVR_SensorFusion.cpp         sensor-&gt;AddMessageHandler(pHandler);
+<a href='../S/127.html#L203'>sensor</a>            203 ovr/sdk/src/OVR_SensorFusion.h     SensorFusion(SensorDevice* sensor = 0);
+<a href='../S/127.html#L209'>sensor</a>            209 ovr/sdk/src/OVR_SensorFusion.h     bool                        AttachToSensor(SensorDevice* sensor);
+</pre>
+</body>
+</html>

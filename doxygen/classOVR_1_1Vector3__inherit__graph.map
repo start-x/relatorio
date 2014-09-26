@@ -1,0 +1,5 @@
+<map id="OVR::Vector3&lt; T &gt;" name="OVR::Vector3&lt; T &gt;">
+<area shape="rect" id="node2" href="$structOVR_1_1Vector4f.html" title="{OVR::Vector4f\&lt; float \&gt;\n|+ w\l|+ Vector4f()\l+ Vector4f()\l+ Vector4f()\l}" alt="" coords="5,464,163,571"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; double \&gt;\n|+ x\l+ y\l+ z\l|+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="187,369,373,666"/>
+<area shape="rect" id="node4" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; float \&gt;\n|+ x\l+ y\l+ z\l|+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="397,369,584,666"/>
+</map>

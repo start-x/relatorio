@@ -1,0 +1,152 @@
+<html>
+<head>
+<title>name</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/102.html#L302'>name</a>              302 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderSet::SetUniform(const char* name, int n, const float* v)
+<a href='../S/102.html#L305'>name</a>              305 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         if (!strcmp(UniformInfo[i].Name.ToCStr(), name))
+<a href='../S/102.html#L322'>name</a>              322 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp     OVR_DEBUG_LOG(("Warning: uniform %s not present in selected shader", name));
+<a href='../S/102.html#L354'>name</a>              354 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         GLchar name[32];
+<a href='../S/102.html#L355'>name</a>              355 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         glGetActiveUniform(Prog, i, sizeof(name), &amp;namelen, &amp;size, &amp;type, name);
+<a href='../S/102.html#L359'>name</a>              359 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             int l = glGetUniformLocation(Prog, name);
+<a href='../S/102.html#L360'>name</a>              360 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             char *np = name;
+<a href='../S/102.html#L368'>name</a>              368 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             u.Name = name;
+<a href='../S/102.html#L383'>name</a>              383 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp             if (!strcmp(name, "LightCount"))
+<a href='../S/102.html#L407'>name</a>              407 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderBase::SetUniform(const char* name, int n, const float* v)
+<a href='../S/102.html#L411'>name</a>              411 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         if (!strcmp(UniformRefl[i].Name, name))
+<a href='../S/102.html#L420'>name</a>              420 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp bool ShaderBase::SetUniformBool(const char* name, int n, const bool* v) 
+<a href='../S/102.html#L425'>name</a>              425 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp         if (!strcmp(UniformRefl[i].Name, name))
+<a href='../S/103.html#L299'>name</a>              299 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniform(const char* name, int n, const float* v) { OVR_UNUSED3(name, n, v); return false; }
+<a href='../S/103.html#L300'>name</a>              300 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniformBool(const char* name, int n, const bool* v) { OVR_UNUSED3(name, n, v); return false; }
+<a href='../S/103.html#L346'>name</a>              346 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniform(const char* name, int n, const float* v);
+<a href='../S/103.html#L347'>name</a>              347 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool SetUniform1f(const char* name, float x)
+<a href='../S/103.html#L350'>name</a>              350 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 1, v);
+<a href='../S/103.html#L352'>name</a>              352 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool SetUniform2f(const char* name, float x, float y)
+<a href='../S/103.html#L355'>name</a>              355 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 2, v);
+<a href='../S/103.html#L357'>name</a>              357 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool SetUniform3f(const char* name, float x, float y, float z)
+<a href='../S/103.html#L360'>name</a>              360 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 3, v);
+<a href='../S/103.html#L362'>name</a>              362 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool SetUniform4f(const char* name, float x, float y, float z, float w = 1)
+<a href='../S/103.html#L365'>name</a>              365 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 4, v);
+<a href='../S/103.html#L368'>name</a>              368 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool SetUniformv(const char* name, const Vector3f&amp; v)
+<a href='../S/103.html#L371'>name</a>              371 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 4, a);
+<a href='../S/103.html#L374'>name</a>              374 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniform4x4f(const char* name, const Matrix4f&amp; m)
+<a href='../S/103.html#L377'>name</a>              377 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         return SetUniform(name, 16, &amp;mt.M[0][0]);
+<a href='../S/103.html#L473'>name</a>              473 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 	bool SetUniform(const char* name, int n, const float* v);
+<a href='../S/103.html#L474'>name</a>              474 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h 	bool SetUniformBool(const char* name, int n, const bool* v);
+<a href='../S/151.html#L347'>name</a>              347 ovr/sdk/src/Kernel/OVR_Threads.h     virtual void    SetThreadName( const char* name );
+<a href='../S/151.html#L349'>name</a>              349 ovr/sdk/src/Kernel/OVR_Threads.h     virtual void    SetThreadName( const char* name ) { OVR_UNUSED(name); }
+<a href='../S/129.html#L317'>name</a>              317 ovr/sdk/src/OVR_Common_HMDDevice.cpp         const char* name = mgr-&gt;GetDefaultUser(this);
+<a href='../S/129.html#L318'>name</a>              318 ovr/sdk/src/OVR_Common_HMDDevice.cpp         ProfileName = name;
+<a href='../S/129.html#L324'>name</a>              324 ovr/sdk/src/OVR_Common_HMDDevice.cpp bool HMDDevice::SetProfileName(const char* name)
+<a href='../S/129.html#L326'>name</a>              326 ovr/sdk/src/OVR_Common_HMDDevice.cpp     if (ProfileName == name)
+<a href='../S/129.html#L331'>name</a>              331 ovr/sdk/src/OVR_Common_HMDDevice.cpp     if (!name)
+<a href='../S/129.html#L338'>name</a>              338 ovr/sdk/src/OVR_Common_HMDDevice.cpp     ProfileName = name;
+<a href='../S/108.html#L434'>name</a>              434 ovr/sdk/src/OVR_Device.h     virtual bool        SetProfileName(const char* name) = 0;
+<a href='../S/84.html#L897'>name</a>              897 ovr/sdk/src/OVR_JSON.cpp JSON* JSON::GetItemByName(const char* name)
+<a href='../S/84.html#L905'>name</a>              905 ovr/sdk/src/OVR_JSON.cpp         while (OVR_strcmp(child-&gt;Name, name) != 0)
+<a href='../S/84.html#L995'>name</a>              995 ovr/sdk/src/OVR_JSON.cpp double JSON::GetNumberByName(const char *name, double defValue)
+<a href='../S/84.html#L997'>name</a>              997 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1006'>name</a>             1006 ovr/sdk/src/OVR_JSON.cpp int JSON::GetIntByName(const char *name, int defValue)
+<a href='../S/84.html#L1008'>name</a>             1008 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1017'>name</a>             1017 ovr/sdk/src/OVR_JSON.cpp bool JSON::GetBoolByName(const char *name, bool defValue)
+<a href='../S/84.html#L1019'>name</a>             1019 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/84.html#L1028'>name</a>             1028 ovr/sdk/src/OVR_JSON.cpp String JSON::GetStringByName(const char *name, const String &amp;defValue)
+<a href='../S/84.html#L1030'>name</a>             1030 ovr/sdk/src/OVR_JSON.cpp 	JSON* item = GetItemByName(name);
+<a href='../S/78.html#L106'>name</a>              106 ovr/sdk/src/OVR_JSON.h     JSON*           GetItemByName(const char* name);
+<a href='../S/78.html#L109'>name</a>              109 ovr/sdk/src/OVR_JSON.h 	double			GetNumberByName(const char *name, double defValue = 0.0);
+<a href='../S/78.html#L110'>name</a>              110 ovr/sdk/src/OVR_JSON.h 	int				GetIntByName(const char *name, int defValue = 0);
+<a href='../S/78.html#L111'>name</a>              111 ovr/sdk/src/OVR_JSON.h 	bool			GetBoolByName(const char *name, bool defValue = false);
+<a href='../S/78.html#L112'>name</a>              112 ovr/sdk/src/OVR_JSON.h 	String			GetStringByName(const char *name, const String &amp;defValue = "");
+<a href='../S/78.html#L121'>name</a>              121 ovr/sdk/src/OVR_JSON.h     void            AddNullItem(const char* name)                    { AddItem(name, CreateNull()); }
+<a href='../S/78.html#L122'>name</a>              122 ovr/sdk/src/OVR_JSON.h     void            AddBoolItem(const char* name, bool b)            { AddItem(name, CreateBool(b)); }
+<a href='../S/78.html#L123'>name</a>              123 ovr/sdk/src/OVR_JSON.h     void            AddNumberItem(const char* name, double n)        { AddItem(name, CreateNumber(n)); }
+<a href='../S/78.html#L124'>name</a>              124 ovr/sdk/src/OVR_JSON.h     void            AddStringItem(const char* name, const char* s)   { AddItem(name, CreateString(s)); }
+<a href='../S/125.html#L137'>name</a>              137 ovr/sdk/src/OVR_Linux_HMDDevice.h     virtual bool        SetProfileName(const char* name);
+<a href='../S/139.html#L534'>name</a>              534 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::CreateUser(const char* user, const char* name)
+<a href='../S/139.html#L563'>name</a>              563 ovr/sdk/src/OVR_Profile.cpp             if (name_item &amp;&amp; OVR_strcmp(name, name_item-&gt;Value) != 0)
+<a href='../S/139.html#L565'>name</a>              565 ovr/sdk/src/OVR_Profile.cpp                 name_item-&gt;Value = name;
+<a href='../S/139.html#L582'>name</a>              582 ovr/sdk/src/OVR_Profile.cpp     new_user-&gt;AddStringItem(OVR_KEY_NAME, name);
+<a href='../S/133.html#L82'>name</a>               82 ovr/sdk/src/OVR_Profile.h     bool                CreateUser(const char* user, const char* name);
+<a href='../S/190.html#L943'>name</a>              943 ovr/sdk/src/OVR_SensorImpl.cpp                             JSON* name = item-&gt;GetItemByName("Name");
+<a href='../S/190.html#L944'>name</a>              944 ovr/sdk/src/OVR_SensorImpl.cpp                             if (name &amp;&amp; name-&gt;Value == calibrationName)
+<a href='../S/190.html#L1053'>name</a>             1053 ovr/sdk/src/OVR_SensorImpl.cpp                         JSON* name = calibration-&gt;GetItemByName("Name");
+<a href='../S/190.html#L1054'>name</a>             1054 ovr/sdk/src/OVR_SensorImpl.cpp                         if (name &amp;&amp; name-&gt;Value == calibrationName)
+<a href='../S/197.html#L1188'>name</a>             1188 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLAttribute* XMLElement::FindAttribute( const char* name )
+<a href='../S/197.html#L1192'>name</a>             1192 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::StringEqual( a-&gt;Name(), name ) ) {
+<a href='../S/197.html#L1200'>name</a>             1200 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const XMLAttribute* XMLElement::FindAttribute( const char* name ) const
+<a href='../S/197.html#L1204'>name</a>             1204 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::StringEqual( a-&gt;Name(), name ) ) {
+<a href='../S/197.html#L1212'>name</a>             1212 ovr/sdk/third_party/tinyxml/tinyxml2.cpp const char* XMLElement::Attribute( const char* name, const char* value ) const
+<a href='../S/197.html#L1214'>name</a>             1214 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const XMLAttribute* a = FindAttribute( name );
+<a href='../S/197.html#L1300'>name</a>             1300 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLAttribute* XMLElement::FindOrCreateAttribute( const char* name )
+<a href='../S/197.html#L1307'>name</a>             1307 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::StringEqual( attrib-&gt;Name(), name ) ) {
+<a href='../S/197.html#L1320'>name</a>             1320 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         attrib-&gt;SetName( name );
+<a href='../S/197.html#L1327'>name</a>             1327 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLElement::DeleteAttribute( const char* name )
+<a href='../S/197.html#L1331'>name</a>             1331 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( XMLUtil::StringEqual( name, a-&gt;Name() ) ) {
+<a href='../S/197.html#L1539'>name</a>             1539 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLElement* XMLDocument::NewElement( const char* name )
+<a href='../S/197.html#L1543'>name</a>             1543 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     ele-&gt;SetName( name );
+<a href='../S/197.html#L1854'>name</a>             1854 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::OpenElement( const char* name )
+<a href='../S/197.html#L1859'>name</a>             1859 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _stack.Push( name );
+<a href='../S/197.html#L1866'>name</a>             1866 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     Print( "&lt;%s", name );
+<a href='../S/197.html#L1873'>name</a>             1873 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, const char* value )
+<a href='../S/197.html#L1876'>name</a>             1876 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     Print( " %s=\"", name );
+<a href='../S/197.html#L1882'>name</a>             1882 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, int v )
+<a href='../S/197.html#L1886'>name</a>             1886 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1890'>name</a>             1890 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, unsigned v )
+<a href='../S/197.html#L1894'>name</a>             1894 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1898'>name</a>             1898 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, bool v )
+<a href='../S/197.html#L1902'>name</a>             1902 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1906'>name</a>             1906 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLPrinter::PushAttribute( const char* name, double v )
+<a href='../S/197.html#L1910'>name</a>             1910 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1917'>name</a>             1917 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     const char* name = _stack.Pop();
+<a href='../S/197.html#L1927'>name</a>             1927 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         Print( "&lt;/%s&gt;", name );
+<a href='../S/196.html#L349'>name</a>              349 ovr/sdk/third_party/tinyxml/tinyxml2.h     void Trace( const char* name ) {
+<a href='../S/196.html#L351'>name</a>              351 ovr/sdk/third_party/tinyxml/tinyxml2.h                 name, _maxAllocs, _maxAllocs*SIZE/1024, _currentAllocs, SIZE, _nAllocs, _blockPtrs.Size() );
+<a href='../S/196.html#L1060'>name</a>             1060 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetName( const char* name );
+<a href='../S/196.html#L1120'>name</a>             1120 ovr/sdk/third_party/tinyxml/tinyxml2.h     const char* Attribute( const char* name, const char* value=0 ) const;
+<a href='../S/196.html#L1127'>name</a>             1127 ovr/sdk/third_party/tinyxml/tinyxml2.h     int		 IntAttribute( const char* name ) const		{
+<a href='../S/196.html#L1129'>name</a>             1129 ovr/sdk/third_party/tinyxml/tinyxml2.h         QueryIntAttribute( name, &amp;i );
+<a href='../S/196.html#L1133'>name</a>             1133 ovr/sdk/third_party/tinyxml/tinyxml2.h     unsigned UnsignedAttribute( const char* name ) const {
+<a href='../S/196.html#L1135'>name</a>             1135 ovr/sdk/third_party/tinyxml/tinyxml2.h         QueryUnsignedAttribute( name, &amp;i );
+<a href='../S/196.html#L1139'>name</a>             1139 ovr/sdk/third_party/tinyxml/tinyxml2.h     bool	 BoolAttribute( const char* name ) const	{
+<a href='../S/196.html#L1141'>name</a>             1141 ovr/sdk/third_party/tinyxml/tinyxml2.h         QueryBoolAttribute( name, &amp;b );
+<a href='../S/196.html#L1145'>name</a>             1145 ovr/sdk/third_party/tinyxml/tinyxml2.h     double 	 DoubleAttribute( const char* name ) const	{
+<a href='../S/196.html#L1147'>name</a>             1147 ovr/sdk/third_party/tinyxml/tinyxml2.h         QueryDoubleAttribute( name, &amp;d );
+<a href='../S/196.html#L1151'>name</a>             1151 ovr/sdk/third_party/tinyxml/tinyxml2.h     float	 FloatAttribute( const char* name ) const	{
+<a href='../S/196.html#L1153'>name</a>             1153 ovr/sdk/third_party/tinyxml/tinyxml2.h         QueryFloatAttribute( name, &amp;f );
+<a href='../S/196.html#L1170'>name</a>             1170 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryIntAttribute( const char* name, int* value ) const				{
+<a href='../S/196.html#L1171'>name</a>             1171 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1178'>name</a>             1178 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryUnsignedAttribute( const char* name, unsigned int* value ) const	{
+<a href='../S/196.html#L1179'>name</a>             1179 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1186'>name</a>             1186 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryBoolAttribute( const char* name, bool* value ) const				{
+<a href='../S/196.html#L1187'>name</a>             1187 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1194'>name</a>             1194 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryDoubleAttribute( const char* name, double* value ) const			{
+<a href='../S/196.html#L1195'>name</a>             1195 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1202'>name</a>             1202 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLError QueryFloatAttribute( const char* name, float* value ) const			{
+<a href='../S/196.html#L1203'>name</a>             1203 ovr/sdk/third_party/tinyxml/tinyxml2.h         const XMLAttribute* a = FindAttribute( name );
+<a href='../S/196.html#L1211'>name</a>             1211 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, const char* value )	{
+<a href='../S/196.html#L1212'>name</a>             1212 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1216'>name</a>             1216 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, int value )			{
+<a href='../S/196.html#L1217'>name</a>             1217 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1221'>name</a>             1221 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, unsigned value )		{
+<a href='../S/196.html#L1222'>name</a>             1222 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1226'>name</a>             1226 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, bool value )			{
+<a href='../S/196.html#L1227'>name</a>             1227 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1231'>name</a>             1231 ovr/sdk/third_party/tinyxml/tinyxml2.h     void SetAttribute( const char* name, double value )		{
+<a href='../S/196.html#L1232'>name</a>             1232 ovr/sdk/third_party/tinyxml/tinyxml2.h         XMLAttribute* a = FindOrCreateAttribute( name );
+<a href='../S/196.html#L1239'>name</a>             1239 ovr/sdk/third_party/tinyxml/tinyxml2.h     void DeleteAttribute( const char* name );
+<a href='../S/196.html#L1246'>name</a>             1246 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLAttribute* FindAttribute( const char* name ) const;
+<a href='../S/196.html#L1333'>name</a>             1333 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute* FindAttribute( const char* name );
+<a href='../S/196.html#L1334'>name</a>             1334 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLAttribute* FindOrCreateAttribute( const char* name );
+<a href='../S/196.html#L1467'>name</a>             1467 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLElement* NewElement( const char* name );
+<a href='../S/196.html#L1821'>name</a>             1821 ovr/sdk/third_party/tinyxml/tinyxml2.h     void OpenElement( const char* name );
+<a href='../S/196.html#L1823'>name</a>             1823 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, const char* value );
+<a href='../S/196.html#L1824'>name</a>             1824 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, int value );
+<a href='../S/196.html#L1825'>name</a>             1825 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, unsigned value );
+<a href='../S/196.html#L1826'>name</a>             1826 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, bool value );
+<a href='../S/196.html#L1827'>name</a>             1827 ovr/sdk/third_party/tinyxml/tinyxml2.h     void PushAttribute( const char* name, double value );
+</pre>
+</body>
+</html>

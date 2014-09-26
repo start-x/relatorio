@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>node</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L49'>node</a>               49 ovr/sdk/third_party/tinyxml/tinyxml2.cpp #define DELETE_NODE( node )	{			\
+<a href='../S/197.html#L50'>node</a>               50 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( node ) {						\
+<a href='../S/197.html#L51'>node</a>               51 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             MemPool* pool = node-&gt;_memPool;	\
+<a href='../S/197.html#L52'>node</a>               52 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             node-&gt;~XMLNode();				\
+<a href='../S/197.html#L53'>node</a>               53 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             pool-&gt;Free( node );				\
+<a href='../S/197.html#L495'>node</a>              495 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLDocument::Identify( char* p, XMLNode** node )
+<a href='../S/197.html#L565'>node</a>              565 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     *node = returnNode;
+<a href='../S/197.html#L573'>node</a>              573 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         for ( const XMLNode* node=FirstChild(); node; node=node-&gt;NextSibling() ) {
+<a href='../S/197.html#L574'>node</a>              574 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !node-&gt;Accept( visitor ) ) {
+<a href='../S/197.html#L617'>node</a>              617 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLNode* node = _firstChild;
+<a href='../S/197.html#L618'>node</a>              618 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         Unlink( node );
+<a href='../S/197.html#L620'>node</a>              620 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         DELETE_NODE( node );
+<a href='../S/197.html#L646'>node</a>              646 ovr/sdk/third_party/tinyxml/tinyxml2.cpp void XMLNode::DeleteChild( XMLNode* node )
+<a href='../S/197.html#L648'>node</a>              648 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXMLASSERT( node-&gt;_parent == this );
+<a href='../S/197.html#L649'>node</a>              649 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     DELETE_NODE( node );
+<a href='../S/197.html#L727'>node</a>              727 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* node=_firstChild; node; node=node-&gt;_next ) {
+<a href='../S/197.html#L728'>node</a>              728 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLElement* element = node-&gt;ToElement();
+<a href='../S/197.html#L741'>node</a>              741 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     for( XMLNode* node=_lastChild; node; node=node-&gt;_prev ) {
+<a href='../S/197.html#L742'>node</a>              742 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLElement* element = node-&gt;ToElement();
+<a href='../S/197.html#L797'>node</a>              797 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLNode* node = 0;
+<a href='../S/197.html#L799'>node</a>              799 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = _document-&gt;Identify( p, &amp;node );
+<a href='../S/197.html#L800'>node</a>              800 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( p == 0 || node == 0 ) {
+<a href='../S/197.html#L805'>node</a>              805 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         p = node-&gt;ParseDeep( p, &amp;endTag );
+<a href='../S/197.html#L807'>node</a>              807 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             DELETE_NODE( node );
+<a href='../S/197.html#L808'>node</a>              808 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             node = 0;
+<a href='../S/197.html#L816'>node</a>              816 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( node-&gt;ToElement() &amp;&amp; node-&gt;ToElement()-&gt;ClosingType() == XMLElement::CLOSING ) {
+<a href='../S/197.html#L818'>node</a>              818 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 *parentEnd = static_cast&lt;XMLElement*&gt;(node)-&gt;_value;
+<a href='../S/197.html#L820'>node</a>              820 ovr/sdk/third_party/tinyxml/tinyxml2.cpp 			node-&gt;_memPool-&gt;SetTracked();	// created and then immediately deleted.
+<a href='../S/197.html#L821'>node</a>              821 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             DELETE_NODE( node );
+<a href='../S/197.html#L827'>node</a>              827 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         XMLElement* ele = node-&gt;ToElement();
+<a href='../S/197.html#L830'>node</a>              830 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 _document-&gt;SetError( XML_ERROR_MISMATCHED_ELEMENT, node-&gt;Value(), 0 );
+<a href='../S/197.html#L834'>node</a>              834 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 _document-&gt;SetError( XML_ERROR_MISMATCHED_ELEMENT, node-&gt;Value(), 0 );
+<a href='../S/197.html#L838'>node</a>              838 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                 if ( !XMLUtil::StringEqual( endTag.GetStr(), node-&gt;Value() )) {
+<a href='../S/197.html#L839'>node</a>              839 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                     _document-&gt;SetError( XML_ERROR_MISMATCHED_ELEMENT, node-&gt;Value(), 0 );
+<a href='../S/197.html#L845'>node</a>              845 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             DELETE_NODE( node );
+<a href='../S/197.html#L846'>node</a>              846 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             node = 0;
+<a href='../S/197.html#L848'>node</a>              848 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         if ( node ) {
+<a href='../S/197.html#L849'>node</a>              849 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             this-&gt;InsertEndChild( node );
+<a href='../S/197.html#L1480'>node</a>             1480 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         for ( const XMLNode* node=FirstChild(); node; node=node-&gt;NextSibling() ) {
+<a href='../S/197.html#L1481'>node</a>             1481 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !node-&gt;Accept( visitor ) ) {
+<a href='../S/196.html#L724'>node</a>              724 ovr/sdk/third_party/tinyxml/tinyxml2.h     void DeleteChild( XMLNode* node );
+<a href='../S/196.html#L1503'>node</a>             1503 ovr/sdk/third_party/tinyxml/tinyxml2.h     void DeleteNode( XMLNode* node )	{
+<a href='../S/196.html#L1504'>node</a>             1504 ovr/sdk/third_party/tinyxml/tinyxml2.h         node-&gt;_parent-&gt;DeleteChild( node );
+<a href='../S/196.html#L1529'>node</a>             1529 ovr/sdk/third_party/tinyxml/tinyxml2.h     char* Identify( char* p, XMLNode** node );
+<a href='../S/196.html#L1617'>node</a>             1617 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLHandle( XMLNode* node )												{
+<a href='../S/196.html#L1618'>node</a>             1618 ovr/sdk/third_party/tinyxml/tinyxml2.h         _node = node;
+<a href='../S/196.html#L1621'>node</a>             1621 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLHandle( XMLNode&amp; node )												{
+<a href='../S/196.html#L1622'>node</a>             1622 ovr/sdk/third_party/tinyxml/tinyxml2.h         _node = &amp;node;
+<a href='../S/196.html#L1700'>node</a>             1700 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLConstHandle( const XMLNode* node )											{
+<a href='../S/196.html#L1701'>node</a>             1701 ovr/sdk/third_party/tinyxml/tinyxml2.h         _node = node;
+<a href='../S/196.html#L1703'>node</a>             1703 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLConstHandle( const XMLNode&amp; node )											{
+<a href='../S/196.html#L1704'>node</a>             1704 ovr/sdk/third_party/tinyxml/tinyxml2.h         _node = &amp;node;
+</pre>
+</body>
+</html>

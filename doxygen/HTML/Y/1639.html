@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>PRead32</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/186.html#L207'>PRead32</a>           207 ovr/sdk/src/Kernel/OVR_File.h     UInt32  PRead32()           { UInt32 v = 0; Read((UByte*)&amp;v, 4); return v; }
+<a href='../S/186.html#L251'>PRead32</a>           251 ovr/sdk/src/Kernel/OVR_File.h     inline UInt32  ReadUInt32()                { return (UInt32)Alg::ByteUtil::LEToSystem(PRead32());  }
+<a href='../S/186.html#L252'>PRead32</a>           252 ovr/sdk/src/Kernel/OVR_File.h     inline SInt32  ReadSInt32()                { return (SInt32)Alg::ByteUtil::LEToSystem(PRead32());  }
+<a href='../S/186.html#L264'>PRead32</a>           264 ovr/sdk/src/Kernel/OVR_File.h     inline UInt32  ReadUInt32BE()              { return (UInt32)Alg::ByteUtil::BEToSystem(PRead32());  }
+<a href='../S/186.html#L265'>PRead32</a>           265 ovr/sdk/src/Kernel/OVR_File.h     inline SInt32  ReadSInt32BE()              { return (SInt32)Alg::ByteUtil::BEToSystem(PRead32());  }
+</pre>
+</body>
+</html>

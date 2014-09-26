@@ -1,0 +1,9 @@
+<map id="Device" name="Device">
+<area shape="rect" id="node2" href="$classActive.html" title="{Active\n||+ setData()\l+ flush()\l}" alt="" coords="61,131,149,223"/>
+<area shape="rect" id="node4" href="$classPassive.html" title="{Passive\n||+ getData()\l+ flush()\l}" alt="" coords="229,131,317,223"/>
+<area shape="rect" id="node3" href="$classBreak.html" title="{Break\n||+ setData()\l}" alt="" coords="5,272,93,349"/>
+<area shape="rect" id="node5" href="$classBattery.html" title="{Battery\n||+ getData()\l}" alt="" coords="117,272,205,349"/>
+<area shape="rect" id="node6" href="$classDirection.html" title="{Direction\n||+ getData()\l}" alt="" coords="229,272,317,349"/>
+<area shape="rect" id="node7" href="$classOximetry.html" title="{Oximetry\n||+ getData()\l}" alt="" coords="341,272,429,349"/>
+<area shape="rect" id="node8" href="$classSpeed.html" title="{Speed\n||+ getData()\l}" alt="" coords="453,272,541,349"/>
+</map>

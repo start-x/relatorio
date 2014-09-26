@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Matrix4f</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L538'>Matrix4f</a>          538 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     Matrix4f timewarpStart(timewarpStartQuat);
+<a href='../S/98.html#L539'>Matrix4f</a>          539 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     Matrix4f timewarpEnd(timewarpEndQuat);
+<a href='../S/104.html#L486'>Matrix4f</a>          486 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 			DistortionShader-&gt;SetUniform4x4f("EyeRotationStart", Matrix4f(timeWarpMatrices[0]).Transposed());
+<a href='../S/104.html#L487'>Matrix4f</a>          487 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp 			DistortionShader-&gt;SetUniform4x4f("EyeRotationEnd",   Matrix4f(timeWarpMatrices[1]).Transposed());
+<a href='../S/106.html#L153'>Matrix4f</a>          153 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h         Matrix4f  Proj;
+<a href='../S/106.html#L154'>Matrix4f</a>          154 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h         Matrix4f  View;
+<a href='../S/103.html#L374'>Matrix4f</a>          374 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     virtual bool SetUniform4x4f(const char* name, const Matrix4f&amp; m)
+<a href='../S/103.html#L376'>Matrix4f</a>          376 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         Matrix4f mt = m.Transposed();
+<a href='../S/142.html#L136'>Matrix4f</a>          136 ovr/sdk/src/OVR_CAPI.cpp     Matrix4f ortho;
+<a href='../S/108.html#L683'>Matrix4f</a>          683 ovr/sdk/src/OVR_Device.h                             const Matrix4f&amp; calibration)
+<a href='../S/108.html#L689'>Matrix4f</a>          689 ovr/sdk/src/OVR_Device.h     Matrix4f    Calibration;        // Calibration matrix. Note only the first three rows are used by the feature report.
+<a href='../S/108.html#L1016'>Matrix4f</a>         1016 ovr/sdk/src/OVR_Device.h                                               Matrix4f* AccelMatrix, Matrix4f* GyroMatrix, 
+<a href='../S/141.html#L68'>Matrix4f</a>           68 ovr/sdk/src/OVR_SensorCalibration.h     Matrix4f AccelMatrix, GyroMatrix, MagMatrix;
+<a href='../S/190.html#L894'>Matrix4f</a>          894 ovr/sdk/src/OVR_SensorImpl.cpp     Matrix4f tmp = data.Calibration; tmp.M[0][3] = tmp.M[1][3] = tmp.M[2][3] = 0; tmp.M[3][3] = 1;
+<a href='../S/190.html#L896'>Matrix4f</a>          896 ovr/sdk/src/OVR_SensorImpl.cpp     Matrix4f oldcalmat; oldcalmat.M[0][3] = center.x; oldcalmat.M[1][3] = center.y; oldcalmat.M[2][3] = center.z; 
+<a href='../S/190.html#L1102'>Matrix4f</a>         1102 ovr/sdk/src/OVR_SensorImpl.cpp                                     data-&gt;Calibration = Matrix4f::FromString(cal-&gt;Value.ToCStr());
+<a href='../S/135.html#L214'>Matrix4f</a>          214 ovr/sdk/src/OVR_SensorImpl.h                                        Matrix4f* AccelMatrix, Matrix4f* GyroMatrix, 
+<a href='../S/135.html#L295'>Matrix4f</a>          295 ovr/sdk/src/OVR_SensorImpl.h     Matrix4f    AccelCalibrationMatrix;
+<a href='../S/135.html#L296'>Matrix4f</a>          296 ovr/sdk/src/OVR_SensorImpl.h     Matrix4f    GyroCalibrationMatrix;
+<a href='../S/135.html#L310'>Matrix4f</a>          310 ovr/sdk/src/OVR_SensorImpl.h     Matrix4f    magCalibration;
+<a href='../S/138.html#L109'>Matrix4f</a>          109 ovr/sdk/src/OVR_SensorImpl_Common.h     Matrix4f AccelMatrix;
+<a href='../S/138.html#L110'>Matrix4f</a>          110 ovr/sdk/src/OVR_SensorImpl_Common.h     Matrix4f GyroMatrix;
+<a href='../S/88.html#L1543'>Matrix4f</a>         1543 ovr/sdk/src/OVR_Stereo.cpp Matrix4f CreateProjection( bool rightHanded, FovPort tanHalfFov,
+<a href='../S/88.html#L1555'>Matrix4f</a>         1555 ovr/sdk/src/OVR_Stereo.cpp     Matrix4f projection;
+<a href='../S/88.html#L1588'>Matrix4f</a>         1588 ovr/sdk/src/OVR_Stereo.cpp Matrix4f CreateOrthoSubProjection ( bool rightHanded, StereoEye eyeType,
+<a href='../S/88.html#L1632'>Matrix4f</a>         1632 ovr/sdk/src/OVR_Stereo.cpp     Matrix4f ortho;
+<a href='../S/131.html#L388'>Matrix4f</a>          388 ovr/sdk/src/OVR_Stereo.h Matrix4f            CreateProjection ( bool rightHanded, FovPort fov,
+<a href='../S/131.html#L391'>Matrix4f</a>          391 ovr/sdk/src/OVR_Stereo.h Matrix4f            CreateOrthoSubProjection ( bool rightHanded, StereoEye eyeType,
+<a href='../S/131.html#L394'>Matrix4f</a>          394 ovr/sdk/src/OVR_Stereo.h                                                float interpupillaryDistance, Matrix4f const &amp;projection,
+<a href='../S/131.html#L412'>Matrix4f</a>          412 ovr/sdk/src/OVR_Stereo.h     Matrix4f                ViewAdjust;             // Translation to be applied to view matrix.
+<a href='../S/131.html#L421'>Matrix4f</a>          421 ovr/sdk/src/OVR_Stereo.h     Matrix4f                RenderedProjection;     // Projection matrix used with this eye.
+<a href='../S/117.html#L194'>Matrix4f</a>          194 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f projection = CreateProjection ( bRightHanded, zoomedFov, zNear, zFar );
+<a href='../S/117.html#L208'>Matrix4f</a>          208 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.ViewAdjust           = Matrix4f::Translation(virtualCameraOffset);
+<a href='../S/117.html#L633'>Matrix4f</a>          633 ovr/sdk/src/Util/Util_Render_Stereo.cpp         Matrix4f ortho = CreateOrthoSubProjection ( true, eyeType,
+<a href='../S/117.html#L760'>Matrix4f</a>          760 ovr/sdk/src/Util/Util_Render_Stereo.cpp Matrix4f StereoConfig::GetProjectionWithZoom ( StereoEye eye, float fovZoom ) const
+<a href='../S/117.html#L1275'>Matrix4f</a>         1275 ovr/sdk/src/Util/Util_Render_Stereo.cpp Matrix4f TimewarpComputePoseDelta ( Matrix4f const &amp;renderedViewFromWorld, Matrix4f const &amp;predictedViewFromWorld, Matrix4f const&amp;eyeViewAdjust )
+<a href='../S/117.html#L1277'>Matrix4f</a>         1277 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f worldFromPredictedView = (eyeViewAdjust * predictedViewFromWorld).InvertedHomogeneousTransform();
+<a href='../S/117.html#L1278'>Matrix4f</a>         1278 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f matRenderFromNowStart = (eyeViewAdjust * renderedViewFromWorld) * worldFromPredictedView;
+<a href='../S/117.html#L1309'>Matrix4f</a>         1309 ovr/sdk/src/Util/Util_Render_Stereo.cpp Matrix4f TimewarpComputePoseDeltaPosition ( Matrix4f const &amp;renderedViewFromWorld, Matrix4f const &amp;predictedViewFromWorld, Matrix4f const&amp;eyeViewAdjust )
+<a href='../S/117.html#L1311'>Matrix4f</a>         1311 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f worldFromPredictedView = (eyeViewAdjust * predictedViewFromWorld).InvertedHomogeneousTransform();
+<a href='../S/117.html#L1312'>Matrix4f</a>         1312 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f matRenderXform = (eyeViewAdjust * renderedViewFromWorld) * worldFromPredictedView;
+<a href='../S/117.html#L1378'>Matrix4f</a>         1378 ovr/sdk/src/Util/Util_Render_Stereo.cpp Matrix4f TimewarpMachine::GetTimewarpDeltaStart(SensorFusion &amp;sfusion, Transformf const &amp;renderedPose)
+<a href='../S/117.html#L1381'>Matrix4f</a>         1381 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f visibleMatrix(visiblePose);
+<a href='../S/117.html#L1382'>Matrix4f</a>         1382 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f renderedMatrix(renderedPose);
+<a href='../S/117.html#L1383'>Matrix4f</a>         1383 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f identity;  // doesn't matter for orientation-only timewarp
+<a href='../S/117.html#L1386'>Matrix4f</a>         1386 ovr/sdk/src/Util/Util_Render_Stereo.cpp Matrix4f TimewarpMachine::GetTimewarpDeltaEnd  (SensorFusion &amp;sfusion, Transformf const &amp;renderedPose)
+<a href='../S/117.html#L1389'>Matrix4f</a>         1389 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f visibleMatrix(visiblePose);
+<a href='../S/117.html#L1390'>Matrix4f</a>         1390 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f renderedMatrix(renderedPose);
+<a href='../S/117.html#L1391'>Matrix4f</a>         1391 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Matrix4f identity;  // doesn't matter for orientation-only timewarp
+<a href='../S/115.html#L122'>Matrix4f</a>          122 ovr/sdk/src/Util/Util_Render_Stereo.h     Matrix4f                OrthoProjection;
+<a href='../S/115.html#L242'>Matrix4f</a>          242 ovr/sdk/src/Util/Util_Render_Stereo.h     Matrix4f    GetProjectionWithZoom ( StereoEye eye, float fovZoom ) const;
+<a href='../S/115.html#L414'>Matrix4f</a>          414 ovr/sdk/src/Util/Util_Render_Stereo.h Matrix4f TimewarpComputePoseDelta ( Matrix4f const &amp;renderedViewFromWorld, Matrix4f const &amp;predictedViewFromWorld, Matrix4f const&amp;eyeViewAdjust );
+<a href='../S/115.html#L415'>Matrix4f</a>          415 ovr/sdk/src/Util/Util_Render_Stereo.h Matrix4f TimewarpComputePoseDeltaPosition ( Matrix4f const &amp;renderedViewFromWorld, Matrix4f const &amp;predictedViewFromWorld, Matrix4f const&amp;eyeViewAdjust );
+<a href='../S/115.html#L451'>Matrix4f</a>          451 ovr/sdk/src/Util/Util_Render_Stereo.h     Matrix4f    GetTimewarpDeltaStart(SensorFusion &amp;sfusion, Transformf const &amp;renderedPose);
+<a href='../S/115.html#L452'>Matrix4f</a>          452 ovr/sdk/src/Util/Util_Render_Stereo.h     Matrix4f    GetTimewarpDeltaEnd  (SensorFusion &amp;sfusion, Transformf const &amp;renderedPose);
+</pre>
+</body>
+</html>

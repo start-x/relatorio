@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>pPrev</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/180.html#L50'>pPrev</a>              50 ovr/sdk/src/Kernel/OVR_List.h         T*    pPrev;
+<a href='../S/180.html#L60'>pPrev</a>              60 ovr/sdk/src/Kernel/OVR_List.h         pPrev-&gt;pNext = pNext;
+<a href='../S/180.html#L61'>pPrev</a>              61 ovr/sdk/src/Kernel/OVR_List.h         pNext-&gt;pPrev = pPrev;
+<a href='../S/180.html#L67'>pPrev</a>              67 ovr/sdk/src/Kernel/OVR_List.h         pPrev-&gt;pNext = pnew;
+<a href='../S/180.html#L68'>pPrev</a>              68 ovr/sdk/src/Kernel/OVR_List.h         pNext-&gt;pPrev = pnew;
+<a href='../S/180.html#L69'>pPrev</a>              69 ovr/sdk/src/Kernel/OVR_List.h         pnew-&gt;pPrev = pPrev;
+<a href='../S/180.html#L76'>pPrev</a>              76 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          = pNext-&gt;pPrev; // this
+<a href='../S/180.html#L78'>pPrev</a>              78 ovr/sdk/src/Kernel/OVR_List.h         pNext-&gt;pPrev      = p;
+<a href='../S/180.html#L84'>pPrev</a>              84 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pNext          = pNext-&gt;pPrev; // this
+<a href='../S/180.html#L85'>pPrev</a>              85 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          = pPrev;
+<a href='../S/180.html#L86'>pPrev</a>              86 ovr/sdk/src/Kernel/OVR_List.h         pPrev-&gt;pNext      = p;
+<a href='../S/180.html#L87'>pPrev</a>              87 ovr/sdk/src/Kernel/OVR_List.h         pPrev             = p;
+<a href='../S/180.html#L93'>pPrev</a>              93 ovr/sdk/src/Kernel/OVR_List.h         pdest-&gt;pPrev = pPrev;
+<a href='../S/180.html#L94'>pPrev</a>              94 ovr/sdk/src/Kernel/OVR_List.h         pPrev-&gt;pNext = (T*)pdest;
+<a href='../S/180.html#L95'>pPrev</a>              95 ovr/sdk/src/Kernel/OVR_List.h         pNext-&gt;pPrev = (T*)pdest;
+<a href='../S/180.html#L141'>pPrev</a>             141 ovr/sdk/src/Kernel/OVR_List.h         Root.pNext = Root.pPrev = (ValueType*)&amp;Root;
+<a href='../S/180.html#L146'>pPrev</a>             146 ovr/sdk/src/Kernel/OVR_List.h         Root.pNext = Root.pPrev = (ValueType*)&amp;Root;
+<a href='../S/180.html#L150'>pPrev</a>             150 ovr/sdk/src/Kernel/OVR_List.h     const ValueType* GetLast () const { return (const ValueType*)Root.pPrev; }
+<a href='../S/180.html#L152'>pPrev</a>             152 ovr/sdk/src/Kernel/OVR_List.h           ValueType* GetLast ()       { return (ValueType*)Root.pPrev; }
+<a href='../S/180.html#L159'>pPrev</a>             159 ovr/sdk/src/Kernel/OVR_List.h     bool IsLast (const ValueType* p) const { return p == Root.pPrev; }
+<a href='../S/180.html#L162'>pPrev</a>             162 ovr/sdk/src/Kernel/OVR_List.h     inline static const ValueType* GetPrev(const ValueType* p) { return (const ValueType*)p-&gt;pPrev; }
+<a href='../S/180.html#L164'>pPrev</a>             164 ovr/sdk/src/Kernel/OVR_List.h     inline static       ValueType* GetPrev(      ValueType* p) { return (ValueType*)p-&gt;pPrev; }
+<a href='../S/180.html#L170'>pPrev</a>             170 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          = (ValueType*)&amp;Root;
+<a href='../S/180.html#L171'>pPrev</a>             171 ovr/sdk/src/Kernel/OVR_List.h         Root.pNext-&gt;pPrev =  p;
+<a href='../S/180.html#L177'>pPrev</a>             177 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev          =  Root.pPrev;
+<a href='../S/180.html#L179'>pPrev</a>             179 ovr/sdk/src/Kernel/OVR_List.h         Root.pPrev-&gt;pNext =  p;
+<a href='../S/180.html#L180'>pPrev</a>             180 ovr/sdk/src/Kernel/OVR_List.h         Root.pPrev        =  p;
+<a href='../S/180.html#L185'>pPrev</a>             185 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pPrev-&gt;pNext = p-&gt;pNext;
+<a href='../S/180.html#L186'>pPrev</a>             186 ovr/sdk/src/Kernel/OVR_List.h         p-&gt;pNext-&gt;pPrev = p-&gt;pPrev;
+<a href='../S/180.html#L211'>pPrev</a>             211 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev  = (ValueType*)&amp;Root;
+<a href='../S/180.html#L212'>pPrev</a>             212 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext-&gt;pPrev = plast;
+<a href='../S/180.html#L225'>pPrev</a>             225 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev  = Root.pPrev;
+<a href='../S/180.html#L226'>pPrev</a>             226 ovr/sdk/src/Kernel/OVR_List.h             Root.pPrev-&gt;pNext = pfirst;
+<a href='../S/180.html#L227'>pPrev</a>             227 ovr/sdk/src/Kernel/OVR_List.h             Root.pPrev        = plast;
+<a href='../S/180.html#L237'>pPrev</a>             237 ovr/sdk/src/Kernel/OVR_List.h             ValueType *plast = src.Root.pPrev;
+<a href='../S/180.html#L240'>pPrev</a>             240 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev-&gt;pNext = (ValueType*)&amp;src.Root;
+<a href='../S/180.html#L241'>pPrev</a>             241 ovr/sdk/src/Kernel/OVR_List.h             src.Root.pPrev      = pfirst-&gt;pPrev;
+<a href='../S/180.html#L244'>pPrev</a>             244 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev     = (ValueType*)&amp;Root;
+<a href='../S/180.html#L245'>pPrev</a>             245 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext-&gt;pPrev = plast;
+<a href='../S/180.html#L257'>pPrev</a>             257 ovr/sdk/src/Kernel/OVR_List.h             ValueType *plast  = ptail-&gt;pPrev;
+<a href='../S/180.html#L260'>pPrev</a>             260 ovr/sdk/src/Kernel/OVR_List.h             ptail-&gt;pPrev      = (ValueType*)&amp;src.Root;
+<a href='../S/180.html#L265'>pPrev</a>             265 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev     = (ValueType*)&amp;Root;
+<a href='../S/180.html#L266'>pPrev</a>             266 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext-&gt;pPrev = plast;
+<a href='../S/180.html#L278'>pPrev</a>             278 ovr/sdk/src/Kernel/OVR_List.h             ValueType *plast = pend-&gt;pPrev;
+<a href='../S/180.html#L281'>pPrev</a>             281 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev-&gt;pNext = pend;
+<a href='../S/180.html#L282'>pPrev</a>             282 ovr/sdk/src/Kernel/OVR_List.h             pend-&gt;pPrev          = pfirst-&gt;pPrev;
+<a href='../S/180.html#L285'>pPrev</a>             285 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev     = (ValueType*)&amp;Root;
+<a href='../S/180.html#L286'>pPrev</a>             286 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext-&gt;pPrev = plast;
+<a href='../S/180.html#L299'>pPrev</a>             299 ovr/sdk/src/Kernel/OVR_List.h             pdest-&gt;Root.pPrev = Root.pPrev;
+<a href='../S/180.html#L301'>pPrev</a>             301 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext-&gt;pPrev = (ValueType*)&amp;pdest-&gt;Root;
+<a href='../S/180.html#L302'>pPrev</a>             302 ovr/sdk/src/Kernel/OVR_List.h             Root.pPrev-&gt;pNext = (ValueType*)&amp;pdest-&gt;Root;
+<a href='../S/191.html#L343'>pPrev</a>             343 ovr/sdk/src/OVR_DeviceImpl.cpp         devDesc-&gt;pNext = devDesc-&gt;pPrev = 0;
+<a href='../S/191.html#L723'>pPrev</a>             723 ovr/sdk/src/OVR_DeviceImpl.cpp                     pNext = pPrev = 0;
+<a href='../S/80.html#L119'>pPrev</a>             119 ovr/sdk/src/OVR_DeviceImpl.h         pNext = pPrev = 0;
+<a href='../S/80.html#L274'>pPrev</a>             274 ovr/sdk/src/OVR_DeviceImpl.h         pNext = pPrev = 0;
+<a href='../S/78.html#L116'>pPrev</a>             116 ovr/sdk/src/OVR_JSON.h     JSON*           GetPrevItem(JSON* item)  { return Children.IsNull(item-&gt;pPrev) ? 0 : item-&gt;pPrev; }
+</pre>
+</body>
+</html>

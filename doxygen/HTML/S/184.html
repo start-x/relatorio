@@ -1,0 +1,830 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_String.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_String.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L104'>[^]</a><a href='#L756'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L104' title='Defined at 104.'>AllocData</a>
+<li><a href='#L123' title='Defined at 123.'>AllocDataCopy1</a>
+<li><a href='#L131' title='Defined at 131.'>AllocDataCopy2</a>
+<li><a href='#L142' title='Defined at 142.'>GetLength</a>
+<li><a href='#L163' title='Defined at 163.'>GetCharAt</a>
+<li><a href='#L181' title='Defined at 181.'>GetFirstCharAt</a>
+<li><a href='#L207' title='Defined at 207.'>GetNextChar</a>
+<li><a href='#L214' title='Defined at 214.'>AppendChar</a>
+<li><a href='#L231' title='Defined at 231.'>AppendString</a>
+<li><a href='#L249' title='Defined at 249.'>AppendString</a>
+<li><a href='#L264' title='Defined at 264.'>AssignString</a>
+<li><a href='#L273' title='Defined at 273.'>AssignString</a>
+<li><a href='#L343' title='Defined at 343.'>Remove</a>
+<li><a href='#L368' title='Defined at 368.'>Substring</a>
+<li><a href='#L386' title='Defined at 386.'>Clear</a>
+<li><a href='#L394' title='Defined at 394.'>ToUpper</a>
+<li><a href='#L418' title='Defined at 418.'>ToLower</a>
+<li><a href='#L444' title='Defined at 444.'>Insert</a>
+<li><a href='#L475' title='Defined at 475.'>InsertCharAt</a>
+<li><a href='#L488' title='Defined at 488.'>CompareNoCase</a>
+<li><a href='#L493' title='Defined at 493.'>CompareNoCase</a>
+<li><a href='#L521' title='Defined at 521.'>BernsteinHashFunction</a>
+<li><a href='#L535' title='Defined at 535.'>BernsteinHashFunctionCIS</a>
+<li><a href='#L559' title='Defined at 559.'>LengthIsSize</a>
+<li><a href='#L564' title='Defined at 564.'>LengthIsSize</a>
+<li><a href='#L570' title='Defined at 570.'>LengthIsSize</a>
+<li><a href='#L576' title='Defined at 576.'>LengthIsSize</a>
+<li><a href='#L582' title='Defined at 582.'>LengthIsSize</a>
+<li><a href='#L588' title='Defined at 588.'>LengthIsSize</a>
+<li><a href='#L594' title='Defined at 594.'>LengthIsSize</a>
+<li><a href='#L604' title='Defined at 604.'>SetGrowSize</a>
+<li><a href='#L616' title='Defined at 616.'>GetLength</a>
+<li><a href='#L629' title='Defined at 629.'>Reserve</a>
+<li><a href='#L640' title='Defined at 640.'>Resize</a>
+<li><a href='#L649' title='Defined at 649.'>Clear</a>
+<li><a href='#L663' title='Defined at 663.'>AppendChar</a>
+<li><a href='#L680' title='Defined at 680.'>AppendString</a>
+<li><a href='#L693' title='Defined at 693.'>AppendString</a>
+<li><a href='#L738' title='Defined at 738.'>Insert</a>
+<li><a href='#L756' title='Defined at 756.'>InsertCharAt</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_String.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   String UTF8 string implementation with copy-on-write semantics</font></i>
+<a name='L5'>   5 <i><font color='green'>                (thread-safe for assignment but not modification).</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   September 19, 2012</font></i>
+<a name='L7'>   7 <i><font color='green'>Notes       : </font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#include</font> "<a href='161.html'>OVR_String.h</a>"
+<a name='L29'>  29 
+<a name='L30'>  30 <font color='darkred'>#include</font> &lt;stdlib.h&gt;
+<a name='L31'>  31 <font color='darkred'>#include</font> &lt;ctype.h&gt;
+<a name='L32'>  32 
+<a name='L33'>  33 <font color='darkred'>#ifdef</font> OVR_OS_QNX
+<a name='L34'>  34 <font color='darkred'># include</font> &lt;strings.h&gt;
+<a name='L35'>  35 <font color='darkred'>#endif</font>
+<a name='L36'>  36 
+<a name='L37'>  37 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font>
+<a name='L38'>  38 
+<a name='L39'>  39 <font color='darkred'>#define</font> <a href='../R/1062.html' title='Multiple refered from 2 places.'>String_LengthIsSize</a> (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>(1) &lt;&lt; <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../Y/615.html' title='Multiple used in 3 places.'>Flag_LengthIsSizeShift</a>)
+<a name='L40'>  40 
+<a name='L41'>  41 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../Y/1479.html' title='Multiple used in 7 places.'>NullData</a> = <font color='red'>{</font><a href='../S/184.html#L39' title='Defined at 39 in ovr/sdk/src/Kernel/OVR_String.cpp.'>String_LengthIsSize</a>, 1, <font color='red'>{</font>0<font color='red'>}</font> <font color='red'>}</font>;
+<a name='L42'>  42 
+<a name='L43'>  43 
+<a name='L44'>  44 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>()
+<a name='L45'>  45 <font color='red'>{</font>
+<a name='L46'>  46     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = &amp;<a href='../Y/1479.html' title='Multiple used in 7 places.'>NullData</a>;
+<a name='L47'>  47     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>-&gt;<a href='../D/20.html' title='Multiple defined in 4 places.'>AddRef</a>();
+<a name='L48'>  48 <font color='red'>}</font>;
+<a name='L49'>  49 
+<a name='L50'>  50 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<b>const</b> <b>char</b>* <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>)
+<a name='L51'>  51 <font color='red'>{</font>
+<a name='L52'>  52     <i><font color='green'>// Obtain length in bytes; it doesn't matter if _data is UTF8.</font></i>
+<a name='L53'>  53     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> ? <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>) : 0; 
+<a name='L54'>  54     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = <a href='../S/184.html#L123' title='Defined at 123 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy1</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, 0, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L55'>  55 <font color='red'>}</font>;
+<a name='L56'>  56 
+<a name='L57'>  57 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<b>const</b> <b>char</b>* <a href='../Y/4020.html' title='Multiple used in 6 places.'>pdata1</a>, <b>const</b> <b>char</b>* <a href='../Y/4021.html' title='Multiple used in 7 places.'>pdata2</a>, <b>const</b> <b>char</b>* <a href='../Y/4022.html' title='Multiple used in 4 places.'>pdata3</a>)
+<a name='L58'>  58 <font color='red'>{</font>
+<a name='L59'>  59     <i><font color='green'>// Obtain length in bytes; it doesn't matter if _data is UTF8.</font></i>
+<a name='L60'>  60     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4412.html' title='Multiple used in 4 places.'>size1</a> = <a href='../Y/4020.html' title='Multiple used in 6 places.'>pdata1</a> ? <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4020.html' title='Multiple used in 6 places.'>pdata1</a>) : 0; 
+<a name='L61'>  61     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4413.html' title='Multiple used in 4 places.'>size2</a> = <a href='../Y/4021.html' title='Multiple used in 7 places.'>pdata2</a> ? <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4021.html' title='Multiple used in 7 places.'>pdata2</a>) : 0; 
+<a name='L62'>  62     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4414.html' title='Multiple used in 3 places.'>size3</a> = <a href='../Y/4022.html' title='Multiple used in 4 places.'>pdata3</a> ? <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4022.html' title='Multiple used in 4 places.'>pdata3</a>) : 0; 
+<a name='L63'>  63 
+<a name='L64'>  64     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a> *<a href='../Y/4023.html' title='Multiple used in 3 places.'>pdataDesc</a> = <a href='../S/184.html#L131' title='Defined at 131 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy2</a>(<a href='../Y/4412.html' title='Multiple used in 4 places.'>size1</a> + <a href='../Y/4413.html' title='Multiple used in 4 places.'>size2</a> + <a href='../Y/4414.html' title='Multiple used in 3 places.'>size3</a>, 0,
+<a name='L65'>  65                                          <a href='../Y/4020.html' title='Multiple used in 6 places.'>pdata1</a>, <a href='../Y/4412.html' title='Multiple used in 4 places.'>size1</a>, <a href='../Y/4021.html' title='Multiple used in 7 places.'>pdata2</a>, <a href='../Y/4413.html' title='Multiple used in 4 places.'>size2</a>);
+<a name='L66'>  66     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/4023.html' title='Multiple used in 3 places.'>pdataDesc</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/4412.html' title='Multiple used in 4 places.'>size1</a> + <a href='../Y/4413.html' title='Multiple used in 4 places.'>size2</a>, <a href='../Y/4022.html' title='Multiple used in 4 places.'>pdata3</a>, <a href='../Y/4414.html' title='Multiple used in 3 places.'>size3</a>);   
+<a name='L67'>  67     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = <a href='../Y/4023.html' title='Multiple used in 3 places.'>pdataDesc</a>;    
+<a name='L68'>  68 <font color='red'>}</font>
+<a name='L69'>  69 
+<a name='L70'>  70 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<b>const</b> <b>char</b>* <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>)
+<a name='L71'>  71 <font color='red'>{</font>
+<a name='L72'>  72     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>((<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> == 0) || (<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> != 0));
+<a name='L73'>  73     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = <a href='../S/184.html#L123' title='Defined at 123 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy1</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, 0, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L74'>  74 <font color='red'>}</font>;
+<a name='L75'>  75 
+<a name='L76'>  76 
+<a name='L77'>  77 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<b>const</b> <a href='../Y/985.html' title='Multiple used in 2 places.'>InitStruct</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>)
+<a name='L78'>  78 <font color='red'>{</font>
+<a name='L79'>  79     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = <a href='../S/184.html#L104' title='Defined at 104 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocData</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, 0);
+<a name='L80'>  80     <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/984.html' title='Multiple used in 3 places.'>InitString</a>(<a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>()-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L81'>  81 <font color='red'>}</font>
+<a name='L82'>  82 
+<a name='L83'>  83 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L84'>  84 <font color='red'>{</font>    
+<a name='L85'>  85     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L86'>  86     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>-&gt;<a href='../D/20.html' title='Multiple defined in 4 places.'>AddRef</a>();
+<a name='L87'>  87 <font color='red'>}</font>
+<a name='L88'>  88 
+<a name='L89'>  89 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<b>const</b> <a href='../Y/2151.html' title='Multiple used in 4 places.'>StringBuffer</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L90'>  90 <font color='red'>{</font>
+<a name='L91'>  91     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = <a href='../S/184.html#L123' title='Defined at 123 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy1</a>(<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>(), 0, <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>(), <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L92'>  92 <font color='red'>}</font>
+<a name='L93'>  93 
+<a name='L94'>  94 <a href='../R/1060.html' title='Multiple refered from 182 places.'>String</a>::<a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<b>const</b> <b>wchar_t</b>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>)
+<a name='L95'>  95 <font color='red'>{</font>
+<a name='L96'>  96     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = &amp;<a href='../Y/1479.html' title='Multiple used in 7 places.'>NullData</a>;
+<a name='L97'>  97     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>-&gt;<a href='../D/20.html' title='Multiple defined in 4 places.'>AddRef</a>();
+<a name='L98'>  98     <i><font color='green'>// Simplified logic for wchar_t constructor.</font></i>
+<a name='L99'>  99     <b>if</b> (<a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>)    
+<a name='L100'> 100         *<b>this</b> = <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>;    
+<a name='L101'> 101 <font color='red'>}</font>
+<a name='L102'> 102 
+<a name='L103'> 103 
+<a name='L104'> 104 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/30.html' title='Multiple refered from 6 places.'>AllocData</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3559.html' title='Multiple used in 9 places.'>lengthIsSize</a>)
+<a name='L105'> 105 <font color='red'>{</font>
+<a name='L106'> 106     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>;
+<a name='L107'> 107 
+<a name='L108'> 108     <b>if</b> (<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> == 0)
+<a name='L109'> 109     <font color='red'>{</font>
+<a name='L110'> 110         <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a> = &amp;<a href='../Y/1479.html' title='Multiple used in 7 places.'>NullData</a>;
+<a name='L111'> 111         <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>-&gt;<a href='../D/20.html' title='Multiple defined in 4 places.'>AddRef</a>();
+<a name='L112'> 112         <b>return</b> <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>;
+<a name='L113'> 113     <font color='red'>}</font>
+<a name='L114'> 114 
+<a name='L115'> 115     <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a> = (<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*)<a href='../D/657.html' title='Multiple defined in 2 places.'>OVR_ALLOC</a>(<b>sizeof</b>(<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>)+ <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L116'> 116     <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>[<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>] = 0;
+<a name='L117'> 117     <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>-&gt;<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a> = 1;
+<a name='L118'> 118     <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>-&gt;<a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>     = <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> | <a href='../Y/3559.html' title='Multiple used in 9 places.'>lengthIsSize</a>;  
+<a name='L119'> 119     <b>return</b> <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>;
+<a name='L120'> 120 <font color='red'>}</font>
+<a name='L121'> 121 
+<a name='L122'> 122 
+<a name='L123'> 123 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/31.html' title='Multiple refered from 7 places.'>AllocDataCopy1</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3559.html' title='Multiple used in 9 places.'>lengthIsSize</a>,
+<a name='L124'> 124                                          <b>const</b> <b>char</b>* <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/2905.html' title='Multiple used in 3 places.'>copySize</a>)
+<a name='L125'> 125 <font color='red'>{</font>
+<a name='L126'> 126     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a> = <a href='../S/184.html#L104' title='Defined at 104 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocData</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/3559.html' title='Multiple used in 9 places.'>lengthIsSize</a>);
+<a name='L127'> 127     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>, <a href='../Y/2905.html' title='Multiple used in 3 places.'>copySize</a>);
+<a name='L128'> 128     <b>return</b> <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>;
+<a name='L129'> 129 <font color='red'>}</font>
+<a name='L130'> 130 
+<a name='L131'> 131 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/32.html' title='Multiple refered from 7 places.'>AllocDataCopy2</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3559.html' title='Multiple used in 9 places.'>lengthIsSize</a>,
+<a name='L132'> 132                                          <b>const</b> <b>char</b>* <a href='../Y/4020.html' title='Multiple used in 6 places.'>pdata1</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/2906.html' title='Multiple used in 4 places.'>copySize1</a>,
+<a name='L133'> 133                                          <b>const</b> <b>char</b>* <a href='../Y/4021.html' title='Multiple used in 7 places.'>pdata2</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/2907.html' title='Multiple used in 3 places.'>copySize2</a>)
+<a name='L134'> 134 <font color='red'>{</font>
+<a name='L135'> 135     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a> = <a href='../S/184.html#L104' title='Defined at 104 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocData</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/3559.html' title='Multiple used in 9 places.'>lengthIsSize</a>);
+<a name='L136'> 136     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4020.html' title='Multiple used in 6 places.'>pdata1</a>, <a href='../Y/2906.html' title='Multiple used in 4 places.'>copySize1</a>);
+<a name='L137'> 137     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/2906.html' title='Multiple used in 4 places.'>copySize1</a>, <a href='../Y/4021.html' title='Multiple used in 7 places.'>pdata2</a>, <a href='../Y/2907.html' title='Multiple used in 3 places.'>copySize2</a>);
+<a name='L138'> 138     <b>return</b> <a href='../Y/4025.html' title='Multiple used in 18 places.'>pdesc</a>;
+<a name='L139'> 139 <font color='red'>}</font>
+<a name='L140'> 140 
+<a name='L141'> 141 
+<a name='L142'> 142 <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/349.html' title='Multiple refered from 20 places.'>GetLength</a>() <b>const</b> 
+<a name='L143'> 143 <font color='red'>{</font>
+<a name='L144'> 144     <i><font color='green'>// Optimize length accesses for non-UTF8 character strings. </font></i>
+<a name='L145'> 145     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L146'> 146     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L147'> 147     
+<a name='L148'> 148     <b>if</b> (<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a>())
+<a name='L149'> 149         <b>return</b> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>;    
+<a name='L150'> 150     
+<a name='L151'> 151     <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a> = (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../D/366.html' title='Multiple defined in 6 places.'>GetLength</a>(<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L152'> 152     
+<a name='L153'> 153     <b>if</b> (<a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a> == <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>)
+<a name='L154'> 154         <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a> |= <a href='../S/184.html#L39' title='Defined at 39 in ovr/sdk/src/Kernel/OVR_String.cpp.'>String_LengthIsSize</a>;
+<a name='L155'> 155     
+<a name='L156'> 156     <b>return</b> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>;
+<a name='L157'> 157 <font color='red'>}</font>
+<a name='L158'> 158 
+<a name='L159'> 159 
+<a name='L160'> 160 <i><font color='green'>//static UInt32 String_CharSearch(const char* buf, )</font></i>
+<a name='L161'> 161 
+<a name='L162'> 162 
+<a name='L163'> 163 <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/296.html' title='Multiple refered from 5 places.'>GetCharAt</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>) <b>const</b> 
+<a name='L164'> 164 <font color='red'>{</font>  
+<a name='L165'> 165     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>       <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>) <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>;
+<a name='L166'> 166     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L167'> 167     <b>const</b> <b>char</b>* <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>;
+<a name='L168'> 168     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>      <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>;
+<a name='L169'> 169     
+<a name='L170'> 170     <b>if</b> (<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a>())
+<a name='L171'> 171     <font color='red'>{</font>
+<a name='L172'> 172         <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a> &lt; <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L173'> 173         <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a> += <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>;
+<a name='L174'> 174         <b>return</b> <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L135' title='Defined at 135 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>DecodeNextChar_Advance0</a>(&amp;<a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>);
+<a name='L175'> 175     <font color='red'>}</font>
+<a name='L176'> 176 
+<a name='L177'> 177     <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a> = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../D/313.html' title='Multiple defined in 2 places.'>GetCharAt</a>(<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>, <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L178'> 178     <b>return</b> <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>;
+<a name='L179'> 179 <font color='red'>}</font>
+<a name='L180'> 180 
+<a name='L181'> 181 <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/329.html' title='Multiple refered from 2 places.'>GetFirstCharAt</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>, <b>const</b> <b>char</b>** <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>) <b>const</b>
+<a name='L182'> 182 <font color='red'>{</font>
+<a name='L183'> 183     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L184'> 184     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>       <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>) <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>;
+<a name='L185'> 185     <b>const</b> <b>char</b>* <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>;
+<a name='L186'> 186     <b>const</b> <b>char</b>* <a href='../Y/3112.html' title='Multiple used in 40 places.'>end</a> = <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a> + <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L187'> 187     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>      <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>;
+<a name='L188'> 188 
+<a name='L189'> 189     <b>do</b> 
+<a name='L190'> 190     <font color='red'>{</font>
+<a name='L191'> 191         <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a> = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L135' title='Defined at 135 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>DecodeNextChar_Advance0</a>(&amp;<a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>);
+<a name='L192'> 192         <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>--;
+<a name='L193'> 193 
+<a name='L194'> 194         <b>if</b> (<a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a> &gt;= <a href='../Y/3112.html' title='Multiple used in 40 places.'>end</a>)
+<a name='L195'> 195         <font color='red'>{</font>
+<a name='L196'> 196             <i><font color='green'>// We've hit the end of the string; don't go further.</font></i>
+<a name='L197'> 197             <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> == 0);
+<a name='L198'> 198             <b>return</b> <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>;
+<a name='L199'> 199         <font color='red'>}</font>
+<a name='L200'> 200     <font color='red'>}</font> <b>while</b> (<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &gt;= 0);
+<a name='L201'> 201 
+<a name='L202'> 202     *<a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a> = <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>;
+<a name='L203'> 203 
+<a name='L204'> 204     <b>return</b> <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>;
+<a name='L205'> 205 <font color='red'>}</font>
+<a name='L206'> 206 
+<a name='L207'> 207 <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/357.html' title='Multiple refered from 2 places.'>GetNextChar</a>(<b>const</b> <b>char</b>** <a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>) <b>const</b>
+<a name='L208'> 208 <font color='red'>{</font>
+<a name='L209'> 209     <b>return</b> <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../Y/349.html' title='Multiple used in 12 places.'>DecodeNextChar</a>(<a href='../Y/3801.html' title='Multiple used in 71 places.'>offset</a>);
+<a name='L210'> 210 <font color='red'>}</font>
+<a name='L211'> 211 
+<a name='L212'> 212 
+<a name='L213'> 213 
+<a name='L214'> 214 <b>void</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/39.html' title='Multiple refered from 5 places.'>AppendChar</a>(<a href='../Y/2328.html' title='Multiple used in 18 places.'>UInt32</a> <a href='../Y/2830.html' title='Multiple used in 20 places.'>ch</a>)
+<a name='L215'> 215 <font color='red'>{</font>
+<a name='L216'> 216     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L217'> 217     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L218'> 218     <b>char</b>        <a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>[8];
+<a name='L219'> 219     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>       <a href='../Y/3111.html' title='Multiple used in 7 places.'>encodeSize</a> = 0;
+<a name='L220'> 220 
+<a name='L221'> 221     <i><font color='green'>// Converts ch into UTF8 string and fills it into buff.   </font></i>
+<a name='L222'> 222     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L239' title='Defined at 239 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeChar</a>(<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, &amp;<a href='../Y/3111.html' title='Multiple used in 7 places.'>encodeSize</a>, <a href='../Y/2830.html' title='Multiple used in 20 places.'>ch</a>);
+<a name='L223'> 223     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3111.html' title='Multiple used in 7 places.'>encodeSize</a> &gt;= 0);
+<a name='L224'> 224 
+<a name='L225'> 225     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../S/184.html#L131' title='Defined at 131 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy2</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> + (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3111.html' title='Multiple used in 7 places.'>encodeSize</a>, 0,
+<a name='L226'> 226                            <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3111.html' title='Multiple used in 7 places.'>encodeSize</a>));
+<a name='L227'> 227     <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L228'> 228 <font color='red'>}</font>
+<a name='L229'> 229 
+<a name='L230'> 230 
+<a name='L231'> 231 <b>void</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/41.html' title='Multiple refered from 17 places.'>AppendString</a>(<b>const</b> <b>wchar_t</b>* <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>)
+<a name='L232'> 232 <font color='red'>{</font>
+<a name='L233'> 233     <b>if</b> (!<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>)
+<a name='L234'> 234         <b>return</b>;
+<a name='L235'> 235 
+<a name='L236'> 236     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L237'> 237     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();    
+<a name='L238'> 238     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/3111.html' title='Multiple used in 7 places.'>encodeSize</a> = (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L292' title='Defined at 292 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetEncodeStringSize</a>(<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>);
+<a name='L239'> 239 
+<a name='L240'> 240     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a> = <a href='../S/184.html#L123' title='Defined at 123 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy1</a>(<a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> + (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3111.html' title='Multiple used in 7 places.'>encodeSize</a>, 0,
+<a name='L241'> 241                                           <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>);
+<a name='L242'> 242     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L310' title='Defined at 310 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeString</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>,  <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>);
+<a name='L243'> 243 
+<a name='L244'> 244     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>);
+<a name='L245'> 245     <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L246'> 246 <font color='red'>}</font>
+<a name='L247'> 247 
+<a name='L248'> 248 
+<a name='L249'> 249 <b>void</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/41.html' title='Multiple refered from 17 places.'>AppendString</a>(<b>const</b> <b>char</b>* <a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a>)
+<a name='L250'> 250 <font color='red'>{</font>
+<a name='L251'> 251     <b>if</b> (!<a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a> || !<a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a>)
+<a name='L252'> 252         <b>return</b>;
+<a name='L253'> 253     <b>if</b> (<a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a> == -1)
+<a name='L254'> 254         <a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>)<a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>);
+<a name='L255'> 255 
+<a name='L256'> 256     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L257'> 257     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L258'> 258 
+<a name='L259'> 259     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../S/184.html#L131' title='Defined at 131 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy2</a>(<a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> + (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a>, 0,
+<a name='L260'> 260                            <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>, <a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>, (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a>));
+<a name='L261'> 261     <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L262'> 262 <font color='red'>}</font>
+<a name='L263'> 263 
+<a name='L264'> 264 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/48.html' title='Multiple refered from 5 places.'>AssignString</a>(<b>const</b> <a href='../Y/985.html' title='Multiple used in 2 places.'>InitStruct</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>)
+<a name='L265'> 265 <font color='red'>{</font>
+<a name='L266'> 266     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L267'> 267     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a> = <a href='../S/184.html#L104' title='Defined at 104 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocData</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, 0);
+<a name='L268'> 268     <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/984.html' title='Multiple used in 3 places.'>InitString</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L269'> 269     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>);
+<a name='L270'> 270     <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L271'> 271 <font color='red'>}</font>
+<a name='L272'> 272 
+<a name='L273'> 273 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/48.html' title='Multiple refered from 5 places.'>AssignString</a>(<b>const</b> <b>char</b>* <a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>)
+<a name='L274'> 274 <font color='red'>{</font>
+<a name='L275'> 275     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L276'> 276     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../S/184.html#L123' title='Defined at 123 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy1</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, 0, <a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>));
+<a name='L277'> 277     <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L278'> 278 <font color='red'>}</font>
+<a name='L279'> 279 
+<a name='L280'> 280 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<b>operator</b> = (<b>const</b> <b>char</b>* <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>)
+<a name='L281'> 281 <font color='red'>{</font>
+<a name='L282'> 282     <a href='../D/52.html' title='Multiple defined in 2 places.'>AssignString</a>(<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a> ? <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>) : 0);
+<a name='L283'> 283 <font color='red'>}</font>
+<a name='L284'> 284 
+<a name='L285'> 285 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<b>operator</b> = (<b>const</b> <b>wchar_t</b>* <a href='../Y/4206.html' title='Multiple used in 3 places.'>pwstr</a>)
+<a name='L286'> 286 <font color='red'>{</font>
+<a name='L287'> 287     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L288'> 288     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../Y/4206.html' title='Multiple used in 3 places.'>pwstr</a> ? (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L292' title='Defined at 292 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetEncodeStringSize</a>(<a href='../Y/4206.html' title='Multiple used in 3 places.'>pwstr</a>) : 0;
+<a name='L289'> 289 
+<a name='L290'> 290     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a> = <a href='../S/184.html#L104' title='Defined at 104 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocData</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, 0);
+<a name='L291'> 291     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L310' title='Defined at 310 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeString</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4206.html' title='Multiple used in 3 places.'>pwstr</a>);
+<a name='L292'> 292     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>);
+<a name='L293'> 293     <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L294'> 294 <font color='red'>}</font>
+<a name='L295'> 295 
+<a name='L296'> 296 
+<a name='L297'> 297 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<b>operator</b> = (<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L298'> 298 <font color='red'>{</font>     
+<a name='L299'> 299     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*    <a href='../Y/4154.html' title='Multiple used in 3 places.'>psdata</a> = <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L300'> 300     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*    <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();    
+<a name='L301'> 301 
+<a name='L302'> 302     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../Y/4154.html' title='Multiple used in 3 places.'>psdata</a>);
+<a name='L303'> 303     <a href='../Y/4154.html' title='Multiple used in 3 places.'>psdata</a>-&gt;<a href='../D/20.html' title='Multiple defined in 4 places.'>AddRef</a>();
+<a name='L304'> 304     <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L305'> 305 <font color='red'>}</font>
+<a name='L306'> 306 
+<a name='L307'> 307 
+<a name='L308'> 308 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<b>operator</b> = (<b>const</b> <a href='../Y/2151.html' title='Multiple used in 4 places.'>StringBuffer</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L309'> 309 <font color='red'>{</font> 
+<a name='L310'> 310     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4081.html' title='Multiple used in 2 places.'>polddata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();    
+<a name='L311'> 311     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../S/184.html#L123' title='Defined at 123 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy1</a>(<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>(), 0, <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>(), <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>()));
+<a name='L312'> 312     <a href='../Y/4081.html' title='Multiple used in 2 places.'>polddata</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L313'> 313 <font color='red'>}</font>
+<a name='L314'> 314 
+<a name='L315'> 315 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<b>operator</b> += (<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L316'> 316 <font color='red'>{</font>
+<a name='L317'> 317     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>   *<a href='../Y/4095.html' title='Multiple used in 5 places.'>pourData</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>(),
+<a name='L318'> 318                *<a href='../Y/4160.html' title='Multiple used in 4 places.'>psrcData</a> = <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L319'> 319     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/3832.html' title='Multiple used in 3 places.'>ourSize</a>  = <a href='../Y/4095.html' title='Multiple used in 5 places.'>pourData</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>(),
+<a name='L320'> 320                 <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a>  = <a href='../Y/4160.html' title='Multiple used in 4 places.'>psrcData</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L321'> 321     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/3567.html' title='Multiple used in 2 places.'>lflag</a>    = <a href='../Y/4095.html' title='Multiple used in 5 places.'>pourData</a>-&gt;<a href='../Y/777.html' title='Multiple used in 4 places.'>GetLengthFlag</a>() &amp; <a href='../Y/4160.html' title='Multiple used in 4 places.'>psrcData</a>-&gt;<a href='../Y/777.html' title='Multiple used in 4 places.'>GetLengthFlag</a>();
+<a name='L322'> 322 
+<a name='L323'> 323     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../S/184.html#L131' title='Defined at 131 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy2</a>(<a href='../Y/3832.html' title='Multiple used in 3 places.'>ourSize</a> + <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a>, <a href='../Y/3567.html' title='Multiple used in 2 places.'>lflag</a>,
+<a name='L324'> 324                            <a href='../Y/4095.html' title='Multiple used in 5 places.'>pourData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/3832.html' title='Multiple used in 3 places.'>ourSize</a>, <a href='../Y/4160.html' title='Multiple used in 4 places.'>psrcData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a>));
+<a name='L325'> 325     <a href='../Y/4095.html' title='Multiple used in 5 places.'>pourData</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L326'> 326 <font color='red'>}</font>
+<a name='L327'> 327 
+<a name='L328'> 328 
+<a name='L329'> 329 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>   <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<b>operator</b> + (<b>const</b> <b>char</b>* <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>) <b>const</b>
+<a name='L330'> 330 <font color='red'>{</font>   
+<a name='L331'> 331     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a> <a href='../Y/4635.html' title='Multiple used in 6 places.'>tmp1</a>(*<b>this</b>);
+<a name='L332'> 332     <a href='../Y/4635.html' title='Multiple used in 6 places.'>tmp1</a> += (<a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a> ? <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a> : "");
+<a name='L333'> 333     <b>return</b> <a href='../Y/4635.html' title='Multiple used in 6 places.'>tmp1</a>;
+<a name='L334'> 334 <font color='red'>}</font>
+<a name='L335'> 335 
+<a name='L336'> 336 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>   <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<b>operator</b> + (<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>) <b>const</b>
+<a name='L337'> 337 <font color='red'>{</font> 
+<a name='L338'> 338     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a> <a href='../Y/4635.html' title='Multiple used in 6 places.'>tmp1</a>(*<b>this</b>);
+<a name='L339'> 339     <a href='../Y/4635.html' title='Multiple used in 6 places.'>tmp1</a> += <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>;
+<a name='L340'> 340     <b>return</b> <a href='../Y/4635.html' title='Multiple used in 6 places.'>tmp1</a>;
+<a name='L341'> 341 <font color='red'>}</font>
+<a name='L342'> 342 
+<a name='L343'> 343 <b>void</b>    <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/893.html' title='Multiple refered from 9 places.'>Remove</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/4259.html' title='Multiple used in 4 places.'>removeLength</a>)
+<a name='L344'> 344 <font color='red'>{</font>
+<a name='L345'> 345     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>*   <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L346'> 346     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> = <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();    
+<a name='L347'> 347     <i><font color='green'>// Length indicates the number of characters to remove. </font></i>
+<a name='L348'> 348     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>       <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a> = <a href='../D/366.html' title='Multiple defined in 6 places.'>GetLength</a>();
+<a name='L349'> 349 
+<a name='L350'> 350     <i><font color='green'>// If index is past the string, nothing to remove.</font></i>
+<a name='L351'> 351     <b>if</b> (<a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a> &gt;= <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>)
+<a name='L352'> 352         <b>return</b>;
+<a name='L353'> 353     <i><font color='green'>// Otherwise, cap removeLength to the length of the string.</font></i>
+<a name='L354'> 354     <b>if</b> ((<a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a> + <a href='../Y/4259.html' title='Multiple used in 4 places.'>removeLength</a>) &gt; <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>)
+<a name='L355'> 355         <a href='../Y/4259.html' title='Multiple used in 4 places.'>removeLength</a> = <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a> - <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>;
+<a name='L356'> 356 
+<a name='L357'> 357     <i><font color='green'>// Get the byte position of the UTF8 char at position posAt.</font></i>
+<a name='L358'> 358     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a> <a href='../Y/2795.html' title='Multiple used in 4 places.'>bytePos</a>    = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L90' title='Defined at 90 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetByteIndex</a>(<a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>);
+<a name='L359'> 359     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a> <a href='../Y/4260.html' title='Multiple used in 3 places.'>removeSize</a> = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L90' title='Defined at 90 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetByteIndex</a>(<a href='../Y/4259.html' title='Multiple used in 4 places.'>removeLength</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/2795.html' title='Multiple used in 4 places.'>bytePos</a>, <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>-<a href='../Y/2795.html' title='Multiple used in 4 places.'>bytePos</a>);
+<a name='L360'> 360 
+<a name='L361'> 361     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../S/184.html#L131' title='Defined at 131 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy2</a>(<a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> - <a href='../Y/4260.html' title='Multiple used in 3 places.'>removeSize</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/777.html' title='Multiple used in 4 places.'>GetLengthFlag</a>(),
+<a name='L362'> 362                            <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/2795.html' title='Multiple used in 4 places.'>bytePos</a>,
+<a name='L363'> 363                            <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/2795.html' title='Multiple used in 4 places.'>bytePos</a> + <a href='../Y/4260.html' title='Multiple used in 3 places.'>removeSize</a>, (<a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> - <a href='../Y/2795.html' title='Multiple used in 4 places.'>bytePos</a> - <a href='../Y/4260.html' title='Multiple used in 3 places.'>removeSize</a>)));
+<a name='L364'> 364     <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L365'> 365 <font color='red'>}</font>
+<a name='L366'> 366 
+<a name='L367'> 367 
+<a name='L368'> 368 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>   <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L222' title='Refered from 222 in ovr/sdk/src/Kernel/OVR_String.h.'>Substring</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4462.html' title='Multiple used in 57 places.'>start</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3112.html' title='Multiple used in 40 places.'>end</a>) <b>const</b>
+<a name='L369'> 369 <font color='red'>{</font>
+<a name='L370'> 370     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a> = <a href='../D/366.html' title='Multiple defined in 6 places.'>GetLength</a>();
+<a name='L371'> 371     <b>if</b> ((<a href='../Y/4462.html' title='Multiple used in 57 places.'>start</a> &gt;= <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>) || (<a href='../Y/4462.html' title='Multiple used in 57 places.'>start</a> &gt;= <a href='../Y/3112.html' title='Multiple used in 40 places.'>end</a>))
+<a name='L372'> 372         <b>return</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>();   
+<a name='L373'> 373 
+<a name='L374'> 374     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L375'> 375     
+<a name='L376'> 376     <i><font color='green'>// If size matches, we know the exact index range.</font></i>
+<a name='L377'> 377     <b>if</b> (<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a>())
+<a name='L378'> 378         <b>return</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/4462.html' title='Multiple used in 57 places.'>start</a>, <a href='../Y/3112.html' title='Multiple used in 40 places.'>end</a> - <a href='../Y/4462.html' title='Multiple used in 57 places.'>start</a>);
+<a name='L379'> 379     
+<a name='L380'> 380     <i><font color='green'>// Get position of starting character.</font></i>
+<a name='L381'> 381     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a> <a href='../Y/2797.html' title='Multiple used in 3 places.'>byteStart</a> = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L90' title='Defined at 90 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetByteIndex</a>(<a href='../Y/4462.html' title='Multiple used in 57 places.'>start</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L382'> 382     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a> <a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a>  = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L90' title='Defined at 90 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetByteIndex</a>(<a href='../Y/3112.html' title='Multiple used in 40 places.'>end</a> - <a href='../Y/4462.html' title='Multiple used in 57 places.'>start</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/2797.html' title='Multiple used in 3 places.'>byteStart</a>, <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>()-<a href='../Y/2797.html' title='Multiple used in 3 places.'>byteStart</a>);
+<a name='L383'> 383     <b>return</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>(<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/2797.html' title='Multiple used in 3 places.'>byteStart</a>, (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/2796.html' title='Multiple used in 17 places.'>byteSize</a>);
+<a name='L384'> 384 <font color='red'>}</font>
+<a name='L385'> 385 
+<a name='L386'> 386 <b>void</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/106.html' title='Multiple refered from 82 places.'>Clear</a>()
+<a name='L387'> 387 <font color='red'>{</font>   
+<a name='L388'> 388     <a href='../Y/1479.html' title='Multiple used in 7 places.'>NullData</a>.<a href='../D/20.html' title='Multiple defined in 4 places.'>AddRef</a>();
+<a name='L389'> 389     <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>()-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L390'> 390     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(&amp;<a href='../Y/1479.html' title='Multiple used in 7 places.'>NullData</a>);
+<a name='L391'> 391 <font color='red'>}</font>
+<a name='L392'> 392 
+<a name='L393'> 393 
+<a name='L394'> 394 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>   <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L225' title='Refered from 225 in ovr/sdk/src/Kernel/OVR_String.h.'>ToUpper</a>() <b>const</b> 
+<a name='L395'> 395 <font color='red'>{</font>       
+<a name='L396'> 396     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>      <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>;
+<a name='L397'> 397     <b>const</b> <b>char</b>* <a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>()-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>;
+<a name='L398'> 398     <b>const</b> <b>char</b>* <a href='../Y/4032.html' title='Multiple used in 11 places.'>pend</a> = <a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> + <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>()-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L399'> 399     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>      <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>;
+<a name='L400'> 400     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>       <a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a> = 0;
+<a name='L401'> 401     <b>char</b>        <a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>[512];
+<a name='L402'> 402     
+<a name='L403'> 403     <b>while</b>(<a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> &lt; <a href='../Y/4032.html' title='Multiple used in 11 places.'>pend</a>)
+<a name='L404'> 404     <font color='red'>{</font>
+<a name='L405'> 405         <b>do</b> <font color='red'>{</font>            
+<a name='L406'> 406             <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a> = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L135' title='Defined at 135 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>DecodeNextChar_Advance0</a>(&amp;<a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a>);
+<a name='L407'> 407             <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L239' title='Defined at 239 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeChar</a>(<a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>, &amp;<a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a>, <a href='../S/169.html#L998' title='Defined at 998 in ovr/sdk/src/Kernel/OVR_Std.cpp.'>OVR_towupper</a>(<b>wchar_t</b>(<a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>)));
+<a name='L408'> 408         <font color='red'>}</font> <b>while</b> ((<a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> &lt; <a href='../Y/4032.html' title='Multiple used in 11 places.'>pend</a>) &amp;&amp; (<a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a> &lt; <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>(<b>sizeof</b>(<a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>)-8)));
+<a name='L409'> 409 
+<a name='L410'> 410         <i><font color='green'>// Append string a piece at a time.</font></i>
+<a name='L411'> 411         <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>.<a href='../D/45.html' title='Multiple defined in 4 places.'>AppendString</a>(<a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>, <a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a>);
+<a name='L412'> 412         <a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a> = 0;
+<a name='L413'> 413     <font color='red'>}</font>
+<a name='L414'> 414 
+<a name='L415'> 415     <b>return</b> <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>;
+<a name='L416'> 416 <font color='red'>}</font>
+<a name='L417'> 417 
+<a name='L418'> 418 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>   <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../S/161.html#L226' title='Refered from 226 in ovr/sdk/src/Kernel/OVR_String.h.'>ToLower</a>() <b>const</b> 
+<a name='L419'> 419 <font color='red'>{</font>
+<a name='L420'> 420     <a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>      <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>;
+<a name='L421'> 421     <b>const</b> <b>char</b>* <a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>()-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>;
+<a name='L422'> 422     <b>const</b> <b>char</b>* <a href='../Y/4032.html' title='Multiple used in 11 places.'>pend</a> = <a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> + <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>()-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L423'> 423     <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>      <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>;
+<a name='L424'> 424     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>       <a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a> = 0;
+<a name='L425'> 425     <b>char</b>        <a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>[512];
+<a name='L426'> 426 
+<a name='L427'> 427     <b>while</b>(<a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> &lt; <a href='../Y/4032.html' title='Multiple used in 11 places.'>pend</a>)
+<a name='L428'> 428     <font color='red'>{</font>
+<a name='L429'> 429         <b>do</b> <font color='red'>{</font>
+<a name='L430'> 430             <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a> = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L135' title='Defined at 135 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>DecodeNextChar_Advance0</a>(&amp;<a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a>);
+<a name='L431'> 431             <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L239' title='Defined at 239 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeChar</a>(<a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>, &amp;<a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a>, <a href='../S/169.html#L1016' title='Defined at 1016 in ovr/sdk/src/Kernel/OVR_Std.cpp.'>OVR_towlower</a>(<b>wchar_t</b>(<a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>)));
+<a name='L432'> 432         <font color='red'>}</font> <b>while</b> ((<a href='../Y/4157.html' title='Multiple used in 16 places.'>psource</a> &lt; <a href='../Y/4032.html' title='Multiple used in 11 places.'>pend</a>) &amp;&amp; (<a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a> &lt; <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>(<b>sizeof</b>(<a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>)-8)));
+<a name='L433'> 433 
+<a name='L434'> 434         <i><font color='green'>// Append string a piece at a time.</font></i>
+<a name='L435'> 435         <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>.<a href='../D/45.html' title='Multiple defined in 4 places.'>AppendString</a>(<a href='../Y/2782.html' title='Multiple used in 186 places.'>buffer</a>, <a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a>);
+<a name='L436'> 436         <a href='../Y/2784.html' title='Multiple used in 10 places.'>bufferOffset</a> = 0;
+<a name='L437'> 437     <font color='red'>}</font>
+<a name='L438'> 438 
+<a name='L439'> 439     <b>return</b> <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>;
+<a name='L440'> 440 <font color='red'>}</font>
+<a name='L441'> 441 
+<a name='L442'> 442 
+<a name='L443'> 443 
+<a name='L444'> 444 <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>&amp; <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/459.html' title='Multiple refered from 4 places.'>Insert</a>(<b>const</b> <b>char</b>* <a href='../Y/4513.html' title='Multiple used in 8 places.'>substr</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/4486.html' title='Multiple used in 2 places.'>strSize</a>)
+<a name='L445'> 445 <font color='red'>{</font>
+<a name='L446'> 446     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>   = <a href='../Y/742.html' title='Multiple used in 40 places.'>GetData</a>();
+<a name='L447'> 447     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>    = <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L448'> 448     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a> = (<a href='../Y/4486.html' title='Multiple used in 2 places.'>strSize</a> &lt; 0) ? <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4513.html' title='Multiple used in 8 places.'>substr</a>) : (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/4486.html' title='Multiple used in 2 places.'>strSize</a>;    
+<a name='L449'> 449     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a>  =  (<a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a>()) ?
+<a name='L450'> 450                             <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a> : (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L90' title='Defined at 90 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetByteIndex</a>(<a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>);
+<a name='L451'> 451 
+<a name='L452'> 452     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a> &lt;= <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>);
+<a name='L453'> 453     
+<a name='L454'> 454     <a href='../S/161.html#L67' title='Defined at 67 in ovr/sdk/src/Kernel/OVR_String.h.'>DataDesc</a>* <a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a> = <a href='../S/184.html#L131' title='Defined at 131 in ovr/sdk/src/Kernel/OVR_String.cpp.'>AllocDataCopy2</a>(<a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> + <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a>, 0,
+<a name='L455'> 455                                         <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a>, <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a>, <a href='../Y/4513.html' title='Multiple used in 8 places.'>substr</a>, <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a>);
+<a name='L456'> 456     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a> + <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a>,
+<a name='L457'> 457            <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../S/102.html#L215' title='Defined at 215 in ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp.'>Data</a> + <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a>, <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> - <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a>);
+<a name='L458'> 458     <a href='../Y/2031.html' title='Multiple used in 14 places.'>SetData</a>(<a href='../Y/4076.html' title='Multiple used in 12 places.'>pnewData</a>);
+<a name='L459'> 459     <a href='../Y/4080.html' title='Multiple used in 13 places.'>poldData</a>-&gt;<a href='../D/948.html' title='Multiple defined in 5 places.'>Release</a>();
+<a name='L460'> 460     <b>return</b> *<b>this</b>;
+<a name='L461'> 461 <font color='red'>}</font>
+<a name='L462'> 462 
+<a name='L463'> 463 <i><font color='green'>/*</font></i>
+<a name='L464'> 464 <i><font color='green'>String&amp; String::Insert(const UInt32* substr, UPInt posAt, SPInt len)</font></i>
+<a name='L465'> 465 <i><font color='green'>{</font></i>
+<a name='L466'> 466 <i><font color='green'>    for (SPInt i = 0; i &lt; len; ++i)</font></i>
+<a name='L467'> 467 <i><font color='green'>    {</font></i>
+<a name='L468'> 468 <i><font color='green'>        UPInt charw = InsertCharAt(substr[i], posAt);</font></i>
+<a name='L469'> 469 <i><font color='green'>        posAt += charw;</font></i>
+<a name='L470'> 470 <i><font color='green'>    }</font></i>
+<a name='L471'> 471 <i><font color='green'>    return *this;</font></i>
+<a name='L472'> 472 <i><font color='green'>}</font></i>
+<a name='L473'> 473 <i><font color='green'>*/</font></i>
+<a name='L474'> 474 
+<a name='L475'> 475 <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/462.html' title='Multiple refered from 2 places.'>InsertCharAt</a>(<a href='../Y/2328.html' title='Multiple used in 18 places.'>UInt32</a> <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>)
+<a name='L476'> 476 <font color='red'>{</font>
+<a name='L477'> 477     <b>char</b>    <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>[8];
+<a name='L478'> 478     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>   <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a> = 0;
+<a name='L479'> 479     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L239' title='Defined at 239 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeChar</a>(<a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>, &amp;<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>, <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>);
+<a name='L480'> 480     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a> &gt;= 0);
+<a name='L481'> 481     <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>[(<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>] = 0;
+<a name='L482'> 482 
+<a name='L483'> 483     <a href='../D/476.html' title='Multiple defined in 2 places.'>Insert</a>(<a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>, <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>);
+<a name='L484'> 484     <b>return</b> (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3456.html' title='Multiple used in 204 places.'>index</a>;
+<a name='L485'> 485 <font color='red'>}</font>
+<a name='L486'> 486 
+<a name='L487'> 487 
+<a name='L488'> 488 <b>int</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/117.html' title='Multiple refered from 15 places.'>CompareNoCase</a>(<b>const</b> <b>char</b>* <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>, <b>const</b> <b>char</b>* <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>)
+<a name='L489'> 489 <font color='red'>{</font>
+<a name='L490'> 490     <b>return</b> <a href='../S/169.html#L38' title='Defined at 38 in ovr/sdk/src/Kernel/OVR_Std.cpp.'>OVR_stricmp</a>(<a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>, <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>);
+<a name='L491'> 491 <font color='red'>}</font>
+<a name='L492'> 492 
+<a name='L493'> 493 <b>int</b> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/117.html' title='Multiple refered from 15 places.'>CompareNoCase</a>(<b>const</b> <b>char</b>* <a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>, <b>const</b> <b>char</b>* <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>)
+<a name='L494'> 494 <font color='red'>{</font>
+<a name='L495'> 495     <b>if</b> (<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>)
+<a name='L496'> 496     <font color='red'>{</font>
+<a name='L497'> 497         <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a> <a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a>,<a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a>;
+<a name='L498'> 498         <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a> <a href='../Y/4422.html' title='Multiple used in 2 places.'>slen</a> = <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>;
+<a name='L499'> 499         <b>const</b> <b>char</b> *<a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a> = <a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>;
+<a name='L500'> 500         <b>do</b> <font color='red'>{</font>
+<a name='L501'> 501             <a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>)<a href='../Y/1525.html' title='Multiple used in 4 places.'>OVR_tolower</a>((<b>int</b>)(*(<a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>++)));
+<a name='L502'> 502             <a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>)<a href='../Y/1525.html' title='Multiple used in 4 places.'>OVR_tolower</a>((<b>int</b>)(*(<a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>++)));
+<a name='L503'> 503         <font color='red'>}</font> <b>while</b> (--<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a> &amp;&amp; <a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a> &amp;&amp; (<a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a> == <a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a>) &amp;&amp; *<a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a> != 0);
+<a name='L504'> 504 
+<a name='L505'> 505         <b>if</b> (<a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a> == <a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a> &amp;&amp; (<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a> != 0 || *<a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a> != 0))
+<a name='L506'> 506         <font color='red'>{</font>
+<a name='L507'> 507             <a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>)<a href='../Y/4422.html' title='Multiple used in 2 places.'>slen</a>;
+<a name='L508'> 508             <a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>)<a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>);
+<a name='L509'> 509             <b>return</b> <b>int</b>(<a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a> - <a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a>);
+<a name='L510'> 510         <font color='red'>}</font>
+<a name='L511'> 511 
+<a name='L512'> 512         <b>return</b> <b>int</b>(<a href='../Y/3185.html' title='Multiple used in 61 places.'>f</a> - <a href='../Y/3533.html' title='Multiple used in 57 places.'>l</a>);
+<a name='L513'> 513     <font color='red'>}</font>
+<a name='L514'> 514     <b>else</b>
+<a name='L515'> 515         <b>return</b> (0-(<b>int</b>)<a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/2743.html' title='Multiple used in 306 places.'>b</a>));
+<a name='L516'> 516 <font color='red'>}</font>
+<a name='L517'> 517 
+<a name='L518'> 518 <i><font color='green'>// ***** Implement hash static functions</font></i>
+<a name='L519'> 519 
+<a name='L520'> 520 <i><font color='green'>// Hash function</font></i>
+<a name='L521'> 521 <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/68.html' title='Multiple refered from 3 places.'>BernsteinHashFunction</a>(<b>const</b> <b>void</b>* <a href='../Y/4024.html' title='Multiple used in 6 places.'>pdataIn</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4366.html' title='Multiple used in 8 places.'>seed</a>)
+<a name='L522'> 522 <font color='red'>{</font>
+<a name='L523'> 523     <b>const</b> <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>*    <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>   = (<b>const</b> <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>*) <a href='../Y/4024.html' title='Multiple used in 6 places.'>pdataIn</a>;
+<a name='L524'> 524     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>           <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>       = <a href='../Y/4366.html' title='Multiple used in 8 places.'>seed</a>;
+<a name='L525'> 525     <b>while</b> (<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> &gt; 0)
+<a name='L526'> 526     <font color='red'>{</font>
+<a name='L527'> 527         <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>--;
+<a name='L528'> 528         <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> = ((<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> &lt;&lt; 5) + <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>) ^ (<b>unsigned</b>) <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>[<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>];
+<a name='L529'> 529     <font color='red'>}</font>
+<a name='L530'> 530 
+<a name='L531'> 531     <b>return</b> <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>;
+<a name='L532'> 532 <font color='red'>}</font>
+<a name='L533'> 533 
+<a name='L534'> 534 <i><font color='green'>// Hash function, case-insensitive</font></i>
+<a name='L535'> 535 <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../D/1131.html' title='Multiple defined in 9 places.'>String</a>::<a href='../R/69.html' title='Multiple refered from 3 places.'>BernsteinHashFunctionCIS</a>(<b>const</b> <b>void</b>* <a href='../Y/4024.html' title='Multiple used in 6 places.'>pdataIn</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4366.html' title='Multiple used in 8 places.'>seed</a>)
+<a name='L536'> 536 <font color='red'>{</font>
+<a name='L537'> 537     <b>const</b> <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>*    <a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a> = (<b>const</b> <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>*) <a href='../Y/4024.html' title='Multiple used in 6 places.'>pdataIn</a>;
+<a name='L538'> 538     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>           <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> = <a href='../Y/4366.html' title='Multiple used in 8 places.'>seed</a>;
+<a name='L539'> 539     <b>while</b> (<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> &gt; 0)
+<a name='L540'> 540     <font color='red'>{</font>
+<a name='L541'> 541         <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>--;
+<a name='L542'> 542         <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> = ((<a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a> &lt;&lt; 5) + <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>) ^ <a href='../Y/1525.html' title='Multiple used in 4 places.'>OVR_tolower</a>(<a href='../Y/4019.html' title='Multiple used in 82 places.'>pdata</a>[<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>]);
+<a name='L543'> 543     <font color='red'>}</font>
+<a name='L544'> 544 
+<a name='L545'> 545     <i><font color='green'>// Alternative: "sdbm" hash function, suggested at same web page above.</font></i>
+<a name='L546'> 546     <i><font color='green'>// h = 0;</font></i>
+<a name='L547'> 547     <i><font color='green'>// for bytes { h = (h &lt;&lt; 16) + (h &lt;&lt; 6) - hash + *p; }</font></i>
+<a name='L548'> 548     <b>return</b> <a href='../Y/3380.html' title='Multiple used in 93 places.'>h</a>;
+<a name='L549'> 549 <font color='red'>}</font>
+<a name='L550'> 550 
+<a name='L551'> 551 
+<a name='L552'> 552 
+<a name='L553'> 553 <i><font color='green'>// ***** String Buffer used for Building Strings</font></i>
+<a name='L554'> 554 
+<a name='L555'> 555 
+<a name='L556'> 556 <font color='darkred'>#define</font> <a href='../R/731.html' title='Multiple refered from 7 places.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a> 512
+<a name='L557'> 557 <i><font color='green'>// Constructors / Destructor.</font></i>
+<a name='L558'> 558 <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>()
+<a name='L559'> 559     : <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>), Size(0), <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>(0), GrowSize(<a href='../S/184.html#L556' title='Defined at 556 in ovr/sdk/src/Kernel/OVR_String.cpp.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a>), <a href='../R/531.html' title='Multiple refered from 11 places.'>LengthIsSize</a>(<b>false</b>)
+<a name='L560'> 560 <font color='red'>{</font>
+<a name='L561'> 561 <font color='red'>}</font>
+<a name='L562'> 562 
+<a name='L563'> 563 <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3373.html' title='Multiple used in 8 places.'>growSize</a>)
+<a name='L564'> 564     : <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>), Size(0), <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>(0), GrowSize(<a href='../S/184.html#L556' title='Defined at 556 in ovr/sdk/src/Kernel/OVR_String.cpp.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a>), <a href='../R/531.html' title='Multiple refered from 11 places.'>LengthIsSize</a>(<b>false</b>)
+<a name='L565'> 565 <font color='red'>{</font>
+<a name='L566'> 566     <a href='../S/184.html#L604' title='Defined at 604 in ovr/sdk/src/Kernel/OVR_String.cpp.'>SetGrowSize</a>(<a href='../Y/3373.html' title='Multiple used in 8 places.'>growSize</a>);
+<a name='L567'> 567 <font color='red'>}</font>
+<a name='L568'> 568 
+<a name='L569'> 569 <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>(<b>const</b> <b>char</b>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>)
+<a name='L570'> 570     : <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>), Size(0), <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>(0), GrowSize(<a href='../S/184.html#L556' title='Defined at 556 in ovr/sdk/src/Kernel/OVR_String.cpp.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a>), <a href='../R/531.html' title='Multiple refered from 11 places.'>LengthIsSize</a>(<b>false</b>)
+<a name='L571'> 571 <font color='red'>{</font>
+<a name='L572'> 572     <a href='../D/45.html' title='Multiple defined in 4 places.'>AppendString</a>(<a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>);
+<a name='L573'> 573 <font color='red'>}</font>
+<a name='L574'> 574 
+<a name='L575'> 575 <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>(<b>const</b> <b>char</b>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/2956.html' title='Multiple used in 2 places.'>dataSize</a>)
+<a name='L576'> 576     : <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>), Size(0), <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>(0), GrowSize(<a href='../S/184.html#L556' title='Defined at 556 in ovr/sdk/src/Kernel/OVR_String.cpp.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a>), <a href='../R/531.html' title='Multiple refered from 11 places.'>LengthIsSize</a>(<b>false</b>)
+<a name='L577'> 577 <font color='red'>{</font>
+<a name='L578'> 578     <a href='../D/45.html' title='Multiple defined in 4 places.'>AppendString</a>(<a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>, <a href='../Y/2956.html' title='Multiple used in 2 places.'>dataSize</a>);
+<a name='L579'> 579 <font color='red'>}</font>
+<a name='L580'> 580 
+<a name='L581'> 581 <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>(<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L582'> 582     : <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>), Size(0), <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>(0), GrowSize(<a href='../S/184.html#L556' title='Defined at 556 in ovr/sdk/src/Kernel/OVR_String.cpp.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a>), <a href='../R/531.html' title='Multiple refered from 11 places.'>LengthIsSize</a>(<b>false</b>)
+<a name='L583'> 583 <font color='red'>{</font>
+<a name='L584'> 584     <a href='../D/45.html' title='Multiple defined in 4 places.'>AppendString</a>(<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>(), <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L585'> 585 <font color='red'>}</font>
+<a name='L586'> 586 
+<a name='L587'> 587 <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>(<b>const</b> <a href='../Y/2151.html' title='Multiple used in 4 places.'>StringBuffer</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L588'> 588     : <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>), Size(0), <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>(0), GrowSize(<a href='../S/184.html#L556' title='Defined at 556 in ovr/sdk/src/Kernel/OVR_String.cpp.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a>), <a href='../R/531.html' title='Multiple refered from 11 places.'>LengthIsSize</a>(<b>false</b>)
+<a name='L589'> 589 <font color='red'>{</font>
+<a name='L590'> 590     <a href='../D/45.html' title='Multiple defined in 4 places.'>AppendString</a>(<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>(), <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L591'> 591 <font color='red'>}</font>
+<a name='L592'> 592 
+<a name='L593'> 593 <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>(<b>const</b> <b>wchar_t</b>* <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>)
+<a name='L594'> 594     : <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>), Size(0), <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>(0), GrowSize(<a href='../S/184.html#L556' title='Defined at 556 in ovr/sdk/src/Kernel/OVR_String.cpp.'>OVR_SBUFF_DEFAULT_GROW_SIZE</a>), <a href='../R/531.html' title='Multiple refered from 11 places.'>LengthIsSize</a>(<b>false</b>)
+<a name='L595'> 595 <font color='red'>{</font>
+<a name='L596'> 596     *<b>this</b> = <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>;
+<a name='L597'> 597 <font color='red'>}</font>
+<a name='L598'> 598 
+<a name='L599'> 599 <a href='../R/1061.html' title='Multiple refered from 37 places.'>StringBuffer</a>::~<a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>()
+<a name='L600'> 600 <font color='red'>{</font>
+<a name='L601'> 601     <b>if</b> (<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>)
+<a name='L602'> 602         <a href='../S/182.html#L313' title='Defined at 313 in ovr/sdk/src/Kernel/OVR_Allocator.h.'>OVR_FREE</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>);
+<a name='L603'> 603 <font color='red'>}</font>
+<a name='L604'> 604 <b>void</b> <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/994.html' title='Multiple refered from 2 places.'>SetGrowSize</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/3373.html' title='Multiple used in 8 places.'>growSize</a>) 
+<a name='L605'> 605 <font color='red'>{</font> 
+<a name='L606'> 606     <b>if</b> (<a href='../Y/3373.html' title='Multiple used in 8 places.'>growSize</a> &lt;= 16)
+<a name='L607'> 607         <a href='../Y/835.html' title='Multiple used in 5 places.'>GrowSize</a> = 16;
+<a name='L608'> 608     <b>else</b>
+<a name='L609'> 609     <font color='red'>{</font>
+<a name='L610'> 610         <a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a> <a href='../Y/2761.html' title='Multiple used in 32 places.'>bits</a> = <a href='../S/176.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Alg.cpp.'>Alg</a>::<a href='../Y/2365.html' title='Multiple used in 3 places.'>UpperBit</a>(<a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>(<a href='../Y/3373.html' title='Multiple used in 8 places.'>growSize</a>-1));
+<a name='L611'> 611         <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = 1&lt;&lt;<a href='../Y/2761.html' title='Multiple used in 32 places.'>bits</a>;
+<a name='L612'> 612         <a href='../Y/835.html' title='Multiple used in 5 places.'>GrowSize</a> = <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> == <a href='../Y/3373.html' title='Multiple used in 8 places.'>growSize</a> ? <a href='../Y/3373.html' title='Multiple used in 8 places.'>growSize</a> : <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>;
+<a name='L613'> 613     <font color='red'>}</font>
+<a name='L614'> 614 <font color='red'>}</font>
+<a name='L615'> 615 
+<a name='L616'> 616 <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/349.html' title='Multiple refered from 20 places.'>GetLength</a>() <b>const</b>
+<a name='L617'> 617 <font color='red'>{</font>
+<a name='L618'> 618     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L619'> 619     <b>if</b> (<a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a>)
+<a name='L620'> 620         <b>return</b> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>;
+<a name='L621'> 621 
+<a name='L622'> 622     <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a> = (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../D/366.html' title='Multiple defined in 6 places.'>GetLength</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L623'> 623 
+<a name='L624'> 624     <b>if</b> (<a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a> == <a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>())
+<a name='L625'> 625         <a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a> = <b>true</b>;
+<a name='L626'> 626     <b>return</b> <a href='../Y/3558.html' title='Multiple used in 89 places.'>length</a>;
+<a name='L627'> 627 <font color='red'>}</font>
+<a name='L628'> 628 
+<a name='L629'> 629 <b>void</b>    <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/905.html' title='Multiple refered from 11 places.'>Reserve</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/2630.html' title='Multiple used in 23 places.'>_size</a>)
+<a name='L630'> 630 <font color='red'>{</font>
+<a name='L631'> 631     <b>if</b> (<a href='../Y/2630.html' title='Multiple used in 23 places.'>_size</a> &gt;= <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>) <i><font color='green'>// &gt;= because of trailing zero! (!AB)</font></i>
+<a name='L632'> 632     <font color='red'>{</font>
+<a name='L633'> 633         <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a> = (<a href='../Y/2630.html' title='Multiple used in 23 places.'>_size</a> + 1 + <a href='../Y/835.html' title='Multiple used in 5 places.'>GrowSize</a> - 1)&amp; ~(<a href='../Y/835.html' title='Multiple used in 5 places.'>GrowSize</a>-1);
+<a name='L634'> 634         <b>if</b> (!<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>)
+<a name='L635'> 635             <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = (<b>char</b>*)<a href='../D/657.html' title='Multiple defined in 2 places.'>OVR_ALLOC</a>(<a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>);
+<a name='L636'> 636         <b>else</b> 
+<a name='L637'> 637             <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> = (<b>char</b>*)<a href='../S/182.html#L312' title='Defined at 312 in ovr/sdk/src/Kernel/OVR_Allocator.h.'>OVR_REALLOC</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, <a href='../S/134.html#L154' title='Defined at 154 in ovr/sdk/src/OVR_SensorTimeFilter.h.'>BufferSize</a>);
+<a name='L638'> 638     <font color='red'>}</font>
+<a name='L639'> 639 <font color='red'>}</font>
+<a name='L640'> 640 <b>void</b>    <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/909.html' title='Multiple refered from 24 places.'>Resize</a>(<a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/2630.html' title='Multiple used in 23 places.'>_size</a>)
+<a name='L641'> 641 <font color='red'>{</font>
+<a name='L642'> 642     <a href='../S/184.html#L629' title='Defined at 629 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Reserve</a>(<a href='../Y/2630.html' title='Multiple used in 23 places.'>_size</a>);
+<a name='L643'> 643     <a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a> = <b>false</b>;
+<a name='L644'> 644     <a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a> = <a href='../Y/2630.html' title='Multiple used in 23 places.'>_size</a>;
+<a name='L645'> 645     <b>if</b> (<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>)
+<a name='L646'> 646         <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>[<a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>] = 0;
+<a name='L647'> 647 <font color='red'>}</font>
+<a name='L648'> 648 
+<a name='L649'> 649 <b>void</b> <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/106.html' title='Multiple refered from 82 places.'>Clear</a>()
+<a name='L650'> 650 <font color='red'>{</font>
+<a name='L651'> 651     <a href='../S/184.html#L640' title='Defined at 640 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Resize</a>(0);
+<a name='L652'> 652     <i><font color='green'>/*</font></i>
+<a name='L653'> 653 <i><font color='green'>    if (pData != pEmptyNullData)</font></i>
+<a name='L654'> 654 <i><font color='green'>    {</font></i>
+<a name='L655'> 655 <i><font color='green'>        OVR_FREE(pHeap, pData);</font></i>
+<a name='L656'> 656 <i><font color='green'>        pData = pEmptyNullData;</font></i>
+<a name='L657'> 657 <i><font color='green'>        Size = BufferSize = 0;</font></i>
+<a name='L658'> 658 <i><font color='green'>        LengthIsSize = false;</font></i>
+<a name='L659'> 659 <i><font color='green'>    }</font></i>
+<a name='L660'> 660 <i><font color='green'>    */</font></i>
+<a name='L661'> 661 <font color='red'>}</font>
+<a name='L662'> 662 <i><font color='green'>// Appends a character</font></i>
+<a name='L663'> 663 <b>void</b>     <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/39.html' title='Multiple refered from 5 places.'>AppendChar</a>(<a href='../Y/2328.html' title='Multiple used in 18 places.'>UInt32</a> <a href='../Y/2830.html' title='Multiple used in 20 places.'>ch</a>)
+<a name='L664'> 664 <font color='red'>{</font>
+<a name='L665'> 665     <b>char</b>    <a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>[8];
+<a name='L666'> 666     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>   <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a> = <a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L667'> 667 
+<a name='L668'> 668     <i><font color='green'>// Converts ch into UTF8 string and fills it into buff. Also increments index according to the number of bytes</font></i>
+<a name='L669'> 669     <i><font color='green'>// in the UTF8 string.</font></i>
+<a name='L670'> 670     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>   <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a> = 0;
+<a name='L671'> 671     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L239' title='Defined at 239 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeChar</a>(<a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, &amp;<a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a>, <a href='../Y/2830.html' title='Multiple used in 20 places.'>ch</a>);
+<a name='L672'> 672     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a> &gt;= 0);
+<a name='L673'> 673     
+<a name='L674'> 674     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a> + <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a>;
+<a name='L675'> 675     <a href='../S/184.html#L640' title='Defined at 640 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Resize</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L676'> 676     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> + <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a>, <a href='../Y/2779.html' title='Multiple used in 73 places.'>buff</a>, <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a>);
+<a name='L677'> 677 <font color='red'>}</font>
+<a name='L678'> 678 
+<a name='L679'> 679 <i><font color='green'>// Append a string</font></i>
+<a name='L680'> 680 <b>void</b>     <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/41.html' title='Multiple refered from 17 places.'>AppendString</a>(<b>const</b> <b>wchar_t</b>* <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>)
+<a name='L681'> 681 <font color='red'>{</font>
+<a name='L682'> 682     <b>if</b> (!<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>)
+<a name='L683'> 683         <b>return</b>;
+<a name='L684'> 684 
+<a name='L685'> 685     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>   <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a>     = <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L292' title='Defined at 292 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetEncodeStringSize</a>(<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>);
+<a name='L686'> 686     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>   <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a>    = <a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L687'> 687     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>   <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>        = <a href='../Y/4444.html' title='Multiple used in 10 places.'>srcSize</a> + <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a>;
+<a name='L688'> 688 
+<a name='L689'> 689     <a href='../S/184.html#L640' title='Defined at 640 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Resize</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L690'> 690     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L310' title='Defined at 310 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeString</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> + <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a>,  <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>);
+<a name='L691'> 691 <font color='red'>}</font>
+<a name='L692'> 692 
+<a name='L693'> 693 <b>void</b>      <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/41.html' title='Multiple refered from 17 places.'>AppendString</a>(<b>const</b> <b>char</b>* <a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a>)
+<a name='L694'> 694 <font color='red'>{</font>
+<a name='L695'> 695     <b>if</b> (!<a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a> || !<a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a>)
+<a name='L696'> 696         <b>return</b>;
+<a name='L697'> 697     <b>if</b> (<a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a> == -1)
+<a name='L698'> 698         <a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a> = (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>)<a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>);
+<a name='L699'> 699 
+<a name='L700'> 700     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>   <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a>    = <a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>();
+<a name='L701'> 701     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>   <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>        = <a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a> + <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a>;
+<a name='L702'> 702 
+<a name='L703'> 703     <a href='../S/184.html#L640' title='Defined at 640 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Resize</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L704'> 704     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> + <a href='../Y/3820.html' title='Multiple used in 9 places.'>origSize</a>, <a href='../Y/4198.html' title='Multiple used in 30 places.'>putf8str</a>, <a href='../Y/4759.html' title='Multiple used in 14 places.'>utf8StrSz</a>);
+<a name='L705'> 705 <font color='red'>}</font>
+<a name='L706'> 706 
+<a name='L707'> 707 
+<a name='L708'> 708 <b>void</b>      <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<b>operator</b> = (<b>const</b> <b>char</b>* <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>)
+<a name='L709'> 709 <font color='red'>{</font>
+<a name='L710'> 710     <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a> = <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a> ? <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a> : "";
+<a name='L711'> 711     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>);
+<a name='L712'> 712     <a href='../S/184.html#L640' title='Defined at 640 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Resize</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L713'> 713     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>, <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L714'> 714 <font color='red'>}</font>
+<a name='L715'> 715 
+<a name='L716'> 716 <b>void</b>      <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<b>operator</b> = (<b>const</b> <b>wchar_t</b>* <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>)
+<a name='L717'> 717 <font color='red'>{</font>
+<a name='L718'> 718     <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a> = <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a> ? <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a> : L"";
+<a name='L719'> 719     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a> = (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L292' title='Defined at 292 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetEncodeStringSize</a>(<a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>);
+<a name='L720'> 720     <a href='../S/184.html#L640' title='Defined at 640 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Resize</a>(<a href='../Y/4411.html' title='Multiple used in 213 places.'>size</a>);
+<a name='L721'> 721     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L310' title='Defined at 310 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeString</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, <a href='../Y/4161.html' title='Multiple used in 30 places.'>pstr</a>);
+<a name='L722'> 722 <font color='red'>}</font>
+<a name='L723'> 723 
+<a name='L724'> 724 <b>void</b>      <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<b>operator</b> = (<b>const</b> <a href='../Y/2150.html' title='Multiple used in 24 places.'>String</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L725'> 725 <font color='red'>{</font>
+<a name='L726'> 726     <a href='../S/184.html#L640' title='Defined at 640 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Resize</a>(<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L727'> 727     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>(), <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L728'> 728 <font color='red'>}</font>
+<a name='L729'> 729 
+<a name='L730'> 730 <b>void</b>      <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<b>operator</b> = (<b>const</b> <a href='../Y/2151.html' title='Multiple used in 4 places.'>StringBuffer</a>&amp; <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>)
+<a name='L731'> 731 <font color='red'>{</font>
+<a name='L732'> 732         <a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L733'> 733         <a href='../D/45.html' title='Multiple defined in 4 places.'>AppendString</a>(<a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/2271.html' title='Multiple used in 86 places.'>ToCStr</a>(), <a href='../Y/4441.html' title='Multiple used in 214 places.'>src</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L734'> 734 <font color='red'>}</font>
+<a name='L735'> 735 
+<a name='L736'> 736 
+<a name='L737'> 737 <i><font color='green'>// Inserts substr at posAt</font></i>
+<a name='L738'> 738 <b>void</b>      <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/459.html' title='Multiple refered from 4 places.'>Insert</a>(<b>const</b> <b>char</b>* <a href='../Y/4513.html' title='Multiple used in 8 places.'>substr</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/1919.html' title='Multiple used in 15 places.'>SPInt</a> <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>)
+<a name='L739'> 739 <font color='red'>{</font>
+<a name='L740'> 740     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>    = <a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>;
+<a name='L741'> 741     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a> = (<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a> &lt; 0) ? <a href='../Y/1517.html' title='Multiple used in 27 places.'>OVR_strlen</a>(<a href='../Y/4513.html' title='Multiple used in 8 places.'>substr</a>) : (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>;    
+<a name='L742'> 742     <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a>  = <a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a> ? <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a> : 
+<a name='L743'> 743                            (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L90' title='Defined at 90 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>GetByteIndex</a>(<a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>, (<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>)<a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>);
+<a name='L744'> 744 
+<a name='L745'> 745     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a> &lt;= <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a>);
+<a name='L746'> 746     <a href='../S/184.html#L629' title='Defined at 629 in ovr/sdk/src/Kernel/OVR_String.cpp.'>Reserve</a>(<a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> + <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a>);
+<a name='L747'> 747 
+<a name='L748'> 748     <a href='../Y/3670.html' title='Multiple used in 5 places.'>memmove</a>(<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> + <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a> + <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a>, <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> + <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a>, <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> - <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a> + 1);
+<a name='L749'> 749     <a href='../Y/3669.html' title='Multiple used in 43 places.'>memcpy</a> (<a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a> + <a href='../Y/2794.html' title='Multiple used in 9 places.'>byteIndex</a>, <a href='../Y/4513.html' title='Multiple used in 8 places.'>substr</a>, <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a>);
+<a name='L750'> 750     <a href='../D/552.html' title='Multiple defined in 7 places.'>LengthIsSize</a> = <b>false</b>;
+<a name='L751'> 751     <a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a> = <a href='../Y/3807.html' title='Multiple used in 35 places.'>oldSize</a> + <a href='../Y/3470.html' title='Multiple used in 9 places.'>insertSize</a>;
+<a name='L752'> 752     <a href='../Y/3922.html' title='Multiple used in 63 places.'>pData</a>[<a href='../Y/2099.html' title='Multiple used in 162 places.'>Size</a>] = 0;
+<a name='L753'> 753 <font color='red'>}</font>
+<a name='L754'> 754 
+<a name='L755'> 755 <i><font color='green'>// Inserts character at posAt</font></i>
+<a name='L756'> 756 <a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>     <a href='../S/184.html#L599' title='Defined at 599 in ovr/sdk/src/Kernel/OVR_String.cpp.'>StringBuffer</a>::<a href='../R/462.html' title='Multiple refered from 2 places.'>InsertCharAt</a>(<a href='../Y/2328.html' title='Multiple used in 18 places.'>UInt32</a> <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>, <a href='../Y/2330.html' title='Multiple used in 42 places.'>UPInt</a> <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>)
+<a name='L757'> 757 <font color='red'>{</font>
+<a name='L758'> 758     <b>char</b>    <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>[8];
+<a name='L759'> 759     <a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>   <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a> = 0;
+<a name='L760'> 760     <a href='../S/157.html#L31' title='Defined at 31 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>UTF8Util</a>::<a href='../S/157.html#L239' title='Defined at 239 in ovr/sdk/src/Kernel/OVR_UTF8Util.cpp.'>EncodeChar</a>(<a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>, &amp;<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>, <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>);
+<a name='L761'> 761     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a> &gt;= 0);
+<a name='L762'> 762     <a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>[(<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>] = 0;
+<a name='L763'> 763 
+<a name='L764'> 764     <a href='../D/476.html' title='Multiple defined in 2 places.'>Insert</a>(<a href='../Y/2776.html' title='Multiple used in 76 places.'>buf</a>, <a href='../Y/4087.html' title='Multiple used in 19 places.'>posAt</a>, <a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>);
+<a name='L765'> 765     <b>return</b> (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>)<a href='../Y/3557.html' title='Multiple used in 139 places.'>len</a>;
+<a name='L766'> 766 <font color='red'>}</font>
+<a name='L767'> 767 
+<a name='L768'> 768 <font color='red'>}</font> <i><font color='green'>// OVR</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L104'>[^]</a><a href='#L756'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

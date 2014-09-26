@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>latencies</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L193'>latencies</a>         193 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp void FrameLatencyTracker::GetLatencyTimings(float latencies[3])
+<a href='../S/98.html#L197'>latencies</a>         197 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         latencies[0] = 0.0f;
+<a href='../S/98.html#L198'>latencies</a>         198 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         latencies[1] = 0.0f;
+<a href='../S/98.html#L199'>latencies</a>         199 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         latencies[2] = 0.0f;
+<a href='../S/98.html#L203'>latencies</a>         203 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         latencies[0] = (float)RenderLatencySeconds;
+<a href='../S/98.html#L204'>latencies</a>         204 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         latencies[1] = (float)TimewarpLatencySeconds;
+<a href='../S/98.html#L205'>latencies</a>         205 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         latencies[2] = (float)FrameDeltas.GetMedianTimeDelta();
+<a href='../S/99.html#L88'>latencies</a>          88 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     void GetLatencyTimings(float latencies[3]);
+<a href='../S/99.html#L216'>latencies</a>         216 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     void    GetLatencyTimings(float latencies[3])
+<a href='../S/99.html#L217'>latencies</a>         217 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.h     { return ScreenLatencyTracker.GetLatencyTimings(latencies); }
+<a href='../S/142.html#L794'>latencies</a>         794 ovr/sdk/src/OVR_CAPI.cpp     float latencies[3];
+<a href='../S/142.html#L795'>latencies</a>         795 ovr/sdk/src/OVR_CAPI.cpp     p-&gt;TimeManager.GetLatencyTimings(latencies);
+<a href='../S/142.html#L796'>latencies</a>         796 ovr/sdk/src/OVR_CAPI.cpp     return latencies[2];
+</pre>
+</body>
+</html>

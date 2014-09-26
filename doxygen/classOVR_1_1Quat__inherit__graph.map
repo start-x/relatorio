@@ -1,0 +1,4 @@
+<map id="OVR::Quat&lt; T &gt;" name="OVR::Quat&lt; T &gt;">
+<area shape="rect" id="node2" href="$classOVR_1_1Quat.html" title="{OVR::Quat\&lt; double \&gt;\n|+ x\l+ y\l+ z\l+ w\l|+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ operator typename Compatible\lTypes\&lt; Quat\&lt; double \&gt; \&gt;::Type()\l+ GetAxisAngle()\land 31 more...\l}" alt="" coords="5,352,221,635"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Quat.html" title="{OVR::Quat\&lt; float \&gt;\n|+ x\l+ y\l+ z\l+ w\l|+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ Quat()\l+ operator typename Compatible\lTypes\&lt; Quat\&lt; float \&gt; \&gt;::Type()\l+ GetAxisAngle()\land 31 more...\l}" alt="" coords="246,352,457,635"/>
+</map>

@@ -1,0 +1,493 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_Types.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_Types.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/83.html' title='Multiple included from 21 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   OVR.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_Types.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Standard library defines and simple types</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   September 19, 2012</font></i>
+<a name='L7'>   7 <i><font color='green'>Notes       : </font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#ifndef</font> <a href='../S/168.html#L29' title='Defined at 29 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_Types_H</a>
+<a name='L29'>  29 <font color='darkred'>#define</font> <a href='../S/168.html#L28' title='Refered from 28 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_Types_H</a>
+<a name='L30'>  30 
+<a name='L31'>  31 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L32'>  32 <i><font color='green'>// ****** Operating System</font></i>
+<a name='L33'>  33 <i><font color='green'>//</font></i>
+<a name='L34'>  34 <i><font color='green'>// Type definitions exist for the following operating systems: (OVR_OS_x)</font></i>
+<a name='L35'>  35 <i><font color='green'>//</font></i>
+<a name='L36'>  36 <i><font color='green'>//    WIN32    - Win32 (Windows 95/98/ME and Windows NT/2000/XP)</font></i>
+<a name='L37'>  37 <i><font color='green'>//    DARWIN   - Darwin OS (Mac OS X)</font></i>
+<a name='L38'>  38 <i><font color='green'>//    LINUX    - Linux</font></i>
+<a name='L39'>  39 <i><font color='green'>//    ANDROID  - Android</font></i>
+<a name='L40'>  40 <i><font color='green'>//    IPHONE   - iPhone</font></i>
+<a name='L41'>  41 
+<a name='L42'>  42 <font color='darkred'>#if</font> (<b>defined</b>(__APPLE__) &amp;&amp; (<b>defined</b>(<a href='../Y/2545.html' title='Multiple used in 6 places.'>__GNUC__</a>) ||\
+<a name='L43'>  43      <b>defined</b>(__xlC__) || <b>defined</b>(__xlc__))) || <b>defined</b>(__MACOS__)
+<a name='L44'>  44 <font color='darkred'>#  if</font> (<b>defined</b>(__ENVIRONMENT_IPHONE_OS_VERSION_MIN_REQUIRED__) || <b>defined</b>(__IPHONE_OS_VERSION_MIN_REQUIRED))
+<a name='L45'>  45 <font color='darkred'>#    define</font> <a href='../R/721.html' title='Multiple refered from 3 places.'>OVR_OS_IPHONE</a>
+<a name='L46'>  46 <font color='darkred'>#  else</font>
+<a name='L47'>  47 <font color='darkred'>#    define</font> OVR_OS_DARWIN
+<a name='L48'>  48 <font color='darkred'>#    define</font> <a href='../R/723.html' title='Multiple refered from 11 places.'>OVR_OS_MAC</a>
+<a name='L49'>  49 <font color='darkred'>#  endif</font>
+<a name='L50'>  50 <font color='darkred'>#elif</font> (<b>defined</b>(<a href='../Y/2428.html' title='Multiple used in 2 places.'>WIN64</a>) || <b>defined</b>(<a href='../Y/2532.html' title='Multiple used in 2 places.'>_WIN64</a>) || <b>defined</b>(<a href='../Y/2557.html' title='Multiple used in 2 places.'>__WIN64__</a>))
+<a name='L51'>  51 <font color='darkred'>#  define</font> <a href='../R/725.html' title='Multiple refered from 58 places.'>OVR_OS_WIN32</a>
+<a name='L52'>  52 <font color='darkred'>#elif</font> (<b>defined</b>(<a href='../Y/2427.html' title='Multiple used in 2 places.'>WIN32</a>) || <b>defined</b>(_WIN32) || <b>defined</b>(__WIN32__) || <b>defined</b>(__NT__))
+<a name='L53'>  53 <font color='darkred'>#  define</font> <a href='../R/725.html' title='Multiple refered from 58 places.'>OVR_OS_WIN32</a>
+<a name='L54'>  54 <font color='darkred'>#elif</font> <b>defined</b>(__linux__) || <b>defined</b>(__linux)
+<a name='L55'>  55 <font color='darkred'>#  define</font> <a href='../R/722.html' title='Multiple refered from 13 places.'>OVR_OS_LINUX</a>
+<a name='L56'>  56 <font color='darkred'>#else</font>
+<a name='L57'>  57 <font color='darkred'>#  define</font> <a href='../R/724.html' title='Multiple refered from 2 places.'>OVR_OS_OTHER</a>
+<a name='L58'>  58 <font color='darkred'>#endif</font>
+<a name='L59'>  59 
+<a name='L60'>  60 <font color='darkred'>#if</font> <b>defined</b>(ANDROID)
+<a name='L61'>  61 <font color='darkred'>#  define</font> <a href='../R/720.html' title='Multiple refered from 15 places.'>OVR_OS_ANDROID</a>
+<a name='L62'>  62 <font color='darkred'>#endif</font>
+<a name='L63'>  63 
+<a name='L64'>  64 
+<a name='L65'>  65 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L66'>  66 <i><font color='green'>// ***** CPU Architecture</font></i>
+<a name='L67'>  67 <i><font color='green'>//</font></i>
+<a name='L68'>  68 <i><font color='green'>// The following CPUs are defined: (OVR_CPU_x)</font></i>
+<a name='L69'>  69 <i><font color='green'>//</font></i>
+<a name='L70'>  70 <i><font color='green'>//    X86        - x86 (IA-32)</font></i>
+<a name='L71'>  71 <i><font color='green'>//    X86_64     - x86_64 (amd64)</font></i>
+<a name='L72'>  72 <i><font color='green'>//    PPC        - PowerPC</font></i>
+<a name='L73'>  73 <i><font color='green'>//    PPC64      - PowerPC64</font></i>
+<a name='L74'>  74 <i><font color='green'>//    MIPS       - MIPS</font></i>
+<a name='L75'>  75 <i><font color='green'>//    OTHER      - CPU for which no special support is present or needed</font></i>
+<a name='L76'>  76 
+<a name='L77'>  77 
+<a name='L78'>  78 <font color='darkred'>#if</font> <b>defined</b>(__x86_64__) || <b>defined</b>(<a href='../Y/2428.html' title='Multiple used in 2 places.'>WIN64</a>) || <b>defined</b>(<a href='../Y/2532.html' title='Multiple used in 2 places.'>_WIN64</a>) || <b>defined</b>(<a href='../Y/2557.html' title='Multiple used in 2 places.'>__WIN64__</a>)
+<a name='L79'>  79 <font color='darkred'>#  define</font> <a href='../S/168.html#L399' title='Refered from 399 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CPU_X86_64</a>
+<a name='L80'>  80 <font color='darkred'>#  define</font> <a href='../R/625.html' title='Multiple refered from 3 places.'>OVR_64BIT_POINTERS</a>
+<a name='L81'>  81 <font color='darkred'>#elif</font> <b>defined</b>(__i386__) || <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L82'>  82 <font color='darkred'>#  define</font> <a href='../R/657.html' title='Multiple refered from 5 places.'>OVR_CPU_X86</a>
+<a name='L83'>  83 <font color='darkred'>#elif</font> <b>defined</b>(__powerpc64__)
+<a name='L84'>  84 <font color='darkred'>#  define</font> <a href='../R/656.html' title='Multiple refered from 4 places.'>OVR_CPU_PPC64</a>
+<a name='L85'>  85 <font color='darkred'>#elif</font> <b>defined</b>(__ppc__)
+<a name='L86'>  86 <font color='darkred'>#  define</font> <a href='../R/655.html' title='Multiple refered from 3 places.'>OVR_CPU_PPC</a>
+<a name='L87'>  87 <font color='darkred'>#elif</font> <b>defined</b>(__mips__) || <b>defined</b>(__MIPSEL__)
+<a name='L88'>  88 <font color='darkred'>#  define</font> <a href='../R/654.html' title='Multiple refered from 2 places.'>OVR_CPU_MIPS</a>
+<a name='L89'>  89 <font color='darkred'>#elif</font> <b>defined</b>(__arm__)
+<a name='L90'>  90 <font color='darkred'>#  define</font> <a href='../R/653.html' title='Multiple refered from 3 places.'>OVR_CPU_ARM</a>
+<a name='L91'>  91 <font color='darkred'>#else</font>
+<a name='L92'>  92 <font color='darkred'>#  define</font> OVR_CPU_OTHER
+<a name='L93'>  93 <font color='darkred'>#endif</font>
+<a name='L94'>  94 
+<a name='L95'>  95 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L96'>  96 <i><font color='green'>// ***** Co-Processor Architecture</font></i>
+<a name='L97'>  97 <i><font color='green'>//</font></i>
+<a name='L98'>  98 <i><font color='green'>// The following co-processors are defined: (OVR_CPU_x)</font></i>
+<a name='L99'>  99 <i><font color='green'>//</font></i>
+<a name='L100'> 100 <i><font color='green'>//    SSE        - Available on all modern x86 processors.</font></i>
+<a name='L101'> 101 <i><font color='green'>//    Altivec    - Available on all modern ppc processors.</font></i>
+<a name='L102'> 102 <i><font color='green'>//    Neon       - Available on some armv7+ processors.</font></i>
+<a name='L103'> 103 
+<a name='L104'> 104 <font color='darkred'>#if</font> <b>defined</b>(__SSE__) || <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L105'> 105 <font color='darkred'>#  define</font>  OVR_CPU_SSE
+<a name='L106'> 106 <font color='darkred'>#endif</font> <i><font color='green'>// __SSE__</font></i>
+<a name='L107'> 107 
+<a name='L108'> 108 <font color='darkred'>#if</font> <b>defined</b>( __ALTIVEC__ )
+<a name='L109'> 109 <font color='darkred'>#  define</font> OVR_CPU_ALTIVEC
+<a name='L110'> 110 <font color='darkred'>#endif</font> <i><font color='green'>// __ALTIVEC__</font></i>
+<a name='L111'> 111 
+<a name='L112'> 112 <font color='darkred'>#if</font> <b>defined</b>(__ARM_NEON__)
+<a name='L113'> 113 <font color='darkred'>#  define</font> OVR_CPU_ARM_NEON
+<a name='L114'> 114 <font color='darkred'>#endif</font> <i><font color='green'>// __ARM_NEON__</font></i>
+<a name='L115'> 115 
+<a name='L116'> 116 
+<a name='L117'> 117 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L118'> 118 <i><font color='green'>// ***** Compiler</font></i>
+<a name='L119'> 119 <i><font color='green'>//</font></i>
+<a name='L120'> 120 <i><font color='green'>//  The following compilers are defined: (OVR_CC_x)</font></i>
+<a name='L121'> 121 <i><font color='green'>//</font></i>
+<a name='L122'> 122 <i><font color='green'>//     MSVC     - Microsoft Visual C/C++</font></i>
+<a name='L123'> 123 <i><font color='green'>//     INTEL    - Intel C++ for Linux / Windows</font></i>
+<a name='L124'> 124 <i><font color='green'>//     GNU      - GNU C++</font></i>
+<a name='L125'> 125 <i><font color='green'>//     ARM      - ARM C/C++</font></i>
+<a name='L126'> 126 
+<a name='L127'> 127 <font color='darkred'>#if</font> <b>defined</b>(<a href='../Y/2547.html' title='Multiple used in 2 places.'>__INTEL_COMPILER</a>)
+<a name='L128'> 128 <i><font color='green'>// Intel 4.0                    = 400</font></i>
+<a name='L129'> 129 <i><font color='green'>// Intel 5.0                    = 500</font></i>
+<a name='L130'> 130 <i><font color='green'>// Intel 6.0                    = 600</font></i>
+<a name='L131'> 131 <i><font color='green'>// Intel 8.0                    = 800</font></i>
+<a name='L132'> 132 <i><font color='green'>// Intel 9.0                    = 900</font></i>
+<a name='L133'> 133 <font color='darkred'>#  define</font> OVR_CC_INTEL       <a href='../Y/2547.html' title='Multiple used in 2 places.'>__INTEL_COMPILER</a>
+<a name='L134'> 134 
+<a name='L135'> 135 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../Y/2527.html' title='Multiple used in 10 places.'>_MSC_VER</a>)
+<a name='L136'> 136 <i><font color='green'>// MSVC 5.0                     = 1100</font></i>
+<a name='L137'> 137 <i><font color='green'>// MSVC 6.0                     = 1200</font></i>
+<a name='L138'> 138 <i><font color='green'>// MSVC 7.0 (VC2002)            = 1300</font></i>
+<a name='L139'> 139 <i><font color='green'>// MSVC 7.1 (VC2003)            = 1310</font></i>
+<a name='L140'> 140 <i><font color='green'>// MSVC 8.0 (VC2005)            = 1400</font></i>
+<a name='L141'> 141 <i><font color='green'>// MSVC 9.0 (VC2008)            = 1500</font></i>
+<a name='L142'> 142 <i><font color='green'>// MSVC 10.0 (VC2010)           = 1600</font></i>
+<a name='L143'> 143 <i><font color='green'>// MSVC 11.0 (VC2012)           = 1700</font></i>
+<a name='L144'> 144 <i><font color='green'>// MSVC 12.0 (VC2013)           = 1800</font></i>
+<a name='L145'> 145 <font color='darkred'>#  define</font> <a href='../R/650.html' title='Multiple refered from 23 places.'>OVR_CC_MSVC</a>        <a href='../Y/2527.html' title='Multiple used in 10 places.'>_MSC_VER</a>
+<a name='L146'> 146 
+<a name='L147'> 147 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../Y/2545.html' title='Multiple used in 6 places.'>__GNUC__</a>)
+<a name='L148'> 148 <font color='darkred'>#  define</font> <a href='../R/649.html' title='Multiple refered from 8 places.'>OVR_CC_GNU</a>
+<a name='L149'> 149 
+<a name='L150'> 150 <font color='darkred'>#elif</font> <b>defined</b>(__CC_ARM)
+<a name='L151'> 151 <font color='darkred'>#  define</font> <a href='../R/648.html' title='Multiple refered from 4 places.'>OVR_CC_ARM</a>
+<a name='L152'> 152 
+<a name='L153'> 153 <font color='darkred'>#else</font>
+<a name='L154'> 154 <font color='darkred'>#  error</font> "Oculus does not support this Compiler"
+<a name='L155'> 155 <font color='darkred'>#endif</font>
+<a name='L156'> 156 
+<a name='L157'> 157 
+<a name='L158'> 158 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L159'> 159 <i><font color='green'>// ***** Compiler Warnings</font></i>
+<a name='L160'> 160 
+<a name='L161'> 161 <i><font color='green'>// Disable MSVC warnings</font></i>
+<a name='L162'> 162 <font color='darkred'>#if</font> <b>defined</b>(<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a>)
+<a name='L163'> 163 <font color='darkred'>#  pragma</font> warning(disable : 4127)    <i><font color='green'>// Inconsistent dll linkage</font></i>
+<a name='L164'> 164 <font color='darkred'>#  pragma</font> warning(disable : 4530)    <i><font color='green'>// Exception handling</font></i>
+<a name='L165'> 165 <font color='darkred'>#  if</font> (<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a>&lt;1300)
+<a name='L166'> 166 <font color='darkred'>#    pragma</font> warning(disable : 4514)  <i><font color='green'>// Unreferenced inline function has been removed</font></i>
+<a name='L167'> 167 <font color='darkred'>#    pragma</font> warning(disable : 4710)  <i><font color='green'>// Function not inlined</font></i>
+<a name='L168'> 168 <font color='darkred'>#    pragma</font> warning(disable : 4714)  <i><font color='green'>// _force_inline not inlined</font></i>
+<a name='L169'> 169 <font color='darkred'>#    pragma</font> warning(disable : 4786)  <i><font color='green'>// Debug variable name longer than 255 chars</font></i>
+<a name='L170'> 170 <font color='darkred'>#  endif</font> <i><font color='green'>// (OVR_CC_MSVC&lt;1300)</font></i>
+<a name='L171'> 171 <font color='darkred'>#endif</font> <i><font color='green'>// (OVR_CC_MSVC)</font></i>
+<a name='L172'> 172 
+<a name='L173'> 173 
+<a name='L174'> 174 
+<a name='L175'> 175 <i><font color='green'>// *** Linux Unicode - must come before Standard Includes</font></i>
+<a name='L176'> 176 
+<a name='L177'> 177 <font color='darkred'>#ifdef</font> <a href='../S/168.html#L55' title='Defined at 55 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_OS_LINUX</a>
+<a name='L178'> 178 <i><font color='green'>// Use glibc unicode functions on linux.</font></i>
+<a name='L179'> 179 <font color='darkred'>#  ifndef</font>  <a href='../S/168.html#L180' title='Defined at 180 in ovr/sdk/src/Kernel/OVR_Types.h.'>_GNU_SOURCE</a>
+<a name='L180'> 180 <font color='darkred'>#    define</font> <a href='../S/168.html#L179' title='Refered from 179 in ovr/sdk/src/Kernel/OVR_Types.h.'>_GNU_SOURCE</a>
+<a name='L181'> 181 <font color='darkred'>#  endif</font>
+<a name='L182'> 182 <font color='darkred'>#endif</font>
+<a name='L183'> 183 
+<a name='L184'> 184 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L185'> 185 <i><font color='green'>// ***** Standard Includes</font></i>
+<a name='L186'> 186 <i><font color='green'>//</font></i>
+<a name='L187'> 187 <font color='darkred'>#include</font>    &lt;stddef.h&gt;
+<a name='L188'> 188 <font color='darkred'>#include</font>    &lt;limits.h&gt;
+<a name='L189'> 189 <font color='darkred'>#include</font>    &lt;float.h&gt;
+<a name='L190'> 190 
+<a name='L191'> 191 
+<a name='L192'> 192 <i><font color='green'>// MSVC Based Memory Leak checking - for now</font></i>
+<a name='L193'> 193 <font color='darkred'>#if</font> <b>defined</b>(<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a>) &amp;&amp; <b>defined</b>(<a href='../Y/1492.html' title='Multiple used in 15 places.'>OVR_BUILD_DEBUG</a>)
+<a name='L194'> 194 <font color='darkred'>#  define</font> <a href='../S/175.html#L77' title='Refered from 77 in ovr/sdk/src/Kernel/OVR_Allocator.cpp.'>_CRTDBG_MAP_ALLOC</a>
+<a name='L195'> 195 <font color='darkred'>#  include</font> &lt;stdlib.h&gt;
+<a name='L196'> 196 <font color='darkred'>#  include</font> &lt;crtdbg.h&gt;
+<a name='L197'> 197 
+<a name='L198'> 198 <font color='darkred'>#if</font> 0
+<a name='L199'> 199 <i><font color='green'>// Uncomment this to help debug memory leaks under Visual Studio in OVR apps only.</font></i>
+<a name='L200'> 200 <i><font color='green'>// This shouldn't be defined in customer releases.</font></i>
+<a name='L201'> 201 <font color='darkred'>#  ifndef</font> <a href='../S/168.html#L202' title='Defined at 202 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_DEFINE_NEW</a>
+<a name='L202'> 202 <font color='darkred'>#    define</font> <a href='../R/671.html' title='Multiple refered from 14 places.'>OVR_DEFINE_NEW</a> <a href='../D/1417.html' title='Multiple defined in 12 places.'>new</a>(<a href='../Y/2543.html' title='Multiple used in 4 places.'>__FILE__</a>, <a href='../Y/2549.html' title='Multiple used in 4 places.'>__LINE__</a>)
+<a name='L203'> 203 <font color='darkred'>#    define</font> <a href='../R/1330.html' title='Multiple refered from 22 places.'>new</a> <a href='../S/168.html#L202' title='Defined at 202 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_DEFINE_NEW</a>
+<a name='L204'> 204 <font color='darkred'>#  endif</font>
+<a name='L205'> 205 <font color='darkred'>#endif</font>
+<a name='L206'> 206 
+<a name='L207'> 207 <font color='darkred'>#endif</font>
+<a name='L208'> 208 
+<a name='L209'> 209 
+<a name='L210'> 210 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L211'> 211 <i><font color='green'>// ***** Type definitions for Common Systems</font></i>
+<a name='L212'> 212 
+<a name='L213'> 213 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L214'> 214 
+<a name='L215'> 215 <b>typedef</b> <b>char</b>            Char;
+<a name='L216'> 216 
+<a name='L217'> 217 <i><font color='green'>// Pointer-sized integer</font></i>
+<a name='L218'> 218 <b>typedef</b> <a href='../Y/4417.html' title='Multiple used in 30 places.'>size_t</a>          <a href='../R/1143.html' title='Multiple refered from 426 places.'>UPInt</a>;
+<a name='L219'> 219 <b>typedef</b> <a href='../Y/4193.html' title='Multiple used in 2 places.'>ptrdiff_t</a>       <a href='../R/928.html' title='Multiple refered from 132 places.'>SPInt</a>;
+<a name='L220'> 220 
+<a name='L221'> 221 
+<a name='L222'> 222 <font color='darkred'>#if</font> <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L223'> 223 
+<a name='L224'> 224 <b>typedef</b> <b>char</b>            <a href='../R/916.html' title='Multiple refered from 19 places.'>SByte</a>;  <i><font color='green'>// 8 bit Integer (Byte)</font></i>
+<a name='L225'> 225 <b>typedef</b> <b>unsigned</b> <b>char</b>   <a href='../R/1136.html' title='Multiple refered from 269 places.'>UByte</a>;
+<a name='L226'> 226 <b>typedef</b> <b>short</b>           <a href='../R/922.html' title='Multiple refered from 33 places.'>SInt16</a>; <i><font color='green'>// 16 bit Integer (Word)</font></i>
+<a name='L227'> 227 <b>typedef</b> <b>unsigned</b> <b>short</b>  <a href='../R/1137.html' title='Multiple refered from 217 places.'>UInt16</a>;
+<a name='L228'> 228 <b>typedef</b> <b>long</b>            <a href='../R/923.html' title='Multiple refered from 48 places.'>SInt32</a>; <i><font color='green'>// 32 bit Integer</font></i>
+<a name='L229'> 229 <b>typedef</b> <b>unsigned</b> <b>long</b>   <a href='../R/1138.html' title='Multiple refered from 209 places.'>UInt32</a>;
+<a name='L230'> 230 <b>typedef</b> <a href='../Y/2569.html' title='Multiple used in 2 places.'>__int64</a>         <a href='../R/924.html' title='Multiple refered from 57 places.'>SInt64</a>; <i><font color='green'>// 64 bit Integer (QWord)</font></i>
+<a name='L231'> 231 <b>typedef</b> <b>unsigned</b> <a href='../Y/2569.html' title='Multiple used in 2 places.'>__int64</a> <a href='../R/1139.html' title='Multiple refered from 66 places.'>UInt64</a>;
+<a name='L232'> 232 
+<a name='L233'> 233  
+<a name='L234'> 234 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../S/168.html#L48' title='Defined at 48 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_OS_MAC</a>) || <b>defined</b>(<a href='../S/168.html#L45' title='Defined at 45 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_OS_IPHONE</a>) || <b>defined</b>(<a href='../S/168.html#L148' title='Defined at 148 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_GNU</a>)
+<a name='L235'> 235 
+<a name='L236'> 236 <b>typedef</b> <b>int</b>             <a href='../R/916.html' title='Multiple refered from 19 places.'>SByte</a>  <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2553.html' title='Multiple used in 2 places.'>__QI__</a>)));
+<a name='L237'> 237 <b>typedef</b> <b>unsigned</b> <b>int</b>    <a href='../R/1136.html' title='Multiple refered from 269 places.'>UByte</a>  <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2553.html' title='Multiple used in 2 places.'>__QI__</a>)));
+<a name='L238'> 238 <b>typedef</b> <b>int</b>             <a href='../R/922.html' title='Multiple refered from 33 places.'>SInt16</a> <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2546.html' title='Multiple used in 2 places.'>__HI__</a>)));
+<a name='L239'> 239 <b>typedef</b> <b>unsigned</b> <b>int</b>    <a href='../R/1137.html' title='Multiple refered from 217 places.'>UInt16</a> <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2546.html' title='Multiple used in 2 places.'>__HI__</a>)));
+<a name='L240'> 240 <b>typedef</b> <b>int</b>             <a href='../R/923.html' title='Multiple refered from 48 places.'>SInt32</a> <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2554.html' title='Multiple used in 2 places.'>__SI__</a>)));
+<a name='L241'> 241 <b>typedef</b> <b>unsigned</b> <b>int</b>    <a href='../R/1138.html' title='Multiple refered from 209 places.'>UInt32</a> <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2554.html' title='Multiple used in 2 places.'>__SI__</a>)));
+<a name='L242'> 242 <b>typedef</b> <b>int</b>             <a href='../R/924.html' title='Multiple refered from 57 places.'>SInt64</a> <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2541.html' title='Multiple used in 2 places.'>__DI__</a>)));
+<a name='L243'> 243 <b>typedef</b> <b>unsigned</b> <b>int</b>    <a href='../R/1139.html' title='Multiple refered from 66 places.'>UInt64</a> <b>__attribute__</b>((<a href='../Y/2574.html' title='Multiple used in 8 places.'>__mode__</a> (<a href='../Y/2541.html' title='Multiple used in 2 places.'>__DI__</a>)));
+<a name='L244'> 244 
+<a name='L245'> 245 <font color='darkred'>#else</font>
+<a name='L246'> 246 
+<a name='L247'> 247 <font color='darkred'>#include</font> &lt;sys/types.h&gt;
+<a name='L248'> 248 <b>typedef</b> int8_t          <a href='../R/916.html' title='Multiple refered from 19 places.'>SByte</a>;
+<a name='L249'> 249 <b>typedef</b> <a href='../Y/4720.html' title='Multiple used in 26 places.'>uint8_t</a>         <a href='../R/1136.html' title='Multiple refered from 269 places.'>UByte</a>;
+<a name='L250'> 250 <b>typedef</b> int16_t         <a href='../R/922.html' title='Multiple refered from 33 places.'>SInt16</a>;
+<a name='L251'> 251 <b>typedef</b> uint16_t        <a href='../R/1137.html' title='Multiple refered from 217 places.'>UInt16</a>;
+<a name='L252'> 252 <b>typedef</b> <a href='../Y/3475.html' title='Multiple used in 2 places.'>int32_t</a>         <a href='../R/923.html' title='Multiple refered from 48 places.'>SInt32</a>;
+<a name='L253'> 253 <b>typedef</b> <a href='../Y/4718.html' title='Multiple used in 12 places.'>uint32_t</a>        <a href='../R/1138.html' title='Multiple refered from 209 places.'>UInt32</a>;
+<a name='L254'> 254 <b>typedef</b> int64_t         <a href='../R/924.html' title='Multiple refered from 57 places.'>SInt64</a>;
+<a name='L255'> 255 <b>typedef</b> uint64_t        <a href='../R/1139.html' title='Multiple refered from 66 places.'>UInt64</a>;
+<a name='L256'> 256 
+<a name='L257'> 257 <font color='darkred'>#endif</font>
+<a name='L258'> 258 
+<a name='L259'> 259 
+<a name='L260'> 260 <i><font color='green'>// ***** BaseTypes Namespace</font></i>
+<a name='L261'> 261 
+<a name='L262'> 262 <i><font color='green'>// BaseTypes namespace is explicitly declared to allow base types to be used</font></i>
+<a name='L263'> 263 <i><font color='green'>// by customers directly without other contents of OVR namespace.</font></i>
+<a name='L264'> 264 <i><font color='green'>//</font></i>
+<a name='L265'> 265 <i><font color='green'>// Its is expected that OVR samples will declare 'using namespace OVR::BaseTypes'</font></i>
+<a name='L266'> 266 <i><font color='green'>// to allow using these directly without polluting the target scope with other</font></i>
+<a name='L267'> 267 <i><font color='green'>// OVR declarations, such as Ptr&lt;&gt;, String or Mutex.</font></i>
+<a name='L268'> 268 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> BaseTypes
+<a name='L269'> 269 <font color='red'>{</font>
+<a name='L270'> 270     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a>;
+<a name='L271'> 271     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../S/168.html#L219' title='Defined at 219 in ovr/sdk/src/Kernel/OVR_Types.h.'>SPInt</a>;
+<a name='L272'> 272     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/1212.html' title='Multiple defined in 3 places.'>UByte</a>;
+<a name='L273'> 273     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/975.html' title='Multiple defined in 3 places.'>SByte</a>;
+<a name='L274'> 274     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/1213.html' title='Multiple defined in 3 places.'>UInt16</a>;
+<a name='L275'> 275     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/981.html' title='Multiple defined in 3 places.'>SInt16</a>;
+<a name='L276'> 276     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/1214.html' title='Multiple defined in 3 places.'>UInt32</a>;
+<a name='L277'> 277     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/982.html' title='Multiple defined in 3 places.'>SInt32</a>;
+<a name='L278'> 278     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/1215.html' title='Multiple defined in 3 places.'>UInt64</a>;
+<a name='L279'> 279     <a href='../Y/4756.html' title='Multiple used in 15 places.'>using</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a>::<a href='../D/983.html' title='Multiple defined in 3 places.'>SInt64</a>;
+<a name='L280'> 280 <font color='red'>}</font> <i><font color='green'>// OVR::BaseTypes</font></i>
+<a name='L281'> 281 
+<a name='L282'> 282 <font color='red'>}</font> <i><font color='green'>// OVR</font></i>
+<a name='L283'> 283 
+<a name='L284'> 284 
+<a name='L285'> 285 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L286'> 286 <i><font color='green'>// ***** Macro Definitions</font></i>
+<a name='L287'> 287 <i><font color='green'>//</font></i>
+<a name='L288'> 288 <i><font color='green'>// We define the following:</font></i>
+<a name='L289'> 289 <i><font color='green'>//</font></i>
+<a name='L290'> 290 <i><font color='green'>//  OVR_BYTE_ORDER      - Defined to either OVR_LITTLE_ENDIAN or OVR_BIG_ENDIAN</font></i>
+<a name='L291'> 291 <i><font color='green'>//  OVR_FORCE_INLINE    - Forces inline expansion of function</font></i>
+<a name='L292'> 292 <i><font color='green'>//  OVR_ASM             - Assembly language prefix</font></i>
+<a name='L293'> 293 <i><font color='green'>//  OVR_STR             - Prefixes string with L"" if building unicode</font></i>
+<a name='L294'> 294 <i><font color='green'>// </font></i>
+<a name='L295'> 295 <i><font color='green'>//  OVR_STDCALL         - Use stdcall calling convention (Pascal arg order)</font></i>
+<a name='L296'> 296 <i><font color='green'>//  OVR_CDECL           - Use cdecl calling convention (C argument order)</font></i>
+<a name='L297'> 297 <i><font color='green'>//  OVR_FASTCALL        - Use fastcall calling convention (registers)</font></i>
+<a name='L298'> 298 <i><font color='green'>//</font></i>
+<a name='L299'> 299 
+<a name='L300'> 300 <i><font color='green'>// Byte order constants, OVR_BYTE_ORDER is defined to be one of these.</font></i>
+<a name='L301'> 301 <font color='darkred'>#define</font> <a href='../R/704.html' title='Multiple refered from 3 places.'>OVR_LITTLE_ENDIAN</a>       1
+<a name='L302'> 302 <font color='darkred'>#define</font> <a href='../R/636.html' title='Multiple refered from 3 places.'>OVR_BIG_ENDIAN</a>          2
+<a name='L303'> 303 
+<a name='L304'> 304 
+<a name='L305'> 305 <i><font color='green'>// Force inline substitute - goes before function declaration</font></i>
+<a name='L306'> 306 <font color='darkred'>#if</font> <b>defined</b>(<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a>)
+<a name='L307'> 307 <font color='darkred'>#  define</font> <a href='../R/680.html' title='Multiple refered from 78 places.'>OVR_FORCE_INLINE</a>  __forceinline
+<a name='L308'> 308 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../S/168.html#L148' title='Defined at 148 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_GNU</a>)
+<a name='L309'> 309 <font color='darkred'>#  define</font> <a href='../R/680.html' title='Multiple refered from 78 places.'>OVR_FORCE_INLINE</a>  <b>__attribute__</b>((always_inline)) <b>inline</b>
+<a name='L310'> 310 <font color='darkred'>#else</font>
+<a name='L311'> 311 <font color='darkred'>#  define</font> <a href='../R/680.html' title='Multiple refered from 78 places.'>OVR_FORCE_INLINE</a>  <b>inline</b>
+<a name='L312'> 312 <font color='darkred'>#endif</font>  <i><font color='green'>// OVR_CC_MSVC</font></i>
+<a name='L313'> 313 
+<a name='L314'> 314 
+<a name='L315'> 315 <font color='darkred'>#if</font> <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L316'> 316     
+<a name='L317'> 317     <i><font color='green'>// ***** Win32</font></i>
+<a name='L318'> 318 
+<a name='L319'> 319     <i><font color='green'>// Byte order</font></i>
+<a name='L320'> 320 <font color='darkred'>    #define</font> <a href='../R/637.html' title='Multiple refered from 2 places.'>OVR_BYTE_ORDER</a>    <a href='../S/168.html#L301' title='Defined at 301 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_LITTLE_ENDIAN</a>
+<a name='L321'> 321 
+<a name='L322'> 322     <i><font color='green'>// Calling convention - goes after function return type but before function name</font></i>
+<a name='L323'> 323 <font color='darkred'>    #ifdef</font> <a href='../Y/2563.html' title='Multiple used in 2 places.'>__cplusplus_cli</a>
+<a name='L324'> 324 <font color='darkred'>    #  define</font> OVR_FASTCALL      <a href='../Y/2578.html' title='Multiple used in 21 places.'>__stdcall</a>
+<a name='L325'> 325 <font color='darkred'>    #else</font>
+<a name='L326'> 326 <font color='darkred'>    #  define</font> OVR_FASTCALL      __fastcall
+<a name='L327'> 327 <font color='darkred'>    #endif</font>
+<a name='L328'> 328 
+<a name='L329'> 329 <font color='darkred'>    #define</font> <a href='../R/732.html' title='Multiple refered from 25 places.'>OVR_STDCALL</a>         <a href='../Y/2578.html' title='Multiple used in 21 places.'>__stdcall</a>
+<a name='L330'> 330 <font color='darkred'>    #define</font> <a href='../R/651.html' title='Multiple refered from 69 places.'>OVR_CDECL</a>           __cdecl
+<a name='L331'> 331 
+<a name='L332'> 332 
+<a name='L333'> 333     <i><font color='green'>// Assembly macros</font></i>
+<a name='L334'> 334 <font color='darkred'>    #if</font> <b>defined</b>(<a href='../S/168.html#L145' title='Defined at 145 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_MSVC</a>)
+<a name='L335'> 335 <font color='darkred'>    #  define</font> <a href='../R/629.html' title='Multiple refered from 5 places.'>OVR_ASM</a>           _asm
+<a name='L336'> 336 <font color='darkred'>    #else</font>
+<a name='L337'> 337 <font color='darkred'>    #  define</font> <a href='../R/629.html' title='Multiple refered from 5 places.'>OVR_ASM</a>           <b>asm</b>
+<a name='L338'> 338 <font color='darkred'>    #endif</font> <i><font color='green'>// (OVR_CC_MSVC)</font></i>
+<a name='L339'> 339 
+<a name='L340'> 340 <font color='darkred'>    #ifdef</font> UNICODE
+<a name='L341'> 341 <font color='darkred'>    #  define</font> <a href='../S/159.html#L68' title='Refered from 68 in ovr/sdk/src/Kernel/OVR_Atomic.cpp.'>OVR_STR</a>(<a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>)      L##<a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>
+<a name='L342'> 342 <font color='darkred'>    #else</font>
+<a name='L343'> 343 <font color='darkred'>    #  define</font> <a href='../S/159.html#L68' title='Refered from 68 in ovr/sdk/src/Kernel/OVR_Atomic.cpp.'>OVR_STR</a>(<a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>)      <a href='../Y/4480.html' title='Multiple used in 125 places.'>str</a>
+<a name='L344'> 344 <font color='darkred'>    #endif</font> <i><font color='green'>// UNICODE</font></i>
+<a name='L345'> 345 
+<a name='L346'> 346 <font color='darkred'>#else</font>
+<a name='L347'> 347 
+<a name='L348'> 348     <i><font color='green'>// **** Standard systems</font></i>
+<a name='L349'> 349 
+<a name='L350'> 350 <font color='darkred'>    #if</font> (<b>defined</b>(BYTE_ORDER) &amp;&amp; (BYTE_ORDER == BIG_ENDIAN))|| \
+<a name='L351'> 351         (<b>defined</b>(_BYTE_ORDER) &amp;&amp; (_BYTE_ORDER == _BIG_ENDIAN))
+<a name='L352'> 352 <font color='darkred'>    #  define</font> <a href='../R/637.html' title='Multiple refered from 2 places.'>OVR_BYTE_ORDER</a>    <a href='../S/168.html#L302' title='Defined at 302 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_BIG_ENDIAN</a>
+<a name='L353'> 353 <font color='darkred'>    #elif</font> (<b>defined</b>(__ARMEB__) || <b>defined</b>(<a href='../S/168.html#L86' title='Defined at 86 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CPU_PPC</a>) || <b>defined</b>(<a href='../S/168.html#L84' title='Defined at 84 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CPU_PPC64</a>))
+<a name='L354'> 354 <font color='darkred'>    #  define</font> <a href='../R/637.html' title='Multiple refered from 2 places.'>OVR_BYTE_ORDER</a>    <a href='../S/168.html#L302' title='Defined at 302 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_BIG_ENDIAN</a>
+<a name='L355'> 355 <font color='darkred'>    #else</font>
+<a name='L356'> 356 <font color='darkred'>    #  define</font> <a href='../R/637.html' title='Multiple refered from 2 places.'>OVR_BYTE_ORDER</a>    <a href='../S/168.html#L301' title='Defined at 301 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_LITTLE_ENDIAN</a>
+<a name='L357'> 357 <font color='darkred'>    #endif</font>
+<a name='L358'> 358     
+<a name='L359'> 359     <i><font color='green'>// Assembly macros</font></i>
+<a name='L360'> 360 <font color='darkred'>    #define</font> <a href='../R/629.html' title='Multiple refered from 5 places.'>OVR_ASM</a>                  <b>__asm__</b>
+<a name='L361'> 361 <font color='darkred'>    #define</font> OVR_ASM_PROC(procname)   <a href='../D/660.html' title='Multiple defined in 3 places.'>OVR_ASM</a>
+<a name='L362'> 362 <font color='darkred'>    #define</font> OVR_ASM_END              <a href='../D/660.html' title='Multiple defined in 3 places.'>OVR_ASM</a>
+<a name='L363'> 363     
+<a name='L364'> 364     <i><font color='green'>// Calling convention - goes after function return type but before function name</font></i>
+<a name='L365'> 365 <font color='darkred'>    #define</font> OVR_FASTCALL
+<a name='L366'> 366 <font color='darkred'>    #define</font> <a href='../R/732.html' title='Multiple refered from 25 places.'>OVR_STDCALL</a>
+<a name='L367'> 367 <font color='darkred'>    #define</font> <a href='../R/651.html' title='Multiple refered from 69 places.'>OVR_CDECL</a>
+<a name='L368'> 368 
+<a name='L369'> 369 <font color='darkred'>#endif</font> <i><font color='green'>// defined(OVR_OS_WIN32)</font></i>
+<a name='L370'> 370 
+<a name='L371'> 371 
+<a name='L372'> 372 
+<a name='L373'> 373 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L374'> 374 <i><font color='green'>// ***** OVR_DEBUG_BREAK, OVR_ASSERT</font></i>
+<a name='L375'> 375 <i><font color='green'>//</font></i>
+<a name='L376'> 376 <i><font color='green'>// If not in debug build, macros do nothing</font></i>
+<a name='L377'> 377 <font color='darkred'>#ifndef</font> <a href='../Y/1492.html' title='Multiple used in 15 places.'>OVR_BUILD_DEBUG</a>
+<a name='L378'> 378 
+<a name='L379'> 379 <font color='darkred'>#  define</font> OVR_DEBUG_CODE(<a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>) <a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>
+<a name='L380'> 380 <font color='darkred'>#  define</font> <a href='../R/661.html' title='Multiple refered from 3 places.'>OVR_DEBUG_BREAK</a>  ((<b>void</b>)0)
+<a name='L381'> 381 <font color='darkred'>#  define</font> <a href='../R/630.html' title='Multiple refered from 297 places.'>OVR_ASSERT</a>(<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)    ((<b>void</b>)0)
+<a name='L382'> 382 
+<a name='L383'> 383 <font color='darkred'>#else</font> 
+<a name='L384'> 384 
+<a name='L385'> 385 <i><font color='green'>// Microsoft Win32 specific debugging support</font></i>
+<a name='L386'> 386 <font color='darkred'>#if</font> <b>defined</b>(<a href='../D/776.html' title='Multiple defined in 2 places.'>OVR_OS_WIN32</a>)
+<a name='L387'> 387 <font color='darkred'>#  ifdef</font> <a href='../S/168.html#L82' title='Defined at 82 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CPU_X86</a>
+<a name='L388'> 388 <font color='darkred'>#    if</font> <b>defined</b>(<a href='../Y/2563.html' title='Multiple used in 2 places.'>__cplusplus_cli</a>)
+<a name='L389'> 389 <font color='darkred'>#      define</font> <a href='../R/661.html' title='Multiple refered from 3 places.'>OVR_DEBUG_BREAK</a>   <b>do</b> <font color='red'>{</font> <a href='../Y/2564.html' title='Multiple used in 3 places.'>__debugbreak</a>(); <font color='red'>}</font> <b>while</b>(0)
+<a name='L390'> 390 <font color='darkred'>#    elif</font> <b>defined</b>(<a href='../S/168.html#L148' title='Defined at 148 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_GNU</a>)
+<a name='L391'> 391 <font color='darkred'>#      define</font> <a href='../R/661.html' title='Multiple refered from 3 places.'>OVR_DEBUG_BREAK</a>   <b>do</b> <font color='red'>{</font> <a href='../D/660.html' title='Multiple defined in 3 places.'>OVR_ASM</a>("int $3\n\t"); <font color='red'>}</font> <b>while</b>(0)
+<a name='L392'> 392 <font color='darkred'>#    else</font>
+<a name='L393'> 393 <font color='darkred'>#      define</font> <a href='../R/661.html' title='Multiple refered from 3 places.'>OVR_DEBUG_BREAK</a>   <b>do</b> <font color='red'>{</font> <a href='../D/660.html' title='Multiple defined in 3 places.'>OVR_ASM</a> <b>int</b> 3 <font color='red'>}</font> <b>while</b> (0)
+<a name='L394'> 394 <font color='darkred'>#    endif</font>
+<a name='L395'> 395 <font color='darkred'>#  else</font>
+<a name='L396'> 396 <font color='darkred'>#    define</font> <a href='../R/661.html' title='Multiple refered from 3 places.'>OVR_DEBUG_BREAK</a>     <b>do</b> <font color='red'>{</font> <a href='../Y/2564.html' title='Multiple used in 3 places.'>__debugbreak</a>(); <font color='red'>}</font> <b>while</b>(0)
+<a name='L397'> 397 <font color='darkred'>#  endif</font>
+<a name='L398'> 398 <i><font color='green'>// Unix specific debugging support</font></i>
+<a name='L399'> 399 <font color='darkred'>#elif</font> <b>defined</b>(<a href='../S/168.html#L82' title='Defined at 82 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CPU_X86</a>) || <b>defined</b>(<a href='../S/168.html#L79' title='Defined at 79 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CPU_X86_64</a>)
+<a name='L400'> 400 <font color='darkred'>#  define</font> <a href='../R/661.html' title='Multiple refered from 3 places.'>OVR_DEBUG_BREAK</a>       <b>do</b> <font color='red'>{</font> <a href='../D/660.html' title='Multiple defined in 3 places.'>OVR_ASM</a>("int $3\n\t"); <font color='red'>}</font> <b>while</b>(0)
+<a name='L401'> 401 <font color='darkred'>#else</font>
+<a name='L402'> 402 <font color='darkred'>#  define</font> <a href='../R/661.html' title='Multiple refered from 3 places.'>OVR_DEBUG_BREAK</a>       <b>do</b> <font color='red'>{</font> *((<b>int</b> *) 0) = 1; <font color='red'>}</font> <b>while</b>(0)
+<a name='L403'> 403 <font color='darkred'>#endif</font>
+<a name='L404'> 404 
+<a name='L405'> 405 <font color='darkred'>#define</font> OVR_DEBUG_CODE(<a href='../Y/2802.html' title='Multiple used in 181 places.'>c</a>)
+<a name='L406'> 406 
+<a name='L407'> 407 <i><font color='green'>// This will cause compiler breakpoint</font></i>
+<a name='L408'> 408 <font color='darkred'>#define</font> <a href='../R/630.html' title='Multiple refered from 297 places.'>OVR_ASSERT</a>(<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)           <b>do</b> <font color='red'>{</font> <b>if</b> (!(<a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>))  <font color='red'>{</font> <a href='../D/702.html' title='Multiple defined in 7 places.'>OVR_DEBUG_BREAK</a>; <font color='red'>}</font> <font color='red'>}</font> <b>while</b>(0)
+<a name='L409'> 409 
+<a name='L410'> 410 <font color='darkred'>#endif</font> <i><font color='green'>// OVR_BUILD_DEBUG</font></i>
+<a name='L411'> 411 
+<a name='L412'> 412 
+<a name='L413'> 413 <i><font color='green'>// Compile-time assert; produces compiler error if condition is false</font></i>
+<a name='L414'> 414 <font color='darkred'>#define</font> <a href='../R/652.html' title='Multiple refered from 28 places.'>OVR_COMPILER_ASSERT</a>(<a href='../Y/4876.html' title='Multiple used in 308 places.'>x</a>)  <font color='red'>{</font> <b>int</b> zero = 0; <b>switch</b>(zero) <font color='red'>{</font><b>case</b> 0: <b>case</b> <a href='../Y/4876.html' title='Multiple used in 308 places.'>x</a>:;<font color='red'>}</font> <font color='red'>}</font>
+<a name='L415'> 415 
+<a name='L416'> 416 
+<a name='L417'> 417 
+<a name='L418'> 418 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L419'> 419 <i><font color='green'>// ***** OVR_UNUSED - Unused Argument handling</font></i>
+<a name='L420'> 420 
+<a name='L421'> 421 <i><font color='green'>// Macro to quiet compiler warnings about unused parameters/variables.</font></i>
+<a name='L422'> 422 <font color='darkred'>#if</font> <b>defined</b>(<a href='../S/168.html#L148' title='Defined at 148 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_GNU</a>)
+<a name='L423'> 423 <font color='darkred'>#  define</font>   <a href='../R/759.html' title='Multiple refered from 71 places.'>OVR_UNUSED</a>(<a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>)   <b>do</b> <font color='red'>{</font>__typeof__ (&amp;<a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>) <b>__attribute__</b> ((<a href='../Y/4730.html' title='Multiple used in 3 places.'>unused</a>)) __tmp = &amp;<a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>; <font color='red'>}</font> <b>while</b>(0)
+<a name='L424'> 424 <font color='darkred'>#else</font>
+<a name='L425'> 425 <font color='darkred'>#  define</font>   <a href='../R/759.html' title='Multiple refered from 71 places.'>OVR_UNUSED</a>(<a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>)   (<a href='../Y/2649.html' title='Multiple used in 263 places.'>a</a>)
+<a name='L426'> 426 <font color='darkred'>#endif</font>
+<a name='L427'> 427 
+<a name='L428'> 428 <font color='darkred'>#define</font>     <a href='../R/760.html' title='Multiple refered from 13 places.'>OVR_UNUSED1</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>) <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>)
+<a name='L429'> 429 <font color='darkred'>#define</font>     <a href='../R/761.html' title='Multiple refered from 21 places.'>OVR_UNUSED2</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>) <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>); <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>)
+<a name='L430'> 430 <font color='darkred'>#define</font>     <a href='../R/762.html' title='Multiple refered from 4 places.'>OVR_UNUSED3</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>) <a href='../S/168.html#L429' title='Defined at 429 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED2</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>); <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>)
+<a name='L431'> 431 <font color='darkred'>#define</font>     <a href='../R/763.html' title='Multiple refered from 5 places.'>OVR_UNUSED4</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>) <a href='../S/168.html#L430' title='Defined at 430 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED3</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>); <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>)
+<a name='L432'> 432 <font color='darkred'>#define</font>     <a href='../S/168.html#L436' title='Refered from 436 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED5</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>,<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>) <a href='../S/168.html#L431' title='Defined at 431 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED4</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>); <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>)
+<a name='L433'> 433 <font color='darkred'>#define</font>     OVR_UNUSED6(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>,<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>) <a href='../S/168.html#L431' title='Defined at 431 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED4</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>); <a href='../S/168.html#L429' title='Defined at 429 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED2</a>(<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>)
+<a name='L434'> 434 <font color='darkred'>#define</font>     OVR_UNUSED7(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>,<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>,<a href='../Y/2663.html' title='Multiple used in 3 places.'>a7</a>) <a href='../S/168.html#L431' title='Defined at 431 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED4</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>); <a href='../S/168.html#L430' title='Defined at 430 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED3</a>(<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>,<a href='../Y/2663.html' title='Multiple used in 3 places.'>a7</a>)
+<a name='L435'> 435 <font color='darkred'>#define</font>     OVR_UNUSED8(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>,<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>,<a href='../Y/2663.html' title='Multiple used in 3 places.'>a7</a>,<a href='../Y/2664.html' title='Multiple used in 2 places.'>a8</a>) <a href='../S/168.html#L431' title='Defined at 431 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED4</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>); <a href='../S/168.html#L431' title='Defined at 431 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED4</a>(<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>,<a href='../Y/2663.html' title='Multiple used in 3 places.'>a7</a>,<a href='../Y/2664.html' title='Multiple used in 2 places.'>a8</a>)
+<a name='L436'> 436 <font color='darkred'>#define</font>     OVR_UNUSED9(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>,<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>,<a href='../Y/2663.html' title='Multiple used in 3 places.'>a7</a>,<a href='../Y/2664.html' title='Multiple used in 2 places.'>a8</a>,a9) <a href='../S/168.html#L431' title='Defined at 431 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED4</a>(<a href='../Y/2654.html' title='Multiple used in 19 places.'>a1</a>,<a href='../Y/2657.html' title='Multiple used in 8 places.'>a2</a>,<a href='../Y/2659.html' title='Multiple used in 7 places.'>a3</a>,<a href='../Y/2660.html' title='Multiple used in 6 places.'>a4</a>); <a href='../S/168.html#L432' title='Defined at 432 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_UNUSED5</a>(<a href='../Y/2661.html' title='Multiple used in 5 places.'>a5</a>,<a href='../Y/2662.html' title='Multiple used in 4 places.'>a6</a>,<a href='../Y/2663.html' title='Multiple used in 3 places.'>a7</a>,<a href='../Y/2664.html' title='Multiple used in 2 places.'>a8</a>,a9)
+<a name='L437'> 437 
+<a name='L438'> 438 
+<a name='L439'> 439 <i><font color='green'>//-----------------------------------------------------------------------------------</font></i>
+<a name='L440'> 440 <i><font color='green'>// ***** Configuration Macros</font></i>
+<a name='L441'> 441 
+<a name='L442'> 442 <i><font color='green'>// SF Build type</font></i>
+<a name='L443'> 443 <font color='darkred'>#ifdef</font> <a href='../Y/1492.html' title='Multiple used in 15 places.'>OVR_BUILD_DEBUG</a>
+<a name='L444'> 444 <font color='darkred'>#  define</font> OVR_BUILD_STRING  "Debug"
+<a name='L445'> 445 <font color='darkred'>#else</font>
+<a name='L446'> 446 <font color='darkred'>#  define</font> OVR_BUILD_STRING  "Release"
+<a name='L447'> 447 <font color='darkred'>#endif</font>
+<a name='L448'> 448 
+<a name='L449'> 449 
+<a name='L450'> 450 <i><font color='green'>//// Enables SF Debugging information</font></i>
+<a name='L451'> 451 <i><font color='green'>//# define OVR_BUILD_DEBUG</font></i>
+<a name='L452'> 452 
+<a name='L453'> 453 <i><font color='green'>// OVR_DEBUG_STATEMENT injects a statement only in debug builds.</font></i>
+<a name='L454'> 454 <i><font color='green'>// OVR_DEBUG_SELECT injects first argument in debug builds, second argument otherwise.</font></i>
+<a name='L455'> 455 <font color='darkred'>#ifdef</font> <a href='../Y/1492.html' title='Multiple used in 15 places.'>OVR_BUILD_DEBUG</a>
+<a name='L456'> 456 <font color='darkred'>#define</font> <a href='../R/665.html' title='Multiple refered from 3 places.'>OVR_DEBUG_STATEMENT</a>(<a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>)   <a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>
+<a name='L457'> 457 <font color='darkred'>#define</font> <a href='../S/159.html#L54' title='Refered from 54 in ovr/sdk/src/Kernel/OVR_Atomic.cpp.'>OVR_DEBUG_SELECT</a>(<a href='../Y/2947.html' title='Multiple used in 119 places.'>d</a>, <a href='../Y/3727.html' title='Multiple used in 2 places.'>nd</a>)  <a href='../Y/2947.html' title='Multiple used in 119 places.'>d</a>
+<a name='L458'> 458 <font color='darkred'>#else</font>
+<a name='L459'> 459 <font color='darkred'>#define</font> <a href='../R/665.html' title='Multiple refered from 3 places.'>OVR_DEBUG_STATEMENT</a>(<a href='../Y/4328.html' title='Multiple used in 254 places.'>s</a>)
+<a name='L460'> 460 <font color='darkred'>#define</font> <a href='../S/159.html#L54' title='Refered from 54 in ovr/sdk/src/Kernel/OVR_Atomic.cpp.'>OVR_DEBUG_SELECT</a>(<a href='../Y/2947.html' title='Multiple used in 119 places.'>d</a>, <a href='../Y/3727.html' title='Multiple used in 2 places.'>nd</a>)  <a href='../Y/3727.html' title='Multiple used in 2 places.'>nd</a>
+<a name='L461'> 461 <font color='darkred'>#endif</font>
+<a name='L462'> 462 
+<a name='L463'> 463 
+<a name='L464'> 464 <font color='darkred'>#define</font> <a href='../R/678.html' title='Multiple refered from 9 places.'>OVR_ENABLE_THREADS</a>
+<a name='L465'> 465 <i><font color='green'>//</font></i>
+<a name='L466'> 466 <i><font color='green'>// Prevents OVR from defining new within</font></i>
+<a name='L467'> 467 <i><font color='green'>// type macros, so developers can override</font></i>
+<a name='L468'> 468 <i><font color='green'>// new using the #define new new(...) trick</font></i>
+<a name='L469'> 469 <i><font color='green'>// - used with OVR_DEFINE_NEW macro</font></i>
+<a name='L470'> 470 <i><font color='green'>//# define OVR_BUILD_DEFINE_NEW</font></i>
+<a name='L471'> 471 <i><font color='green'>//</font></i>
+<a name='L472'> 472 
+<a name='L473'> 473 
+<a name='L474'> 474 <font color='darkred'>#endif</font>  <i><font color='green'>// OVR_Types_h</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<map id="OVR::LocklessUpdater&lt; T &gt;" name="OVR::LocklessUpdater&lt; T &gt;">
+<area shape="rect" id="node2" href="$classOVR_1_1LocklessUpdater.html" title="{OVR::LocklessUpdater\l\&lt; OVR::CAPI::FrameTimeManager\l::Timing \&gt;\n|+ UpdateBegin\l+ UpdateEnd\l+ Slots\l|+ LocklessUpdater()\l+ GetState()\l+ SetState()\l}" alt="" coords="5,219,232,384"/>
+<area shape="rect" id="node3" href="$classOVR_1_1LocklessUpdater.html" title="{OVR::LocklessUpdater\l\&lt; OVR::SensorFusion::\lLocklessState \&gt;\n|+ UpdateBegin\l+ UpdateEnd\l+ Slots\l|+ LocklessUpdater()\l+ GetState()\l+ SetState()\l}" alt="" coords="279,219,437,384"/>
+<area shape="rect" id="node4" href="$classOVR_1_1LocklessUpdater.html" title="{OVR::LocklessUpdater\l\&lt; OVR::Util::FrameTimeRecord\lSet \&gt;\n|+ UpdateBegin\l+ UpdateEnd\l+ Slots\l|+ LocklessUpdater()\l+ GetState()\l+ SetState()\l}" alt="" coords="462,219,668,384"/>
+</map>

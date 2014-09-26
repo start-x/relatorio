@@ -1,0 +1,4 @@
+<map id="MonitorInfo" name="MonitorInfo">
+<area shape="rect" id="node2" href="$edid_8h.html#structDetailedTiming" title="{DetailedTiming\n|+ pixel_clock\l+ h_addr\l+ h_blank\l+ h_sync\l+ h_front_porch\l+ v_addr\l+ v_blank\l+ v_sync\l+ v_front_porch\l+ width_mm\land 7 more...\l|}" alt="" coords="5,5,117,229"/>
+<area shape="rect" id="node3" href="$edid_8h.html#structTiming" title="{Timing\n|+ width\l+ height\l+ frequency\l|}" alt="" coords="153,64,244,171"/>
+</map>

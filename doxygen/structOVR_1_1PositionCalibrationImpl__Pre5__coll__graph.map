@@ -1,0 +1,5 @@
+<map id="OVR::PositionCalibrationImpl_Pre5" name="OVR::PositionCalibrationImpl_Pre5">
+<area shape="rect" id="node2" href="$structOVR_1_1PositionCalibrationReport.html" title="{OVR::PositionCalibration\lReport\n|+ CommandId\l+ Version\l+ Angle\l+ PositionIndex\l+ NumPositions\l+ PositionType\l|+ PositionCalibrationReport()\l+ PositionCalibrationReport()\l}" alt="" coords="14,886,204,1066"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; double \&gt;\n|+ x\l+ y\l+ z\l|+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="16,510,203,807"/>
+<area shape="rect" id="node4" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; T \&gt;\n||+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="16,177,203,445"/>
+</map>

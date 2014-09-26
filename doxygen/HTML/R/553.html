@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Log</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/167.html#L41'>Log</a>                41 ovr/sdk/src/Kernel/OVR_Log.cpp Log* volatile OVR_GlobalLog = 0;
+<a href='../S/167.html#L46'>Log</a>                46 ovr/sdk/src/Kernel/OVR_Log.cpp Log::~Log()
+<a href='../S/167.html#L56'>Log</a>                56 ovr/sdk/src/Kernel/OVR_Log.cpp void Log::LogMessageVarg(LogMessageType messageType, const char* fmt, va_list argList)
+<a href='../S/167.html#L70'>Log</a>                70 ovr/sdk/src/Kernel/OVR_Log.cpp void OVR::Log::LogMessage(LogMessageType messageType, const char* pfmt, ...)
+<a href='../S/167.html#L79'>Log</a>                79 ovr/sdk/src/Kernel/OVR_Log.cpp void Log::FormatLog(char* buffer, unsigned bufferSize, LogMessageType messageType,
+<a href='../S/167.html#L106'>Log</a>               106 ovr/sdk/src/Kernel/OVR_Log.cpp void Log::DefaultLogOutput(const char* formattedText, bool debug)
+<a href='../S/167.html#L138'>Log</a>               138 ovr/sdk/src/Kernel/OVR_Log.cpp void Log::SetGlobalLog(Log *log)
+<a href='../S/167.html#L143'>Log</a>               143 ovr/sdk/src/Kernel/OVR_Log.cpp Log* Log::GetGlobalLog()
+<a href='../S/167.html#L152'>Log</a>               152 ovr/sdk/src/Kernel/OVR_Log.cpp Log* Log::GetDefaultLog()
+<a href='../S/167.html#L156'>Log</a>               156 ovr/sdk/src/Kernel/OVR_Log.cpp     static Log defaultLog;
+<a href='../S/167.html#L165'>Log</a>               165 ovr/sdk/src/Kernel/OVR_Log.cpp     void Log##Name(const char* fmt, ...) \
+<a href='../S/155.html#L103'>Log</a>               103 ovr/sdk/src/Kernel/OVR_Log.h class Log
+<a href='../S/155.html#L107'>Log</a>               107 ovr/sdk/src/Kernel/OVR_Log.h     Log(unsigned logMask = LogMask_Debug) : LoggingMask(logMask) { }
+<a href='../S/155.html#L108'>Log</a>               108 ovr/sdk/src/Kernel/OVR_Log.h     virtual ~Log();
+<a href='../S/155.html#L147'>Log</a>               147 ovr/sdk/src/Kernel/OVR_Log.h     static void     SetGlobalLog(Log *log);
+<a href='../S/155.html#L148'>Log</a>               148 ovr/sdk/src/Kernel/OVR_Log.h     static Log*     GetGlobalLog();
+<a href='../S/155.html#L151'>Log</a>               151 ovr/sdk/src/Kernel/OVR_Log.h     static Log*     GetDefaultLog();
+<a href='../S/155.html#L157'>Log</a>               157 ovr/sdk/src/Kernel/OVR_Log.h     static Log*     ConfigureDefaultLog(unsigned logMask = LogMask_Debug)
+<a href='../S/155.html#L159'>Log</a>               159 ovr/sdk/src/Kernel/OVR_Log.h         Log* log = GetDefaultLog();
+<a href='../S/170.html#L41'>Log</a>                41 ovr/sdk/src/Kernel/OVR_System.cpp         Log::SetGlobalLog(log);
+<a href='../S/170.html#L66'>Log</a>                66 ovr/sdk/src/Kernel/OVR_System.cpp         Log::SetGlobalLog(Log::GetDefaultLog());
+<a href='../S/165.html#L52'>Log</a>                52 ovr/sdk/src/Kernel/OVR_System.h     System(Log* log = Log::ConfigureDefaultLog(LogMask_Debug),
+<a href='../S/165.html#L68'>Log</a>                68 ovr/sdk/src/Kernel/OVR_System.h     static void OVR_CDECL Init(Log* log = Log::ConfigureDefaultLog(LogMask_Debug),
+<a href='../S/142.html#L219'>Log</a>               219 ovr/sdk/src/OVR_CAPI.cpp         OVR::System::Init(OVR::Log::ConfigureDefaultLog(OVR::LogMask_All));
+<a href='../S/193.html#L302'>Log</a>               302 ovr/sdk/src/OVR_Linux_DeviceManager.cpp         OVR_DEBUG_STATEMENT(Log::GetDefaultLog()-&gt;
+<a href='../S/132.html#L763'>Log</a>               763 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         OVR_DEBUG_STATEMENT(Log::GetDefaultLog()-&gt;
+<a href='../S/132.html#L797'>Log</a>               797 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         OVR_DEBUG_STATEMENT(Log::GetDefaultLog()-&gt;
+</pre>
+</body>
+</html>

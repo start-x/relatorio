@@ -1,0 +1,365 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_Linux_DeviceManager.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_Linux_DeviceManager.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L53'>[^]</a><a href='#L297'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L53' title='Defined at 53.'>Initialize</a>
+<li><a href='#L73' title='Defined at 73.'>Shutdown</a>
+<li><a href='#L96' title='Defined at 96.'>GetThreadQueue</a>
+<li><a href='#L101' title='Defined at 101.'>GetThreadId</a>
+<li><a href='#L106' title='Defined at 106.'>GetDeviceInfo</a>
+<li><a href='#L119' title='Defined at 119.'>EnumerateDevicesEx</a>
+<li><a href='#L152' title='Defined at 152.'>AddSelectFd</a>
+<li><a href='#L166' title='Defined at 166.'>RemoveSelectFd</a>
+<li><a href='#L184' title='Defined at 184.'>Run</a>
+<li><a href='#L270' title='Defined at 270.'>AddTicksNotifier</a>
+<li><a href='#L276' title='Defined at 276.'>RemoveTicksNotifier</a>
+<li><a href='#L297' title='Defined at 297.'>Create</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_Linux_DeviceManager.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Linux implementation of DeviceManager.</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   </font></i>
+<a name='L6'>   6 <i><font color='green'>Authors     :   </font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='130.html'>OVR_Linux_DeviceManager.h</a>"
+<a name='L28'>  28 
+<a name='L29'>  29 <i><font color='green'>// Sensor &amp; HMD Factories</font></i>
+<a name='L30'>  30 <font color='darkred'>#include</font> "<a href='122.html'>OVR_LatencyTestImpl.h</a>"
+<a name='L31'>  31 <font color='darkred'>#include</font> "<a href='135.html'>OVR_SensorImpl.h</a>"
+<a name='L32'>  32 <font color='darkred'>#include</font> "<a href='81.html'>OVR_Linux_HIDDevice.h</a>"
+<a name='L33'>  33 <font color='darkred'>#include</font> "<a href='125.html'>OVR_Linux_HMDDevice.h</a>"
+<a name='L34'>  34 
+<a name='L35'>  35 <font color='darkred'>#include</font> "<a href='185.html'>Kernel/OVR_Timer.h</a>"
+<a name='L36'>  36 <font color='darkred'>#include</font> "<a href='173.html'>Kernel/OVR_Std.h</a>"
+<a name='L37'>  37 <font color='darkred'>#include</font> "<a href='155.html'>Kernel/OVR_Log.h</a>"
+<a name='L38'>  38 
+<a name='L39'>  39 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font> <b>namespace</b> <a href='../R/537.html' title='Multiple refered from 11 places.'>Linux</a> <font color='red'>{</font>
+<a name='L40'>  40 
+<a name='L41'>  41 
+<a name='L42'>  42 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L43'>  43 <i><font color='green'>// **** Linux::DeviceManager</font></i>
+<a name='L44'>  44 
+<a name='L45'>  45 <a href='../R/176.html' title='Multiple refered from 43 places.'>DeviceManager</a>::<a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>()
+<a name='L46'>  46 <font color='red'>{</font>
+<a name='L47'>  47 <font color='red'>}</font>
+<a name='L48'>  48 
+<a name='L49'>  49 <a href='../R/176.html' title='Multiple refered from 43 places.'>DeviceManager</a>::~<a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>()
+<a name='L50'>  50 <font color='red'>{</font>    
+<a name='L51'>  51 <font color='red'>}</font>
+<a name='L52'>  52 
+<a name='L53'>  53 <b>bool</b> <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../R/458.html' title='Multiple refered from 25 places.'>Initialize</a>(<a href='../Y/385.html' title='Multiple used in 92 places.'>DeviceBase</a>*)
+<a name='L54'>  54 <font color='red'>{</font>
+<a name='L55'>  55     <b>if</b> (!<a href='../D/185.html' title='Multiple defined in 2 places.'>DeviceManagerImpl</a>::<a href='../D/475.html' title='Multiple defined in 10 places.'>Initialize</a>(0))
+<a name='L56'>  56         <b>return</b> <b>false</b>;
+<a name='L57'>  57 
+<a name='L58'>  58     <a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a> = *<b>new</b> <a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>();
+<a name='L59'>  59     <b>if</b> (!<a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a> || !<a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a>-&gt;<a href='../S/181.html#L671' title='Defined at 671 in ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp.'>Start</a>())
+<a name='L60'>  60         <b>return</b> <b>false</b>;
+<a name='L61'>  61 
+<a name='L62'>  62     <i><font color='green'>// Wait for the thread to be fully up and running.</font></i>
+<a name='L63'>  63     <a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a>-&gt;<a href='../Y/2117.html' title='Multiple used in 3 places.'>StartupEvent</a>.<a href='../D/1264.html' title='Multiple defined in 3 places.'>Wait</a>();
+<a name='L64'>  64 
+<a name='L65'>  65     <i><font color='green'>// Do this now that we know the thread's run loop.</font></i>
+<a name='L66'>  66     <a href='../Y/920.html' title='Multiple used in 3 places.'>HidDeviceManager</a> = *<a href='../D/436.html' title='Multiple defined in 2 places.'>HIDDeviceManager</a>::<a href='../S/132.html#L757' title='Defined at 757 in ovr/sdk/src/OVR_Linux_HIDDevice.cpp.'>CreateInternal</a>(<b>this</b>);
+<a name='L67'>  67          
+<a name='L68'>  68     <a href='../Y/3916.html' title='Multiple used in 29 places.'>pCreateDesc</a>-&gt;<a href='../Y/3925.html' title='Multiple used in 36 places.'>pDevice</a> = <b>this</b>;
+<a name='L69'>  69     <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("OVR::DeviceManager - initialized.\n");
+<a name='L70'>  70     <b>return</b> <b>true</b>;
+<a name='L71'>  71 <font color='red'>}</font>
+<a name='L72'>  72 
+<a name='L73'>  73 <b>void</b> <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../R/1042.html' title='Multiple refered from 14 places.'>Shutdown</a>()
+<a name='L74'>  74 <font color='red'>{</font>   
+<a name='L75'>  75     <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("OVR::DeviceManager - shutting down.\n");
+<a name='L76'>  76 
+<a name='L77'>  77     <i><font color='green'>// Set Manager shutdown marker variable; this prevents</font></i>
+<a name='L78'>  78     <i><font color='green'>// any existing DeviceHandle objects from accessing device.</font></i>
+<a name='L79'>  79     <a href='../Y/3916.html' title='Multiple used in 29 places.'>pCreateDesc</a>-&gt;<a href='../Y/3957.html' title='Multiple used in 35 places.'>pLock</a>-&gt;<a href='../Y/3959.html' title='Multiple used in 32 places.'>pManager</a> = 0;
+<a name='L80'>  80 
+<a name='L81'>  81     <i><font color='green'>// Push for thread shutdown *WITH NO WAIT*.</font></i>
+<a name='L82'>  82     <i><font color='green'>// This will have the following effect:</font></i>
+<a name='L83'>  83     <i><font color='green'>//  - Exit command will get enqueued, which will be executed later on the thread itself.</font></i>
+<a name='L84'>  84     <i><font color='green'>//  - Beyond this point, this DeviceManager object may be deleted by our caller.</font></i>
+<a name='L85'>  85     <i><font color='green'>//  - Other commands, such as CreateDevice, may execute before ExitCommand, but they will</font></i>
+<a name='L86'>  86     <i><font color='green'>//    fail gracefully due to pLock-&gt;pManager == 0. Future commands can't be enqued</font></i>
+<a name='L87'>  87     <i><font color='green'>//    after pManager is null.</font></i>
+<a name='L88'>  88     <i><font color='green'>//  - Once ExitCommand executes, ThreadCommand::Run loop will exit and release the last</font></i>
+<a name='L89'>  89     <i><font color='green'>//    reference to the thread object.</font></i>
+<a name='L90'>  90     <a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a>-&gt;<a href='../S/137.html#L357' title='Defined at 357 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>PushExitCommand</a>(<b>false</b>);
+<a name='L91'>  91     <a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L92'>  92 
+<a name='L93'>  93     <a href='../D/185.html' title='Multiple defined in 2 places.'>DeviceManagerImpl</a>::<a href='../D/1108.html' title='Multiple defined in 7 places.'>Shutdown</a>();
+<a name='L94'>  94 <font color='red'>}</font>
+<a name='L95'>  95 
+<a name='L96'>  96 <a href='../D/1165.html' title='Multiple defined in 2 places.'>ThreadCommandQueue</a>* <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../R/390.html' title='Multiple refered from 38 places.'>GetThreadQueue</a>()
+<a name='L97'>  97 <font color='red'>{</font>
+<a name='L98'>  98     <b>return</b> <a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a>;
+<a name='L99'>  99 <font color='red'>}</font>
+<a name='L100'> 100 
+<a name='L101'> 101 <a href='../S/151.html#L180' title='Defined at 180 in ovr/sdk/src/Kernel/OVR_Threads.h.'>ThreadId</a> <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../R/389.html' title='Multiple refered from 13 places.'>GetThreadId</a>() <b>const</b>
+<a name='L102'> 102 <font color='red'>{</font>
+<a name='L103'> 103     <b>return</b> <a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a>-&gt;<a href='../S/193.html#L101' title='Defined at 101 in ovr/sdk/src/OVR_Linux_DeviceManager.cpp.'>GetThreadId</a>();
+<a name='L104'> 104 <font color='red'>}</font>
+<a name='L105'> 105 
+<a name='L106'> 106 <b>bool</b> <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../R/309.html' title='Multiple refered from 20 places.'>GetDeviceInfo</a>(<a href='../Y/395.html' title='Multiple used in 24 places.'>DeviceInfo</a>* <a href='../Y/3458.html' title='Multiple used in 196 places.'>info</a>) <b>const</b>
+<a name='L107'> 107 <font color='red'>{</font>
+<a name='L108'> 108     <b>if</b> ((<a href='../Y/3458.html' title='Multiple used in 196 places.'>info</a>-&gt;<a href='../Y/982.html' title='Multiple used in 14 places.'>InfoClassType</a> != <a href='../S/108.html#L281' title='Defined at 281 in ovr/sdk/src/OVR_Device.h.'>Device_Manager</a>) &amp;&amp;
+<a name='L109'> 109         (<a href='../Y/3458.html' title='Multiple used in 196 places.'>info</a>-&gt;<a href='../Y/982.html' title='Multiple used in 14 places.'>InfoClassType</a> != <a href='../Y/409.html' title='Multiple used in 13 places.'>Device_None</a>))
+<a name='L110'> 110         <b>return</b> <b>false</b>;
+<a name='L111'> 111     
+<a name='L112'> 112     <a href='../Y/3458.html' title='Multiple used in 196 places.'>info</a>-&gt;<a href='../D/1210.html' title='Multiple defined in 21 places.'>Type</a>    = <a href='../S/108.html#L281' title='Defined at 281 in ovr/sdk/src/OVR_Device.h.'>Device_Manager</a>;
+<a name='L113'> 113     <a href='../Y/3458.html' title='Multiple used in 196 places.'>info</a>-&gt;<a href='../Y/2401.html' title='Multiple used in 51 places.'>Version</a> = 0;
+<a name='L114'> 114     <a href='../Y/3458.html' title='Multiple used in 196 places.'>info</a>-&gt;<a href='../Y/1714.html' title='Multiple used in 16 places.'>ProductName</a> = "DeviceManager";
+<a name='L115'> 115     <a href='../Y/3458.html' title='Multiple used in 196 places.'>info</a>-&gt;<a href='../Y/1351.html' title='Multiple used in 12 places.'>Manufacturer</a> = "Oculus VR, Inc.";        
+<a name='L116'> 116     <b>return</b> <b>true</b>;
+<a name='L117'> 117 <font color='red'>}</font>
+<a name='L118'> 118 
+<a name='L119'> 119 <a href='../Y/389.html' title='Multiple used in 17 places.'>DeviceEnumerator</a>&lt;&gt; <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../R/226.html' title='Multiple refered from 5 places.'>EnumerateDevicesEx</a>(<b>const</b> <a href='../Y/388.html' title='Multiple used in 14 places.'>DeviceEnumerationArgs</a>&amp; <a href='../Y/2707.html' title='Multiple used in 21 places.'>args</a>)
+<a name='L120'> 120 <font color='red'>{</font>
+<a name='L121'> 121     <i><font color='green'>// TBD: Can this be avoided in the future, once proper device notification is in place?</font></i>
+<a name='L122'> 122     <a href='../Y/3987.html' title='Multiple used in 15 places.'>pThread</a>-&gt;<a href='../Y/1731.html' title='Multiple used in 16 places.'>PushCall</a>((<a href='../D/185.html' title='Multiple defined in 2 places.'>DeviceManagerImpl</a>*)<b>this</b>,
+<a name='L123'> 123                       &amp;<a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../S/191.html#L441' title='Defined at 441 in ovr/sdk/src/OVR_DeviceImpl.cpp.'>EnumerateAllFactoryDevices</a>, <b>true</b>);
+<a name='L124'> 124 
+<a name='L125'> 125     <b>return</b> <a href='../D/185.html' title='Multiple defined in 2 places.'>DeviceManagerImpl</a>::<a href='../D/234.html' title='Multiple defined in 2 places.'>EnumerateDevicesEx</a>(<a href='../Y/2707.html' title='Multiple used in 21 places.'>args</a>);
+<a name='L126'> 126 <font color='red'>}</font>
+<a name='L127'> 127 
+<a name='L128'> 128 
+<a name='L129'> 129 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L130'> 130 <i><font color='green'>// ***** DeviceManager Thread </font></i>
+<a name='L131'> 131 
+<a name='L132'> 132 <a href='../R/179.html' title='Multiple refered from 16 places.'>DeviceManagerThread</a>::<a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>()
+<a name='L133'> 133     : <a href='../Y/2229.html' title='Multiple used in 9 places.'>Thread</a>(ThreadStackSize)
+<a name='L134'> 134 <font color='red'>{</font>
+<a name='L135'> 135     <b>int</b> <a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a> = pipe(<a href='../Y/223.html' title='Multiple used in 9 places.'>CommandFd</a>);
+<a name='L136'> 136     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(!<a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>);
+<a name='L137'> 137     <a href='../D/810.html' title='Multiple defined in 2 places.'>OVR_UNUSED</a>(<a href='../Y/4291.html' title='Multiple used in 413 places.'>result</a>);
+<a name='L138'> 138 
+<a name='L139'> 139     <a href='../S/193.html#L152' title='Defined at 152 in ovr/sdk/src/OVR_Linux_DeviceManager.cpp.'>AddSelectFd</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>, <a href='../Y/223.html' title='Multiple used in 9 places.'>CommandFd</a>[0]);
+<a name='L140'> 140 <font color='red'>}</font>
+<a name='L141'> 141 
+<a name='L142'> 142 <a href='../R/179.html' title='Multiple refered from 16 places.'>DeviceManagerThread</a>::~<a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>()
+<a name='L143'> 143 <font color='red'>{</font>
+<a name='L144'> 144     <b>if</b> (<a href='../Y/223.html' title='Multiple used in 9 places.'>CommandFd</a>[0])
+<a name='L145'> 145     <font color='red'>{</font>
+<a name='L146'> 146         <a href='../S/193.html#L166' title='Defined at 166 in ovr/sdk/src/OVR_Linux_DeviceManager.cpp.'>RemoveSelectFd</a>(<a href='../Y/1448.html' title='Multiple used in 256 places.'>NULL</a>, <a href='../Y/223.html' title='Multiple used in 9 places.'>CommandFd</a>[0]);
+<a name='L147'> 147         <a href='../Y/2855.html' title='Multiple used in 8 places.'>close</a>(<a href='../Y/223.html' title='Multiple used in 9 places.'>CommandFd</a>[0]);
+<a name='L148'> 148         <a href='../Y/2855.html' title='Multiple used in 8 places.'>close</a>(<a href='../Y/223.html' title='Multiple used in 9 places.'>CommandFd</a>[1]);
+<a name='L149'> 149     <font color='red'>}</font>
+<a name='L150'> 150 <font color='red'>}</font>
+<a name='L151'> 151 
+<a name='L152'> 152 <b>bool</b> <a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>::<a href='../R/20.html' title='Multiple refered from 4 places.'>AddSelectFd</a>(<a href='../Y/1476.html' title='Multiple used in 14 places.'>Notifier</a>* <a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>, <b>int</b> <a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a>)
+<a name='L153'> 153 <font color='red'>{</font>
+<a name='L154'> 154     <b>struct</b> <a href='../Y/4083.html' title='Multiple used in 2 places.'>pollfd</a> <a href='../Y/4039.html' title='Multiple used in 5 places.'>pfd</a>;
+<a name='L155'> 155     <a href='../Y/4039.html' title='Multiple used in 5 places.'>pfd</a>.<a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a> = <a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a>;
+<a name='L156'> 156     <a href='../Y/4039.html' title='Multiple used in 5 places.'>pfd</a>.<a href='../Y/3138.html' title='Multiple used in 2 places.'>events</a> = <a href='../Y/1636.html' title='Multiple used in 2 places.'>POLLIN</a>|<a href='../Y/1635.html' title='Multiple used in 2 places.'>POLLHUP</a>|<a href='../Y/1634.html' title='Multiple used in 2 places.'>POLLERR</a>;
+<a name='L157'> 157     <a href='../Y/4039.html' title='Multiple used in 5 places.'>pfd</a>.<a href='../Y/4300.html' title='Multiple used in 5 places.'>revents</a> = 0;
+<a name='L158'> 158 
+<a name='L159'> 159     <a href='../Y/584.html' title='Multiple used in 8 places.'>FdNotifiers</a>.<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>);
+<a name='L160'> 160     <a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>.<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/4039.html' title='Multiple used in 5 places.'>pfd</a>);
+<a name='L161'> 161 
+<a name='L162'> 162     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/584.html' title='Multiple used in 8 places.'>FdNotifiers</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>() == <a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>());
+<a name='L163'> 163     <b>return</b> <b>true</b>;
+<a name='L164'> 164 <font color='red'>}</font>
+<a name='L165'> 165 
+<a name='L166'> 166 <b>bool</b> <a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>::<a href='../R/900.html' title='Multiple refered from 4 places.'>RemoveSelectFd</a>(<a href='../Y/1476.html' title='Multiple used in 14 places.'>Notifier</a>* <a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>, <b>int</b> <a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a>)
+<a name='L167'> 167 <font color='red'>{</font>
+<a name='L168'> 168     <i><font color='green'>// [0] is reserved for thread commands with notify of null, but we still</font></i>
+<a name='L169'> 169     <i><font color='green'>// can use this function to remove it.</font></i>
+<a name='L170'> 170     <b>for</b> (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/584.html' title='Multiple used in 8 places.'>FdNotifiers</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>(); <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L171'> 171     <font color='red'>{</font>
+<a name='L172'> 172         <b>if</b> ((<a href='../Y/584.html' title='Multiple used in 8 places.'>FdNotifiers</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>] == <a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>) &amp;&amp; (<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a> == <a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a>))
+<a name='L173'> 173         <font color='red'>{</font>
+<a name='L174'> 174             <a href='../Y/584.html' title='Multiple used in 8 places.'>FdNotifiers</a>.<a href='../Y/1843.html' title='Multiple used in 6 places.'>RemoveAt</a>(<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>);
+<a name='L175'> 175             <a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>.<a href='../Y/1843.html' title='Multiple used in 6 places.'>RemoveAt</a>(<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>);
+<a name='L176'> 176             <b>return</b> <b>true</b>;
+<a name='L177'> 177         <font color='red'>}</font>
+<a name='L178'> 178     <font color='red'>}</font>
+<a name='L179'> 179     <b>return</b> <b>false</b>;
+<a name='L180'> 180 <font color='red'>}</font>
+<a name='L181'> 181 
+<a name='L182'> 182 
+<a name='L183'> 183 
+<a name='L184'> 184 <b>int</b> <a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>::<a href='../R/915.html' title='Multiple refered from 3 places.'>Run</a>()
+<a name='L185'> 185 <font color='red'>{</font>
+<a name='L186'> 186     <a href='../Y/2231.html' title='Multiple used in 39 places.'>ThreadCommand</a>::<a href='../S/137.html#L146' title='Defined at 146 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>PopBuffer</a> <a href='../Y/2873.html' title='Multiple used in 14 places.'>command</a>;
+<a name='L187'> 187 
+<a name='L188'> 188     <a href='../Y/2056.html' title='Multiple used in 3 places.'>SetThreadName</a>("OVR::DeviceManagerThread");
+<a name='L189'> 189     <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("OVR::DeviceManagerThread - running (ThreadId=%p).\n", <a href='../S/193.html#L101' title='Defined at 101 in ovr/sdk/src/OVR_Linux_DeviceManager.cpp.'>GetThreadId</a>());
+<a name='L190'> 190     
+<a name='L191'> 191     <i><font color='green'>// Signal to the parent thread that initialization has finished.</font></i>
+<a name='L192'> 192     <a href='../Y/2117.html' title='Multiple used in 3 places.'>StartupEvent</a>.<a href='../Y/2034.html' title='Multiple used in 2 places.'>SetEvent</a>();
+<a name='L193'> 193 
+<a name='L194'> 194     <b>while</b>(!<a href='../S/137.html#L374' title='Defined at 374 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsExiting</a>())
+<a name='L195'> 195     <font color='red'>{</font>
+<a name='L196'> 196         <i><font color='green'>// PopCommand will reset event on empty queue.</font></i>
+<a name='L197'> 197         <b>if</b> (<a href='../D/887.html' title='Multiple defined in 2 places.'>PopCommand</a>(&amp;<a href='../Y/2873.html' title='Multiple used in 14 places.'>command</a>))
+<a name='L198'> 198         <font color='red'>{</font>
+<a name='L199'> 199             <a href='../Y/2873.html' title='Multiple used in 14 places.'>command</a>.<a href='../S/137.html#L163' title='Defined at 163 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>Execute</a>();
+<a name='L200'> 200         <font color='red'>}</font>
+<a name='L201'> 201         <b>else</b>
+<a name='L202'> 202         <font color='red'>{</font>
+<a name='L203'> 203             <b>bool</b> <a href='../Y/2876.html' title='Multiple used in 3 places.'>commands</a> = 0;
+<a name='L204'> 204             <b>do</b>
+<a name='L205'> 205             <font color='red'>{</font>
+<a name='L206'> 206                 <b>int</b> <a href='../Y/4831.html' title='Multiple used in 4 places.'>waitMs</a> = -1;
+<a name='L207'> 207 
+<a name='L208'> 208                 <i><font color='green'>// If devices have time-dependent logic registered, get the longest wait</font></i>
+<a name='L209'> 209                 <i><font color='green'>// allowed based on current ticks.</font></i>
+<a name='L210'> 210                 <b>if</b> (!<a href='../Y/2248.html' title='Multiple used in 8 places.'>TicksNotifiers</a>.<a href='../S/137.html#L69' title='Defined at 69 in ovr/sdk/src/OVR_ThreadCommandQueue.cpp.'>IsEmpty</a>())
+<a name='L211'> 211                 <font color='red'>{</font>
+<a name='L212'> 212                     <b>double</b>   <a href='../Y/4607.html' title='Multiple used in 10 places.'>timeSeconds</a> = <a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../S/153.html#L51' title='Defined at 51 in ovr/sdk/src/Kernel/OVR_Timer.cpp.'>GetSeconds</a>();
+<a name='L213'> 213                     <b>unsigned</b> <a href='../Y/4829.html' title='Multiple used in 4 places.'>waitAllowed</a>;
+<a name='L214'> 214 
+<a name='L215'> 215                     <b>for</b> (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a> = 0; <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a> &lt; <a href='../Y/2248.html' title='Multiple used in 8 places.'>TicksNotifiers</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>(); <a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>++)
+<a name='L216'> 216                     <font color='red'>{</font>
+<a name='L217'> 217                         <a href='../Y/4829.html' title='Multiple used in 4 places.'>waitAllowed</a> = (<b>unsigned</b>)(<a href='../Y/2248.html' title='Multiple used in 8 places.'>TicksNotifiers</a>[<a href='../Y/3520.html' title='Multiple used in 155 places.'>j</a>]-&gt;<a href='../D/852.html' title='Multiple defined in 3 places.'>OnTicks</a>(<a href='../Y/4607.html' title='Multiple used in 10 places.'>timeSeconds</a>) * <a href='../Y/2261.html' title='Multiple used in 29 places.'>Timer</a>::<a href='../D/620.html' title='Multiple defined in 3 places.'>MsPerSecond</a>);
+<a name='L218'> 218                         <b>if</b> (<a href='../Y/4829.html' title='Multiple used in 4 places.'>waitAllowed</a> &lt; (<b>unsigned</b>)<a href='../Y/4831.html' title='Multiple used in 4 places.'>waitMs</a>)
+<a name='L219'> 219                             <a href='../Y/4831.html' title='Multiple used in 4 places.'>waitMs</a> = <a href='../Y/4829.html' title='Multiple used in 4 places.'>waitAllowed</a>;
+<a name='L220'> 220                     <font color='red'>}</font>                
+<a name='L221'> 221                 <font color='red'>}</font>
+<a name='L222'> 222 
+<a name='L223'> 223                 <i><font color='green'>// wait until there is data available on one of the devices or the timeout expires</font></i>
+<a name='L224'> 224                 <b>int</b> <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a> = poll(&amp;<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[0], <a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>(), <a href='../Y/4831.html' title='Multiple used in 4 places.'>waitMs</a>);
+<a name='L225'> 225 
+<a name='L226'> 226                 <b>if</b> (<a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a> &gt; 0)
+<a name='L227'> 227                 <font color='red'>{</font>
+<a name='L228'> 228                     <i><font color='green'>// Iterate backwards through the list so the ordering will not be</font></i>
+<a name='L229'> 229                     <i><font color='green'>// affected if the called object gets removed during the callback</font></i>
+<a name='L230'> 230                     <i><font color='green'>// Also, the HID data streams are located toward the back of the list</font></i>
+<a name='L231'> 231                     <i><font color='green'>// and servicing them first will allow a disconnect to be handled</font></i>
+<a name='L232'> 232                     <i><font color='green'>// and cleaned directly at the device first instead of the general HID monitor</font></i>
+<a name='L233'> 233                     <b>for</b> (<b>int</b> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>=<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>()-1; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>&gt;=0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>--)
+<a name='L234'> 234                     <font color='red'>{</font>
+<a name='L235'> 235                         <b>if</b> (<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/4300.html' title='Multiple used in 5 places.'>revents</a> &amp; <a href='../Y/1634.html' title='Multiple used in 2 places.'>POLLERR</a>)
+<a name='L236'> 236                         <font color='red'>{</font>
+<a name='L237'> 237                             <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(("poll: error on [%d]: %d", <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>, <a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a>));
+<a name='L238'> 238                         <font color='red'>}</font>
+<a name='L239'> 239                         <b>else</b> <b>if</b> (<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/4300.html' title='Multiple used in 5 places.'>revents</a> &amp; <a href='../Y/1636.html' title='Multiple used in 2 places.'>POLLIN</a>)
+<a name='L240'> 240                         <font color='red'>{</font>
+<a name='L241'> 241                             <b>if</b> (<a href='../Y/584.html' title='Multiple used in 8 places.'>FdNotifiers</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>])
+<a name='L242'> 242                                 <a href='../Y/584.html' title='Multiple used in 8 places.'>FdNotifiers</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>]-&gt;<a href='../D/847.html' title='Multiple defined in 2 places.'>OnEvent</a>(<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>, <a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a>);
+<a name='L243'> 243                             <b>else</b> <b>if</b> (<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> == 0) <i><font color='green'>// command</font></i>
+<a name='L244'> 244                             <font color='red'>{</font>
+<a name='L245'> 245                                 <b>char</b> <a href='../Y/3081.html' title='Multiple used in 20 places.'>dummy</a>[128];
+<a name='L246'> 246                                 <a href='../Y/4237.html' title='Multiple used in 10 places.'>read</a>(<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/3200.html' title='Multiple used in 16 places.'>fd</a>, <a href='../Y/3081.html' title='Multiple used in 20 places.'>dummy</a>, 128);
+<a name='L247'> 247                                 <a href='../Y/2876.html' title='Multiple used in 3 places.'>commands</a> = 1;
+<a name='L248'> 248                             <font color='red'>}</font>
+<a name='L249'> 249                         <font color='red'>}</font>
+<a name='L250'> 250 
+<a name='L251'> 251                         <b>if</b> (<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/4300.html' title='Multiple used in 5 places.'>revents</a> &amp; <a href='../Y/1635.html' title='Multiple used in 2 places.'>POLLHUP</a>)
+<a name='L252'> 252                             <a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/3138.html' title='Multiple used in 2 places.'>events</a> = 0;
+<a name='L253'> 253 
+<a name='L254'> 254                         <b>if</b> (<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>].<a href='../Y/4300.html' title='Multiple used in 5 places.'>revents</a> != 0)
+<a name='L255'> 255                         <font color='red'>{</font>
+<a name='L256'> 256                             <a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a>--;
+<a name='L257'> 257                             <b>if</b> (<a href='../Y/3715.html' title='Multiple used in 55 places.'>n</a> == 0)
+<a name='L258'> 258                                 <b>break</b>;
+<a name='L259'> 259                         <font color='red'>}</font>
+<a name='L260'> 260                     <font color='red'>}</font>
+<a name='L261'> 261                 <font color='red'>}</font>
+<a name='L262'> 262             <font color='red'>}</font> <b>while</b> (<a href='../Y/1676.html' title='Multiple used in 16 places.'>PollFds</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>() &gt; 0 &amp;&amp; !<a href='../Y/2876.html' title='Multiple used in 3 places.'>commands</a>);
+<a name='L263'> 263         <font color='red'>}</font>
+<a name='L264'> 264     <font color='red'>}</font>
+<a name='L265'> 265 
+<a name='L266'> 266     <a href='../Y/1311.html' title='Multiple used in 39 places.'>LogText</a>("OVR::DeviceManagerThread - exiting (ThreadId=%p).\n", <a href='../S/193.html#L101' title='Defined at 101 in ovr/sdk/src/OVR_Linux_DeviceManager.cpp.'>GetThreadId</a>());
+<a name='L267'> 267     <b>return</b> 0;
+<a name='L268'> 268 <font color='red'>}</font>
+<a name='L269'> 269 
+<a name='L270'> 270 <b>bool</b> <a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>::<a href='../R/21.html' title='Multiple refered from 2 places.'>AddTicksNotifier</a>(<a href='../Y/1476.html' title='Multiple used in 14 places.'>Notifier</a>* <a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>)
+<a name='L271'> 271 <font color='red'>{</font>
+<a name='L272'> 272      <a href='../Y/2248.html' title='Multiple used in 8 places.'>TicksNotifiers</a>.<a href='../Y/1729.html' title='Multiple used in 56 places.'>PushBack</a>(<a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>);
+<a name='L273'> 273      <b>return</b> <b>true</b>;
+<a name='L274'> 274 <font color='red'>}</font>
+<a name='L275'> 275 
+<a name='L276'> 276 <b>bool</b> <a href='../D/186.html' title='Multiple defined in 2 places.'>DeviceManagerThread</a>::<a href='../R/901.html' title='Multiple refered from 2 places.'>RemoveTicksNotifier</a>(<a href='../Y/1476.html' title='Multiple used in 14 places.'>Notifier</a>* <a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>)
+<a name='L277'> 277 <font color='red'>{</font>
+<a name='L278'> 278     <b>for</b> (<a href='../S/168.html#L218' title='Defined at 218 in ovr/sdk/src/Kernel/OVR_Types.h.'>UPInt</a> <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> = 0; <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a> &lt; <a href='../Y/2248.html' title='Multiple used in 8 places.'>TicksNotifiers</a>.<a href='../Y/814.html' title='Multiple used in 145 places.'>GetSize</a>(); <a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>++)
+<a name='L279'> 279     <font color='red'>{</font>
+<a name='L280'> 280         <b>if</b> (<a href='../Y/2248.html' title='Multiple used in 8 places.'>TicksNotifiers</a>[<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>] == <a href='../Y/3767.html' title='Multiple used in 12 places.'>notify</a>)
+<a name='L281'> 281         <font color='red'>{</font>
+<a name='L282'> 282             <a href='../Y/2248.html' title='Multiple used in 8 places.'>TicksNotifiers</a>.<a href='../Y/1843.html' title='Multiple used in 6 places.'>RemoveAt</a>(<a href='../Y/3436.html' title='Multiple used in 682 places.'>i</a>);
+<a name='L283'> 283             <b>return</b> <b>true</b>;
+<a name='L284'> 284         <font color='red'>}</font>
+<a name='L285'> 285     <font color='red'>}</font>
+<a name='L286'> 286     <b>return</b> <b>false</b>;
+<a name='L287'> 287 <font color='red'>}</font>
+<a name='L288'> 288 
+<a name='L289'> 289 <font color='red'>}</font> <i><font color='green'>// namespace Linux</font></i>
+<a name='L290'> 290 
+<a name='L291'> 291 
+<a name='L292'> 292 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L293'> 293 <i><font color='green'>// ***** Creation</font></i>
+<a name='L294'> 294 
+<a name='L295'> 295 
+<a name='L296'> 296 <i><font color='green'>// Creates a new DeviceManager and initializes OVR.</font></i>
+<a name='L297'> 297 <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>* <a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>::<a href='../R/131.html' title='Multiple refered from 12 places.'>Create</a>()
+<a name='L298'> 298 <font color='red'>{</font>
+<a name='L299'> 299     <b>if</b> (!<a href='../Y/2165.html' title='Multiple used in 15 places.'>System</a>::<a href='../S/170.html#L75' title='Defined at 75 in ovr/sdk/src/Kernel/OVR_System.cpp.'>IsInitialized</a>())
+<a name='L300'> 300     <font color='red'>{</font>
+<a name='L301'> 301         <i><font color='green'>// Use custom message, since Log is not yet installed.</font></i>
+<a name='L302'> 302         <a href='../D/707.html' title='Multiple defined in 2 places.'>OVR_DEBUG_STATEMENT</a>(<a href='../S/167.html#L46' title='Defined at 46 in ovr/sdk/src/Kernel/OVR_Log.cpp.'>Log</a>::<a href='../S/167.html#L152' title='Defined at 152 in ovr/sdk/src/Kernel/OVR_Log.cpp.'>GetDefaultLog</a>()-&gt;
+<a name='L303'> 303             <a href='../S/167.html#L70' title='Defined at 70 in ovr/sdk/src/Kernel/OVR_Log.cpp.'>LogMessage</a>(<a href='../Y/1314.html' title='Multiple used in 5 places.'>Log_Debug</a>, "DeviceManager::Create failed - OVR::System not initialized"); );
+<a name='L304'> 304         <b>return</b> 0;
+<a name='L305'> 305     <font color='red'>}</font>
+<a name='L306'> 306 
+<a name='L307'> 307     <a href='../Y/1725.html' title='Multiple used in 115 places.'>Ptr</a>&lt;<a href='../D/559.html' title='Multiple defined in 4 places.'>Linux</a>::<a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>&gt; <a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a> = *<b>new</b> <a href='../D/559.html' title='Multiple defined in 4 places.'>Linux</a>::<a href='../D/183.html' title='Multiple defined in 2 places.'>DeviceManager</a>;
+<a name='L308'> 308 
+<a name='L309'> 309     <b>if</b> (<a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>)
+<a name='L310'> 310     <font color='red'>{</font>
+<a name='L311'> 311         <b>if</b> (<a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>-&gt;<a href='../D/475.html' title='Multiple defined in 10 places.'>Initialize</a>(0))
+<a name='L312'> 312         <font color='red'>{</font>            
+<a name='L313'> 313             <a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>-&gt;<a href='../Y/37.html' title='Multiple used in 4 places.'>AddFactory</a>(&amp;<a href='../Y/1240.html' title='Multiple used in 8 places.'>LatencyTestDeviceFactory</a>::<a href='../D/358.html' title='Multiple defined in 3 places.'>GetInstance</a>());
+<a name='L314'> 314             <a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>-&gt;<a href='../Y/37.html' title='Multiple used in 4 places.'>AddFactory</a>(&amp;<a href='../Y/1991.html' title='Multiple used in 8 places.'>SensorDeviceFactory</a>::<a href='../D/358.html' title='Multiple defined in 3 places.'>GetInstance</a>());
+<a name='L315'> 315             <a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>-&gt;<a href='../Y/37.html' title='Multiple used in 4 places.'>AddFactory</a>(&amp;<a href='../D/559.html' title='Multiple defined in 4 places.'>Linux</a>::<a href='../Y/874.html' title='Multiple used in 7 places.'>HMDDeviceFactory</a>::<a href='../D/358.html' title='Multiple defined in 3 places.'>GetInstance</a>());
+<a name='L316'> 316 
+<a name='L317'> 317             <a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>-&gt;<a href='../D/20.html' title='Multiple defined in 4 places.'>AddRef</a>();
+<a name='L318'> 318         <font color='red'>}</font>
+<a name='L319'> 319         <b>else</b>
+<a name='L320'> 320         <font color='red'>{</font>
+<a name='L321'> 321             <a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>.<a href='../D/113.html' title='Multiple defined in 3 places.'>Clear</a>();
+<a name='L322'> 322         <font color='red'>}</font>
+<a name='L323'> 323 
+<a name='L324'> 324     <font color='red'>}</font>    
+<a name='L325'> 325 
+<a name='L326'> 326     <b>return</b> <a href='../Y/3633.html' title='Multiple used in 42 places.'>manager</a>.<a href='../Y/804.html' title='Multiple used in 29 places.'>GetPtr</a>();
+<a name='L327'> 327 <font color='red'>}</font>
+<a name='L328'> 328 
+<a name='L329'> 329 
+<a name='L330'> 330 <font color='red'>}</font> <i><font color='green'>// namespace OVR</font></i>
+<a name='L331'> 331 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L53'>[^]</a><a href='#L297'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

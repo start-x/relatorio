@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>rawValues</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/188.html#L956'>rawValues</a>         956 ovr/sdk/src/OVR_Sensor2Impl.cpp                          SensorTimestampMapping** timestamps, UInt32 *rawValues, int count)
+<a href='../S/188.html#L970'>rawValues</a>         970 ovr/sdk/src/OVR_Sensor2Impl.cpp         if (rawValues[i] != lowMks)
+<a href='../S/188.html#L975'>rawValues</a>         975 ovr/sdk/src/OVR_Sensor2Impl.cpp                 if (rawValues[i] &lt; lowMks)
+<a href='../S/188.html#L977'>rawValues</a>         977 ovr/sdk/src/OVR_Sensor2Impl.cpp                     LogText("Timestamp %d rollover, was: %u, now: %u\n", i, lowMks, rawValues[i]);
+<a href='../S/188.html#L981'>rawValues</a>         981 ovr/sdk/src/OVR_Sensor2Impl.cpp                 timestamps[i]-&gt;TimestampMks = (timestamps[i]-&gt;TimestampMks &amp; 0xFFFFFFFF00000000) | rawValues[i];
+<a href='../S/188.html#L987'>rawValues</a>         987 ovr/sdk/src/OVR_Sensor2Impl.cpp                     (timestamps[0]-&gt;TimestampMks &amp; 0xFFFFFFFF00000000) | rawValues[i];
+</pre>
+</body>
+</html>

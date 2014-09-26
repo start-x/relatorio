@@ -1,0 +1,10 @@
+<map id="ovr/sdk/src/OVR_SensorFusion.h" name="ovr/sdk/src/OVR_SensorFusion.h">
+<area shape="rect" id="node2" href="$CAPI__HMDState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.h" alt="" coords="187,81,345,122"/>
+<area shape="rect" id="node7" href="$OVR__SensorFusion_8cpp.html" title="ovr/sdk/src/OVR_SensorFusion.cpp" alt="" coords="371,88,603,115"/>
+<area shape="rect" id="node8" href="$OVR__SensorFusionDebug_8h.html" title="ovr/sdk/src/OVR_SensorFusion\lDebug.h" alt="" coords="627,81,833,122"/>
+<area shape="rect" id="node9" href="$Util__Render__Stereo_8cpp.html" title="ovr/sdk/src/Util/Util\l_Render_Stereo.cpp" alt="" coords="859,81,999,122"/>
+<area shape="rect" id="node3" href="$CAPI__GlobalState_8h.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.h" alt="" coords="187,171,345,213"/>
+<area shape="rect" id="node5" href="$CAPI__HMDState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_HMDState.cpp" alt="" coords="5,262,163,303"/>
+<area shape="rect" id="node6" href="$OVR__CAPI_8cpp.html" title="ovr/sdk/src/OVR_CAPI.cpp" alt="" coords="371,269,555,296"/>
+<area shape="rect" id="node4" href="$CAPI__GlobalState_8cpp.html" title="ovr/sdk/src/CAPI/CAPI\l_GlobalState.cpp" alt="" coords="187,262,345,303"/>
+</map>

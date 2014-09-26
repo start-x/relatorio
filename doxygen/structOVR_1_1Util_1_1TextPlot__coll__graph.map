@@ -1,0 +1,4 @@
+<map id="OVR::Util::TextPlot" name="OVR::Util::TextPlot">
+<area shape="rect" id="node2" href="$classOVR_1_1String.html" title="{OVR::String\n|# @13\l|+ String()\l+ String()\l+ String()\l+ String()\l+ String()\l+ String()\l+ String()\l+ String()\l+ ~String()\l+ Clear()\land 53 more...\l+ CompareNoCase()\l+ CompareNoCase()\l+ BernsteinHashFunctionCIS()\l+ BernsteinHashFunction()\l+ HasAbsolutePath()\l+ HasExtension()\l+ HasProtocol()\l# GetHeapType()\l# GetData()\l# SetData()\l# AllocData()\l# AllocDataCopy1()\l# AllocDataCopy2()\l# String()\l}" alt="" coords="5,251,205,680"/>
+<area shape="rect" id="node3" href="$structOVR_1_1String_1_1DataDesc.html" title="{OVR::String::DataDesc\n|+ Size\l+ RefCount\l+ Data\l|+ AddRef()\l+ Release()\l+ GetSize()\l+ GetLengthFlag()\l+ LengthIsSize()\l+ GetLengthFlagBit()\l}" alt="" coords="25,6,184,186"/>
+</map>

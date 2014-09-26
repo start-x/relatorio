@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>buf</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/184.html#L167'>buf</a>               167 ovr/sdk/src/Kernel/OVR_String.cpp     const char* buf = pdata-&gt;Data;
+<a href='../S/184.html#L173'>buf</a>               173 ovr/sdk/src/Kernel/OVR_String.cpp         buf += i;
+<a href='../S/184.html#L174'>buf</a>               174 ovr/sdk/src/Kernel/OVR_String.cpp         return UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/184.html#L177'>buf</a>               177 ovr/sdk/src/Kernel/OVR_String.cpp     c = UTF8Util::GetCharAt(index, buf, pdata-&gt;GetSize());
+<a href='../S/184.html#L185'>buf</a>               185 ovr/sdk/src/Kernel/OVR_String.cpp     const char* buf = pdata-&gt;Data;
+<a href='../S/184.html#L186'>buf</a>               186 ovr/sdk/src/Kernel/OVR_String.cpp     const char* end = buf + pdata-&gt;GetSize();
+<a href='../S/184.html#L191'>buf</a>               191 ovr/sdk/src/Kernel/OVR_String.cpp         c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/184.html#L194'>buf</a>               194 ovr/sdk/src/Kernel/OVR_String.cpp         if (buf &gt;= end)
+<a href='../S/184.html#L202'>buf</a>               202 ovr/sdk/src/Kernel/OVR_String.cpp     *offset = buf;
+<a href='../S/184.html#L477'>buf</a>               477 ovr/sdk/src/Kernel/OVR_String.cpp     char    buf[8];
+<a href='../S/184.html#L479'>buf</a>               479 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buf, &amp;index, c);
+<a href='../S/184.html#L481'>buf</a>               481 ovr/sdk/src/Kernel/OVR_String.cpp     buf[(UPInt)index] = 0;
+<a href='../S/184.html#L483'>buf</a>               483 ovr/sdk/src/Kernel/OVR_String.cpp     Insert(buf, posAt, index);
+<a href='../S/184.html#L758'>buf</a>               758 ovr/sdk/src/Kernel/OVR_String.cpp     char    buf[8];
+<a href='../S/184.html#L760'>buf</a>               760 ovr/sdk/src/Kernel/OVR_String.cpp     UTF8Util::EncodeChar(buf, &amp;len, c);
+<a href='../S/184.html#L762'>buf</a>               762 ovr/sdk/src/Kernel/OVR_String.cpp     buf[(UPInt)len] = 0;
+<a href='../S/184.html#L764'>buf</a>               764 ovr/sdk/src/Kernel/OVR_String.cpp     Insert(buf, posAt, len);
+<a href='../S/157.html#L33'>buf</a>                33 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp SPInt OVR_STDCALL GetLength(const char* buf, SPInt buflen)
+<a href='../S/157.html#L35'>buf</a>                35 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     const char* p = buf;
+<a href='../S/157.html#L40'>buf</a>                40 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while (p - buf &lt; buflen)
+<a href='../S/157.html#L58'>buf</a>                58 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     const char* buf = putf8str;
+<a href='../S/157.html#L63'>buf</a>                63 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while (buf - putf8str &lt; length)
+<a href='../S/157.html#L65'>buf</a>                65 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L76'>buf</a>                76 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L92'>buf</a>                92 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     const char* buf = putf8str;
+<a href='../S/157.html#L96'>buf</a>                96 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         while ((buf - putf8str) &lt; length &amp;&amp; index &gt; 0)
+<a href='../S/157.html#L98'>buf</a>                98 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L102'>buf</a>               102 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         return buf-putf8str;
+<a href='../S/157.html#L107'>buf</a>               107 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp         UInt32 c = UTF8Util::DecodeNextChar_Advance0(&amp;buf);
+<a href='../S/157.html#L111'>buf</a>               111 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp             return buf-putf8str;
+<a href='../S/157.html#L114'>buf</a>               114 ovr/sdk/src/Kernel/OVR_UTF8Util.cpp     return buf-putf8str;
+<a href='../S/197.html#L222'>buf</a>               222 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         char buf[10] = { 0 };
+<a href='../S/197.html#L224'>buf</a>               224 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                         p = const_cast&lt;char*&gt;( XMLUtil::GetCharacterRef( p, buf, &amp;len ) );
+<a href='../S/197.html#L226'>buf</a>               226 ovr/sdk/third_party/tinyxml/tinyxml2.cpp                             *q++ = buf[i];
+<a href='../S/197.html#L1134'>buf</a>              1134 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1135'>buf</a>              1135 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1136'>buf</a>              1136 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _value.SetStr( buf );
+<a href='../S/197.html#L1142'>buf</a>              1142 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1143'>buf</a>              1143 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1144'>buf</a>              1144 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _value.SetStr( buf );
+<a href='../S/197.html#L1150'>buf</a>              1150 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1151'>buf</a>              1151 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1152'>buf</a>              1152 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _value.SetStr( buf );
+<a href='../S/197.html#L1157'>buf</a>              1157 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1158'>buf</a>              1158 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1159'>buf</a>              1159 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _value.SetStr( buf );
+<a href='../S/197.html#L1164'>buf</a>              1164 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1165'>buf</a>              1165 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1166'>buf</a>              1166 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     _value.SetStr( buf );
+<a href='../S/197.html#L1884'>buf</a>              1884 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1885'>buf</a>              1885 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1886'>buf</a>              1886 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1892'>buf</a>              1892 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1893'>buf</a>              1893 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1894'>buf</a>              1894 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1900'>buf</a>              1900 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1901'>buf</a>              1901 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1902'>buf</a>              1902 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1908'>buf</a>              1908 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1909'>buf</a>              1909 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( v, buf, BUF_SIZE );
+<a href='../S/197.html#L1910'>buf</a>              1910 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushAttribute( name, buf );
+<a href='../S/197.html#L1966'>buf</a>              1966 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1967'>buf</a>              1967 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1968'>buf</a>              1968 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushText( buf, false );
+<a href='../S/197.html#L1974'>buf</a>              1974 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1975'>buf</a>              1975 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1976'>buf</a>              1976 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushText( buf, false );
+<a href='../S/197.html#L1982'>buf</a>              1982 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1983'>buf</a>              1983 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1984'>buf</a>              1984 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushText( buf, false );
+<a href='../S/197.html#L1990'>buf</a>              1990 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1991'>buf</a>              1991 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L1992'>buf</a>              1992 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushText( buf, false );
+<a href='../S/197.html#L1998'>buf</a>              1998 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     char buf[BUF_SIZE];
+<a href='../S/197.html#L1999'>buf</a>              1999 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLUtil::ToStr( value, buf, BUF_SIZE );
+<a href='../S/197.html#L2000'>buf</a>              2000 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     PushText( buf, false );
+</pre>
+</body>
+</html>

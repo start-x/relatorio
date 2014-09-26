@@ -1,0 +1,6 @@
+<map id="ovrTexture_" name="ovrTexture_">
+<area shape="rect" id="node2" href="$OVR__CAPI_8h.html#structovrTextureHeader__" title="{ovrTextureHeader_\n|+ API\l|}" alt="" coords="48,304,181,381"/>
+<area shape="rect" id="node3" href="$OVR__CAPI_8h.html#structovrRecti__" title="{ovrRecti_\n||}" alt="" coords="13,163,91,240"/>
+<area shape="rect" id="node4" href="$OVR__CAPI_8h.html#structovrVector2i__" title="{ovrVector2i_\n|+ x\l+ y\l|}" alt="" coords="5,6,99,98"/>
+<area shape="rect" id="node5" href="$OVR__CAPI_8h.html#structovrSizei__" title="{ovrSizei_\n|+ w\l+ h\l|}" alt="" coords="131,6,207,98"/>
+</map>

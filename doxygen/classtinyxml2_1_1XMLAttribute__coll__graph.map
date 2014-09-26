@@ -1,0 +1,4 @@
+<map id="tinyxml2::XMLAttribute" name="tinyxml2::XMLAttribute">
+<area shape="rect" id="node2" href="$classtinyxml2_1_1StrPair.html" title="{tinyxml2::StrPair\n|&#45; _flags\l&#45; _start\l&#45; _end\l|+ StrPair()\l+ ~StrPair()\l+ Set()\l+ GetStr()\l+ Empty()\l+ SetInternedStr()\l+ SetStr()\l+ ParseText()\l+ ParseName()\l&#45; Reset()\l&#45; CollapseWhitespace()\l}" alt="" coords="5,5,163,259"/>
+<area shape="rect" id="node3" href="$classtinyxml2_1_1MemPool.html" title="{tinyxml2::MemPool\n||+ MemPool()\l+ ~MemPool()\l+ ItemSize()\l+ Alloc()\l+ Free()\l+ SetTracked()\l}" alt="" coords="187,57,321,207"/>
+</map>

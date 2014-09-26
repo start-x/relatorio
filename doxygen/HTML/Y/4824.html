@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>w</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/64.html#L71'>w</a>                  71 ovr/Ovr.cpp    void Ovr::getXYZW(float * x, float * y, float * z, float * w)
+<a href='../S/64.html#L91'>w</a>                  91 ovr/Ovr.cpp    		*w = orientation.w;
+<a href='../S/64.html#L101'>w</a>                 101 ovr/Ovr.cpp    	*w = 0.0;
+<a href='../S/64.html#L129'>w</a>                 129 ovr/Ovr.cpp    	os &lt;&lt; "\tResolution: h=" &lt;&lt; sxovr.hmdDesc.Resolution.w &lt;&lt; ", h=" &lt;&lt; sxovr.hmdDesc.Resolution.h &lt;&lt; std::endl;
+<a href='../S/67.html#L65'>w</a>                  65 ovr/Ovr.h      	void getXYZW(float * x, float * y, float * z, float * w);
+<a href='../S/107.html#L62'>w</a>                  62 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     d.Resolution.w      = HMDInfo.ResolutionInPixels.w;
+<a href='../S/97.html#L533'>w</a>                 533 ovr/sdk/src/CAPI/CAPI_HMDState.cpp             float data[2] = { HMDInfo.ScreenSizeInMeters.w, HMDInfo.ScreenSizeInMeters.h };
+<a href='../S/104.html#L450'>w</a>                 450 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     setViewport( Recti(0,0, RParams.RTSize.w, RParams.RTSize.h) );
+<a href='../S/104.html#L542'>w</a>                 542 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     setViewport(Recti(0,0, RParams.RTSize.w, RParams.RTSize.h));
+<a href='../S/104.html#L568'>w</a>                 568 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     setViewport(Recti(0,0, RParams.RTSize.w, RParams.RTSize.h));
+<a href='../S/104.html#L575'>w</a>                 575 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     Vector2f scale(2.0f / RParams.RTSize.w, 2.0f / RParams.RTSize.h); 
+<a href='../S/104.html#L679'>w</a>                 679 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     glViewport(vp.x, vp.y, vp.w, vp.h);
+<a href='../S/102.html#L457'>w</a>                 457 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp Texture::Texture(RenderParams* rp, int w, int h) : IsUserAllocated(true), pParams(rp), TexId(0), Width(w), Height(h)
+<a href='../S/102.html#L459'>w</a>                 459 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	if (w &amp;&amp; h)
+<a href='../S/102.html#L524'>w</a>                 524 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.cpp 	Width = textureSize.w;
+<a href='../S/103.html#L265'>w</a>                 265 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     Texture(RenderParams* rp, int w, int h);
+<a href='../S/103.html#L362'>w</a>                 362 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool SetUniform4f(const char* name, float x, float y, float z, float w = 1)
+<a href='../S/103.html#L364'>w</a>                 364 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h         const float v[] = {x,y,z,w};
+<a href='../S/177.html#L567'>w</a>                 567 ovr/sdk/src/Kernel/OVR_Math.h     float w;
+<a href='../S/177.html#L569'>w</a>                 569 ovr/sdk/src/Kernel/OVR_Math.h     Vector4f() : w(1) {}
+<a href='../S/177.html#L570'>w</a>                 570 ovr/sdk/src/Kernel/OVR_Math.h     Vector4f(const Vector3f&amp; v) : Vector3f(v), w(1) {}
+<a href='../S/177.html#L571'>w</a>                 571 ovr/sdk/src/Kernel/OVR_Math.h     Vector4f(float r, float g, float b, float a) : Vector3f(r,g,b), w(a) {}
+<a href='../S/177.html#L586'>w</a>                 586 ovr/sdk/src/Kernel/OVR_Math.h     T   w, h;
+<a href='../S/177.html#L588'>w</a>                 588 ovr/sdk/src/Kernel/OVR_Math.h     Size()              : w(0), h(0)   { }
+<a href='../S/177.html#L589'>w</a>                 589 ovr/sdk/src/Kernel/OVR_Math.h     Size(T w_, T h_)    : w(w_), h(h_) { }
+<a href='../S/177.html#L590'>w</a>                 590 ovr/sdk/src/Kernel/OVR_Math.h     explicit Size(T s)  : w(s), h(s)   { }
+<a href='../S/177.html#L592'>w</a>                 592 ovr/sdk/src/Kernel/OVR_Math.h         : w((T)src.w), h((T)src.h) { }
+<a href='../S/177.html#L597'>w</a>                 597 ovr/sdk/src/Kernel/OVR_Math.h     Size(const CompatibleType&amp; s) : w(s.w), h(s.h) {  }
+<a href='../S/177.html#L605'>w</a>                 605 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator== (const Size&amp; b) const  { return w == b.w &amp;&amp; h == b.h; }
+<a href='../S/177.html#L606'>w</a>                 606 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator!= (const Size&amp; b) const  { return w != b.w || h != b.h; }
+<a href='../S/177.html#L608'>w</a>                 608 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator+  (const Size&amp; b) const  { return Size(w + b.w, h + b.h); }
+<a href='../S/177.html#L609'>w</a>                 609 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator+= (const Size&amp; b)        { w += b.w; h += b.h; return *this; }
+<a href='../S/177.html#L610'>w</a>                 610 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator-  (const Size&amp; b) const  { return Size(w - b.w, h - b.h); }
+<a href='../S/177.html#L611'>w</a>                 611 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator-= (const Size&amp; b)        { w -= b.w; h -= b.h; return *this; }
+<a href='../S/177.html#L612'>w</a>                 612 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator- () const                { return Size(-w, -h); }
+<a href='../S/177.html#L613'>w</a>                 613 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator*  (const Size&amp; b) const  { return Size(w * b.w, h * b.h); }
+<a href='../S/177.html#L614'>w</a>                 614 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator*= (const Size&amp; b)        { w *= b.w; h *= b.h; return *this; }
+<a href='../S/177.html#L615'>w</a>                 615 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator/  (const Size&amp; b) const  { return Size(w / b.w, h / b.h); }
+<a href='../S/177.html#L616'>w</a>                 616 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator/= (const Size&amp; b)        { w /= b.w; h /= b.h; return *this; }
+<a href='../S/177.html#L619'>w</a>                 619 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator*  (T s) const            { return Size(w*s, h*s); }
+<a href='../S/177.html#L620'>w</a>                 620 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator*= (T s)                  { w *= s; h *= s; return *this; }    
+<a href='../S/177.html#L621'>w</a>                 621 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator/  (T s) const            { return Size(w/s, h/s); }
+<a href='../S/177.html#L622'>w</a>                 622 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator/= (T s)                  { w /= s; h /= s; return *this; }
+<a href='../S/177.html#L624'>w</a>                 624 ovr/sdk/src/Kernel/OVR_Math.h     static Size Min(const Size&amp; a, const Size&amp; b)  { return Size((a.w  &lt; b.w)  ? a.w  : b.w,
+<a href='../S/177.html#L626'>w</a>                 626 ovr/sdk/src/Kernel/OVR_Math.h     static Size Max(const Size&amp; a, const Size&amp; b)  { return Size((a.w  &gt; b.w)  ? a.w  : b.w,
+<a href='../S/177.html#L630'>w</a>                 630 ovr/sdk/src/Kernel/OVR_Math.h     T       Area() const                    { return w * h; }
+<a href='../S/177.html#L632'>w</a>                 632 ovr/sdk/src/Kernel/OVR_Math.h     inline  Vector2&lt;T&gt; ToVector() const     { return Vector2&lt;T&gt;(w, h); }
+<a href='../S/177.html#L652'>w</a>                 652 ovr/sdk/src/Kernel/OVR_Math.h     T w, h;
+<a href='../S/177.html#L655'>w</a>                 655 ovr/sdk/src/Kernel/OVR_Math.h     Rect(T x1, T y1, T w1, T h1)                   : x(x1), y(y1), w(w1), h(h1) { }    
+<a href='../S/177.html#L656'>w</a>                 656 ovr/sdk/src/Kernel/OVR_Math.h     Rect(const Vector2&lt;T&gt;&amp; pos, const Size&lt;T&gt;&amp; sz) : x(pos.x), y(pos.y), w(sz.w), h(sz.h) { }
+<a href='../S/177.html#L657'>w</a>                 657 ovr/sdk/src/Kernel/OVR_Math.h     Rect(const Size&lt;T&gt;&amp; sz)                        : x(0), y(0), w(sz.w), h(sz.h) { }
+<a href='../S/177.html#L662'>w</a>                 662 ovr/sdk/src/Kernel/OVR_Math.h     Rect(const CompatibleType&amp; s) : x(s.Pos.x), y(s.Pos.y), w(s.Size.w), h(s.Size.h) {  }
+<a href='../S/177.html#L671'>w</a>                 671 ovr/sdk/src/Kernel/OVR_Math.h     Size&lt;T&gt;    GetSize() const               { return Size&lt;T&gt;(w, h); }
+<a href='../S/177.html#L673'>w</a>                 673 ovr/sdk/src/Kernel/OVR_Math.h     void       SetSize(const Size&lt;T&gt;&amp; sz)    { w = sz.w; h = sz.h; }
+<a href='../S/177.html#L676'>w</a>                 676 ovr/sdk/src/Kernel/OVR_Math.h     { return (x == vp.x) &amp;&amp; (y == vp.y) &amp;&amp; (w == vp.w) &amp;&amp; (h == vp.h); }
+<a href='../S/177.html#L698'>w</a>                 698 ovr/sdk/src/Kernel/OVR_Math.h     T x, y, z, w;    
+<a href='../S/177.html#L700'>w</a>                 700 ovr/sdk/src/Kernel/OVR_Math.h     Quat() : x(0), y(0), z(0), w(1) { }
+<a href='../S/177.html#L701'>w</a>                 701 ovr/sdk/src/Kernel/OVR_Math.h     Quat(T x_, T y_, T z_, T w_) : x(x_), y(y_), z(z_), w(w_) { }
+<a href='../S/177.html#L703'>w</a>                 703 ovr/sdk/src/Kernel/OVR_Math.h         : x((T)src.x), y((T)src.y), z((T)src.z), w((T)src.w) { }
+<a href='../S/177.html#L706'>w</a>                 706 ovr/sdk/src/Kernel/OVR_Math.h     Quat(const typename CompatibleTypes&lt;Quat&lt;T&gt; &gt;::Type&amp; s) : x(s.x), y(s.y), z(s.z), w(s.w) { }
+<a href='../S/177.html#L714'>w</a>                 714 ovr/sdk/src/Kernel/OVR_Math.h         result.w = w;
+<a href='../S/177.html#L726'>w</a>                 726 ovr/sdk/src/Kernel/OVR_Math.h             x = 0; y = 0; z = 0; w = 1;
+<a href='../S/177.html#L733'>w</a>                 733 ovr/sdk/src/Kernel/OVR_Math.h 		w = cos(angle * T(0.5));
+<a href='../S/177.html#L747'>w</a>                 747 ovr/sdk/src/Kernel/OVR_Math.h         w = cos(angle * T(0.5));
+<a href='../S/177.html#L758'>w</a>                 758 ovr/sdk/src/Kernel/OVR_Math.h 			*angle = 2 * Acos(w);
+<a href='../S/177.html#L783'>w</a>                 783 ovr/sdk/src/Kernel/OVR_Math.h             w = T(0.25) * s;
+<a href='../S/177.html#L791'>w</a>                 791 ovr/sdk/src/Kernel/OVR_Math.h             w = (m.M[2][1] - m.M[1][2]) / s;
+<a href='../S/177.html#L799'>w</a>                 799 ovr/sdk/src/Kernel/OVR_Math.h             w = (m.M[0][2] - m.M[2][0]) / s;
+<a href='../S/177.html#L807'>w</a>                 807 ovr/sdk/src/Kernel/OVR_Math.h             w = (m.M[1][0] - m.M[0][1]) / s;
+<a href='../S/177.html#L825'>w</a>                 825 ovr/sdk/src/Kernel/OVR_Math.h 			w = T(0.25) * s;
+<a href='../S/177.html#L833'>w</a>                 833 ovr/sdk/src/Kernel/OVR_Math.h 			w = (m.M[2][1] - m.M[1][2]) / s;
+<a href='../S/177.html#L841'>w</a>                 841 ovr/sdk/src/Kernel/OVR_Math.h 			w = (m.M[0][2] - m.M[2][0]) / s;
+<a href='../S/177.html#L849'>w</a>                 849 ovr/sdk/src/Kernel/OVR_Math.h 			w = (m.M[1][0] - m.M[0][1]) / s;
+<a href='../S/177.html#L856'>w</a>                 856 ovr/sdk/src/Kernel/OVR_Math.h     bool operator== (const Quat&amp; b) const   { return x == b.x &amp;&amp; y == b.y &amp;&amp; z == b.z &amp;&amp; w == b.w; }
+<a href='../S/177.html#L857'>w</a>                 857 ovr/sdk/src/Kernel/OVR_Math.h     bool operator!= (const Quat&amp; b) const   { return x != b.x || y != b.y || z != b.z || w != b.w; }
+<a href='../S/177.html#L859'>w</a>                 859 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator+  (const Quat&amp; b) const  { return Quat(x + b.x, y + b.y, z + b.z, w + b.w); }
+<a href='../S/177.html#L860'>w</a>                 860 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator+= (const Quat&amp; b)        { w += b.w; x += b.x; y += b.y; z += b.z; return *this; }
+<a href='../S/177.html#L861'>w</a>                 861 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator-  (const Quat&amp; b) const  { return Quat(x - b.x, y - b.y, z - b.z, w - b.w); }
+<a href='../S/177.html#L862'>w</a>                 862 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator-= (const Quat&amp; b)        { w -= b.w; x -= b.x; y -= b.y; z -= b.z; return *this; }
+<a href='../S/177.html#L864'>w</a>                 864 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator*  (T s) const            { return Quat(x * s, y * s, z * s, w * s); }
+<a href='../S/177.html#L865'>w</a>                 865 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator*= (T s)                  { w *= s; x *= s; y *= s; z *= s; return *this; }
+<a href='../S/177.html#L866'>w</a>                 866 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator/  (T s) const            { T rcp = T(1)/s; return Quat(x * rcp, y * rcp, z * rcp, w *rcp); }
+<a href='../S/177.html#L867'>w</a>                 867 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator/= (T s)                  { T rcp = T(1)/s; w *= rcp; x *= rcp; y *= rcp; z *= rcp; return *this; }
+<a href='../S/177.html#L877'>w</a>                 877 ovr/sdk/src/Kernel/OVR_Math.h     T       LengthSq() const                { return (x * x + y * y + z * z + w * w); }
+<a href='../S/177.html#L896'>w</a>                 896 ovr/sdk/src/Kernel/OVR_Math.h         return x * q.x + y * q.y + z * q.z + w * q.w;
+<a href='../S/177.html#L923'>w</a>                 923 ovr/sdk/src/Kernel/OVR_Math.h     Quat    Conj() const                    { return Quat(-x, -y, -z, w); }
+<a href='../S/177.html#L927'>w</a>                 927 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator* (const Quat&amp; b) const   { return Quat(w * b.x + x * b.w + y * b.z - z * b.y,
+<a href='../S/177.html#L928'>w</a>                 928 ovr/sdk/src/Kernel/OVR_Math.h                                                           w * b.y - x * b.z + y * b.w + z * b.x,
+<a href='../S/177.html#L929'>w</a>                 929 ovr/sdk/src/Kernel/OVR_Math.h                                                           w * b.z + x * b.y - y * b.x + z * b.w,
+<a href='../S/177.html#L930'>w</a>                 930 ovr/sdk/src/Kernel/OVR_Math.h                                                           w * b.w - x * b.x - y * b.y - z * b.z); }
+<a href='../S/177.html#L959'>w</a>                 959 ovr/sdk/src/Kernel/OVR_Math.h         return Quat(-x, -y, -z, w);
+<a href='../S/177.html#L965'>w</a>                 965 ovr/sdk/src/Kernel/OVR_Math.h         *this = Quat(-x, -y, -z, w);
+<a href='../S/177.html#L983'>w</a>                 983 ovr/sdk/src/Kernel/OVR_Math.h         T ww  = w*w;
+<a href='../S/177.html#L993'>w</a>                 993 ovr/sdk/src/Kernel/OVR_Math.h         T s2 = psign * T(2) * (psign*w*Q[A2] + Q[A1]*Q[A3]);
+<a href='../S/177.html#L999'>w</a>                 999 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(psign*Q[A1]*Q[A2] + w*Q[A3]),
+<a href='../S/177.html#L1006'>w</a>                1006 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(psign*Q[A1]*Q[A2] + w*Q[A3]),
+<a href='../S/177.html#L1011'>w</a>                1011 ovr/sdk/src/Kernel/OVR_Math.h             *a = -S*D*atan2(T(-2)*(w*Q[A1] - psign*Q[A2]*Q[A3]),
+<a href='../S/177.html#L1014'>w</a>                1014 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(w*Q[A3] - psign*Q[A1]*Q[A2]),
+<a href='../S/177.html#L1047'>w</a>                1047 ovr/sdk/src/Kernel/OVR_Math.h         T ww = w*w;
+<a href='../S/177.html#L1063'>w</a>                1063 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( T(2)*(w*Q[A1] - psign*Q[A2]*Q[m]),
+<a href='../S/177.html#L1070'>w</a>                1070 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( T(2)*(w*Q[A1] - psign*Q[A2]*Q[m]),
+<a href='../S/177.html#L1075'>w</a>                1075 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( psign*w*Q[m] + Q[A1]*Q[A2],
+<a href='../S/177.html#L1076'>w</a>                1076 ovr/sdk/src/Kernel/OVR_Math.h 		                   w*Q[A2] -psign*Q[A1]*Q[m]);
+<a href='../S/177.html#L1078'>w</a>                1078 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*w*Q[m] + Q[A1]*Q[A2],
+<a href='../S/177.html#L1079'>w</a>                1079 ovr/sdk/src/Kernel/OVR_Math.h 		                   w*Q[A2] + psign*Q[A1]*Q[m]);
+<a href='../S/177.html#L1233'>w</a>                1233 ovr/sdk/src/Kernel/OVR_Math.h         T ww = q.w*q.w;
+<a href='../S/177.html#L1238'>w</a>                1238 ovr/sdk/src/Kernel/OVR_Math.h         M[0][0] = ww + xx - yy - zz;       M[0][1] = 2 * (q.x*q.y - q.w*q.z); M[0][2] = 2 * (q.x*q.z + q.w*q.y); M[0][3] = 0;
+<a href='../S/177.html#L1239'>w</a>                1239 ovr/sdk/src/Kernel/OVR_Math.h         M[1][0] = 2 * (q.x*q.y + q.w*q.z); M[1][1] = ww - xx + yy - zz;       M[1][2] = 2 * (q.y*q.z - q.w*q.x); M[1][3] = 0;
+<a href='../S/177.html#L1240'>w</a>                1240 ovr/sdk/src/Kernel/OVR_Math.h         M[2][0] = 2 * (q.x*q.z - q.w*q.y); M[2][1] = 2 * (q.y*q.z + q.w*q.x); M[2][2] = ww - xx - yy + zz;       M[2][3] = 0;
+<a href='../S/177.html#L1822'>w</a>                1822 ovr/sdk/src/Kernel/OVR_Math.h     static Matrix4 Ortho2D(T w, T h)
+<a href='../S/177.html#L1825'>w</a>                1825 ovr/sdk/src/Kernel/OVR_Math.h         m.M[0][0] = 2.0/w;
+<a href='../S/177.html#L1905'>w</a>                1905 ovr/sdk/src/Kernel/OVR_Math.h 		const T twx = q.w*tx,   twy = q.w*ty,   twz = q.w*tz;
+<a href='../S/187.html#L54'>w</a>                  54 ovr/sdk/src/OVR_CAPI.h     int w, h;
+<a href='../S/187.html#L65'>w</a>                  65 ovr/sdk/src/OVR_CAPI.h     float x, y, z, w;  
+<a href='../S/129.html#L71'>w</a>                  71 ovr/sdk/src/OVR_Common_HMDDevice.cpp     if ( ResolutionInPixels.w == 1280 )
+<a href='../S/129.html#L73'>w</a>                  73 ovr/sdk/src/OVR_Common_HMDDevice.cpp         if ( ScreenSizeInMeters.w &gt; 0.1497f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1498f )
+<a href='../S/129.html#L78'>w</a>                  78 ovr/sdk/src/OVR_Common_HMDDevice.cpp     else if ( ResolutionInPixels.w == 1920 )
+<a href='../S/129.html#L81'>w</a>                  81 ovr/sdk/src/OVR_Common_HMDDevice.cpp         if ( ScreenSizeInMeters.w &gt; 0.1209f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1210f )
+<a href='../S/129.html#L86'>w</a>                  86 ovr/sdk/src/OVR_Common_HMDDevice.cpp         else if ( ScreenSizeInMeters.w &gt; 0.1257f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1258f )
+<a href='../S/129.html#L118'>w</a>                 118 ovr/sdk/src/OVR_Common_HMDDevice.cpp         else if (ScreenSizeInMeters.w &gt; 0.1295f &amp;&amp; ScreenSizeInMeters.w &lt; 0.1297f)
+<a href='../S/189.html#L434'>w</a>                 434 ovr/sdk/src/OVR_SensorFusion.cpp     double phi = atan2(error.w, error.y);
+<a href='../S/189.html#L493'>w</a>                 493 ovr/sdk/src/OVR_SensorFusion.cpp     if (Alg::Abs(yawError.w) &lt; cos(snapThreshold / 2)) // angle(yawError) &gt; snapThreshold
+<a href='../S/189.html#L595'>w</a>                 595 ovr/sdk/src/OVR_SensorFusion.cpp         ((Alg::Abs(error.w) &lt; cos(snapThreshold / 2) &amp;&amp; FAccelInImuFrame.Confidence() &gt; 0.75)))
+<a href='../S/189.html#L652'>w</a>                 652 ovr/sdk/src/OVR_SensorFusion.cpp         (Alg::Abs(error.w) &lt; cos(snapThreshold / 2) &amp;&amp; confidence &gt; confidenceThreshold))
+<a href='../S/189.html#L678'>w</a>                 678 ovr/sdk/src/OVR_SensorFusion.cpp 	TPH_CameraPoseOrientationWxyz[0] = (float) WorldFromCamera.Rotation.w;
+<a href='../S/88.html#L1281'>w</a>                1281 ovr/sdk/src/OVR_Stereo.cpp     Sizef pixelsPerMeter(hmd.ResolutionInPixels.w / ( hmd.ScreenSizeInMeters.w - hmd.ScreenGapSizeInMeters ),
+<a href='../S/88.html#L1298'>w</a>                1298 ovr/sdk/src/OVR_Stereo.cpp     float visibleWidthOfOneEye = 0.5f * ( hmd.ScreenSizeInMeters.w - hmd.ScreenGapSizeInMeters );
+<a href='../S/88.html#L1299'>w</a>                1299 ovr/sdk/src/OVR_Stereo.cpp     float centerFromLeftInMeters = ( hmd.ScreenSizeInMeters.w - hmd.LensSeparationInMeters ) * 0.5f;
+<a href='../S/88.html#L1480'>w</a>                1480 ovr/sdk/src/OVR_Stereo.cpp     result.w  = (int)(0.5f + pixelsPerDisplayPixel * distortion.PixelsPerTanAngleAtCenter.x * ( tanHalfFov.LeftTan + tanHalfFov.RightTan ) );
+<a href='../S/88.html#L1488'>w</a>                1488 ovr/sdk/src/OVR_Stereo.cpp     result.w = hmd.ResolutionInPixels.w/2;
+<a href='../S/88.html#L1494'>w</a>                1494 ovr/sdk/src/OVR_Stereo.cpp         result.x = (hmd.ResolutionInPixels.w+1)/2;      // Round up, not down.
+<a href='../S/88.html#L1531'>w</a>                1531 ovr/sdk/src/OVR_Stereo.cpp     Vector2f scale(  (float)renderedViewport.w / (float)renderTargetSize.w,
+<a href='../S/88.html#L1533'>w</a>                1533 ovr/sdk/src/OVR_Stereo.cpp     Vector2f offset( (float)renderedViewport.x / (float)renderTargetSize.w,
+<a href='../S/88.html#L1732'>w</a>                1732 ovr/sdk/src/OVR_Stereo.cpp     framebufferNDC.x = -1.0f + 2.0f * ( ( pixel.x - (float)distortionViewport.x ) / (float)distortionViewport.w );
+<a href='../S/131.html#L303'>w</a>                 303 ovr/sdk/src/OVR_Stereo.h         ResolutionInPixels.w = 0;
+<a href='../S/131.html#L305'>w</a>                 305 ovr/sdk/src/OVR_Stereo.h         ScreenSizeInMeters.w = 0.0f;
+<a href='../S/117.html#L126'>w</a>                 126 ovr/sdk/src/Util/Util_Render_Stereo.cpp         renderedViewport.w = Alg::Min ( actualRendertargetSurfaceSize.w, requestedRenderedPixelSize.w );
+<a href='../S/117.html#L134'>w</a>                 134 ovr/sdk/src/Util/Util_Render_Stereo.cpp         renderedViewport.w = Alg::Min ( actualRendertargetSurfaceSize.w/2, requestedRenderedPixelSize.w );
+<a href='../S/117.html#L138'>w</a>                 138 ovr/sdk/src/Util/Util_Render_Stereo.cpp             renderedViewport.x = (actualRendertargetSurfaceSize.w+1)/2;      // Round up, not down.
+<a href='../S/117.html#L152'>w</a>                 152 ovr/sdk/src/Util/Util_Render_Stereo.cpp     OVR_ASSERT ( actualRendertargetSurfaceSize.w &gt; 0 );
+<a href='../S/117.html#L268'>w</a>                 268 ovr/sdk/src/Util/Util_Render_Stereo.cpp     result.w = Alg::Max ( idealPixelSize[0].w, idealPixelSize[1].w );
+<a href='../S/117.html#L272'>w</a>                 272 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.w *= 2;
+<a href='../S/117.html#L552'>w</a>                 552 ovr/sdk/src/Util/Util_Render_Stereo.cpp     OVR_ASSERT ( RendertargetSize.w &gt; 0 );
+<a href='../S/199.html#L243'>w</a>                 243 ovr/sdk/third_party/edid/edid.cpp             int w = 8 * (first + 31);
+<a href='../S/199.html#L248'>w</a>                 248 ovr/sdk/third_party/edid/edid.cpp                 h = (w / 16) * 10;
+<a href='../S/199.html#L251'>w</a>                 251 ovr/sdk/third_party/edid/edid.cpp                 h = (w / 4) * 3;
+<a href='../S/199.html#L254'>w</a>                 254 ovr/sdk/third_party/edid/edid.cpp                 h = (w / 5) * 4;
+<a href='../S/199.html#L257'>w</a>                 257 ovr/sdk/third_party/edid/edid.cpp                 h = (w / 16) * 9;
+<a href='../S/199.html#L261'>w</a>                 261 ovr/sdk/third_party/edid/edid.cpp             info-&gt;standard[i].width = w;
+<a href='../S/65.html#L11'>w</a>                  11 ovr/tests/tests.cpp 	float x, y, z, w;
+<a href='../S/65.html#L15'>w</a>                  15 ovr/tests/tests.cpp 	sxovr.getXYZW(&amp;x, &amp;y, &amp;z, &amp;w);
+</pre>
+</body>
+</html>

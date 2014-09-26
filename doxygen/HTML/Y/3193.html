@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>factory</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/191.html#L274'>factory</a>           274 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceManagerCreateDesc(DeviceFactory* factory)
+<a href='../S/191.html#L275'>factory</a>           275 ovr/sdk/src/OVR_DeviceImpl.cpp         : DeviceCreateDesc(factory, Device_Manager) { }
+<a href='../S/191.html#L306'>factory</a>           306 ovr/sdk/src/OVR_DeviceImpl.cpp         DeviceFactory* factory = Factories.GetFirst();
+<a href='../S/191.html#L307'>factory</a>           307 ovr/sdk/src/OVR_DeviceImpl.cpp         factory-&gt;RemovedFromManager();
+<a href='../S/191.html#L308'>factory</a>           308 ovr/sdk/src/OVR_DeviceImpl.cpp         factory-&gt;RemoveNode();
+<a href='../S/191.html#L461'>factory</a>           461 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceFactory* factory = Factories.GetFirst();
+<a href='../S/191.html#L462'>factory</a>           462 ovr/sdk/src/OVR_DeviceImpl.cpp     while(!Factories.IsNull(factory))
+<a href='../S/191.html#L464'>factory</a>           464 ovr/sdk/src/OVR_DeviceImpl.cpp         EnumerateFactoryDevices(factory);
+<a href='../S/191.html#L465'>factory</a>           465 ovr/sdk/src/OVR_DeviceImpl.cpp         factory = factory-&gt;pNext;
+<a href='../S/191.html#L585'>factory</a>           585 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceFactory* factory = Factories.GetFirst();
+<a href='../S/191.html#L586'>factory</a>           586 ovr/sdk/src/OVR_DeviceImpl.cpp     while(!Factories.IsNull(factory))
+<a href='../S/191.html#L588'>factory</a>           588 ovr/sdk/src/OVR_DeviceImpl.cpp         if (factory-&gt;DetectHIDDevice(this, hidDevDesc))
+<a href='../S/191.html#L590'>factory</a>           590 ovr/sdk/src/OVR_DeviceImpl.cpp         factory = factory-&gt;pNext;
+<a href='../S/191.html#L596'>factory</a>           596 ovr/sdk/src/OVR_DeviceImpl.cpp Void DeviceManagerImpl::EnumerateFactoryDevices(DeviceFactory* factory)
+<a href='../S/191.html#L604'>factory</a>           604 ovr/sdk/src/OVR_DeviceImpl.cpp         FactoryEnumerateVisitor(DeviceManagerImpl* manager, DeviceFactory* factory)
+<a href='../S/191.html#L605'>factory</a>           605 ovr/sdk/src/OVR_DeviceImpl.cpp             : pManager(manager), pFactory(factory) { }
+<a href='../S/191.html#L613'>factory</a>           613 ovr/sdk/src/OVR_DeviceImpl.cpp     FactoryEnumerateVisitor newDeviceVisitor(this, factory);
+<a href='../S/191.html#L614'>factory</a>           614 ovr/sdk/src/OVR_DeviceImpl.cpp     factory-&gt;EnumerateDevices(newDeviceVisitor);
+<a href='../S/80.html#L116'>factory</a>           116 ovr/sdk/src/OVR_DeviceImpl.h     DeviceCreateDesc(DeviceFactory* factory, DeviceType type)
+<a href='../S/80.html#L117'>factory</a>           117 ovr/sdk/src/OVR_DeviceImpl.h         : pFactory(factory), Type(type), pLock(0), HandleCount(0), pDevice(0), Enumerated(true)
+<a href='../S/80.html#L364'>factory</a>           364 ovr/sdk/src/OVR_DeviceImpl.h     void AddFactory(DeviceFactory* factory)
+<a href='../S/80.html#L368'>factory</a>           368 ovr/sdk/src/OVR_DeviceImpl.h         Factories.PushBack(factory);
+<a href='../S/80.html#L369'>factory</a>           369 ovr/sdk/src/OVR_DeviceImpl.h         factory-&gt;AddedToManager(this);        
+<a href='../S/80.html#L396'>factory</a>           396 ovr/sdk/src/OVR_DeviceImpl.h     virtual Void EnumerateFactoryDevices(DeviceFactory* factory);
+<a href='../S/123.html#L39'>factory</a>            39 ovr/sdk/src/OVR_HIDDeviceImpl.h     HIDDeviceCreateDesc(DeviceFactory* factory, DeviceType type, const HIDDeviceDesc&amp; hidDesc)
+<a href='../S/123.html#L40'>factory</a>            40 ovr/sdk/src/OVR_HIDDeviceImpl.h         : DeviceCreateDesc(factory, type), HIDDesc(hidDesc) { }
+<a href='../S/87.html#L411'>factory</a>           411 ovr/sdk/src/OVR_LatencyTestImpl.cpp         LatencyTestEnumerator(DeviceFactory* factory, EnumerateVisitor&amp; externalVisitor)
+<a href='../S/87.html#L412'>factory</a>           412 ovr/sdk/src/OVR_LatencyTestImpl.cpp             : pFactory(factory), ExternalVisitor(externalVisitor) { }
+<a href='../S/122.html#L61'>factory</a>            61 ovr/sdk/src/OVR_LatencyTestImpl.h     LatencyTestDeviceCreateDesc(DeviceFactory* factory, const HIDDeviceDesc&amp; hidDesc)
+<a href='../S/122.html#L62'>factory</a>            62 ovr/sdk/src/OVR_LatencyTestImpl.h         : HIDDeviceCreateDesc(factory, Device_LatencyTester, hidDesc) { }
+<a href='../S/120.html#L39'>factory</a>            39 ovr/sdk/src/OVR_Linux_HMDDevice.cpp HMDDeviceCreateDesc::HMDDeviceCreateDesc(DeviceFactory* factory, const String&amp; displayDeviceName, long dispId)
+<a href='../S/120.html#L40'>factory</a>            40 ovr/sdk/src/OVR_Linux_HMDDevice.cpp         : DeviceCreateDesc(factory, Device_HMD),
+<a href='../S/125.html#L86'>factory</a>            86 ovr/sdk/src/OVR_Linux_HMDDevice.h     HMDDeviceCreateDesc(DeviceFactory* factory,
+<a href='../S/190.html#L186'>factory</a>           186 ovr/sdk/src/OVR_SensorImpl.cpp         SensorEnumerator(DeviceFactory* factory, EnumerateVisitor&amp; externalVisitor)
+<a href='../S/190.html#L187'>factory</a>           187 ovr/sdk/src/OVR_SensorImpl.cpp             : pFactory(factory), ExternalVisitor(externalVisitor) { }
+<a href='../S/135.html#L64'>factory</a>            64 ovr/sdk/src/OVR_SensorImpl.h     SensorDeviceCreateDesc(DeviceFactory* factory, const HIDDeviceDesc&amp; hidDesc)
+<a href='../S/135.html#L65'>factory</a>            65 ovr/sdk/src/OVR_SensorImpl.h         : HIDDeviceCreateDesc(factory, Device_Sensor, hidDesc) { }
+<a href='../S/135.html#L105'>factory</a>           105 ovr/sdk/src/OVR_SensorImpl.h     BootLoaderDeviceCreateDesc(DeviceFactory* factory, const HIDDeviceDesc&amp; hidDesc)
+<a href='../S/135.html#L106'>factory</a>           106 ovr/sdk/src/OVR_SensorImpl.h         : HIDDeviceCreateDesc(factory, Device_BootLoader, hidDesc) { }
+<a href='../S/111.html#L46'>factory</a>            46 ovr/sdk/src/Util/Util_ImageWindow.cpp 	_Out_  IUnknown **factory
+</pre>
+</body>
+</html>

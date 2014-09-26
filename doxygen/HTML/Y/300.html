@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>D</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/182.html#L248'>D</a>                 248 ovr/sdk/src/Kernel/OVR_Allocator.h template&lt;class D&gt;
+<a href='../S/182.html#L253'>D</a>                 253 ovr/sdk/src/Kernel/OVR_Allocator.h         UPInt Data[(sizeof(D) + sizeof(UPInt)-1) / sizeof(UPInt)];
+<a href='../S/182.html#L265'>D</a>                 265 ovr/sdk/src/Kernel/OVR_Allocator.h     static  D*  InitSystemSingleton()
+<a href='../S/182.html#L270'>D</a>                 270 ovr/sdk/src/Kernel/OVR_Allocator.h         Allocator_SingletonSupport&lt;D&gt; *presult = Construct&lt;D&gt;((void*)Container.Data);
+<a href='../S/182.html#L273'>D</a>                 273 ovr/sdk/src/Kernel/OVR_Allocator.h         return (D*)presult;
+<a href='../S/182.html#L283'>D</a>                 283 ovr/sdk/src/Kernel/OVR_Allocator.h             Destruct((D*)this);
+<a href='../S/177.html#L976'>D</a>                 976 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, Axis A3, RotateDirection D, HandedSystem S&gt;
+<a href='../S/177.html#L998'>D</a>                 998 ovr/sdk/src/Kernel/OVR_Math.h             *b = -S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L999'>D</a>                 999 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(psign*Q[A1]*Q[A2] + w*Q[A3]),
+<a href='../S/177.html#L1005'>D</a>                1005 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L1006'>D</a>                1006 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(psign*Q[A1]*Q[A2] + w*Q[A3]),
+<a href='../S/177.html#L1011'>D</a>                1011 ovr/sdk/src/Kernel/OVR_Math.h             *a = -S*D*atan2(T(-2)*(w*Q[A1] - psign*Q[A2]*Q[A3]),
+<a href='../S/177.html#L1013'>D</a>                1013 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*asin(s2);
+<a href='../S/177.html#L1014'>D</a>                1014 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2(T(2)*(w*Q[A3] - psign*Q[A1]*Q[A2]),
+<a href='../S/177.html#L1020'>D</a>                1020 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, Axis A3, RotateDirection D&gt;
+<a href='../S/177.html#L1022'>D</a>                1022 ovr/sdk/src/Kernel/OVR_Math.h     { GetEulerAngles&lt;A1, A2, A3, D, Handed_R&gt;(a, b, c); }
+<a href='../S/177.html#L1037'>D</a>                1037 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, RotateDirection D, HandedSystem S&gt;
+<a href='../S/177.html#L1062'>D</a>                1062 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::Pi;
+<a href='../S/177.html#L1063'>D</a>                1063 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( T(2)*(w*Q[A1] - psign*Q[A2]*Q[m]),
+<a href='../S/177.html#L1070'>D</a>                1070 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( T(2)*(w*Q[A1] - psign*Q[A2]*Q[m]),
+<a href='../S/177.html#L1075'>D</a>                1075 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( psign*w*Q[m] + Q[A1]*Q[A2],
+<a href='../S/177.html#L1077'>D</a>                1077 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*acos(c2);
+<a href='../S/177.html#L1078'>D</a>                1078 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*w*Q[m] + Q[A1]*Q[A2],
+<a href='../S/177.html#L1490'>D</a>                1490 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, Axis A3, RotateDirection D, HandedSystem S&gt;
+<a href='../S/177.html#L1503'>D</a>                1503 ovr/sdk/src/Kernel/OVR_Math.h             *b = -S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L1504'>D</a>                1504 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( psign*M[A2][A1], M[A2][A2] );
+<a href='../S/177.html#L1509'>D</a>                1509 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L1510'>D</a>                1510 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( psign*M[A2][A1], M[A2][A2] );
+<a href='../S/177.html#L1514'>D</a>                1514 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( -psign*M[A2][A3], M[A3][A3] );
+<a href='../S/177.html#L1515'>D</a>                1515 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*asin(pm);
+<a href='../S/177.html#L1516'>D</a>                1516 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*M[A1][A2], M[A1][A1] );
+<a href='../S/177.html#L1528'>D</a>                1528 ovr/sdk/src/Kernel/OVR_Math.h     template &lt;Axis A1, Axis A2, RotateDirection D, HandedSystem S&gt;
+<a href='../S/177.html#L1544'>D</a>                1544 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::Pi;
+<a href='../S/177.html#L1545'>D</a>                1545 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*M[A2][m],M[A2][A2]);
+<a href='../S/177.html#L1551'>D</a>                1551 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( -psign*M[A2][m],M[A2][A2]);
+<a href='../S/177.html#L1555'>D</a>                1555 ovr/sdk/src/Kernel/OVR_Math.h             *a = S*D*atan2( M[A2][A1],-psign*M[m][A1]);
+<a href='../S/177.html#L1556'>D</a>                1556 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*acos(c2);
+<a href='../S/177.html#L1557'>D</a>                1557 ovr/sdk/src/Kernel/OVR_Math.h             *c = S*D*atan2( M[A1][A2],psign*M[A1][m]);
+<a href='../S/177.html#L2488'>D</a>                2488 ovr/sdk/src/Kernel/OVR_Math.h     T          D;
+<a href='../S/177.html#L2490'>D</a>                2490 ovr/sdk/src/Kernel/OVR_Math.h     Plane() : D(0) {}
+<a href='../S/177.html#L2493'>D</a>                2493 ovr/sdk/src/Kernel/OVR_Math.h     Plane(const Vector3&lt;T&gt;&amp; n, T d) : N(n), D(d) {}
+<a href='../S/177.html#L2494'>D</a>                2494 ovr/sdk/src/Kernel/OVR_Math.h     Plane(T x, T y, T z, T d) : N(x,y,z), D(d) {}
+<a href='../S/177.html#L2497'>D</a>                2497 ovr/sdk/src/Kernel/OVR_Math.h     Plane(const Vector3&lt;T&gt;&amp; p, const Vector3&lt;T&gt;&amp; n) : N(n), D(-(p * n)) {}
+<a href='../S/177.html#L2502'>D</a>                2502 ovr/sdk/src/Kernel/OVR_Math.h         return (N.Dot(p)) + D;
+<a href='../S/177.html#L2507'>D</a>                2507 ovr/sdk/src/Kernel/OVR_Math.h         return Plane(-N, -D);
+<a href='../S/177.html#L2513'>D</a>                2513 ovr/sdk/src/Kernel/OVR_Math.h         D = -D;
+<a href='../S/177.html#L2518'>D</a>                2518 ovr/sdk/src/Kernel/OVR_Math.h 		return (this-&gt;D == rhs.D &amp;&amp; this-&gt;N == rhs.N);
+<a href='../S/108.html#L264'>D</a>                 264 ovr/sdk/src/OVR_Device.h     template&lt;class D&gt;
+<a href='../S/108.html#L265'>D</a>                 265 ovr/sdk/src/OVR_Device.h     DeviceEnumerator&lt;D&gt;     EnumerateDevices(bool availableOnly = true)
+<a href='../S/108.html#L268'>D</a>                 268 ovr/sdk/src/OVR_Device.h         DeviceEnumerator&lt;&gt; e = EnumerateDevicesEx(DeviceEnumerationArgs((DeviceType)D::EnumDeviceType, availableOnly));
+<a href='../S/108.html#L269'>D</a>                 269 ovr/sdk/src/OVR_Device.h         return *reinterpret_cast&lt;DeviceEnumerator&lt;D&gt;*&gt;(&amp;e);
+</pre>
+</body>
+</html>

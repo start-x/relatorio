@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>ThreadCommand</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/193.html#L186'>ThreadCommand</a>     186 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     ThreadCommand::PopBuffer command;
+<a href='../S/137.html#L146'>ThreadCommand</a>     146 ovr/sdk/src/OVR_ThreadCommandQueue.cpp ThreadCommand::PopBuffer::~PopBuffer()
+<a href='../S/137.html#L149'>ThreadCommand</a>     149 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         Destruct&lt;ThreadCommand&gt;(toCommand());
+<a href='../S/137.html#L152'>ThreadCommand</a>     152 ovr/sdk/src/OVR_ThreadCommandQueue.cpp void ThreadCommand::PopBuffer::InitFromBuffer(void* data)
+<a href='../S/137.html#L154'>ThreadCommand</a>     154 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     ThreadCommand* cmd = (ThreadCommand*)data;
+<a href='../S/137.html#L158'>ThreadCommand</a>     158 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         Destruct&lt;ThreadCommand&gt;(toCommand());    
+<a href='../S/137.html#L163'>ThreadCommand</a>     163 ovr/sdk/src/OVR_ThreadCommandQueue.cpp void ThreadCommand::PopBuffer::Execute()
+<a href='../S/137.html#L165'>ThreadCommand</a>     165 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     ThreadCommand* command = toCommand();
+<a href='../S/137.html#L176'>ThreadCommand</a>     176 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     typedef ThreadCommand::NotifyEvent NotifyEvent;
+<a href='../S/137.html#L188'>ThreadCommand</a>     188 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     bool PushCommand(const ThreadCommand&amp; command);
+<a href='../S/137.html#L189'>ThreadCommand</a>     189 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     bool PopCommand(ThreadCommand::PopBuffer* popBuffer);
+<a href='../S/137.html#L193'>ThreadCommand</a>     193 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     struct ExitCommand : public ThreadCommand
+<a href='../S/137.html#L198'>ThreadCommand</a>     198 ovr/sdk/src/OVR_ThreadCommandQueue.cpp             : ThreadCommand(sizeof(ExitCommand), wait, true), pImpl(impl) { }
+<a href='../S/137.html#L205'>ThreadCommand</a>     205 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         virtual ThreadCommand* CopyConstruct(void* p) const 
+<a href='../S/137.html#L254'>ThreadCommand</a>     254 ovr/sdk/src/OVR_ThreadCommandQueue.cpp bool ThreadCommandQueueImpl::PushCommand(const ThreadCommand&amp; command)
+<a href='../S/137.html#L256'>ThreadCommand</a>     256 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     ThreadCommand::NotifyEvent* completeEvent = 0;
+<a href='../S/137.html#L257'>ThreadCommand</a>     257 ovr/sdk/src/OVR_ThreadCommandQueue.cpp     ThreadCommand::NotifyEvent* queueAvailableEvent = 0;
+<a href='../S/137.html#L280'>ThreadCommand</a>     280 ovr/sdk/src/OVR_ThreadCommandQueue.cpp                 ThreadCommand* c = command.CopyConstruct(buffer);
+<a href='../S/137.html#L310'>ThreadCommand</a>     310 ovr/sdk/src/OVR_ThreadCommandQueue.cpp bool ThreadCommandQueueImpl::PopCommand(ThreadCommand::PopBuffer* popBuffer)
+<a href='../S/137.html#L327'>ThreadCommand</a>     327 ovr/sdk/src/OVR_ThreadCommandQueue.cpp         ThreadCommand::NotifyEvent* queueAvailableEvent = BlockedProducers.GetFirst();
+<a href='../S/137.html#L347'>ThreadCommand</a>     347 ovr/sdk/src/OVR_ThreadCommandQueue.cpp bool ThreadCommandQueue::PushCommand(const ThreadCommand&amp; command)
+<a href='../S/137.html#L352'>ThreadCommand</a>     352 ovr/sdk/src/OVR_ThreadCommandQueue.cpp bool ThreadCommandQueue::PopCommand(ThreadCommand::PopBuffer* popBuffer)
+<a href='../S/83.html#L38'>ThreadCommand</a>      38 ovr/sdk/src/OVR_ThreadCommandQueue.h class ThreadCommand;
+<a href='../S/83.html#L46'>ThreadCommand</a>      46 ovr/sdk/src/OVR_ThreadCommandQueue.h class ThreadCommand
+<a href='../S/83.html#L74'>ThreadCommand</a>      74 ovr/sdk/src/OVR_ThreadCommandQueue.h         ThreadCommand* toCommand() const { return (ThreadCommand*)Buffer; }
+<a href='../S/83.html#L97'>ThreadCommand</a>      97 ovr/sdk/src/OVR_ThreadCommandQueue.h     ThreadCommand(UPInt size, bool waitFlag, bool exitFlag = false)
+<a href='../S/83.html#L99'>ThreadCommand</a>      99 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ~ThreadCommand() { }
+<a href='../S/83.html#L106'>ThreadCommand</a>     106 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand*  CopyConstruct(void* p) const = 0;
+<a href='../S/83.html#L139'>ThreadCommand</a>     139 ovr/sdk/src/OVR_ThreadCommandQueue.h class ThreadCommandMF0 : public ThreadCommand
+<a href='../S/83.html#L154'>ThreadCommand</a>     154 ovr/sdk/src/OVR_ThreadCommandQueue.h         : ThreadCommand(sizeof(ThreadCommandMF0), needsWait),
+<a href='../S/83.html#L158'>ThreadCommand</a>     158 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand* CopyConstruct(void* p) const
+<a href='../S/83.html#L165'>ThreadCommand</a>     165 ovr/sdk/src/OVR_ThreadCommandQueue.h class ThreadCommandMF1 : public ThreadCommand
+<a href='../S/83.html#L181'>ThreadCommand</a>     181 ovr/sdk/src/OVR_ThreadCommandQueue.h         : ThreadCommand(sizeof(ThreadCommandMF1), needsWait),
+<a href='../S/83.html#L185'>ThreadCommand</a>     185 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand* CopyConstruct(void* p) const
+<a href='../S/83.html#L191'>ThreadCommand</a>     191 ovr/sdk/src/OVR_ThreadCommandQueue.h class ThreadCommandMF2 : public ThreadCommand
+<a href='../S/83.html#L208'>ThreadCommand</a>     208 ovr/sdk/src/OVR_ThreadCommandQueue.h         : ThreadCommand(sizeof(ThreadCommandMF2), needsWait),
+<a href='../S/83.html#L212'>ThreadCommand</a>     212 ovr/sdk/src/OVR_ThreadCommandQueue.h     virtual ThreadCommand* CopyConstruct(void* p) const 
+<a href='../S/83.html#L236'>ThreadCommand</a>     236 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PopCommand(ThreadCommand::PopBuffer* popBuffer);
+<a href='../S/83.html#L240'>ThreadCommand</a>     240 ovr/sdk/src/OVR_ThreadCommandQueue.h     bool PushCommand(const ThreadCommand&amp; command);
+</pre>
+</body>
+</html>

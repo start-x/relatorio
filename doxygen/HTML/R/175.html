@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>DeviceHandle</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/95.html#L80'>DeviceHandle</a>       80 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp         EnumeratedDevices.PushBack(DeviceHandle(e));       
+<a href='../S/96.html#L74'>DeviceHandle</a>       74 ovr/sdk/src/CAPI/CAPI_GlobalState.h     Array&lt;DeviceHandle&gt; EnumeratedDevices;
+<a href='../S/108.html#L102'>DeviceHandle</a>      102 ovr/sdk/src/OVR_Device.h     friend class DeviceHandle;  
+<a href='../S/108.html#L193'>DeviceHandle</a>      193 ovr/sdk/src/OVR_Device.h class DeviceEnumerator : public DeviceHandle
+<a href='../S/108.html#L199'>DeviceHandle</a>      199 ovr/sdk/src/OVR_Device.h         : DeviceHandle(), EnumArgs(Device_None, true) { }
+<a href='../S/108.html#L208'>DeviceHandle</a>      208 ovr/sdk/src/OVR_Device.h     T*      CreateDevice()  { return static_cast&lt;T*&gt;(DeviceHandle::CreateDevice()); }
+<a href='../S/108.html#L211'>DeviceHandle</a>      211 ovr/sdk/src/OVR_Device.h     DeviceEnumerator(const DeviceHandle &amp;dev, const DeviceEnumerationArgs&amp; args)
+<a href='../S/108.html#L212'>DeviceHandle</a>      212 ovr/sdk/src/OVR_Device.h         : DeviceHandle(dev), EnumArgs(args)
+<a href='../S/108.html#L290'>DeviceHandle</a>      290 ovr/sdk/src/OVR_Device.h     DeviceEnumerator&lt;&gt; enumeratorFromHandle(const DeviceHandle&amp; h, const DeviceEnumerationArgs&amp; args)
+<a href='../S/89.html#L36'>DeviceHandle</a>       36 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceHandle::DeviceHandle(DeviceCreateDesc* impl) : pImpl(impl)
+<a href='../S/89.html#L42'>DeviceHandle</a>       42 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceHandle::DeviceHandle(const DeviceHandle&amp; src) : pImpl(src.pImpl)
+<a href='../S/89.html#L48'>DeviceHandle</a>       48 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceHandle::~DeviceHandle()
+<a href='../S/89.html#L54'>DeviceHandle</a>       54 ovr/sdk/src/OVR_DeviceHandle.cpp void DeviceHandle::operator = (const DeviceHandle&amp; src)
+<a href='../S/89.html#L63'>DeviceHandle</a>       63 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceBase* DeviceHandle::GetDevice_AddRef() const
+<a href='../S/89.html#L75'>DeviceHandle</a>       75 ovr/sdk/src/OVR_DeviceHandle.cpp bool DeviceHandle::IsDevice(DeviceBase* pdev) const
+<a href='../S/89.html#L81'>DeviceHandle</a>       81 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceType  DeviceHandle::GetType() const
+<a href='../S/89.html#L86'>DeviceHandle</a>       86 ovr/sdk/src/OVR_DeviceHandle.cpp bool DeviceHandle::GetDeviceInfo(DeviceInfo* info) const
+<a href='../S/89.html#L90'>DeviceHandle</a>       90 ovr/sdk/src/OVR_DeviceHandle.cpp bool DeviceHandle::IsAvailable() const
+<a href='../S/89.html#L97'>DeviceHandle</a>       97 ovr/sdk/src/OVR_DeviceHandle.cpp bool DeviceHandle::IsCreated() const
+<a href='../S/89.html#L102'>DeviceHandle</a>      102 ovr/sdk/src/OVR_DeviceHandle.cpp DeviceBase* DeviceHandle::CreateDevice()
+<a href='../S/89.html#L140'>DeviceHandle</a>      140 ovr/sdk/src/OVR_DeviceHandle.cpp void DeviceHandle::Clear()
+<a href='../S/89.html#L149'>DeviceHandle</a>      149 ovr/sdk/src/OVR_DeviceHandle.cpp bool DeviceHandle::enumerateNext(const DeviceEnumerationArgs&amp; args)
+<a href='../S/126.html#L54'>DeviceHandle</a>       54 ovr/sdk/src/OVR_DeviceHandle.h class DeviceHandle
+<a href='../S/126.html#L61'>DeviceHandle</a>       61 ovr/sdk/src/OVR_DeviceHandle.h 	DeviceHandle() : pImpl(0) { }    
+<a href='../S/126.html#L62'>DeviceHandle</a>       62 ovr/sdk/src/OVR_DeviceHandle.h 	DeviceHandle(const DeviceHandle&amp; src);
+<a href='../S/126.html#L63'>DeviceHandle</a>       63 ovr/sdk/src/OVR_DeviceHandle.h 	~DeviceHandle();
+<a href='../S/126.html#L65'>DeviceHandle</a>       65 ovr/sdk/src/OVR_DeviceHandle.h 	void operator = (const DeviceHandle&amp; src);
+<a href='../S/126.html#L67'>DeviceHandle</a>       67 ovr/sdk/src/OVR_DeviceHandle.h 	bool operator == (const DeviceHandle&amp; other) const { return pImpl == other.pImpl; }
+<a href='../S/126.html#L68'>DeviceHandle</a>       68 ovr/sdk/src/OVR_DeviceHandle.h 	bool operator != (const DeviceHandle&amp; other) const { return pImpl != other.pImpl; }
+<a href='../S/126.html#L94'>DeviceHandle</a>       94 ovr/sdk/src/OVR_DeviceHandle.h         return static_cast&lt;DeviceT*&gt;(DeviceHandle(*this).CreateDevice());
+<a href='../S/126.html#L101'>DeviceHandle</a>      101 ovr/sdk/src/OVR_DeviceHandle.h 	explicit DeviceHandle(DeviceCreateDesc* impl);
+<a href='../S/191.html#L629'>DeviceHandle</a>      629 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceEnumerator&lt;&gt; e = enumeratorFromHandle(DeviceHandle(firstDeviceDesc), args);
+<a href='../S/80.html#L374'>DeviceHandle</a>      374 ovr/sdk/src/OVR_DeviceImpl.h         HandlerRef.Call(MessageDeviceStatus(Message_DeviceAdded, this, DeviceHandle(desc)));
+<a href='../S/80.html#L378'>DeviceHandle</a>      378 ovr/sdk/src/OVR_DeviceImpl.h         HandlerRef.Call(MessageDeviceStatus(Message_DeviceRemoved, this, DeviceHandle(desc)));
+<a href='../S/121.html#L42'>DeviceHandle</a>       42 ovr/sdk/src/OVR_DeviceMessages.h class DeviceHandle;
+<a href='../S/121.html#L135'>DeviceHandle</a>      135 ovr/sdk/src/OVR_DeviceMessages.h     MessageDeviceStatus(MessageType type, DeviceBase* dev, const DeviceHandle &amp;hdev)
+<a href='../S/121.html#L138'>DeviceHandle</a>      138 ovr/sdk/src/OVR_DeviceMessages.h     DeviceHandle Handle;
+<a href='../S/123.html#L82'>DeviceHandle</a>       82 ovr/sdk/src/OVR_HIDDeviceImpl.h         MessageDeviceStatus status(handlerMessageType, this, OVR::DeviceHandle(this-&gt;pCreateDesc));
+<a href='../S/132.html#L439'>DeviceHandle</a>      439 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     DeviceHandle = -1;
+<a href='../S/132.html#L485'>DeviceHandle</a>      485 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     OVR_ASSERT(DeviceHandle &gt;= 0);
+<a href='../S/132.html#L492'>DeviceHandle</a>      492 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     int r = ioctl(DeviceHandle, HIDIOCGRDESCSIZE, &amp;desc_size);
+<a href='../S/132.html#L501'>DeviceHandle</a>      501 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     r = ioctl(DeviceHandle, HIDIOCGRDESC, &amp;rpt_desc);
+<a href='../S/132.html#L565'>DeviceHandle</a>      565 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     DeviceHandle = open(device_path, O_RDWR);
+<a href='../S/132.html#L566'>DeviceHandle</a>      566 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (DeviceHandle &lt; 0)
+<a href='../S/132.html#L569'>DeviceHandle</a>      569 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         DeviceHandle = -1;
+<a href='../S/132.html#L578'>DeviceHandle</a>      578 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         close(DeviceHandle);
+<a href='../S/132.html#L579'>DeviceHandle</a>      579 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         DeviceHandle = -1;
+<a href='../S/132.html#L584'>DeviceHandle</a>      584 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (!HIDManager-&gt;DevManager-&gt;pThread-&gt;AddSelectFd(this, DeviceHandle))
+<a href='../S/132.html#L588'>DeviceHandle</a>      588 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         close(DeviceHandle);
+<a href='../S/132.html#L589'>DeviceHandle</a>      589 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         DeviceHandle = -1;
+<a href='../S/132.html#L603'>DeviceHandle</a>      603 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (DeviceHandle &gt;= 0) // Device may already have been closed if unplugged.
+<a href='../S/132.html#L615'>DeviceHandle</a>      615 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     OVR_ASSERT(DeviceHandle &gt;= 0);
+<a href='../S/132.html#L618'>DeviceHandle</a>      618 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     HIDManager-&gt;DevManager-&gt;pThread-&gt;RemoveSelectFd(this, DeviceHandle);
+<a href='../S/132.html#L620'>DeviceHandle</a>      620 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     close(DeviceHandle);  // close the file handle
+<a href='../S/132.html#L621'>DeviceHandle</a>      621 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     DeviceHandle = -1;
+<a href='../S/132.html#L637'>DeviceHandle</a>      637 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (DeviceHandle &lt; 0)
+<a href='../S/132.html#L649'>DeviceHandle</a>      649 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     int r = ioctl(DeviceHandle, HIDIOCSFEATURE(length), data);
+<a href='../S/132.html#L656'>DeviceHandle</a>      656 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (DeviceHandle &lt; 0)
+<a href='../S/132.html#L659'>DeviceHandle</a>      659 ovr/sdk/src/OVR_Linux_HIDDevice.cpp 	int r = ioctl(DeviceHandle, HIDIOCGFEATURE(length), data);
+<a href='../S/132.html#L701'>DeviceHandle</a>      701 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (messageType == Message_DeviceAdded &amp;&amp; DeviceHandle &lt; 0)
+<a href='../S/132.html#L737'>DeviceHandle</a>      737 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         if (DeviceHandle &gt;= 0)
+<a href='../S/81.html#L77'>DeviceHandle</a>       77 ovr/sdk/src/OVR_Linux_HIDDevice.h     int                     DeviceHandle;     // file handle to the device
+</pre>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>pInstance</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/95.html#L50'>pInstance</a>          50 ovr/sdk/src/CAPI/CAPI_GlobalState.cpp GlobalState* GlobalState::pInstance = 0;
+<a href='../S/96.html#L50'>pInstance</a>          50 ovr/sdk/src/CAPI/CAPI_GlobalState.h     static GlobalState *pInstance;
+<a href='../S/97.html#L48'>pInstance</a>          48 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     GlobalState::pInstance-&gt;AddHMD(this);
+<a href='../S/97.html#L80'>pInstance</a>          80 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     GlobalState::pInstance-&gt;AddHMD(this);
+<a href='../S/97.html#L99'>pInstance</a>          99 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     OVR_ASSERT(GlobalState::pInstance);
+<a href='../S/97.html#L106'>pInstance</a>         106 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     GlobalState::pInstance-&gt;RemoveHMD(this);
+<a href='../S/97.html#L643'>pInstance</a>         643 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         pLatencyTester = *GlobalState::pInstance-&gt;GetManager()-&gt;
+<a href='../S/97.html#L674'>pInstance</a>         674 ovr/sdk/src/CAPI/CAPI_HMDState.cpp         pLatencyTesterDisplay = *GlobalState::pInstance-&gt;GetManager()-&gt;
+<a href='../S/175.html#L39'>pInstance</a>          39 ovr/sdk/src/Kernel/OVR_Allocator.cpp Allocator* Allocator::pInstance = 0;
+<a href='../S/182.html#L216'>pInstance</a>         216 ovr/sdk/src/Kernel/OVR_Allocator.h     static Allocator* GetInstance() { return pInstance; }
+<a href='../S/182.html#L227'>pInstance</a>         227 ovr/sdk/src/Kernel/OVR_Allocator.h         OVR_ASSERT((pInstance == 0) || (palloc == 0));
+<a href='../S/182.html#L228'>pInstance</a>         228 ovr/sdk/src/Kernel/OVR_Allocator.h         pInstance = palloc;
+<a href='../S/182.html#L233'>pInstance</a>         233 ovr/sdk/src/Kernel/OVR_Allocator.h     static Allocator* pInstance;
+<a href='../S/142.html#L213'>pInstance</a>         213 ovr/sdk/src/OVR_CAPI.cpp     if (OVR::CAPI::GlobalState::pInstance)
+<a href='../S/142.html#L224'>pInstance</a>         224 ovr/sdk/src/OVR_CAPI.cpp     GlobalState::pInstance = new GlobalState;
+<a href='../S/142.html#L230'>pInstance</a>         230 ovr/sdk/src/OVR_CAPI.cpp     if (!GlobalState::pInstance)
+<a href='../S/142.html#L233'>pInstance</a>         233 ovr/sdk/src/OVR_CAPI.cpp     delete GlobalState::pInstance;
+<a href='../S/142.html#L234'>pInstance</a>         234 ovr/sdk/src/OVR_CAPI.cpp     GlobalState::pInstance = 0;
+<a href='../S/142.html#L257'>pInstance</a>         257 ovr/sdk/src/OVR_CAPI.cpp     if (!GlobalState::pInstance)
+<a href='../S/142.html#L259'>pInstance</a>         259 ovr/sdk/src/OVR_CAPI.cpp     return GlobalState::pInstance-&gt;EnumerateDevices();
+<a href='../S/142.html#L270'>pInstance</a>         270 ovr/sdk/src/OVR_CAPI.cpp     if (!GlobalState::pInstance)
+<a href='../S/142.html#L272'>pInstance</a>         272 ovr/sdk/src/OVR_CAPI.cpp     Ptr&lt;HMDDevice&gt; device = *GlobalState::pInstance-&gt;CreateDevice(index);
+<a href='../S/142.html#L285'>pInstance</a>         285 ovr/sdk/src/OVR_CAPI.cpp     if (!GlobalState::pInstance)
+<a href='../S/142.html#L313'>pInstance</a>         313 ovr/sdk/src/OVR_CAPI.cpp         if (!GlobalState::pInstance)  
+<a href='../S/142.html#L315'>pInstance</a>         315 ovr/sdk/src/OVR_CAPI.cpp         return GlobalState::pInstance-&gt;GetLastError();
+</pre>
+</body>
+</html>

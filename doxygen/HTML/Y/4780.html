@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>vals</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/139.html#L217'>vals</a>              217 ovr/sdk/src/OVR_Profile.cpp                 JSON* vals = tagged_item-&gt;GetItemByName("vals");
+<a href='../S/139.html#L218'>vals</a>              218 ovr/sdk/src/OVR_Profile.cpp                 return vals;
+<a href='../S/139.html#L765'>vals</a>              765 ovr/sdk/src/OVR_Profile.cpp     JSON* vals = FindTaggedData(tagged_data, tag_names, tags, num_tags);
+<a href='../S/139.html#L766'>vals</a>              766 ovr/sdk/src/OVR_Profile.cpp     if (vals)
+<a href='../S/139.html#L768'>vals</a>              768 ovr/sdk/src/OVR_Profile.cpp         JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L774'>vals</a>              774 ovr/sdk/src/OVR_Profile.cpp             item = vals-&gt;GetNextItem(item);
+<a href='../S/139.html#L804'>vals</a>              804 ovr/sdk/src/OVR_Profile.cpp     JSON* vals = FindTaggedData(tagged_data, tag_names, tags, num_tags);
+<a href='../S/139.html#L805'>vals</a>              805 ovr/sdk/src/OVR_Profile.cpp     if (vals == NULL)
+<a href='../S/139.html#L816'>vals</a>              816 ovr/sdk/src/OVR_Profile.cpp         vals = JSON::CreateObject();
+<a href='../S/139.html#L819'>vals</a>              819 ovr/sdk/src/OVR_Profile.cpp         tagged_item-&gt;AddItem("vals", vals);
+<a href='../S/139.html#L829'>vals</a>              829 ovr/sdk/src/OVR_Profile.cpp         JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L897'>vals</a>              897 ovr/sdk/src/OVR_Profile.cpp             item = vals-&gt;GetNextItem(item);
+<a href='../S/139.html#L903'>vals</a>              903 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddStringItem(value-&gt;Name, value-&gt;Value);
+<a href='../S/139.html#L905'>vals</a>              905 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddBoolItem(value-&gt;Name, (value-&gt;dValue != 0));
+<a href='../S/139.html#L907'>vals</a>              907 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddItem(value-&gt;Name, value-&gt;Copy());
+<a href='../S/139.html#L909'>vals</a>              909 ovr/sdk/src/OVR_Profile.cpp                 vals-&gt;AddNumberItem(value-&gt;Name, value-&gt;dValue);
+<a href='../S/139.html#L1154'>vals</a>             1154 ovr/sdk/src/OVR_Profile.cpp                 JSON* vals = FindTaggedData(data, tag_names+i, tags+i, combos);
+<a href='../S/139.html#L1155'>vals</a>             1155 ovr/sdk/src/OVR_Profile.cpp                 if (vals)
+<a href='../S/139.html#L1163'>vals</a>             1163 ovr/sdk/src/OVR_Profile.cpp                     JSON* item = vals-&gt;GetFirstItem();
+<a href='../S/139.html#L1169'>vals</a>             1169 ovr/sdk/src/OVR_Profile.cpp                         item = vals-&gt;GetNextItem(item);
+<a href='../S/139.html#L1416'>vals</a>             1416 ovr/sdk/src/OVR_Profile.cpp void Profile::SetFloatValues(const char* key, const float* vals, int num_vals)
+<a href='../S/139.html#L1433'>vals</a>             1433 ovr/sdk/src/OVR_Profile.cpp                     item-&gt;dValue = vals[val_count];
+<a href='../S/139.html#L1454'>vals</a>             1454 ovr/sdk/src/OVR_Profile.cpp         value-&gt;AddArrayNumber(vals[val_count]);
+<a href='../S/139.html#L1476'>vals</a>             1476 ovr/sdk/src/OVR_Profile.cpp void Profile::SetDoubleValues(const char* key, const double* vals, int num_vals)
+<a href='../S/139.html#L1493'>vals</a>             1493 ovr/sdk/src/OVR_Profile.cpp                     item-&gt;dValue = vals[val_count];
+<a href='../S/139.html#L1514'>vals</a>             1514 ovr/sdk/src/OVR_Profile.cpp         value-&gt;AddArrayNumber(vals[val_count]);
+<a href='../S/133.html#L137'>vals</a>              137 ovr/sdk/src/OVR_Profile.h     void                SetFloatValues(const char* key, const float* vals, int num_vals);
+<a href='../S/133.html#L139'>vals</a>              139 ovr/sdk/src/OVR_Profile.h     void                SetDoubleValues(const char* key, const double* vals, int num_vals);
+</pre>
+</body>
+</html>

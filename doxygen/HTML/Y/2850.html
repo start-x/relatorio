@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>class_name</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/182.html#L73'>class_name</a>         73 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_MEMORY_REDEFINE_NEW_IMPL(class_name, check_delete)                          \
+<a href='../S/182.html#L79'>class_name</a>         79 ovr/sdk/src/Kernel/OVR_Allocator.h     { check_delete(class_name, p); OVR_FREE(p); }                                       \
+<a href='../S/182.html#L81'>class_name</a>         81 ovr/sdk/src/Kernel/OVR_Allocator.h     { check_delete(class_name, p); OVR_FREE(p); }                          
+<a href='../S/182.html#L88'>class_name</a>         88 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_MEMORY_CHECK_DELETE_NONE(class_name, p)
+<a href='../S/182.html#L91'>class_name</a>         91 ovr/sdk/src/Kernel/OVR_Allocator.h #define OVR_MEMORY_REDEFINE_NEW(class_name) \
+<a href='../S/182.html#L92'>class_name</a>         92 ovr/sdk/src/Kernel/OVR_Allocator.h     OVR_MEMORY_REDEFINE_NEW_IMPL(class_name, OVR_MEMORY_CHECK_DELETE_NONE)
+<a href='../S/166.html#L188'>class_name</a>        188 ovr/sdk/src/Kernel/OVR_RefCount.h     #define OVR_REFCOUNTALLOC_CHECK_DELETE(class_name, p)   \
+<a href='../S/166.html#L189'>class_name</a>        189 ovr/sdk/src/Kernel/OVR_RefCount.h         do {if (p) Base::checkInvalidDelete((class_name*)p); } while(0)
+<a href='../S/166.html#L191'>class_name</a>        191 ovr/sdk/src/Kernel/OVR_RefCount.h     #define OVR_REFCOUNTALLOC_CHECK_DELETE(class_name, p)
+<a href='../S/166.html#L221'>class_name</a>        221 ovr/sdk/src/Kernel/OVR_RefCount.h #define OVR_REFCOUNTALLOC_CHECK_DELETE(class_name, p)
+</pre>
+</body>
+</html>

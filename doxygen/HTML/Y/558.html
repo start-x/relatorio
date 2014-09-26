@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>EyeRelief</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L842'>EyeRelief</a>         842 ovr/sdk/src/OVR_Device.h         EyeRelief(0),
+<a href='../S/108.html#L864'>EyeRelief</a>         864 ovr/sdk/src/OVR_Device.h 				EyeRelief(eyeRelief),
+<a href='../S/108.html#L878'>EyeRelief</a>         878 ovr/sdk/src/OVR_Device.h 	UInt16		EyeRelief;
+<a href='../S/192.html#L495'>EyeRelief</a>         495 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		EncodeUInt16(Buffer+10, Settings.EyeRelief);
+<a href='../S/192.html#L516'>EyeRelief</a>         516 ovr/sdk/src/OVR_Sensor2ImplUtil.h 		Settings.EyeRelief = DecodeUInt16(Buffer+10);
+<a href='../S/88.html#L864'>EyeRelief</a>         864 ovr/sdk/src/OVR_Stereo.cpp         float EyeRelief;
+<a href='../S/88.html#L880'>EyeRelief</a>         880 ovr/sdk/src/OVR_Stereo.cpp         distortions[i].EyeRelief = 0.0f;
+<a href='../S/88.html#L895'>EyeRelief</a>         895 ovr/sdk/src/OVR_Stereo.cpp         distortions[numDistortions].EyeRelief                            = 0.012760465f - 0.005f;
+<a href='../S/88.html#L917'>EyeRelief</a>         917 ovr/sdk/src/OVR_Stereo.cpp         distortions[numDistortions].EyeRelief                            = 0.012760465f;  // my average eye-relief
+<a href='../S/88.html#L938'>EyeRelief</a>         938 ovr/sdk/src/OVR_Stereo.cpp         distortions[numDistortions].EyeRelief                            = 0.012760465f + 0.005f;
+<a href='../S/88.html#L972'>EyeRelief</a>         972 ovr/sdk/src/OVR_Stereo.cpp         distortions[numDistortions].EyeRelief                            = 0.010f;
+<a href='../S/88.html#L997'>EyeRelief</a>         997 ovr/sdk/src/OVR_Stereo.cpp         distortions[numDistortions].EyeRelief = 0.020f;
+<a href='../S/88.html#L1014'>EyeRelief</a>        1014 ovr/sdk/src/OVR_Stereo.cpp         distortions[numDistortions].EyeRelief                            = 0.010f;
+<a href='../S/88.html#L1039'>EyeRelief</a>        1039 ovr/sdk/src/OVR_Stereo.cpp         distortions[numDistortions].EyeRelief = 0.020f;
+<a href='../S/88.html#L1055'>EyeRelief</a>        1055 ovr/sdk/src/OVR_Stereo.cpp         distortions[0].EyeRelief = 0.005f;
+<a href='../S/88.html#L1067'>EyeRelief</a>        1067 ovr/sdk/src/OVR_Stereo.cpp         distortions[1].EyeRelief = 0.010f;
+<a href='../S/88.html#L1097'>EyeRelief</a>        1097 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( distortions[i].EyeRelief &lt; distortions[i+1].EyeRelief );
+<a href='../S/88.html#L1098'>EyeRelief</a>        1098 ovr/sdk/src/OVR_Stereo.cpp             if ( ( distortions[i].EyeRelief &lt;= eyeReliefInMeters ) &amp;&amp; ( distortions[i+1].EyeRelief &gt; eyeReliefInMeters ) )
+<a href='../S/88.html#L1102'>EyeRelief</a>        1102 ovr/sdk/src/OVR_Stereo.cpp                 lerpVal = ( eyeReliefInMeters - pLower-&gt;EyeRelief ) / ( pUpper-&gt;EyeRelief - pLower-&gt;EyeRelief );
+<a href='../S/88.html#L1112'>EyeRelief</a>        1112 ovr/sdk/src/OVR_Stereo.cpp         if ( distortions[0].EyeRelief &gt; eyeReliefInMeters )
+<a href='../S/88.html#L1119'>EyeRelief</a>        1119 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( distortions[numDistortions-1].EyeRelief &lt;= eyeReliefInMeters );
+<a href='../S/88.html#L1123'>EyeRelief</a>        1123 ovr/sdk/src/OVR_Stereo.cpp         lerpVal = ( eyeReliefInMeters - pLower-&gt;EyeRelief ) / ( pUpper-&gt;EyeRelief - pLower-&gt;EyeRelief );
+<a href='../S/88.html#L1126'>EyeRelief</a>        1126 ovr/sdk/src/OVR_Stereo.cpp         if ( distortions[0].EyeRelief &gt; eyeReliefInMeters )
+<a href='../S/88.html#L1133'>EyeRelief</a>        1133 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( distortions[numDistortions-1].EyeRelief &lt;= eyeReliefInMeters );
+</pre>
+</body>
+</html>

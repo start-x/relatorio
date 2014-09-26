@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>DeviceImpl</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/129.html#L275'>DeviceImpl</a>        275 ovr/sdk/src/OVR_Common_HMDDevice.cpp     : OVR::DeviceImpl&lt;OVR::HMDDevice&gt;(createDesc, 0)
+<a href='../S/191.html#L289'>DeviceImpl</a>        289 ovr/sdk/src/OVR_DeviceImpl.cpp     : DeviceImpl&lt;OVR::DeviceManager&gt;(CreateManagerDesc(), 0)
+<a href='../S/80.html#L232'>DeviceImpl</a>        232 ovr/sdk/src/OVR_DeviceImpl.h class DeviceImpl : public B, public DeviceCommon
+<a href='../S/80.html#L235'>DeviceImpl</a>        235 ovr/sdk/src/OVR_DeviceImpl.h     DeviceImpl(DeviceCreateDesc* createDesc, DeviceBase* parent)
+<a href='../S/80.html#L244'>DeviceImpl</a>        244 ovr/sdk/src/OVR_DeviceImpl.h     DeviceImpl*         getThis()                   { return this; }
+<a href='../S/80.html#L334'>DeviceImpl</a>        334 ovr/sdk/src/OVR_DeviceImpl.h class DeviceManagerImpl : public DeviceImpl&lt;OVR::DeviceManager&gt;, public ThreadCommandQueue
+<a href='../S/123.html#L55'>DeviceImpl</a>         55 ovr/sdk/src/OVR_HIDDeviceImpl.h class HIDDeviceImpl : public DeviceImpl&lt;B&gt;, public HIDDevice::HIDHandler
+<a href='../S/123.html#L59'>DeviceImpl</a>         59 ovr/sdk/src/OVR_HIDDeviceImpl.h      :  DeviceImpl&lt;B&gt;(createDesc, parent)        
+<a href='../S/123.html#L70'>DeviceImpl</a>         70 ovr/sdk/src/OVR_HIDDeviceImpl.h                 DeviceImpl&lt;B&gt;::ConnectedFlag = true;
+<a href='../S/123.html#L75'>DeviceImpl</a>         75 ovr/sdk/src/OVR_HIDDeviceImpl.h                 DeviceImpl&lt;B&gt;::ConnectedFlag = false;
+<a href='../S/123.html#L117'>DeviceImpl</a>        117 ovr/sdk/src/OVR_HIDDeviceImpl.h         DeviceImpl&lt;B&gt;::pParent = parent;
+<a href='../S/123.html#L126'>DeviceImpl</a>        126 ovr/sdk/src/OVR_HIDDeviceImpl.h         DeviceImpl&lt;B&gt;::pParent.Clear();
+<a href='../S/123.html#L131'>DeviceImpl</a>        131 ovr/sdk/src/OVR_HIDDeviceImpl.h         return DeviceImpl&lt;B&gt;::pCreateDesc-&gt;GetManagerImpl();
+<a href='../S/123.html#L136'>DeviceImpl</a>        136 ovr/sdk/src/OVR_HIDDeviceImpl.h         return DeviceImpl&lt;B&gt;::pCreateDesc-&gt;GetManagerImpl()-&gt;GetHIDDeviceManager();
+<a href='../S/123.html#L193'>DeviceImpl</a>        193 ovr/sdk/src/OVR_HIDDeviceImpl.h     { return (HIDDeviceCreateDesc*) &amp;(*DeviceImpl&lt;B&gt;::pCreateDesc); }
+<a href='../S/125.html#L124'>DeviceImpl</a>        124 ovr/sdk/src/OVR_Linux_HMDDevice.h class HMDDevice : public DeviceImpl&lt;OVR::HMDDevice&gt;
+</pre>
+</body>
+</html>

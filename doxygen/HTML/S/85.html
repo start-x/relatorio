@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>ovr/sdk/src/OVR_DeviceConstants.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/OVR_DeviceConstants.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/91.html' title='Multiple included from 5 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>PublicHeader:   OVR.h</font></i>
+<a name='L4'>   4 <i><font color='green'>Filename    :   OVR_DeviceConstants.h</font></i>
+<a name='L5'>   5 <i><font color='green'>Content     :   Device constants</font></i>
+<a name='L6'>   6 <i><font color='green'>Created     :   February 5, 2013</font></i>
+<a name='L7'>   7 <i><font color='green'>Authors     :   Lee Cooper</font></i>
+<a name='L8'>   8 <i><font color='green'></font></i>
+<a name='L9'>   9 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L10'>  10 <i><font color='green'></font></i>
+<a name='L11'>  11 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L12'>  12 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L13'>  13 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L14'>  14 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L15'>  15 <i><font color='green'></font></i>
+<a name='L16'>  16 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L17'>  17 <i><font color='green'></font></i>
+<a name='L18'>  18 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L19'>  19 <i><font color='green'></font></i>
+<a name='L20'>  20 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L21'>  21 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L22'>  22 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L23'>  23 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L24'>  24 <i><font color='green'>limitations under the License.</font></i>
+<a name='L25'>  25 <i><font color='green'></font></i>
+<a name='L26'>  26 <i><font color='green'>*************************************************************************************/</font></i>
+<a name='L27'>  27 
+<a name='L28'>  28 <font color='darkred'>#ifndef</font> <a href='../S/85.html#L29' title='Defined at 29 in ovr/sdk/src/OVR_DeviceConstants.h.'>OVR_DeviceConstants_h</a>
+<a name='L29'>  29 <font color='darkred'>#define</font> <a href='../S/85.html#L28' title='Refered from 28 in ovr/sdk/src/OVR_DeviceConstants.h.'>OVR_DeviceConstants_h</a>
+<a name='L30'>  30 
+<a name='L31'>  31 <a href='../Y/3724.html' title='Multiple used in 73 places.'>namespace</a> <a href='../D/655.html' title='Multiple defined in 50 places.'>OVR</a> <font color='red'>{</font>
+<a name='L32'>  32 
+<a name='L33'>  33 
+<a name='L34'>  34 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L35'>  35 <i><font color='green'>// Different device types supported by OVR; this type is reported by DeviceBase::GetType.</font></i>
+<a name='L36'>  36 <i><font color='green'>// </font></i>
+<a name='L37'>  37 <b>enum</b> <a href='../R/181.html' title='Multiple refered from 21 places.'>DeviceType</a>
+<a name='L38'>  38 <font color='red'>{</font>
+<a name='L39'>  39     <a href='../Y/409.html' title='Multiple used in 13 places.'>Device_None</a>             = 0,
+<a name='L40'>  40     <a href='../S/108.html#L281' title='Defined at 281 in ovr/sdk/src/OVR_Device.h.'>Device_Manager</a>          = 1,
+<a name='L41'>  41     <a href='../S/108.html#L419' title='Defined at 419 in ovr/sdk/src/OVR_Device.h.'>Device_HMD</a>              = 2,
+<a name='L42'>  42     <a href='../S/108.html#L971' title='Defined at 971 in ovr/sdk/src/OVR_Device.h.'>Device_Sensor</a>           = 3,
+<a name='L43'>  43     <a href='../S/108.html#L1104' title='Defined at 1104 in ovr/sdk/src/OVR_Device.h.'>Device_LatencyTester</a>    = 4,
+<a name='L44'>  44     <a href='../Y/403.html' title='Multiple used in 3 places.'>Device_BootLoader</a>       = 5,
+<a name='L45'>  45         Device_Camera                   = 6,
+<a name='L46'>  46         Device_Display                  = 7,
+<a name='L47'>  47     <a href='../S/108.html#L107' title='Defined at 107 in ovr/sdk/src/OVR_Device.h.'>Device_All</a>              = 0xFF <i><font color='green'>// Set for enumeration only, to enumerate all device types.</font></i>
+<a name='L48'>  48 <font color='red'>}</font>;
+<a name='L49'>  49 
+<a name='L50'>  50 
+<a name='L51'>  51 
+<a name='L52'>  52 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L53'>  53 <i><font color='green'>// Different lens distortion types supported by devices.</font></i>
+<a name='L54'>  54 <i><font color='green'>// </font></i>
+<a name='L55'>  55 <b>enum</b> <a href='../R/195.html' title='Multiple refered from 4 places.'>DistortionEqnType</a>
+<a name='L56'>  56 <font color='red'>{</font>
+<a name='L57'>  57     Distortion_No_Override  = -1,    
+<a name='L58'>  58         <i><font color='green'>// These two are leagcy and deprecated.</font></i>
+<a name='L59'>  59     <a href='../Y/458.html' title='Multiple used in 5 places.'>Distortion_Poly4</a>        = 0,    <i><font color='green'>// scale = (K0 + K1*r^2 + K2*r^4 + K3*r^6)</font></i>
+<a name='L60'>  60     <a href='../Y/459.html' title='Multiple used in 11 places.'>Distortion_RecipPoly4</a>   = 1,    <i><font color='green'>// scale = 1/(K0 + K1*r^2 + K2*r^4 + K3*r^6)</font></i>
+<a name='L61'>  61 
+<a name='L62'>  62     <i><font color='green'>// CatmullRom10 is the preferred distortion format.</font></i>
+<a name='L63'>  63     <a href='../Y/455.html' title='Multiple used in 15 places.'>Distortion_CatmullRom10</a> = 2,    <i><font color='green'>// scale = Catmull-Rom spline through points (1.0, K[1]...K[9])</font></i>
+<a name='L64'>  64 
+<a name='L65'>  65     Distortion_LAST                 <i><font color='green'>// For ease of enumeration.</font></i>
+<a name='L66'>  66 <font color='red'>}</font>;
+<a name='L67'>  67 
+<a name='L68'>  68 
+<a name='L69'>  69 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L70'>  70 <i><font color='green'>// HMD types.</font></i>
+<a name='L71'>  71 <i><font color='green'>//</font></i>
+<a name='L72'>  72 <b>enum</b> <a href='../R/446.html' title='Multiple refered from 9 places.'>HmdTypeEnum</a>
+<a name='L73'>  73 <font color='red'>{</font>
+<a name='L74'>  74     <a href='../Y/944.html' title='Multiple used in 8 places.'>HmdType_None</a>,
+<a name='L75'>  75 
+<a name='L76'>  76     <a href='../Y/942.html' title='Multiple used in 6 places.'>HmdType_DKProto</a>,            <i><font color='green'>// First duct-tape model, never sold.</font></i>
+<a name='L77'>  77     <a href='../Y/937.html' title='Multiple used in 10 places.'>HmdType_DK1</a>,                <i><font color='green'>// DevKit1 - on sale to developers.</font></i>
+<a name='L78'>  78     <a href='../Y/940.html' title='Multiple used in 5 places.'>HmdType_DKHDProto</a>,          <i><font color='green'>// DKHD - shown at various shows, never sold.</font></i>
+<a name='L79'>  79     <a href='../Y/939.html' title='Multiple used in 6 places.'>HmdType_DKHD2Proto</a>,         <i><font color='green'>// DKHD2, 5.85-inch panel, never sold.</font></i>
+<a name='L80'>  80     <a href='../Y/941.html' title='Multiple used in 5 places.'>HmdType_DKHDProto566Mi</a>,     <i><font color='green'>// DKHD, 5.66-inch panel, never sold.</font></i>
+<a name='L81'>  81     <a href='../Y/936.html' title='Multiple used in 10 places.'>HmdType_CrystalCoveProto</a>,   <i><font color='green'>// Crystal Cove, 5.66-inch panel, shown at shows but never sold.</font></i>
+<a name='L82'>  82     <a href='../Y/938.html' title='Multiple used in 14 places.'>HmdType_DK2</a>,
+<a name='L83'>  83 
+<a name='L84'>  84     <i><font color='green'>// Reminder - this header file is public - codenames only!</font></i>
+<a name='L85'>  85 
+<a name='L86'>  86     <a href='../Y/945.html' title='Multiple used in 5 places.'>HmdType_Unknown</a>,            <i><font color='green'>// Used for unnamed HW lab experiments.</font></i>
+<a name='L87'>  87 
+<a name='L88'>  88     <a href='../Y/943.html' title='Multiple used in 2 places.'>HmdType_LAST</a>
+<a name='L89'>  89 <font color='red'>}</font>;
+<a name='L90'>  90 
+<a name='L91'>  91 
+<a name='L92'>  92 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L93'>  93 <i><font color='green'>// HMD shutter types.</font></i>
+<a name='L94'>  94 <i><font color='green'>//</font></i>
+<a name='L95'>  95 <b>enum</b> <a href='../R/445.html' title='Multiple refered from 5 places.'>HmdShutterTypeEnum</a>
+<a name='L96'>  96 <font color='red'>{</font>
+<a name='L97'>  97     <a href='../Y/929.html' title='Multiple used in 5 places.'>HmdShutter_Global</a>,
+<a name='L98'>  98     <a href='../Y/933.html' title='Multiple used in 8 places.'>HmdShutter_RollingTopToBottom</a>,
+<a name='L99'>  99     <a href='../Y/931.html' title='Multiple used in 4 places.'>HmdShutter_RollingLeftToRight</a>,
+<a name='L100'> 100     <a href='../Y/932.html' title='Multiple used in 12 places.'>HmdShutter_RollingRightToLeft</a>,
+<a name='L101'> 101     <i><font color='green'>// TODO:</font></i>
+<a name='L102'> 102     <i><font color='green'>// color-sequential e.g. LCOS?</font></i>
+<a name='L103'> 103     <i><font color='green'>// alternate eyes?</font></i>
+<a name='L104'> 104     <i><font color='green'>// alternate columns?</font></i>
+<a name='L105'> 105     <i><font color='green'>// outside-in?</font></i>
+<a name='L106'> 106 
+<a name='L107'> 107     <a href='../Y/930.html' title='Multiple used in 3 places.'>HmdShutter_LAST</a>
+<a name='L108'> 108 <font color='red'>}</font>;
+<a name='L109'> 109 
+<a name='L110'> 110 
+<a name='L111'> 111 
+<a name='L112'> 112 <i><font color='green'>//-------------------------------------------------------------------------------------</font></i>
+<a name='L113'> 113 <i><font color='green'>// For headsets that use eye cups</font></i>
+<a name='L114'> 114 <i><font color='green'>//</font></i>
+<a name='L115'> 115 <b>enum</b> <a href='../R/236.html' title='Multiple refered from 3 places.'>EyeCupType</a>
+<a name='L116'> 116 <font color='red'>{</font>
+<a name='L117'> 117     <i><font color='green'>// Public lenses</font></i>
+<a name='L118'> 118     <a href='../Y/543.html' title='Multiple used in 11 places.'>EyeCup_DK1A</a> = 0,
+<a name='L119'> 119     <a href='../Y/544.html' title='Multiple used in 6 places.'>EyeCup_DK1B</a> = 1,
+<a name='L120'> 120     <a href='../Y/545.html' title='Multiple used in 6 places.'>EyeCup_DK1C</a> = 2,
+<a name='L121'> 121 
+<a name='L122'> 122     <a href='../Y/546.html' title='Multiple used in 5 places.'>EyeCup_DK2A</a> = 3,
+<a name='L123'> 123 
+<a name='L124'> 124     <i><font color='green'>// Internal R&amp;D codenames.</font></i>
+<a name='L125'> 125     <i><font color='green'>// Reminder - this header file is public - codenames only!</font></i>
+<a name='L126'> 126     <a href='../Y/547.html' title='Multiple used in 5 places.'>EyeCup_DKHD2A</a>,
+<a name='L127'> 127     <a href='../Y/552.html' title='Multiple used in 3 places.'>EyeCup_OrangeA</a>,
+<a name='L128'> 128     <a href='../Y/554.html' title='Multiple used in 3 places.'>EyeCup_RedA</a>,
+<a name='L129'> 129     <a href='../Y/553.html' title='Multiple used in 6 places.'>EyeCup_PinkA</a>,
+<a name='L130'> 130     <a href='../Y/542.html' title='Multiple used in 3 places.'>EyeCup_BlueA</a>,
+<a name='L131'> 131     <a href='../Y/548.html' title='Multiple used in 2 places.'>EyeCup_Delilah1A</a>,
+<a name='L132'> 132     <a href='../Y/549.html' title='Multiple used in 2 places.'>EyeCup_Delilah2A</a>,
+<a name='L133'> 133     <a href='../Y/550.html' title='Multiple used in 2 places.'>EyeCup_JamesA</a>,
+<a name='L134'> 134     <a href='../Y/555.html' title='Multiple used in 2 places.'>EyeCup_SunMandalaA</a>,
+<a name='L135'> 135 
+<a name='L136'> 136     <a href='../Y/551.html' title='Multiple used in 4 places.'>EyeCup_LAST</a>
+<a name='L137'> 137 <font color='red'>}</font>;
+<a name='L138'> 138 
+<a name='L139'> 139 
+<a name='L140'> 140 <font color='red'>}</font> <i><font color='green'>// namespace OVR</font></i>
+<a name='L141'> 141 
+<a name='L142'> 142 <font color='darkred'>#endif</font>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

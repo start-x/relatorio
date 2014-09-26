@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>sampleDeviceTime</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/136.html#L94'>sampleDeviceTime</a>   94 ovr/sdk/src/OVR_SensorTimeFilter.cpp double SensorTimeFilter::SampleToSystemTime(double sampleDeviceTime, double systemTime,
+<a href='../S/136.html#L97'>sampleDeviceTime</a>   97 ovr/sdk/src/OVR_SensorTimeFilter.cpp     double clockDelta      = systemTime - sampleDeviceTime + FilterSettings.ClockDeltaAdjust;
+<a href='../S/136.html#L98'>sampleDeviceTime</a>   98 ovr/sdk/src/OVR_SensorTimeFilter.cpp     double deviceTimeDelta = sampleDeviceTime - LastLargestDeviceTime;       
+<a href='../S/136.html#L112'>sampleDeviceTime</a>  112 ovr/sdk/src/OVR_SensorTimeFilter.cpp             result = sampleDeviceTime + ClockDelta;
+<a href='../S/136.html#L127'>sampleDeviceTime</a>  127 ovr/sdk/src/OVR_SensorTimeFilter.cpp                 initClockSampling(sampleDeviceTime, clockDelta);
+<a href='../S/136.html#L138'>sampleDeviceTime</a>  138 ovr/sdk/src/OVR_SensorTimeFilter.cpp                   ( (sampleDeviceTime &lt; MinWindowLastTime) ||
+<a href='../S/136.html#L148'>sampleDeviceTime</a>  148 ovr/sdk/src/OVR_SensorTimeFilter.cpp             processFinishedMinWindow(sampleDeviceTime, clockDelta);
+<a href='../S/136.html#L155'>sampleDeviceTime</a>  155 ovr/sdk/src/OVR_SensorTimeFilter.cpp         initClockSampling(sampleDeviceTime, clockDelta);
+<a href='../S/136.html#L175'>sampleDeviceTime</a>  175 ovr/sdk/src/OVR_SensorTimeFilter.cpp     LastLargestDeviceTime = sampleDeviceTime;
+<a href='../S/136.html#L178'>sampleDeviceTime</a>  178 ovr/sdk/src/OVR_SensorTimeFilter.cpp     result = sampleDeviceTime + ClockDelta;
+<a href='../S/136.html#L218'>sampleDeviceTime</a>  218 ovr/sdk/src/OVR_SensorTimeFilter.cpp                             sampleDeviceTime,  deviceTimeDelta, rangeClamp, resultDeltaFar);
+<a href='../S/136.html#L230'>sampleDeviceTime</a>  230 ovr/sdk/src/OVR_SensorTimeFilter.cpp void SensorTimeFilter::initClockSampling(double sampleDeviceTime, double clockDelta)
+<a href='../S/136.html#L242'>sampleDeviceTime</a>  242 ovr/sdk/src/OVR_SensorTimeFilter.cpp     MinWindowLastTime            = sampleDeviceTime + MinWindowDuration;
+<a href='../S/136.html#L247'>sampleDeviceTime</a>  247 ovr/sdk/src/OVR_SensorTimeFilter.cpp void SensorTimeFilter::processFinishedMinWindow(double sampleDeviceTime, double clockDelta)
+<a href='../S/136.html#L249'>sampleDeviceTime</a>  249 ovr/sdk/src/OVR_SensorTimeFilter.cpp     MinRecord newRec = { MinWindowClockDelta, sampleDeviceTime };
+<a href='../S/136.html#L260'>sampleDeviceTime</a>  260 ovr/sdk/src/OVR_SensorTimeFilter.cpp         ((sampleDeviceTime - LastLargestDeviceTime) &gt;= 1.0))
+<a href='../S/136.html#L277'>sampleDeviceTime</a>  277 ovr/sdk/src/OVR_SensorTimeFilter.cpp             OldClockDeltaDriftExpire += sampleDeviceTime;           
+<a href='../S/136.html#L281'>sampleDeviceTime</a>  281 ovr/sdk/src/OVR_SensorTimeFilter.cpp         if ((sampleDeviceTime - LastLargestDeviceTime) &gt; 1.0)
+<a href='../S/136.html#L303'>sampleDeviceTime</a>  303 ovr/sdk/src/OVR_SensorTimeFilter.cpp         if (!MinRecords.IsEmpty() &amp;&amp; (sampleDeviceTime &gt; OldClockDeltaDriftExpire))
+<a href='../S/136.html#L308'>sampleDeviceTime</a>  308 ovr/sdk/src/OVR_SensorTimeFilter.cpp             timeElapsed = sampleDeviceTime - rec.LastSampleDeviceTime;
+<a href='../S/136.html#L379'>sampleDeviceTime</a>  379 ovr/sdk/src/OVR_SensorTimeFilter.cpp     MinWindowLastTime   = sampleDeviceTime + MinWindowDuration;
+<a href='../S/134.html#L114'>sampleDeviceTime</a>  114 ovr/sdk/src/OVR_SensorTimeFilter.h     double SampleToSystemTime(double sampleDeviceTime, double systemTime,
+<a href='../S/134.html#L130'>sampleDeviceTime</a>  130 ovr/sdk/src/OVR_SensorTimeFilter.h     void   initClockSampling(double sampleDeviceTime, double clockDelta);
+<a href='../S/134.html#L131'>sampleDeviceTime</a>  131 ovr/sdk/src/OVR_SensorTimeFilter.h     void   processFinishedMinWindow(double sampleDeviceTime, double systemTime);
+</pre>
+</body>
+</html>

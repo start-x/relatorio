@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>pobj</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/182.html#L150'>pobj</a>              150 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE void Destruct(T *pobj)
+<a href='../S/182.html#L152'>pobj</a>              152 ovr/sdk/src/Kernel/OVR_Allocator.h     pobj-&gt;~T();
+<a href='../S/182.html#L153'>pobj</a>              153 ovr/sdk/src/Kernel/OVR_Allocator.h     OVR_UNUSED1(pobj); // Fix incorrect 'unused variable' MSVC warning.
+<a href='../S/182.html#L157'>pobj</a>              157 ovr/sdk/src/Kernel/OVR_Allocator.h OVR_FORCE_INLINE void DestructArray(T *pobj, UPInt count)
+<a href='../S/182.html#L159'>pobj</a>              159 ovr/sdk/src/Kernel/OVR_Allocator.h     for (UPInt i=0; i&lt;count; ++i, ++pobj)
+<a href='../S/182.html#L160'>pobj</a>              160 ovr/sdk/src/Kernel/OVR_Allocator.h         pobj-&gt;~T();
+<a href='../S/166.html#L373'>pobj</a>              373 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr(C *pobj)
+<a href='../S/166.html#L375'>pobj</a>              375 ovr/sdk/src/Kernel/OVR_RefCount.h         if (pobj) pobj-&gt;AddRef();   
+<a href='../S/166.html#L376'>pobj</a>              376 ovr/sdk/src/Kernel/OVR_RefCount.h         pObject = pobj;
+</pre>
+</body>
+</html>

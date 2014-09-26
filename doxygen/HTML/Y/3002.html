@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>device</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/97.html#L37'>device</a>             37 ovr/sdk/src/CAPI/CAPI_HMDState.cpp HMDState::HMDState(HMDDevice* device)
+<a href='../S/97.html#L38'>device</a>             38 ovr/sdk/src/CAPI/CAPI_HMDState.cpp     : pHMD(device), HMDInfoW(device), HMDInfo(HMDInfoW.h),    
+<a href='../S/101.html#L136'>device</a>            136 ovr/sdk/src/CAPI/CAPI_HMDState.h     HMDState(HMDDevice* device);
+<a href='../S/101.html#L248'>device</a>            248 ovr/sdk/src/CAPI/CAPI_HMDState.h         HMDInfoWrapper(HMDDevice* device) { if (device) device-&gt;GetDeviceInfo(&amp;h); }
+<a href='../S/142.html#L272'>device</a>            272 ovr/sdk/src/OVR_CAPI.cpp     Ptr&lt;HMDDevice&gt; device = *GlobalState::pInstance-&gt;CreateDevice(index);
+<a href='../S/142.html#L273'>device</a>            273 ovr/sdk/src/OVR_CAPI.cpp     if (!device)
+<a href='../S/142.html#L276'>device</a>            276 ovr/sdk/src/OVR_CAPI.cpp     HMDState* hmds = new HMDState(device);
+<a href='../S/89.html#L107'>device</a>            107 ovr/sdk/src/OVR_DeviceHandle.cpp     DeviceBase*            device = 0;
+<a href='../S/89.html#L132'>device</a>            132 ovr/sdk/src/OVR_DeviceHandle.cpp                 &amp;device, pImpl, (DeviceBase*)0);
+<a href='../S/89.html#L135'>device</a>            135 ovr/sdk/src/OVR_DeviceHandle.cpp             device = manager-&gt;CreateDevice_MgrThread(pImpl, (DeviceBase*)0);
+<a href='../S/89.html#L137'>device</a>            137 ovr/sdk/src/OVR_DeviceHandle.cpp     return device;
+<a href='../S/191.html#L82'>device</a>             82 ovr/sdk/src/OVR_DeviceImpl.cpp MessageHandlerRef::MessageHandlerRef(DeviceBase* device)
+<a href='../S/191.html#L83'>device</a>             83 ovr/sdk/src/OVR_DeviceImpl.cpp     : pLock(MessageHandlerSharedLock.GetLockAddRef()), pDevice(device), HandlersCount(0)
+<a href='../S/191.html#L379'>device</a>            379 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceBase* device = createDesc-&gt;NewDeviceInstance();
+<a href='../S/191.html#L381'>device</a>            381 ovr/sdk/src/OVR_DeviceImpl.cpp     if (device)
+<a href='../S/191.html#L383'>device</a>            383 ovr/sdk/src/OVR_DeviceImpl.cpp         if (device-&gt;getDeviceCommon()-&gt;Initialize(parent))
+<a href='../S/191.html#L385'>device</a>            385 ovr/sdk/src/OVR_DeviceImpl.cpp            createDesc-&gt;pDevice = device;
+<a href='../S/191.html#L391'>device</a>            391 ovr/sdk/src/OVR_DeviceImpl.cpp             delete device;
+<a href='../S/191.html#L392'>device</a>            392 ovr/sdk/src/OVR_DeviceImpl.cpp             device = 0;
+<a href='../S/191.html#L396'>device</a>            396 ovr/sdk/src/OVR_DeviceImpl.cpp     return device;
+<a href='../S/191.html#L399'>device</a>            399 ovr/sdk/src/OVR_DeviceImpl.cpp Void DeviceManagerImpl::ReleaseDevice_MgrThread(DeviceBase* device)
+<a href='../S/191.html#L405'>device</a>            405 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceCommon*          devCommon = device-&gt;getDeviceCommon();
+<a href='../S/191.html#L435'>device</a>            435 ovr/sdk/src/OVR_DeviceImpl.cpp     delete device;
+<a href='../S/80.html#L61'>device</a>             61 ovr/sdk/src/OVR_DeviceImpl.h     MessageHandlerRef(DeviceBase* device);
+<a href='../S/80.html#L209'>device</a>            209 ovr/sdk/src/OVR_DeviceImpl.h     DeviceCommon(DeviceCreateDesc* createDesc, DeviceBase* device, DeviceBase* parent)
+<a href='../S/80.html#L211'>device</a>            211 ovr/sdk/src/OVR_DeviceImpl.h           ConnectedFlag(true), HandlerRef(device)
+<a href='../S/80.html#L382'>device</a>            382 ovr/sdk/src/OVR_DeviceImpl.h     static DeviceCommon* GetDeviceCommon(DeviceBase* device)
+<a href='../S/80.html#L384'>device</a>            384 ovr/sdk/src/OVR_DeviceImpl.h         return device-&gt;getDeviceCommon();
+<a href='../S/80.html#L390'>device</a>            390 ovr/sdk/src/OVR_DeviceImpl.h     Void        ReleaseDevice_MgrThread(DeviceBase* device);
+<a href='../S/123.html#L107'>device</a>            107 ovr/sdk/src/OVR_HIDDeviceImpl.h         HIDDevice* device = pManager-&gt;Open(hidDesc.Path);
+<a href='../S/123.html#L108'>device</a>            108 ovr/sdk/src/OVR_HIDDeviceImpl.h         if (!device)
+<a href='../S/123.html#L113'>device</a>            113 ovr/sdk/src/OVR_HIDDeviceImpl.h         InternalDevice = *device;
+<a href='../S/87.html#L419'>device</a>            419 ovr/sdk/src/OVR_LatencyTestImpl.cpp         virtual void Visit(HIDDevice&amp; device, const HIDDeviceDesc&amp; desc)
+<a href='../S/87.html#L421'>device</a>            421 ovr/sdk/src/OVR_LatencyTestImpl.cpp             OVR_UNUSED(device);
+<a href='../S/132.html#L135'>device</a>            135 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::AddNotificationDevice(HIDDevice* device)
+<a href='../S/132.html#L137'>device</a>            137 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     NotificationDevices.PushBack(device);
+<a href='../S/132.html#L142'>device</a>            142 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::RemoveNotificationDevice(HIDDevice* device)
+<a href='../S/132.html#L146'>device</a>            146 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         if (NotificationDevices[i] == device)
+<a href='../S/132.html#L156'>device</a>            156 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::getIntProperty(udev_device* device,
+<a href='../S/132.html#L160'>device</a>            160 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     const char* str = udev_device_get_sysattr_value(device, propertyName);
+<a href='../S/132.html#L174'>device</a>            174 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::initVendorProductVersion(udev_device* device, HIDDeviceDesc* pDevDesc)
+<a href='../S/132.html#L177'>device</a>            177 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (getIntProperty(device, "idVendor", &amp;result))
+<a href='../S/132.html#L182'>device</a>            182 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (getIntProperty(device, "idProduct", &amp;result))
+<a href='../S/132.html#L187'>device</a>            187 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (getIntProperty(device, "bcdDevice", &amp;result))
+<a href='../S/132.html#L196'>device</a>            196 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::getStringProperty(udev_device* device,
+<a href='../S/132.html#L201'>device</a>            201 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     const char* str = udev_device_get_sysattr_value(device, propertyName);
+<a href='../S/132.html#L266'>device</a>            266 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                         Linux::HIDDevice device(this, device_handle);
+<a href='../S/132.html#L267'>device</a>            267 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                         enumVisitor-&gt;Visit(device, devDesc);
+<a href='../S/132.html#L288'>device</a>            288 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     Ptr&lt;Linux::HIDDevice&gt; device = *new Linux::HIDDevice(this);
+<a href='../S/132.html#L290'>device</a>            290 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (device-&gt;HIDInitialize(path))
+<a href='../S/132.html#L292'>device</a>            292 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         device-&gt;AddRef();        
+<a href='../S/132.html#L293'>device</a>            293 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         return device;
+<a href='../S/132.html#L300'>device</a>            300 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::getFullDesc(udev_device* device, HIDDeviceDesc* desc)
+<a href='../S/132.html#L303'>device</a>            303 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (!initVendorProductVersion(device, desc))
+<a href='../S/132.html#L308'>device</a>            308 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (!getStringProperty(device, "serial", &amp;(desc-&gt;SerialNumber)))
+<a href='../S/132.html#L313'>device</a>            313 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     getStringProperty(device, "manufacturer", &amp;(desc-&gt;Manufacturer));
+<a href='../S/132.html#L314'>device</a>            314 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     getStringProperty(device, "product", &amp;(desc-&gt;Product));
+<a href='../S/81.html#L112'>device</a>            112 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool initVendorProductVersion(udev_device* device, HIDDeviceDesc* pDevDesc);
+<a href='../S/81.html#L113'>device</a>            113 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool getPath(udev_device* device, String* pPath);
+<a href='../S/81.html#L114'>device</a>            114 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool getIntProperty(udev_device* device, const char* key, int32_t* pResult);
+<a href='../S/81.html#L115'>device</a>            115 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool getStringProperty(udev_device* device,
+<a href='../S/81.html#L118'>device</a>            118 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool getFullDesc(udev_device* device, HIDDeviceDesc* desc);
+<a href='../S/81.html#L121'>device</a>            121 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool AddNotificationDevice(HIDDevice* device);
+<a href='../S/81.html#L122'>device</a>            122 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool RemoveNotificationDevice(HIDDevice* device);
+<a href='../S/139.html#L140'>device</a>            140 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::GetDeviceTags(const DeviceBase* device, String&amp; product, String&amp; serial)
+<a href='../S/139.html#L145'>device</a>            145 ovr/sdk/src/OVR_Profile.cpp     if (device &amp;&amp; device-&gt;GetType() == Device_HMD)
+<a href='../S/139.html#L147'>device</a>            147 ovr/sdk/src/OVR_Profile.cpp         HMDDevice* hmd = (HMDDevice*)device;
+<a href='../S/139.html#L292'>device</a>            292 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::GetDefaultProfile(const DeviceBase* device)
+<a href='../S/139.html#L309'>device</a>            309 ovr/sdk/src/OVR_Profile.cpp     OVR_UNUSED(device);
+<a href='../S/139.html#L681'>device</a>            681 ovr/sdk/src/OVR_Profile.cpp const char* ProfileManager::GetDefaultUser(const DeviceBase* device)
+<a href='../S/139.html#L688'>device</a>            688 ovr/sdk/src/OVR_Profile.cpp     if (!GetDeviceTags(device, product, serial))
+<a href='../S/139.html#L720'>device</a>            720 ovr/sdk/src/OVR_Profile.cpp bool ProfileManager::SetDefaultUser(const DeviceBase* device, const char* user)
+<a href='../S/139.html#L727'>device</a>            727 ovr/sdk/src/OVR_Profile.cpp     if (!GetDeviceTags(device, product, serial))
+<a href='../S/139.html#L919'>device</a>            919 ovr/sdk/src/OVR_Profile.cpp Profile* ProfileManager::GetProfile(const DeviceBase* device, const char* user)
+<a href='../S/139.html#L932'>device</a>            932 ovr/sdk/src/OVR_Profile.cpp     if (device)
+<a href='../S/139.html#L934'>device</a>            934 ovr/sdk/src/OVR_Profile.cpp         if (!profile-&gt;LoadDeviceProfile(device) &amp;&amp; (user == NULL))
+<a href='../S/139.html#L945'>device</a>            945 ovr/sdk/src/OVR_Profile.cpp         GetDeviceTags(device, product, serial);
+<a href='../S/139.html#L1033'>device</a>           1033 ovr/sdk/src/OVR_Profile.cpp     JSON* device = root-&gt;GetNextItem(version);
+<a href='../S/139.html#L1034'>device</a>           1034 ovr/sdk/src/OVR_Profile.cpp     while (device)
+<a href='../S/139.html#L1036'>device</a>           1036 ovr/sdk/src/OVR_Profile.cpp         if (device-&gt;Name == "Device")
+<a href='../S/139.html#L1038'>device</a>           1038 ovr/sdk/src/OVR_Profile.cpp             JSON* product_item = device-&gt;GetItemByName("ProductID");
+<a href='../S/139.html#L1039'>device</a>           1039 ovr/sdk/src/OVR_Profile.cpp             JSON* serial_item = device-&gt;GetItemByName("Serial");
+<a href='../S/139.html#L1044'>device</a>           1044 ovr/sdk/src/OVR_Profile.cpp                 CopyItems(device, "");
+<a href='../S/139.html#L1049'>device</a>           1049 ovr/sdk/src/OVR_Profile.cpp         device = root-&gt;GetNextItem(device);
+<a href='../S/139.html#L1065'>device</a>           1065 ovr/sdk/src/OVR_Profile.cpp bool Profile::LoadDeviceProfile(const DeviceBase* device)
+<a href='../S/139.html#L1068'>device</a>           1068 ovr/sdk/src/OVR_Profile.cpp     if (device == NULL)
+<a href='../S/139.html#L1073'>device</a>           1073 ovr/sdk/src/OVR_Profile.cpp     if (device-&gt;GetType() == Device_HMD)
+<a href='../S/139.html#L1076'>device</a>           1076 ovr/sdk/src/OVR_Profile.cpp         sensor = ((HMDDevice*)device)-&gt;GetSensor();
+<a href='../S/139.html#L1077'>device</a>           1077 ovr/sdk/src/OVR_Profile.cpp         device = sensor;
+<a href='../S/139.html#L1078'>device</a>           1078 ovr/sdk/src/OVR_Profile.cpp         if (device == NULL)
+<a href='../S/139.html#L1082'>device</a>           1082 ovr/sdk/src/OVR_Profile.cpp     if (device-&gt;GetType() == Device_Sensor)
+<a href='../S/139.html#L1084'>device</a>           1084 ovr/sdk/src/OVR_Profile.cpp         SensorDevice* sensor = (SensorDevice*)device;
+<a href='../S/133.html#L84'>device</a>             84 ovr/sdk/src/OVR_Profile.h     const char*         GetDefaultUser(const DeviceBase* device);
+<a href='../S/133.html#L85'>device</a>             85 ovr/sdk/src/OVR_Profile.h     bool                SetDefaultUser(const DeviceBase* device, const char* user);
+<a href='../S/133.html#L88'>device</a>             88 ovr/sdk/src/OVR_Profile.h     Profile*            GetProfile(const DeviceBase* device, const char* user);
+<a href='../S/133.html#L89'>device</a>             89 ovr/sdk/src/OVR_Profile.h     Profile*            GetDefaultProfile(const DeviceBase* device);
+<a href='../S/133.html#L93'>device</a>             93 ovr/sdk/src/OVR_Profile.h     bool                GetDeviceTags(const DeviceBase* device, String&amp; product, String&amp; serial);
+<a href='../S/133.html#L150'>device</a>            150 ovr/sdk/src/OVR_Profile.h     static bool         LoadProfile(const DeviceBase* device,
+<a href='../S/133.html#L156'>device</a>            156 ovr/sdk/src/OVR_Profile.h     bool                LoadDeviceProfile(const DeviceBase* device);
+<a href='../S/190.html#L194'>device</a>            194 ovr/sdk/src/OVR_SensorImpl.cpp         virtual void Visit(HIDDevice&amp; device, const HIDDeviceDesc&amp; desc)
+<a href='../S/190.html#L215'>device</a>            215 ovr/sdk/src/OVR_SensorImpl.cpp             if (device.GetFeatureReport(displayInfo.Buffer, SensorDisplayInfoImpl::PacketSize))
+<a href='../S/190.html#L925'>device</a>            925 ovr/sdk/src/OVR_SensorImpl.cpp     JSON* device = NULL;
+<a href='../S/190.html#L928'>device</a>            928 ovr/sdk/src/OVR_SensorImpl.cpp         device = root-&gt;GetFirstItem();   // skip the header
+<a href='../S/190.html#L929'>device</a>            929 ovr/sdk/src/OVR_SensorImpl.cpp         device = root-&gt;GetNextItem(device);
+<a href='../S/190.html#L930'>device</a>            930 ovr/sdk/src/OVR_SensorImpl.cpp         while (device)
+<a href='../S/190.html#L933'>device</a>            933 ovr/sdk/src/OVR_SensorImpl.cpp             if (device-&gt;Name == "Device")
+<a href='../S/190.html#L935'>device</a>            935 ovr/sdk/src/OVR_SensorImpl.cpp                 JSON* item = device-&gt;GetItemByName("Serial");
+<a href='../S/190.html#L938'>device</a>            938 ovr/sdk/src/OVR_SensorImpl.cpp                     item = device-&gt;GetNextItem(item);
+<a href='../S/190.html#L951'>device</a>            951 ovr/sdk/src/OVR_SensorImpl.cpp                         item = device-&gt;GetNextItem(item);
+<a href='../S/190.html#L969'>device</a>            969 ovr/sdk/src/OVR_SensorImpl.cpp             device = root-&gt;GetNextItem(device);
+<a href='../S/190.html#L978'>device</a>            978 ovr/sdk/src/OVR_SensorImpl.cpp     if (device == NULL)
+<a href='../S/190.html#L980'>device</a>            980 ovr/sdk/src/OVR_SensorImpl.cpp         device = JSON::CreateObject();
+<a href='../S/190.html#L981'>device</a>            981 ovr/sdk/src/OVR_SensorImpl.cpp         device-&gt;AddStringItem("Product", sinfo.ProductName);
+<a href='../S/190.html#L982'>device</a>            982 ovr/sdk/src/OVR_SensorImpl.cpp         device-&gt;AddNumberItem("ProductID", sinfo.ProductId);
+<a href='../S/190.html#L983'>device</a>            983 ovr/sdk/src/OVR_SensorImpl.cpp         device-&gt;AddStringItem("Serial", sinfo.SerialNumber);
+<a href='../S/190.html#L987'>device</a>            987 ovr/sdk/src/OVR_SensorImpl.cpp         root-&gt;AddItem("Device", device);
+<a href='../S/190.html#L991'>device</a>            991 ovr/sdk/src/OVR_SensorImpl.cpp     device-&gt;AddItem("MagCalibration", calibration);
+<a href='../S/190.html#L1030'>device</a>           1030 ovr/sdk/src/OVR_SensorImpl.cpp     JSON* device = root-&gt;GetNextItem(version);
+<a href='../S/190.html#L1031'>device</a>           1031 ovr/sdk/src/OVR_SensorImpl.cpp     while (device)
+<a href='../S/190.html#L1034'>device</a>           1034 ovr/sdk/src/OVR_SensorImpl.cpp         if (device-&gt;Name == "Device")
+<a href='../S/190.html#L1036'>device</a>           1036 ovr/sdk/src/OVR_SensorImpl.cpp             JSON* item = device-&gt;GetItemByName("Serial");
+<a href='../S/190.html#L1040'>device</a>           1040 ovr/sdk/src/OVR_SensorImpl.cpp                 JSON* autoyaw = device-&gt;GetItemByName("EnableYawCorrection");
+<a href='../S/190.html#L1047'>device</a>           1047 ovr/sdk/src/OVR_SensorImpl.cpp                 item = device-&gt;GetNextItem(item);
+<a href='../S/190.html#L1108'>device</a>           1108 ovr/sdk/src/OVR_SensorImpl.cpp                     item = device-&gt;GetNextItem(item);
+<a href='../S/190.html#L1115'>device</a>           1115 ovr/sdk/src/OVR_SensorImpl.cpp         device = root-&gt;GetNextItem(device);
+<a href='../S/114.html#L53'>device</a>             53 ovr/sdk/src/Util/Util_LatencyTest.cpp LatencyTest::LatencyTest(LatencyTestDevice* device)
+<a href='../S/114.html#L56'>device</a>             56 ovr/sdk/src/Util/Util_LatencyTest.cpp     if (device != NULL)
+<a href='../S/114.html#L58'>device</a>             58 ovr/sdk/src/Util/Util_LatencyTest.cpp         SetDevice(device);
+<a href='../S/114.html#L71'>device</a>             71 ovr/sdk/src/Util/Util_LatencyTest.cpp bool LatencyTest::SetDevice(LatencyTestDevice* device)
+<a href='../S/114.html#L74'>device</a>             74 ovr/sdk/src/Util/Util_LatencyTest.cpp     if (device != Device)
+<a href='../S/114.html#L78'>device</a>             78 ovr/sdk/src/Util/Util_LatencyTest.cpp         Device = device;
+<a href='../S/113.html#L68'>device</a>             68 ovr/sdk/src/Util/Util_LatencyTest.h     LatencyTest(LatencyTestDevice* device = NULL);
+<a href='../S/113.html#L73'>device</a>             73 ovr/sdk/src/Util/Util_LatencyTest.h     bool        SetDevice(LatencyTestDevice* device);
+<a href='../S/118.html#L39'>device</a>             39 ovr/sdk/src/Util/Util_LatencyTest2.cpp LatencyTest2::LatencyTest2(SensorDevice* device)
+<a href='../S/118.html#L49'>device</a>             49 ovr/sdk/src/Util/Util_LatencyTest2.cpp     if (device != NULL)
+<a href='../S/118.html#L51'>device</a>             51 ovr/sdk/src/Util/Util_LatencyTest2.cpp         SetSensorDevice(device);
+<a href='../S/118.html#L63'>device</a>             63 ovr/sdk/src/Util/Util_LatencyTest2.cpp bool LatencyTest2::SetSensorDevice(SensorDevice* device)
+<a href='../S/118.html#L68'>device</a>             68 ovr/sdk/src/Util/Util_LatencyTest2.cpp     if (device != HmdDevice)
+<a href='../S/118.html#L72'>device</a>             72 ovr/sdk/src/Util/Util_LatencyTest2.cpp         HmdDevice = device;
+<a href='../S/118.html#L83'>device</a>             83 ovr/sdk/src/Util/Util_LatencyTest2.cpp bool LatencyTest2::SetDisplayDevice(LatencyTestDevice* device)
+<a href='../S/118.html#L87'>device</a>             87 ovr/sdk/src/Util/Util_LatencyTest2.cpp     if (device != LatencyTesterDev)
+<a href='../S/118.html#L89'>device</a>             89 ovr/sdk/src/Util/Util_LatencyTest2.cpp         LatencyTesterDev = device;
+<a href='../S/110.html#L168'>device</a>            168 ovr/sdk/src/Util/Util_LatencyTest2.h     LatencyTest2(SensorDevice* device = NULL);
+<a href='../S/110.html#L173'>device</a>            173 ovr/sdk/src/Util/Util_LatencyTest2.h     bool        SetSensorDevice(SensorDevice* device);
+<a href='../S/110.html#L174'>device</a>            174 ovr/sdk/src/Util/Util_LatencyTest2.h     bool        SetDisplayDevice(LatencyTestDevice* device);
+</pre>
+</body>
+</html>

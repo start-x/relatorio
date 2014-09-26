@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>ovr/sdk/src/Kernel/OVR_RefCount.cpp</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/215.html'>ovr</a>/<a href='../files/216.html'>sdk</a>/<a href='../files/218.html'>src</a>/<a href='../files/221.html'>Kernel</a>/OVR_RefCount.cpp</h2>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L34'>[^]</a><a href='#L103'>[v]</a>[top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2>DEFINITIONS</h2>
+This source file includes following definitions.
+<ol>
+<li><a href='#L34' title='Defined at 34.'>ReturnArg0</a>
+<li><a href='#L51' title='Defined at 51.'>reportInvalidDelete</a>
+<li><a href='#L68' title='Defined at 68.'>reportInvalidDelete</a>
+<li><a href='#L79' title='Defined at 79.'>AddRef</a>
+<li><a href='#L83' title='Defined at 83.'>Release</a>
+<li><a href='#L91' title='Defined at 91.'>AddRef</a>
+<li><a href='#L95' title='Defined at 95.'>Release</a>
+<li><a href='#L103' title='Defined at 103.'>Release</a>
+</ol>
+<hr>
+<pre>
+<a name='L1'>   1 <i><font color='green'>/************************************************************************************</font></i>
+<a name='L2'>   2 <i><font color='green'></font></i>
+<a name='L3'>   3 <i><font color='green'>Filename    :   OVR_RefCount.cpp</font></i>
+<a name='L4'>   4 <i><font color='green'>Content     :   Reference counting implementation</font></i>
+<a name='L5'>   5 <i><font color='green'>Created     :   September 19, 2012</font></i>
+<a name='L6'>   6 <i><font color='green'>Notes       : </font></i>
+<a name='L7'>   7 <i><font color='green'></font></i>
+<a name='L8'>   8 <i><font color='green'>Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.</font></i>
+<a name='L9'>   9 <i><font color='green'></font></i>
+<a name='L10'>  10 <i><font color='green'>Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); </font></i>
+<a name='L11'>  11 <i><font color='green'>you may not use the Oculus VR Rift SDK except in compliance with the License, </font></i>
+<a name='L12'>  12 <i><font color='green'>which is provided at the time of installation or download, or which </font></i>
+<a name='L13'>  13 <i><font color='green'>otherwise accompanies this software in either electronic or hard copy form.</font></i>
+<a name='L14'>  14 <i><font color='green'></font></i>
+<a name='L15'>  15 <i><font color='green'>You may obtain a copy of the License at</font></i>
+<a name='L16'>  16 <i><font color='green'></font></i>
+<a name='L17'>  17 <i><font color='green'>http://www.oculusvr.com/licenses/LICENSE-3.1 </font></i>
+<a name='L18'>  18 <i><font color='green'></font></i>
+<a name='L19'>  19 <i><font color='green'>Unless required by applicable law or agreed to in writing, the Oculus VR SDK </font></i>
+<a name='L20'>  20 <i><font color='green'>distributed under the License is distributed on an "AS IS" BASIS,</font></i>
+<a name='L21'>  21 <i><font color='green'>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</font></i>
+<a name='L22'>  22 <i><font color='green'>See the License for the specific language governing permissions and</font></i>
+<a name='L23'>  23 <i><font color='green'>limitations under the License.</font></i>
+<a name='L24'>  24 <i><font color='green'></font></i>
+<a name='L25'>  25 <i><font color='green'>************************************************************************************/</font></i>
+<a name='L26'>  26 
+<a name='L27'>  27 <font color='darkred'>#include</font> "<a href='166.html'>OVR_RefCount.h</a>"
+<a name='L28'>  28 <font color='darkred'>#include</font> "<a href='145.html'>OVR_Atomic.h</a>"
+<a name='L29'>  29 <font color='darkred'>#include</font> "<a href='155.html'>OVR_Log.h</a>"
+<a name='L30'>  30 
+<a name='L31'>  31 <b>namespace</b> <a href='../R/624.html' title='Multiple refered from 184 places.'>OVR</a> <font color='red'>{</font>
+<a name='L32'>  32 
+<a name='L33'>  33 <font color='darkred'>#ifdef</font> <a href='../S/168.html#L151' title='Defined at 151 in ovr/sdk/src/Kernel/OVR_Types.h.'>OVR_CC_ARM</a>
+<a name='L34'>  34 <b>void</b>* <a href='../R/912.html' title='Multiple refered from 2 places.'>ReturnArg0</a>(<b>void</b>* <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>)
+<a name='L35'>  35 <font color='red'>{</font>
+<a name='L36'>  36     <b>return</b> <a href='../Y/3905.html' title='Multiple used in 524 places.'>p</a>;
+<a name='L37'>  37 <font color='red'>}</font>
+<a name='L38'>  38 <font color='darkred'>#endif</font>
+<a name='L39'>  39 
+<a name='L40'>  40 <i><font color='green'>// ***** Reference Count Base implementation</font></i>
+<a name='L41'>  41 
+<a name='L42'>  42 <a href='../R/887.html' title='Multiple refered from 10 places.'>RefCountImplCore</a>::~<a href='../S/183.html#L42' title='Defined at 42 in ovr/sdk/src/Kernel/OVR_RefCount.cpp.'>RefCountImplCore</a>()
+<a name='L43'>  43 <font color='red'>{</font>
+<a name='L44'>  44     <i><font color='green'>// RefCount can be either 1 or 0 here.</font></i>
+<a name='L45'>  45     <i><font color='green'>//  0 if Release() was properly called.</font></i>
+<a name='L46'>  46     <i><font color='green'>//  1 if the object was declared on stack or as an aggregate.</font></i>
+<a name='L47'>  47     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a> &lt;= 1);
+<a name='L48'>  48 <font color='red'>}</font>
+<a name='L49'>  49 
+<a name='L50'>  50 <font color='darkred'>#ifdef</font> <a href='../Y/1492.html' title='Multiple used in 15 places.'>OVR_BUILD_DEBUG</a>
+<a name='L51'>  51 <b>void</b> <a href='../S/183.html#L42' title='Defined at 42 in ovr/sdk/src/Kernel/OVR_RefCount.cpp.'>RefCountImplCore</a>::<a href='../R/1431.html' title='Multiple refered from 4 places.'>reportInvalidDelete</a>(<b>void</b> *<a href='../Y/4072.html' title='Multiple used in 12 places.'>pmem</a>)
+<a name='L52'>  52 <font color='red'>{</font>
+<a name='L53'>  53     <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(
+<a name='L54'>  54         ("Invalid delete call on ref-counted object at %p. Please use Release()", <a href='../Y/4072.html' title='Multiple used in 12 places.'>pmem</a>));
+<a name='L55'>  55     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(0);
+<a name='L56'>  56 <font color='red'>}</font>
+<a name='L57'>  57 <font color='darkred'>#endif</font>
+<a name='L58'>  58 
+<a name='L59'>  59 <a href='../R/888.html' title='Multiple refered from 9 places.'>RefCountNTSImplCore</a>::~<a href='../S/183.html#L59' title='Defined at 59 in ovr/sdk/src/Kernel/OVR_RefCount.cpp.'>RefCountNTSImplCore</a>()
+<a name='L60'>  60 <font color='red'>{</font>
+<a name='L61'>  61     <i><font color='green'>// RefCount can be either 1 or 0 here.</font></i>
+<a name='L62'>  62     <i><font color='green'>//  0 if Release() was properly called.</font></i>
+<a name='L63'>  63     <i><font color='green'>//  1 if the object was declared on stack or as an aggregate.</font></i>
+<a name='L64'>  64     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a> &lt;= 1);
+<a name='L65'>  65 <font color='red'>}</font>
+<a name='L66'>  66 
+<a name='L67'>  67 <font color='darkred'>#ifdef</font> <a href='../Y/1492.html' title='Multiple used in 15 places.'>OVR_BUILD_DEBUG</a>
+<a name='L68'>  68 <b>void</b> <a href='../S/183.html#L59' title='Defined at 59 in ovr/sdk/src/Kernel/OVR_RefCount.cpp.'>RefCountNTSImplCore</a>::<a href='../R/1431.html' title='Multiple refered from 4 places.'>reportInvalidDelete</a>(<b>void</b> *<a href='../Y/4072.html' title='Multiple used in 12 places.'>pmem</a>)
+<a name='L69'>  69 <font color='red'>{</font>
+<a name='L70'>  70     <a href='../D/704.html' title='Multiple defined in 2 places.'>OVR_DEBUG_LOG</a>(
+<a name='L71'>  71         ("Invalid delete call on ref-counted object at %p. Please use Release()", <a href='../Y/4072.html' title='Multiple used in 12 places.'>pmem</a>));
+<a name='L72'>  72     <a href='../D/663.html' title='Multiple defined in 2 places.'>OVR_ASSERT</a>(0);
+<a name='L73'>  73 <font color='red'>}</font>
+<a name='L74'>  74 <font color='darkred'>#endif</font>
+<a name='L75'>  75 
+<a name='L76'>  76 
+<a name='L77'>  77 <i><font color='green'>// *** Thread-Safe RefCountImpl</font></i>
+<a name='L78'>  78 
+<a name='L79'>  79 <b>void</b>    <a href='../Y/1834.html' title='Multiple used in 6 places.'>RefCountImpl</a>::<a href='../R/18.html' title='Multiple refered from 33 places.'>AddRef</a>()
+<a name='L80'>  80 <font color='red'>{</font>
+<a name='L81'>  81     <a href='../Y/78.html' title='Multiple used in 15 places.'>AtomicOps</a>&lt;<b>int</b>&gt;::<a href='../Y/523.html' title='Multiple used in 25 places.'>ExchangeAdd_NoSync</a>(&amp;<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a>, 1);
+<a name='L82'>  82 <font color='red'>}</font>
+<a name='L83'>  83 <b>void</b>    <a href='../Y/1834.html' title='Multiple used in 6 places.'>RefCountImpl</a>::<a href='../R/889.html' title='Multiple refered from 63 places.'>Release</a>()
+<a name='L84'>  84 <font color='red'>{</font>
+<a name='L85'>  85     <b>if</b> ((<a href='../Y/78.html' title='Multiple used in 15 places.'>AtomicOps</a>&lt;<b>int</b>&gt;::<a href='../Y/523.html' title='Multiple used in 25 places.'>ExchangeAdd_NoSync</a>(&amp;<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a>, -1) - 1) == 0)
+<a name='L86'>  86         <b>delete</b> <b>this</b>;
+<a name='L87'>  87 <font color='red'>}</font>
+<a name='L88'>  88 
+<a name='L89'>  89 <i><font color='green'>// *** Thread-Safe RefCountVImpl w/virtual AddRef/Release</font></i>
+<a name='L90'>  90 
+<a name='L91'>  91 <b>void</b>    <a href='../Y/1836.html' title='Multiple used in 5 places.'>RefCountVImpl</a>::<a href='../R/18.html' title='Multiple refered from 33 places.'>AddRef</a>()
+<a name='L92'>  92 <font color='red'>{</font>
+<a name='L93'>  93     <a href='../Y/78.html' title='Multiple used in 15 places.'>AtomicOps</a>&lt;<b>int</b>&gt;::<a href='../Y/523.html' title='Multiple used in 25 places.'>ExchangeAdd_NoSync</a>(&amp;<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a>, 1);
+<a name='L94'>  94 <font color='red'>}</font>
+<a name='L95'>  95 <b>void</b>    <a href='../Y/1836.html' title='Multiple used in 5 places.'>RefCountVImpl</a>::<a href='../R/889.html' title='Multiple refered from 63 places.'>Release</a>()
+<a name='L96'>  96 <font color='red'>{</font>
+<a name='L97'>  97     <b>if</b> ((<a href='../Y/78.html' title='Multiple used in 15 places.'>AtomicOps</a>&lt;<b>int</b>&gt;::<a href='../Y/523.html' title='Multiple used in 25 places.'>ExchangeAdd_NoSync</a>(&amp;<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a>, -1) - 1) == 0)
+<a name='L98'>  98         <b>delete</b> <b>this</b>;
+<a name='L99'>  99 <font color='red'>}</font>
+<a name='L100'> 100 
+<a name='L101'> 101 <i><font color='green'>// *** NON-Thread-Safe RefCountImpl</font></i>
+<a name='L102'> 102 
+<a name='L103'> 103 <b>void</b>    <a href='../Y/1835.html' title='Multiple used in 5 places.'>RefCountNTSImpl</a>::<a href='../R/889.html' title='Multiple refered from 63 places.'>Release</a>() <b>const</b>
+<a name='L104'> 104 <font color='red'>{</font>
+<a name='L105'> 105     <a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a>--;
+<a name='L106'> 106     <b>if</b> (<a href='../Y/1828.html' title='Multiple used in 29 places.'>RefCount</a> == 0)
+<a name='L107'> 107         <b>delete</b> <b>this</b>;
+<a name='L108'> 108 <font color='red'>}</font>
+<a name='L109'> 109 
+<a name='L110'> 110 
+<a name='L111'> 111 <font color='red'>}</font> <i><font color='green'>// OVR</font></i>
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;]<a href='#L34'>[^]</a><a href='#L103'>[v]</a><a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

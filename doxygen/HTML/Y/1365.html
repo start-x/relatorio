@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Math</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/174.html#L41'>Math</a>               41 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::Pi      = 3.1415926f;
+<a href='../S/174.html#L42'>Math</a>               42 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::TwoPi   = 3.1415926f * 2;
+<a href='../S/174.html#L43'>Math</a>               43 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::PiOver2 = 3.1415926f / 2.0f;
+<a href='../S/174.html#L44'>Math</a>               44 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::PiOver4 = 3.1415926f / 4.0f;
+<a href='../S/174.html#L45'>Math</a>               45 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::E       = 2.7182818f;
+<a href='../S/174.html#L47'>Math</a>               47 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::MaxValue			= FLT_MAX;
+<a href='../S/174.html#L48'>Math</a>               48 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::MinPositiveValue	= FLT_MIN;
+<a href='../S/174.html#L50'>Math</a>               50 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::RadToDegreeFactor	= 360.0f / Math&lt;float&gt;::TwoPi;
+<a href='../S/174.html#L51'>Math</a>               51 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::DegreeToRadFactor	= Math&lt;float&gt;::TwoPi / 360.0f;
+<a href='../S/174.html#L53'>Math</a>               53 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::Tolerance			= 0.00001f;
+<a href='../S/174.html#L54'>Math</a>               54 ovr/sdk/src/Kernel/OVR_Math.cpp const float Math&lt;float&gt;::SingularityRadius	= 0.0000001f; // Use for Gimbal lock numerical problems
+<a href='../S/174.html#L57'>Math</a>               57 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::Pi      = 3.14159265358979;
+<a href='../S/174.html#L58'>Math</a>               58 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::TwoPi   = 3.14159265358979 * 2;
+<a href='../S/174.html#L59'>Math</a>               59 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::PiOver2 = 3.14159265358979 / 2.0;
+<a href='../S/174.html#L60'>Math</a>               60 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::PiOver4 = 3.14159265358979 / 4.0;
+<a href='../S/174.html#L61'>Math</a>               61 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::E       = 2.71828182845905;
+<a href='../S/174.html#L63'>Math</a>               63 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::MaxValue				= DBL_MAX;
+<a href='../S/174.html#L64'>Math</a>               64 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::MinPositiveValue		= DBL_MIN;
+<a href='../S/174.html#L66'>Math</a>               66 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::RadToDegreeFactor	= 360.0 / Math&lt;double&gt;::TwoPi;
+<a href='../S/174.html#L67'>Math</a>               67 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::DegreeToRadFactor	= Math&lt;double&gt;::TwoPi / 360.0;
+<a href='../S/174.html#L69'>Math</a>               69 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::Tolerance			= 0.00001;
+<a href='../S/174.html#L70'>Math</a>               70 ovr/sdk/src/Kernel/OVR_Math.cpp const double Math&lt;double&gt;::SingularityRadius	= 0.000000000001; // Use for Gimbal lock numerical problems
+<a href='../S/177.html#L165'>Math</a>              165 ovr/sdk/src/Kernel/OVR_Math.h class Math
+<a href='../S/177.html#L175'>Math</a>              175 ovr/sdk/src/Kernel/OVR_Math.h class Math&lt;float&gt;
+<a href='../S/177.html#L199'>Math</a>              199 ovr/sdk/src/Kernel/OVR_Math.h class Math&lt;double&gt;
+<a href='../S/177.html#L221'>Math</a>              221 ovr/sdk/src/Kernel/OVR_Math.h typedef Math&lt;float&gt;  Mathf;
+<a href='../S/177.html#L222'>Math</a>              222 ovr/sdk/src/Kernel/OVR_Math.h typedef Math&lt;double&gt; Mathd;
+<a href='../S/177.html#L226'>Math</a>              226 ovr/sdk/src/Kernel/OVR_Math.h T RadToDegree(T rads) { return rads * Math&lt;T&gt;::RadToDegreeFactor; }
+<a href='../S/177.html#L228'>Math</a>              228 ovr/sdk/src/Kernel/OVR_Math.h T DegreeToRad(T rads) { return rads * Math&lt;T&gt;::DegreeToRadFactor; }
+<a href='../S/177.html#L234'>Math</a>              234 ovr/sdk/src/Kernel/OVR_Math.h 		else if (val &lt; T(-1))		return Math&lt;T&gt;::Pi;
+<a href='../S/177.html#L241'>Math</a>              241 ovr/sdk/src/Kernel/OVR_Math.h 	if (val &gt; T(1))				return Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L242'>Math</a>              242 ovr/sdk/src/Kernel/OVR_Math.h 	else if (val &lt; T(-1))		return Math&lt;T&gt;::PiOver2 * T(3);
+<a href='../S/177.html#L269'>Math</a>              269 ovr/sdk/src/Kernel/OVR_Math.h     explicit Vector2(const Vector2&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L350'>Math</a>              350 ovr/sdk/src/Kernel/OVR_Math.h     bool    IsNormalized() const                 { return fabs(LengthSq() - T(1)) &lt; Math&lt;T&gt;::Tolerance; }
+<a href='../S/177.html#L402'>Math</a>              402 ovr/sdk/src/Kernel/OVR_Math.h     explicit Vector3(const Vector3&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L518'>Math</a>              518 ovr/sdk/src/Kernel/OVR_Math.h     bool    IsNormalized() const                 { return fabs(LengthSq() - T(1)) &lt; Math&lt;T&gt;::Tolerance; }
+<a href='../S/177.html#L591'>Math</a>              591 ovr/sdk/src/Kernel/OVR_Math.h     explicit Size(const Size&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L702'>Math</a>              702 ovr/sdk/src/Kernel/OVR_Math.h     explicit Quat(const Quat&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L756'>Math</a>              756 ovr/sdk/src/Kernel/OVR_Math.h 		if ( x*x + y*y + z*z &gt; Math&lt;T&gt;::Tolerance * Math&lt;T&gt;::Tolerance ) {
+<a href='../S/177.html#L759'>Math</a>              759 ovr/sdk/src/Kernel/OVR_Math.h 			if (*angle &gt; Math&lt;T&gt;::Pi) // Reduce the magnitude of the angle, if necessary
+<a href='../S/177.html#L761'>Math</a>              761 ovr/sdk/src/Kernel/OVR_Math.h 				*angle = Math&lt;T&gt;::TwoPi - *angle;
+<a href='../S/177.html#L906'>Math</a>              906 ovr/sdk/src/Kernel/OVR_Math.h     bool    IsNormalized() const            { return fabs(LengthSq() - T(1)) &lt; Math&lt;T&gt;::Tolerance; }
+<a href='../S/177.html#L995'>Math</a>              995 ovr/sdk/src/Kernel/OVR_Math.h         if (s2 &lt; T(-1) + Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L998'>Math</a>              998 ovr/sdk/src/Kernel/OVR_Math.h             *b = -S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L1002'>Math</a>             1002 ovr/sdk/src/Kernel/OVR_Math.h         else if (s2 &gt; T(1) - Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L1005'>Math</a>             1005 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L1059'>Math</a>             1059 ovr/sdk/src/Kernel/OVR_Math.h         if (c2 &lt; T(-1) + Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L1062'>Math</a>             1062 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::Pi;
+<a href='../S/177.html#L1066'>Math</a>             1066 ovr/sdk/src/Kernel/OVR_Math.h         else if (c2 &gt; T(1) - Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L1107'>Math</a>             1107 ovr/sdk/src/Kernel/OVR_Math.h     explicit Transform(const Transform&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;s)
+<a href='../S/177.html#L1252'>Math</a>             1252 ovr/sdk/src/Kernel/OVR_Math.h     explicit Matrix4(const Matrix4&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L1500'>Math</a>             1500 ovr/sdk/src/Kernel/OVR_Math.h         if (pm &lt; -1.0f + Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L1503'>Math</a>             1503 ovr/sdk/src/Kernel/OVR_Math.h             *b = -S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L1506'>Math</a>             1506 ovr/sdk/src/Kernel/OVR_Math.h         else if (pm &gt; 1.0f - Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L1509'>Math</a>             1509 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::PiOver2;
+<a href='../S/177.html#L1541'>Math</a>             1541 ovr/sdk/src/Kernel/OVR_Math.h         if (c2 &lt; -1 + Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L1544'>Math</a>             1544 ovr/sdk/src/Kernel/OVR_Math.h             *b = S*D*Math&lt;T&gt;::Pi;
+<a href='../S/177.html#L1547'>Math</a>             1547 ovr/sdk/src/Kernel/OVR_Math.h         else if (c2 &gt; 1.0f - Math&lt;T&gt;::SingularityRadius)
+<a href='../S/177.html#L1927'>Math</a>             1927 ovr/sdk/src/Kernel/OVR_Math.h 	explicit Matrix3(const Matrix4&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/177.html#L2418'>Math</a>             2418 ovr/sdk/src/Kernel/OVR_Math.h 	Angle(T a_, AngularUnits u = Radians) : a((u == Radians) ? a_ : a_*Math&lt;T&gt;::DegreeToRadFactor) { FixRange(); }
+<a href='../S/177.html#L2420'>Math</a>             2420 ovr/sdk/src/Kernel/OVR_Math.h 	T    Get(AngularUnits u = Radians) const       { return (u == Radians) ? a : a*Math&lt;T&gt;::RadToDegreeFactor; }
+<a href='../S/177.html#L2421'>Math</a>             2421 ovr/sdk/src/Kernel/OVR_Math.h 	void Set(const T&amp; x, AngularUnits u = Radians) { a = (u == Radians) ? x : x*Math&lt;T&gt;::DegreeToRadFactor; FixRange(); }
+<a href='../S/177.html#L2443'>Math</a>             2443 ovr/sdk/src/Kernel/OVR_Math.h 	T   Distance(const Angle&amp; b)              { T c = fabs(a - b.a); return (c &lt;= Math&lt;T&gt;::Pi) ? c : Math&lt;T&gt;::TwoPi - c; }
+<a href='../S/177.html#L2453'>Math</a>             2453 ovr/sdk/src/Kernel/OVR_Math.h 		if (a &lt; -Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2454'>Math</a>             2454 ovr/sdk/src/Kernel/OVR_Math.h 			a += Math&lt;T&gt;::TwoPi;
+<a href='../S/177.html#L2455'>Math</a>             2455 ovr/sdk/src/Kernel/OVR_Math.h 		else if (a &gt; Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2456'>Math</a>             2456 ovr/sdk/src/Kernel/OVR_Math.h 			a -= Math&lt;T&gt;::TwoPi;
+<a href='../S/177.html#L2463'>Math</a>             2463 ovr/sdk/src/Kernel/OVR_Math.h         if (a &gt;= -Math&lt;T&gt;::Pi &amp;&amp; a &lt;= Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2465'>Math</a>             2465 ovr/sdk/src/Kernel/OVR_Math.h 		a = fmod(a,Math&lt;T&gt;::TwoPi);
+<a href='../S/177.html#L2466'>Math</a>             2466 ovr/sdk/src/Kernel/OVR_Math.h 		if (a &lt; -Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2467'>Math</a>             2467 ovr/sdk/src/Kernel/OVR_Math.h 			a += Math&lt;T&gt;::TwoPi;
+<a href='../S/177.html#L2468'>Math</a>             2468 ovr/sdk/src/Kernel/OVR_Math.h 		else if (a &gt; Math&lt;T&gt;::Pi)
+<a href='../S/177.html#L2469'>Math</a>             2469 ovr/sdk/src/Kernel/OVR_Math.h 			a -= Math&lt;T&gt;::TwoPi;
+<a href='../S/127.html#L64'>Math</a>               64 ovr/sdk/src/OVR_SensorFusion.h     explicit PoseState(const PoseState&lt;typename Math&lt;T&gt;::OtherFloatType&gt; &amp;src)
+<a href='../S/144.html#L85'>Math</a>               85 ovr/sdk/src/OVR_SensorImpl_Common.cpp                                         r.MaxRotationRate, Math&lt;float&gt;::RadToDegreeFactor, "MaxRotationRate");
+<a href='../S/144.html#L102'>Math</a>              102 ovr/sdk/src/OVR_SensorImpl_Common.cpp                             Math&lt;float&gt;::DegreeToRadFactor,
+<a href='../S/131.html#L346'>Math</a>              346 ovr/sdk/src/OVR_Stereo.h const float OVR_DEFAULT_EXTRA_EYE_ROTATION = 30.0f * Math&lt;float&gt;::DegreeToRadFactor;
+</pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Transformd</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L47'>Transformd</a>         47 ovr/sdk/src/OVR_SensorFusion.cpp const Transformd DefaultWorldFromCamera(Quatd(), Vector3d(0, 0, -1));
+<a href='../S/189.html#L99'>Transformd</a>         99 ovr/sdk/src/OVR_SensorFusion.cpp             ImuFromScreen = Transformd(Quatd(imu.Normal, imu.Angle), imu.Position).Inverted();
+<a href='../S/189.html#L200'>Transformd</a>        200 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImuPrev = CameraFromImu.Pose;
+<a href='../S/189.html#L259'>Transformd</a>        259 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd result;
+<a href='../S/189.html#L618'>Transformd</a>        618 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd cameraFromImu = WorldFromCamera.Inverted() * VisionError.Pose * WorldFromImu.Pose;
+<a href='../S/189.html#L665'>Transformd</a>        665 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd newWorldFromCamera(correction * WorldFromCamera.Rotation, Vector3d());
+<a href='../S/189.html#L794'>Transformd</a>        794 ovr/sdk/src/OVR_SensorFusion.cpp     CpfFromNeck = Transformd(Quatd(), (Vector3d)headModel).Inverted();
+<a href='../S/189.html#L810'>Transformd</a>        810 ovr/sdk/src/OVR_SensorFusion.cpp     Transformd screenFromCpf(Quatd(), Vector3d(0, 0, centerPupilDepth));
+<a href='../S/127.html#L370'>Transformd</a>        370 ovr/sdk/src/OVR_SensorFusion.h         Transformd        WorldFromImu;
+<a href='../S/127.html#L374'>Transformd</a>        374 ovr/sdk/src/OVR_SensorFusion.h         MagReferencePoint(const Vector3d&amp; inImuFrame, const Transformd&amp; worldFromImu, int score)
+<a href='../S/127.html#L431'>Transformd</a>        431 ovr/sdk/src/OVR_SensorFusion.h     Transformd              WorldFromCamera;
+<a href='../S/127.html#L443'>Transformd</a>        443 ovr/sdk/src/OVR_SensorFusion.h     Transformd              ImuFromCpf;
+<a href='../S/127.html#L445'>Transformd</a>        445 ovr/sdk/src/OVR_SensorFusion.h     Transformd              ImuFromScreen;
+<a href='../S/127.html#L447'>Transformd</a>        447 ovr/sdk/src/OVR_SensorFusion.h     Transformd              CpfFromNeck;
+<a href='../S/127.html#L449'>Transformd</a>        449 ovr/sdk/src/OVR_SensorFusion.h     Transformd              WorldFromNeck;
+<a href='../S/127.html#L475'>Transformd</a>        475 ovr/sdk/src/OVR_SensorFusion.h     void        setNeckPivotFromPose ( Transformd const &amp;pose );
+</pre>
+</body>
+</html>

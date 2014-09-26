@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>ExposureRecordHistory</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L53'>ExposureRecordHistory</a>   53 ovr/sdk/src/OVR_SensorFusion.cpp   : ExposureRecordHistory(100), LastMessageExposureFrame(NULL),
+<a href='../S/189.html#L137'>ExposureRecordHistory</a>  137 ovr/sdk/src/OVR_SensorFusion.cpp     ExposureRecordHistory.Clear();
+<a href='../S/189.html#L183'>ExposureRecordHistory</a>  183 ovr/sdk/src/OVR_SensorFusion.cpp     while (!ExposureRecordHistory.IsEmpty() &amp;&amp;
+<a href='../S/189.html#L184'>ExposureRecordHistory</a>  184 ovr/sdk/src/OVR_SensorFusion.cpp            (ExposureRecordHistory.PeekFront().ExposureCounter &lt;= exposureCounter))
+<a href='../S/189.html#L186'>ExposureRecordHistory</a>  186 ovr/sdk/src/OVR_SensorFusion.cpp         LastVisionExposureRecord = ExposureRecordHistory.PopFront();
+<a href='../S/189.html#L249'>ExposureRecordHistory</a>  249 ovr/sdk/src/OVR_SensorFusion.cpp     while (!ExposureRecordHistory.IsEmpty() &amp;&amp; 
+<a href='../S/189.html#L250'>ExposureRecordHistory</a>  250 ovr/sdk/src/OVR_SensorFusion.cpp            (ExposureRecordHistory.PeekFront().ExposureCounter &lt;= exposureCounter))
+<a href='../S/189.html#L252'>ExposureRecordHistory</a>  252 ovr/sdk/src/OVR_SensorFusion.cpp         record = ExposureRecordHistory.PopFront();
+<a href='../S/189.html#L257'>ExposureRecordHistory</a>  257 ovr/sdk/src/OVR_SensorFusion.cpp     ExposureRecordHistory.PushFront(record);
+<a href='../S/189.html#L404'>ExposureRecordHistory</a>  404 ovr/sdk/src/OVR_SensorFusion.cpp     ExposureRecordHistory.PushBack(NextExposureRecord);
+<a href='../S/189.html#L456'>ExposureRecordHistory</a>  456 ovr/sdk/src/OVR_SensorFusion.cpp         for (unsigned int i = 0; i &lt; ExposureRecordHistory.GetSize(); i++)
+<a href='../S/189.html#L457'>ExposureRecordHistory</a>  457 ovr/sdk/src/OVR_SensorFusion.cpp             worldFromImuVision.AdvanceByDelta(ExposureRecordHistory.PeekFront(i).ImuOnlyDelta);
+<a href='../S/189.html#L477'>ExposureRecordHistory</a>  477 ovr/sdk/src/OVR_SensorFusion.cpp     for (unsigned int i = 0; i &lt; ExposureRecordHistory.GetSize(); i++)
+<a href='../S/189.html#L479'>ExposureRecordHistory</a>  479 ovr/sdk/src/OVR_SensorFusion.cpp         PoseStated&amp; state = ExposureRecordHistory.PeekBack(i).WorldFromImu;
+<a href='../S/189.html#L503'>ExposureRecordHistory</a>  503 ovr/sdk/src/OVR_SensorFusion.cpp     for (unsigned int i = 0; i &lt; ExposureRecordHistory.GetSize(); i++)
+<a href='../S/189.html#L505'>ExposureRecordHistory</a>  505 ovr/sdk/src/OVR_SensorFusion.cpp         PoseStated&amp; state = ExposureRecordHistory.PeekBack(i).WorldFromImu;
+<a href='../S/127.html#L399'>ExposureRecordHistory</a>  399 ovr/sdk/src/OVR_SensorFusion.h     CircularBuffer&lt;ExposureRecord&gt; ExposureRecordHistory;
+</pre>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<map id="OVR::Linux::HMDDeviceCreateDesc" name="OVR::Linux::HMDDeviceCreateDesc">
+<area shape="rect" id="node2" href="$classOVR_1_1DeviceCreateDesc.html" title="{OVR::DeviceCreateDesc\n|+ pFactory\l+ Type\l+ pLock\l+ HandleCount\l+ pDevice\l+ Enumerated\l|+ DeviceCreateDesc()\l+ ~DeviceCreateDesc()\l+ GetManagerImpl()\l+ GetLock()\l+ AddRef()\l+ Release()\l+ Clone()\l+ NewDeviceInstance()\l+ GetDeviceInfo()\l+ MatchDevice()\l+ UpdateMatchedCandidate()\l+ MatchHIDDevice()\l+ MatchDevice()\l&#45; operator=()\l}" alt="" coords="166,437,359,779"/>
+<area shape="rect" id="node3" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; DeviceCreate\lDesc \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="5,221,208,387"/>
+<area shape="rect" id="node4" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; T \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="33,6,180,157"/>
+<area shape="rect" id="node5" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="232,265,396,343"/>
+</map>

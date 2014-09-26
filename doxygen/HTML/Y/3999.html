@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>params</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/151.html#L263'>params</a>            263 ovr/sdk/src/Kernel/OVR_Threads.h     explicit Thread(const CreateParams&amp; params);
+<a href='../S/151.html#L392'>params</a>            392 ovr/sdk/src/Kernel/OVR_Threads.h     void                Init(const CreateParams&amp; params);
+<a href='../S/181.html#L396'>params</a>            396 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     CreateParams params;
+<a href='../S/181.html#L397'>params</a>            397 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     params.stackSize = stackSize;
+<a href='../S/181.html#L398'>params</a>            398 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     params.processor = processor;
+<a href='../S/181.html#L399'>params</a>            399 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     Init(params);
+<a href='../S/181.html#L405'>params</a>            405 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     CreateParams params(threadFunction, userHandle, stackSize, processor, initialState);
+<a href='../S/181.html#L406'>params</a>            406 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     Init(params);
+<a href='../S/181.html#L409'>params</a>            409 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp Thread::Thread(const CreateParams&amp; params)
+<a href='../S/181.html#L411'>params</a>            411 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     Init(params);
+<a href='../S/181.html#L414'>params</a>            414 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp void Thread::Init(const CreateParams&amp; params)
+<a href='../S/181.html#L421'>params</a>            421 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     StackSize       = params.stackSize;
+<a href='../S/181.html#L422'>params</a>            422 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     Processor       = params.processor;
+<a href='../S/181.html#L423'>params</a>            423 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     Priority        = params.priority;
+<a href='../S/181.html#L426'>params</a>            426 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     ThreadFunction  = params.threadFunction;
+<a href='../S/181.html#L427'>params</a>            427 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     UserHandle      = params.userHandle;
+<a href='../S/181.html#L428'>params</a>            428 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     if (params.initialState != NotRunning)
+<a href='../S/181.html#L429'>params</a>            429 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         Start(params.initialState);
+<a href='../S/117.html#L335'>params</a>            335 ovr/sdk/src/Util/Util_Render_Stereo.cpp ViewportScaleAndOffset ModifyRenderViewport ( StereoEyeParams const &amp;params,
+<a href='../S/117.html#L339'>params</a>            339 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return CalculateViewportScaleAndOffsetInternal ( params.EyeToSourceNDC, renderViewport, actualRendertargetSurfaceSize );
+<a href='../S/117.html#L342'>params</a>            342 ovr/sdk/src/Util/Util_Render_Stereo.cpp ViewportScaleAndOffset ModifyRenderSize ( StereoEyeParams const &amp;params,
+<a href='../S/117.html#L347'>params</a>            347 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti renderViewport = CalculateViewportInternal ( params.Eye, actualRendertargetSurfaceSize, requestedRenderSize, bRendertargetSharedByBothEyes, false );
+<a href='../S/117.html#L348'>params</a>            348 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return CalculateViewportScaleAndOffsetInternal ( params.EyeToSourceNDC, renderViewport, actualRendertargetSurfaceSize );
+<a href='../S/117.html#L351'>params</a>            351 ovr/sdk/src/Util/Util_Render_Stereo.cpp ViewportScaleAndOffset ModifyRenderDensity ( StereoEyeParams const &amp;params,
+<a href='../S/117.html#L356'>params</a>            356 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti renderViewport = CalculateViewportDensityInternal ( params.Eye, params.Distortion, params.Fov, actualRendertargetSurfaceSize, bRendertargetSharedByBothEyes, pixelDensity, false );
+<a href='../S/117.html#L357'>params</a>            357 ovr/sdk/src/Util/Util_Render_Stereo.cpp     return CalculateViewportScaleAndOffsetInternal ( params.EyeToSourceNDC, renderViewport, actualRendertargetSurfaceSize );
+<a href='../S/115.html#L87'>params</a>             87 ovr/sdk/src/Util/Util_Render_Stereo.h ViewportScaleAndOffset ModifyRenderViewport ( StereoEyeParams const &amp;params,
+<a href='../S/115.html#L91'>params</a>             91 ovr/sdk/src/Util/Util_Render_Stereo.h ViewportScaleAndOffset ModifyRenderSize ( StereoEyeParams const &amp;params,
+<a href='../S/115.html#L96'>params</a>             96 ovr/sdk/src/Util/Util_Render_Stereo.h ViewportScaleAndOffset ModifyRenderDensity ( StereoEyeParams const &amp;params,
+</pre>
+</body>
+</html>

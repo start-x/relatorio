@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>hid</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/132.html#L234'>hid</a>               234 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         udev_device* hid;  // The device's HID udev node.
+<a href='../S/132.html#L235'>hid</a>               235 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         hid = udev_device_new_from_syspath(UdevInstance, sysfs_path);
+<a href='../S/132.html#L236'>hid</a>               236 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         const char* dev_path = udev_device_get_devnode(hid);
+<a href='../S/132.html#L239'>hid</a>               239 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         hid = udev_device_get_parent_with_subsystem_devtype(hid, "usb", "usb_device");
+<a href='../S/132.html#L240'>hid</a>               240 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         if (hid)
+<a href='../S/132.html#L246'>hid</a>               246 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                 initVendorProductVersion(hid, &amp;devDesc) &amp;&amp;
+<a href='../S/132.html#L250'>hid</a>               250 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                 getFullDesc(hid, &amp;devDesc);
+<a href='../S/132.html#L274'>hid</a>               274 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             udev_device_unref(hid);
+<a href='../S/132.html#L342'>hid</a>               342 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         udev_device* hid;  // The device's HID udev node.
+<a href='../S/132.html#L343'>hid</a>               343 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         hid = udev_device_new_from_syspath(UdevInstance, sysfs_path);
+<a href='../S/132.html#L344'>hid</a>               344 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         const char* path = udev_device_get_devnode(hid);
+<a href='../S/132.html#L350'>hid</a>               350 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             hid = udev_device_get_parent_with_subsystem_devtype(hid, "usb", "usb_device");
+<a href='../S/132.html#L351'>hid</a>               351 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             if (hid)
+<a href='../S/132.html#L354'>hid</a>               354 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                 success = getFullDesc(hid, desc);
+<a href='../S/132.html#L359'>hid</a>               359 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         udev_device_unref(hid);
+<a href='../S/132.html#L376'>hid</a>               376 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     udev_device* hid = udev_monitor_receive_device(HIDMonitor);
+<a href='../S/132.html#L377'>hid</a>               377 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (hid)
+<a href='../S/132.html#L379'>hid</a>               379 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         const char* dev_path = udev_device_get_devnode(hid);
+<a href='../S/132.html#L380'>hid</a>               380 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         const char* action = udev_device_get_action(hid);
+<a href='../S/132.html#L394'>hid</a>               394 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             hid = udev_device_get_parent_with_subsystem_devtype(hid, "usb", "usb_device");
+<a href='../S/132.html#L395'>hid</a>               395 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             if (!hid)
+<a href='../S/132.html#L400'>hid</a>               400 ovr/sdk/src/OVR_Linux_HIDDevice.cpp             getFullDesc(hid, &amp;device_info);
+<a href='../S/132.html#L429'>hid</a>               429 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         udev_device_unref(hid);
+</pre>
+</body>
+</html>

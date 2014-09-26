@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>RotationRate</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/121.html#L111'>RotationRate</a>      111 ovr/sdk/src/OVR_DeviceMessages.h     Vector3f RotationRate;   // Angular velocity in rad/s.
+<a href='../S/188.html#L844'>RotationRate</a>      844 ovr/sdk/src/OVR_Sensor2Impl.cpp                 sensors.RotationRate  = LastRotationRate;
+<a href='../S/188.html#L884'>RotationRate</a>      884 ovr/sdk/src/OVR_Sensor2Impl.cpp             sensors.RotationRate = EulerFromBodyFrameUpdate(s, i);
+<a href='../S/188.html#L929'>RotationRate</a>      929 ovr/sdk/src/OVR_Sensor2Impl.cpp         LastRotationRate = sensors.RotationRate;
+<a href='../S/128.html#L147'>RotationRate</a>      147 ovr/sdk/src/OVR_SensorCalibration.cpp     msg.RotationRate = GyroMatrix.Transform(msg.RotationRate - gyroOffset);
+<a href='../S/128.html#L160'>RotationRate</a>      160 ovr/sdk/src/OVR_SensorCalibration.cpp     Vector3f gyro = msg.RotationRate;
+<a href='../S/189.html#L291'>RotationRate</a>      291 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d gyro(msg.RotationRate); 
+<a href='../S/190.html#L740'>RotationRate</a>      740 ovr/sdk/src/OVR_SensorImpl.cpp                 sensors.RotationRate        = LastRotationRate;
+<a href='../S/190.html#L796'>RotationRate</a>      796 ovr/sdk/src/OVR_SensorImpl.cpp             sensors.RotationRate        = EulerFromBodyFrameUpdate(s, i, convertHMDToSensor);
+<a href='../S/190.html#L809'>RotationRate</a>      809 ovr/sdk/src/OVR_SensorImpl.cpp         LastRotationRate = sensors.RotationRate;
+</pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>framebufferNDC</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L1673'>framebufferNDC</a>   1673 ovr/sdk/src/OVR_Stereo.cpp                                           const Vector2f &amp;framebufferNDC )
+<a href='../S/88.html#L1677'>framebufferNDC</a>   1677 ovr/sdk/src/OVR_Stereo.cpp     tanEyeAngleDistorted.x = ( framebufferNDC.x - distortion.LensCenter.x ) * distortion.TanEyeAngleScale.x;
+<a href='../S/88.html#L1678'>framebufferNDC</a>   1678 ovr/sdk/src/OVR_Stereo.cpp     tanEyeAngleDistorted.y = ( framebufferNDC.y - distortion.LensCenter.y ) * distortion.TanEyeAngleScale.y;
+<a href='../S/88.html#L1693'>framebufferNDC</a>   1693 ovr/sdk/src/OVR_Stereo.cpp                                              const Vector2f &amp;framebufferNDC )
+<a href='../S/88.html#L1697'>framebufferNDC</a>   1697 ovr/sdk/src/OVR_Stereo.cpp     tanEyeAngleDistorted.x = ( framebufferNDC.x - distortion.LensCenter.x ) * distortion.TanEyeAngleScale.x;
+<a href='../S/88.html#L1698'>framebufferNDC</a>   1698 ovr/sdk/src/OVR_Stereo.cpp     tanEyeAngleDistorted.y = ( framebufferNDC.y - distortion.LensCenter.y ) * distortion.TanEyeAngleScale.y;
+<a href='../S/88.html#L1731'>framebufferNDC</a>   1731 ovr/sdk/src/OVR_Stereo.cpp     Vector2f framebufferNDC;
+<a href='../S/88.html#L1732'>framebufferNDC</a>   1732 ovr/sdk/src/OVR_Stereo.cpp     framebufferNDC.x = -1.0f + 2.0f * ( ( pixel.x - (float)distortionViewport.x ) / (float)distortionViewport.w );
+<a href='../S/88.html#L1733'>framebufferNDC</a>   1733 ovr/sdk/src/OVR_Stereo.cpp     framebufferNDC.y = -1.0f + 2.0f * ( ( pixel.y - (float)distortionViewport.y ) / (float)distortionViewport.h );
+<a href='../S/88.html#L1734'>framebufferNDC</a>   1734 ovr/sdk/src/OVR_Stereo.cpp     return framebufferNDC;
+<a href='../S/88.html#L1781'>framebufferNDC</a>   1781 ovr/sdk/src/OVR_Stereo.cpp     Vector2f framebufferNDC;
+<a href='../S/88.html#L1782'>framebufferNDC</a>   1782 ovr/sdk/src/OVR_Stereo.cpp     framebufferNDC.x = ( tanEyeAngleDistorted.x / distortion.TanEyeAngleScale.x ) + distortion.LensCenter.x;
+<a href='../S/88.html#L1783'>framebufferNDC</a>   1783 ovr/sdk/src/OVR_Stereo.cpp     framebufferNDC.y = ( tanEyeAngleDistorted.y / distortion.TanEyeAngleScale.y ) + distortion.LensCenter.y;
+<a href='../S/88.html#L1785'>framebufferNDC</a>   1785 ovr/sdk/src/OVR_Stereo.cpp     return framebufferNDC;
+<a href='../S/131.html#L430'>framebufferNDC</a>    430 ovr/sdk/src/OVR_Stereo.h                                            const Vector2f &amp;framebufferNDC );
+<a href='../S/131.html#L433'>framebufferNDC</a>    433 ovr/sdk/src/OVR_Stereo.h                                              const Vector2f &amp;framebufferNDC );
+</pre>
+</body>
+</html>

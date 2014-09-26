@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>yawError</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L490'>yawError</a>          490 ovr/sdk/src/OVR_SensorFusion.cpp     Quatd yawError = extractYawRotation(VisionError.Pose.Rotation);
+<a href='../S/189.html#L493'>yawError</a>          493 ovr/sdk/src/OVR_SensorFusion.cpp     if (Alg::Abs(yawError.w) &lt; cos(snapThreshold / 2)) // angle(yawError) &gt; snapThreshold
+<a href='../S/189.html#L495'>yawError</a>          495 ovr/sdk/src/OVR_SensorFusion.cpp         correction = yawError;
+<a href='../S/189.html#L497'>yawError</a>          497 ovr/sdk/src/OVR_SensorFusion.cpp         correction = yawError.Nlerp(Quatd(), gain * deltaT);
+<a href='../S/189.html#L570'>yawError</a>          570 ovr/sdk/src/OVR_SensorFusion.cpp         Quatd yawError = extractYawRotation(error);
+<a href='../S/189.html#L574'>yawError</a>          574 ovr/sdk/src/OVR_SensorFusion.cpp         Quatd yawError = vectorAlignmentRotation(magInWorldFrame, magRefInWorldFrame);
+<a href='../S/189.html#L576'>yawError</a>          576 ovr/sdk/src/OVR_SensorFusion.cpp         Quatd correction = yawError.Nlerp(Quatd(), proportionalGain * deltaT) *
+<a href='../S/189.html#L578'>yawError</a>          578 ovr/sdk/src/OVR_SensorFusion.cpp         MagCorrectionIntegralTerm = MagCorrectionIntegralTerm * yawError.Nlerp(Quatd(), integralGain * deltaT);
+<a href='../S/189.html#L697'>yawError</a>          697 ovr/sdk/src/OVR_SensorFusion.cpp 		Quatd yawError;
+<a href='../S/189.html#L706'>yawError</a>          706 ovr/sdk/src/OVR_SensorFusion.cpp 				yawError = vectorAlignmentRotation(currentDir, lFocus);
+<a href='../S/189.html#L710'>yawError</a>          710 ovr/sdk/src/OVR_SensorFusion.cpp 				yawError = vectorAlignmentRotation(currentDir, rFocus);
+<a href='../S/189.html#L715'>yawError</a>          715 ovr/sdk/src/OVR_SensorFusion.cpp 			yawError = vectorAlignmentRotation(currentYawComponent, focusYawComponent);
+<a href='../S/189.html#L718'>yawError</a>          718 ovr/sdk/src/OVR_SensorFusion.cpp 		Quatd correction = yawError.Nlerp(Quatd(), gain * deltaT);
+</pre>
+</body>
+</html>

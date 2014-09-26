@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>entries</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/84.html#L574'>entries</a>           574 ovr/sdk/src/OVR_JSON.cpp 	char **entries;
+<a href='../S/84.html#L590'>entries</a>           590 ovr/sdk/src/OVR_JSON.cpp 	entries=(char**)OVR_ALLOC(numentries*sizeof(char*));
+<a href='../S/84.html#L591'>entries</a>           591 ovr/sdk/src/OVR_JSON.cpp 	if (!entries)
+<a href='../S/84.html#L593'>entries</a>           593 ovr/sdk/src/OVR_JSON.cpp 	memset(entries,0,numentries*sizeof(char*));
+<a href='../S/84.html#L601'>entries</a>           601 ovr/sdk/src/OVR_JSON.cpp 		entries[i]=ret;
+<a href='../S/84.html#L624'>entries</a>           624 ovr/sdk/src/OVR_JSON.cpp             if (entries[i])
+<a href='../S/84.html#L625'>entries</a>           625 ovr/sdk/src/OVR_JSON.cpp                 OVR_FREE(entries[i]);
+<a href='../S/84.html#L627'>entries</a>           627 ovr/sdk/src/OVR_JSON.cpp 		OVR_FREE(entries);
+<a href='../S/84.html#L637'>entries</a>           637 ovr/sdk/src/OVR_JSON.cpp 		OVR_strcpy(ptr, len - (ptr-out), entries[i]);
+<a href='../S/84.html#L638'>entries</a>           638 ovr/sdk/src/OVR_JSON.cpp         ptr+=OVR_strlen(entries[i]);
+<a href='../S/84.html#L646'>entries</a>           646 ovr/sdk/src/OVR_JSON.cpp 		OVR_FREE(entries[i]);
+<a href='../S/84.html#L648'>entries</a>           648 ovr/sdk/src/OVR_JSON.cpp 	OVR_FREE(entries);
+<a href='../S/84.html#L723'>entries</a>           723 ovr/sdk/src/OVR_JSON.cpp 	char** entries = 0, **names = 0;
+<a href='../S/84.html#L752'>entries</a>           752 ovr/sdk/src/OVR_JSON.cpp 	entries=(char**)OVR_ALLOC(numentries*sizeof(char*));
+<a href='../S/84.html#L753'>entries</a>           753 ovr/sdk/src/OVR_JSON.cpp 	if (!entries)
+<a href='../S/84.html#L759'>entries</a>           759 ovr/sdk/src/OVR_JSON.cpp         OVR_FREE(entries);
+<a href='../S/84.html#L762'>entries</a>           762 ovr/sdk/src/OVR_JSON.cpp 	memset(entries,0,sizeof(char*)*numentries);
+<a href='../S/84.html#L774'>entries</a>           774 ovr/sdk/src/OVR_JSON.cpp 		entries[i++] = ret = child-&gt;PrintValue(depth, fmt);
+<a href='../S/84.html#L803'>entries</a>           803 ovr/sdk/src/OVR_JSON.cpp             if (entries[i])
+<a href='../S/84.html#L804'>entries</a>           804 ovr/sdk/src/OVR_JSON.cpp                 OVR_FREE(entries[i]);}
+<a href='../S/84.html#L807'>entries</a>           807 ovr/sdk/src/OVR_JSON.cpp         OVR_FREE(entries);
+<a href='../S/84.html#L832'>entries</a>           832 ovr/sdk/src/OVR_JSON.cpp         OVR_strcpy(ptr, len - (ptr-out), entries[i]);
+<a href='../S/84.html#L833'>entries</a>           833 ovr/sdk/src/OVR_JSON.cpp         ptr+=OVR_strlen(entries[i]);
+<a href='../S/84.html#L843'>entries</a>           843 ovr/sdk/src/OVR_JSON.cpp         OVR_FREE(entries[i]);
+<a href='../S/84.html#L847'>entries</a>           847 ovr/sdk/src/OVR_JSON.cpp     OVR_FREE(entries);
+</pre>
+</body>
+</html>

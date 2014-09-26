@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>fd</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/193.html#L152'>fd</a>                152 ovr/sdk/src/OVR_Linux_DeviceManager.cpp bool DeviceManagerThread::AddSelectFd(Notifier* notify, int fd)
+<a href='../S/193.html#L155'>fd</a>                155 ovr/sdk/src/OVR_Linux_DeviceManager.cpp     pfd.fd = fd;
+<a href='../S/193.html#L166'>fd</a>                166 ovr/sdk/src/OVR_Linux_DeviceManager.cpp bool DeviceManagerThread::RemoveSelectFd(Notifier* notify, int fd)
+<a href='../S/193.html#L172'>fd</a>                172 ovr/sdk/src/OVR_Linux_DeviceManager.cpp         if ((FdNotifiers[i] == notify) &amp;&amp; (PollFds[i].fd == fd))
+<a href='../S/193.html#L237'>fd</a>                237 ovr/sdk/src/OVR_Linux_DeviceManager.cpp                             OVR_DEBUG_LOG(("poll: error on [%d]: %d", i, PollFds[i].fd));
+<a href='../S/193.html#L242'>fd</a>                242 ovr/sdk/src/OVR_Linux_DeviceManager.cpp                                 FdNotifiers[i]-&gt;OnEvent(i, PollFds[i].fd);
+<a href='../S/193.html#L246'>fd</a>                246 ovr/sdk/src/OVR_Linux_DeviceManager.cpp                                 read(PollFds[i].fd, dummy, 128);
+<a href='../S/130.html#L84'>fd</a>                 84 ovr/sdk/src/OVR_Linux_DeviceManager.h         virtual void OnEvent(int i, int fd) = 0;
+<a href='../S/130.html#L97'>fd</a>                 97 ovr/sdk/src/OVR_Linux_DeviceManager.h     bool AddSelectFd(Notifier* notify, int fd);
+<a href='../S/130.html#L98'>fd</a>                 98 ovr/sdk/src/OVR_Linux_DeviceManager.h     bool RemoveSelectFd(Notifier* notify, int fd);
+<a href='../S/132.html#L370'>fd</a>                370 ovr/sdk/src/OVR_Linux_HIDDevice.cpp void HIDDeviceManager::OnEvent(int i, int fd)
+<a href='../S/132.html#L373'>fd</a>                373 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     OVR_UNUSED(fd);
+<a href='../S/132.html#L675'>fd</a>                675 ovr/sdk/src/OVR_Linux_HIDDevice.cpp void HIDDevice::OnEvent(int i, int fd)
+<a href='../S/132.html#L679'>fd</a>                679 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     int bytes = read(fd, ReadBuffer, ReadBufferSize);
+<a href='../S/81.html#L61'>fd</a>                 61 ovr/sdk/src/OVR_Linux_HIDDevice.h     void OnEvent(int i, int fd);
+<a href='../S/81.html#L108'>fd</a>                108 ovr/sdk/src/OVR_Linux_HIDDevice.h     void OnEvent(int i, int fd);
+</pre>
+</body>
+</html>

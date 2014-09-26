@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>newestReport</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/128.html#L208'>newestReport</a>      208 ovr/sdk/src/OVR_SensorCalibration.cpp     TemperatureReport&amp; newestReport = TemperatureReports[binIdx][newestIdx];
+<a href='../S/128.html#L209'>newestReport</a>      209 ovr/sdk/src/OVR_SensorCalibration.cpp     OVR_ASSERT((oldestReport.Sample == 0 &amp;&amp; newestReport.Sample == 0 &amp;&amp; newestReport.Version == 0) || 
+<a href='../S/128.html#L210'>newestReport</a>      210 ovr/sdk/src/OVR_SensorCalibration.cpp                 oldestReport.Sample == (newestReport.Sample + 1) % newestReport.NumSamples);
+<a href='../S/128.html#L214'>newestReport</a>      214 ovr/sdk/src/OVR_SensorCalibration.cpp     if (now - newestReport.Time &gt; minDelay)
+<a href='../S/128.html#L230'>newestReport</a>      230 ovr/sdk/src/OVR_SensorCalibration.cpp         if (Abs(GyroAutoTemperature - newestReport.TargetTemperature) + minExtraDeltaT
+<a href='../S/128.html#L231'>newestReport</a>      231 ovr/sdk/src/OVR_SensorCalibration.cpp             &lt; Abs(newestReport.ActualTemperature - newestReport.TargetTemperature))
+<a href='../S/128.html#L234'>newestReport</a>      234 ovr/sdk/src/OVR_SensorCalibration.cpp             newestReport.ActualTemperature = GyroAutoTemperature;
+<a href='../S/128.html#L235'>newestReport</a>      235 ovr/sdk/src/OVR_SensorCalibration.cpp             newestReport.Offset = (Vector3d) GyroAutoOffset;
+<a href='../S/128.html#L236'>newestReport</a>      236 ovr/sdk/src/OVR_SensorCalibration.cpp             newestReport.Version = VERSION;
+<a href='../S/128.html#L237'>newestReport</a>      237 ovr/sdk/src/OVR_SensorCalibration.cpp             writeSuccess = pSensor-&gt;SetTemperatureReport(newestReport);
+</pre>
+</body>
+</html>

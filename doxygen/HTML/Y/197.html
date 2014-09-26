@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Children</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/84.html#L129'>Children</a>          129 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L130'>Children</a>          130 ovr/sdk/src/OVR_JSON.cpp     while (!Children.IsNull(child))
+<a href='../S/84.html#L134'>Children</a>          134 ovr/sdk/src/OVR_JSON.cpp         child = Children.GetFirst();
+<a href='../S/84.html#L545'>Children</a>          545 ovr/sdk/src/OVR_JSON.cpp     Children.PushBack(child);
+<a href='../S/84.html#L557'>Children</a>          557 ovr/sdk/src/OVR_JSON.cpp         Children.PushBack(new_item);
+<a href='../S/84.html#L596'>Children</a>          596 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L609'>Children</a>          609 ovr/sdk/src/OVR_JSON.cpp         child = Children.GetNext(child);
+<a href='../S/84.html#L670'>Children</a>          670 ovr/sdk/src/OVR_JSON.cpp     Children.PushBack(child);
+<a href='../S/84.html#L693'>Children</a>          693 ovr/sdk/src/OVR_JSON.cpp         Children.PushBack(child);
+<a href='../S/84.html#L770'>Children</a>          770 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L771'>Children</a>          771 ovr/sdk/src/OVR_JSON.cpp     while (!Children.IsNull(child))
+<a href='../S/84.html#L786'>Children</a>          786 ovr/sdk/src/OVR_JSON.cpp         child = Children.GetNext(child);
+<a href='../S/84.html#L867'>Children</a>          867 ovr/sdk/src/OVR_JSON.cpp     for(const JSON* p = Children.GetFirst(); !Children.IsNull(p); p = p-&gt;pNext)
+<a href='../S/84.html#L877'>Children</a>          877 ovr/sdk/src/OVR_JSON.cpp     if (!Children.IsEmpty())
+<a href='../S/84.html#L879'>Children</a>          879 ovr/sdk/src/OVR_JSON.cpp         child = Children.GetFirst();
+<a href='../S/84.html#L883'>Children</a>          883 ovr/sdk/src/OVR_JSON.cpp             if (Children.IsNull(child-&gt;pNext))
+<a href='../S/84.html#L901'>Children</a>          901 ovr/sdk/src/OVR_JSON.cpp     if (!Children.IsEmpty())
+<a href='../S/84.html#L903'>Children</a>          903 ovr/sdk/src/OVR_JSON.cpp         child = Children.GetFirst();
+<a href='../S/84.html#L907'>Children</a>          907 ovr/sdk/src/OVR_JSON.cpp             if (Children.IsNull(child-&gt;pNext))
+<a href='../S/84.html#L927'>Children</a>          927 ovr/sdk/src/OVR_JSON.cpp     Children.PushBack(item);
+<a href='../S/84.html#L972'>Children</a>          972 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetLast();
+<a href='../S/84.html#L973'>Children</a>          973 ovr/sdk/src/OVR_JSON.cpp     if (!Children.IsNull(child))
+<a href='../S/84.html#L1046'>Children</a>         1046 ovr/sdk/src/OVR_JSON.cpp     Children.PushBack(item);
+<a href='../S/84.html#L1057'>Children</a>         1057 ovr/sdk/src/OVR_JSON.cpp         Children.PushFront(item);
+<a href='../S/84.html#L1061'>Children</a>         1061 ovr/sdk/src/OVR_JSON.cpp     JSON* iter = Children.GetFirst();
+<a href='../S/84.html#L1065'>Children</a>         1065 ovr/sdk/src/OVR_JSON.cpp         iter = Children.GetNext(iter);
+<a href='../S/84.html#L1072'>Children</a>         1072 ovr/sdk/src/OVR_JSON.cpp         Children.PushBack(item);
+<a href='../S/84.html#L1119'>Children</a>         1119 ovr/sdk/src/OVR_JSON.cpp     JSON* child = Children.GetFirst();
+<a href='../S/84.html#L1120'>Children</a>         1120 ovr/sdk/src/OVR_JSON.cpp     while (!Children.IsNull(child))
+<a href='../S/84.html#L1122'>Children</a>         1122 ovr/sdk/src/OVR_JSON.cpp         copy-&gt;Children.PushBack(child-&gt;Copy());
+<a href='../S/84.html#L1123'>Children</a>         1123 ovr/sdk/src/OVR_JSON.cpp         child = Children.GetNext(child);
+<a href='../S/78.html#L61'>Children</a>           61 ovr/sdk/src/OVR_JSON.h     List&lt;JSON&gt;      Children;
+<a href='../S/78.html#L98'>Children</a>           98 ovr/sdk/src/OVR_JSON.h     bool            HasItems() const         { return Children.IsEmpty(); }
+<a href='../S/78.html#L100'>Children</a>          100 ovr/sdk/src/OVR_JSON.h     JSON*           GetFirstItem()           { return (!Children.IsEmpty()) ? Children.GetFirst() : 0; }
+<a href='../S/78.html#L101'>Children</a>          101 ovr/sdk/src/OVR_JSON.h     JSON*           GetLastItem()            { return (!Children.IsEmpty()) ? Children.GetLast() : 0; }
+<a href='../S/78.html#L115'>Children</a>          115 ovr/sdk/src/OVR_JSON.h     JSON*           GetNextItem(JSON* item)  { return Children.IsNull(item-&gt;pNext) ? 0 : item-&gt;pNext; }
+<a href='../S/78.html#L116'>Children</a>          116 ovr/sdk/src/OVR_JSON.h     JSON*           GetPrevItem(JSON* item)  { return Children.IsNull(item-&gt;pPrev) ? 0 : item-&gt;pPrev; }
+</pre>
+</body>
+</html>

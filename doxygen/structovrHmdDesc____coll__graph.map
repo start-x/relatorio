@@ -1,0 +1,6 @@
+<map id="ovrHmdDesc_" name="ovrHmdDesc_">
+<area shape="rect" id="node2" href="$OVR__CAPI_8h.html#structovrVector2i__" title="{ovrVector2i_\n|+ x\l+ y\l|}" alt="" coords="5,21,99,113"/>
+<area shape="rect" id="node3" href="$structovrHmdStruct.html" title="{ovrHmdStruct\n||}" alt="" coords="123,28,225,105"/>
+<area shape="rect" id="node4" href="$OVR__CAPI_8h.html#structovrFovPort__" title="{ovrFovPort_\n|+ UpTan\l+ DownTan\l+ LeftTan\l+ RightTan\l|}" alt="" coords="251,6,344,127"/>
+<area shape="rect" id="node5" href="$OVR__CAPI_8h.html#structovrSizei__" title="{ovrSizei_\n|+ w\l+ h\l|}" alt="" coords="379,21,455,113"/>
+</map>

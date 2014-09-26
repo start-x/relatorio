@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Rotate</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/177.html#L951'>Rotate</a>            951 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Rotate(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L1121'>Rotate</a>           1121 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&lt;T&gt; Rotate(const Vector3&lt;T&gt;&amp; v) const
+<a href='../S/177.html#L1123'>Rotate</a>           1123 ovr/sdk/src/Kernel/OVR_Math.h         return Rotation.Rotate(v);
+<a href='../S/177.html#L1133'>Rotate</a>           1133 ovr/sdk/src/Kernel/OVR_Math.h         return Translate(Rotate(v));
+<a href='../S/177.html#L1145'>Rotate</a>           1145 ovr/sdk/src/Kernel/OVR_Math.h         result.LinearVelocity      = this-&gt;Rotate(poseState.LinearVelocity);
+<a href='../S/177.html#L1146'>Rotate</a>           1146 ovr/sdk/src/Kernel/OVR_Math.h         result.LinearAcceleration  = this-&gt;Rotate(poseState.LinearAcceleration);
+<a href='../S/177.html#L1147'>Rotate</a>           1147 ovr/sdk/src/Kernel/OVR_Math.h         result.AngularVelocity     = this-&gt;Rotate(poseState.AngularVelocity);
+<a href='../S/177.html#L1148'>Rotate</a>           1148 ovr/sdk/src/Kernel/OVR_Math.h         result.AngularAcceleration = this-&gt;Rotate(poseState.AngularAcceleration);
+<a href='../S/177.html#L1155'>Rotate</a>           1155 ovr/sdk/src/Kernel/OVR_Math.h         return Transform(inv, inv.Rotate(-Translation));
+<a href='../S/119.html#L288'>Rotate</a>            288 ovr/sdk/src/OVR_SensorFilter.h             output = deltaQ.Inverted().Rotate(output);
+<a href='../S/119.html#L295'>Rotate</a>            295 ovr/sdk/src/OVR_SensorFilter.h         PushBack(Q.Rotate(output));
+<a href='../S/119.html#L301'>Rotate</a>            301 ovr/sdk/src/OVR_SensorFilter.h         return Q.Inverted().Rotate(this-&gt;Mean());
+<a href='../S/189.html#L216'>Rotate</a>            216 ovr/sdk/src/OVR_SensorFusion.cpp             WorldFromCamera.Inverted().Rotate(imuVelocityInWorldFrame);
+<a href='../S/189.html#L278'>Rotate</a>            278 ovr/sdk/src/OVR_SensorFusion.cpp                 WorldFromCamera.Inverted().Rotate(delta.Pose.Translation)
+<a href='../S/189.html#L308'>Rotate</a>            308 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInWorldFrame = WorldFromImu.Pose.Rotate(accel) - Vector3d(0, 9.8, 0);
+<a href='../S/189.html#L518'>Rotate</a>            518 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d magInWorldFrame = WorldFromImu.Pose.Rotate(mag);
+<a href='../S/189.html#L556'>Rotate</a>            556 ovr/sdk/src/OVR_SensorFusion.cpp         Vector3d magRefInWorldFrame = MagRefs[MagRefIdx].WorldFromImu.Rotate(MagRefs[MagRefIdx].InImuFrame);
+<a href='../S/189.html#L590'>Rotate</a>            590 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInWorldFrame = WorldFromImu.Pose.Rotate(FAccelInImuFrame.GetFilteredValue());
+<a href='../S/189.html#L620'>Rotate</a>            620 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d accelInCameraFrame = cameraFromImu.Rotate(accel);
+<a href='../S/189.html#L622'>Rotate</a>            622 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d cameraAccelInWorldFrame = WorldFromCamera.Rotate(FAccelInCameraFrame.GetFilteredValue());
+<a href='../S/189.html#L626'>Rotate</a>            626 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d forwardCamera = (error1 * WorldFromCamera.Rotation).Rotate(forward);
+<a href='../S/189.html#L635'>Rotate</a>            635 ovr/sdk/src/OVR_SensorFusion.cpp     if (CameraFromImu.Pose.Rotate(forward).Angle(forward) &gt; 1)
+<a href='../S/189.html#L688'>Rotate</a>            688 ovr/sdk/src/OVR_SensorFusion.cpp 	Vector3d currentDir = WorldFromImu.Pose.Rotate(Vector3d(0, 0, 1));
+<a href='../S/189.html#L700'>Rotate</a>            700 ovr/sdk/src/OVR_SensorFusion.cpp 			Vector3d lFocus = Quatd(up, -FocusFOV).Rotate(focusYawComponent);
+<a href='../S/189.html#L701'>Rotate</a>            701 ovr/sdk/src/OVR_SensorFusion.cpp 			Vector3d rFocus = Quatd(up, FocusFOV).Rotate(focusYawComponent);
+<a href='../S/189.html#L728'>Rotate</a>            728 ovr/sdk/src/OVR_SensorFusion.cpp 	SetFocusDirection(WorldFromImu.Pose.Rotate(Vector3d(0.0, 0.0, 1.0)));
+</pre>
+</body>
+</html>

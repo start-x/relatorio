@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>desc</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/142.html#L396'>desc</a>              396 ovr/sdk/src/OVR_CAPI.cpp OVR_EXPORT void ovrHmd_GetDesc(ovrHmd hmd, ovrHmdDesc* desc)
+<a href='../S/142.html#L399'>desc</a>              399 ovr/sdk/src/OVR_CAPI.cpp     *desc = hmds-&gt;RenderState.GetDesc();
+<a href='../S/142.html#L400'>desc</a>              400 ovr/sdk/src/OVR_CAPI.cpp     desc-&gt;Handle = hmd;
+<a href='../S/187.html#L491'>desc</a>              491 ovr/sdk/src/OVR_CAPI.h OVR_EXPORT void     ovrHmd_GetDesc(ovrHmd hmd, ovrHmdDesc* desc);
+<a href='../S/191.html#L533'>desc</a>              533 ovr/sdk/src/OVR_DeviceImpl.cpp     DeviceCreateDesc* desc = createDesc.Clone();
+<a href='../S/191.html#L534'>desc</a>              534 ovr/sdk/src/OVR_DeviceImpl.cpp     desc-&gt;pLock = pCreateDesc-&gt;pLock;
+<a href='../S/191.html#L535'>desc</a>              535 ovr/sdk/src/OVR_DeviceImpl.cpp     Devices.PushBack(desc);
+<a href='../S/191.html#L536'>desc</a>              536 ovr/sdk/src/OVR_DeviceImpl.cpp     desc-&gt;Enumerated = true;
+<a href='../S/191.html#L538'>desc</a>              538 ovr/sdk/src/OVR_DeviceImpl.cpp     CallOnDeviceAdded(desc);
+<a href='../S/191.html#L540'>desc</a>              540 ovr/sdk/src/OVR_DeviceImpl.cpp     return desc;
+<a href='../S/191.html#L749'>desc</a>              749 ovr/sdk/src/OVR_DeviceImpl.cpp         Ptr&lt;DeviceCreateDesc&gt; desc = getDeviceCommon()-&gt;pCreateDesc;
+<a href='../S/191.html#L750'>desc</a>              750 ovr/sdk/src/OVR_DeviceImpl.cpp         if (desc)
+<a href='../S/191.html#L756'>desc</a>              756 ovr/sdk/src/OVR_DeviceImpl.cpp                 Visitor(DeviceCreateDesc* desc) : Desc(desc) {}
+<a href='../S/191.html#L762'>desc</a>              762 ovr/sdk/src/OVR_DeviceImpl.cpp             } visitor(desc);
+<a href='../S/80.html#L169'>desc</a>              169 ovr/sdk/src/OVR_DeviceImpl.h         const DeviceCreateDesc&amp; desc, bool* newDeviceFlag = NULL) 
+<a href='../S/80.html#L170'>desc</a>              170 ovr/sdk/src/OVR_DeviceImpl.h     { OVR_UNUSED2(desc, newDeviceFlag); return false; }
+<a href='../S/80.html#L317'>desc</a>              317 ovr/sdk/src/OVR_DeviceImpl.h     virtual bool DetectHIDDevice(DeviceManager* pdevMgr, const HIDDeviceDesc&amp; desc)
+<a href='../S/80.html#L319'>desc</a>              319 ovr/sdk/src/OVR_DeviceImpl.h         OVR_UNUSED2(pdevMgr, desc);
+<a href='../S/80.html#L372'>desc</a>              372 ovr/sdk/src/OVR_DeviceImpl.h     void CallOnDeviceAdded(DeviceCreateDesc* desc)
+<a href='../S/80.html#L374'>desc</a>              374 ovr/sdk/src/OVR_DeviceImpl.h         HandlerRef.Call(MessageDeviceStatus(Message_DeviceAdded, this, DeviceHandle(desc)));
+<a href='../S/80.html#L376'>desc</a>              376 ovr/sdk/src/OVR_DeviceImpl.h     void CallOnDeviceRemoved(DeviceCreateDesc* desc)
+<a href='../S/80.html#L378'>desc</a>              378 ovr/sdk/src/OVR_DeviceImpl.h         HandlerRef.Call(MessageDeviceStatus(Message_DeviceRemoved, this, DeviceHandle(desc)));
+<a href='../S/87.html#L419'>desc</a>              419 ovr/sdk/src/OVR_LatencyTestImpl.cpp         virtual void Visit(HIDDevice&amp; device, const HIDDeviceDesc&amp; desc)
+<a href='../S/87.html#L423'>desc</a>              423 ovr/sdk/src/OVR_LatencyTestImpl.cpp             LatencyTestDeviceCreateDesc createDesc(pFactory, desc);
+<a href='../S/87.html#L438'>desc</a>              438 ovr/sdk/src/OVR_LatencyTestImpl.cpp                                                const HIDDeviceDesc&amp; desc)
+<a href='../S/87.html#L440'>desc</a>              440 ovr/sdk/src/OVR_LatencyTestImpl.cpp     if (MatchVendorProduct(desc.VendorId, desc.ProductId))
+<a href='../S/87.html#L442'>desc</a>              442 ovr/sdk/src/OVR_LatencyTestImpl.cpp         LatencyTestDeviceCreateDesc createDesc(this, desc);
+<a href='../S/122.html#L50'>desc</a>               50 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual bool DetectHIDDevice(DeviceManager* pdevMgr, const HIDDeviceDesc&amp; desc);
+<a href='../S/132.html#L300'>desc</a>              300 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::getFullDesc(udev_device* device, HIDDeviceDesc* desc)
+<a href='../S/132.html#L303'>desc</a>              303 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (!initVendorProductVersion(device, desc))
+<a href='../S/132.html#L308'>desc</a>              308 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (!getStringProperty(device, "serial", &amp;(desc-&gt;SerialNumber)))
+<a href='../S/132.html#L313'>desc</a>              313 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     getStringProperty(device, "manufacturer", &amp;(desc-&gt;Manufacturer));
+<a href='../S/132.html#L314'>desc</a>              314 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     getStringProperty(device, "product", &amp;(desc-&gt;Product));
+<a href='../S/132.html#L320'>desc</a>              320 ovr/sdk/src/OVR_Linux_HIDDevice.cpp bool HIDDeviceManager::GetDescriptorFromPath(const char* dev_path, HIDDeviceDesc* desc)
+<a href='../S/132.html#L353'>desc</a>              353 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                 desc-&gt;Path = dev_path;
+<a href='../S/132.html#L354'>desc</a>              354 ovr/sdk/src/OVR_Linux_HIDDevice.cpp                 success = getFullDesc(hid, desc);
+<a href='../S/81.html#L118'>desc</a>              118 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool getFullDesc(udev_device* device, HIDDeviceDesc* desc);
+<a href='../S/81.html#L119'>desc</a>              119 ovr/sdk/src/OVR_Linux_HIDDevice.h     bool GetDescriptorFromPath(const char* dev_path, HIDDeviceDesc* desc);
+<a href='../S/190.html#L194'>desc</a>              194 ovr/sdk/src/OVR_SensorImpl.cpp         virtual void Visit(HIDDevice&amp; device, const HIDDeviceDesc&amp; desc)
+<a href='../S/190.html#L197'>desc</a>              197 ovr/sdk/src/OVR_SensorImpl.cpp             if (desc.ProductId == Sensor_BootLoader)
+<a href='../S/190.html#L201'>desc</a>              201 ovr/sdk/src/OVR_SensorImpl.cpp                 BootLoaderDeviceCreateDesc createDesc(pFactory, desc);
+<a href='../S/190.html#L206'>desc</a>              206 ovr/sdk/src/OVR_SensorImpl.cpp             SensorDeviceCreateDesc createDesc(pFactory, desc);
+<a href='../S/190.html#L244'>desc</a>              244 ovr/sdk/src/OVR_SensorImpl.cpp bool SensorDeviceFactory::DetectHIDDevice(DeviceManager* pdevMgr, const HIDDeviceDesc&amp; desc)
+<a href='../S/190.html#L246'>desc</a>              246 ovr/sdk/src/OVR_SensorImpl.cpp     if (MatchVendorProduct(desc.VendorId, desc.ProductId))
+<a href='../S/190.html#L248'>desc</a>              248 ovr/sdk/src/OVR_SensorImpl.cpp         if (desc.ProductId == Sensor_BootLoader)
+<a href='../S/190.html#L252'>desc</a>              252 ovr/sdk/src/OVR_SensorImpl.cpp             BootLoaderDeviceCreateDesc createDesc(this, desc);
+<a href='../S/190.html#L258'>desc</a>              258 ovr/sdk/src/OVR_SensorImpl.cpp             SensorDeviceCreateDesc createDesc(this, desc);
+<a href='../S/135.html#L54'>desc</a>               54 ovr/sdk/src/OVR_SensorImpl.h     virtual bool DetectHIDDevice(DeviceManager* pdevMgr, const HIDDeviceDesc&amp; desc);
+<a href='../S/111.html#L209'>desc</a>              209 ovr/sdk/src/Util/Util_ImageWindow.cpp 			DXGI_SURFACE_DESC desc = {0};
+<a href='../S/111.html#L210'>desc</a>              210 ovr/sdk/src/Util/Util_ImageWindow.cpp 			pDxgiSurface-&gt;GetDesc( &amp;desc );
+<a href='../S/111.html#L211'>desc</a>              211 ovr/sdk/src/Util/Util_ImageWindow.cpp 			int width = desc.Width;
+<a href='../S/111.html#L212'>desc</a>              212 ovr/sdk/src/Util/Util_ImageWindow.cpp 			int height = desc.Height;
+<a href='../S/199.html#L285'>desc</a>              285 ovr/sdk/third_party/edid/edid.cpp static void decode_display_descriptor(const uint8_t *desc, MonitorInfo *info) {
+<a href='../S/199.html#L286'>desc</a>              286 ovr/sdk/third_party/edid/edid.cpp     switch (desc[0x03]) {
+<a href='../S/199.html#L288'>desc</a>              288 ovr/sdk/third_party/edid/edid.cpp         decode_lf_string(desc + 5, 13, info-&gt;dsc_product_name);
+<a href='../S/199.html#L291'>desc</a>              291 ovr/sdk/third_party/edid/edid.cpp         decode_lf_string(desc + 5, 13, info-&gt;dsc_serial_number);
+<a href='../S/199.html#L294'>desc</a>              294 ovr/sdk/third_party/edid/edid.cpp         decode_lf_string(desc + 5, 13, info-&gt;dsc_string);
+</pre>
+</body>
+</html>

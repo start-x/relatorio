@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>File</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/172.html#L57'>File</a>               57 ovr/sdk/src/Kernel/OVR_File.cpp BufferedFile::BufferedFile(File *pfile) : DelegatedFile(pfile)
+<a href='../S/172.html#L524'>File</a>              524 ovr/sdk/src/Kernel/OVR_File.cpp int     BufferedFile::CopyFromStream(File *pstream, int byteSize)
+<a href='../S/186.html#L47'>File</a>               47 ovr/sdk/src/Kernel/OVR_File.h class   File;
+<a href='../S/186.html#L118'>File</a>              118 ovr/sdk/src/Kernel/OVR_File.h class File : public RefCountBase&lt;File&gt;, public FileConstants
+<a href='../S/186.html#L121'>File</a>              121 ovr/sdk/src/Kernel/OVR_File.h     File() { }
+<a href='../S/186.html#L195'>File</a>              195 ovr/sdk/src/Kernel/OVR_File.h     virtual int         CopyFromStream(File *pstream, int byteSize) = 0;
+<a href='../S/186.html#L275'>File</a>              275 ovr/sdk/src/Kernel/OVR_File.h class DelegatedFile : public File
+<a href='../S/186.html#L279'>File</a>              279 ovr/sdk/src/Kernel/OVR_File.h     Ptr&lt;File&gt;     pFile;
+<a href='../S/186.html#L283'>File</a>              283 ovr/sdk/src/Kernel/OVR_File.h     DelegatedFile(const DelegatedFile &amp;source) : File()    { OVR_UNUSED(source); }
+<a href='../S/186.html#L286'>File</a>              286 ovr/sdk/src/Kernel/OVR_File.h     DelegatedFile(File *pfile) : pFile(pfile)     { }
+<a href='../S/186.html#L320'>File</a>              320 ovr/sdk/src/Kernel/OVR_File.h     virtual int         CopyFromStream(File *pstream, int byteSize) { return pFile-&gt;CopyFromStream(pstream,byteSize); }
+<a href='../S/186.html#L370'>File</a>              370 ovr/sdk/src/Kernel/OVR_File.h     BufferedFile(File *pfile);
+<a href='../S/186.html#L398'>File</a>              398 ovr/sdk/src/Kernel/OVR_File.h     virtual int         CopyFromStream(File *pstream, int byteSize);
+<a href='../S/186.html#L407'>File</a>              407 ovr/sdk/src/Kernel/OVR_File.h class MemoryFile : public File
+<a href='../S/186.html#L431'>File</a>              431 ovr/sdk/src/Kernel/OVR_File.h     int         CopyFromStream(File *pstream, int byteSize)
+<a href='../S/149.html#L176'>File</a>              176 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     virtual int         CopyFromStream(File *pStream, int byteSize);
+<a href='../S/149.html#L460'>File</a>              460 ovr/sdk/src/Kernel/OVR_FileFILE.cpp int FILEFile::CopyFromStream(File *pstream, int byteSize)
+<a href='../S/149.html#L564'>File</a>              564 ovr/sdk/src/Kernel/OVR_FileFILE.cpp Ptr&lt;File&gt; FileFILEOpen(const String&amp; path, int flags, int mode)
+<a href='../S/149.html#L566'>File</a>              566 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     Ptr&lt;File&gt; result = *new FILEFile(path, flags, mode);
+<a href='../S/156.html#L70'>File</a>               70 ovr/sdk/src/Kernel/OVR_SysFile.cpp     virtual int         CopyFromStream(File *pstream, int byteSize)   { return -1; OVR_UNUSED2(pstream, byteSize); }
+<a href='../S/156.html#L87'>File</a>               87 ovr/sdk/src/Kernel/OVR_SysFile.cpp Ptr&lt;File&gt; FileFILEOpen(const String&amp; path, int flags, int mode);
+<a href='../S/84.html#L1135'>File</a>             1135 ovr/sdk/src/OVR_JSON.cpp     if (!f.Open(path, File::Open_Read, File::Mode_Read))
+<a href='../S/84.html#L1165'>File</a>             1165 ovr/sdk/src/OVR_JSON.cpp     if (!f.Open(path, File::Open_Write | File::Open_Create | File::Open_Truncate, File::Mode_Write))
+</pre>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<map id="OVR::CAPI::GL::DistortionVertex" name="OVR::CAPI::GL::DistortionVertex">
+<area shape="rect" id="node2" href="$structOVR_1_1Color.html" title="{OVR::Color\n|+ R\l+ G\l+ B\l+ A\l|+ Color()\l+ Color()\l+ Color()\l+ operator==()\l+ GetRGBA()\l}" alt="" coords="5,545,109,725"/>
+<area shape="rect" id="node3" href="$classOVR_1_1Vector2.html" title="{OVR::Vector2\&lt; float \&gt;\n|+ x\l+ y\l|+ Vector2()\l+ Vector2()\l+ Vector2()\l+ Vector2()\l+ Vector2()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 22 more...\l+ Min()\l+ Max()\l}" alt="" coords="135,493,321,776"/>
+<area shape="rect" id="node4" href="$classOVR_1_1Vector2.html" title="{OVR::Vector2\&lt; T \&gt;\n||+ Vector2()\l+ Vector2()\l+ Vector2()\l+ Vector2()\l+ Vector2()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 22 more...\l+ Min()\l+ Max()\l}" alt="" coords="135,161,321,429"/>
+</map>

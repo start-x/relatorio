@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Recti</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L450'>Recti</a>             450 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     setViewport( Recti(0,0, RParams.RTSize.w, RParams.RTSize.h) );
+<a href='../S/104.html#L542'>Recti</a>             542 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     setViewport(Recti(0,0, RParams.RTSize.w, RParams.RTSize.h));
+<a href='../S/104.html#L568'>Recti</a>             568 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     setViewport(Recti(0,0, RParams.RTSize.w, RParams.RTSize.h));
+<a href='../S/106.html#L119'>Recti</a>             119 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h         Recti                     RenderViewport;
+<a href='../S/106.html#L131'>Recti</a>             131 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.h     void setViewport(const Recti&amp; vp);
+<a href='../S/88.html#L1485'>Recti</a>            1485 ovr/sdk/src/OVR_Stereo.cpp Recti GetFramebufferViewport ( StereoEye eyeType, HmdRenderInfo const &amp;hmd )
+<a href='../S/88.html#L1487'>Recti</a>            1487 ovr/sdk/src/OVR_Stereo.cpp     Recti result;
+<a href='../S/131.html#L386'>Recti</a>             386 ovr/sdk/src/OVR_Stereo.h Recti               GetFramebufferViewport ( StereoEye eyeType, HmdRenderInfo const &amp;hmd );
+<a href='../S/131.html#L400'>Recti</a>             400 ovr/sdk/src/OVR_Stereo.h                                                                   Recti renderedViewport,
+<a href='../S/131.html#L416'>Recti</a>             416 ovr/sdk/src/OVR_Stereo.h     Recti                   DistortionViewport;
+<a href='../S/131.html#L419'>Recti</a>             419 ovr/sdk/src/OVR_Stereo.h     Recti                   RenderedViewport;       // Viewport that we render the standard scene to.
+<a href='../S/131.html#L438'>Recti</a>             438 ovr/sdk/src/OVR_Stereo.h Vector2f TransformScreenPixelToScreenNDC( Recti const &amp;distortionViewport,
+<a href='../S/131.html#L440'>Recti</a>             440 ovr/sdk/src/OVR_Stereo.h Vector2f TransformScreenPixelToTanFovSpace ( Recti const &amp;distortionViewport,
+<a href='../S/131.html#L446'>Recti</a>             446 ovr/sdk/src/OVR_Stereo.h Vector2f TransformScreenPixelToRendertargetTexUV( Recti const &amp;distortionViewport,
+<a href='../S/117.html#L114'>Recti</a>             114 ovr/sdk/src/Util/Util_Render_Stereo.cpp static Recti CalculateViewportInternal ( StereoEye eyeType,
+<a href='../S/117.html#L120'>Recti</a>             120 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti renderedViewport;
+<a href='../S/117.html#L144'>Recti</a>             144 ovr/sdk/src/Util/Util_Render_Stereo.cpp static Recti CalculateViewportDensityInternal ( StereoEye eyeType,
+<a href='../S/117.html#L203'>Recti</a>             203 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti distortedViewport   = GetFramebufferViewport ( eyeType, hmd );
+<a href='../S/117.html#L293'>Recti</a>             293 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti viewport;
+<a href='../S/117.html#L347'>Recti</a>             347 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti renderViewport = CalculateViewportInternal ( params.Eye, actualRendertargetSurfaceSize, requestedRenderSize, bRendertargetSharedByBothEyes, false );
+<a href='../S/117.html#L356'>Recti</a>             356 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Recti renderViewport = CalculateViewportDensityInternal ( params.Eye, params.Distortion, params.Fov, actualRendertargetSurfaceSize, bRendertargetSharedByBothEyes, pixelDensity, false );
+<a href='../S/117.html#L407'>Recti</a>             407 ovr/sdk/src/Util/Util_Render_Stereo.cpp     SetViewport[0] = Recti(0,0,0,0);
+<a href='../S/117.html#L408'>Recti</a>             408 ovr/sdk/src/Util/Util_Render_Stereo.cpp     SetViewport[1] = Recti(0,0,0,0);
+<a href='../S/117.html#L613'>Recti</a>             613 ovr/sdk/src/Util/Util_Render_Stereo.cpp         Recti tempViewport = Recti ( 0, 0, 1, 1 );
+<a href='../S/117.html#L680'>Recti</a>             680 ovr/sdk/src/Util/Util_Render_Stereo.cpp         Recti renderedViewport;
+<a href='../S/115.html#L80'>Recti</a>              80 ovr/sdk/src/Util/Util_Render_Stereo.h     Recti               RenderedViewport;
+<a href='../S/115.html#L89'>Recti</a>              89 ovr/sdk/src/Util/Util_Render_Stereo.h                                               Recti const &amp;renderViewport );
+<a href='../S/115.html#L262'>Recti</a>             262 ovr/sdk/src/Util/Util_Render_Stereo.h     ViewportScaleAndOffsetBothEyes SetRenderViewport ( Recti const &amp;renderViewportLeft, Recti const &amp;renderViewportRight );
+<a href='../S/115.html#L283'>Recti</a>             283 ovr/sdk/src/Util/Util_Render_Stereo.h     Recti           SetViewport[2];
+</pre>
+</body>
+</html>

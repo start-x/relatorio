@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>ImageWindow</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/111.html#L52'>ImageWindow</a>        52 ovr/sdk/src/Util/Util_ImageWindow.cpp ID2D1Factory* ImageWindow::pD2DFactory = NULL;
+<a href='../S/111.html#L53'>ImageWindow</a>        53 ovr/sdk/src/Util/Util_ImageWindow.cpp IDWriteFactory* ImageWindow::pDWriteFactory = NULL;
+<a href='../S/111.html#L54'>ImageWindow</a>        54 ovr/sdk/src/Util/Util_ImageWindow.cpp ImageWindow* ImageWindow::globalWindow[4];
+<a href='../S/111.html#L55'>ImageWindow</a>        55 ovr/sdk/src/Util/Util_ImageWindow.cpp int ImageWindow::windowCount = 0;
+<a href='../S/111.html#L73'>ImageWindow</a>        73 ovr/sdk/src/Util/Util_ImageWindow.cpp 				ImageWindow* iw = (ImageWindow*)ptr;
+<a href='../S/111.html#L98'>ImageWindow</a>        98 ovr/sdk/src/Util/Util_ImageWindow.cpp ImageWindow::ImageWindow( uint32_t width, uint32_t height ) :
+<a href='../S/111.html#L149'>ImageWindow</a>       149 ovr/sdk/src/Util/Util_ImageWindow.cpp ImageWindow::~ImageWindow()
+<a href='../S/111.html#L184'>ImageWindow</a>       184 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::AssociateSurface( void* surface )
+<a href='../S/111.html#L257'>ImageWindow</a>       257 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::Process()
+<a href='../S/111.html#L267'>ImageWindow</a>       267 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::Complete()
+<a href='../S/111.html#L282'>ImageWindow</a>       282 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::OnPaint()
+<a href='../S/111.html#L423'>ImageWindow</a>       423 ovr/sdk/src/Util/Util_ImageWindow.cpp Ptr&lt;Frame&gt; ImageWindow::lastUnreadyFrame()
+<a href='../S/111.html#L439'>ImageWindow</a>       439 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::UpdateImageBW( const uint8_t* imageData, uint32_t width, uint32_t height )
+<a href='../S/111.html#L453'>ImageWindow</a>       453 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::UpdateImageRGBA( const uint8_t* imageData, uint32_t width, uint32_t height, uint32_t pitch )
+<a href='../S/111.html#L468'>ImageWindow</a>       468 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::addCircle( float x, float y, float radius, float r, float g, float b, bool fill )
+<a href='../S/111.html#L490'>ImageWindow</a>       490 ovr/sdk/src/Util/Util_ImageWindow.cpp void ImageWindow::addText( float x, float y, float r, float g, float b, OVR::String text )
+<a href='../S/109.html#L110'>ImageWindow</a>       110 ovr/sdk/src/Util/Util_ImageWindow.h class ImageWindow
+<a href='../S/109.html#L125'>ImageWindow</a>       125 ovr/sdk/src/Util/Util_ImageWindow.h 	ImageWindow();
+<a href='../S/109.html#L126'>ImageWindow</a>       126 ovr/sdk/src/Util/Util_ImageWindow.h 	ImageWindow( uint32_t width, uint32_t height );
+<a href='../S/109.html#L127'>ImageWindow</a>       127 ovr/sdk/src/Util/Util_ImageWindow.h 	virtual ~ImageWindow();
+<a href='../S/109.html#L145'>ImageWindow</a>       145 ovr/sdk/src/Util/Util_ImageWindow.h 	static ImageWindow*			GlobalWindow( int window ) { return globalWindow[window]; }
+<a href='../S/109.html#L153'>ImageWindow</a>       153 ovr/sdk/src/Util/Util_ImageWindow.h 	static ImageWindow*			globalWindow[MaxWindows];
+<a href='../S/109.html#L161'>ImageWindow</a>       161 ovr/sdk/src/Util/Util_ImageWindow.h class ImageWindow
+<a href='../S/109.html#L165'>ImageWindow</a>       165 ovr/sdk/src/Util/Util_ImageWindow.h 	ImageWindow() {}
+<a href='../S/109.html#L166'>ImageWindow</a>       166 ovr/sdk/src/Util/Util_ImageWindow.h 	ImageWindow( uint32_t width, uint32_t height ) { OVR_UNUSED( width ); OVR_UNUSED( height ); }
+<a href='../S/109.html#L167'>ImageWindow</a>       167 ovr/sdk/src/Util/Util_ImageWindow.h 	virtual ~ImageWindow() { }
+<a href='../S/109.html#L185'>ImageWindow</a>       185 ovr/sdk/src/Util/Util_ImageWindow.h 	static ImageWindow*			GlobalWindow( int window ) { return globalWindow[window]; }
+<a href='../S/109.html#L191'>ImageWindow</a>       191 ovr/sdk/src/Util/Util_ImageWindow.h 	static ImageWindow*			globalWindow[4];
+</pre>
+</body>
+</html>

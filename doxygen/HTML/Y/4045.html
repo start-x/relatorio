@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>pfirst</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/180.html#L207'>pfirst</a>            207 ovr/sdk/src/Kernel/OVR_List.h             ValueType* pfirst = src.GetFirst();
+<a href='../S/180.html#L211'>pfirst</a>            211 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev  = (ValueType*)&amp;Root;
+<a href='../S/180.html#L213'>pfirst</a>            213 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext        = pfirst;
+<a href='../S/180.html#L221'>pfirst</a>            221 ovr/sdk/src/Kernel/OVR_List.h             ValueType* pfirst = src.GetFirst();
+<a href='../S/180.html#L225'>pfirst</a>            225 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev  = Root.pPrev;
+<a href='../S/180.html#L226'>pfirst</a>            226 ovr/sdk/src/Kernel/OVR_List.h             Root.pPrev-&gt;pNext = pfirst;
+<a href='../S/180.html#L233'>pfirst</a>            233 ovr/sdk/src/Kernel/OVR_List.h     void    PushFollowingListItemsToFront(List&lt;T&gt;&amp; src, ValueType *pfirst)
+<a href='../S/180.html#L235'>pfirst</a>            235 ovr/sdk/src/Kernel/OVR_List.h         if (pfirst != &amp;src.Root)
+<a href='../S/180.html#L240'>pfirst</a>            240 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev-&gt;pNext = (ValueType*)&amp;src.Root;
+<a href='../S/180.html#L241'>pfirst</a>            241 ovr/sdk/src/Kernel/OVR_List.h             src.Root.pPrev      = pfirst-&gt;pPrev;
+<a href='../S/180.html#L244'>pfirst</a>            244 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev     = (ValueType*)&amp;Root;
+<a href='../S/180.html#L246'>pfirst</a>            246 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext        = pfirst;
+<a href='../S/180.html#L256'>pfirst</a>            256 ovr/sdk/src/Kernel/OVR_List.h             ValueType *pfirst = src.Root.pNext;
+<a href='../S/180.html#L265'>pfirst</a>            265 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev     = (ValueType*)&amp;Root;
+<a href='../S/180.html#L267'>pfirst</a>            267 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext        = pfirst;
+<a href='../S/180.html#L274'>pfirst</a>            274 ovr/sdk/src/Kernel/OVR_List.h     void    PushListItemsToFront(ValueType *pfirst, ValueType *pend)
+<a href='../S/180.html#L276'>pfirst</a>            276 ovr/sdk/src/Kernel/OVR_List.h         if (pfirst != pend)
+<a href='../S/180.html#L281'>pfirst</a>            281 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev-&gt;pNext = pend;
+<a href='../S/180.html#L282'>pfirst</a>            282 ovr/sdk/src/Kernel/OVR_List.h             pend-&gt;pPrev          = pfirst-&gt;pPrev;
+<a href='../S/180.html#L285'>pfirst</a>            285 ovr/sdk/src/Kernel/OVR_List.h             pfirst-&gt;pPrev     = (ValueType*)&amp;Root;
+<a href='../S/180.html#L287'>pfirst</a>            287 ovr/sdk/src/Kernel/OVR_List.h             Root.pNext        = pfirst;
+</pre>
+</body>
+</html>

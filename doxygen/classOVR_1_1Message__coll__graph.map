@@ -1,0 +1,4 @@
+<map id="OVR::Message" name="OVR::Message">
+<area shape="rect" id="node2" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="5,133,168,357"/>
+<area shape="rect" id="node3" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="4,5,168,83"/>
+</map>

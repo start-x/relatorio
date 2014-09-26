@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>correctionVel</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/189.html#L447'>correctionVel</a>     447 ovr/sdk/src/OVR_SensorFusion.cpp     Vector3d correctionPos, correctionVel;
+<a href='../S/189.html#L461'>correctionVel</a>     461 ovr/sdk/src/OVR_SensorFusion.cpp         correctionVel = worldFromImuVision.LinearVelocity - WorldFromImu.LinearVelocity;
+<a href='../S/189.html#L467'>correctionVel</a>     467 ovr/sdk/src/OVR_SensorFusion.cpp         correctionVel = VisionError.Pose.Translation.EntrywiseMultiply(gainVel) * deltaT;
+<a href='../S/189.html#L472'>correctionVel</a>     472 ovr/sdk/src/OVR_SensorFusion.cpp     WorldFromImu.LinearVelocity += correctionVel;
+<a href='../S/189.html#L476'>correctionVel</a>     476 ovr/sdk/src/OVR_SensorFusion.cpp     LastVisionExposureRecord.WorldFromImu.LinearVelocity += correctionVel;
+<a href='../S/189.html#L481'>correctionVel</a>     481 ovr/sdk/src/OVR_SensorFusion.cpp         state.LinearVelocity += correctionVel;
+</pre>
+</body>
+</html>

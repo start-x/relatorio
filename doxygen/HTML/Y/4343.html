@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>scale</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/104.html#L575'>scale</a>             575 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     Vector2f scale(2.0f / RParams.RTSize.w, 2.0f / RParams.RTSize.h); 
+<a href='../S/104.html#L576'>scale</a>             576 ovr/sdk/src/CAPI/GL/CAPI_GL_DistortionRenderer.cpp     SimpleQuadShader-&gt;SetUniform2f("Scale", scale.x, scale.y);
+<a href='../S/84.html#L144'>scale</a>             144 ovr/sdk/src/OVR_JSON.cpp     double      n=0, sign=1, scale=0;
+<a href='../S/84.html#L169'>scale</a>             169 ovr/sdk/src/OVR_JSON.cpp             scale--;
+<a href='../S/84.html#L190'>scale</a>             190 ovr/sdk/src/OVR_JSON.cpp 	n = sign*n*pow(10.0,(scale+subscale*signsubscale));
+<a href='../S/88.html#L168'>scale</a>             168 ovr/sdk/src/OVR_Stereo.cpp     float scale = 1.0f;
+<a href='../S/88.html#L173'>scale</a>             173 ovr/sdk/src/OVR_Stereo.cpp         scale = ( K[0] + rsq * ( K[1] + rsq * ( K[2] + rsq * K[3] ) ) );
+<a href='../S/88.html#L176'>scale</a>             176 ovr/sdk/src/OVR_Stereo.cpp         scale = 1.0f / ( K[0] + rsq * ( K[1] + rsq * ( K[2] + rsq * K[3] ) ) );
+<a href='../S/88.html#L185'>scale</a>             185 ovr/sdk/src/OVR_Stereo.cpp         scale = EvalCatmullRom10Spline ( K, scaledRsq );
+<a href='../S/88.html#L191'>scale</a>             191 ovr/sdk/src/OVR_Stereo.cpp 			scale = CustomDistortion(rsq);
+<a href='../S/88.html#L199'>scale</a>             199 ovr/sdk/src/OVR_Stereo.cpp     return scale;
+<a href='../S/88.html#L205'>scale</a>             205 ovr/sdk/src/OVR_Stereo.cpp     float scale = DistortionFnScaleRadiusSquared ( rsq );
+<a href='../S/88.html#L207'>scale</a>             207 ovr/sdk/src/OVR_Stereo.cpp     scaleRGB.x = scale * ( 1.0f + ChromaticAberration[0] + rsq * ChromaticAberration[1] );     // Red
+<a href='../S/88.html#L208'>scale</a>             208 ovr/sdk/src/OVR_Stereo.cpp     scaleRGB.y = scale;                                                                        // Green
+<a href='../S/88.html#L209'>scale</a>             209 ovr/sdk/src/OVR_Stereo.cpp     scaleRGB.z = scale * ( 1.0f + ChromaticAberration[2] + rsq * ChromaticAberration[3] );     // Blue
+<a href='../S/88.html#L257'>scale</a>             257 ovr/sdk/src/OVR_Stereo.cpp     float scale = 1.0f;
+<a href='../S/88.html#L265'>scale</a>             265 ovr/sdk/src/OVR_Stereo.cpp         scale = 1.0f / ( InvK[0] + rsq * ( InvK[1] + rsq * ( InvK[2] + rsq * InvK[3] ) ) );
+<a href='../S/88.html#L274'>scale</a>             274 ovr/sdk/src/OVR_Stereo.cpp         scale = EvalCatmullRom10Spline ( InvK, scaledRsq );
+<a href='../S/88.html#L279'>scale</a>             279 ovr/sdk/src/OVR_Stereo.cpp 			scale = CustomDistortionInv(rsq);
+<a href='../S/88.html#L287'>scale</a>             287 ovr/sdk/src/OVR_Stereo.cpp     return r * scale;
+<a href='../S/88.html#L1531'>scale</a>            1531 ovr/sdk/src/OVR_Stereo.cpp     Vector2f scale(  (float)renderedViewport.w / (float)renderTargetSize.w,
+<a href='../S/88.html#L1536'>scale</a>            1536 ovr/sdk/src/OVR_Stereo.cpp 	result.Scale  = result.Scale.EntrywiseMultiply(scale);
+<a href='../S/88.html#L1537'>scale</a>            1537 ovr/sdk/src/OVR_Stereo.cpp     result.Offset  = result.Offset.EntrywiseMultiply(scale) + offset;
+</pre>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<html>
+<head>
+<title>operator</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/67.html#L53'>operator</a>           53 ovr/Ovr.h      	friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, const Ovr&amp;);
+<a href='../S/93.html#L46'>operator</a>           46 ovr/sdk/src/CAPI/CAPI_DistortionRenderer.h     void operator = (const DistortionRenderer&amp;) { }
+<a href='../S/100.html#L47'>operator</a>           47 ovr/sdk/src/CAPI/CAPI_HMDRenderState.h     void operator = (const HMDRenderState&amp;) { }
+<a href='../S/103.html#L428'>operator</a>          428 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     operator bool () const
+<a href='../S/103.html#L433'>operator</a>          433 ovr/sdk/src/CAPI/GL/CAPI_GL_Util.h     bool operator== (const DisplayId&amp; b) const
+<a href='../S/147.html#L635'>operator</a>          635 ovr/sdk/src/Kernel/OVR_Alg.h     const T&amp; operator [] (UPInt i) const { return Data[i]; }
+<a href='../S/147.html#L636'>operator</a>          636 ovr/sdk/src/Kernel/OVR_Alg.h           T&amp; operator [] (UPInt i)       { return Data[i]; }
+<a href='../S/147.html#L655'>operator</a>          655 ovr/sdk/src/Kernel/OVR_Alg.h     const T&amp; operator [] (UPInt i) const { return Data[i]; }
+<a href='../S/182.html#L59'>operator</a>           59 ovr/sdk/src/Kernel/OVR_Allocator.h     OVR_FORCE_INLINE void* operator new     (OVR::UPInt n, void *ptr) { OVR_UNUSED(n); return ptr; }
+<a href='../S/182.html#L60'>operator</a>           60 ovr/sdk/src/Kernel/OVR_Allocator.h     OVR_FORCE_INLINE void  operator delete  (void *, void *)     { }
+<a href='../S/182.html#L74'>operator</a>           74 ovr/sdk/src/Kernel/OVR_Allocator.h     void*   operator new(UPInt sz)                                                      \
+<a href='../S/182.html#L76'>operator</a>           76 ovr/sdk/src/Kernel/OVR_Allocator.h     void*   operator new(UPInt sz, const char* file, int line)                          \
+<a href='../S/182.html#L78'>operator</a>           78 ovr/sdk/src/Kernel/OVR_Allocator.h     void    operator delete(void *p)                                                    \
+<a href='../S/182.html#L80'>operator</a>           80 ovr/sdk/src/Kernel/OVR_Allocator.h     void    operator delete(void *p, const char*, int)                                  \
+<a href='../S/182.html#L84'>operator</a>           84 ovr/sdk/src/Kernel/OVR_Allocator.h     void*   operator new        (UPInt n, void *ptr)    { OVR_UNUSED(n); return ptr; }  \
+<a href='../S/182.html#L85'>operator</a>           85 ovr/sdk/src/Kernel/OVR_Allocator.h     void    operator delete     (void *ptr, void *ptr2) { OVR_UNUSED2(ptr,ptr2); }
+<a href='../S/152.html#L411'>operator</a>          411 ovr/sdk/src/Kernel/OVR_Array.h     ValueType&amp; operator [] (UPInt index)
+<a href='../S/152.html#L416'>operator</a>          416 ovr/sdk/src/Kernel/OVR_Array.h     const ValueType&amp; operator [] (UPInt index) const
+<a href='../S/152.html#L472'>operator</a>          472 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator = (const SelfType&amp; a)   
+<a href='../S/152.html#L603'>operator</a>          603 ovr/sdk/src/Kernel/OVR_Array.h         bool operator==(const Iterator&amp; it) const { return pArray == it.pArray &amp;&amp; CurIndex == it.CurIndex; }
+<a href='../S/152.html#L604'>operator</a>          604 ovr/sdk/src/Kernel/OVR_Array.h         bool operator!=(const Iterator&amp; it) const { return pArray != it.pArray || CurIndex != it.CurIndex; }
+<a href='../S/152.html#L606'>operator</a>          606 ovr/sdk/src/Kernel/OVR_Array.h         Iterator&amp; operator++()
+<a href='../S/152.html#L615'>operator</a>          615 ovr/sdk/src/Kernel/OVR_Array.h         Iterator operator++(int)
+<a href='../S/152.html#L618'>operator</a>          618 ovr/sdk/src/Kernel/OVR_Array.h             operator++();
+<a href='../S/152.html#L621'>operator</a>          621 ovr/sdk/src/Kernel/OVR_Array.h         Iterator&amp; operator--()
+<a href='../S/152.html#L630'>operator</a>          630 ovr/sdk/src/Kernel/OVR_Array.h         Iterator operator--(int)
+<a href='../S/152.html#L633'>operator</a>          633 ovr/sdk/src/Kernel/OVR_Array.h             operator--();
+<a href='../S/152.html#L636'>operator</a>          636 ovr/sdk/src/Kernel/OVR_Array.h         Iterator operator+(int delta) const
+<a href='../S/152.html#L640'>operator</a>          640 ovr/sdk/src/Kernel/OVR_Array.h         Iterator operator-(int delta) const
+<a href='../S/152.html#L644'>operator</a>          644 ovr/sdk/src/Kernel/OVR_Array.h         SPInt operator-(const Iterator&amp; right) const
+<a href='../S/152.html#L649'>operator</a>          649 ovr/sdk/src/Kernel/OVR_Array.h         ValueType&amp; operator*() const    { OVR_ASSERT(pArray); return  (*pArray)[CurIndex]; }
+<a href='../S/152.html#L650'>operator</a>          650 ovr/sdk/src/Kernel/OVR_Array.h         ValueType* operator-&gt;() const   { OVR_ASSERT(pArray); return &amp;(*pArray)[CurIndex]; }
+<a href='../S/152.html#L677'>operator</a>          677 ovr/sdk/src/Kernel/OVR_Array.h         bool operator==(const ConstIterator&amp; it) const { return pArray == it.pArray &amp;&amp; CurIndex == it.CurIndex; }
+<a href='../S/152.html#L678'>operator</a>          678 ovr/sdk/src/Kernel/OVR_Array.h         bool operator!=(const ConstIterator&amp; it) const { return pArray != it.pArray || CurIndex != it.CurIndex; }
+<a href='../S/152.html#L680'>operator</a>          680 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator&amp; operator++()
+<a href='../S/152.html#L689'>operator</a>          689 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator operator++(int)
+<a href='../S/152.html#L692'>operator</a>          692 ovr/sdk/src/Kernel/OVR_Array.h             operator++();
+<a href='../S/152.html#L695'>operator</a>          695 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator&amp; operator--()
+<a href='../S/152.html#L704'>operator</a>          704 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator operator--(int)
+<a href='../S/152.html#L707'>operator</a>          707 ovr/sdk/src/Kernel/OVR_Array.h             operator--();
+<a href='../S/152.html#L710'>operator</a>          710 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator operator+(int delta) const
+<a href='../S/152.html#L714'>operator</a>          714 ovr/sdk/src/Kernel/OVR_Array.h         ConstIterator operator-(int delta) const
+<a href='../S/152.html#L718'>operator</a>          718 ovr/sdk/src/Kernel/OVR_Array.h         SPInt operator-(const ConstIterator&amp; right) const
+<a href='../S/152.html#L723'>operator</a>          723 ovr/sdk/src/Kernel/OVR_Array.h         const ValueType&amp; operator*() const  { OVR_ASSERT(pArray); return  (*pArray)[CurIndex]; }
+<a href='../S/152.html#L724'>operator</a>          724 ovr/sdk/src/Kernel/OVR_Array.h         const ValueType* operator-&gt;() const { OVR_ASSERT(pArray); return &amp;(*pArray)[CurIndex]; }
+<a href='../S/152.html#L760'>operator</a>          760 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L782'>operator</a>          782 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L804'>operator</a>          804 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/152.html#L828'>operator</a>          828 ovr/sdk/src/Kernel/OVR_Array.h     const SelfType&amp; operator=(const SelfType&amp; a) { BaseType::operator=(a); return *this; }
+<a href='../S/145.html#L610'>operator</a>          610 ovr/sdk/src/Kernel/OVR_Atomic.h     inline operator T() const { return Value; }
+<a href='../S/145.html#L643'>operator</a>          643 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -&gt; () const     { return this-&gt;Load_Acquire(); }
+<a href='../S/145.html#L648'>operator</a>          648 ovr/sdk/src/Kernel/OVR_Atomic.h     inline operator T* () const        { return this-&gt;Load_Acquire(); }
+<a href='../S/145.html#L665'>operator</a>          665 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator = (T* val)  { this-&gt;Store_Release(val); return val; }
+<a href='../S/145.html#L668'>operator</a>          668 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator += (I val) { return ExchangeAdd_Sync(val) + val; }
+<a href='../S/145.html#L670'>operator</a>          670 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -= (I val) { return operator += (-val); }
+<a href='../S/145.html#L672'>operator</a>          672 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator ++ ()      { return ExchangeAdd_Sync(1) + 1; }
+<a href='../S/145.html#L673'>operator</a>          673 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -- ()      { return ExchangeAdd_Sync(-1) - 1; }
+<a href='../S/145.html#L674'>operator</a>          674 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator ++ (int)   { return ExchangeAdd_Sync(1); }
+<a href='../S/145.html#L675'>operator</a>          675 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T* operator -- (int)   { return ExchangeAdd_Sync(-1); }
+<a href='../S/145.html#L708'>operator</a>          708 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator = (T val)  { this-&gt;Store_Release(val); return val; }
+<a href='../S/145.html#L709'>operator</a>          709 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator += (T val) { return ExchangeAdd_Sync(val) + val; }
+<a href='../S/145.html#L710'>operator</a>          710 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator -= (T val) { return ExchangeAdd_Sync(0 - val) - val; }
+<a href='../S/145.html#L712'>operator</a>          712 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator ++ ()      { return ExchangeAdd_Sync((T)1) + 1; }
+<a href='../S/145.html#L713'>operator</a>          713 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator -- ()      { return ExchangeAdd_Sync(((T)0)-1) - 1; }
+<a href='../S/145.html#L714'>operator</a>          714 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator ++ (int)   { return ExchangeAdd_Sync((T)1); }
+<a href='../S/145.html#L715'>operator</a>          715 ovr/sdk/src/Kernel/OVR_Atomic.h     inline T operator -- (int)   { return ExchangeAdd_Sync(((T)0)-1); }
+<a href='../S/145.html#L718'>operator</a>          718 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator &amp;= (T arg)
+<a href='../S/145.html#L728'>operator</a>          728 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator |= (T arg)
+<a href='../S/145.html#L738'>operator</a>          738 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator ^= (T arg)
+<a href='../S/145.html#L748'>operator</a>          748 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator *= (T arg)
+<a href='../S/145.html#L758'>operator</a>          758 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator /= (T arg)
+<a href='../S/145.html#L768'>operator</a>          768 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator &gt;&gt;= (unsigned bits)
+<a href='../S/145.html#L778'>operator</a>          778 ovr/sdk/src/Kernel/OVR_Atomic.h     T operator &lt;&lt;= (unsigned bits)
+<a href='../S/145.html#L803'>operator</a>          803 ovr/sdk/src/Kernel/OVR_Atomic.h     void    operator delete(void*) {}
+<a href='../S/160.html#L50'>operator</a>           50 ovr/sdk/src/Kernel/OVR_Color.h     bool operator==(const Color&amp; b) const
+<a href='../S/162.html#L68'>operator</a>           68 ovr/sdk/src/Kernel/OVR_Deque.h     Deque&amp;      operator= (const Deque&amp; q) { }; // forbidden
+<a href='../S/179.html#L74'>operator</a>           74 ovr/sdk/src/Kernel/OVR_Hash.h     UPInt operator()(const C&amp; data) const
+<a href='../S/179.html#L99'>operator</a>           99 ovr/sdk/src/Kernel/OVR_Hash.h     UPInt operator()(const C&amp; data) const
+<a href='../S/179.html#L467'>operator</a>          467 ovr/sdk/src/Kernel/OVR_Hash.h         const C&amp;    operator * () const
+<a href='../S/179.html#L473'>operator</a>          473 ovr/sdk/src/Kernel/OVR_Hash.h         const C*    operator -&gt; () const
+<a href='../S/179.html#L479'>operator</a>          479 ovr/sdk/src/Kernel/OVR_Hash.h         void    operator ++ ()
+<a href='../S/179.html#L493'>operator</a>          493 ovr/sdk/src/Kernel/OVR_Hash.h         bool    operator == (const ConstIterator&amp; it) const
+<a href='../S/179.html#L505'>operator</a>          505 ovr/sdk/src/Kernel/OVR_Hash.h         bool    operator != (const ConstIterator&amp; it) const
+<a href='../S/179.html#L552'>operator</a>          552 ovr/sdk/src/Kernel/OVR_Hash.h         C&amp;  operator*() const
+<a href='../S/179.html#L558'>operator</a>          558 ovr/sdk/src/Kernel/OVR_Hash.h         C*  operator-&gt;() const 
+<a href='../S/179.html#L560'>operator</a>          560 ovr/sdk/src/Kernel/OVR_Hash.h             return &amp;(operator*());
+<a href='../S/179.html#L570'>operator</a>          570 ovr/sdk/src/Kernel/OVR_Hash.h             RemoveAlt(operator*());
+<a href='../S/179.html#L924'>operator</a>          924 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)   { BaseType::Assign(src); }
+<a href='../S/179.html#L974'>operator</a>          974 ovr/sdk/src/Kernel/OVR_Hash.h     void    operator = (const SelfType&amp; src)
+<a href='../S/179.html#L976'>operator</a>          976 ovr/sdk/src/Kernel/OVR_Hash.h         BaseType::operator = (src);
+<a href='../S/179.html#L1009'>operator</a>         1009 ovr/sdk/src/Kernel/OVR_Hash.h         operator const C&amp; () const              { return *pFirst; }
+<a href='../S/179.html#L1015'>operator</a>         1015 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const NodeRef&amp; src)  { First  = *src.pFirst; Second = *src.pSecond; }
+<a href='../S/179.html#L1018'>operator</a>         1018 ovr/sdk/src/Kernel/OVR_Hash.h     bool operator == (const K&amp; src) const   { return (First == src); }
+<a href='../S/179.html#L1029'>operator</a>         1029 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt operator()(const K&amp; data) const { return data.GetHash(); } 
+<a href='../S/179.html#L1034'>operator</a>         1034 ovr/sdk/src/Kernel/OVR_Hash.h         UPInt operator()(const K&amp; data) const { return HashNode&lt;C,U,HashF&gt;::CalcHash(data); }
+<a href='../S/179.html#L1143'>operator</a>         1143 ovr/sdk/src/Kernel/OVR_Hash.h     void    operator = (const SelfType&amp; src)    { mHash = src.mHash; }
+<a href='../S/179.html#L1271'>operator</a>         1271 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)                 { BaseType::operator = (src); }
+<a href='../S/179.html#L1291'>operator</a>         1291 ovr/sdk/src/Kernel/OVR_Hash.h     void operator = (const SelfType&amp; src)                 { BaseType::operator = (src); }
+<a href='../S/180.html#L310'>operator</a>          310 ovr/sdk/src/Kernel/OVR_List.h     const List&lt;T&gt;&amp; operator = (const List&lt;T&gt;&amp;);
+<a href='../S/177.html#L278'>operator</a>          278 ovr/sdk/src/Kernel/OVR_Math.h     operator const CompatibleType&amp; () const
+<a href='../S/177.html#L285'>operator</a>          285 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator== (const Vector2&amp; b) const  { return x == b.x &amp;&amp; y == b.y; }
+<a href='../S/177.html#L286'>operator</a>          286 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator!= (const Vector2&amp; b) const  { return x != b.x || y != b.y; }
+<a href='../S/177.html#L288'>operator</a>          288 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator+  (const Vector2&amp; b) const  { return Vector2(x + b.x, y + b.y); }
+<a href='../S/177.html#L289'>operator</a>          289 ovr/sdk/src/Kernel/OVR_Math.h     Vector2&amp; operator+= (const Vector2&amp; b)        { x += b.x; y += b.y; return *this; }
+<a href='../S/177.html#L290'>operator</a>          290 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator-  (const Vector2&amp; b) const  { return Vector2(x - b.x, y - b.y); }
+<a href='../S/177.html#L291'>operator</a>          291 ovr/sdk/src/Kernel/OVR_Math.h     Vector2&amp; operator-= (const Vector2&amp; b)        { x -= b.x; y -= b.y; return *this; }
+<a href='../S/177.html#L292'>operator</a>          292 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator- () const                   { return Vector2(-x, -y); }
+<a href='../S/177.html#L295'>operator</a>          295 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator*  (T s) const               { return Vector2(x*s, y*s); }
+<a href='../S/177.html#L296'>operator</a>          296 ovr/sdk/src/Kernel/OVR_Math.h     Vector2&amp; operator*= (T s)                     { x *= s; y *= s; return *this; }
+<a href='../S/177.html#L298'>operator</a>          298 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator/  (T s) const               { T rcp = T(1)/s;
+<a href='../S/177.html#L300'>operator</a>          300 ovr/sdk/src/Kernel/OVR_Math.h     Vector2&amp; operator/= (T s)                     { T rcp = T(1)/s;
+<a href='../S/177.html#L320'>operator</a>          320 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator*  (const Vector2&amp; b) const        { return Vector2(x * b.x,  y * b.y); }
+<a href='../S/177.html#L321'>operator</a>          321 ovr/sdk/src/Kernel/OVR_Math.h     Vector2  operator/  (const Vector2&amp; b) const        { return Vector2(x / b.x,  y / b.y); }
+<a href='../S/177.html#L411'>operator</a>          411 ovr/sdk/src/Kernel/OVR_Math.h     operator const CompatibleType&amp; () const
+<a href='../S/177.html#L417'>operator</a>          417 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator== (const Vector3&amp; b) const  { return x == b.x &amp;&amp; y == b.y &amp;&amp; z == b.z; }
+<a href='../S/177.html#L418'>operator</a>          418 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator!= (const Vector3&amp; b) const  { return x != b.x || y != b.y || z != b.z; }
+<a href='../S/177.html#L420'>operator</a>          420 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator+  (const Vector3&amp; b) const  { return Vector3(x + b.x, y + b.y, z + b.z); }
+<a href='../S/177.html#L421'>operator</a>          421 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&amp; operator+= (const Vector3&amp; b)        { x += b.x; y += b.y; z += b.z; return *this; }
+<a href='../S/177.html#L422'>operator</a>          422 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator-  (const Vector3&amp; b) const  { return Vector3(x - b.x, y - b.y, z - b.z); }
+<a href='../S/177.html#L423'>operator</a>          423 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&amp; operator-= (const Vector3&amp; b)        { x -= b.x; y -= b.y; z -= b.z; return *this; }
+<a href='../S/177.html#L424'>operator</a>          424 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator- () const                   { return Vector3(-x, -y, -z); }
+<a href='../S/177.html#L427'>operator</a>          427 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator*  (T s) const               { return Vector3(x*s, y*s, z*s); }
+<a href='../S/177.html#L428'>operator</a>          428 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&amp; operator*= (T s)                     { x *= s; y *= s; z *= s; return *this; }
+<a href='../S/177.html#L430'>operator</a>          430 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator/  (T s) const               { T rcp = T(1)/s;
+<a href='../S/177.html#L432'>operator</a>          432 ovr/sdk/src/Kernel/OVR_Math.h     Vector3&amp; operator/= (T s)                     { T rcp = T(1)/s;
+<a href='../S/177.html#L457'>operator</a>          457 ovr/sdk/src/Kernel/OVR_Math.h     T&amp; operator[] (int idx)
+<a href='../S/177.html#L463'>operator</a>          463 ovr/sdk/src/Kernel/OVR_Math.h     const T&amp; operator[] (int idx) const
+<a href='../S/177.html#L475'>operator</a>          475 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator*  (const Vector3&amp; b) const        { return Vector3(x * b.x, 
+<a href='../S/177.html#L479'>operator</a>          479 ovr/sdk/src/Kernel/OVR_Math.h     Vector3  operator/  (const Vector3&amp; b) const        { return Vector3(x / b.x, 
+<a href='../S/177.html#L599'>operator</a>          599 ovr/sdk/src/Kernel/OVR_Math.h     operator const CompatibleType&amp; () const
+<a href='../S/177.html#L605'>operator</a>          605 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator== (const Size&amp; b) const  { return w == b.w &amp;&amp; h == b.h; }
+<a href='../S/177.html#L606'>operator</a>          606 ovr/sdk/src/Kernel/OVR_Math.h     bool     operator!= (const Size&amp; b) const  { return w != b.w || h != b.h; }
+<a href='../S/177.html#L608'>operator</a>          608 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator+  (const Size&amp; b) const  { return Size(w + b.w, h + b.h); }
+<a href='../S/177.html#L609'>operator</a>          609 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator+= (const Size&amp; b)        { w += b.w; h += b.h; return *this; }
+<a href='../S/177.html#L610'>operator</a>          610 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator-  (const Size&amp; b) const  { return Size(w - b.w, h - b.h); }
+<a href='../S/177.html#L611'>operator</a>          611 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator-= (const Size&amp; b)        { w -= b.w; h -= b.h; return *this; }
+<a href='../S/177.html#L612'>operator</a>          612 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator- () const                { return Size(-w, -h); }
+<a href='../S/177.html#L613'>operator</a>          613 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator*  (const Size&amp; b) const  { return Size(w * b.w, h * b.h); }
+<a href='../S/177.html#L614'>operator</a>          614 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator*= (const Size&amp; b)        { w *= b.w; h *= b.h; return *this; }
+<a href='../S/177.html#L615'>operator</a>          615 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator/  (const Size&amp; b) const  { return Size(w / b.w, h / b.h); }
+<a href='../S/177.html#L616'>operator</a>          616 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator/= (const Size&amp; b)        { w /= b.w; h /= b.h; return *this; }
+<a href='../S/177.html#L619'>operator</a>          619 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator*  (T s) const            { return Size(w*s, h*s); }
+<a href='../S/177.html#L620'>operator</a>          620 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator*= (T s)                  { w *= s; h *= s; return *this; }    
+<a href='../S/177.html#L621'>operator</a>          621 ovr/sdk/src/Kernel/OVR_Math.h     Size  operator/  (T s) const            { return Size(w/s, h/s); }
+<a href='../S/177.html#L622'>operator</a>          622 ovr/sdk/src/Kernel/OVR_Math.h     Size&amp; operator/= (T s)                  { w /= s; h /= s; return *this; }
+<a href='../S/177.html#L664'>operator</a>          664 ovr/sdk/src/Kernel/OVR_Math.h     operator const CompatibleType&amp; () const
+<a href='../S/177.html#L675'>operator</a>          675 ovr/sdk/src/Kernel/OVR_Math.h     bool operator == (const Rect&amp; vp) const
+<a href='../S/177.html#L677'>operator</a>          677 ovr/sdk/src/Kernel/OVR_Math.h     bool operator != (const Rect&amp; vp) const
+<a href='../S/177.html#L678'>operator</a>          678 ovr/sdk/src/Kernel/OVR_Math.h     { return !operator == (vp); }
+<a href='../S/177.html#L708'>operator</a>          708 ovr/sdk/src/Kernel/OVR_Math.h     operator typename CompatibleTypes&lt;Quat&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L856'>operator</a>          856 ovr/sdk/src/Kernel/OVR_Math.h     bool operator== (const Quat&amp; b) const   { return x == b.x &amp;&amp; y == b.y &amp;&amp; z == b.z &amp;&amp; w == b.w; }
+<a href='../S/177.html#L857'>operator</a>          857 ovr/sdk/src/Kernel/OVR_Math.h     bool operator!= (const Quat&amp; b) const   { return x != b.x || y != b.y || z != b.z || w != b.w; }
+<a href='../S/177.html#L859'>operator</a>          859 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator+  (const Quat&amp; b) const  { return Quat(x + b.x, y + b.y, z + b.z, w + b.w); }
+<a href='../S/177.html#L860'>operator</a>          860 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator+= (const Quat&amp; b)        { w += b.w; x += b.x; y += b.y; z += b.z; return *this; }
+<a href='../S/177.html#L861'>operator</a>          861 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator-  (const Quat&amp; b) const  { return Quat(x - b.x, y - b.y, z - b.z, w - b.w); }
+<a href='../S/177.html#L862'>operator</a>          862 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator-= (const Quat&amp; b)        { w -= b.w; x -= b.x; y -= b.y; z -= b.z; return *this; }
+<a href='../S/177.html#L864'>operator</a>          864 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator*  (T s) const            { return Quat(x * s, y * s, z * s, w * s); }
+<a href='../S/177.html#L865'>operator</a>          865 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator*= (T s)                  { w *= s; x *= s; y *= s; z *= s; return *this; }
+<a href='../S/177.html#L866'>operator</a>          866 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator/  (T s) const            { T rcp = T(1)/s; return Quat(x * rcp, y * rcp, z * rcp, w *rcp); }
+<a href='../S/177.html#L867'>operator</a>          867 ovr/sdk/src/Kernel/OVR_Math.h     Quat&amp; operator/= (T s)                  { T rcp = T(1)/s; w *= rcp; x *= rcp; y *= rcp; z *= rcp; return *this; }
+<a href='../S/177.html#L927'>operator</a>          927 ovr/sdk/src/Kernel/OVR_Math.h     Quat  operator* (const Quat&amp; b) const   { return Quat(w * b.x + x * b.w + y * b.z - z * b.y,
+<a href='../S/177.html#L1110'>operator</a>         1110 ovr/sdk/src/Kernel/OVR_Math.h     operator typename CompatibleTypes&lt;Transform&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L1136'>operator</a>         1136 ovr/sdk/src/Kernel/OVR_Math.h     Transform operator*(const Transform&amp; other) const   
+<a href='../S/177.html#L1141'>operator</a>         1141 ovr/sdk/src/Kernel/OVR_Math.h     PoseState&lt;T&gt; operator*(const PoseState&lt;T&gt;&amp; poseState) const   
+<a href='../S/177.html#L1266'>operator</a>         1266 ovr/sdk/src/Kernel/OVR_Math.h     operator typename CompatibleTypes&lt;Matrix4&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L1307'>operator</a>         1307 ovr/sdk/src/Kernel/OVR_Math.h 	bool operator== (const Matrix4&amp; b) const
+<a href='../S/177.html#L1317'>operator</a>         1317 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator+ (const Matrix4&amp; b) const
+<a href='../S/177.html#L1324'>operator</a>         1324 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator+= (const Matrix4&amp; b)
+<a href='../S/177.html#L1332'>operator</a>         1332 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator- (const Matrix4&amp; b) const
+<a href='../S/177.html#L1339'>operator</a>         1339 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator-= (const Matrix4&amp; b)
+<a href='../S/177.html#L1362'>operator</a>         1362 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator* (const Matrix4&amp; b) const
+<a href='../S/177.html#L1369'>operator</a>         1369 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator*= (const Matrix4&amp; b)
+<a href='../S/177.html#L1374'>operator</a>         1374 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator* (T s) const
+<a href='../S/177.html#L1381'>operator</a>         1381 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator*= (T s)
+<a href='../S/177.html#L1390'>operator</a>         1390 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4 operator/ (T s) const
+<a href='../S/177.html#L1397'>operator</a>         1397 ovr/sdk/src/Kernel/OVR_Math.h     Matrix4&amp; operator/= (T s)
+<a href='../S/177.html#L1941'>operator</a>         1941 ovr/sdk/src/Kernel/OVR_Math.h 	operator typename CompatibleTypes&lt;Matrix3&lt;T&gt; &gt;::Type () const
+<a href='../S/177.html#L1981'>operator</a>         1981 ovr/sdk/src/Kernel/OVR_Math.h 	bool operator== (const Matrix3&amp; b) const
+<a href='../S/177.html#L1991'>operator</a>         1991 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator+ (const Matrix3&amp; b) const
+<a href='../S/177.html#L1998'>operator</a>         1998 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator+= (const Matrix3&amp; b)
+<a href='../S/177.html#L2006'>operator</a>         2006 ovr/sdk/src/Kernel/OVR_Math.h 	void operator= (const Matrix3&amp; b)
+<a href='../S/177.html#L2014'>operator</a>         2014 ovr/sdk/src/Kernel/OVR_Math.h 	void operator= (const SymMat3&lt;T&gt;&amp; b)
+<a href='../S/177.html#L2030'>operator</a>         2030 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator- (const Matrix3&amp; b) const
+<a href='../S/177.html#L2037'>operator</a>         2037 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator-= (const Matrix3&amp; b)
+<a href='../S/177.html#L2059'>operator</a>         2059 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator* (const Matrix3&amp; b) const
+<a href='../S/177.html#L2066'>operator</a>         2066 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator*= (const Matrix3&amp; b)
+<a href='../S/177.html#L2071'>operator</a>         2071 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator* (T s) const
+<a href='../S/177.html#L2078'>operator</a>         2078 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator*= (T s)
+<a href='../S/177.html#L2086'>operator</a>         2086 ovr/sdk/src/Kernel/OVR_Math.h 	Vector3&lt;T&gt; operator* (const Vector3&lt;T&gt; &amp;b) const
+<a href='../S/177.html#L2096'>operator</a>         2096 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3 operator/ (T s) const
+<a href='../S/177.html#L2103'>operator</a>         2103 ovr/sdk/src/Kernel/OVR_Math.h 	Matrix3&amp; operator/= (T s)
+<a href='../S/177.html#L2238'>operator</a>         2238 ovr/sdk/src/Kernel/OVR_Math.h 	inline T operator()(int i, int j) const { return v[Index(i,j)]; }
+<a href='../S/177.html#L2240'>operator</a>         2240 ovr/sdk/src/Kernel/OVR_Math.h 	inline T &amp;operator()(int i, int j) { return v[Index(i,j)]; }
+<a href='../S/177.html#L2249'>operator</a>         2249 ovr/sdk/src/Kernel/OVR_Math.h 	inline this_type&amp; operator+=(const this_type&amp; b)
+<a href='../S/177.html#L2260'>operator</a>         2260 ovr/sdk/src/Kernel/OVR_Math.h 	inline this_type&amp; operator-=(const this_type&amp; b)
+<a href='../S/177.html#L2272'>operator</a>         2272 ovr/sdk/src/Kernel/OVR_Math.h 	inline this_type&amp; operator*=(T s)
+<a href='../S/177.html#L2284'>operator</a>         2284 ovr/sdk/src/Kernel/OVR_Math.h 	inline SymMat3 operator*(T s) const
+<a href='../S/177.html#L2378'>operator</a>         2378 ovr/sdk/src/Kernel/OVR_Math.h inline Matrix3&lt;T&gt; operator*(const SymMat3&lt;T&gt;&amp; a, const SymMat3&lt;T&gt;&amp; b)
+<a href='../S/177.html#L2389'>operator</a>         2389 ovr/sdk/src/Kernel/OVR_Math.h inline Matrix3&lt;T&gt; operator*(const Matrix3&lt;T&gt;&amp; a, const SymMat3&lt;T&gt;&amp; b)
+<a href='../S/177.html#L2425'>operator</a>         2425 ovr/sdk/src/Kernel/OVR_Math.h     bool operator== (const Angle&amp; b) const    { return a == b.a; }
+<a href='../S/177.html#L2426'>operator</a>         2426 ovr/sdk/src/Kernel/OVR_Math.h     bool operator!= (const Angle&amp; b) const    { return a != b.a; }
+<a href='../S/177.html#L2434'>operator</a>         2434 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator+= (const Angle&amp; b)        { a = a + b.a; FastFixRange(); return *this; }
+<a href='../S/177.html#L2435'>operator</a>         2435 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator+= (const T&amp; x)            { a = a + x; FixRange(); return *this; }
+<a href='../S/177.html#L2436'>operator</a>         2436 ovr/sdk/src/Kernel/OVR_Math.h     Angle  operator+  (const Angle&amp; b) const  { Angle res = *this; res += b; return res; }
+<a href='../S/177.html#L2437'>operator</a>         2437 ovr/sdk/src/Kernel/OVR_Math.h 	Angle  operator+  (const T&amp; x) const      { Angle res = *this; res += x; return res; }
+<a href='../S/177.html#L2438'>operator</a>         2438 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator-= (const Angle&amp; b)        { a = a - b.a; FastFixRange(); return *this; }
+<a href='../S/177.html#L2439'>operator</a>         2439 ovr/sdk/src/Kernel/OVR_Math.h 	Angle&amp; operator-= (const T&amp; x)            { a = a - x; FixRange(); return *this; }
+<a href='../S/177.html#L2440'>operator</a>         2440 ovr/sdk/src/Kernel/OVR_Math.h 	Angle  operator-  (const Angle&amp; b) const  { Angle res = *this; res -= b; return res; }
+<a href='../S/177.html#L2441'>operator</a>         2441 ovr/sdk/src/Kernel/OVR_Math.h 	Angle  operator-  (const T&amp; x) const      { Angle res = *this; res -= x; return res; }
+<a href='../S/177.html#L2516'>operator</a>         2516 ovr/sdk/src/Kernel/OVR_Math.h 	bool operator==(const Plane&lt;T&gt;&amp; rhs) const
+<a href='../S/166.html#L94'>operator</a>           94 ovr/sdk/src/Kernel/OVR_RefCount.h     void operator = (const RefCountImplCore &amp;) { }  
+<a href='../S/166.html#L129'>operator</a>          129 ovr/sdk/src/Kernel/OVR_RefCount.h     void operator = (const RefCountNTSImplCore &amp;) { }  
+<a href='../S/166.html#L304'>operator</a>          304 ovr/sdk/src/Kernel/OVR_RefCount.h     Pickable&amp; operator =(const Pickable&amp; other)
+<a href='../S/166.html#L315'>operator</a>          315 ovr/sdk/src/Kernel/OVR_RefCount.h     T* operator-&gt;() const
+<a href='../S/166.html#L319'>operator</a>          319 ovr/sdk/src/Kernel/OVR_RefCount.h     T&amp; operator*() const
+<a href='../S/166.html#L403'>operator</a>          403 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE bool operator == (const Ptr &amp;other) const       { return pObject == other.pObject; }
+<a href='../S/166.html#L404'>operator</a>          404 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE bool operator != (const Ptr &amp;other) const       { return pObject != other.pObject; }
+<a href='../S/166.html#L406'>operator</a>          406 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE bool operator == (C *pother) const              { return pObject == pother; }
+<a href='../S/166.html#L407'>operator</a>          407 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE bool operator != (C *pother) const              { return pObject != pother; }
+<a href='../S/166.html#L410'>operator</a>          410 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE bool operator &lt; (const Ptr &amp;other) const       { return pObject &lt; other.pObject; }
+<a href='../S/166.html#L414'>operator</a>          414 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE const Ptr&lt;C&gt;&amp; operator = (const Ptr&lt;R&gt; &amp;src)
+<a href='../S/166.html#L422'>operator</a>          422 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE const Ptr&lt;C&gt;&amp; operator = (const Ptr&lt;C&gt; &amp;src)
+<a href='../S/166.html#L430'>operator</a>          430 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE const Ptr&lt;C&gt;&amp; operator = (C *psrc)
+<a href='../S/166.html#L437'>operator</a>          437 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE const Ptr&lt;C&gt;&amp; operator = (C &amp;src)
+<a href='../S/166.html#L443'>operator</a>          443 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; operator = (Pickable&lt;C&gt; src)
+<a href='../S/166.html#L448'>operator</a>          448 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE Ptr&lt;C&gt;&amp; operator = (Pickable&lt;R&gt; src)
+<a href='../S/166.html#L507'>operator</a>          507 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE C&amp; operator * () const          { return *pObject; }
+<a href='../S/166.html#L508'>operator</a>          508 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE C* operator -&gt; ()  const        { return pObject; }
+<a href='../S/166.html#L510'>operator</a>          510 ovr/sdk/src/Kernel/OVR_RefCount.h     OVR_FORCE_INLINE operator C* () const            { return pObject; }
+<a href='../S/161.html#L184'>operator</a>          184 ovr/sdk/src/Kernel/OVR_String.h     operator const char*() const        { return GetData()-&gt;Data; }
+<a href='../S/161.html#L280'>operator</a>          280 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const char* str);
+<a href='../S/161.html#L281'>operator</a>          281 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const wchar_t* str);
+<a href='../S/161.html#L282'>operator</a>          282 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const String&amp; src);
+<a href='../S/161.html#L283'>operator</a>          283 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const StringBuffer&amp; src);
+<a href='../S/161.html#L286'>operator</a>          286 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const String&amp; src);
+<a href='../S/161.html#L287'>operator</a>          287 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const char* psrc)       { AppendString(psrc); }
+<a href='../S/161.html#L288'>operator</a>          288 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const wchar_t* psrc)    { AppendString(psrc); }
+<a href='../S/161.html#L289'>operator</a>          289 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (char  ch)               { AppendChar(ch); }
+<a href='../S/161.html#L290'>operator</a>          290 ovr/sdk/src/Kernel/OVR_String.h     String      operator +  (const char* str) const;
+<a href='../S/161.html#L291'>operator</a>          291 ovr/sdk/src/Kernel/OVR_String.h     String      operator +  (const String&amp; src)  const;
+<a href='../S/161.html#L294'>operator</a>          294 ovr/sdk/src/Kernel/OVR_String.h     bool        operator == (const String&amp; str) const
+<a href='../S/161.html#L299'>operator</a>          299 ovr/sdk/src/Kernel/OVR_String.h     bool        operator != (const String&amp; str) const
+<a href='../S/161.html#L301'>operator</a>          301 ovr/sdk/src/Kernel/OVR_String.h         return !operator == (str);
+<a href='../S/161.html#L304'>operator</a>          304 ovr/sdk/src/Kernel/OVR_String.h     bool        operator == (const char* str) const
+<a href='../S/161.html#L309'>operator</a>          309 ovr/sdk/src/Kernel/OVR_String.h     bool        operator != (const char* str) const
+<a href='../S/161.html#L311'>operator</a>          311 ovr/sdk/src/Kernel/OVR_String.h         return !operator == (str);
+<a href='../S/161.html#L314'>operator</a>          314 ovr/sdk/src/Kernel/OVR_String.h     bool        operator &lt;  (const char* pstr) const
+<a href='../S/161.html#L319'>operator</a>          319 ovr/sdk/src/Kernel/OVR_String.h     bool        operator &lt;  (const String&amp; str) const
+<a href='../S/161.html#L324'>operator</a>          324 ovr/sdk/src/Kernel/OVR_String.h     bool        operator &gt;  (const char* pstr) const
+<a href='../S/161.html#L329'>operator</a>          329 ovr/sdk/src/Kernel/OVR_String.h     bool        operator &gt;  (const String&amp; str) const
+<a href='../S/161.html#L344'>operator</a>          344 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (int index) const
+<a href='../S/161.html#L349'>operator</a>          349 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (UPInt index) const
+<a href='../S/161.html#L364'>operator</a>          364 ovr/sdk/src/Kernel/OVR_String.h     bool    operator == (const NoCaseKey&amp; strKey) const
+<a href='../S/161.html#L368'>operator</a>          368 ovr/sdk/src/Kernel/OVR_String.h     bool    operator != (const NoCaseKey&amp; strKey) const
+<a href='../S/161.html#L376'>operator</a>          376 ovr/sdk/src/Kernel/OVR_String.h         UPInt  operator()(const String&amp; data) const
+<a href='../S/161.html#L386'>operator</a>          386 ovr/sdk/src/Kernel/OVR_String.h         UPInt  operator()(const String&amp; data) const
+<a href='../S/161.html#L391'>operator</a>          391 ovr/sdk/src/Kernel/OVR_String.h         UPInt  operator()(const NoCaseKey&amp; data) const
+<a href='../S/161.html#L435'>operator</a>          435 ovr/sdk/src/Kernel/OVR_String.h     operator const char*() const        { return (pData) ? pData : ""; }
+<a href='../S/161.html#L474'>operator</a>          474 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const char* str);
+<a href='../S/161.html#L475'>operator</a>          475 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const wchar_t* str);
+<a href='../S/161.html#L476'>operator</a>          476 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const String&amp; src);
+<a href='../S/161.html#L477'>operator</a>          477 ovr/sdk/src/Kernel/OVR_String.h     void        operator =  (const StringBuffer&amp; src);
+<a href='../S/161.html#L480'>operator</a>          480 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const String&amp; src)      { AppendString(src.ToCStr(),src.GetSize()); }
+<a href='../S/161.html#L481'>operator</a>          481 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const char* psrc)       { AppendString(psrc); }
+<a href='../S/161.html#L482'>operator</a>          482 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (const wchar_t* psrc)    { AppendString(psrc); }
+<a href='../S/161.html#L483'>operator</a>          483 ovr/sdk/src/Kernel/OVR_String.h     void        operator += (char  ch)               { AppendChar(ch); }
+<a href='../S/161.html#L488'>operator</a>          488 ovr/sdk/src/Kernel/OVR_String.h     char&amp;       operator [] (int index)
+<a href='../S/161.html#L493'>operator</a>          493 ovr/sdk/src/Kernel/OVR_String.h     char&amp;       operator [] (UPInt index)
+<a href='../S/161.html#L499'>operator</a>          499 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (int index) const 
+<a href='../S/161.html#L504'>operator</a>          504 ovr/sdk/src/Kernel/OVR_String.h     const char&amp;     operator [] (UPInt index) const
+<a href='../S/161.html#L639'>operator</a>          639 ovr/sdk/src/Kernel/OVR_String.h         UPInt operator()(const StringDataPtr&amp; data) const
+<a href='../S/161.html#L645'>operator</a>          645 ovr/sdk/src/Kernel/OVR_String.h     bool operator== (const StringDataPtr&amp; data) const 
+<a href='../S/164.html#L54'>operator</a>           54 ovr/sdk/src/Kernel/OVR_StringHash.h     void    operator = (const SelfType&amp; src) { BaseType::operator = (src); }
+<a href='../S/146.html#L55'>operator</a>           55 ovr/sdk/src/Kernel/OVR_SysFile.h     bool operator== (const FileStat&amp; stat) const
+<a href='../S/108.html#L161'>operator</a>          161 ovr/sdk/src/OVR_Device.h     void operator = (const DeviceInfo&amp;) { OVR_ASSERT(0); } // Assignment not allowed.
+<a href='../S/108.html#L377'>operator</a>          377 ovr/sdk/src/OVR_Device.h     void operator = (const HMDInfo&amp; src)
+<a href='../S/108.html#L492'>operator</a>          492 ovr/sdk/src/OVR_Device.h     void operator = (const SensorInfo&amp;) { OVR_ASSERT(0); } // Assignment not allowed.
+<a href='../S/126.html#L65'>operator</a>           65 ovr/sdk/src/OVR_DeviceHandle.h 	void operator = (const DeviceHandle&amp; src);
+<a href='../S/126.html#L67'>operator</a>           67 ovr/sdk/src/OVR_DeviceHandle.h 	bool operator == (const DeviceHandle&amp; other) const { return pImpl == other.pImpl; }
+<a href='../S/126.html#L68'>operator</a>           68 ovr/sdk/src/OVR_DeviceHandle.h 	bool operator != (const DeviceHandle&amp; other) const { return pImpl != other.pImpl; }
+<a href='../S/126.html#L71'>operator</a>           71 ovr/sdk/src/OVR_DeviceHandle.h 	operator bool () const   { return GetType() != Device_None; }
+<a href='../S/80.html#L114'>operator</a>          114 ovr/sdk/src/OVR_DeviceImpl.h     void operator = (const DeviceCreateDesc&amp;) { } // Assign not supported; suppress MSVC warning.
+<a href='../S/127.html#L79'>operator</a>           79 ovr/sdk/src/OVR_SensorFusion.h     operator typename CompatibleTypes&lt;PoseState&lt;T&gt; &gt;::Type () const
+<a href='../S/127.html#L142'>operator</a>          142 ovr/sdk/src/OVR_SensorFusion.h     operator ovrSensorState () const;
+<a href='../S/131.html#L79'>operator</a>           79 ovr/sdk/src/OVR_Stereo.h     operator ovrFovPort () const;
+<a href='../S/110.html#L108'>operator</a>          108 ovr/sdk/src/Util/Util_LatencyTest2.h     const FrameTimeRecord&amp; operator [] (int i) const
+<a href='../S/196.html#L228'>operator</a>          228 ovr/sdk/third_party/tinyxml/tinyxml2.h     T&amp; operator[](int i)				{
+<a href='../S/196.html#L233'>operator</a>          233 ovr/sdk/third_party/tinyxml/tinyxml2.h     const T&amp; operator[](int i) const	{
+<a href='../S/196.html#L776'>operator</a>          776 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLNode&amp; operator=( const XMLNode&amp; );	// not supported
+<a href='../S/196.html#L837'>operator</a>          837 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLText&amp; operator=( const XMLText&amp; );	// not supported
+<a href='../S/196.html#L866'>operator</a>          866 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLComment&amp; operator=( const XMLComment&amp; );	// not supported
+<a href='../S/196.html#L904'>operator</a>          904 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLDeclaration&amp; operator=( const XMLDeclaration&amp; );	// not supported
+<a href='../S/196.html#L936'>operator</a>          936 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLUnknown&amp; operator=( const XMLUnknown&amp; );	// not supported
+<a href='../S/196.html#L1059'>operator</a>         1059 ovr/sdk/third_party/tinyxml/tinyxml2.h     void operator=( const XMLAttribute&amp; );	// not supported
+<a href='../S/196.html#L1331'>operator</a>         1331 ovr/sdk/third_party/tinyxml/tinyxml2.h     void operator=( const XMLElement&amp; );	// not supported
+<a href='../S/196.html#L1540'>operator</a>         1540 ovr/sdk/third_party/tinyxml/tinyxml2.h     void operator=( const XMLDocument&amp; );	// not supported
+<a href='../S/196.html#L1629'>operator</a>         1629 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLHandle&amp; operator=( const XMLHandle&amp; ref )							{
+<a href='../S/196.html#L1710'>operator</a>         1710 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLConstHandle&amp; operator=( const XMLConstHandle&amp; ref )							{
+</pre>
+</body>
+</html>

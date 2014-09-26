@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>GetByteIndex</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/184.html#L358'>GetByteIndex</a>      358 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt bytePos    = UTF8Util::GetByteIndex(posAt, pdata-&gt;Data, oldSize);
+<a href='../S/184.html#L359'>GetByteIndex</a>      359 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt removeSize = UTF8Util::GetByteIndex(removeLength, pdata-&gt;Data + bytePos, oldSize-bytePos);
+<a href='../S/184.html#L381'>GetByteIndex</a>      381 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt byteStart = UTF8Util::GetByteIndex(start, pdata-&gt;Data, pdata-&gt;GetSize());
+<a href='../S/184.html#L382'>GetByteIndex</a>      382 ovr/sdk/src/Kernel/OVR_String.cpp     SPInt byteSize  = UTF8Util::GetByteIndex(end - start, pdata-&gt;Data + byteStart, pdata-&gt;GetSize()-byteStart);
+<a href='../S/184.html#L450'>GetByteIndex</a>      450 ovr/sdk/src/Kernel/OVR_String.cpp                             posAt : (UPInt)UTF8Util::GetByteIndex(posAt, poldData-&gt;Data, oldSize);
+<a href='../S/184.html#L743'>GetByteIndex</a>      743 ovr/sdk/src/Kernel/OVR_String.cpp                            (UPInt)UTF8Util::GetByteIndex(posAt, pData, (SPInt)Size);
+<a href='../S/161.html#L239'>GetByteIndex</a>      239 ovr/sdk/src/Kernel/OVR_String.h     UPInt       GetByteIndex(UPInt index) const { return (UPInt)UTF8Util::GetByteIndex(index, GetData()-&gt;Data); }
+<a href='../S/154.html#L49'>GetByteIndex</a>       49 ovr/sdk/src/Kernel/OVR_UTF8Util.h SPInt    OVR_STDCALL GetByteIndex(SPInt index, const char* putf8str, SPInt length = -1);
+</pre>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>AccelOffset</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/108.html#L1015'>AccelOffset</a>      1015 ovr/sdk/src/OVR_Device.h     virtual void        GetFactoryCalibration(Vector3f* AccelOffset, Vector3f* GyroOffset,
+<a href='../S/188.html#L216'>AccelOffset</a>       216 ovr/sdk/src/OVR_Sensor2Impl.cpp         AccelCalibrationOffset = sc.AccelOffset;
+<a href='../S/128.html#L48'>AccelOffset</a>        48 ovr/sdk/src/OVR_SensorCalibration.cpp     pSensor-&gt;GetFactoryCalibration(&amp;AccelOffset, &amp;GyroAutoOffset, &amp;AccelMatrix, &amp;GyroMatrix, &amp;GyroAutoTemperature);
+<a href='../S/128.html#L148'>AccelOffset</a>       148 ovr/sdk/src/OVR_SensorCalibration.cpp     msg.Acceleration = AccelMatrix.Transform(msg.Acceleration - AccelOffset);
+<a href='../S/141.html#L69'>AccelOffset</a>        69 ovr/sdk/src/OVR_SensorCalibration.h     Vector3f AccelOffset;
+<a href='../S/189.html#L146'>AccelOffset</a>       146 ovr/sdk/src/OVR_SensorFusion.cpp     AccelOffset                         = Vector3d();
+<a href='../S/189.html#L344'>AccelOffset</a>       344 ovr/sdk/src/OVR_SensorFusion.cpp         WorldFromImu.StoreAndIntegrateAccelerometer(accelInWorldFrame + AccelOffset, DeltaT);
+<a href='../S/189.html#L462'>AccelOffset</a>       462 ovr/sdk/src/OVR_SensorFusion.cpp         AccelOffset   = Vector3d();
+<a href='../S/189.html#L468'>AccelOffset</a>       468 ovr/sdk/src/OVR_SensorFusion.cpp         AccelOffset  += VisionError.Pose.Translation.EntrywiseMultiply(gainAccel) * deltaT;
+<a href='../S/127.html#L419'>AccelOffset</a>       419 ovr/sdk/src/OVR_SensorFusion.h     Vector3d                AccelOffset;
+<a href='../S/190.html#L364'>AccelOffset</a>       364 ovr/sdk/src/OVR_SensorImpl.cpp         AccelCalibrationOffset = sc.AccelOffset;
+<a href='../S/190.html#L568'>AccelOffset</a>       568 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceImpl::GetFactoryCalibration(Vector3f* AccelOffset, Vector3f* GyroOffset,
+<a href='../S/190.html#L572'>AccelOffset</a>       572 ovr/sdk/src/OVR_SensorImpl.cpp     *AccelOffset = AccelCalibrationOffset;
+<a href='../S/135.html#L213'>AccelOffset</a>       213 ovr/sdk/src/OVR_SensorImpl.h     virtual void GetFactoryCalibration(Vector3f* AccelOffset, Vector3f* GyroOffset,
+<a href='../S/144.html#L163'>AccelOffset</a>       163 ovr/sdk/src/OVR_SensorImpl_Common.cpp     : AccelOffset(), GyroOffset(), AccelMatrix(), GyroMatrix(), Temperature(0)
+<a href='../S/144.html#L175'>AccelOffset</a>       175 ovr/sdk/src/OVR_SensorImpl_Common.cpp     x = SInt32(AccelOffset.x * 1e4f);
+<a href='../S/144.html#L176'>AccelOffset</a>       176 ovr/sdk/src/OVR_SensorImpl_Common.cpp     y = SInt32(AccelOffset.y * 1e4f);
+<a href='../S/144.html#L177'>AccelOffset</a>       177 ovr/sdk/src/OVR_SensorImpl_Common.cpp     z = SInt32(AccelOffset.z * 1e4f);
+<a href='../S/144.html#L194'>AccelOffset</a>       194 ovr/sdk/src/OVR_SensorImpl_Common.cpp     AccelOffset.y = (float) y * 1e-4f;
+<a href='../S/144.html#L195'>AccelOffset</a>       195 ovr/sdk/src/OVR_SensorImpl_Common.cpp     AccelOffset.z = (float) z * 1e-4f;
+<a href='../S/144.html#L196'>AccelOffset</a>       196 ovr/sdk/src/OVR_SensorImpl_Common.cpp     AccelOffset.x = (float) x * 1e-4f;
+<a href='../S/138.html#L107'>AccelOffset</a>       107 ovr/sdk/src/OVR_SensorImpl_Common.h     Vector3f AccelOffset;
+</pre>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<map id="OVR::MessageBodyFrame" name="OVR::MessageBodyFrame">
+<area shape="rect" id="node2" href="$classOVR_1_1Message.html" title="{OVR::Message\n|+ Type\l|+ Message()\l}" alt="" coords="47,620,157,697"/>
+<area shape="rect" id="node3" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="7,199,169,423"/>
+<area shape="rect" id="node4" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="5,5,169,83"/>
+<area shape="rect" id="node5" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; float \&gt;\n|+ x\l+ y\l+ z\l|+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="184,510,371,807"/>
+<area shape="rect" id="node6" href="$classOVR_1_1Vector3.html" title="{OVR::Vector3\&lt; T \&gt;\n||+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ Vector3()\l+ operator const Compatible\lType &amp;()\l+ operator==()\l+ operator!=()\l+ operator+()\l+ operator+=()\land 26 more...\l+ Min()\l+ Max()\l}" alt="" coords="193,177,380,445"/>
+</map>

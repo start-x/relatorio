@@ -1,0 +1,5 @@
+<map id="OVR::LatencyTestDevice" name="OVR::LatencyTestDevice">
+<area shape="rect" id="node2" href="$classOVR_1_1HIDDeviceBase.html" title="{OVR::HIDDeviceBase\n||+ ~HIDDeviceBase()\l+ SetFeatureReport()\l+ GetFeatureReport()\l}" alt="" coords="4,189,157,296"/>
+<area shape="rect" id="node3" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="183,131,345,355"/>
+<area shape="rect" id="node4" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="181,5,345,83"/>
+</map>

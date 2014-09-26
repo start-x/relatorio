@@ -1,0 +1,12 @@
+<map id="OVR::Message" name="OVR::Message">
+<area shape="rect" id="node2" href="$classOVR_1_1MessageBodyFrame.html" title="{OVR::MessageBodyFrame\n|+ Acceleration\l+ RotationRate\l+ MagneticField\l+ Temperature\l+ TimeDelta\l+ AbsoluteTimeSeconds\l|+ MessageBodyFrame()\l}" alt="" coords="5,191,184,342"/>
+<area shape="rect" id="node3" href="$classOVR_1_1MessageCameraAdded.html" title="{OVR::MessageCameraAdded\n|+ CameraHandle\l|+ MessageCameraAdded()\l+ MessageCameraAdded()\l}" alt="" coords="208,221,403,313"/>
+<area shape="rect" id="node4" href="$classOVR_1_1MessageCameraFrame.html" title="{OVR::MessageCameraFrame\n|+ FrameNumber\l+ ArrivalTimeSeconds\l+ pFrameData\l+ FrameSizeInBytes\l+ Width\l+ Height\l+ Format\l+ LostFrames\l+ DeviceIdentifier\l+ CameraHandle\l|+ MessageCameraFrame()\l+ SetInfo()\l+ SetData()\l}" alt="" coords="427,147,621,386"/>
+<area shape="rect" id="node5" href="$classOVR_1_1MessageDeviceStatus.html" title="{OVR::MessageDeviceStatus\n|+ Handle\l|+ MessageDeviceStatus()\l}" alt="" coords="646,228,836,305"/>
+<area shape="rect" id="node6" href="$classOVR_1_1MessageExposureFrame.html" title="{OVR::MessageExposureFrame\n|+ CameraPattern\l+ CameraFrameCount\l+ CameraTimeSeconds\l|+ MessageExposureFrame()\l}" alt="" coords="861,213,1064,320"/>
+<area shape="rect" id="node7" href="$classOVR_1_1MessageLatencyTestButton.html" title="{OVR::MessageLatencyTestButton\n||+ MessageLatencyTestButton()\l}" alt="" coords="1089,228,1311,305"/>
+<area shape="rect" id="node8" href="$classOVR_1_1MessageLatencyTestColorDetected.html" title="{OVR::MessageLatencyTestColor\lDetected\n|+ Elapsed\l+ DetectedValue\l+ TargetValue\l|+ MessageLatencyTestColorDetected()\l}" alt="" coords="1336,206,1587,327"/>
+<area shape="rect" id="node9" href="$classOVR_1_1MessageLatencyTestSamples.html" title="{OVR::MessageLatencyTestSamples\n|+ Samples\l|+ MessageLatencyTestSamples()\l}" alt="" coords="1611,228,1844,305"/>
+<area shape="rect" id="node10" href="$classOVR_1_1MessageLatencyTestStarted.html" title="{OVR::MessageLatencyTestStarted\n|+ TargetValue\l|+ MessageLatencyTestStarted()\l}" alt="" coords="1869,228,2096,305"/>
+<area shape="rect" id="node11" href="$classOVR_1_1MessagePixelRead.html" title="{OVR::MessagePixelRead\n|+ PixelReadValue\l+ RawSensorTime\l+ RawFrameTime\l+ SensorTimeSeconds\l+ FrameTimeSeconds\l|+ MessagePixelRead()\l}" alt="" coords="2121,199,2292,335"/>
+</map>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>eyeReliefInMeters</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/88.html#L860'>eyeReliefInMeters</a>  860 ovr/sdk/src/OVR_Stereo.cpp LensConfig GenerateLensConfigFromEyeRelief ( float eyeReliefInMeters, HmdRenderInfo const &amp;hmd, DistortionEqnType distortionType /*= Distortion_CatmullRom10*/ )
+<a href='../S/88.html#L1087'>eyeReliefInMeters</a> 1087 ovr/sdk/src/OVR_Stereo.cpp     if (eyeReliefInMeters == 0)
+<a href='../S/88.html#L1098'>eyeReliefInMeters</a> 1098 ovr/sdk/src/OVR_Stereo.cpp             if ( ( distortions[i].EyeRelief &lt;= eyeReliefInMeters ) &amp;&amp; ( distortions[i+1].EyeRelief &gt; eyeReliefInMeters ) )
+<a href='../S/88.html#L1102'>eyeReliefInMeters</a> 1102 ovr/sdk/src/OVR_Stereo.cpp                 lerpVal = ( eyeReliefInMeters - pLower-&gt;EyeRelief ) / ( pUpper-&gt;EyeRelief - pLower-&gt;EyeRelief );
+<a href='../S/88.html#L1112'>eyeReliefInMeters</a> 1112 ovr/sdk/src/OVR_Stereo.cpp         if ( distortions[0].EyeRelief &gt; eyeReliefInMeters )
+<a href='../S/88.html#L1119'>eyeReliefInMeters</a> 1119 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( distortions[numDistortions-1].EyeRelief &lt;= eyeReliefInMeters );
+<a href='../S/88.html#L1123'>eyeReliefInMeters</a> 1123 ovr/sdk/src/OVR_Stereo.cpp         lerpVal = ( eyeReliefInMeters - pLower-&gt;EyeRelief ) / ( pUpper-&gt;EyeRelief - pLower-&gt;EyeRelief );
+<a href='../S/88.html#L1126'>eyeReliefInMeters</a> 1126 ovr/sdk/src/OVR_Stereo.cpp         if ( distortions[0].EyeRelief &gt; eyeReliefInMeters )
+<a href='../S/88.html#L1133'>eyeReliefInMeters</a> 1133 ovr/sdk/src/OVR_Stereo.cpp             OVR_ASSERT ( distortions[numDistortions-1].EyeRelief &lt;= eyeReliefInMeters );
+<a href='../S/88.html#L1310'>eyeReliefInMeters</a> 1310 ovr/sdk/src/OVR_Stereo.cpp FovPort CalculateFovFromEyePosition ( float eyeReliefInMeters,
+<a href='../S/88.html#L1330'>eyeReliefInMeters</a> 1330 ovr/sdk/src/OVR_Stereo.cpp     fovPort.UpTan    = ( halfLensDiameter + offsetDownwardsInMeters ) / eyeReliefInMeters;
+<a href='../S/88.html#L1331'>eyeReliefInMeters</a> 1331 ovr/sdk/src/OVR_Stereo.cpp     fovPort.DownTan  = ( halfLensDiameter - offsetDownwardsInMeters ) / eyeReliefInMeters;
+<a href='../S/88.html#L1332'>eyeReliefInMeters</a> 1332 ovr/sdk/src/OVR_Stereo.cpp     fovPort.LeftTan  = ( halfLensDiameter + offsetToRightInMeters   ) / eyeReliefInMeters;
+<a href='../S/88.html#L1333'>eyeReliefInMeters</a> 1333 ovr/sdk/src/OVR_Stereo.cpp     fovPort.RightTan = ( halfLensDiameter - offsetToRightInMeters   ) / eyeReliefInMeters;
+<a href='../S/88.html#L1353'>eyeReliefInMeters</a> 1353 ovr/sdk/src/OVR_Stereo.cpp         fovPort.UpTan    = Alg::Max ( fovPort.UpTan   , ( halfLensDiameter + offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1354'>eyeReliefInMeters</a> 1354 ovr/sdk/src/OVR_Stereo.cpp         fovPort.DownTan  = Alg::Max ( fovPort.DownTan , ( halfLensDiameter - offsetDownwardsInMeters + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1355'>eyeReliefInMeters</a> 1355 ovr/sdk/src/OVR_Stereo.cpp         fovPort.LeftTan  = Alg::Max ( fovPort.LeftTan , ( halfLensDiameter + offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1356'>eyeReliefInMeters</a> 1356 ovr/sdk/src/OVR_Stereo.cpp         fovPort.RightTan = Alg::Max ( fovPort.RightTan, ( halfLensDiameter - offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1370'>eyeReliefInMeters</a> 1370 ovr/sdk/src/OVR_Stereo.cpp     float eyeReliefInMeters;
+<a href='../S/88.html#L1374'>eyeReliefInMeters</a> 1374 ovr/sdk/src/OVR_Stereo.cpp         eyeReliefInMeters     = hmd.EyeRight.ReliefInMeters;
+<a href='../S/88.html#L1379'>eyeReliefInMeters</a> 1379 ovr/sdk/src/OVR_Stereo.cpp         eyeReliefInMeters     = hmd.EyeLeft.ReliefInMeters;
+<a href='../S/88.html#L1386'>eyeReliefInMeters</a> 1386 ovr/sdk/src/OVR_Stereo.cpp     eyeReliefInMeters = Alg::Max(eyeReliefInMeters, 0.006f);
+<a href='../S/88.html#L1389'>eyeReliefInMeters</a> 1389 ovr/sdk/src/OVR_Stereo.cpp     fovPort = CalculateFovFromEyePosition ( eyeReliefInMeters,
+<a href='../S/131.html#L361'>eyeReliefInMeters</a>  361 ovr/sdk/src/OVR_Stereo.h LensConfig          GenerateLensConfigFromEyeRelief ( float eyeReliefInMeters, HmdRenderInfo const &amp;hmd,
+<a href='../S/131.html#L367'>eyeReliefInMeters</a>  367 ovr/sdk/src/OVR_Stereo.h FovPort             CalculateFovFromEyePosition ( float eyeReliefInMeters,
+</pre>
+</body>
+</html>

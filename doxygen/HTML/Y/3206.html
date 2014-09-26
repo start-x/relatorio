@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>fileStat</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/149.html#L575'>fileStat</a>          575 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     struct __stat64 fileStat;
+<a href='../S/149.html#L580'>fileStat</a>          580 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     int ret = _wstat64(pwpath, &amp;fileStat);
+<a href='../S/149.html#L584'>fileStat</a>          584 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     struct stat fileStat;
+<a href='../S/149.html#L586'>fileStat</a>          586 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     if (stat(path, &amp;fileStat) != 0)
+<a href='../S/149.html#L589'>fileStat</a>          589 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     pfileStat-&gt;AccessTime = fileStat.st_atime;
+<a href='../S/149.html#L590'>fileStat</a>          590 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     pfileStat-&gt;ModifyTime = fileStat.st_mtime;
+<a href='../S/149.html#L591'>fileStat</a>          591 ovr/sdk/src/Kernel/OVR_FileFILE.cpp     pfileStat-&gt;FileSize   = fileStat.st_size;
+</pre>
+</body>
+</html>

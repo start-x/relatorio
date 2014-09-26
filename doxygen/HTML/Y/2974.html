@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>delay</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/151.html#L125'>delay</a>             125 ovr/sdk/src/Kernel/OVR_Threads.h     bool    Wait(Mutex *pmutex, unsigned delay = OVR_WAIT_INFINITE);
+<a href='../S/151.html#L157'>delay</a>             157 ovr/sdk/src/Kernel/OVR_Threads.h     bool  Wait(unsigned delay = OVR_WAIT_INFINITE);
+<a href='../S/181.html#L193'>delay</a>             193 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp bool Event::Wait(unsigned delay)
+<a href='../S/181.html#L198'>delay</a>             198 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     if (delay == OVR_WAIT_INFINITE)
+<a href='../S/181.html#L203'>delay</a>             203 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     else if (delay)
+<a href='../S/181.html#L206'>delay</a>             206 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp             StateWaitCondition.Wait(&amp;StateMutex, delay);
+<a href='../S/181.html#L245'>delay</a>             245 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     bool    Wait(Mutex *pmutex, unsigned delay = OVR_WAIT_INFINITE);
+<a href='../S/181.html#L266'>delay</a>             266 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp bool    WaitConditionImpl::Wait(Mutex *pmutex, unsigned delay)
+<a href='../S/181.html#L294'>delay</a>             294 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     if (delay == OVR_WAIT_INFINITE)
+<a href='../S/181.html#L303'>delay</a>             303 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         ts.tv_sec = tv.tv_sec + (delay / 1000);
+<a href='../S/181.html#L304'>delay</a>             304 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp         ts.tv_nsec = (tv.tv_usec + (delay % 1000) * 1000) * 1000;
+<a href='../S/181.html#L356'>delay</a>             356 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp bool    WaitCondition::Wait(Mutex *pmutex, unsigned delay)
+<a href='../S/181.html#L358'>delay</a>             358 ovr/sdk/src/Kernel/OVR_ThreadsPthread.cpp     return pImpl-&gt;Wait(pmutex, delay);
+</pre>
+</body>
+</html>

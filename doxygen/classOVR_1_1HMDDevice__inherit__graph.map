@@ -1,0 +1,6 @@
+<map id="OVR::HMDDevice" name="OVR::HMDDevice">
+<area shape="rect" id="node4" href="$classOVR_1_1DeviceImpl.html" title="{OVR::DeviceImpl\&lt; OVR\l::HMDDevice \&gt;\n||+ DeviceImpl()\l+ GetManagerImpl()\l+ getThis()\l+ getDeviceCommon()\l}" alt="" coords="7,632,173,768"/>
+<area shape="rect" id="node2" href="$classOVR_1_1DeviceBase.html" title="{OVR::DeviceBase\n||+ ~DeviceBase()\l+ AddRef()\l+ Release()\l+ GetParent()\l+ GetManager()\l+ AddMessageHandler()\l+ GetType()\l+ GetDeviceInfo()\l+ IsConnected()\l+ GetHandlerLock()\l# getDeviceCommon()\l}" alt="" coords="9,131,172,355"/>
+<area shape="rect" id="node3" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="8,5,172,83"/>
+<area shape="rect" id="node5" href="$classOVR_1_1Linux_1_1HMDDevice.html" title="{OVR::Linux::HMDDevice\n|# ProfileName\l# pCachedProfile\l|+ HMDDevice()\l+ ~HMDDevice()\l+ Initialize()\l+ Shutdown()\l+ GetProfile()\l+ GetProfileName()\l+ SetProfileName()\l+ GetSensor()\l# getDesc()\l}" alt="" coords="5,817,176,1026"/>
+</map>

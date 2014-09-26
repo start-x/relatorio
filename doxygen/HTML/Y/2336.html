@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>UdevInstance</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/132.html#L43'>UdevInstance</a>       43 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     UdevInstance = NULL;
+<a href='../S/132.html#L62'>UdevInstance</a>       62 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     HIDMonitor = udev_monitor_new_from_netlink(UdevInstance, "udev");
+<a href='../S/132.html#L107'>UdevInstance</a>      107 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     UdevInstance = udev_new();
+<a href='../S/132.html#L108'>UdevInstance</a>      108 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     if (!UdevInstance)
+<a href='../S/132.html#L117'>UdevInstance</a>      117 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     OVR_ASSERT_LOG((UdevInstance), ("Should have called 'Initialize' before 'Shutdown'."));
+<a href='../S/132.html#L129'>UdevInstance</a>      129 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     udev_unref(UdevInstance);  // release the library
+<a href='../S/132.html#L223'>UdevInstance</a>      223 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     udev_enumerate* devices = udev_enumerate_new(UdevInstance);
+<a href='../S/132.html#L235'>UdevInstance</a>      235 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         hid = udev_device_new_from_syspath(UdevInstance, sysfs_path);
+<a href='../S/132.html#L330'>UdevInstance</a>      330 ovr/sdk/src/OVR_Linux_HIDDevice.cpp     udev_enumerate* devices = udev_enumerate_new(UdevInstance);
+<a href='../S/132.html#L343'>UdevInstance</a>      343 ovr/sdk/src/OVR_Linux_HIDDevice.cpp         hid = udev_device_new_from_syspath(UdevInstance, sysfs_path);
+<a href='../S/81.html#L126'>UdevInstance</a>      126 ovr/sdk/src/OVR_Linux_HIDDevice.h     udev*                    UdevInstance;     // a handle to the udev library instance
+</pre>
+</body>
+</html>

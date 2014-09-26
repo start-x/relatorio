@@ -1,0 +1,22 @@
+<map id="ovr/sdk/src/CAPI/CAPI_HMDRenderState.h" name="ovr/sdk/src/CAPI/CAPI_HMDRenderState.h">
+<area shape="rect" id="node2" href="$OVR__CAPI_8h.html" title="../OVR_CAPI.h" alt="" coords="241,104,353,131"/>
+<area shape="rect" id="node4" href="$OVR__Math_8h.html" title="../Kernel/OVR_Math.h" alt="" coords="265,411,415,437"/>
+<area shape="rect" id="node23" href="$Util__Render__Stereo_8h.html" title="../Util/Util_Render\l_Stereo.h" alt="" coords="486,97,612,138"/>
+<area shape="rect" id="node8" href="$OVR__Types_8h.html" title="OVR_Types.h" alt="" coords="977,635,1081,661"/>
+<area shape="rect" id="node13" href="$OVR__RefCount_8h.html" title="OVR_RefCount.h" alt="" coords="409,485,535,512"/>
+<area shape="rect" id="node15" href="$OVR__Std_8h.html" title="OVR_Std.h" alt="" coords="295,485,384,512"/>
+<area shape="rect" id="node22" href="$OVR__Alg_8h.html" title="OVR_Alg.h" alt="" coords="559,485,647,512"/>
+<area shape="rect" id="node14" href="$OVR__Allocator_8h.html" title="OVR_Allocator.h" alt="" coords="921,560,1041,587"/>
+<area shape="rect" id="node24" href="$OVR__Stereo_8h.html" title="../OVR_Stereo.h" alt="" coords="597,187,715,213"/>
+<area shape="rect" id="node25" href="$OVR__Device_8h.html" title="OVR_Device.h" alt="" coords="659,261,769,288"/>
+<area shape="rect" id="node26" href="$OVR__DeviceConstants_8h.html" title="OVR_DeviceConstants.h" alt="" coords="671,485,841,512"/>
+<area shape="rect" id="node27" href="$OVR__DeviceHandle_8h.html" title="OVR_DeviceHandle.h" alt="" coords="578,411,728,437"/>
+<area shape="rect" id="node28" href="$OVR__DeviceMessages_8h.html" title="OVR_DeviceMessages.h" alt="" coords="691,336,861,363"/>
+<area shape="rect" id="node32" href="$OVR__String_8h.html" title="Kernel/OVR_String.h" alt="" coords="1135,411,1279,437"/>
+<area shape="rect" id="node34" href="$OVR__Atomic_8h.html" title="OVR_Atomic.h" alt="" coords="1365,485,1475,512"/>
+<area shape="rect" id="node36" href="$OVR__HIDDeviceBase_8h.html" title="OVR_HIDDeviceBase.h" alt="" coords="1419,336,1583,363"/>
+<area shape="rect" id="node29" href="$OVR__Array_8h.html" title="Kernel/OVR_Array.h" alt="" coords="804,411,944,437"/>
+<area shape="rect" id="node31" href="$OVR__Color_8h.html" title="Kernel/OVR_Color.h" alt="" coords="969,411,1109,437"/>
+<area shape="rect" id="node30" href="$OVR__ContainerAllocator_8h.html" title="OVR_ContainerAllocator.h" alt="" coords="865,485,1041,512"/>
+<area shape="rect" id="node33" href="$OVR__UTF8Util_8h.html" title="OVR_UTF8Util.h" alt="" coords="1217,485,1340,512"/>
+</map>

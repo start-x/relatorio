@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Shutter</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/98.html#L231'>Shutter</a>           231 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     ScreenSwitchingDelay = RenderInfo.Shutter.PixelSettleTime * 0.5f + 
+<a href='../S/98.html#L232'>Shutter</a>           232 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp                            RenderInfo.Shutter.PixelPersistence * 0.5f;
+<a href='../S/98.html#L270'>Shutter</a>           270 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         if (frameDelta &gt; (RenderInfo.Shutter.VsyncToNextVsync + 0.001))
+<a href='../S/98.html#L271'>Shutter</a>           271 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp             frameDelta = RenderInfo.Shutter.VsyncToNextVsync;
+<a href='../S/98.html#L275'>Shutter</a>           275 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         frameDelta = RenderInfo.Shutter.VsyncToNextVsync;
+<a href='../S/98.html#L415'>Shutter</a>           415 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp     FrameTiming.InitTimingFromInputs(FrameTiming.Inputs, RenderInfo.Shutter.Type,
+<a href='../S/98.html#L447'>Shutter</a>           447 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         frameTiming.InitTimingFromInputs(frameTiming.Inputs, RenderInfo.Shutter.Type,
+<a href='../S/98.html#L459'>Shutter</a>           459 ovr/sdk/src/CAPI/CAPI_FrameTimeManager.cpp         frameTiming.InitTimingFromInputs(frameTiming.Inputs, RenderInfo.Shutter.Type,
+<a href='../S/107.html#L96'>Shutter</a>            96 ovr/sdk/src/CAPI/CAPI_HMDRenderState.cpp     if (HMDInfo.Shutter.Type == HmdShutter_RollingRightToLeft)
+<a href='../S/129.html#L173'>Shutter</a>           173 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_RollingTopToBottom;
+<a href='../S/129.html#L174'>Shutter</a>           174 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 60.0f );
+<a href='../S/129.html#L175'>Shutter</a>           175 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.000052f;
+<a href='../S/129.html#L176'>Shutter</a>           176 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.016580f;
+<a href='../S/129.html#L177'>Shutter</a>           177 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.015f; // estimated.
+<a href='../S/129.html#L178'>Shutter</a>           178 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = hmdInfo-&gt;Shutter.VsyncToNextVsync; // Full persistence
+<a href='../S/129.html#L182'>Shutter</a>           182 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_RollingTopToBottom;
+<a href='../S/129.html#L183'>Shutter</a>           183 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 60.0f );
+<a href='../S/129.html#L184'>Shutter</a>           184 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.00018226f;
+<a href='../S/129.html#L185'>Shutter</a>           185 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.01620089f;
+<a href='../S/129.html#L186'>Shutter</a>           186 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.017f; // estimated.
+<a href='../S/129.html#L187'>Shutter</a>           187 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = hmdInfo-&gt;Shutter.VsyncToNextVsync; // Full persistence
+<a href='../S/129.html#L191'>Shutter</a>           191 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_RollingRightToLeft;
+<a href='../S/129.html#L192'>Shutter</a>           192 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 60.0f );
+<a href='../S/129.html#L193'>Shutter</a>           193 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.0000859f;
+<a href='../S/129.html#L194'>Shutter</a>           194 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.0164948f;
+<a href='../S/129.html#L195'>Shutter</a>           195 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.012f; // estimated.
+<a href='../S/129.html#L196'>Shutter</a>           196 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = hmdInfo-&gt;Shutter.VsyncToNextVsync; // Full persistence
+<a href='../S/129.html#L200'>Shutter</a>           200 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_RollingRightToLeft;
+<a href='../S/129.html#L201'>Shutter</a>           201 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 60.0f );
+<a href='../S/129.html#L202'>Shutter</a>           202 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.000052f;
+<a href='../S/129.html#L203'>Shutter</a>           203 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.016580f;
+<a href='../S/129.html#L204'>Shutter</a>           204 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.015f; // estimated.
+<a href='../S/129.html#L205'>Shutter</a>           205 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = hmdInfo-&gt;Shutter.VsyncToNextVsync; // Full persistence
+<a href='../S/129.html#L210'>Shutter</a>           210 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_Global;
+<a href='../S/129.html#L211'>Shutter</a>           211 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 76.0f );
+<a href='../S/129.html#L212'>Shutter</a>           212 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.0000273f + 0.0131033f;    // Global shutter - first visible scan line is actually the last!
+<a href='../S/129.html#L213'>Shutter</a>           213 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.000f;                     // Global shutter - all visible at once.
+<a href='../S/129.html#L214'>Shutter</a>           214 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.0f;                       // &lt;100us
+<a href='../S/129.html#L215'>Shutter</a>           215 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = 0.18f * hmdInfo-&gt;Shutter.VsyncToNextVsync;     // Confgurable - currently set to 18% of total frame.
+<a href='../S/129.html#L218'>Shutter</a>           218 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_RollingRightToLeft;
+<a href='../S/129.html#L219'>Shutter</a>           219 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 76.0f );
+<a href='../S/129.html#L220'>Shutter</a>           220 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.0000273f;
+<a href='../S/129.html#L221'>Shutter</a>           221 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.0131033f;
+<a href='../S/129.html#L222'>Shutter</a>           222 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.0f;                       // &lt;100us
+<a href='../S/129.html#L223'>Shutter</a>           223 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = 0.18f * hmdInfo-&gt;Shutter.VsyncToNextVsync;     // Confgurable - currently set to 18% of total frame.
+<a href='../S/129.html#L228'>Shutter</a>           228 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_RollingRightToLeft;
+<a href='../S/129.html#L229'>Shutter</a>           229 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 76.0f );
+<a href='../S/129.html#L230'>Shutter</a>           230 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.0000273f;
+<a href='../S/129.html#L231'>Shutter</a>           231 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.0131033f;
+<a href='../S/129.html#L232'>Shutter</a>           232 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.0f;                       // &lt;100us
+<a href='../S/129.html#L233'>Shutter</a>           233 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = 0.18f * hmdInfo-&gt;Shutter.VsyncToNextVsync;     // Confgurable - currently set to 18% of total frame.
+<a href='../S/129.html#L237'>Shutter</a>           237 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.Type                             = HmdShutter_RollingRightToLeft;
+<a href='../S/129.html#L238'>Shutter</a>           238 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToNextVsync                 = ( 1.0f / 76.0f );
+<a href='../S/129.html#L239'>Shutter</a>           239 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.VsyncToFirstScanline             = 0.0000273f;
+<a href='../S/129.html#L240'>Shutter</a>           240 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.FirstScanlineToLastScanline      = 0.0131033f;
+<a href='../S/129.html#L241'>Shutter</a>           241 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelSettleTime                  = 0.0f;                       // &lt;100us
+<a href='../S/129.html#L242'>Shutter</a>           242 ovr/sdk/src/OVR_Common_HMDDevice.cpp             hmdInfo-&gt;Shutter.PixelPersistence                 = 0.18f * hmdInfo-&gt;Shutter.VsyncToNextVsync;     // Confgurable - currently set to 18% of total frame.
+<a href='../S/108.html#L339'>Shutter</a>           339 ovr/sdk/src/OVR_Device.h     }                   Shutter;
+<a href='../S/108.html#L368'>Shutter</a>           368 ovr/sdk/src/OVR_Device.h         Shutter.Type = HmdShutter_LAST;
+<a href='../S/108.html#L369'>Shutter</a>           369 ovr/sdk/src/OVR_Device.h         Shutter.VsyncToNextVsync = 0.0f;
+<a href='../S/108.html#L370'>Shutter</a>           370 ovr/sdk/src/OVR_Device.h         Shutter.VsyncToFirstScanline = 0.0f;
+<a href='../S/108.html#L371'>Shutter</a>           371 ovr/sdk/src/OVR_Device.h         Shutter.FirstScanlineToLastScanline = 0.0f;
+<a href='../S/108.html#L372'>Shutter</a>           372 ovr/sdk/src/OVR_Device.h         Shutter.PixelSettleTime = 0.0f;
+<a href='../S/108.html#L373'>Shutter</a>           373 ovr/sdk/src/OVR_Device.h         Shutter.PixelPersistence = 0.0f;
+<a href='../S/108.html#L387'>Shutter</a>           387 ovr/sdk/src/OVR_Device.h         Shutter                          = src.Shutter;
+<a href='../S/88.html#L614'>Shutter</a>           614 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.Type                           = HmdShutter_RollingTopToBottom;
+<a href='../S/88.html#L615'>Shutter</a>           615 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.VsyncToNextVsync               = ( 1.0f / 60.0f );
+<a href='../S/88.html#L616'>Shutter</a>           616 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.VsyncToFirstScanline           = 0.000052f;
+<a href='../S/88.html#L617'>Shutter</a>           617 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.FirstScanlineToLastScanline    = 0.016580f;
+<a href='../S/88.html#L618'>Shutter</a>           618 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.PixelSettleTime                = 0.015f;
+<a href='../S/88.html#L619'>Shutter</a>           619 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.PixelPersistence               = ( 1.0f / 60.0f );
+<a href='../S/88.html#L629'>Shutter</a>           629 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.Type                           = HmdShutter_RollingRightToLeft;
+<a href='../S/88.html#L630'>Shutter</a>           630 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.VsyncToNextVsync               = ( 1.0f / 76.0f );
+<a href='../S/88.html#L631'>Shutter</a>           631 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.VsyncToFirstScanline           = 0.0000273f;
+<a href='../S/88.html#L632'>Shutter</a>           632 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.FirstScanlineToLastScanline    = 0.0131033f;
+<a href='../S/88.html#L633'>Shutter</a>           633 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.PixelSettleTime                = 0.0f;
+<a href='../S/88.html#L634'>Shutter</a>           634 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.PixelPersistence               = 0.18f * info.Shutter.VsyncToNextVsync;
+<a href='../S/88.html#L644'>Shutter</a>           644 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.Type                           = HmdShutter_RollingRightToLeft;
+<a href='../S/88.html#L645'>Shutter</a>           645 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.VsyncToNextVsync               = ( 1.0f / 76.0f );
+<a href='../S/88.html#L646'>Shutter</a>           646 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.VsyncToFirstScanline           = 0.0000273f;
+<a href='../S/88.html#L647'>Shutter</a>           647 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.FirstScanlineToLastScanline    = 0.0131033f;
+<a href='../S/88.html#L648'>Shutter</a>           648 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.PixelSettleTime                = 0.0f;
+<a href='../S/88.html#L649'>Shutter</a>           649 ovr/sdk/src/OVR_Stereo.cpp         info.Shutter.PixelPersistence               = 0.18f * info.Shutter.VsyncToNextVsync;
+<a href='../S/88.html#L676'>Shutter</a>           676 ovr/sdk/src/OVR_Stereo.cpp     OVR_ASSERT ( sizeof(renderInfo.Shutter) == sizeof(hmdInfo.Shutter) );   // Try to keep the files in sync!
+<a href='../S/88.html#L677'>Shutter</a>           677 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.Type                         = hmdInfo.Shutter.Type;
+<a href='../S/88.html#L678'>Shutter</a>           678 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.VsyncToNextVsync             = hmdInfo.Shutter.VsyncToNextVsync;
+<a href='../S/88.html#L679'>Shutter</a>           679 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.VsyncToFirstScanline         = hmdInfo.Shutter.VsyncToFirstScanline;
+<a href='../S/88.html#L680'>Shutter</a>           680 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.FirstScanlineToLastScanline  = hmdInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/88.html#L681'>Shutter</a>           681 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.PixelSettleTime              = hmdInfo.Shutter.PixelSettleTime;
+<a href='../S/88.html#L682'>Shutter</a>           682 ovr/sdk/src/OVR_Stereo.cpp     renderInfo.Shutter.PixelPersistence             = hmdInfo.Shutter.PixelPersistence;
+<a href='../S/131.html#L285'>Shutter</a>           285 ovr/sdk/src/OVR_Stereo.h     }           Shutter;
+<a href='../S/131.html#L312'>Shutter</a>           312 ovr/sdk/src/OVR_Stereo.h         Shutter.Type = HmdShutter_LAST;
+<a href='../S/131.html#L313'>Shutter</a>           313 ovr/sdk/src/OVR_Stereo.h         Shutter.VsyncToNextVsync = 0.0f;
+<a href='../S/131.html#L314'>Shutter</a>           314 ovr/sdk/src/OVR_Stereo.h         Shutter.VsyncToFirstScanline = 0.0f;
+<a href='../S/131.html#L315'>Shutter</a>           315 ovr/sdk/src/OVR_Stereo.h         Shutter.FirstScanlineToLastScanline = 0.0f;
+<a href='../S/131.html#L316'>Shutter</a>           316 ovr/sdk/src/OVR_Stereo.h         Shutter.PixelSettleTime = 0.0f;
+<a href='../S/131.html#L317'>Shutter</a>           317 ovr/sdk/src/OVR_Stereo.h         Shutter.PixelPersistence = 0.0f;
+<a href='../S/117.html#L380'>Shutter</a>           380 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd.Shutter.Type                                    = HmdShutter_RollingTopToBottom;
+<a href='../S/117.html#L381'>Shutter</a>           381 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd.Shutter.VsyncToNextVsync                        = ( 1.0f / 60.0f );
+<a href='../S/117.html#L382'>Shutter</a>           382 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd.Shutter.VsyncToFirstScanline                    = 0.000052f;
+<a href='../S/117.html#L383'>Shutter</a>           383 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd.Shutter.FirstScanlineToLastScanline             = 0.016580f;
+<a href='../S/117.html#L384'>Shutter</a>           384 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd.Shutter.PixelSettleTime                         = 0.015f;
+<a href='../S/117.html#L385'>Shutter</a>           385 ovr/sdk/src/Util/Util_Render_Stereo.cpp     Hmd.Shutter.PixelPersistence                        = ( 1.0f / 60.0f );
+<a href='../S/117.html#L887'>Shutter</a>           887 ovr/sdk/src/Util/Util_Render_Stereo.cpp             HmdShutterTypeEnum shutterType = hmdRenderInfo.Shutter.Type;
+<a href='../S/117.html#L1093'>Shutter</a>          1093 ovr/sdk/src/Util/Util_Render_Stereo.cpp             HmdShutterTypeEnum shutterType = hmdRenderInfo.Shutter.Type;
+<a href='../S/117.html#L1227'>Shutter</a>          1227 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene  = extraFramesOfBufferingKludge * hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1229'>Shutter</a>          1229 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.VsyncToFirstScanline + 0.5f * hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1231'>Shutter</a>          1231 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.PixelSettleTime * 0.5f;
+<a href='../S/117.html#L1233'>Shutter</a>          1233 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.PixelPersistence * 0.5f;
+<a href='../S/117.html#L1236'>Shutter</a>          1236 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart  = extraFramesOfBufferingKludge * hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1238'>Shutter</a>          1238 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.VsyncToFirstScanline;
+<a href='../S/117.html#L1240'>Shutter</a>          1240 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.PixelSettleTime * 0.5f;
+<a href='../S/117.html#L1242'>Shutter</a>          1242 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpStart += hmdRenderInfo.Shutter.PixelPersistence * 0.5f;
+<a href='../S/117.html#L1245'>Shutter</a>          1245 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToTimewarpEnd    = result.PresentFlushToTimewarpStart + hmdRenderInfo.Shutter.FirstScanlineToLastScanline;
+<a href='../S/117.html#L1248'>Shutter</a>          1248 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToPresentFlush   = hmdRenderInfo.Shutter.VsyncToNextVsync;
+<a href='../S/117.html#L1260'>Shutter</a>          1260 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene  = hmdRenderInfo.Shutter.PixelSettleTime * 0.5f;
+<a href='../S/117.html#L1262'>Shutter</a>          1262 ovr/sdk/src/Util/Util_Render_Stereo.cpp         result.PresentFlushToRenderedScene += hmdRenderInfo.Shutter.PixelPersistence * 0.5f;
+</pre>
+</body>
+</html>

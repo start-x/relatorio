@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>sz</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/182.html#L74'>sz</a>                 74 ovr/sdk/src/Kernel/OVR_Allocator.h     void*   operator new(UPInt sz)                                                      \
+<a href='../S/182.html#L75'>sz</a>                 75 ovr/sdk/src/Kernel/OVR_Allocator.h     { void *p = OVR_ALLOC_DEBUG(sz, __FILE__, __LINE__); return p; }                                              \
+<a href='../S/182.html#L76'>sz</a>                 76 ovr/sdk/src/Kernel/OVR_Allocator.h     void*   operator new(UPInt sz, const char* file, int line)                          \
+<a href='../S/182.html#L77'>sz</a>                 77 ovr/sdk/src/Kernel/OVR_Allocator.h     { void* p = OVR_ALLOC_DEBUG(sz, file, line); OVR_UNUSED2(file, line); return p; }   \
+<a href='../S/172.html#L150'>sz</a>                150 ovr/sdk/src/Kernel/OVR_File.cpp         int sz   = pFile-&gt;Read(pBuffer,FILEBUFFER_SIZE);
+<a href='../S/172.html#L151'>sz</a>                151 ovr/sdk/src/Kernel/OVR_File.cpp         DataSize = sz&lt;0 ? 0 : (unsigned)sz;
+<a href='../S/172.html#L253'>sz</a>                253 ovr/sdk/src/Kernel/OVR_File.cpp                 int sz = pFile-&gt;Write(psourceBuffer,numBytes);
+<a href='../S/172.html#L254'>sz</a>                254 ovr/sdk/src/Kernel/OVR_File.cpp                 if (sz &gt; 0)
+<a href='../S/172.html#L255'>sz</a>                255 ovr/sdk/src/Kernel/OVR_File.cpp                     FilePos += sz;
+<a href='../S/172.html#L256'>sz</a>                256 ovr/sdk/src/Kernel/OVR_File.cpp                 return sz;
+<a href='../S/172.html#L265'>sz</a>                265 ovr/sdk/src/Kernel/OVR_File.cpp     int sz = pFile-&gt;Write(psourceBuffer,numBytes);
+<a href='../S/172.html#L266'>sz</a>                266 ovr/sdk/src/Kernel/OVR_File.cpp     if (sz &gt; 0)
+<a href='../S/172.html#L267'>sz</a>                267 ovr/sdk/src/Kernel/OVR_File.cpp         FilePos += sz;
+<a href='../S/172.html#L268'>sz</a>                268 ovr/sdk/src/Kernel/OVR_File.cpp     return sz;
+<a href='../S/172.html#L337'>sz</a>                337 ovr/sdk/src/Kernel/OVR_File.cpp     int sz = pFile-&gt;Read(pdestBuffer,numBytes);
+<a href='../S/172.html#L338'>sz</a>                338 ovr/sdk/src/Kernel/OVR_File.cpp     if (sz &gt; 0)
+<a href='../S/172.html#L339'>sz</a>                339 ovr/sdk/src/Kernel/OVR_File.cpp         FilePos += sz;
+<a href='../S/172.html#L340'>sz</a>                340 ovr/sdk/src/Kernel/OVR_File.cpp     return sz;
+<a href='../S/177.html#L656'>sz</a>                656 ovr/sdk/src/Kernel/OVR_Math.h     Rect(const Vector2&lt;T&gt;&amp; pos, const Size&lt;T&gt;&amp; sz) : x(pos.x), y(pos.y), w(sz.w), h(sz.h) { }
+<a href='../S/177.html#L657'>sz</a>                657 ovr/sdk/src/Kernel/OVR_Math.h     Rect(const Size&lt;T&gt;&amp; sz)                        : x(0), y(0), w(sz.w), h(sz.h) { }
+<a href='../S/177.html#L673'>sz</a>                673 ovr/sdk/src/Kernel/OVR_Math.h     void       SetSize(const Size&lt;T&gt;&amp; sz)    { w = sz.w; h = sz.h; }
+<a href='../S/161.html#L523'>sz</a>                523 ovr/sdk/src/Kernel/OVR_String.h     StringDataPtr(const char* pstr, UPInt sz)
+<a href='../S/161.html#L524'>sz</a>                524 ovr/sdk/src/Kernel/OVR_String.h         : pStr(pstr), Size(sz) {}
+</pre>
+</body>
+</html>

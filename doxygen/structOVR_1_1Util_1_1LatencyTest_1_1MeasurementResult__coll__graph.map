@@ -1,0 +1,6 @@
+<map id="OVR::Util::LatencyTest::MeasurementResult" name="OVR::Util::LatencyTest::MeasurementResult">
+<area shape="rect" id="node2" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; Measurement\lResult \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="5,229,208,395"/>
+<area shape="rect" id="node3" href="$structOVR_1_1ListNode.html" title="{OVR::ListNode\&lt; T \&gt;\n|+ @8\l+ @10\l|+ RemoveNode()\l+ ReplaceNodeWith()\l+ InsertNodeAfter()\l+ InsertNodeBefore()\l+ Alloc_MoveTo()\l}" alt="" coords="33,6,180,157"/>
+<area shape="rect" id="node4" href="$classOVR_1_1NewOverrideBase.html" title="{OVR::NewOverrideBase\n||}" alt="" coords="232,273,396,351"/>
+<area shape="rect" id="node5" href="$structOVR_1_1Color.html" title="{OVR::Color\n|+ R\l+ G\l+ B\l+ A\l|+ Color()\l+ Color()\l+ Color()\l+ operator==()\l+ GetRGBA()\l}" alt="" coords="421,222,525,402"/>
+</map>

@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>LeftTan</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/64.html#L135'>LeftTan</a>           135 ovr/Ovr.cpp    		"\t\t[left]LeftTan = " &lt;&lt; sxovr.hmdDesc.DefaultEyeFov[ovrEye_Left].LeftTan &lt;&lt; std::endl &lt;&lt;
+<a href='../S/64.html#L139'>LeftTan</a>           139 ovr/Ovr.cpp    		"\t\t[right]LeftTan = " &lt;&lt; sxovr.hmdDesc.DefaultEyeFov[ovrEye_Right].LeftTan &lt;&lt; std::endl &lt;&lt;
+<a href='../S/64.html#L145'>LeftTan</a>           145 ovr/Ovr.cpp    		"\t\t[left]LeftTan = " &lt;&lt; sxovr.hmdDesc.MaxEyeFov[ovrEye_Left].LeftTan &lt;&lt; std::endl &lt;&lt;
+<a href='../S/64.html#L149'>LeftTan</a>           149 ovr/Ovr.cpp    		"\t\t[right]LeftTan = " &lt;&lt; sxovr.hmdDesc.MaxEyeFov[ovrEye_Right].LeftTan &lt;&lt; std::endl &lt;&lt;
+<a href='../S/142.html#L51'>LeftTan</a>            51 ovr/sdk/src/OVR_CAPI.cpp     : UpTan(src.UpTan), DownTan(src.DownTan), LeftTan(src.LeftTan), RightTan(src.RightTan)
+<a href='../S/142.html#L57'>LeftTan</a>            57 ovr/sdk/src/OVR_CAPI.cpp     result.LeftTan  = LeftTan;
+<a href='../S/187.html#L104'>LeftTan</a>           104 ovr/sdk/src/OVR_CAPI.h     float LeftTan;
+<a href='../S/88.html#L1332'>LeftTan</a>          1332 ovr/sdk/src/OVR_Stereo.cpp     fovPort.LeftTan  = ( halfLensDiameter + offsetToRightInMeters   ) / eyeReliefInMeters;
+<a href='../S/88.html#L1355'>LeftTan</a>          1355 ovr/sdk/src/OVR_Stereo.cpp         fovPort.LeftTan  = Alg::Max ( fovPort.LeftTan , ( halfLensDiameter + offsetToRightInMeters   + extraTranslation ) / ( eyeReliefInMeters + extraRelief ) );
+<a href='../S/88.html#L1428'>LeftTan</a>          1428 ovr/sdk/src/OVR_Stereo.cpp             result.LeftTan  = 0.0f;
+<a href='../S/88.html#L1438'>LeftTan</a>          1438 ovr/sdk/src/OVR_Stereo.cpp                 result.LeftTan  = Alg::Max ( result.LeftTan,  -tanEyeAngle.x );
+<a href='../S/88.html#L1452'>LeftTan</a>          1452 ovr/sdk/src/OVR_Stereo.cpp     resultFovPort.LeftTan  = leftFovPort.LeftTan;
+<a href='../S/88.html#L1465'>LeftTan</a>          1465 ovr/sdk/src/OVR_Stereo.cpp     resultFovPort.LeftTan  = Alg::Min ( inputFovPort.LeftTan,  phsyicalFovPort.LeftTan );
+<a href='../S/88.html#L1480'>LeftTan</a>          1480 ovr/sdk/src/OVR_Stereo.cpp     result.w  = (int)(0.5f + pixelsPerDisplayPixel * distortion.PixelsPerTanAngleAtCenter.x * ( tanHalfFov.LeftTan + tanHalfFov.RightTan ) );
+<a href='../S/88.html#L1502'>LeftTan</a>          1502 ovr/sdk/src/OVR_Stereo.cpp     float projXScale = 2.0f / ( tanHalfFov.LeftTan + tanHalfFov.RightTan );
+<a href='../S/88.html#L1503'>LeftTan</a>          1503 ovr/sdk/src/OVR_Stereo.cpp     float projXOffset = ( tanHalfFov.LeftTan - tanHalfFov.RightTan ) * projXScale * 0.5f;
+<a href='../S/131.html#L69'>LeftTan</a>            69 ovr/sdk/src/OVR_Stereo.h     float LeftTan;
+<a href='../S/131.html#L73'>LeftTan</a>            73 ovr/sdk/src/OVR_Stereo.h         UpTan(sideTan), DownTan(sideTan), LeftTan(sideTan), RightTan(sideTan) { }
+<a href='../S/131.html#L75'>LeftTan</a>            75 ovr/sdk/src/OVR_Stereo.h         UpTan(u), DownTan(d), LeftTan(l), RightTan(r) { }
+<a href='../S/131.html#L87'>LeftTan</a>            87 ovr/sdk/src/OVR_Stereo.h         result.LeftTan  = tanf ( horizontalFov * 0.5f );
+<a href='../S/131.html#L101'>LeftTan</a>           101 ovr/sdk/src/OVR_Stereo.h     float GetHorizontalFovRadians() const   { return atanf(LeftTan)  + atanf(RightTan); }
+<a href='../S/131.html#L109'>LeftTan</a>           109 ovr/sdk/src/OVR_Stereo.h         return Alg::Max(Alg::Max(UpTan, DownTan), Alg::Max(LeftTan, RightTan));
+<a href='../S/131.html#L121'>LeftTan</a>           121 ovr/sdk/src/OVR_Stereo.h                      Alg::Min( a.LeftTan , b.LeftTan  ),
+<a href='../S/131.html#L130'>LeftTan</a>           130 ovr/sdk/src/OVR_Stereo.h                      Alg::Max( a.LeftTan , b.LeftTan  ),
+<a href='../S/117.html#L190'>LeftTan</a>           190 ovr/sdk/src/Util/Util_Render_Stereo.cpp     zoomedFov.LeftTan  *= fovScale;
+<a href='../S/117.html#L325'>LeftTan</a>           325 ovr/sdk/src/Util/Util_Render_Stereo.cpp         float fovTanH = Alg::Max ( fov.LeftTan, fov.RightTan );
+<a href='../S/117.html#L327'>LeftTan</a>           327 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.LeftTan = fovTanH;
+<a href='../S/117.html#L599'>LeftTan</a>           599 ovr/sdk/src/Util/Util_Render_Stereo.cpp         fov.LeftTan  = Alg::Max ( EyeRenderParams[0].StereoEye.Fov.LeftTan , EyeRenderParams[1].StereoEye.Fov.LeftTan  );
+<a href='../S/117.html#L649'>LeftTan</a>           649 ovr/sdk/src/Util/Util_Render_Stereo.cpp         OVR_ASSERT ( EyeRenderParams[0].StereoEye.Fov.LeftTan                 == EyeRenderParams[1].StereoEye.Fov.LeftTan  );
+<a href='../S/117.html#L765'>LeftTan</a>           765 ovr/sdk/src/Util/Util_Render_Stereo.cpp     fovPort.LeftTan  *= fovScale;
+</pre>
+</body>
+</html>

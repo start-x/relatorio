@@ -1,0 +1,3 @@
+<map id="OVR::InPlaceMutableDeque&lt; Elem &gt;" name="OVR::InPlaceMutableDeque&lt; Elem &gt;">
+<area shape="rect" id="node2" href="$classOVR_1_1Deque.html" title="{OVR::Deque\&lt; Elem \&gt;\n|# Data\l# Capacity\l# Beginning\l# End\l# ElemCount\l|+ Deque()\l+ ~Deque()\l+ PushBack()\l+ PushFront()\l+ PopBack()\l+ PopFront()\l+ PeekBack()\l+ PeekFront()\l+ GetSize()\l+ GetCapacity()\l+ Clear()\l+ IsEmpty()\l+ IsFull()\l&#45; operator=()\l&#45; Deque()\l}" alt="" coords="23,5,173,347"/>
+</map>

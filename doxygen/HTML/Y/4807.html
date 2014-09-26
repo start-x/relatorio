@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>visitor</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/191.html#L762'>visitor</a>           762 ovr/sdk/src/OVR_DeviceImpl.cpp             } visitor(desc);
+<a href='../S/191.html#L775'>visitor</a>           775 ovr/sdk/src/OVR_DeviceImpl.cpp                     SensorDeviceImpl::EnumerateHMDFromSensorDisplayInfo(displayInfo, visitor);
+<a href='../S/80.html#L305'>visitor</a>           305 ovr/sdk/src/OVR_DeviceImpl.h     virtual void EnumerateDevices(EnumerateVisitor&amp; visitor) = 0;
+<a href='../S/87.html#L400'>visitor</a>           400 ovr/sdk/src/OVR_LatencyTestImpl.cpp void LatencyTestDeviceFactory::EnumerateDevices(EnumerateVisitor&amp; visitor)
+<a href='../S/87.html#L428'>visitor</a>           428 ovr/sdk/src/OVR_LatencyTestImpl.cpp     LatencyTestEnumerator latencyTestEnumerator(this, visitor);
+<a href='../S/122.html#L47'>visitor</a>            47 ovr/sdk/src/OVR_LatencyTestImpl.h     virtual void EnumerateDevices(EnumerateVisitor&amp; visitor);
+<a href='../S/120.html#L196'>visitor</a>           196 ovr/sdk/src/OVR_Linux_HMDDevice.cpp void HMDDeviceFactory::EnumerateDevices(EnumerateVisitor&amp; visitor)
+<a href='../S/120.html#L265'>visitor</a>           265 ovr/sdk/src/OVR_Linux_HMDDevice.cpp             visitor.Visit(hmdCreateDesc);
+<a href='../S/125.html#L49'>visitor</a>            49 ovr/sdk/src/OVR_Linux_HMDDevice.h     virtual void EnumerateDevices(EnumerateVisitor&amp; visitor);
+<a href='../S/86.html#L37'>visitor</a>            37 ovr/sdk/src/OVR_Linux_SensorDevice.cpp                                                             DeviceFactory::EnumerateVisitor&amp; visitor)
+<a href='../S/86.html#L52'>visitor</a>            52 ovr/sdk/src/OVR_Linux_SensorDevice.cpp     visitor.Visit(hmdCreateDesc);
+<a href='../S/190.html#L175'>visitor</a>           175 ovr/sdk/src/OVR_SensorImpl.cpp void SensorDeviceFactory::EnumerateDevices(EnumerateVisitor&amp; visitor)
+<a href='../S/190.html#L231'>visitor</a>           231 ovr/sdk/src/OVR_SensorImpl.cpp     SensorEnumerator sensorEnumerator(this, visitor);
+<a href='../S/135.html#L51'>visitor</a>            51 ovr/sdk/src/OVR_SensorImpl.h     virtual void EnumerateDevices(EnumerateVisitor&amp; visitor);
+<a href='../S/135.html#L236'>visitor</a>           236 ovr/sdk/src/OVR_SensorImpl.h                                                                 DeviceFactory::EnumerateVisitor&amp; visitor);
+<a href='../S/197.html#L570'>visitor</a>           570 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLDocument::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L572'>visitor</a>           572 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( visitor-&gt;VisitEnter( *this ) ) {
+<a href='../S/197.html#L574'>visitor</a>           574 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !node-&gt;Accept( visitor ) ) {
+<a href='../S/197.html#L579'>visitor</a>           579 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return visitor-&gt;VisitExit( *this );
+<a href='../S/197.html#L901'>visitor</a>           901 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLText::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L903'>visitor</a>           903 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return visitor-&gt;Visit( *this );
+<a href='../S/197.html#L947'>visitor</a>           947 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLComment::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L949'>visitor</a>           949 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return visitor-&gt;Visit( *this );
+<a href='../S/197.html#L995'>visitor</a>           995 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLDeclaration::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L997'>visitor</a>           997 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return visitor-&gt;Visit( *this );
+<a href='../S/197.html#L1041'>visitor</a>          1041 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLUnknown::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L1043'>visitor</a>          1043 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return visitor-&gt;Visit( *this );
+<a href='../S/197.html#L1477'>visitor</a>          1477 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLElement::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L1479'>visitor</a>          1479 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     if ( visitor-&gt;VisitEnter( *this, _rootAttribute ) ) {
+<a href='../S/197.html#L1481'>visitor</a>          1481 ovr/sdk/third_party/tinyxml/tinyxml2.cpp             if ( !node-&gt;Accept( visitor ) ) {
+<a href='../S/197.html#L1486'>visitor</a>          1486 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     return visitor-&gt;VisitExit( *this );
+<a href='../S/196.html#L767'>visitor</a>           767 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Accept( XMLVisitor* visitor ) const = 0;
+<a href='../S/196.html#L811'>visitor</a>           811 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Accept( XMLVisitor* visitor ) const;
+<a href='../S/196.html#L856'>visitor</a>           856 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Accept( XMLVisitor* visitor ) const;
+<a href='../S/196.html#L894'>visitor</a>           894 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Accept( XMLVisitor* visitor ) const;
+<a href='../S/196.html#L926'>visitor</a>           926 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Accept( XMLVisitor* visitor ) const;
+<a href='../S/196.html#L1095'>visitor</a>          1095 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Accept( XMLVisitor* visitor ) const;
+<a href='../S/196.html#L1460'>visitor</a>          1460 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Accept( XMLVisitor* visitor ) const;
+</pre>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>device/Active.h</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<a name='TOP'><h2><a href='../mains.html'>root</a>/<a href='../files/212.html'>device</a>/Active.h</h2>
+<i><font color='green'>/* [&lt;][&gt;][^][v][top]<a href='#BOTTOM'>[bottom]</a><a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+<hr>
+<h2><a href='../J/5.html' title='Multiple included from 2 places.'>INCLUDED FROM</a></h2>
+<hr>
+<pre>
+<a name='L1'>   1 <font color='darkred'>#ifndef</font> <a href='../S/10.html#L2' title='Defined at 2 in device/Active.h.'>ACTIVE_H</a>
+<a name='L2'>   2 <font color='darkred'>#define</font> <a href='../S/10.html#L1' title='Refered from 1 in device/Active.h.'>ACTIVE_H</a>
+<a name='L3'>   3 
+<a name='L4'>   4 <font color='darkred'>#include</font> &lt;<a href='23.html'>Device.h</a>&gt;
+<a name='L5'>   5 
+<a name='L6'>   6 <i><font color='green'>/**</font></i>
+<a name='L7'>   7 <i><font color='green'> *      Represents all devices which will be serving as data sources</font></i>
+<a name='L8'>   8 <i><font color='green'> */</font></i>
+<a name='L9'>   9 <a href='../Y/2849.html' title='Multiple used in 534 places.'>class</a> <a href='../Y/29.html' title='Multiple used in 4 places.'>Active</a> : <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a> <a href='../Y/384.html' title='Multiple used in 19 places.'>Device</a>
+<a name='L10'>  10 <font color='red'>{</font>
+<a name='L11'>  11 <a href='../Y/4195.html' title='Multiple used in 367 places.'>public</a>:
+<a name='L12'>  12 
+<a name='L13'>  13         <i><font color='green'>/**</font></i>
+<a name='L14'>  14 <i><font color='green'>         *      Reads s specific char at a device and returns 0 in case of success or != 0 otherwise</font></i>
+<a name='L15'>  15 <i><font color='green'>         */</font></i>
+<a name='L16'>  16         <a href='../Y/4799.html' title='Multiple used in 451 places.'>virtual</a> <b>int</b> <a href='../S/26.html#L3' title='Defined at 3 in device/Break.cpp.'>setData</a>(<b>char</b> <a href='../Y/2954.html' title='Multiple used in 269 places.'>data</a>) = 0;
+<a name='L17'>  17 
+<a name='L18'>  18         <i><font color='green'>/**</font></i>
+<a name='L19'>  19 <i><font color='green'>         *      Flush the current data to the device</font></i>
+<a name='L20'>  20 <i><font color='green'>         */</font></i>
+<a name='L21'>  21         <b>static</b> <b>int</b> <a href='../D/1367.html' title='Multiple defined in 2 places.'>flush</a>();
+<a name='L22'>  22 <font color='red'>}</font>;
+<a name='L23'>  23 
+</pre>
+<hr>
+<a name='BOTTOM'>
+<i><font color='green'>/* [&lt;][&gt;][^][v]<a href='#TOP'>[top]</a>[bottom]<a href='../mains.html'>[index]</a><a href='../help.html'>[help]</a> */</font></i>
+</body>
+</html>

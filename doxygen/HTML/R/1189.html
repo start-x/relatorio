@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>XMLDeclaration</title>
+<meta name='robots' content='noindex,nofollow'>
+<meta name='generator' content='GLOBAL-5.7.1'>
+</head>
+<body text='#191970' bgcolor='#f5f5dc' vlink='gray'>
+<pre>
+<a href='../S/197.html#L528'>XMLDeclaration</a>    528 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     TIXMLASSERT( sizeof( XMLComment ) == sizeof( XMLDeclaration ) );	// use same memory pool
+<a href='../S/197.html#L533'>XMLDeclaration</a>    533 ovr/sdk/third_party/tinyxml/tinyxml2.cpp         returnNode = new (_commentPool.Alloc()) XMLDeclaration( this );
+<a href='../S/197.html#L955'>XMLDeclaration</a>    955 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLDeclaration::XMLDeclaration( XMLDocument* doc ) : XMLNode( doc )
+<a href='../S/197.html#L960'>XMLDeclaration</a>    960 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLDeclaration::~XMLDeclaration()
+<a href='../S/197.html#L966'>XMLDeclaration</a>    966 ovr/sdk/third_party/tinyxml/tinyxml2.cpp char* XMLDeclaration::ParseDeep( char* p, StrPair* )
+<a href='../S/197.html#L978'>XMLDeclaration</a>    978 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLNode* XMLDeclaration::ShallowClone( XMLDocument* doc ) const
+<a href='../S/197.html#L983'>XMLDeclaration</a>    983 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLDeclaration* dec = doc-&gt;NewDeclaration( Value() );	// fixme: this will always allocate memory. Intern?
+<a href='../S/197.html#L988'>XMLDeclaration</a>    988 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLDeclaration::ShallowEqual( const XMLNode* compare ) const
+<a href='../S/197.html#L995'>XMLDeclaration</a>    995 ovr/sdk/third_party/tinyxml/tinyxml2.cpp bool XMLDeclaration::Accept( XMLVisitor* visitor ) const
+<a href='../S/197.html#L1566'>XMLDeclaration</a>   1566 ovr/sdk/third_party/tinyxml/tinyxml2.cpp XMLDeclaration* XMLDocument::NewDeclaration( const char* str )
+<a href='../S/197.html#L1568'>XMLDeclaration</a>   1568 ovr/sdk/third_party/tinyxml/tinyxml2.cpp     XMLDeclaration* dec = new (_commentPool.Alloc()) XMLDeclaration( this );
+<a href='../S/196.html#L113'>XMLDeclaration</a>    113 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLDeclaration;
+<a href='../S/196.html#L426'>XMLDeclaration</a>    426 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Visit( const XMLDeclaration&amp; /*declaration*/ )		{
+<a href='../S/196.html#L572'>XMLDeclaration</a>    572 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLDeclaration*	ToDeclaration()	{
+<a href='../S/196.html#L592'>XMLDeclaration</a>    592 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual const XMLDeclaration*	ToDeclaration() const	{
+<a href='../S/196.html#L883'>XMLDeclaration</a>    883 ovr/sdk/third_party/tinyxml/tinyxml2.h class XMLDeclaration : public XMLNode
+<a href='../S/196.html#L887'>XMLDeclaration</a>    887 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual XMLDeclaration*	ToDeclaration()					{
+<a href='../S/196.html#L890'>XMLDeclaration</a>    890 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual const XMLDeclaration* ToDeclaration() const		{
+<a href='../S/196.html#L901'>XMLDeclaration</a>    901 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLDeclaration( XMLDocument* doc );
+<a href='../S/196.html#L902'>XMLDeclaration</a>    902 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual ~XMLDeclaration();
+<a href='../S/196.html#L903'>XMLDeclaration</a>    903 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLDeclaration( const XMLDeclaration&amp; );	// not supported
+<a href='../S/196.html#L904'>XMLDeclaration</a>    904 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLDeclaration&amp; operator=( const XMLDeclaration&amp; );	// not supported
+<a href='../S/196.html#L1491'>XMLDeclaration</a>   1491 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLDeclaration* NewDeclaration( const char* text=0 );
+<a href='../S/196.html#L1684'>XMLDeclaration</a>   1684 ovr/sdk/third_party/tinyxml/tinyxml2.h     XMLDeclaration* ToDeclaration() 			{
+<a href='../S/196.html#L1753'>XMLDeclaration</a>   1753 ovr/sdk/third_party/tinyxml/tinyxml2.h     const XMLDeclaration* ToDeclaration() const	{
+<a href='../S/196.html#L1860'>XMLDeclaration</a>   1860 ovr/sdk/third_party/tinyxml/tinyxml2.h     virtual bool Visit( const XMLDeclaration&amp; declaration );
+</pre>
+</body>
+</html>
