@@ -24,7 +24,8 @@ EDITAVEIS_SOURCES = abreviaturas.tex anexos.tex  consideracoes.tex divisoes.tex 
 					problema.tex conclusao.tex textoepostexto.tex figura.tex requisitos.tex contracapa.tex \
 					rift.tex msp430.tex unity.tex automotiva.tex energia.tex \
 					oculusvr.tex ambiente_virtual.tex circuitos.tex base_bicicleta.tex \
-					acoplamento_alternador.tex eficiencia_energetica.tex sistema.tex
+					acoplamento_alternador.tex eficiencia_energetica.tex \
+					sistema_ambiente.tex sistema_bikex.tex 
 
 EDITAVEIS_FILES = $(addprefix $(EDITAVEIS_DIR)/, $(EDITAVEIS_SOURCES))
 
