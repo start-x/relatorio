@@ -1,4 +1,18 @@
 \section{Interface Python} % (fold)
 \label{sec:interface_python}
 
-% section interface_python (end)
+A interface Python simplifica a comunicação com o microcontrolador, possibilitando o \textit{parse} entre o modulo principal (BikeX \ref{sec:sistema_bikex}) e o \gls{msp}.
+
+A interface faz de uso da biblioteca \href{http://pyserial.sourceforge.net/pyserial.html}{Pyserial} para manter a comunicação com o microcontrolador. Devido as inúmeras possibilidades de conflitos existentes de caracteres e velocidade de comunicação existentes na comunicação \gls{rs232}, os desenvolvedores da \textit{Pyserial} construíram a classe \textit{serial.tools.miniterm} na qual simula um terminal de comunicação como exemplo de uso da biblioteca. O grupo construiu então uma classe que herda da \textit{serial.tools.miniterm}, simplificando assim a comunicação e incrementando a estabilidade de comunicação. Esta ação gera a dependência de que a versão da \textit{Pyserial} necessita ser 2.7 ou superior.
+
+\subsection{Visão do BikeX} % (fold)
+\label{sub:vis_o_do_bikex}
+
+Do ponto de vista do BikeX a aplicação Python estará rodando sempre em \textit{background} esperando um sinal para a realização de alguma tarefa. A depender do sinal recebido, será realizado uma leitura do estado dos sensores ou o envio do valor de posicionamento do freio.
+
+Por ser um programa assíncrono, a aplicação passará grande parte do tempo ociosa.
+
+\subsection{Visão do MSP430} % (fold)
+\label{sub:vis_o_do_msp430}
+
+Do ponto de vista do MSP430 a aplicação Python estará sempre em comunicação ativa com o MSP430, já que a porta serial será aberta assim que o sistema for iniciado e só fechará quando programa vier a fechar.
