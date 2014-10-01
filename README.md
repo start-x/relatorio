@@ -24,7 +24,7 @@ Planeja-se também que a bicicleta apresente um sistema conversor de energia mec
 
 - Pelo menos um ambiente virtual de um parque
 - Informações mostradas para o usuário nos óculos:
-	- Batimentos cardíacos
+	- Batimentos cardíacos*
 	- Distancia percorrida
 	- Media de Velocidade
 	- Mini-mapa do parque*
