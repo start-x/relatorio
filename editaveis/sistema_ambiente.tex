@@ -1,7 +1,18 @@
+\section{Puppet} % (fold)
+\label{sec:puppet}
+
+\subsection{O que é o Puppet} % (fold)
+\label{sub:o_que_o_puppet}
+
+\subsection{Integrando o puppet ao projeto} % (fold)
+\label{sub:integrando_o_puppet_ao_projeto}
+
+% subsection integrando_o_puppet_ao_projeto (end)
+
 \section{Interface Python} % (fold)
 \label{sec:interface_python}
 
-A interface Python simplifica a comunicação com o microcontrolador, possibilitando o \textit{parse} entre o modulo principal (BikeX \ref{sec:sistema_bikex}) e o \gls{msp}.
+A interface \gls{python} simplifica a comunicação com o microcontrolador, possibilitando o \textit{parse} entre o modulo principal (BikeX \ref{sec:sistema_bikex}) e o \gls{msp}.
 
 A interface faz de uso da biblioteca \href{http://pyserial.sourceforge.net/pyserial.html}{Pyserial} para manter a comunicação com o microcontrolador. Devido as inúmeras possibilidades de conflitos existentes de caracteres e velocidade de comunicação existentes na comunicação \gls{rs232}, os desenvolvedores da \textit{Pyserial} construíram a classe \textit{serial.tools.miniterm} na qual simula um terminal de comunicação como exemplo de uso da biblioteca. O grupo construiu então uma classe que herda da \textit{serial.tools.miniterm}, simplificando assim a comunicação e incrementando a estabilidade de comunicação. Esta ação gera a dependência de que a versão da \textit{Pyserial} necessita ser 2.7 ou superior.
 
@@ -10,7 +21,8 @@ A interface faz de uso da biblioteca \href{http://pyserial.sourceforge.net/pyser
 
 Do ponto de vista do BikeX a aplicação Python estará rodando sempre em \textit{background} esperando um sinal para a realização de alguma tarefa. A depender do sinal recebido, será realizado uma leitura do estado dos sensores ou o envio do valor de posicionamento do freio.
 
-Por ser um programa assíncrono, a aplicação passará grande parte do tempo ociosa.
+% Por ser um programa assíncrono, a aplicação passará grande parte do tempo ociosa.
+A tomada de uso de sinais para acordar o processo possibilita que o mesmo se mantenha em descanço durante todo o período em que não há requisição de dados. Como resultado do ponto de vista da arquitetura que suportado software, não há uma sobrecarga de processamento, evitando o \textit{overhead} de requisições desnecessárias e possibilitando assim que o processamento possa ficar focado onde realmente há uma grande demanda de CPU e GPU, que é a interface gráfica da aplicação.
 
 \subsection{Visão do MSP430} % (fold)
 \label{sub:vis_o_do_msp430}
