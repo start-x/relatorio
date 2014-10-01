@@ -12,6 +12,7 @@ var searchData=
   ['maxhandlerrefscount',['MaxHandlerRefsCount',['../classOVR_1_1MessageHandlerImpl.html#a3acb3914859cf4d3623f82266cc8b4c8a5905b0bde4d25e7354c371d5a01f0378',1,'OVR::MessageHandlerImpl']]],
   ['maxhandlerscount',['MaxHandlersCount',['../classOVR_1_1MessageHandlerRef.html#a266df9d61b2b5f8bcfaf708c5516d312a522b3ed076bf1461662bd806cdb16362',1,'OVR::MessageHandlerRef']]],
   ['maxlogbuffermessagesize',['MaxLogBufferMessageSize',['../classOVR_1_1Log.html#a42e3042d0ec23491e4830f0a8df325faa33db91433df96d9cfb796f6789e90b7d',1,'OVR::Log']]],
+  ['maxsize',['MaxSize',['../classOVR_1_1ThreadCommand_1_1PopBuffer.html#ac1206fa7aa420408878f3bf7f15edf2fa0a374bc738662685e783b6da29169ea4',1,'OVR::ThreadCommand::PopBuffer']]],
   ['mddi',['MDDI',['../edid_8h.html#a209a41a363c6409f7276f93a08cc7ab0af76c53ce8ed7d1909153065a1113a401',1,'edid.h']]],
   ['message_5fbodyframe',['Message_BodyFrame',['../namespaceOVR.html#a3594bb2797fe8bd7e4b498711e8fcadbab0e74c330334dedb9ec089ff96dfe6f9',1,'OVR']]],
   ['message_5fcameraadded',['Message_CameraAdded',['../namespaceOVR.html#a3594bb2797fe8bd7e4b498711e8fcadba8cb1de611150c4f4ffcef439f3858b83',1,'OVR']]],

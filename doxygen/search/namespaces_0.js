@@ -3,7 +3,7 @@ var searchData=
   ['device',['device',['../namespacedevice.html',1,'']]],
   ['device',['device',['../namespacedevice_1_1scripts_1_1device.html',1,'device::scripts']]],
   ['generatemockdata',['generateMockData',['../namespacedevice_1_1scripts_1_1generateMockData.html',1,'device::scripts']]],
-  ['interface',['interface',['../namespacedevice_1_1scripts_1_1interface.html',1,'device::scripts']]],
+  ['main',['main',['../namespacedevice_1_1scripts_1_1main.html',1,'device::scripts']]],
   ['msp430',['msp430',['../namespacedevice_1_1scripts_1_1msp430.html',1,'device::scripts']]],
   ['scripts',['scripts',['../namespacedevice_1_1scripts.html',1,'device']]],
   ['startx',['startx',['../namespacedevice_1_1scripts_1_1startx.html',1,'device::scripts']]],

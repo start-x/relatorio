@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$namespaceOVR.html#structOVR_1_1CompatibleTypes_3_01Rect_3_01int_01_4_01_4" title="OVR::CompatibleTypes\l\&lt; Rect\&lt; int \&gt; \&gt;" alt="" coords="6,5,167,46"/>
+<area shape="rect" id="node1" href="$classOVR_1_1AtomicValueBase.html" title="OVR::AtomicValueBase\&lt; T \&gt;" alt="" coords="5,5,200,32"/>
+<area shape="rect" id="node2" href="$classOVR_1_1AtomicInt.html" title="OVR::AtomicInt\&lt; T \&gt;" alt="" coords="248,5,395,32"/>
 </map>

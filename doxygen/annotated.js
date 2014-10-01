@@ -2,7 +2,7 @@ var annotated =
 [
     [ "device", "namespacedevice.html", "namespacedevice" ],
     [ "OVR", "namespaceOVR.html", "namespaceOVR" ],
-    [ "Sensor", "namespaceSensor.html", null ],
+    [ "serial", "namespaceserial.html", "namespaceserial" ],
     [ "tinyxml2", "namespacetinyxml2.html", "namespacetinyxml2" ],
     [ "_position", "Bikex_8h.html#struct__position", "Bikex_8h_struct__position" ],
     [ "Active", "classActive.html", "classActive" ],

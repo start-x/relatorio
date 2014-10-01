@@ -1,8 +1,8 @@
 var searchData=
 [
   ['offsetinterpolator',['OffsetInterpolator',['../classOVR_1_1OffsetInterpolator.html',1,'OVR']]],
-  ['operatorless',['OperatorLess',['../structOVR_1_1Linux_1_1OVR_1_1Alg_1_1OperatorLess.html',1,'OVR::Linux::OVR::Alg']]],
   ['operatorless',['OperatorLess',['../structOVR_1_1Alg_1_1OperatorLess.html',1,'OVR::Alg']]],
+  ['operatorless',['OperatorLess',['../structOVR_1_1Linux_1_1OVR_1_1Alg_1_1OperatorLess.html',1,'OVR::Linux::OVR::Alg']]],
   ['ovr',['Ovr',['../classOvr.html',1,'']]],
   ['ovrdistortionmesh_5f',['ovrDistortionMesh_',['../OVR__CAPI_8h.html#structovrDistortionMesh__',1,'']]],
   ['ovrdistortionvertex_5f',['ovrDistortionVertex_',['../OVR__CAPI_8h.html#structovrDistortionVertex__',1,'']]],

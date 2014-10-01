@@ -7,7 +7,7 @@ var classtinyxml2_1_1MemPoolT =
       [ "mem", "classtinyxml2_1_1MemPoolT.html#a977aaaca9a6b080faada2ac779388ee6", null ],
       [ "next", "classtinyxml2_1_1MemPoolT.html#ae97e0810e7bf7a28264f3e1f112d52b4", null ]
     ] ],
-    [ "COUNT", "classtinyxml2_1_1MemPoolT.html#a03b332d40dc4915d64ba351f743e6d02a4eeedbaa09fc9968120af6190e9e0988", null ],
+    [ "COUNT", "classtinyxml2_1_1MemPoolT.html#a8c94bb763cce831ced9a10470b532692a4eeedbaa09fc9968120af6190e9e0988", null ],
     [ "MemPoolT", "classtinyxml2_1_1MemPoolT.html#a8a69a269ea72e292dde65309528ef64b", null ],
     [ "~MemPoolT", "classtinyxml2_1_1MemPoolT.html#ad6bb8346ad5b9a34f8f0051da5e3ed3f", null ],
     [ "Alloc", "classtinyxml2_1_1MemPoolT.html#aa9d785a48ffe6ea1be679bab13464486", null ],

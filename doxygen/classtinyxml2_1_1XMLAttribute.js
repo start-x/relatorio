@@ -1,6 +1,6 @@
 var classtinyxml2_1_1XMLAttribute =
 [
-    [ "BUF_SIZE", "classtinyxml2_1_1XMLAttribute.html#a6c098c1500c7ee221642272c2e331959a5c77cc230dc9e6f9011ba6baa5cf6aaa", null ],
+    [ "BUF_SIZE", "classtinyxml2_1_1XMLAttribute.html#a2a3afedbb6701e6bcc734892781ba37aa5c77cc230dc9e6f9011ba6baa5cf6aaa", null ],
     [ "XMLAttribute", "classtinyxml2_1_1XMLAttribute.html#ae001da9e4e0f727c44f2aadbfb325a7a", null ],
     [ "~XMLAttribute", "classtinyxml2_1_1XMLAttribute.html#a09f3de63524b73b846af8d8656b90d6c", null ],
     [ "XMLAttribute", "classtinyxml2_1_1XMLAttribute.html#a423410d8fb1b94f4514e34abf5432457", null ],

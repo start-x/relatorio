@@ -56,6 +56,7 @@ var searchData=
   ['green_5fx',['green_x',['../edid_8h.html#a38f5be15a44360f088c181833d668e52',1,'MonitorInfo']]],
   ['green_5fy',['green_y',['../edid_8h.html#a7f832650d200d931850a9ce83d8ea11a',1,'MonitorInfo']]],
   ['growsize',['GrowSize',['../classOVR_1_1StringBuffer.html#abd5543a9dda15fde770a26b9cf5c0323',1,'OVR::StringBuffer']]],
+  ['guid_5fclass_5fcomport',['GUID_CLASS_COMPORT',['../namespaceserial_1_1tools_1_1list__ports__windows.html#a4fac3851555d3fda06095f0aaf719f45',1,'serial::tools::list_ports_windows']]],
   ['gyroautooffset',['GyroAutoOffset',['../classOVR_1_1SensorCalibration.html#ae10f223c7c076d250c5b08ae55735873',1,'OVR::SensorCalibration']]],
   ['gyroautotemperature',['GyroAutoTemperature',['../classOVR_1_1SensorCalibration.html#ad85d754b977846e4b05acbb32ae7edba',1,'OVR::SensorCalibration']]],
   ['gyrocalibrationmatrix',['GyroCalibrationMatrix',['../classOVR_1_1SensorDeviceImpl.html#a5204d8d5b8cb9707e027dbe53a71c04c',1,'OVR::SensorDeviceImpl']]],

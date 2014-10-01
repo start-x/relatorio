@@ -1,4 +1,4 @@
 <map id="Active" name="Active">
-<area shape="rect" id="node3" href="$classBreak.html" title="{Break\n||+ setData()\l}" alt="" coords="5,272,93,349"/>
-<area shape="rect" id="node2" href="$classDevice.html" title="{Device\n|# buffer\l|}" alt="" coords="16,5,83,83"/>
+<area shape="rect" id="node3" href="$classBreak.html" title="{Break\n||+ setData()\l}" alt="" coords="7,301,95,379"/>
+<area shape="rect" id="node2" href="$classDevice.html" title="{Device\n|+ pythonPid\l# buffer\l|+ init()\l+ destroy()\l}" alt="" coords="5,5,96,112"/>
 </map>

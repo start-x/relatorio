@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classOVR_1_1HIDEnumerateVisitor.html" title="OVR::HIDEnumerateVisitor" alt="" coords="6,5,189,32"/>
+<area shape="rect" id="node1" href="$classOVR_1_1DeviceInfo.html" title="OVR::DeviceInfo" alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node2" href="$classOVR_1_1HMDInfo.html" title="OVR::HMDInfo" alt="" coords="181,5,293,32"/>
+<area shape="rect" id="node3" href="$classOVR_1_1SensorInfo.html" title="OVR::SensorInfo" alt="" coords="176,56,299,83"/>
 </map>

@@ -159,6 +159,12 @@ var hierarchy =
     [ "OVR::AtomicOps< C >::C2T_union", "classOVR_1_1AtomicOps.html#unionOVR_1_1AtomicOps_1_1C2T__union", null ],
     [ "tinyxml2::MemPoolT< SIZE >::Chunk", "classtinyxml2_1_1MemPoolT.html#uniontinyxml2_1_1MemPoolT_1_1Chunk", null ],
     [ "OVR::Util::CirclePlot", "namespaceOVR_1_1Util.html#structOVR_1_1Util_1_1CirclePlot", null ],
+    [ "OVR::CleanType< T >", "namespaceOVR.html#structOVR_1_1CleanType", null ],
+    [ "OVR::CleanType< A0 >", "namespaceOVR.html#namespaceOVR", null ],
+    [ "OVR::CleanType< A1 >", "namespaceOVR.html#namespaceOVR", null ],
+    [ "OVR::CleanType< const T & >", "namespaceOVR.html#structOVR_1_1CleanType_3_01const_01T_01_6_01_4", null ],
+    [ "OVR::CleanType< const T >", "namespaceOVR.html#structOVR_1_1CleanType_3_01const_01T_01_4", null ],
+    [ "OVR::CleanType< T & >", "namespaceOVR.html#structOVR_1_1CleanType_3_01T_01_6_01_4", null ],
     [ "OVR::Color", "structOVR_1_1Color.html", null ],
     [ "OVR::CompatibleTypes< C >", "namespaceOVR.html#structOVR_1_1CompatibleTypes", null ],
     [ "OVR::CompatibleTypes< Matrix3< double > >", "namespaceOVR.html#structOVR_1_1CompatibleTypes_3_01Matrix3_3_01double_01_4_01_4", null ],
@@ -405,11 +411,11 @@ var hierarchy =
     [ "OVR::LensDistortionImpl", "structOVR_1_1LensDistortionImpl.html", null ],
     [ "OVR::LensDistortionReport", "structOVR_1_1LensDistortionReport.html", null ],
     [ "OVR::List< T, B >", "classOVR_1_1List.html", null ],
-    [ "OVR::List< NotifyEvent >", "classOVR_1_1List.html", null ],
     [ "OVR::List< OVR::CAPI::HMDState >", "classOVR_1_1List.html", null ],
     [ "OVR::List< OVR::DeviceCreateDesc >", "classOVR_1_1List.html", null ],
     [ "OVR::List< OVR::DeviceFactory >", "classOVR_1_1List.html", null ],
     [ "OVR::List< OVR::JSON >", "classOVR_1_1List.html", null ],
+    [ "OVR::List< OVR::ThreadCommand::NotifyEvent >", "classOVR_1_1List.html", null ],
     [ "OVR::List< OVR::Util::LatencyTest::MeasurementResult >", "classOVR_1_1List.html", null ],
     [ "OVR::ListNode< T >", "structOVR_1_1ListNode.html", null ],
     [ "OVR::ListNode.__unnamed__", "namespaceOVR.html#unionOVR_1_1ListNode_8____unnamed____", null ],
@@ -442,15 +448,18 @@ var hierarchy =
     [ "OVR::ListNode< MeasurementResult >", "structOVR_1_1ListNode.html", [
       [ "OVR::Util::LatencyTest::MeasurementResult", "structOVR_1_1Util_1_1LatencyTest_1_1MeasurementResult.html", null ]
     ] ],
-    [ "OVR::ListNode< NotifyEvent >", "structOVR_1_1ListNode.html", null ],
+    [ "OVR::ListNode< NotifyEvent >", "structOVR_1_1ListNode.html", [
+      [ "OVR::ThreadCommand::NotifyEvent", "classOVR_1_1ThreadCommand_1_1NotifyEvent.html", null ]
+    ] ],
     [ "OVR::ListNode< OVR::CAPI::HMDState >", "structOVR_1_1ListNode.html", null ],
     [ "OVR::ListNode< OVR::DeviceCreateDesc >", "structOVR_1_1ListNode.html", null ],
     [ "OVR::ListNode< OVR::DeviceFactory >", "structOVR_1_1ListNode.html", null ],
     [ "OVR::ListNode< OVR::JSON >", "structOVR_1_1ListNode.html", null ],
+    [ "OVR::ListNode< OVR::ThreadCommand::NotifyEvent >", "structOVR_1_1ListNode.html", null ],
     [ "OVR::ListNode< OVR::Util::LatencyTest::MeasurementResult >", "structOVR_1_1ListNode.html", null ],
     [ "OVR::Lock", "classOVR_1_1Lock.html", null ],
-    [ "OVR::Mutex::Locker", "classOVR_1_1Mutex_1_1Locker.html", null ],
     [ "OVR::Lock::Locker", "classOVR_1_1Lock_1_1Locker.html", null ],
+    [ "OVR::Mutex::Locker", "classOVR_1_1Mutex_1_1Locker.html", null ],
     [ "OVR::SensorFusion::LocklessState", "structOVR_1_1SensorFusion_1_1LocklessState.html", null ],
     [ "OVR::LocklessUpdater< T >", "classOVR_1_1LocklessUpdater.html", null ],
     [ "OVR::LocklessUpdater< OVR::CAPI::FrameTimeManager::Timing >", "classOVR_1_1LocklessUpdater.html", null ],
@@ -524,6 +533,7 @@ var hierarchy =
       [ "OVR::SensorCalibration", "classOVR_1_1SensorCalibration.html", null ],
       [ "OVR::SensorFusion", "classOVR_1_1SensorFusion.html", null ],
       [ "OVR::SensorFusion::BodyFrameHandler", "classOVR_1_1SensorFusion_1_1BodyFrameHandler.html", null ],
+      [ "OVR::ThreadCommand::NotifyEvent", "classOVR_1_1ThreadCommand_1_1NotifyEvent.html", null ],
       [ "OVR::ThreadCommandQueueImpl", "classOVR_1_1ThreadCommandQueueImpl.html", null ],
       [ "OVR::ThreadList", "classOVR_1_1ThreadList.html", null ],
       [ "OVR::Util::LatencyTest", "classOVR_1_1Util_1_1LatencyTest.html", null ],
@@ -544,16 +554,23 @@ var hierarchy =
     [ "object", null, [
       [ "device.scripts.device.Device", "classdevice_1_1scripts_1_1device_1_1Device.html", [
         [ "device.scripts.device.Active", "classdevice_1_1scripts_1_1device_1_1Active.html", [
-          [ "device.scripts.device.Freio", "classdevice_1_1scripts_1_1device_1_1Freio.html", null ]
+          [ "device.scripts.device.Break", "classdevice_1_1scripts_1_1device_1_1Break.html", null ]
         ] ],
         [ "device.scripts.device.Passive", "classdevice_1_1scripts_1_1device_1_1Passive.html", [
-          [ "device.scripts.device.Direction", "classdevice_1_1scripts_1_1device_1_1Direction.html", null ]
+          [ "device.scripts.device.Direction", "classdevice_1_1scripts_1_1device_1_1Direction.html", null ],
+          [ "device.scripts.device.Passives", "classdevice_1_1scripts_1_1device_1_1Passives.html", null ],
+          [ "device.scripts.device.Velocity", "classdevice_1_1scripts_1_1device_1_1Velocity.html", null ]
         ] ]
+      ] ],
+      [ "serial.tools.miniterm.Console", "classserial_1_1tools_1_1miniterm_1_1Console.html", null ],
+      [ "serial.tools.miniterm.Console", "classserial_1_1tools_1_1miniterm_1_1Console.html", null ],
+      [ "serial.tools.miniterm.Miniterm", "classserial_1_1tools_1_1miniterm_1_1Miniterm.html", [
+        [ "device.scripts.msp430.MSP", "classdevice_1_1scripts_1_1msp430_1_1MSP.html", null ]
       ] ]
     ] ],
     [ "OVR::OffsetInterpolator", "classOVR_1_1OffsetInterpolator.html", null ],
-    [ "OVR::Linux::OVR::Alg::OperatorLess< T >", "structOVR_1_1Linux_1_1OVR_1_1Alg_1_1OperatorLess.html", null ],
     [ "OVR::Alg::OperatorLess< T >", "structOVR_1_1Alg_1_1OperatorLess.html", null ],
+    [ "OVR::Linux::OVR::Alg::OperatorLess< T >", "structOVR_1_1Linux_1_1OVR_1_1Alg_1_1OperatorLess.html", null ],
     [ "Ovr", "classOvr.html", null ],
     [ "ovrDistortionMesh_", "OVR__CAPI_8h.html#structovrDistortionMesh__", null ],
     [ "ovrDistortionVertex_", "OVR__CAPI_8h.html#structovrDistortionVertex__", null ],
@@ -584,6 +601,7 @@ var hierarchy =
     [ "ovrVector2i_", "OVR__CAPI_8h.html#structovrVector2i__", null ],
     [ "ovrVector3f_", "OVR__CAPI_8h.html#structovrVector3f__", null ],
     [ "OVR::Pickable< T >", "classOVR_1_1Pickable.html", null ],
+    [ "OVR::ThreadCommand::PopBuffer", "classOVR_1_1ThreadCommand_1_1PopBuffer.html", null ],
     [ "OVR::PoseState< T >", "classOVR_1_1PoseState.html", null ],
     [ "OVR::PoseState< double >", "classOVR_1_1PoseState.html", null ],
     [ "OVR::PoseState< float >", "classOVR_1_1PoseState.html", null ],
@@ -716,6 +734,7 @@ var hierarchy =
     [ "OVR::CAPI::GL::RenderParams", "namespaceOVR_1_1CAPI_1_1GL.html#structOVR_1_1CAPI_1_1GL_1_1RenderParams", null ],
     [ "OVR::ScaleAndOffset2D", "structOVR_1_1ScaleAndOffset2D.html", null ],
     [ "OVR::CAPI::ThreadChecker::Scope", "structOVR_1_1CAPI_1_1ThreadChecker_1_1Scope.html", null ],
+    [ "OVR::SelfType< T >", "namespaceOVR.html#structOVR_1_1SelfType", null ],
     [ "OVR::SensorConfigImpl", "structOVR_1_1SensorConfigImpl.html", null ],
     [ "OVR::SensorDisplayInfoImpl", "structOVR_1_1SensorDisplayInfoImpl.html", null ],
     [ "OVR::SensorFactoryCalibrationImpl", "structOVR_1_1SensorFactoryCalibrationImpl.html", null ],
@@ -731,8 +750,8 @@ var hierarchy =
     [ "OVR::SensorTimeFilter::Settings", "structOVR_1_1SensorTimeFilter_1_1Settings.html", null ],
     [ "OVR::CAPI::GL::ShaderInfo", "namespaceOVR_1_1CAPI_1_1GL.html#structOVR_1_1CAPI_1_1GL_1_1ShaderInfo", null ],
     [ "OVR::SharedLock", "classOVR_1_1SharedLock.html", null ],
-    [ "OVR::HmdRenderInfo::ShutterInfo", "structOVR_1_1HmdRenderInfo.html#structOVR_1_1HmdRenderInfo_1_1ShutterInfo", null ],
     [ "OVR::HMDInfo::ShutterInfo", "classOVR_1_1HMDInfo.html#structOVR_1_1HMDInfo_1_1ShutterInfo", null ],
+    [ "OVR::HmdRenderInfo::ShutterInfo", "structOVR_1_1HmdRenderInfo.html#structOVR_1_1HmdRenderInfo_1_1ShutterInfo", null ],
     [ "OVR::Size< T >", "classOVR_1_1Size.html", null ],
     [ "OVR::Size< float >", "classOVR_1_1Size.html", null ],
     [ "OVR::Size< int >", "classOVR_1_1Size.html", null ],
@@ -744,6 +763,11 @@ var hierarchy =
     [ "OVR::StringBuffer", "classOVR_1_1StringBuffer.html", null ],
     [ "OVR::StringDataPtr", "classOVR_1_1StringDataPtr.html", null ],
     [ "tinyxml2::StrPair", "classtinyxml2_1_1StrPair.html", null ],
+    [ "Structure", null, [
+      [ "serial.tools.list_ports_windows.GUID", "classserial_1_1tools_1_1list__ports__windows_1_1GUID.html", null ],
+      [ "serial.tools.list_ports_windows.SP_DEVICE_INTERFACE_DATA", "classserial_1_1tools_1_1list__ports__windows_1_1SP__DEVICE__INTERFACE__DATA.html", null ],
+      [ "serial.tools.list_ports_windows.SP_DEVINFO_DATA", "classserial_1_1tools_1_1list__ports__windows_1_1SP__DEVINFO__DATA.html", null ]
+    ] ],
     [ "swig_cast_info", "Wrap__wrap_8c.html#structswig__cast__info", null ],
     [ "swig_const_info", "Wrap__wrap_8c.html#structswig__const__info", null ],
     [ "swig_globalvar", "structswig__globalvar.html", null ],
@@ -764,10 +788,13 @@ var hierarchy =
     ] ],
     [ "OVR::Util::TextPlot", "namespaceOVR_1_1Util.html#structOVR_1_1Util_1_1TextPlot", null ],
     [ "OVR::CAPI::ThreadChecker", "classOVR_1_1CAPI_1_1ThreadChecker.html", null ],
-    [ "ThreadCommand", null, [
+    [ "OVR::ThreadCommand", "classOVR_1_1ThreadCommand.html", [
+      [ "OVR::ThreadCommandMF0< C, R >", "classOVR_1_1ThreadCommandMF0.html", null ],
+      [ "OVR::ThreadCommandMF1< C, R, A0 >", "classOVR_1_1ThreadCommandMF1.html", null ],
+      [ "OVR::ThreadCommandMF2< C, R, A0, A1 >", "classOVR_1_1ThreadCommandMF2.html", null ],
       [ "OVR::ThreadCommandQueueImpl::ExitCommand", "structOVR_1_1ThreadCommandQueueImpl_1_1ExitCommand.html", null ]
     ] ],
-    [ "ThreadCommandQueue", null, [
+    [ "OVR::ThreadCommandQueue", "classOVR_1_1ThreadCommandQueue.html", [
       [ "OVR::DeviceManagerImpl", "classOVR_1_1DeviceManagerImpl.html", null ],
       [ "OVR::Linux::DeviceManagerThread", "classOVR_1_1Linux_1_1DeviceManagerThread.html", null ]
     ] ],
@@ -777,8 +804,8 @@ var hierarchy =
     [ "OVR::timespec", "namespaceOVR.html#structOVR_1_1timespec", null ],
     [ "OVR::timeval", "namespaceOVR.html#structOVR_1_1timeval", null ],
     [ "OVR::Util::Render::TimewarpMachine", "classOVR_1_1Util_1_1Render_1_1TimewarpMachine.html", null ],
-    [ "OVR::CAPI::FrameTimeManager::Timing", "structOVR_1_1CAPI_1_1FrameTimeManager_1_1Timing.html", null ],
     [ "Timing", "edid_8h.html#structTiming", null ],
+    [ "OVR::CAPI::FrameTimeManager::Timing", "structOVR_1_1CAPI_1_1FrameTimeManager_1_1Timing.html", null ],
     [ "OVR::CAPI::FrameTimeManager::TimingInputs", "structOVR_1_1CAPI_1_1FrameTimeManager_1_1TimingInputs.html", null ],
     [ "OVR::Tracker2Message", "namespaceOVR.html#structOVR_1_1Tracker2Message", null ],
     [ "OVR::Tracker2Sensors", "structOVR_1_1Tracker2Sensors.html", null ],
@@ -807,6 +834,7 @@ var hierarchy =
     [ "OVR::VisionHandler", "classOVR_1_1VisionHandler.html", [
       [ "OVR::SensorFusion", "classOVR_1_1SensorFusion.html", null ]
     ] ],
+    [ "OVR::Void", "structOVR_1_1Void.html", null ],
     [ "OVR::WaitCondition", "classOVR_1_1WaitCondition.html", null ],
     [ "OVR::WorldAxes", "structOVR_1_1WorldAxes.html", null ],
     [ "tinyxml2::XMLAttribute", "classtinyxml2_1_1XMLAttribute.html", null ],
@@ -824,6 +852,10 @@ var hierarchy =
     [ "tinyxml2::XMLVisitor", "classtinyxml2_1_1XMLVisitor.html", [
       [ "tinyxml2::XMLPrinter", "classtinyxml2_1_1XMLPrinter.html", null ]
     ] ],
+    [ "_startx", null, null ],
+    [ "ACTIVE_FILE", null, null ],
+    [ "ALL_VALUES", null, null ],
+    [ "available_ports", null, null ],
     [ "B", null, [
       [ "OVR::DeviceImpl< B >", "classOVR_1_1DeviceImpl.html", null ]
     ] ],
@@ -831,10 +863,68 @@ var hierarchy =
       [ "OVR::RefCountBaseStatImpl< Base >", "classOVR_1_1RefCountBaseStatImpl.html", null ],
       [ "OVR::RefCountBaseStatVImpl< Base >", "classOVR_1_1RefCountBaseStatVImpl.html", null ]
     ] ],
-    [ "Miniterm", null, [
-      [ "device.scripts.msp430.MSP", "classdevice_1_1scripts_1_1msp430_1_1MSP.html", null ]
-    ] ],
+    [ "BOOL", null, null ],
+    [ "BREAK_MSP", null, null ],
+    [ "BYTE", null, null ],
+    [ "C", null, null ],
+    [ "comports", null, null ],
+    [ "Container", null, null ],
+    [ "ctypes", null, null ],
+    [ "device", null, null ],
+    [ "DIRECTION_MSP", null, null ],
+    [ "DWORD", null, null ],
+    [ "getpid", null, null ],
+    [ "glob", null, null ],
+    [ "glob", null, null ],
+    [ "HANDLE", null, null ],
+    [ "HKEY", null, null ],
+    [ "HWND", null, null ],
+    [ "is_64bit", null, null ],
+    [ "kill", null, null ],
+    [ "LONG", null, null ],
+    [ "LPCSTR", null, null ],
+    [ "MagicMock", null, null ],
+    [ "MSP", null, null ],
+    [ "msvcrt", null, null ],
     [ "O", null, [
       [ "OVR::AtomicOpsRaw_DefImpl< O >", "structOVR_1_1AtomicOpsRaw__DefImpl.html", null ]
-    ] ]
+    ] ],
+    [ "os", null, null ],
+    [ "PASSIVE_FILE", null, null ],
+    [ "random", null, null ],
+    [ "re", null, null ],
+    [ "SByte", null, null ],
+    [ "serial", null, null ],
+    [ "SerialException", null, null ],
+    [ "SIG1", null, null ],
+    [ "SIG2", null, null ],
+    [ "SIG3", null, null ],
+    [ "SIGABRT", null, null ],
+    [ "SIGALRM", null, null ],
+    [ "SIGINT", null, null ],
+    [ "signal", null, null ],
+    [ "SIGQUIT", null, null ],
+    [ "SInt16", null, null ],
+    [ "SInt32", null, null ],
+    [ "SInt64", null, null ],
+    [ "SizePolicy", null, null ],
+    [ "sleep", null, null ],
+    [ "SPInt", null, null ],
+    [ "string", null, null ],
+    [ "subprocess", null, null ],
+    [ "sys", null, null ],
+    [ "T", null, null ],
+    [ "termios", null, null ],
+    [ "UByte", null, null ],
+    [ "UInt16", null, null ],
+    [ "UInt32", null, null ],
+    [ "UInt64", null, null ],
+    [ "ULONG", null, null ],
+    [ "ULONG_PTR", null, null ],
+    [ "unittest", null, null ],
+    [ "UPInt", null, null ],
+    [ "util", null, null ],
+    [ "VELOCITY_MSP", null, null ],
+    [ "version_info", null, null ],
+    [ "WORD", null, null ]
 ];

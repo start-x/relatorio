@@ -1,6 +1,8 @@
 <map id="device.scripts.device.Device" name="device.scripts.device.Device">
-<area shape="rect" id="node3" href="$classdevice_1_1scripts_1_1device_1_1Active.html" title="docstring for Passive " alt="" coords="5,360,192,467"/>
-<area shape="rect" id="node5" href="$classdevice_1_1scripts_1_1device_1_1Passive.html" title="docstring for Active " alt="" coords="217,360,412,467"/>
-<area shape="rect" id="node4" href="$classdevice_1_1scripts_1_1device_1_1Freio.html" title="docstring for Freio " alt="" coords="9,515,188,607"/>
-<area shape="rect" id="node6" href="$classdevice_1_1scripts_1_1device_1_1Direction.html" title="docstring for Direction " alt="" coords="214,515,415,607"/>
+<area shape="rect" id="node3" href="$classdevice_1_1scripts_1_1device_1_1Active.html" title="{device.scripts.device.Active\n|+ data\l|+ __init__()\l+ write_data()\l+ read_data()\l}" alt="" coords="116,360,303,467"/>
+<area shape="rect" id="node5" href="$classdevice_1_1scripts_1_1device_1_1Passive.html" title="{device.scripts.device.Passive\n|+ data\l|+ __init__()\l+ read_data()\l+ write_data()\l}" alt="" coords="327,360,523,467"/>
+<area shape="rect" id="node4" href="$classdevice_1_1scripts_1_1device_1_1Break.html" title="{device.scripts.device.Break\n|+ arg\l|+ __init__()\l+ write_data()\l}" alt="" coords="5,515,187,607"/>
+<area shape="rect" id="node6" href="$classdevice_1_1scripts_1_1device_1_1Direction.html" title="{device.scripts.device.Direction\n|+ arg\l|+ __init__()\l+ read_data()\l}" alt="" coords="211,515,412,607"/>
+<area shape="rect" id="node7" href="$classdevice_1_1scripts_1_1device_1_1Passives.html" title="{device.scripts.device.Passives\n|+ arg\l|+ __init__()\l+ read_data()\l}" alt="" coords="437,515,640,607"/>
+<area shape="rect" id="node8" href="$classdevice_1_1scripts_1_1device_1_1Velocity.html" title="{device.scripts.device.Velocity\n|+ arg\l|+ __init__()\l+ read_data()\l}" alt="" coords="665,515,860,607"/>
 </map>

@@ -1,4 +1,4 @@
 <map id="Battery" name="Battery">
-<area shape="rect" id="node2" href="$classPassive.html" title="{Passive\n||+ getData()\l+ flush()\l}" alt="" coords="5,131,93,223"/>
-<area shape="rect" id="node3" href="$classDevice.html" title="{Device\n|# buffer\l|}" alt="" coords="16,5,83,83"/>
+<area shape="rect" id="node2" href="$classPassive.html" title="{Passive\n||+ getData()\l+ flush()\l}" alt="" coords="7,161,95,253"/>
+<area shape="rect" id="node3" href="$classDevice.html" title="{Device\n|+ pythonPid\l# buffer\l|+ init()\l+ destroy()\l}" alt="" coords="5,5,96,112"/>
 </map>

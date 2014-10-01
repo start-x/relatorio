@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('Passive_8cpp_source.html','');});
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Passive_8h.html">Passive.h</a>&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">    6</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">char</span> * <a class="code" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a> = 0;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">    6</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> * <a class="code" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a> = 0;</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">    7</a></span>&#160;<span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a> = 0;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classPassive.html#a34ef122778d0199d621fd81fd7b5ca09">    9</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classPassive.html#a34ef122778d0199d621fd81fd7b5ca09">Passive::flush</a>()</div>
@@ -137,23 +137,23 @@ $(document).ready(function(){initNavTree('Passive_8cpp_source.html','');});
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                std::streampos size = file.tellg();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <a class="code" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a> = size;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                <span class="comment">// TODO: free this memory later</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <a class="code" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a> = <span class="keyword">new</span> <span class="keywordtype">char</span>[<a class="code" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a>];</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <a class="code" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a> = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[<a class="code" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a>];</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                file.seekg(0, std::ios::beg);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                file.read(<a class="code" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a>, <a class="code" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                file.read(<a class="code" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a>, <a class="code" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a>);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                file.close();</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Passive mockData loaded: &quot;</span> &lt;&lt; size &lt;&lt; <span class="stringliteral">&quot; bytes long&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                std::cout &lt;&lt; <span class="stringliteral">&quot;Failed to load passive mockData&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <a class="code" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a> = <span class="keyword">new</span> <span class="keywordtype">char</span>[1];</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                *<a class="code" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a> = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <a class="code" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a> = <span class="keywordtype">unsigned</span> <span class="keyword">new</span> <span class="keywordtype">char</span>[1];</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                *<a class="code" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a> = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            file.close();</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="comment">// Just get next mockData line and we&#39;re good</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span>(!<a class="code" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">if</span>(!<a class="code" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a>)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;No mockData&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> -1;</div>
@@ -163,7 +163,7 @@ $(document).ready(function(){initNavTree('Passive_8cpp_source.html','');});
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            mockIndex = 0;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; <a class="code" href="Device_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a> &amp;&amp; mockIndex &lt; <a class="code" href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a>; i++, mockIndex++)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="classDevice.html#a07ae8e450f17ee3ea1fc4e5885613e2c">buffer</a>[i] = <a class="code" href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a>[mockIndex];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <a class="code" href="classDevice.html#ae13ee4466e4f95a167b9db7b988825ae">buffer</a>[i] = <a class="code" href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a>[mockIndex];</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        mockIndex++; <span class="comment">// Skip line break</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">    #else</span></div>
@@ -171,30 +171,31 @@ $(document).ready(function(){initNavTree('Passive_8cpp_source.html','');});
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">if</span>(file.is_open())</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            file.seekg(0, std::ios::beg);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            file.read(<a class="code" href="classDevice.html#a07ae8e450f17ee3ea1fc4e5885613e2c">buffer</a>, <a class="code" href="Device_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            file.close();</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Passive mockData loaded: &quot;</span> &lt;&lt; <a class="code" href="Device_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a> &lt;&lt; <span class="stringliteral">&quot; bytes long&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Failed to load passive mockData&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        file.close();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="comment">// TODO: check how the input is gonna be written by msp430</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            file.read((<span class="keywordtype">char</span> *)<a class="code" href="classDevice.html#ae13ee4466e4f95a167b9db7b988825ae">buffer</a>, <a class="code" href="Device_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a>);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            file.close();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Passive mockData loaded: &quot;</span> &lt;&lt; <a class="code" href="Device_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a> &lt;&lt; <span class="stringliteral">&quot; bytes long&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;Failed to load passive mockData&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        file.close();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">    #endif</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="ttc" id="Passive_8cpp_html_ad6b458b4f6952e3ae44fc8005b9de98d"><div class="ttname"><a href="Passive_8cpp.html#ad6b458b4f6952e3ae44fc8005b9de98d">mockData</a></div><div class="ttdeci">static unsigned char * mockData</div><div class="ttdef"><b>Definition:</b> <a href="Passive_8cpp_source.html#l00006">Passive.cpp:6</a></div></div>
 <div class="ttc" id="Passive_8h_html_ab0de6123f735fa7f733d041c1277203d"><div class="ttname"><a href="Passive_8h.html#ab0de6123f735fa7f733d041c1277203d">PASSIVE_FILENAME</a></div><div class="ttdeci">#define PASSIVE_FILENAME</div><div class="ttdef"><b>Definition:</b> <a href="Passive_8h_source.html#l00006">Passive.h:6</a></div></div>
 <div class="ttc" id="classPassive_html_a34ef122778d0199d621fd81fd7b5ca09"><div class="ttname"><a href="classPassive.html#a34ef122778d0199d621fd81fd7b5ca09">Passive::flush</a></div><div class="ttdeci">static int flush()</div><div class="ttdef"><b>Definition:</b> <a href="Passive_8cpp_source.html#l00009">Passive.cpp:9</a></div></div>
-<div class="ttc" id="Passive_8cpp_html_a54b229ba49548c9b60ffc30ae3a99cff"><div class="ttname"><a href="Passive_8cpp.html#a54b229ba49548c9b60ffc30ae3a99cff">mockData</a></div><div class="ttdeci">static char * mockData</div><div class="ttdef"><b>Definition:</b> <a href="Passive_8cpp_source.html#l00006">Passive.cpp:6</a></div></div>
-<div class="ttc" id="Device_8h_html_a6b20d41d6252e9871430c242cb1a56e7"><div class="ttname"><a href="Device_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a></div><div class="ttdeci">#define BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="Device_8h_source.html#l00013">Device.h:13</a></div></div>
+<div class="ttc" id="classDevice_html_ae13ee4466e4f95a167b9db7b988825ae"><div class="ttname"><a href="classDevice.html#ae13ee4466e4f95a167b9db7b988825ae">Device::buffer</a></div><div class="ttdeci">static unsigned char buffer[BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="Device_8h_source.html#l00029">Device.h:29</a></div></div>
+<div class="ttc" id="Device_8h_html_a6b20d41d6252e9871430c242cb1a56e7"><div class="ttname"><a href="Device_8h.html#a6b20d41d6252e9871430c242cb1a56e7">BUFFER_SIZE</a></div><div class="ttdeci">#define BUFFER_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="Device_8h_source.html#l00006">Device.h:6</a></div></div>
 <div class="ttc" id="Passive_8h_html"><div class="ttname"><a href="Passive_8h.html">Passive.h</a></div></div>
-<div class="ttc" id="classDevice_html_a07ae8e450f17ee3ea1fc4e5885613e2c"><div class="ttname"><a href="classDevice.html#a07ae8e450f17ee3ea1fc4e5885613e2c">Device::buffer</a></div><div class="ttdeci">static char buffer[BUFFER_SIZE]</div><div class="ttdef"><b>Definition:</b> <a href="Device_8h_source.html#l00018">Device.h:18</a></div></div>
 <div class="ttc" id="Passive_8cpp_html_a87be747c999c1360a796040817734b08"><div class="ttname"><a href="Passive_8cpp.html#a87be747c999c1360a796040817734b08">MOCK_SIZE</a></div><div class="ttdeci">static int MOCK_SIZE</div><div class="ttdef"><b>Definition:</b> <a href="Passive_8cpp_source.html#l00007">Passive.cpp:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_820b2b9dd608784780e51ab49715a98b.html">device</a></li><li class="navelem"><a class="el" href="Passive_8cpp.html">Passive.cpp</a></li>
-    <li class="footer">Generated on Wed Sep 24 2014 22:48:17 for Bike-X by
+    <li class="navelem"><a class="el" href="dir_cce4f905588ddf4b87939ba546022e75.html">device</a></li><li class="navelem"><a class="el" href="Passive_8cpp.html">Passive.cpp</a></li>
+    <li class="footer">Generated on Wed Oct 1 2014 00:45:20 for Bike-X by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

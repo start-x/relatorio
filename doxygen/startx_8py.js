@@ -9,8 +9,13 @@ var startx_8py =
     [ "_newclass", "startx_8py.html#a66421c8dfe878219653fbcaa90c3d342", null ],
     [ "_startx", "startx_8py.html#acea8347ae2f5a2b4d1ecb36ae6cfa597", null ],
     [ "_swig_property", "startx_8py.html#a9b3bf936b7bb887b10b1d7ca74b237a8", null ],
+    [ "ACTIVE_FILE", "startx_8py.html#a3b8d21cdc91a234854b4cf38bbc82557", null ],
+    [ "ALL_VALUES", "startx_8py.html#aa5d084e0966ede1eaeffad2251840080", null ],
+    [ "BREAK_MSP", "startx_8py.html#a675e3706051d779e72dd7258c3a84a26", null ],
+    [ "DIRECTION_MSP", "startx_8py.html#a76ce23a1f76bdeb05d49d7b6a39e28bd", null ],
+    [ "PASSIVE_FILE", "startx_8py.html#ada89030aff07972714754a50b844e057", null ],
     [ "SIG1", "startx_8py.html#a059604c93594672f413b6994bc84f467", null ],
     [ "SIG2", "startx_8py.html#a8637fe23c09f0f87aab112a3b0f4b9b9", null ],
     [ "SIG3", "startx_8py.html#a78bf67e1dc925542c2970f4ae55d56ce", null ],
-    [ "SIG4", "startx_8py.html#a2b6187e1fc54640928a04e6ffc684317", null ]
+    [ "VELOCITY_MSP", "startx_8py.html#a209107f258ff7928920ab83b051f0d81", null ]
 ];

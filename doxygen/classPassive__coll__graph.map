@@ -1,3 +1,3 @@
 <map id="Passive" name="Passive">
-<area shape="rect" id="node2" href="$classDevice.html" title="{Device\n|# buffer\l|}" alt="" coords="16,5,83,83"/>
+<area shape="rect" id="node2" href="$classDevice.html" title="{Device\n|+ pythonPid\l# buffer\l|+ init()\l+ destroy()\l}" alt="" coords="5,5,96,112"/>
 </map>

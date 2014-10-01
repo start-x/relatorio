@@ -1,7 +1,7 @@
 var structOVR_1_1Util_1_1FrameTimeRecordSet =
 [
-    [ "RecordCount", "structOVR_1_1Util_1_1FrameTimeRecordSet.html#a85177aef27dee35ba2fec672ffc71fe0a682d92ea410c4c0340b6958b2dc30d18", null ],
-    [ "RecordMask", "structOVR_1_1Util_1_1FrameTimeRecordSet.html#a85177aef27dee35ba2fec672ffc71fe0a0df2d5890481f41fc0d66035cd143998", null ],
+    [ "RecordCount", "structOVR_1_1Util_1_1FrameTimeRecordSet.html#a2f92b639bfe8b908beea5e89855aa48ca682d92ea410c4c0340b6958b2dc30d18", null ],
+    [ "RecordMask", "structOVR_1_1Util_1_1FrameTimeRecordSet.html#a2f92b639bfe8b908beea5e89855aa48ca0df2d5890481f41fc0d66035cd143998", null ],
     [ "FrameTimeRecordSet", "structOVR_1_1Util_1_1FrameTimeRecordSet.html#a8832f387eafe77af6bddac6b5f3b1482", null ],
     [ "AddValue", "structOVR_1_1Util_1_1FrameTimeRecordSet.html#af4d9e13a44d9d52b366113185d74f8ed", null ],
     [ "FindReadbackIndex", "structOVR_1_1Util_1_1FrameTimeRecordSet.html#a28af19ba1ec0967ea6e9677be03e27c0", null ],

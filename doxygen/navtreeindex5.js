@@ -1,5 +1,13 @@
 var NAVTREEINDEX5 =
 {
+"OVR__SensorFusion_8cpp.html#a79b2de47c1d6cd38ac230d88dca8bf1d":[2,0,2,0,1,39,7],
+"OVR__SensorFusion_8cpp.html#aa48eb9e8675069b80c3ba358eaeaa69b":[2,0,2,0,1,39,6],
+"OVR__SensorFusion_8cpp.html#ab37c2d3dbbf77a23deacae41d2620063":[2,0,2,0,1,39,0],
+"OVR__SensorFusion_8cpp.html#ab42b7452dd5114e43091c1772dd46039":[2,0,2,0,1,39,5],
+"OVR__SensorFusion_8cpp.html#ae062159dec251852d3af27fe6e2c2643":[2,0,2,0,1,39,2],
+"OVR__SensorFusion_8cpp.html#af2c2cc31e3591882ca6aed1135d31a8b":[2,0,2,0,1,39,4],
+"OVR__SensorFusion_8cpp_source.html":[2,0,2,0,1,39],
+"OVR__SensorFusion_8h.html":[2,0,2,0,1,40],
 "OVR__SensorFusion_8h.html#a11a27ea7fe6d38a7ad01b4a029311a8f":[2,0,2,0,1,40,10],
 "OVR__SensorFusion_8h.html#a2ede2f201f36bea96f1d6ee04affe466":[2,0,2,0,1,40,11],
 "OVR__SensorFusion_8h.html#a50ee0d376336370e6b3f558de5bf5f17":[2,0,2,0,1,40,12],
@@ -241,13 +249,5 @@ var NAVTREEINDEX5 =
 "OVR__Timer_8cpp_source.html":[2,0,2,0,1,1,37],
 "OVR__Timer_8h.html":[2,0,2,0,1,1,38],
 "OVR__Timer_8h_source.html":[2,0,2,0,1,1,38],
-"OVR__Types_8h.html":[2,0,2,0,1,1,39],
-"OVR__Types_8h.html#a026a4136bb5a5b86f0e51c8bff4db490":[2,0,2,0,1,1,39,33],
-"OVR__Types_8h.html#a026a4136bb5a5b86f0e51c8bff4db490":[2,0,2,0,1,1,39,34],
-"OVR__Types_8h.html#a03661265f5be1ddd1d58e89dd6fc1f1d":[2,0,2,0,1,1,39,141],
-"OVR__Types_8h.html#a0505938eb045b740451bc8e6c8153453":[2,0,2,0,1,1,39,102],
-"OVR__Types_8h.html#a0526ed7f01795be3f154c0aa6cd32c8e":[2,0,2,0,1,1,39,118],
-"OVR__Types_8h.html#a0a49b7adcf481d7e23f3d137584efe3a":[2,0,2,0,1,1,39,165],
-"OVR__Types_8h.html#a0d8a53f48e63d010623596d23e83a05e":[2,0,2,0,1,1,39,60],
-"OVR__Types_8h.html#a0d8a53f48e63d010623596d23e83a05e":[2,0,2,0,1,1,39,61]
+"OVR__Types_8h.html":[2,0,2,0,1,1,39]
 };

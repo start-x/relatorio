@@ -1,4 +1,6 @@
 <map id="device.scripts.device.Passive" name="device.scripts.device.Passive">
-<area shape="rect" id="node4" href="$classdevice_1_1scripts_1_1device_1_1Direction.html" title="docstring for Direction " alt="" coords="5,515,205,607"/>
-<area shape="rect" id="node2" href="$classdevice_1_1scripts_1_1device_1_1Device.html" title="Device module. " alt="" coords="10,131,200,311"/>
+<area shape="rect" id="node4" href="$classdevice_1_1scripts_1_1device_1_1Direction.html" title="{device.scripts.device.Direction\n|+ arg\l|+ __init__()\l+ read_data()\l}" alt="" coords="5,515,205,607"/>
+<area shape="rect" id="node5" href="$classdevice_1_1scripts_1_1device_1_1Passives.html" title="{device.scripts.device.Passives\n|+ arg\l|+ __init__()\l+ read_data()\l}" alt="" coords="231,515,433,607"/>
+<area shape="rect" id="node6" href="$classdevice_1_1scripts_1_1device_1_1Velocity.html" title="{device.scripts.device.Velocity\n|+ arg\l|+ __init__()\l+ read_data()\l}" alt="" coords="458,515,653,607"/>
+<area shape="rect" id="node2" href="$classdevice_1_1scripts_1_1device_1_1Device.html" title="{device.scripts.device.Device\n|+ serial\l+ type\l+ name\l+ data\l+ live\l|+ __init__()\l+ enable()\l+ desable()\l+ flush()\l}" alt="" coords="237,131,427,311"/>
 </map>

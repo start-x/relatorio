@@ -7,5 +7,6 @@ var searchData=
   ['nodealthashf',['NodeAltHashF',['../structOVR_1_1HashNode_1_1NodeAltHashF.html',1,'OVR::HashNode']]],
   ['nodehashf',['NodeHashF',['../structOVR_1_1HashNode_1_1NodeHashF.html',1,'OVR::HashNode']]],
   ['noderef',['NodeRef',['../structOVR_1_1HashNode_1_1NodeRef.html',1,'OVR::HashNode']]],
-  ['notifier',['Notifier',['../classOVR_1_1Linux_1_1DeviceManagerThread_1_1Notifier.html',1,'OVR::Linux::DeviceManagerThread']]]
+  ['notifier',['Notifier',['../classOVR_1_1Linux_1_1DeviceManagerThread_1_1Notifier.html',1,'OVR::Linux::DeviceManagerThread']]],
+  ['notifyevent',['NotifyEvent',['../classOVR_1_1ThreadCommand_1_1NotifyEvent.html',1,'OVR::ThreadCommand']]]
 ];

@@ -2,6 +2,7 @@ var searchData=
 [
   ['name',['Name',['../classtinyxml2_1_1XMLAttribute.html#a631990ac0d176e38fc291b17b295a62d',1,'tinyxml2::XMLAttribute::Name()'],['../classtinyxml2_1_1XMLElement.html#a8bff355472bce2c60d4b50a212bf7f5f',1,'tinyxml2::XMLElement::Name()']]],
   ['needdistortiontimemeasurement',['NeedDistortionTimeMeasurement',['../classOVR_1_1CAPI_1_1FrameTimeManager.html#a8aebc5bb33373c1c81147474a56592ac',1,'OVR::CAPI::FrameTimeManager']]],
+  ['needswait',['NeedsWait',['../classOVR_1_1ThreadCommand_1_1PopBuffer.html#ac9f38e24eb7a8d74624d005527bced4f',1,'OVR::ThreadCommand::PopBuffer::NeedsWait()'],['../classOVR_1_1ThreadCommand.html#ae148d68ab94ef03c2dfa10f1c63d3da3',1,'OVR::ThreadCommand::NeedsWait()']]],
   ['nevershrinking',['NeverShrinking',['../structOVR_1_1ArrayDefaultPolicy.html#ae743634ae1989cbea11ff7123a467332',1,'OVR::ArrayDefaultPolicy::NeverShrinking()'],['../structOVR_1_1ArrayConstPolicy.html#a69c25a48cfee180ae0d6055e1fc433aa',1,'OVR::ArrayConstPolicy::NeverShrinking()'],['../classOVR_1_1ArrayBase.html#a5233c08a54a1db64f5bb6bf621cfb6a5',1,'OVR::ArrayBase::NeverShrinking()']]],
   ['newcomment',['NewComment',['../classtinyxml2_1_1XMLDocument.html#a386df0befd06aadb5e0cd21381aa955a',1,'tinyxml2::XMLDocument']]],
   ['newdeclaration',['NewDeclaration',['../classtinyxml2_1_1XMLDocument.html#ae519030c0262fa2daff8993681990e16',1,'tinyxml2::XMLDocument']]],
@@ -21,6 +22,7 @@ var searchData=
   ['notify',['Notify',['../classOVR_1_1WaitCondition.html#a202b3b8714cecb4e904f21836fa935f7',1,'OVR::WaitCondition::Notify()'],['../classOVR_1_1WaitConditionImpl.html#a418bfa6640dd5b565b66d961dd2272bc',1,'OVR::WaitConditionImpl::Notify()']]],
   ['notifyadddevice',['NotifyAddDevice',['../classOVR_1_1CAPI_1_1HMDState.html#a4bb8a0fe00612e76bf9a1437397e6a3f',1,'OVR::CAPI::HMDState']]],
   ['notifyall',['NotifyAll',['../classOVR_1_1WaitCondition.html#aa83e0b62caa6c83048b82c2e7a7fa02d',1,'OVR::WaitCondition::NotifyAll()'],['../classOVR_1_1WaitConditionImpl.html#a7d3c01f808aa346a78167c9a534a543e',1,'OVR::WaitConditionImpl::NotifyAll()']]],
+  ['notifyevent',['NotifyEvent',['../classOVR_1_1ThreadCommand_1_1NotifyEvent.html#a7f4c83ce4514c482546d9f84ae6fbd8d',1,'OVR::ThreadCommand::NotifyEvent']]],
   ['notifyhmds_5fadddevice',['NotifyHMDs_AddDevice',['../classOVR_1_1CAPI_1_1GlobalState.html#a4c6eac640b4e6fe0bceb11285e9091c3',1,'OVR::CAPI::GlobalState']]],
   ['nullwithoutrelease',['NullWithoutRelease',['../classOVR_1_1Ptr.html#a5a2f60605aeb680f6de8d7fff145b550',1,'OVR::Ptr']]]
 ];

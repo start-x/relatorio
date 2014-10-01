@@ -1,0 +1,4 @@
+<map id="device.scripts.device.Passives" name="device.scripts.device.Passives">
+<area shape="rect" id="node2" href="$classdevice_1_1scripts_1_1device_1_1Passive.html" title="{device.scripts.device.Passive\n|+ data\l|+ __init__()\l+ read_data()\l+ write_data()\l}" alt="" coords="9,360,204,467"/>
+<area shape="rect" id="node3" href="$classdevice_1_1scripts_1_1device_1_1Device.html" title="{device.scripts.device.Device\n|+ serial\l+ type\l+ name\l+ data\l+ live\l|+ __init__()\l+ enable()\l+ desable()\l+ flush()\l}" alt="" coords="11,131,201,311"/>
+</map>

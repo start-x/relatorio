@@ -1,5 +1,13 @@
 var NAVTREEINDEX4 =
 {
+"OVR__Linux__HMDDevice_8cpp.html#a9d0d355918b241a24b317b1fa3efc2eb":[2,0,2,0,1,25,157],
+"OVR__Linux__HMDDevice_8cpp.html#a9e9e0dbb4bc558daa51a2497eb3334e8":[2,0,2,0,1,25,132],
+"OVR__Linux__HMDDevice_8cpp.html#a9ef5bf23b29498473a0de273e413c931":[2,0,2,0,1,25,75],
+"OVR__Linux__HMDDevice_8cpp.html#a9f1a76fa62d282f6a814471f3f80a501":[2,0,2,0,1,25,127],
+"OVR__Linux__HMDDevice_8cpp.html#aa1add5e43dba44375fc7a45501c208fa":[2,0,2,0,1,25,85],
+"OVR__Linux__HMDDevice_8cpp.html#aa26391645579e2b5fc93ccf9eca934d4":[2,0,2,0,1,25,122],
+"OVR__Linux__HMDDevice_8cpp.html#aa306e937a87286085c4e9f57e8b8f914":[2,0,2,0,1,25,146],
+"OVR__Linux__HMDDevice_8cpp.html#aa5577ba03be3af26a58f66025a369983":[2,0,2,0,1,25,53],
 "OVR__Linux__HMDDevice_8cpp.html#aa5cefea3bb7292e307052eea5b506546":[2,0,2,0,1,25,114],
 "OVR__Linux__HMDDevice_8cpp.html#aa62419972e90cc214c196f6ac0225290":[2,0,2,0,1,25,62],
 "OVR__Linux__HMDDevice_8cpp.html#aa634ff02d40f2ff6d51d03eab5ca2a38":[2,0,2,0,1,25,107],
@@ -241,13 +249,5 @@ var NAVTREEINDEX4 =
 "OVR__SensorFusion_8cpp.html":[2,0,2,0,1,39],
 "OVR__SensorFusion_8cpp.html#a01fd8ceb7792c15a7870c1982ec009b4":[2,0,2,0,1,39,3],
 "OVR__SensorFusion_8cpp.html#a52715cbc385352dc231c7a4fc6093352":[2,0,2,0,1,39,8],
-"OVR__SensorFusion_8cpp.html#a752dd3da2601e6ed4ae3dfd4ec15f14d":[2,0,2,0,1,39,1],
-"OVR__SensorFusion_8cpp.html#a79b2de47c1d6cd38ac230d88dca8bf1d":[2,0,2,0,1,39,7],
-"OVR__SensorFusion_8cpp.html#aa48eb9e8675069b80c3ba358eaeaa69b":[2,0,2,0,1,39,6],
-"OVR__SensorFusion_8cpp.html#ab37c2d3dbbf77a23deacae41d2620063":[2,0,2,0,1,39,0],
-"OVR__SensorFusion_8cpp.html#ab42b7452dd5114e43091c1772dd46039":[2,0,2,0,1,39,5],
-"OVR__SensorFusion_8cpp.html#ae062159dec251852d3af27fe6e2c2643":[2,0,2,0,1,39,2],
-"OVR__SensorFusion_8cpp.html#af2c2cc31e3591882ca6aed1135d31a8b":[2,0,2,0,1,39,4],
-"OVR__SensorFusion_8cpp_source.html":[2,0,2,0,1,39],
-"OVR__SensorFusion_8h.html":[2,0,2,0,1,40]
+"OVR__SensorFusion_8cpp.html#a752dd3da2601e6ed4ae3dfd4ec15f14d":[2,0,2,0,1,39,1]
 };

@@ -1,0 +1,73 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: relatorio.aux
+The style file: abntex2-alf.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Database file #1: abntex2-options.bib
+Database file #2: bibliografia.bib
+Warning--entry type for "oculusVR" isn't style-file defined
+--line 109 of file bibliografia.bib
+Warning--entry type for "kickstarter" isn't style-file defined
+--line 121 of file bibliografia.bib
+Warning--entry type for "python_history" isn't style-file defined
+--line 133 of file bibliografia.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Warning--campo year vazio ou faltando em boasoverview
++---------------------------------------------------------+
+| Estilo bibliográfico abntex2-alf.bst versão v-1.9.2           |
+| Em caso de dúvidas ou problemas com este estilo procure |
+| http://abntex2.googlecode.com                           |
++---------------------------------------------------------+
+You've used 7 entries,
+            6711 wiz_defined-function locations,
+            1230 strings with 10147 characters,
+and the built_in function-call counts, 9144 in all, are:
+= -- 1167
+> -- 126
+< -- 240
++ -- 331
+- -- 40
+* -- 514
+:= -- 1203
+add.period$ -- 25
+call.type$ -- 7
+change.case$ -- 52
+chr.to.int$ -- 7
+cite$ -- 7
+duplicate$ -- 887
+empty$ -- 358
+format.name$ -- 185
+if$ -- 1801
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 110
+newline$ -- 42
+num.names$ -- 30
+pop$ -- 171
+preamble$ -- 1
+purify$ -- 23
+quote$ -- 0
+skip$ -- 991
+stack$ -- 1
+substring$ -- 387
+swap$ -- 297
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 42
+width$ -- 0
+write$ -- 93
+(There were 4 warnings)

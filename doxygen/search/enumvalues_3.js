@@ -14,7 +14,7 @@ var searchData=
   ['device_5fsensor',['Device_Sensor',['../namespaceOVR.html#a44ae5efd66a7d058f473c77711fbad32aef1f505f473a9d34c1fb633f8c5122e0',1,'OVR']]],
   ['device_5ftracker2_5fproductid',['Device_Tracker2_ProductId',['../namespaceOVR.html#aaf23dbf657a0383219cbb44d41c9d4c3a2d260f8d861d99e683b9d8762eda0a6b',1,'OVR']]],
   ['device_5ftracker_5fproductid',['Device_Tracker_ProductId',['../namespaceOVR.html#aaf23dbf657a0383219cbb44d41c9d4c3a0ec82edbc6b1d8d511c8020c1bf76bdd',1,'OVR']]],
-  ['direction',['DIRECTION',['../Device_8h.html#abdbf8876f5e6df651488d85fca80c11ca29e2c300ecd12ceecf4ab3fb87bbdafc',1,'Device.h']]],
+  ['direction',['DIRECTION',['../DeviceType_8h.html#abdbf8876f5e6df651488d85fca80c11ca29e2c300ecd12ceecf4ab3fb87bbdafc',1,'DeviceType.h']]],
   ['display_5fport',['DISPLAY_PORT',['../edid_8h.html#a209a41a363c6409f7276f93a08cc7ab0a36ed662178a9af239efb2be90fc3d474',1,'edid.h']]],
   ['distortion_5fcatmullrom10',['Distortion_CatmullRom10',['../namespaceOVR.html#a4001690907363141fe3472183f5332f4a200922ed5a767f34cebd294c03748a4b',1,'OVR']]],
   ['distortion_5flast',['Distortion_LAST',['../namespaceOVR.html#a4001690907363141fe3472183f5332f4a1176a262b71a2983f82b1177da871660',1,'OVR']]],

@@ -114,58 +114,112 @@ $(document).ready(function(){initNavTree('main_8c_source.html','');});
 <div class="contents">
 <a href="main_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include&lt;msp430g2553.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="launchpad_8h.html">launchpad.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    5</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="launchpad_8c.html#ae022b092ac85c9fdb7d3e56394f9202b">desabWDT</a>();</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">//botao();</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a>();</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="launchpad_8c.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a>(<a class="code" href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a>);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="launchpad_8c.html#a439430d42a348bf27d726d47d0bee574">desled</a>(<a class="code" href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">for</span>(;;)</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="launchpad_8c.html#a0979671914792955a7a68461634ff82d">getchar</a>()==<span class="charliteral">&#39;R&#39;</span>)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a>(<a class="code" href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a>(3);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="launchpad_8c.html#a9358c8ee039cf8bb97d5e391a4ff44c4">wsserial</a>(<span class="stringliteral">&quot;Ligado\n&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="launchpad_8c.html#a0979671914792955a7a68461634ff82d">getchar</a>()==<span class="charliteral">&#39;r&#39;</span>)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <a class="code" href="launchpad_8c.html#a439430d42a348bf27d726d47d0bee574">desled</a>(<a class="code" href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a>);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <a class="code" href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a>(3);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="launchpad_8c.html#a9358c8ee039cf8bb97d5e391a4ff44c4">wsserial</a>(<span class="stringliteral">&quot;desligado\n&quot;</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="ttc" id="main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00005">main.c:5</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a230889c24bd45c6e42922d31e78a645c"><div class="ttname"><a href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a></div><div class="ttdeci">void ligled(char numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00066">launchpad.c:66</a></div></div>
-<div class="ttc" id="launchpad_8c_html_abc0628a9393d56606ce669eccb2996de"><div class="ttname"><a href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a></div><div class="ttdeci">void dly_coxa(int numcic)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00084">launchpad.c:84</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a9358c8ee039cf8bb97d5e391a4ff44c4"><div class="ttname"><a href="launchpad_8c.html#a9358c8ee039cf8bb97d5e391a4ff44c4">wsserial</a></div><div class="ttdeci">void wsserial(char *st)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00146">launchpad.c:146</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a0979671914792955a7a68461634ff82d"><div class="ttname"><a href="launchpad_8c.html#a0979671914792955a7a68461634ff82d">getchar</a></div><div class="ttdeci">char getchar()</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00134">launchpad.c:134</a></div></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="launchpad_8h.html">launchpad.h</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Wrap_8h.html">Wrap.h</a>&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">    7</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="comment">/* Counting parameters */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">int</span> counter = 0, endcount = 1000;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">char</span> ch;    </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="launchpad_8c.html#ae022b092ac85c9fdb7d3e56394f9202b">desabWDT</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="comment">/* botao(); */</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="launchpad_8h.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a>(<a class="code" href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a>|<a class="code" href="launchpad_8h.html#a019ff392eafa65019652da8fc1ede28d">VERD</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a>(<a class="code" href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">//P1OUT ^= VERM;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">/* Defined in Wrap.h */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">int</span> cmd;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">for</span>(;;)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">//P1OUT ^= VERM;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        cmd = <a class="code" href="launchpad_8h.html#a0979671914792955a7a68461634ff82d">getchar</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">switch</span>(cmd)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="Wrap_8h.html#a468cd79e70f9aa70dbf4452817b4ad79">ALL_VALUES</a>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <span class="comment">//printf(&quot;[%d,%d]\n&quot;, adc_read(0),adc_read(1));</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">case</span> <span class="charliteral">&#39;a&#39;</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="namespacedevice_1_1scripts_1_1startx.html#a675e3706051d779e72dd7258c3a84a26">BREAK_MSP</a>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="comment">//dly_coxa(1000);</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                ch = <a class="code" href="launchpad_8h.html#a0979671914792955a7a68461634ff82d">getchar</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                <span class="keywordflow">if</span>((ch &gt;= <span class="charliteral">&#39;0&#39;</span>) &amp;&amp; (ch &lt;= <span class="charliteral">&#39;9&#39;</span>))</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                    endcount = 1000 + (int) ((<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>) ch-<span class="charliteral">&#39;0&#39;</span>)*10000/10;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    <span class="comment">//if(counter &gt;= endcount)</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <span class="comment">//{</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                        counter = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                        P1OUT ^= <a class="code" href="launchpad_8h.html#a019ff392eafa65019652da8fc1ede28d">VERD</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="comment">//}</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="comment">//else</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="comment">//{</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        <span class="comment">//counter++;</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="comment">//}</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="comment">/*</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">                    Read new value from serial</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">                    and use this value to set the</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">                    position of the servo motor</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">                */</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="Wrap_8h.html#af0e00a08e725efdee9a38064177b416d">DIRECTION_MSP</a>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                <span class="comment">//printf(&quot;[%d]\n&quot;, adc_read(0));</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">case</span> <a class="code" href="Wrap_8h.html#aa22564bec6d3d74786b730f2bc3ccc46">VELOCITY_MSP</a>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="comment">//printf(&quot;[%d]\n&quot;, adc_read(0));</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span> (counter &gt;= endcount)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            counter = 0;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            P1OUT ^= <a class="code" href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            counter++;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }       </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="ttc" id="main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> <a href="main_8c_source.html#l00007">main.c:7</a></div></div>
+<div class="ttc" id="Wrap_8h_html_a468cd79e70f9aa70dbf4452817b4ad79"><div class="ttname"><a href="Wrap_8h.html#a468cd79e70f9aa70dbf4452817b4ad79">ALL_VALUES</a></div><div class="ttdeci">#define ALL_VALUES</div><div class="ttdef"><b>Definition:</b> <a href="Wrap_8h_source.html#l00019">Wrap.h:19</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a230889c24bd45c6e42922d31e78a645c"><div class="ttname"><a href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a></div><div class="ttdeci">void ligled(char numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00064">launchpad.c:64</a></div></div>
+<div class="ttc" id="Wrap_8h_html_aa22564bec6d3d74786b730f2bc3ccc46"><div class="ttname"><a href="Wrap_8h.html#aa22564bec6d3d74786b730f2bc3ccc46">VELOCITY_MSP</a></div><div class="ttdeci">#define VELOCITY_MSP</div><div class="ttdef"><b>Definition:</b> <a href="Wrap_8h_source.html#l00021">Wrap.h:21</a></div></div>
 <div class="ttc" id="launchpad_8h_html_a67413a2c31b133b0656896e80371f372"><div class="ttname"><a href="launchpad_8h.html#a67413a2c31b133b0656896e80371f372">VERM</a></div><div class="ttdeci">#define VERM</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00013">launchpad.h:13</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a0466dc0d0622c986e62e6b53e747283e"><div class="ttname"><a href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a></div><div class="ttdeci">void hled(unsigned char numled)</div><div class="ttdoc">Enable LED. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00036">launchpad.c:36</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a439430d42a348bf27d726d47d0bee574"><div class="ttname"><a href="launchpad_8c.html#a439430d42a348bf27d726d47d0bee574">desled</a></div><div class="ttdeci">void desled(char numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00072">launchpad.c:72</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a7b6a862dc86052b6701fe454dfecb61d"><div class="ttname"><a href="launchpad_8c.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a></div><div class="ttdeci">void hserial()</div><div class="ttdoc">Configure UART. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00121">launchpad.c:121</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a0466dc0d0622c986e62e6b53e747283e"><div class="ttname"><a href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a></div><div class="ttdeci">void hled(unsigned char numled)</div><div class="ttdoc">Enable LED. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00033">launchpad.c:33</a></div></div>
+<div class="ttc" id="launchpad_8h_html_a7b6a862dc86052b6701fe454dfecb61d"><div class="ttname"><a href="launchpad_8h.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a></div><div class="ttdeci">void hserial()</div></div>
 <div class="ttc" id="launchpad_8h_html"><div class="ttname"><a href="launchpad_8h.html">launchpad.h</a></div></div>
-<div class="ttc" id="launchpad_8c_html_afcb3f3c930a37e33b2bf8363708dbae7"><div class="ttname"><a href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a></div><div class="ttdeci">void dco1mhz()</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00097">launchpad.c:97</a></div></div>
+<div class="ttc" id="Wrap_8h_html"><div class="ttname"><a href="Wrap_8h.html">Wrap.h</a></div></div>
+<div class="ttc" id="launchpad_8c_html_afcb3f3c930a37e33b2bf8363708dbae7"><div class="ttname"><a href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a></div><div class="ttdeci">void dco1mhz()</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00095">launchpad.c:95</a></div></div>
+<div class="ttc" id="launchpad_8h_html_a019ff392eafa65019652da8fc1ede28d"><div class="ttname"><a href="launchpad_8h.html#a019ff392eafa65019652da8fc1ede28d">VERD</a></div><div class="ttdeci">#define VERD</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00014">launchpad.h:14</a></div></div>
+<div class="ttc" id="launchpad_8h_html_a0979671914792955a7a68461634ff82d"><div class="ttname"><a href="launchpad_8h.html#a0979671914792955a7a68461634ff82d">getchar</a></div><div class="ttdeci">char getchar()</div></div>
 <div class="ttc" id="launchpad_8c_html_ae022b092ac85c9fdb7d3e56394f9202b"><div class="ttname"><a href="launchpad_8c.html#ae022b092ac85c9fdb7d3e56394f9202b">desabWDT</a></div><div class="ttdeci">void desabWDT()</div><div class="ttdoc">Desable Watchdog. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00009">launchpad.c:9</a></div></div>
+<div class="ttc" id="namespacedevice_1_1scripts_1_1startx_html_a675e3706051d779e72dd7258c3a84a26"><div class="ttname"><a href="namespacedevice_1_1scripts_1_1startx.html#a675e3706051d779e72dd7258c3a84a26">device.scripts.startx.BREAK_MSP</a></div><div class="ttdeci">BREAK_MSP</div><div class="ttdef"><b>Definition:</b> <a href="startx_8py_source.html#l00080">startx.py:80</a></div></div>
+<div class="ttc" id="Wrap_8h_html_af0e00a08e725efdee9a38064177b416d"><div class="ttname"><a href="Wrap_8h.html#af0e00a08e725efdee9a38064177b416d">DIRECTION_MSP</a></div><div class="ttdeci">#define DIRECTION_MSP</div><div class="ttdef"><b>Definition:</b> <a href="Wrap_8h_source.html#l00020">Wrap.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_820b2b9dd608784780e51ab49715a98b.html">device</a></li><li class="navelem"><a class="el" href="dir_feb2c726f24e537367245d80669f958b.html">msp430dev</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
-    <li class="footer">Generated on Wed Sep 24 2014 22:48:17 for Bike-X by
+    <li class="navelem"><a class="el" href="dir_cce4f905588ddf4b87939ba546022e75.html">device</a></li><li class="navelem"><a class="el" href="dir_7e083234fe30e1db249a132501589e71.html">msp430dev</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="footer">Generated on Wed Oct 1 2014 00:45:20 for Bike-X by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

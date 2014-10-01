@@ -1,4 +1,4 @@
 var classDirection =
 [
-    [ "getData", "classDirection.html#ab92b90e1905603282ad2a7b3f64d7a64", null ]
+    [ "getData", "classDirection.html#aca6d2a11e626f46df9ef4abb16c5d02f", null ]
 ];

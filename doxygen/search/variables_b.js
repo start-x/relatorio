@@ -50,6 +50,7 @@ var searchData=
   ['lenssurfacetomidplateinmeters',['LensSurfaceToMidplateInMeters',['../structOVR_1_1HmdRenderInfo.html#aec061eb981df56a5c5cd53297fabeb3a',1,'OVR::HmdRenderInfo']]],
   ['lenstype',['LensType',['../structOVR_1_1LensDistortionReport.html#a187e71ac8b0ec3bdfe702d11eb059224',1,'OVR::LensDistortionReport']]],
   ['lf',['LF',['../tinyxml2_8cpp.html#a19b283812883e1dad22bbde25738643a',1,'tinyxml2.cpp']]],
+  ['lf_5fmodes',['LF_MODES',['../namespaceserial_1_1tools_1_1miniterm.html#a69cfc8dfbf808bc763396ed22c1ce8c0',1,'serial::tools::miniterm']]],
   ['lighting',['Lighting',['../classOVR_1_1CAPI_1_1GL_1_1DistortionRenderer_1_1GraphicsState.html#af68b0a118916403e7bb9ef4e89e7593d',1,'OVR::CAPI::GL::DistortionRenderer::GraphicsState']]],
   ['lightingoffset',['LightingOffset',['../structOVR_1_1DisplayReport.html#a4651e3fc3a2e3bd390ce23082f294639',1,'OVR::DisplayReport']]],
   ['lightingver',['LightingVer',['../classOVR_1_1CAPI_1_1GL_1_1ShaderSet.html#a5be1fd14436bb758a6711194aee5db45',1,'OVR::CAPI::GL::ShaderSet']]],
@@ -66,5 +67,7 @@ var searchData=
   ['loggingmask',['LoggingMask',['../classOVR_1_1Log.html#ae02a07a3265d43f888e2994d046ec270',1,'OVR::Log']]],
   ['lostframes',['LostFrames',['../classOVR_1_1MessageCameraFrame.html#aaec143b944db43ed169ee9d55a3950b4',1,'OVR::MessageCameraFrame']]],
   ['lowerbittable',['LowerBitTable',['../namespaceOVR_1_1Alg.html#a1bffb759a0936348ee406a6a6aca6b78',1,'OVR::Alg::LowerBitTable()'],['../namespaceOVR_1_1Linux_1_1OVR_1_1Alg.html#a1f14eab59ffc10d95b56b7618d6c3c6d',1,'OVR::Linux::OVR::Alg::LowerBitTable()']]],
+  ['lpbyte',['LPBYTE',['../namespaceserial_1_1tools_1_1list__ports__windows.html#a6b2a185e15bb31c7f2128dd764303b28',1,'serial::tools::list_ports_windows']]],
+  ['lpdword',['LPDWORD',['../namespaceserial_1_1tools_1_1list__ports__windows.html#a45a9142a95412a96761a0886bd188fd1',1,'serial::tools::list_ports_windows']]],
   ['lvalue',['lvalue',['../Wrap__wrap_8c.html#af142e4c21ad4fe61f6c2624bff034583',1,'swig_const_info']]]
 ];

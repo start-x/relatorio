@@ -1,6 +1,6 @@
 var edid_8h_structDetailedTiming =
 [
-    [ "connector", "edid_8h.html#a3e94c833118d32cfc441d3c223a7352a", null ],
+    [ "connector", "edid_8h.html#a248b50c0652b3e7adf25b9f2d96ce7bd", null ],
     [ "digital_sync", "edid_8h.html#ac3afa3691f412e8fac989e6513109691", null ],
     [ "h_addr", "edid_8h.html#a85c0d36888c55c4ee71121b85cea61b9", null ],
     [ "h_blank", "edid_8h.html#a27daa8f6f8dfb12a284941ed5e43aa4f", null ],

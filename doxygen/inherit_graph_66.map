@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$structOVR_1_1AtomicOpsRaw__DefImpl.html" title="OVR::AtomicOpsRaw_DefImpl\&lt; O \&gt;" alt="" coords="94,5,333,32"/>
+<area shape="rect" id="node1" href="$classOVR_1_1ArrayBase.html" title="OVR::ArrayBase\&lt; ArrayData\l\&lt; OVR::Util::TextPlot,\l ContainerAllocator\&lt; OVR\l::Util::TextPlot \&gt;, ArrayDefault\lPolicy \&gt; \&gt;" alt="" coords="5,5,205,91"/>
+<area shape="rect" id="node2" href="$classOVR_1_1Array.html" title="OVR::Array\&lt; OVR::Util\l::TextPlot \&gt;" alt="" coords="254,27,413,69"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="Passive" name="Passive">
-<area shape="rect" id="node3" href="$classBattery.html" title="{Battery\n||+ getData()\l}" alt="" coords="5,272,93,349"/>
-<area shape="rect" id="node4" href="$classDirection.html" title="{Direction\n||+ getData()\l}" alt="" coords="117,272,205,349"/>
-<area shape="rect" id="node5" href="$classOximetry.html" title="{Oximetry\n||+ getData()\l}" alt="" coords="229,272,317,349"/>
-<area shape="rect" id="node6" href="$classSpeed.html" title="{Speed\n||+ getData()\l}" alt="" coords="341,272,429,349"/>
-<area shape="rect" id="node2" href="$classDevice.html" title="{Device\n|# buffer\l|}" alt="" coords="184,5,251,83"/>
+<area shape="rect" id="node3" href="$classBattery.html" title="{Battery\n||+ getData()\l}" alt="" coords="5,301,93,379"/>
+<area shape="rect" id="node4" href="$classDirection.html" title="{Direction\n||+ getData()\l}" alt="" coords="117,301,205,379"/>
+<area shape="rect" id="node5" href="$classOximetry.html" title="{Oximetry\n||+ getData()\l}" alt="" coords="229,301,317,379"/>
+<area shape="rect" id="node6" href="$classSpeed.html" title="{Speed\n||+ getData()\l}" alt="" coords="341,301,429,379"/>
+<area shape="rect" id="node2" href="$classDevice.html" title="{Device\n|+ pythonPid\l# buffer\l|+ init()\l+ destroy()\l}" alt="" coords="171,5,263,112"/>
 </map>

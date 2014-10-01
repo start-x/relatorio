@@ -1,4 +1,4 @@
 var classSpeed =
 [
-    [ "getData", "classSpeed.html#a8fa6d3f6c5b440ffc1a36c029889ef3d", null ]
+    [ "getData", "classSpeed.html#aceb690e247d5db05645b254b18f6e35f", null ]
 ];

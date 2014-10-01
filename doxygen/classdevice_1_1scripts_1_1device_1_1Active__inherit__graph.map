@@ -1,4 +1,4 @@
 <map id="device.scripts.device.Active" name="device.scripts.device.Active">
-<area shape="rect" id="node4" href="$classdevice_1_1scripts_1_1device_1_1Freio.html" title="docstring for Freio " alt="" coords="11,515,189,607"/>
-<area shape="rect" id="node2" href="$classdevice_1_1scripts_1_1device_1_1Device.html" title="Device module. " alt="" coords="5,131,195,311"/>
+<area shape="rect" id="node4" href="$classdevice_1_1scripts_1_1device_1_1Break.html" title="{device.scripts.device.Break\n|+ arg\l|+ __init__()\l+ write_data()\l}" alt="" coords="9,515,191,607"/>
+<area shape="rect" id="node2" href="$classdevice_1_1scripts_1_1device_1_1Device.html" title="{device.scripts.device.Device\n|+ serial\l+ type\l+ name\l+ data\l+ live\l|+ __init__()\l+ enable()\l+ desable()\l+ flush()\l}" alt="" coords="5,131,195,311"/>
 </map>

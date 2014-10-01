@@ -6,7 +6,7 @@ var edid_8h =
       [ "width", "edid_8h.html#a92b78e267bd1a5b6b1a32224c592d680", null ]
     ] ],
     [ "DetailedTiming", "edid_8h.html#structDetailedTiming", [
-      [ "connector", "edid_8h.html#a3e94c833118d32cfc441d3c223a7352a", null ],
+      [ "connector", "edid_8h.html#a248b50c0652b3e7adf25b9f2d96ce7bd", null ],
       [ "digital_sync", "edid_8h.html#ac3afa3691f412e8fac989e6513109691", null ],
       [ "h_addr", "edid_8h.html#a85c0d36888c55c4ee71121b85cea61b9", null ],
       [ "h_blank", "edid_8h.html#a27daa8f6f8dfb12a284941ed5e43aa4f", null ],
@@ -30,7 +30,7 @@ var edid_8h =
       [ "blue_x", "edid_8h.html#a0b9ab734cb0ba3dad6c47733aa49b123", null ],
       [ "blue_y", "edid_8h.html#aefbf6e510687fe09c458deee4d70a7e9", null ],
       [ "checksum", "edid_8h.html#ac85edd4e53dd9614612af0e4b8f47a18", null ],
-      [ "connector", "edid_8h.html#a7cca9cdcef9d72cd42f0ddf8124e5250", null ],
+      [ "connector", "edid_8h.html#a4f6e8a9a0fe39db256c15e3d9d4a55a2", null ],
       [ "continuous_frequency", "edid_8h.html#a1e3bd8d230e65b11f21928e45bee9765", null ],
       [ "detailed_timings", "edid_8h.html#ab0a9134879d0f6d871fbafccf1b1cebf", null ],
       [ "dsc_product_name", "edid_8h.html#a3cb085daf089851323bfa907352b0867", null ],

@@ -26,8 +26,8 @@ var searchData=
   ['logmask_5fnone',['LogMask_None',['../namespaceOVR.html#a491daf34c1ef001d12afc080b209df92a2cb063e24bd25a95114f4748328c4570',1,'OVR']]],
   ['logmask_5fregular',['LogMask_Regular',['../namespaceOVR.html#a491daf34c1ef001d12afc080b209df92ab382c74fa37fe5f5d0a77994a824de98',1,'OVR']]],
   ['lowestpriority',['LowestPriority',['../classOVR_1_1Thread.html#af5c57878b65aff7c4d4fb971988c9367ac8bb17ab9bf2ef57f05704499261e67b',1,'OVR::Thread']]],
-  ['lt2_5fcolorincrement',['LT2_ColorIncrement',['../namespaceOVR_1_1Util.html#aa39e5c9d418586d334fb6bef9b5b67eda569e931d3724d9c278a6c0663c6b17cf',1,'OVR::Util']]],
-  ['lt2_5fincrementcount',['LT2_IncrementCount',['../namespaceOVR_1_1Util.html#aa39e5c9d418586d334fb6bef9b5b67eda5f0fcf3156fce38fb2873ecedd564f81',1,'OVR::Util']]],
-  ['lt2_5fpixeltestthreshold',['LT2_PixelTestThreshold',['../namespaceOVR_1_1Util.html#aa39e5c9d418586d334fb6bef9b5b67eda1471bac18704c37b1c2936c5ed702d76',1,'OVR::Util']]],
-  ['lt2_5ftimeoutwaitingforcolordetected',['LT2_TimeoutWaitingForColorDetected',['../namespaceOVR_1_1Util.html#aa39e5c9d418586d334fb6bef9b5b67eda17dcaee3297c00c0073d61c8e7e884a1',1,'OVR::Util']]]
+  ['lt2_5fcolorincrement',['LT2_ColorIncrement',['../namespaceOVR_1_1Util.html#a259289b24c1f0c23a28665ce8d55fdf0a569e931d3724d9c278a6c0663c6b17cf',1,'OVR::Util']]],
+  ['lt2_5fincrementcount',['LT2_IncrementCount',['../namespaceOVR_1_1Util.html#a259289b24c1f0c23a28665ce8d55fdf0a5f0fcf3156fce38fb2873ecedd564f81',1,'OVR::Util']]],
+  ['lt2_5fpixeltestthreshold',['LT2_PixelTestThreshold',['../namespaceOVR_1_1Util.html#a259289b24c1f0c23a28665ce8d55fdf0a1471bac18704c37b1c2936c5ed702d76',1,'OVR::Util']]],
+  ['lt2_5ftimeoutwaitingforcolordetected',['LT2_TimeoutWaitingForColorDetected',['../namespaceOVR_1_1Util.html#a259289b24c1f0c23a28665ce8d55fdf0a17dcaee3297c00c0073d61c8e7e884a1',1,'OVR::Util']]]
 ];

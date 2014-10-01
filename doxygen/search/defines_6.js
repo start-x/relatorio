@@ -1,10 +1,22 @@
 var searchData=
 [
-  ['host_5fname_5fmax',['HOST_NAME_MAX',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
-  ['htobe16',['htobe16',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
-  ['htobe32',['htobe32',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
-  ['htobe64',['htobe64',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
-  ['htole16',['htole16',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
-  ['htole32',['htole32',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
-  ['htole64',['htole64',['../OVR__Types_8h.html',1,'OVR_Types.h']]]
+  ['fd_5fclr',['FD_CLR',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
+  ['fd_5fisset',['FD_ISSET',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
+  ['fd_5fset',['FD_SET',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
+  ['fd_5fsetsize',['FD_SETSIZE',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
+  ['fd_5fzero',['FD_ZERO',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
+  ['filebuffer_5fsize',['FILEBUFFER_SIZE',['../OVR__File_8cpp.html#a7fe9b93acffe5bb510730f72d3d6fec1',1,'OVR_File.cpp']]],
+  ['filebuffer_5ftolerance',['FILEBUFFER_TOLERANCE',['../OVR__File_8cpp.html#a2a631a41e6c9b263b013374acd09319e',1,'OVR_File.cpp']]],
+  ['first_5fbyte',['FIRST_BYTE',['../OVR__UTF8Util_8cpp.html#a2457c37580591edb2402d642521eda55',1,'OVR_UTF8Util.cpp']]],
+  ['flt_5fdig',['FLT_DIG',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fepsilon',['FLT_EPSILON',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fmant_5fdig',['FLT_MANT_DIG',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fmax',['FLT_MAX',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fmax_5f10_5fexp',['FLT_MAX_10_EXP',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fmax_5fexp',['FLT_MAX_EXP',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fmin',['FLT_MIN',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fmin_5f10_5fexp',['FLT_MIN_10_EXP',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fmin_5fexp',['FLT_MIN_EXP',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5fradix',['FLT_RADIX',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['flt_5frounds',['FLT_ROUNDS',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]]
 ];

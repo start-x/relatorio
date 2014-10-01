@@ -1,10 +1,2 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classDevice.html" title="Device" alt="" coords="6,69,69,96"/>
-<area shape="rect" id="node2" href="$classActive.html" title="Active" alt="" coords="123,31,181,57"/>
-<area shape="rect" id="node4" href="$classPassive.html" title="Passive" alt="" coords="117,107,187,133"/>
-<area shape="rect" id="node3" href="$classBreak.html" title="Break" alt="" coords="244,5,300,32"/>
-<area shape="rect" id="node5" href="$classBattery.html" title="Battery" alt="" coords="240,56,304,83"/>
-<area shape="rect" id="node6" href="$classDirection.html" title="Direction" alt="" coords="235,107,309,133"/>
-<area shape="rect" id="node7" href="$classOximetry.html" title="Oximetry" alt="" coords="235,157,309,184"/>
-<area shape="rect" id="node8" href="$classSpeed.html" title="Speed" alt="" coords="243,208,301,235"/>
 </map>

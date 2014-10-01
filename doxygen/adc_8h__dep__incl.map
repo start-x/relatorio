@@ -1,0 +1,6 @@
+<map id="device/msp430dev/adc.h" name="device/msp430dev/adc.h">
+<area shape="rect" id="node2" href="$adc_8c.html" title="device/msp430dev/adc.c" alt="" coords="5,80,171,107"/>
+<area shape="rect" id="node3" href="$launchpad_8h.html" title="device/msp430dev/launchpad.h" alt="" coords="196,80,401,107"/>
+<area shape="rect" id="node4" href="$launchpad_8c.html" title="device/msp430dev/launchpad.c" alt="" coords="89,155,295,181"/>
+<area shape="rect" id="node5" href="$main_8c.html" title="device/msp430dev/main.c" alt="" coords="319,155,493,181"/>
+</map>

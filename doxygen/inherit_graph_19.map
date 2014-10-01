@@ -1,3 +1,12 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classOVR_1_1Alg_1_1ConstArrayAdaptor.html" title="OVR::Alg::ConstArrayAdaptor\&lt; T \&gt;" alt="" coords="5,5,235,32"/>
+<area shape="rect" id="node2" href="$classdevice_1_1scripts_1_1device_1_1Device.html" title="device.scripts.device.Device" alt="" coords="114,49,305,76"/>
+<area shape="rect" id="node9" href="$classserial_1_1tools_1_1miniterm_1_1Console.html" title="serial.tools.miniterm.Console" alt="" coords="114,100,305,127"/>
+<area shape="rect" id="node10" href="$classserial_1_1tools_1_1miniterm_1_1Miniterm.html" title="serial.tools.miniterm.Miniterm" alt="" coords="113,151,306,177"/>
+<area shape="rect" id="node3" href="$classdevice_1_1scripts_1_1device_1_1Active.html" title="device.scripts.device.Active" alt="" coords="360,24,547,51"/>
+<area shape="rect" id="node5" href="$classdevice_1_1scripts_1_1device_1_1Passive.html" title="device.scripts.device.Passive" alt="" coords="355,88,551,115"/>
+<area shape="rect" id="node4" href="$classdevice_1_1scripts_1_1device_1_1Break.html" title="device.scripts.device.Break" alt="" coords="610,5,793,32"/>
+<area shape="rect" id="node6" href="$classdevice_1_1scripts_1_1device_1_1Direction.html" title="device.scripts.device.Direction" alt="" coords="601,56,802,83"/>
+<area shape="rect" id="node7" href="$classdevice_1_1scripts_1_1device_1_1Passives.html" title="device.scripts.device.Passives" alt="" coords="600,107,803,133"/>
+<area shape="rect" id="node8" href="$classdevice_1_1scripts_1_1device_1_1Velocity.html" title="device.scripts.device.Velocity" alt="" coords="603,157,799,184"/>
+<area shape="rect" id="node11" href="$classdevice_1_1scripts_1_1msp430_1_1MSP.html" title="device.scripts.msp430.MSP" alt="" coords="360,151,547,177"/>
 </map>

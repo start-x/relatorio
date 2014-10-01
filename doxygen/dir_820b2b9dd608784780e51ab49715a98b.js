@@ -14,8 +14,9 @@ var dir_820b2b9dd608784780e51ab49715a98b =
     [ "Break.h", "Break_8h.html", [
       [ "Break", "classBreak.html", "classBreak" ]
     ] ],
-    [ "Device.cpp", "Device_8cpp.html", null ],
+    [ "Device.cpp", "Device_8cpp.html", "Device_8cpp" ],
     [ "Device.h", "Device_8h.html", "Device_8h" ],
+    [ "DeviceType.h", "DeviceType_8h.html", "DeviceType_8h" ],
     [ "Direction.cpp", "Direction_8cpp.html", null ],
     [ "Direction.h", "Direction_8h.html", [
       [ "Direction", "classDirection.html", "classDirection" ]

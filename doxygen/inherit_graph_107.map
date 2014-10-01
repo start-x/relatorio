@@ -1,9 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classOVR_1_1ConstructorCPP.html" title="OVR::ConstructorCPP\&lt; T \&gt;" alt="" coords="11,7,197,33"/>
-<area shape="rect" id="node2" href="$structOVR_1_1ContainerAllocator__CPP.html" title="OVR::ContainerAllocator\l_CPP\&lt; T \&gt;" alt="" coords="267,5,434,46"/>
-<area shape="rect" id="node3" href="$classOVR_1_1ConstructorMov.html" title="OVR::ConstructorMov\&lt; T \&gt;" alt="" coords="12,108,196,135"/>
-<area shape="rect" id="node4" href="$structOVR_1_1ContainerAllocator.html" title="OVR::ContainerAllocator\&lt; T \&gt;" alt="" coords="251,75,450,101"/>
-<area shape="rect" id="node5" href="$classOVR_1_1ConstructorPOD.html" title="OVR::ConstructorPOD\&lt; T \&gt;" alt="" coords="10,159,198,185"/>
-<area shape="rect" id="node6" href="$structOVR_1_1ContainerAllocator__POD.html" title="OVR::ContainerAllocator\l_POD\&lt; T \&gt;" alt="" coords="267,134,434,175"/>
-<area shape="rect" id="node7" href="$classOVR_1_1ContainerAllocatorBase.html" title="OVR::ContainerAllocatorBase" alt="" coords="6,57,202,84"/>
+<area shape="rect" id="node1" href="$namespaceOVR_1_1CAPI_1_1GL.html#structOVR_1_1CAPI_1_1GL_1_1DistortionVertex" title="OVR::CAPI::GL::Distortion\lVertex" alt="" coords="6,5,186,46"/>
 </map>

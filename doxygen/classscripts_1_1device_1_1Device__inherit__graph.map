@@ -1,4 +1,0 @@
-<map id="scripts.device.Device" name="scripts.device.Device">
-<area shape="rect" id="node3" href="$classscripts_1_1device_1_1Active.html" title="{scripts.device.Active\n|+ data\l|+ __init__()\l+ write_data()\l}" alt="" coords="5,361,149,453"/>
-<area shape="rect" id="node4" href="$classscripts_1_1device_1_1Passive.html" title="{scripts.device.Passive\n|+ data\l|+ __init__()\l+ read_data()\l}" alt="" coords="173,361,327,453"/>
-</map>

@@ -1,27 +1,9 @@
 var searchData=
 [
-  ['passive_5ffilename',['PASSIVE_FILENAME',['../Passive_8h.html#ab0de6123f735fa7f733d041c1277203d',1,'Passive.h']]],
-  ['path_5fmax',['PATH_MAX',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
-  ['pdp_5fendian',['PDP_ENDIAN',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
-  ['pin_5frx',['PIN_RX',['../launchpad_8h.html#a6d36ce8ebfa0d2226caa366a98db3020',1,'launchpad.h']]],
-  ['pin_5ftx',['PIN_TX',['../launchpad_8h.html#a44248c1cb3175c7bb62c0ebe92c1a0c0',1,'launchpad.h']]],
-  ['pipe_5fbuf',['PIPE_BUF',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
-  ['profile_5fversion',['PROFILE_VERSION',['../OVR__Profile_8cpp.html#a5092529d9c5f9a3e09fdae0ae0019b57',1,'OVR_Profile.cpp']]],
-  ['pthread_5fdestructor_5fiterations',['PTHREAD_DESTRUCTOR_ITERATIONS',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
-  ['pthread_5fkeys_5fmax',['PTHREAD_KEYS_MAX',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
-  ['pthread_5fstack_5fmin',['PTHREAD_STACK_MIN',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
-  ['py_5fnotimplemented',['Py_NotImplemented',['../Wrap__wrap_8c.html#ae5603e8c5fd8ec50c4936e1012a58cb4',1,'Wrap_wrap.c']]],
-  ['py_5fssize_5ft_5fmax',['PY_SSIZE_T_MAX',['../Wrap__wrap_8c.html#aa5b5990f814eb53730c24c7f911f9132',1,'Wrap_wrap.c']]],
-  ['py_5fssize_5ft_5fmin',['PY_SSIZE_T_MIN',['../Wrap__wrap_8c.html#a9fbcf3e88f34de99fb3bd045cffd6ce4',1,'Wrap_wrap.c']]],
-  ['py_5ftype',['Py_TYPE',['../Wrap__wrap_8c.html#afd489119bf6e3552bdaa6bc365e35e59',1,'Wrap_wrap.c']]],
-  ['py_5fvisit',['Py_VISIT',['../Wrap__wrap_8c.html#a8a5af783da2cdbcfdc7c354f635df8be',1,'Wrap_wrap.c']]],
-  ['pydescr_5fname',['PyDescr_NAME',['../Wrap__wrap_8c.html#a7b007021fc924eb74eccb0bb05d99ad1',1,'Wrap_wrap.c']]],
-  ['pydescr_5ftype',['PyDescr_TYPE',['../Wrap__wrap_8c.html#a0d2bc679367576eb4071b8c3bfe13edc',1,'Wrap_wrap.c']]],
-  ['pyexc_5fstopiteration',['PyExc_StopIteration',['../Wrap__wrap_8c.html#a0cba46b26eb93c57b8b96696ba92adb4',1,'Wrap_wrap.c']]],
-  ['pyint_5ffromsize_5ft',['PyInt_FromSize_t',['../Wrap__wrap_8c.html#a2a72c6061f4d23c35a8340448dd0cd2b',1,'Wrap_wrap.c']]],
-  ['pyobject_5fdel',['PyObject_Del',['../Wrap__wrap_8c.html#a5777895532ba038acdbde39ef6f78a82',1,'PyObject_Del():&#160;Wrap_wrap.c'],['../Wrap__wrap_8c.html#a3e72f1bb4b2af8f115a750f832d421b4',1,'PyObject_DEL():&#160;Wrap_wrap.c']]],
-  ['pyobject_5fgenericgetattr',['PyObject_GenericGetAttr',['../Wrap__wrap_8c.html#a2d659e3ecdc8d792ec516753e6fd37a2',1,'Wrap_wrap.c']]],
-  ['pyos_5fsnprintf',['PyOS_snprintf',['../Wrap__wrap_8c.html#aaf424b640ab3bb23906652e73030992b',1,'Wrap_wrap.c']]],
-  ['pysequence_5fsize',['PySequence_Size',['../Wrap__wrap_8c.html#ae0178153199e3020e8d586e0e50fc796',1,'Wrap_wrap.c']]],
-  ['pystring_5fasstringandsize',['PyString_AsStringAndSize',['../Wrap__wrap_8c.html#afdc43df5cb9472c0f13c86d8e01aea31',1,'Wrap_wrap.c']]]
+  ['name_5fmax',['NAME_MAX',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['next_5fbyte',['NEXT_BYTE',['../OVR__UTF8Util_8cpp.html#a92fc7a2ae1b63b8fa0d39219d8735f81',1,'OVR_UTF8Util.cpp']]],
+  ['nfdbits',['NFDBITS',['../OVR__Types_8h.html',1,'OVR_Types.h']]],
+  ['ngroups_5fmax',['NGROUPS_MAX',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['nr_5fopen',['NR_OPEN',['../OVR__Linux__HMDDevice_8cpp.html',1,'OVR_Linux_HMDDevice.cpp']]],
+  ['null',['NULL',['../OVR__Linux__HMDDevice_8cpp.html',1,'NULL():&#160;OVR_Linux_HMDDevice.cpp'],['../OVR__Linux__HMDDevice_8cpp.html',1,'NULL():&#160;OVR_Linux_HMDDevice.cpp']]]
 ];

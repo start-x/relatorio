@@ -13,6 +13,7 @@ var searchData=
   ['handlerscount',['HandlersCount',['../classOVR_1_1MessageHandlerRef.html#a9f1e0dc7e14501768ffd62f3a79919da',1,'OVR::MessageHandlerRef']]],
   ['hashvalue',['HashValue',['../classOVR_1_1HashsetCachedEntry.html#add332fab5db867897a33168f7c0e302b',1,'OVR::HashsetCachedEntry::HashValue()'],['../classOVR_1_1HashsetCachedNodeEntry.html#a14d804385e7af8ad3d7f50c7869e10c9',1,'OVR::HashsetCachedNodeEntry::HashValue()']]],
   ['haveoldtime',['HaveOldTime',['../classOVR_1_1Util_1_1LatencyTest.html#a4677e3a83b4423e79badd486a1db7c90',1,'OVR::Util::LatencyTest']]],
+  ['hdevinfo',['HDEVINFO',['../namespaceserial_1_1tools_1_1list__ports__windows.html#a6326f7b71578d8b4da24c20117396233',1,'serial::tools::list_ports_windows']]],
   ['head',['Head',['../classOVR_1_1SensorTimeFilter_1_1MinRecordBuffer.html#a5dcba717e29bc7aad7da252ab9e1285e',1,'OVR::SensorTimeFilter::MinRecordBuffer::Head()'],['../classOVR_1_1CircularBuffer.html#ad7be950f4f30242a53af26ad679dd5de',1,'OVR::CircularBuffer::Head()']]],
   ['header',['Header',['../OVR__CAPI_8h.html#ac543267c82454c4a3f2fac03487bbb65',1,'ovrRenderAPIConfig_::Header()'],['../OVR__CAPI_8h.html#ae3742a0f098e723b14437fe094d129ed',1,'ovrTexture_::Header()'],['../OVR__CAPI__GL_8h.html#a4c1654f1af0c0b23efc214b3dbdf6ccc',1,'ovrGLConfigData_s::Header()'],['../OVR__CAPI__GL_8h.html#af418a5722aa5c56aa3c3d577532a5506',1,'ovrGLTextureData_s::Header()']]],
   ['heaptypebits',['HeapTypeBits',['../classOVR_1_1String.html#a81d3e77103fefdce5ad51c52f32cbfff',1,'OVR::String::DataDescUnion']]],

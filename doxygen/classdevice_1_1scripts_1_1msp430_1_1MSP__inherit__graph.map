@@ -1,2 +1,3 @@
 <map id="device.scripts.msp430.MSP" name="device.scripts.msp430.MSP">
+<area shape="rect" id="node2" href="$classserial_1_1tools_1_1miniterm_1_1Miniterm.html" title="{serial.tools.miniterm.Miniterm\n|+ serial\l+ echo\l+ repr_mode\l+ convert_outgoing\l+ newline\l+ dtr_state\l+ rts_state\l+ break_state\l+ receiver_thread\l+ alive\l+ transmitter_thread\l&#45; _reader_alive\l|+ __init__()\l+ start()\l+ stop()\l+ join()\l+ dump_port_settings()\l+ reader()\l+ writer()\l&#45; _start_reader()\l&#45; _stop_reader()\l}" alt="" coords="5,131,197,487"/>
 </map>

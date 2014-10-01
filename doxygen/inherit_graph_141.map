@@ -1,4 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classOVR_1_1HashSetBase.html" title="OVR::HashSetBase\&lt; OVR\l::Thread *, OVR::ThreadList\l::ThreadHashOp, OVR::ThreadList\l::ThreadHashOp, ContainerAllocator\l\&lt; OVR::Thread * \&gt;, HashsetCachedEntry\l\&lt; OVR::Thread *, OVR::ThreadList::ThreadHashOp \&gt; \&gt;" alt="" coords="5,5,352,105"/>
-<area shape="rect" id="node2" href="$classOVR_1_1HashSet.html" title="OVR::HashSet\&lt; OVR::\lThread *, OVR::ThreadList\l::ThreadHashOp \&gt;" alt="" coords="401,27,578,83"/>
+<area shape="rect" id="node1" href="$structOVR_1_1CustomPatternImpl.html" title="OVR::CustomPatternImpl" alt="" coords="6,5,178,32"/>
 </map>

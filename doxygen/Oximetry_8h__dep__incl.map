@@ -1,7 +1,7 @@
 <map id="device/Oximetry.h" name="device/Oximetry.h">
-<area shape="rect" id="node2" href="$Bikex_8cpp.html" title="bikex/Bikex.cpp" alt="" coords="5,155,120,181"/>
-<area shape="rect" id="node3" href="$Bikex_8h.html" title="bikex/Bikex.h" alt="" coords="100,80,201,107"/>
-<area shape="rect" id="node5" href="$Oximetry_8cpp.html" title="device/Oximetry.cpp" alt="" coords="226,80,368,107"/>
-<area shape="rect" id="node6" href="$device_2tests_2tests_8cpp.html" title="device/tests/tests.cpp" alt="" coords="393,80,543,107"/>
+<area shape="rect" id="node2" href="$Bikex_8h.html" title="bikex/Bikex.h" alt="" coords="71,80,172,107"/>
+<area shape="rect" id="node5" href="$Oximetry_8cpp.html" title="device/Oximetry.cpp" alt="" coords="197,80,339,107"/>
+<area shape="rect" id="node6" href="$device_2tests_2tests_8cpp.html" title="device/tests/tests.cpp" alt="" coords="363,80,513,107"/>
+<area shape="rect" id="node3" href="$Bikex_8cpp.html" title="bikex/Bikex.cpp" alt="" coords="5,155,120,181"/>
 <area shape="rect" id="node4" href="$main_8cpp.html" title="main.cpp" alt="" coords="144,155,217,181"/>
 </map>

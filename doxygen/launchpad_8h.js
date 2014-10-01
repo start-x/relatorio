@@ -9,6 +9,7 @@ var launchpad_8h =
     [ "PIN_RX", "launchpad_8h.html#a6d36ce8ebfa0d2226caa366a98db3020", null ],
     [ "PIN_TX", "launchpad_8h.html#a44248c1cb3175c7bb62c0ebe92c1a0c0", null ],
     [ "SOLTA", "launchpad_8h.html#ab2df5a1e9217f66e0eef7bea6444b3bf", null ],
+    [ "T_100US", "launchpad_8h.html#aff2ae9437ab297ecf264bc409bf465db", null ],
     [ "VERD", "launchpad_8h.html#a019ff392eafa65019652da8fc1ede28d", null ],
     [ "VERM", "launchpad_8h.html#a67413a2c31b133b0656896e80371f372", null ],
     [ "alterled", "launchpad_8h.html#a0429a6bd583903afe8dfc08e4649172f", null ],
@@ -23,6 +24,7 @@ var launchpad_8h =
     [ "ligled", "launchpad_8h.html#a230889c24bd45c6e42922d31e78a645c", null ],
     [ "putchar", "launchpad_8h.html#a967740bdec52dd01e404d7b47d0fbcb7", null ],
     [ "readbotao", "launchpad_8h.html#a5fdf87fc1ee3928dda30a1e2be64828f", null ],
+    [ "setMultitimes", "launchpad_8h.html#aa656bb399b08f34a8c190a92e81e958b", null ],
     [ "waitbton", "launchpad_8h.html#aa38ef226cfd598eb1311f2254cb3cca7", null ],
     [ "wsserial", "launchpad_8h.html#a9358c8ee039cf8bb97d5e391a4ff44c4", null ]
 ];

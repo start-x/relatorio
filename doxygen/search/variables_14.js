@@ -28,7 +28,7 @@ var searchData=
   ['usecarrier',['UseCarrier',['../structOVR_1_1TrackingReport.html#ab524b7ad3ad5946731d886a91c0713fd',1,'OVR::TrackingReport']]],
   ['usecount',['UseCount',['../classOVR_1_1SharedLock.html#af32ad1d861bba7db3b21a56fd2f0ed15',1,'OVR::SharedLock']]],
   ['usefakeseconds',['useFakeSeconds',['../classOVR_1_1Timer.html#a2295b5898486d562b998c75119c3b91e',1,'OVR::Timer']]],
-  ['userhandle',['userHandle',['../structOVR_1_1Thread_1_1CreateParams.html#a34ad7a4a8e318555454dc2577828962a',1,'OVR::Thread::CreateParams::userHandle()'],['../classOVR_1_1Thread.html#a4028593649c806fe01740292930dc906',1,'OVR::Thread::UserHandle()']]],
+  ['userhandle',['UserHandle',['../classOVR_1_1Thread.html#a4028593649c806fe01740292930dc906',1,'OVR::Thread::UserHandle()'],['../structOVR_1_1Thread_1_1CreateParams.html#a34ad7a4a8e318555454dc2577828962a',1,'OVR::Thread::CreateParams::userHandle()']]],
   ['userolling',['UseRolling',['../structOVR_1_1DisplayReport.html#add914779b3f2502402bbd968914e9103',1,'OVR::DisplayReport']]],
   ['useslighting',['UsesLighting',['../classOVR_1_1CAPI_1_1GL_1_1ShaderSet.html#ac9daf36206066c992e7c847ae8e5fb24',1,'OVR::CAPI::GL::ShaderSet']]],
   ['uuid_5fsize',['UUID_SIZE',['../structOVR_1_1UUIDReport.html#abb4c5c0b4a518196699e387a998b13b0',1,'OVR::UUIDReport']]],

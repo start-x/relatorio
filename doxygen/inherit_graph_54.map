@@ -1,4 +1,3 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$structOVR_1_1ArrayDataBase.html" title="OVR::ArrayDataBase\l\&lt; OVR::Ptr\&lt; OVR::CAPI\l::GL::Texture \&gt;, ContainerAllocator\l\&lt; OVR::Ptr\&lt; OVR::CAPI::GL::Texture\l \&gt; \&gt;, ArrayDefaultPolicy \&gt;" alt="" coords="6,5,253,91"/>
-<area shape="rect" id="node2" href="$structOVR_1_1ArrayData.html" title="OVR::ArrayData\&lt; OVR\l::Ptr\&lt; OVR::CAPI::GL\l::Texture \&gt;, ContainerAllocator\l\&lt; OVR::Ptr\&lt; OVR::CAPI::GL::\lTexture \&gt; \&gt;, ArrayDefaultPolicy \&gt;" alt="" coords="301,5,520,91"/>
+<area shape="rect" id="node1" href="$classOVR_1_1ArrayBase_1_1Iterator.html" title="OVR::ArrayBase\&lt; ArrayData\l \&gt;::Iterator" alt="" coords="6,5,197,46"/>
 </map>

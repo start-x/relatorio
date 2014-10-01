@@ -1,0 +1,4 @@
+<map id="device.scripts.device.Break" name="device.scripts.device.Break">
+<area shape="rect" id="node2" href="$classdevice_1_1scripts_1_1device_1_1Active.html" title="{device.scripts.device.Active\n|+ data\l|+ __init__()\l+ write_data()\l+ read_data()\l}" alt="" coords="7,360,193,467"/>
+<area shape="rect" id="node3" href="$classdevice_1_1scripts_1_1device_1_1Device.html" title="{device.scripts.device.Device\n|+ serial\l+ type\l+ name\l+ data\l+ live\l|+ __init__()\l+ enable()\l+ desable()\l+ flush()\l}" alt="" coords="5,131,195,311"/>
+</map>

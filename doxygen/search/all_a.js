@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['join',['join',['../classserial_1_1tools_1_1miniterm_1_1Miniterm.html#a55bc8b2b29298418b67ec761c5dc0810',1,'serial::tools::miniterm::Miniterm']]],
   ['json',['JSON',['../classOVR_1_1JSON.html',1,'OVR']]],
   ['json',['JSON',['../classOVR_1_1JSON.html#ad3d5f9fc1402ef92c43bbba609ea4fa4',1,'OVR::JSON']]],
   ['json_5farray',['JSON_Array',['../namespaceOVR.html#aa1b0dff3235dff0aa093e2347accd15fa0f6d787388f8014ac0b7592a90aba450',1,'OVR']]],

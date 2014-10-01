@@ -31,7 +31,7 @@ var searchData=
   ['shader_5fvertex',['Shader_Vertex',['../namespaceOVR_1_1CAPI_1_1GL.html#a804694a6d8297d859712e76f12c37b0baa39cd32ea91b4a9d4584150c2a8a62a9',1,'OVR::CAPI::GL']]],
   ['shuttertype_5fdefault',['ShutterType_Default',['../structOVR_1_1DisplayReport.html#a30fb20d07b1ecdab3b2bbc2e4f67a427af6f02648f2a9601e8766d7292371142f',1,'OVR::DisplayReport']]],
   ['side_5fby_5fside',['SIDE_BY_SIDE',['../edid_8h.html#adacd321a7d4855441de8125d3ae39c7eafe8fdb2b63122c1df865f07ba4979fb3',1,'edid.h']]],
-  ['speed',['SPEED',['../Device_8h.html#abdbf8876f5e6df651488d85fca80c11ca1fb3554200c1173d24e97e9d32283ead',1,'Device.h']]],
+  ['speed',['SPEED',['../DeviceType_8h.html#abdbf8876f5e6df651488d85fca80c11ca1fb3554200c1173d24e97e9d32283ead',1,'DeviceType.h']]],
   ['state_5fwaitingforbutton',['State_WaitingForButton',['../classOVR_1_1Util_1_1LatencyTest.html#a59cb25a6b2c002912c9575442df1e8c4af671bdd94959f311f461fee98ccfbfaa',1,'OVR::Util::LatencyTest']]],
   ['state_5fwaitingforcolordetected',['State_WaitingForColorDetected',['../classOVR_1_1Util_1_1LatencyTest.html#a59cb25a6b2c002912c9575442df1e8c4abdfd8af48aaeb04bf2b01f3cd68d7361',1,'OVR::Util::LatencyTest']]],
   ['state_5fwaitingforsettlepostcalibrationcolorblack',['State_WaitingForSettlePostCalibrationColorBlack',['../classOVR_1_1Util_1_1LatencyTest.html#a59cb25a6b2c002912c9575442df1e8c4a7a0fd8f69eb52e02be4ff508d0acb277',1,'OVR::Util::LatencyTest']]],

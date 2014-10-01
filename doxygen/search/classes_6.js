@@ -13,6 +13,5 @@ var searchData=
   ['frametimemanager',['FrameTimeManager',['../classOVR_1_1CAPI_1_1FrameTimeManager.html',1,'OVR::CAPI']]],
   ['frametimerecord',['FrameTimeRecord',['../structOVR_1_1Util_1_1FrameTimeRecord.html',1,'OVR::Util']]],
   ['frametimerecordex',['FrameTimeRecordEx',['../structOVR_1_1CAPI_1_1FrameLatencyTracker_1_1FrameTimeRecordEx.html',1,'OVR::CAPI::FrameLatencyTracker']]],
-  ['frametimerecordset',['FrameTimeRecordSet',['../structOVR_1_1Util_1_1FrameTimeRecordSet.html',1,'OVR::Util']]],
-  ['freio',['Freio',['../classdevice_1_1scripts_1_1device_1_1Freio.html',1,'device::scripts::device']]]
+  ['frametimerecordset',['FrameTimeRecordSet',['../structOVR_1_1Util_1_1FrameTimeRecordSet.html',1,'OVR::Util']]]
 ];

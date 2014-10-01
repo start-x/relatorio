@@ -1,7 +1,7 @@
 var searchData=
 [
   ['oculus_5fvendorid',['Oculus_VendorId',['../namespaceOVR.html#aaf23dbf657a0383219cbb44d41c9d4c3a839a9b40695e23363dd726836b184b26',1,'OVR']]],
-  ['open',['OPEN',['../classtinyxml2_1_1XMLElement.html#ab6c3d11d12f9cdc4db13a04fc0a74f26a78cf277c55b4655c86458dfecb11d349',1,'tinyxml2::XMLElement']]],
+  ['open',['OPEN',['../classtinyxml2_1_1XMLElement.html#a878956013e4dea756809bf0174b863a4a78cf277c55b4655c86458dfecb11d349',1,'tinyxml2::XMLElement']]],
   ['open_5fbuffered',['Open_Buffered',['../classOVR_1_1FileConstants.html#ac5c70a3f9997c1754725675f79d9946fa15735a73e39f6dc53e80e6efe1af3cc3',1,'OVR::FileConstants']]],
   ['open_5fcreate',['Open_Create',['../classOVR_1_1FileConstants.html#ac5c70a3f9997c1754725675f79d9946fa20c951fcd24733ff5f133a81106c6f67',1,'OVR::FileConstants']]],
   ['open_5fcreateonly',['Open_CreateOnly',['../classOVR_1_1FileConstants.html#ac5c70a3f9997c1754725675f79d9946fa3bf45055a414e87308c2b44530424634',1,'OVR::FileConstants']]],
@@ -44,5 +44,5 @@ var searchData=
   ['ovrstatus_5forientationtracked',['ovrStatus_OrientationTracked',['../OVR__CAPI_8h.html#a8b44d89e34e7a77270947b55221c6bd0ab23855ba53a43c082e6ca2a9c62557b9',1,'OVR_CAPI.h']]],
   ['ovrstatus_5fpositionconnected',['ovrStatus_PositionConnected',['../OVR__CAPI_8h.html#a8b44d89e34e7a77270947b55221c6bd0acf8b318f6429aba5da84d226188c6a3c',1,'OVR_CAPI.h']]],
   ['ovrstatus_5fpositiontracked',['ovrStatus_PositionTracked',['../OVR__CAPI_8h.html#a8b44d89e34e7a77270947b55221c6bd0a717212291edf99b491ea45a52dbc0b61',1,'OVR_CAPI.h']]],
-  ['oximetry',['OXIMETRY',['../Device_8h.html#abdbf8876f5e6df651488d85fca80c11ca5df9e9023fd30223aaed99ec23a48e3e',1,'Device.h']]]
+  ['oximetry',['OXIMETRY',['../DeviceType_8h.html#abdbf8876f5e6df651488d85fca80c11ca5df9e9023fd30223aaed99ec23a48e3e',1,'DeviceType.h']]]
 ];

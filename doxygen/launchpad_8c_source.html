@@ -114,158 +114,166 @@ $(document).ready(function(){initNavTree('launchpad_8c_source.html','');});
 <div class="contents">
 <a href="launchpad_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include&lt;msp430g2553.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include&lt;string.h&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="launchpad_8h.html">launchpad.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="launchpad_8h.html">launchpad.h</a>&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="launchpad_8h.html#ae022b092ac85c9fdb7d3e56394f9202b">    9</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#ae022b092ac85c9fdb7d3e56394f9202b">desabWDT</a>()</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    WDTCTL = WDTPW|WDTHOLD;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// habilita botão sem interrupção</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a0d07cdbd2a550e2a656e0f229725416a">   19</a></span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a0d07cdbd2a550e2a656e0f229725416a">botao</a>()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    P1DIR &amp;= ~<a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    P1OUT |= <a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    P1REN |= <a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">// habilitar led n</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a0466dc0d0622c986e62e6b53e747283e">   36</a></span>&#160;<span class="comment"></span><span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> numled)</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">//numled é LED1 ou LED2</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    P1DIR|=numled;      </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// sensibilidade ao botão</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a5fdf87fc1ee3928dda30a1e2be64828f">   42</a></span>&#160;<span class="keywordtype">char</span> <a class="code" href="launchpad_8c.html#a5fdf87fc1ee3928dda30a1e2be64828f">readbotao</a>()</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keyword">volatile</span> sig;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">if</span> ((P1IN &amp; <a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>) == BOTAO)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        sig = 1;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        sig = 0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">return</span> sig;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">// Esperar equanto botão não/é pressionao</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="launchpad_8h.html#aa38ef226cfd598eb1311f2254cb3cca7">   55</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#aa38ef226cfd598eb1311f2254cb3cca7">waitbton</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> sinal)</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> (sinal==<a class="code" href="launchpad_8h.html#ab2df5a1e9217f66e0eef7bea6444b3bf">SOLTA</a>)</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">while</span>(!<a class="code" href="launchpad_8c.html#a5fdf87fc1ee3928dda30a1e2be64828f">readbotao</a>())</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {}</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sinal == <a class="code" href="launchpad_8h.html#a5da8d6187c18c012bcda2c184f6d1163">APERTA</a>)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="launchpad_8c.html#a5fdf87fc1ee3928dda30a1e2be64828f">readbotao</a>())</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">// Acender led</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a230889c24bd45c6e42922d31e78a645c">   66</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a>(<span class="keywordtype">char</span> numled)</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    P1OUT |= numled;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;}</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">// Apagar led</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a439430d42a348bf27d726d47d0bee574">   72</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a439430d42a348bf27d726d47d0bee574">desled</a>(<span class="keywordtype">char</span> numled)</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    P1OUT &amp;= ~numled;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">// Alternar led</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a0429a6bd583903afe8dfc08e4649172f">   78</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a0429a6bd583903afe8dfc08e4649172f">alterled</a>(<span class="keywordtype">unsigned</span> <span class="keyword">volatile</span> numled)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    P1OUT ^= numled;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">// delay coxa! -- count 1000</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="launchpad_8h.html#abc0628a9393d56606ce669eccb2996de">   84</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a>(<span class="keywordtype">int</span> numcic)</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;{</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count1 = 0, count2 = 0;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">for</span> (count1 = 0; count1&lt; numcic; count1++)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">for</span>(count2 = 0; count2 &lt; 1000; count2++)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;}</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">// configurar clock em 1MHz</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="launchpad_8h.html#afcb3f3c930a37e33b2bf8363708dbae7">   97</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a>()</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="comment">// BASEADO EM EXEMPLOS  </span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    DCOCTL = 0;                             </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    BCSCTL1 = CALBC1_1MHZ;                  </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    DCOCTL = CALDCO_1MHZ;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a7b6a862dc86052b6701fe454dfecb61d">  121</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a>()</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    P1SEL |= <a class="code" href="launchpad_8h.html#a44248c1cb3175c7bb62c0ebe92c1a0c0">PIN_TX</a> + <a class="code" href="launchpad_8h.html#a6d36ce8ebfa0d2226caa366a98db3020">PIN_RX</a> ;                     <span class="comment">// P1.1 = RXD, P1.2=TXD</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    P1SEL2 |= <a class="code" href="launchpad_8h.html#a44248c1cb3175c7bb62c0ebe92c1a0c0">PIN_TX</a> + <a class="code" href="launchpad_8h.html#a6d36ce8ebfa0d2226caa366a98db3020">PIN_RX</a> ;                    <span class="comment">// P1.1 = RXD, P1.2=TXD</span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    UCA0CTL1 |= UCSSEL_2;                     <span class="comment">// SMCLK</span></div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    UCA0BR0 = 104;                            <span class="comment">// 1MHz 9600</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    UCA0BR1 = 0;                              <span class="comment">// 1MHz 9600</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    UCA0MCTL = UCBRS0;                        <span class="comment">// Modulation UCBRSx = 1</span></div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    UCA0CTL1 &amp;= ~UCSWRST;                     <span class="comment">// **Initialize USCI state machine**</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">//le um char da uart</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a0979671914792955a7a68461634ff82d">  134</a></span>&#160;<span class="keywordtype">char</span> <a class="code" href="launchpad_8c.html#a0979671914792955a7a68461634ff82d">getchar</a>()</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span> UCA0RXBUF;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
-<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a967740bdec52dd01e404d7b47d0fbcb7">  139</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="launchpad_8c.html#a967740bdec52dd01e404d7b47d0fbcb7">putchar</a>(<span class="keywordtype">int</span> caracter)</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;{</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    UCA0TXBUF = caracter;</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a9358c8ee039cf8bb97d5e391a4ff44c4">  146</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a9358c8ee039cf8bb97d5e391a4ff44c4">wsserial</a>(<span class="keywordtype">char</span> *st)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">int</span> cont = 0, len = <a class="code" href="namespaceOVR_1_1Linux.html#a4627baf8777e7e0dd2169dca5a6c8a88">strlen</a>(st);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">for</span>(cont=0; cont&lt;len; cont++)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="launchpad_8c.html#a967740bdec52dd01e404d7b47d0fbcb7">putchar</a>(st[cont]);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a>(1);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a0d07cdbd2a550e2a656e0f229725416a">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a0d07cdbd2a550e2a656e0f229725416a">botao</a>()</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    P1DIR &amp;= ~<a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    P1OUT |= <a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    P1REN |= <a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a0466dc0d0622c986e62e6b53e747283e">   33</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> numled)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">/*numled é LED1 ou LED2 */</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    P1DIR|=numled;      </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/* sensibilidade ao botão */</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a5fdf87fc1ee3928dda30a1e2be64828f">   40</a></span>&#160;<span class="keywordtype">char</span> <a class="code" href="launchpad_8c.html#a4449dfebbf193f637193c51fd41403c8">readbotao</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keyword">volatile</span> sig;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span> ((P1IN &amp; <a class="code" href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a>) == BOTAO)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        sig = 1;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        sig = 0;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> sig;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/* Esperar equanto botão não/é pressionao */</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="launchpad_8h.html#aa38ef226cfd598eb1311f2254cb3cca7">   53</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#aa38ef226cfd598eb1311f2254cb3cca7">waitbton</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> sinal)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;{</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (sinal==<a class="code" href="launchpad_8h.html#ab2df5a1e9217f66e0eef7bea6444b3bf">SOLTA</a>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">while</span>(!<a class="code" href="launchpad_8c.html#a4449dfebbf193f637193c51fd41403c8">readbotao</a>())</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sinal == <a class="code" href="launchpad_8h.html#a5da8d6187c18c012bcda2c184f6d1163">APERTA</a>)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">while</span>(<a class="code" href="launchpad_8c.html#a4449dfebbf193f637193c51fd41403c8">readbotao</a>())</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/* Acender led */</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a230889c24bd45c6e42922d31e78a645c">   64</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a>(<span class="keywordtype">char</span> numled)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    P1OUT |= numled;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">/* Apagar led */</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a439430d42a348bf27d726d47d0bee574">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a439430d42a348bf27d726d47d0bee574">desled</a>(<span class="keywordtype">char</span> numled)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    P1OUT &amp;= ~numled;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/* Alternar led */</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="launchpad_8h.html#a0429a6bd583903afe8dfc08e4649172f">   76</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#a0429a6bd583903afe8dfc08e4649172f">alterled</a>(<span class="keywordtype">unsigned</span> <span class="keyword">volatile</span> numled)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    P1OUT ^= numled;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/* delay coxa! -- count 1000 */</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="launchpad_8h.html#abc0628a9393d56606ce669eccb2996de">   82</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a>(<span class="keywordtype">int</span> numcic)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count1 = 0, count2 = 0;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordflow">for</span> (count1 = 0; count1&lt; numcic; count1++)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keywordflow">for</span>(count2 = 0; count2 &lt; 1000; count2++)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">/* configurar clock em 1MHz */</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="launchpad_8h.html#afcb3f3c930a37e33b2bf8363708dbae7">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a>()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">/* BASEADO EM EXEMPLOS   */</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    DCOCTL = 0;                             </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    BCSCTL1 = CALBC1_1MHZ;                  </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    DCOCTL = CALDCO_1MHZ;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8h.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a>()</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    P1SEL |= <a class="code" href="launchpad_8h.html#a44248c1cb3175c7bb62c0ebe92c1a0c0">PIN_TX</a> + <a class="code" href="launchpad_8h.html#a6d36ce8ebfa0d2226caa366a98db3020">PIN_RX</a> ;                     <span class="comment">/* P1.1 = RXD, P1.2=TXD */</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    P1SEL2 |= <a class="code" href="launchpad_8h.html#a44248c1cb3175c7bb62c0ebe92c1a0c0">PIN_TX</a> + <a class="code" href="launchpad_8h.html#a6d36ce8ebfa0d2226caa366a98db3020">PIN_RX</a> ;                    <span class="comment">/* P1.1 = RXD, P1.2=TXD */</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    UCA0CTL1 |= UCSSEL_2;                     <span class="comment">/* SMCLK */</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    UCA0BR0 = 104;                            <span class="comment">/* 1MHz 9600 */</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    UCA0BR1 = 0;                              <span class="comment">/* 1MHz 9600 */</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    UCA0MCTL = UCBRS0;                        <span class="comment">/* Modulation UCBRSx = 1 */</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    UCA0CTL1 &amp;= ~UCSWRST;                     <span class="comment">/* **Initialize USCI state machine** */</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="comment">/* le um char da uart */</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="keywordtype">char</span> <a class="code" href="launchpad_8h.html#a0979671914792955a7a68461634ff82d">getchar</a>()</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;{</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keywordflow">while</span>(!(IFG2 &amp; UCA0RXBUF));</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> UCA0RXBUF;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keywordtype">int</span> <a class="code" href="launchpad_8h.html#a967740bdec52dd01e404d7b47d0fbcb7">putchar</a>(<span class="keywordtype">int</span> caracter)</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    UCA0TXBUF = caracter;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8h.html#a9358c8ee039cf8bb97d5e391a4ff44c4">wsserial</a>(<span class="keywordtype">char</span> *st)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keyword">volatile</span> <span class="keywordtype">int</span> cont = 0, len = <a class="code" href="namespaceOVR_1_1Linux.html#a4627baf8777e7e0dd2169dca5a6c8a88">strlen</a>(st);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">for</span>(cont=0; cont&lt;len; cont++)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <a class="code" href="launchpad_8h.html#a967740bdec52dd01e404d7b47d0fbcb7">putchar</a>(st[cont]);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a>(1);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
-<div class="ttc" id="launchpad_8c_html_a5fdf87fc1ee3928dda30a1e2be64828f"><div class="ttname"><a href="launchpad_8c.html#a5fdf87fc1ee3928dda30a1e2be64828f">readbotao</a></div><div class="ttdeci">char readbotao()</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00042">launchpad.c:42</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a967740bdec52dd01e404d7b47d0fbcb7"><div class="ttname"><a href="launchpad_8c.html#a967740bdec52dd01e404d7b47d0fbcb7">putchar</a></div><div class="ttdeci">int putchar(int caracter)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00139">launchpad.c:139</a></div></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordtype">void</span> <a class="code" href="launchpad_8h.html#aa656bb399b08f34a8c190a92e81e958b">setMultitimes</a>()</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;{</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    CCTL0 = CCIE;                             <span class="comment">// CCR0 interrupt enabled</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    CCR0 = <a class="code" href="launchpad_8h.html#aff2ae9437ab297ecf264bc409bf465db">T_100US</a>; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    TACTL = TASSEL_2 + MC_2;                  <span class="comment">// SMCLK, contmode</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
 <div class="ttc" id="launchpad_8h_html_a44248c1cb3175c7bb62c0ebe92c1a0c0"><div class="ttname"><a href="launchpad_8h.html#a44248c1cb3175c7bb62c0ebe92c1a0c0">PIN_TX</a></div><div class="ttdeci">#define PIN_TX</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00020">launchpad.h:20</a></div></div>
+<div class="ttc" id="launchpad_8h_html_aff2ae9437ab297ecf264bc409bf465db"><div class="ttname"><a href="launchpad_8h.html#aff2ae9437ab297ecf264bc409bf465db">T_100US</a></div><div class="ttdeci">#define T_100US</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00025">launchpad.h:25</a></div></div>
 <div class="ttc" id="launchpad_8h_html_a36721aed59b2e9730da38c1433df17f2"><div class="ttname"><a href="launchpad_8h.html#a36721aed59b2e9730da38c1433df17f2">BOTAO</a></div><div class="ttdeci">#define BOTAO</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00005">launchpad.h:5</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a230889c24bd45c6e42922d31e78a645c"><div class="ttname"><a href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a></div><div class="ttdeci">void ligled(char numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00066">launchpad.c:66</a></div></div>
-<div class="ttc" id="launchpad_8c_html_abc0628a9393d56606ce669eccb2996de"><div class="ttname"><a href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a></div><div class="ttdeci">void dly_coxa(int numcic)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00084">launchpad.c:84</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a230889c24bd45c6e42922d31e78a645c"><div class="ttname"><a href="launchpad_8c.html#a230889c24bd45c6e42922d31e78a645c">ligled</a></div><div class="ttdeci">void ligled(char numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00064">launchpad.c:64</a></div></div>
+<div class="ttc" id="launchpad_8c_html_abc0628a9393d56606ce669eccb2996de"><div class="ttname"><a href="launchpad_8c.html#abc0628a9393d56606ce669eccb2996de">dly_coxa</a></div><div class="ttdeci">void dly_coxa(int numcic)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00082">launchpad.c:82</a></div></div>
 <div class="ttc" id="namespaceOVR_1_1Linux_html_a4627baf8777e7e0dd2169dca5a6c8a88"><div class="ttname"><a href="namespaceOVR_1_1Linux.html#a4627baf8777e7e0dd2169dca5a6c8a88">OVR::Linux::strlen</a></div><div class="ttdeci">__END_NAMESPACE_STD char char __BEGIN_NAMESPACE_STD size_t strlen(const char *__s) __THROW __attribute_pure__ __nonnull((1))</div></div>
-<div class="ttc" id="launchpad_8c_html_a9358c8ee039cf8bb97d5e391a4ff44c4"><div class="ttname"><a href="launchpad_8c.html#a9358c8ee039cf8bb97d5e391a4ff44c4">wsserial</a></div><div class="ttdeci">void wsserial(char *st)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00146">launchpad.c:146</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a0979671914792955a7a68461634ff82d"><div class="ttname"><a href="launchpad_8c.html#a0979671914792955a7a68461634ff82d">getchar</a></div><div class="ttdeci">char getchar()</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00134">launchpad.c:134</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a0466dc0d0622c986e62e6b53e747283e"><div class="ttname"><a href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a></div><div class="ttdeci">void hled(unsigned char numled)</div><div class="ttdoc">Enable LED. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00036">launchpad.c:36</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a439430d42a348bf27d726d47d0bee574"><div class="ttname"><a href="launchpad_8c.html#a439430d42a348bf27d726d47d0bee574">desled</a></div><div class="ttdeci">void desled(char numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00072">launchpad.c:72</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a7b6a862dc86052b6701fe454dfecb61d"><div class="ttname"><a href="launchpad_8c.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a></div><div class="ttdeci">void hserial()</div><div class="ttdoc">Configure UART. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00121">launchpad.c:121</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a0466dc0d0622c986e62e6b53e747283e"><div class="ttname"><a href="launchpad_8c.html#a0466dc0d0622c986e62e6b53e747283e">hled</a></div><div class="ttdeci">void hled(unsigned char numled)</div><div class="ttdoc">Enable LED. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00033">launchpad.c:33</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a439430d42a348bf27d726d47d0bee574"><div class="ttname"><a href="launchpad_8c.html#a439430d42a348bf27d726d47d0bee574">desled</a></div><div class="ttdeci">void desled(char numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00070">launchpad.c:70</a></div></div>
+<div class="ttc" id="launchpad_8h_html_a7b6a862dc86052b6701fe454dfecb61d"><div class="ttname"><a href="launchpad_8h.html#a7b6a862dc86052b6701fe454dfecb61d">hserial</a></div><div class="ttdeci">void hserial()</div></div>
 <div class="ttc" id="launchpad_8h_html"><div class="ttname"><a href="launchpad_8h.html">launchpad.h</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a4449dfebbf193f637193c51fd41403c8"><div class="ttname"><a href="launchpad_8c.html#a4449dfebbf193f637193c51fd41403c8">readbotao</a></div><div class="ttdeci">char readbotao(void)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00040">launchpad.c:40</a></div></div>
+<div class="ttc" id="launchpad_8h_html_a9358c8ee039cf8bb97d5e391a4ff44c4"><div class="ttname"><a href="launchpad_8h.html#a9358c8ee039cf8bb97d5e391a4ff44c4">wsserial</a></div><div class="ttdeci">void wsserial(char *st)</div></div>
 <div class="ttc" id="launchpad_8h_html_a5da8d6187c18c012bcda2c184f6d1163"><div class="ttname"><a href="launchpad_8h.html#a5da8d6187c18c012bcda2c184f6d1163">APERTA</a></div><div class="ttdeci">#define APERTA</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00006">launchpad.h:6</a></div></div>
 <div class="ttc" id="launchpad_8h_html_a6d36ce8ebfa0d2226caa366a98db3020"><div class="ttname"><a href="launchpad_8h.html#a6d36ce8ebfa0d2226caa366a98db3020">PIN_RX</a></div><div class="ttdeci">#define PIN_RX</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00021">launchpad.h:21</a></div></div>
 <div class="ttc" id="launchpad_8h_html_ab2df5a1e9217f66e0eef7bea6444b3bf"><div class="ttname"><a href="launchpad_8h.html#ab2df5a1e9217f66e0eef7bea6444b3bf">SOLTA</a></div><div class="ttdeci">#define SOLTA</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8h_source.html#l00007">launchpad.h:7</a></div></div>
-<div class="ttc" id="launchpad_8c_html_aa38ef226cfd598eb1311f2254cb3cca7"><div class="ttname"><a href="launchpad_8c.html#aa38ef226cfd598eb1311f2254cb3cca7">waitbton</a></div><div class="ttdeci">void waitbton(unsigned char sinal)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00055">launchpad.c:55</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a0429a6bd583903afe8dfc08e4649172f"><div class="ttname"><a href="launchpad_8c.html#a0429a6bd583903afe8dfc08e4649172f">alterled</a></div><div class="ttdeci">void alterled(unsigned volatile numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00078">launchpad.c:78</a></div></div>
-<div class="ttc" id="launchpad_8c_html_afcb3f3c930a37e33b2bf8363708dbae7"><div class="ttname"><a href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a></div><div class="ttdeci">void dco1mhz()</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00097">launchpad.c:97</a></div></div>
-<div class="ttc" id="launchpad_8c_html_a0d07cdbd2a550e2a656e0f229725416a"><div class="ttname"><a href="launchpad_8c.html#a0d07cdbd2a550e2a656e0f229725416a">botao</a></div><div class="ttdeci">void botao()</div><div class="ttdoc">Enable the button. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00019">launchpad.c:19</a></div></div>
+<div class="ttc" id="launchpad_8c_html_aa38ef226cfd598eb1311f2254cb3cca7"><div class="ttname"><a href="launchpad_8c.html#aa38ef226cfd598eb1311f2254cb3cca7">waitbton</a></div><div class="ttdeci">void waitbton(unsigned char sinal)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00053">launchpad.c:53</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a0429a6bd583903afe8dfc08e4649172f"><div class="ttname"><a href="launchpad_8c.html#a0429a6bd583903afe8dfc08e4649172f">alterled</a></div><div class="ttdeci">void alterled(unsigned volatile numled)</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00076">launchpad.c:76</a></div></div>
+<div class="ttc" id="launchpad_8c_html_afcb3f3c930a37e33b2bf8363708dbae7"><div class="ttname"><a href="launchpad_8c.html#afcb3f3c930a37e33b2bf8363708dbae7">dco1mhz</a></div><div class="ttdeci">void dco1mhz()</div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00095">launchpad.c:95</a></div></div>
+<div class="ttc" id="launchpad_8c_html_a0d07cdbd2a550e2a656e0f229725416a"><div class="ttname"><a href="launchpad_8c.html#a0d07cdbd2a550e2a656e0f229725416a">botao</a></div><div class="ttdeci">void botao()</div><div class="ttdoc">Enable the button. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00018">launchpad.c:18</a></div></div>
+<div class="ttc" id="launchpad_8h_html_a0979671914792955a7a68461634ff82d"><div class="ttname"><a href="launchpad_8h.html#a0979671914792955a7a68461634ff82d">getchar</a></div><div class="ttdeci">char getchar()</div></div>
 <div class="ttc" id="launchpad_8c_html_ae022b092ac85c9fdb7d3e56394f9202b"><div class="ttname"><a href="launchpad_8c.html#ae022b092ac85c9fdb7d3e56394f9202b">desabWDT</a></div><div class="ttdeci">void desabWDT()</div><div class="ttdoc">Desable Watchdog. </div><div class="ttdef"><b>Definition:</b> <a href="launchpad_8c_source.html#l00009">launchpad.c:9</a></div></div>
+<div class="ttc" id="launchpad_8h_html_aa656bb399b08f34a8c190a92e81e958b"><div class="ttname"><a href="launchpad_8h.html#aa656bb399b08f34a8c190a92e81e958b">setMultitimes</a></div><div class="ttdeci">void setMultitimes()</div></div>
+<div class="ttc" id="launchpad_8h_html_a967740bdec52dd01e404d7b47d0fbcb7"><div class="ttname"><a href="launchpad_8h.html#a967740bdec52dd01e404d7b47d0fbcb7">putchar</a></div><div class="ttdeci">int putchar(int caracter)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_820b2b9dd608784780e51ab49715a98b.html">device</a></li><li class="navelem"><a class="el" href="dir_feb2c726f24e537367245d80669f958b.html">msp430dev</a></li><li class="navelem"><a class="el" href="launchpad_8c.html">launchpad.c</a></li>
-    <li class="footer">Generated on Wed Sep 24 2014 22:48:17 for Bike-X by
+    <li class="navelem"><a class="el" href="dir_cce4f905588ddf4b87939ba546022e75.html">device</a></li><li class="navelem"><a class="el" href="dir_7e083234fe30e1db249a132501589e71.html">msp430dev</a></li><li class="navelem"><a class="el" href="launchpad_8c.html">launchpad.c</a></li>
+    <li class="footer">Generated on Wed Oct 1 2014 00:45:20 for Bike-X by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

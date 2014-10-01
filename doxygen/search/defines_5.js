@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gfile_5fcxx',['GFILE_CXX',['../OVR__File_8cpp.html#ab0341247a4907954c90b562310361618',1,'GFILE_CXX():&#160;OVR_File.cpp'],['../OVR__FileFILE_8cpp.html#ab0341247a4907954c90b562310361618',1,'GFILE_CXX():&#160;OVR_FileFILE.cpp'],['../OVR__SysFile_8cpp.html#ab0341247a4907954c90b562310361618',1,'GFILE_CXX():&#160;OVR_SysFile.cpp']]],
-  ['gl_5fglext_5fprototypes',['GL_GLEXT_PROTOTYPES',['../CAPI__GL__Util_8h.html#a120fb070bddb21f0bd899f50252c4cb5',1,'CAPI_GL_Util.h']]]
+  ['enxio',['ENXIO',['../adc_8h.html#a2b3884b11e4932bd372bb6d899d6fbfe',1,'adc.h']]],
+  ['eperm',['EPERM',['../adc_8h.html#add669d31505a077f769cff8e66c780b3',1,'adc.h']]]
 ];

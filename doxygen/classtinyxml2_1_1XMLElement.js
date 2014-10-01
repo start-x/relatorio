@@ -1,8 +1,8 @@
 var classtinyxml2_1_1XMLElement =
 [
-    [ "OPEN", "classtinyxml2_1_1XMLElement.html#ab6c3d11d12f9cdc4db13a04fc0a74f26a78cf277c55b4655c86458dfecb11d349", null ],
-    [ "CLOSED", "classtinyxml2_1_1XMLElement.html#ab6c3d11d12f9cdc4db13a04fc0a74f26aa2f1f384020d2d4538ad2ec84930a028", null ],
-    [ "CLOSING", "classtinyxml2_1_1XMLElement.html#ab6c3d11d12f9cdc4db13a04fc0a74f26aa2857344b98a931536c443cd0cadc4b7", null ],
+    [ "OPEN", "classtinyxml2_1_1XMLElement.html#a878956013e4dea756809bf0174b863a4a78cf277c55b4655c86458dfecb11d349", null ],
+    [ "CLOSED", "classtinyxml2_1_1XMLElement.html#a878956013e4dea756809bf0174b863a4aa2f1f384020d2d4538ad2ec84930a028", null ],
+    [ "CLOSING", "classtinyxml2_1_1XMLElement.html#a878956013e4dea756809bf0174b863a4aa2857344b98a931536c443cd0cadc4b7", null ],
     [ "XMLElement", "classtinyxml2_1_1XMLElement.html#a52484940e20f3734e6edc5e5c3af2dbc", null ],
     [ "~XMLElement", "classtinyxml2_1_1XMLElement.html#a2b80613624153da83044a8b616fb325e", null ],
     [ "XMLElement", "classtinyxml2_1_1XMLElement.html#a1aa8ab977a1799bf118efb158248351b", null ],

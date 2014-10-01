@@ -4,6 +4,7 @@ var searchData=
   ['handlemessage',['handleMessage',['../classOVR_1_1SensorFusion.html#ac03a1db52ef65cb3906afd065438de4a',1,'OVR::SensorFusion::handleMessage()'],['../classOVR_1_1Util_1_1LatencyTest.html#aab70b0576d4d7ae0da3153875bffe18c',1,'OVR::Util::LatencyTest::handleMessage()'],['../classOVR_1_1Util_1_1LatencyTest2.html#a2990aa49cc2a40105b91b21299bef987',1,'OVR::Util::LatencyTest2::handleMessage()']]],
   ['hasabsolutepath',['HasAbsolutePath',['../classOVR_1_1String.html#af831b38b9d9765f70c96509a6a308e68',1,'OVR::String::HasAbsolutePath(const char *path)'],['../classOVR_1_1String.html#aa89c70bef84898334fda8b066983af63',1,'OVR::String::HasAbsolutePath() const ']]],
   ['hasbom',['HasBOM',['../classtinyxml2_1_1XMLDocument.html#a530649e9de7e5aa8df9c37f66197fcb6',1,'tinyxml2::XMLDocument']]],
+  ['hascommand',['HasCommand',['../classOVR_1_1ThreadCommand_1_1PopBuffer.html#a61c7ca9f9f1b66c747ac460986867999',1,'OVR::ThreadCommand::PopBuffer']]],
   ['hasdevice',['HasDevice',['../classOVR_1_1Util_1_1LatencyTest.html#a778e5a1a74d8ab577e2afc430f1be6eb',1,'OVR::Util::LatencyTest::HasDevice()'],['../classOVR_1_1Util_1_1LatencyTest2.html#aa6526a2dfb9dadfa92809b4623cb189d',1,'OVR::Util::LatencyTest2::HasDevice()']]],
   ['hasdisplaydevice',['HasDisplayDevice',['../classOVR_1_1Util_1_1LatencyTest2.html#aede90ab76c3594583ae37d020c283522',1,'OVR::Util::LatencyTest2']]],
   ['hasextension',['HasExtension',['../classOVR_1_1String.html#a35a73df51677cccab1d306fe88697814',1,'OVR::String::HasExtension(const char *path)'],['../classOVR_1_1String.html#a9ecbc79bfa31c1294d820593d40e5a38',1,'OVR::String::HasExtension() const ']]],
@@ -37,5 +38,6 @@ var searchData=
   ['hmdrenderinfo',['HmdRenderInfo',['../structOVR_1_1HmdRenderInfo.html#a890fc7f3722177046ad7cde68a756586',1,'OVR::HmdRenderInfo']]],
   ['hmdrenderstate',['HMDRenderState',['../classOVR_1_1CAPI_1_1HMDRenderState.html#a772e35293f39a1a11265a65eb770e9dc',1,'OVR::CAPI::HMDRenderState']]],
   ['hmdstate',['HMDState',['../classOVR_1_1CAPI_1_1HMDState.html#a7658131c49a201fb4b4a6b976c25ab1b',1,'OVR::CAPI::HMDState::HMDState(HMDDevice *device)'],['../classOVR_1_1CAPI_1_1HMDState.html#a7ed2846242fa245abad99adc3cbb6451',1,'OVR::CAPI::HMDState::HMDState(ovrHmdType hmdType)']]],
-  ['hserial',['hserial',['../launchpad_8c.html#a7b6a862dc86052b6701fe454dfecb61d',1,'hserial():&#160;launchpad.c'],['../launchpad_8h.html#a7b6a862dc86052b6701fe454dfecb61d',1,'hserial():&#160;launchpad.c']]]
+  ['hserial',['hserial',['../launchpad_8h.html#a7b6a862dc86052b6701fe454dfecb61d',1,'launchpad.h']]],
+  ['hwinfo',['hwinfo',['../namespaceserial_1_1tools_1_1list__ports__posix.html#ad7e534ccf88fda3c8241c0235c44b7b3',1,'serial::tools::list_ports_posix']]]
 ];
