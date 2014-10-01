@@ -18,3 +18,61 @@
 \setlength{\parindent}{1.3cm}
 \setlength{\parskip}{0.2cm}  
 \makeindex
+
+\usetikzlibrary{shapes,arrows,shadows}
+\usetikzlibrary{mindmap,trees}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,
+    auto corner on length=1mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                      {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                    {\pgfqpoint{-\pgfdecorationsegmentaspect
+                     \pgfdecoratedinputsegmentremainingdistance}%
+                               {\pgfmathresult\pgfdecorationsegmentamplitude}
+                    }
+        }
+        {%TO 
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+
+
+% \usepackage{tikzgraphicx}
+
+\tikzstyle{cloud} = [draw, ellipse,fill=blue!20, node distance=3cm,
+    minimum height=3em]
+\tikzstyle{estado} = [draw, ellipse,fill=blue!20, node distance=3cm,align=center]
+\tikzstyle{teste} = [draw, diamond,fill=green!20, node distance=3cm,align=left]
+%    minimum height=2em]
+\tikzstyle{ciclo} =[draw, rectangle,fill=blue!20, node distance=3cm,align=center,decorate,thick,minimum height=3em]
+\tikzstyle{phanton} = []   
+\tikzstyle{line} = [->,right] %[draw, -latex']
+\tikzstyle{retorno} = [loop above]
+\tikzstyle{arrow} = [bend left,->]
+\tikzset{
+    %Define standard arrow tip
+    >=stealth',
+    %Define style for boxes
+    punkt/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           text width=6.5em,
+           minimum height=2em,
+           text centered},
+    % Define arrow style
+    pil/.style={
+           ->,
+           thick,
+           shorten <=2pt,
+           shorten >=2pt,}
+}
