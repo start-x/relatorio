@@ -5,3 +5,49 @@
 \section{Acoplamento do alternador}
 Mostrar onde o alternador vai ser acoplado na base da bicicleta, como a roda vai girar o alternador, qual a forca a ser aplicada na pedalada pra mover o alternador...Colocar fotos e modelagens (do catia?)
 (A energia gerada sera apresentada aqui tbm ? )
+
+
+
+% subsection tac_metro (end)
+\begin{figure}[h]
+	\centering
+	\begin{circuitikz}[american,scale=0.8,
+		start chain=going right,
+		diamond/.style={
+			on chain,join,draw,
+			minimum height=3cm,
+			text centered,
+			minimum width=2cm,
+		},
+		every join/.style={ultra thick}]
+
+	\draw
+	(-20,0) node[transformer core] (T) {}
+	(T.A1) node[anchor=east] {} %A1
+	(T.A2) node[anchor=east] {} %A2
+	(T.B1) node[anchor=west] {} %B1
+	(T.B2) node[anchor=west] {} %B2
+	;
+
+	\draw (-18,0)
+		to[D*,*-*,n=d1] ++(45 :2)
+		to[D*,*-*,n=d2] ++(-45 :2);
+	\draw (-18,0)
+		to[D*,*-*,n=d3] ++(-45 :2)
+		to[D*,*-*,n=d4] ++(45:2);
+
+	\draw
+	(T.A2) to  [sinusoidal current source,l^=$\frac{14V}{35A}$,n=cap] ++(0,2.5) to  (T.A1)
+	(T.B1) -| (d1)
+	(d2) to [short,n=center] ++(3,0)
+	(center) to [R,l_=$R_1$,*-] ++(0,3) to [zD*,l_=$Z_1$]++(0,2) to [fuse,-o]++(4,0)
+	(center) to [R,l_=$R_2$,mirror]++(0,-3) to [fuse]++(0,-2) to [D*,n=dio]++(4,0) 
+	(center) to [fuse]++(6,0) to [short]++(1,0) to [cspst]++(0,-3) to [short,n=end]++(0,-2) to [battery,l_=$\frac{12V}{7Ah}$,*-]++(-3,0) to (dio)
+	(end) to [cspst]++(0,-4) to [short,n=baixo]++(0,-0.5) to [lamp]++(0,-1)
+	(T.B2) |- (baixo)
+	;
+
+	\end{circuitikz}
+	\caption{Circuito do Alternador}
+	\label{circ}
+\end{figure}
