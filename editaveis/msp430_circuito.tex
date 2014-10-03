@@ -22,36 +22,35 @@ Is a port of the GNU C Compiler (GCC) and GNU Binutils (as, ld) for the embedded
 \label{sub:tac_metro}
 
 % subsection tac_metro (end)
-\begin{figure}[h]
-	\centering
-	\begin{circuitikz}[american,scale=0.7]
+% \begin{figure}[h]
+% 	\centering
+% 	\begin{circuitikz}[american,scale=0.7]
 
-	\draw
-	(2.5,0) node[short] (init) {}
-	% (2.5,-11) node[ground] (g) {}
-	(10,-11) node[ground] (g) {}
-	(18.1,-5.7) node[op amp,yscale=-1] (opamp){}
-	(opamp.+) node[left] {}
-	(17.9,-5.7) node[open]  {$LM324$}
-	(opamp.-) node[left] {}
-	(opamp.out) --  ++(1,0) node[ocirc,o-*] {~$MSP430$}
-	(opamp.up) to [short] (18,-11) to (g)
-	(opamp.down) ++ (0,.5) node[above] {} -- (opamp.down)
-	;
+% 	\draw
+% 	(2.5,0) node[short] (init) {}
+% 	(10,-11) node[ground] (g) {}
+% 	(18.1,-5.7) node[op amp,yscale=-1] (opamp){}
+% 	(opamp.+) node[left] {}
+% 	(17.9,-5.7) node[open]  {$LM324$}
+% 	(opamp.-) node[left] {}
+% 	(opamp.out) --  ++(1,0) node[ocirc,o-*] {~$MSP430$}
+% 	(opamp.up) to [short] (18,-11) to (g)
+% 	(opamp.down) ++ (0,.5) node[above] {} -- (opamp.down)
+% 	;
 
-	\draw
-	(g) to [short] (2.5,-11) to [battery1,l_=$5V$,n=cap,*-*] ++(0,11)  to (init)
-	(init)  to[short, *-*] (18,0) to (opamp.down)  ++(3,-3)
-	(init)  to[short, *-*] (5,0) to [R,l^=$100\Omega$] ++(0,-5) to [empty led,l^=$IF\_Emiter$,-*] (5,-11) to (g)
-	(init)  to[short, *-*] (10,0) to [R,l^=$1K\Omega$] ++(0,-5) to [short,n=in1,*-*] ++(0,0) 
-	(g) to [pD,l^=$IF\_Sensor$,*-,mirror] ++(0,5) to (in1)
-	(in1) to (opamp.+)
-	(init)  to[short, *-*] (15,0) to [R,l^=$10K\Omega$] ++(0,-5)  to [short] ++(0,-1.40)to [short,n=in2,-*] ++(0,0) to [R,l^=$10K\Omega$,-*] (15,-11) to (g)
-	(in2) to (opamp.-)
-	;
+% 	\draw
+% 	(g) to [short] (2.5,-11) to [battery1,l_=$5V$,n=cap,*-*] ++(0,11)  to (init)
+% 	(init)  to[short, *-*] (18,0) to (opamp.down)  ++(3,-3)
+% 	(init)  to[short, *-*] (5,0) to [R,l^=$100\Omega$] ++(0,-5) to [empty led,l^=$IF\_Emiter$,-*] (5,-11) to (g)
+% 	(init)  to[short, *-*] (10,0) to [R,l^=$1K\Omega$] ++(0,-5) to [short,n=in1,*-*] ++(0,0) 
+% 	(g) to [pD,l^=$IF\_Sensor$,*-,mirror] ++(0,5) to (in1)
+% 	(in1) to (opamp.+)
+% 	(init)  to[short, *-*] (15,0) to [R,l^=$10K\Omega$] ++(0,-5)  to [short] ++(0,-1.40)to [short,n=in2,-*] ++(0,0) to [R,l^=$10K\Omega$,-*] (15,-11) to (g)
+% 	(in2) to (opamp.-)
+% 	;
 
-	\end{circuitikz}
-	\caption[Tacômetro]{Circuito do Tacômetro}
-	\label{circ}
-\end{figure}
+% 	\end{circuitikz}
+% 	\caption[Tacômetro]{Circuito do Tacômetro}
+% 	\label{circ}
+% \end{figure}
 
