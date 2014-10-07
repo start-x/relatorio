@@ -56,6 +56,29 @@ Do ponto de vista do BikeX a aplicação Python estará rodando sempre em \texti
 % Por ser um programa assíncrono, a aplicação passará grande parte do tempo ociosa.
 A tomada de uso de sinais para acordar o processo possibilita que o mesmo se mantenha em descanço durante todo o período em que não há requisição de dados. Como resultado do ponto de vista da arquitetura que suportado software, não há uma sobrecarga de processamento, evitando o \textit{overhead} de requisições desnecessárias e possibilitando assim que o processamento possa ficar focado onde realmente há uma grande demanda de CPU e GPU, que é a interface gráfica da aplicação.
 
+%../startx-src/device/scripts/main.py
+
+\begin{lstlisting}[language=Python,caption={Trecho do código principal}]
+
+def main():
+    pid_bikex = sys.argv[1:2]
+    print "Father: %s" % pid_bikex
+    print "Mine: %d " % getpid()
+    print SIG1,SIG2,SIG3
+    msp430.curb = sensor.Break(msp430.serial,0)
+    msp430.passives = sensor.Passives(msp430.serial,0)
+
+    signal(SIG1, write_file)
+    signal(SIG3, read_file)
+    signal(SIGINT, safe_quit)
+    signal(SIGQUIT, safe_quit)
+    signal(SIGABRT, safe_quit)
+    while True:
+        sleep(0.01)
+
+\end{lstlisting}
+
+
 \subsection{Visão do MSP430} % (fold)
 \label{sub:vis_o_do_msp430}
 
