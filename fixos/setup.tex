@@ -99,6 +99,18 @@
     \endgroup
 }
 \makeatother
+\renewcommand\lstlistingname{Código}
+
+\DeclareCaptionFormat{listing}{\vskip1pt\rule{\dimexpr\textwidth\relax}{0.4pt}\par\vskip1pt{\centering#1#2#3}}
+\captionsetup[lstlisting]{format=listing,singlelinecheck=false, margin=0pt, font={sf},labelsep=space,labelfont=bf}
+
+\DeclareMathVersion{sans}
+\SetSymbolFont{operators}{sans}{OT1}{cmbr}{m}{n}
+\SetSymbolFont{letters}  {sans}{OML}{cmbrm}{m}{it}
+\SetSymbolFont{symbols}  {sans}{OMS}{cmbrs}{m}{n}
+
+\lstnewenvironment{sflisting}[1][]
+  {\lstset{#1}\mathversion{sans}}{}
 
 \lstset{%
 language=C++,           %linguagem
