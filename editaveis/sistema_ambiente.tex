@@ -33,22 +33,66 @@ Este capítulo descreve partes do sistema como um todo, abrangendo ferramentas d
 \section{Puppet} % (fold)
 \label{sec:puppet}
 
-Para agilizar e evitar os problema com compatibilidades e erros de versões, foi utilizado a ferramenta \href{http://puppetlabs.com}{Puppet} para auxiliar com este processo administrativo de desenvolvimento do sistema.
+Para agilizar e evitar os problema com compatibilidades e erros de versões de bibliotecas e outros ativos, foi utilizado a ferramenta \href{http://puppetlabs.com}{Puppet} para auxiliar com este processo administrativo de desenvolvimento do sistema. O Puppet está sendo usado como ferramanta para gerenciamento de configuração do ambiente de desenvolvimento do projeto Bike-X.
 
 \subsection{O que é o Puppet} % (fold)
 \label{sub:o_que_o_puppet}
 
-\gls{puppet} é um sistema de gerenciamento de configuração que permite que que seja definido o estado da infraestrutura de TI, em seguida, aplica automaticamente o estado correto. Para gerenciamento de alguns servidores ou maquinas, sejam elas físicas ou virtuais, o Puppet automatiza as tarefas administratidas do sistema que normalmente são feitas manualmente, liberando tempo e espaço mental dos administradores de sistemas para trabalhar nos projetos que proporcionam maior valor ao negócio.
+\gls{puppet} é uma ferramenta de gerenciamento de configuração feita em \gls{ruby} que permite que seja definido o estado da infraestrutura de TI (Tecnologia da Informação), com isso, a configuração pode ser replicada em qualquer ambiente, levando em consideração as restrições de implementação da definição do ambiente. Para gerenciamento de alguns servidores ou maquinas, sejam elas físicas ou virtuais, o Puppet automatiza as tarefas administrativas do sistema que normalmente são feitas manualmente, liberando tempo e espaço mental dos administradores de sistemas para trabalhar nos projetos que proporcionam maior valor ao negócio.
 
-\subsection{Integrando o puppet ao projeto} % (fold)
+O Puppet possui uma sintaxe própria, o mesmo utiliza uma linguagem declarativa, ao invés de uma linguagem imperativa, que é utilizada pela maioria das ferramentas similares, como por exemplo o \gls{chef}. A linguagem imperativa é um conceito baseado em estados, definidos por variáveis, e ações que são manipuladoras de estado, procedimentos. Pelo fato de permitir o uso de procedimentos como estruturação, também é conhecido como procedural. A linguagem declarativa, ao contrário da linguagem imperativa que informa ao computador "como" as instruções devem ser executadas, preocupa-se em apenas dizer ao computador "o que" precisa ser feito, cabendo ao computador decidir qual a melhor solução para essa solicitação.
+ 
+
+\subsection{Integrando o Puppet ao projeto} % (fold)
 \label{sub:integrando_o_puppet_ao_projeto}
 
-% subsection integrando_o_puppet_ao_projeto (end)
+Para a utilização do Puppet dentro do projeto foi desenvolvido um módulo puppet específico, chamado \href{https://github.com/start-x/startx-src/tree/master/puppet}{bike-x}. Nesse módulo é definido nome e versão de pacotes a serem instalados, é definido links simbólicos, criação de arquivos de configuração para o \gls{rift}. O módulo em questão foi testado e homologado para algumas distribuições do sistema operacional Linux:
+
+\begin{itemize}
+\item Ubuntu 13.10
+\item Ubuntu 14.04
+\item Mint 17
+\item Debian Wheezy
+\item Debian Sid
+\end{itemize}
+
+Todas as distribuições apresentadas são "Debian like" e o módulo está totalmente modularizado para a adição de qualquer nova distribuição necessária, entretanto, as apresentadas acima atende 100\% a equipe de desenvolvimento do projeto. A lista de pacotes Debian necessários para o projeto estão listados a seguir:
+
+\begin{itemize}
+\item python2.7
+\item python2.7-dev
+\item python-serial
+\item doxygen
+\item graphviz
+\item dots
+\item binutils-msp430
+\item gcc-msp430
+\item msp430-libc
+\item msp430mcu
+\item mspdebug
+\item libxext-dev
+\item mesa-common-dev
+\item freeglut3-dev
+\item libxinerama-dev
+\item libxrandr-dev
+\item libxxf86vm-dev
+\item swig
+\end{itemize}
+
+A seguir lista de pacotes Python utilizados:
+
+\begin{itemize}
+\item pyserial
+\item mock
+\end{itemize}
+
+Após a execução do módulo Puppet desenvolvido, todos os pacotes listados acima estarão instalados no sistema. Para facilitar a execução do módulo Puppet para todos da equipe, foi desenvolvido um Shell script chamado "setup\_development\_environment.sh" onde é instalado o Puppet em si e os módulos que são dependência, que são o \textit{pip} e \textit{stdlib}, e executado o módulo Puppet bike-x.
+
 
 \section{Interface Python} % (fold)
 \label{sec:interface_python}
 
-A interface \gls{python} simplifica a comunicação com o microcontrolador, possibilitando o \textit{parse} entre o modulo principal (BikeX \ref{sec:sistema_bikex}) e o \gls{msp}.
+A interface \gls{python} sim1plifica a comunicação com o microcontrolador, possibilitando o \textit{parse} entre o modulo principal (BikeX \ref{sec:sistema_bikex}) e o \gls{msp}.
 
 A interface faz de uso da biblioteca \href{http://pyserial.sourceforge.net/pyserial.html}{Pyserial} para manter a comunicação com o microcontrolador. Devido as inúmeras possibilidades de conflitos existentes de caracteres e velocidade de comunicação existentes na comunicação \gls{rs232}, os desenvolvedores da \textit{Pyserial} construíram a classe \textit{serial.tools.miniterm} na qual simula um terminal de comunicação como exemplo de uso da biblioteca. O grupo construiu então uma classe que herda da \textit{serial.tools.miniterm}, simplificando assim a comunicação e incrementando a estabilidade de comunicação. Esta ação gera a dependência de que a versão da \textit{Pyserial} necessita ser 2.7 ou superior.
 
