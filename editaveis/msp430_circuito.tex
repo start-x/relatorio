@@ -53,3 +53,21 @@ Is a port of the GNU C Compiler (GCC) and GNU Binutils (as, ld) for the embedded
 % 	\label{circ}
 % \end{figure}
 
+\subsection{Atuador do freio} % (fold)
+\label{sub:atuador}
+
+Será usado um servo motor para o controle do atuador do freio. Este servo motor é controlado por meio de uma onda PWM (Pulse Width Modulation). Ondas PWM são usadas para controlar circuitos analógicos de forma digital, o que reduz o custo de produção e consumo do sistema. Por meio do uso de contadores de alta resolução, o duty cicle de uma onda quadrada pode ser modulado para codificar certo valor de um sinal analógico. A tensão de controle é obtida com a constante mudança de pulsos que hora está na tensão máxima (ligado), hora está em 0 V (desligado). O tempo que este sinal fica na tensão máxima é chamado de duty cicle de um sinal PWM (figura 1). Com uma repetida série de pulsos, a uma frequência satisfatória, é possível obter qualquer valor de tensão entre o máximo e mínimo valor do sinal digital.
+Se um sinal PWM possui, por exemplo, 40\% de duty cicle significa que o sinal digital está em seu valor máximo durante 40\% do seu período e está desligado durante 60\% do seu período. Caso a tensão de alimentação seja 9 V, a tensão que será medida na carga é de 40\% de 9 V, ou seja, 3,6 V.
+%Atualizar figura
+%\begin{figure}
+%\centering
+%\includegraphics{figure.eps}
+%\caption{Figura 1: Exemplo de sinal PWM com diferentes duty cicles.}
+%\label{fig1}
+%\end{figure}
+
+Como dito anteriormente, o sinal PWM deve possuir uma frequência de variação entre os pulsos de forma que a carga “veja” uma tensão analógica constante. Suponha que um sinal PWM está em seu valor máximo durante 100 ms e depois muda para 0 V e fica neste estado por outros 100 ms. Se este ciclo se repetir 60 vezes por segundo, a tensão medida na saída será de 50\% da tensão máxima com frequência de 60 Hz. A esta frequência é dado o nome de frequência de modulação e depende do tipo sistema que será controlado.
+Este método foi escolhido devido a sua grande imunidade a ruído, fácil controle da tensão de saída e redução do consumo total do sistema.
+
+\subsection{Servo Motor} % (fold)
+\label{sub:servo_motor}
