@@ -20,7 +20,7 @@
 
 \subsection{Modelagem de Elementos} % (fold)
 \label{sub:modelagem}
-	Para a utilização de elementos no Unity é necessario a criação de objetos 3d, para isso pode ser utilizado qualquer um das IDE mais utilizadas do mercado tais como Maya , 3DMax, Blender ,Cinema4D, Modo, Lightwave, Cheetah3D, entre outros. A manipulação e ajustes de objetos em 3D está sendo realizada através da utilização da ferramenta blender  que é uma plataforma livre de alto desempenho que permite além da modelagem para a criação de objetos 3D e contém ferramentas para animações, criação de jogos, construção de foto realismo, simulações de fluidos, edição de vídeos,entre outros.Depois de feito os ajustes nos modelos o Blender possui suporte para exportar objetos nos formatos de arquivo: 3DS,DXF,FBX,OBJ,LWO,SVG,STL entre outros.
+	Para a utilização de elementos no Unity é necessário a criação de objetos 3d, para isso pode ser utilizado qualquer um das IDE mais utilizadas do mercado tais como Maya , 3DMax, Blender ,Cinema4D, Modo, Lightwave, Cheetah3D, entre outros. A manipulação e ajustes de objetos em 3D está sendo realizada através da utilização da ferramenta Blender  que é uma plataforma livre de alto desempenho que permite além da modelagem para a criação de objetos 3D, contém ferramentas para animações, criação de jogos, construção de foto realismo, simulações de fluidos, edição de vídeos,entre outros.Depois de feito os ajustes nos modelos o Blender possui suporte para exportar objetos nos formatos de arquivo: 3DS,DXF,FBX,OBJ,LWO,SVG,STL entre outros.
 
 \begin{figure}[h]
   \centering
@@ -32,12 +32,19 @@
 
 \subsection{SDK OculusVR}
 \label{sub:sdk_ovr}
-      Nos primeiros passos para a integração do Oculus Rift com o Unity foi necessário a utilização de uma SDK\footnote{ SDK encontrada em \url{https://developer.oculusvr.com/?action=dl&v=8 }} do próprio Oculus Rift ,que atualmente possui as versões 0.2, 0.3 e 0.4, que permite extrair dados do oculus e manipulos utilizando C++. No entanto como o Unity possui suporte para o plugin do Oculus Rift, que são scripts oriundos da SDK que ao invés de ser implementada em C++ é implementada em C\#, foi adotado o mesmo para auxiliar no controle do ambiente virtual no Unity.
+      Nos primeiros passos para a integração do Oculus Rift com o Unity foi necessário a utilização de uma SDK\footnote{ SDK encontrada em \url{https://developer.oculusvr.com/?action=dl&v=8 }} do próprio Oculus Rift, que atualmente possui as versões 0.2, 0.3 e 0.4, permite extrair dados do oculus e manipulos utilizando C++. No entanto como o Unity possui suporte para o plugin do Oculus Rift, que são scripts oriundos da SDK que ao invés de ser implementada em C++ é implementada em C\#, foi adotado o mesmo para auxiliar no controle do ambiente virtual no Unity.
+     Com o plugin do Oculus Rift no Unity é possível controlar 2 cameras(que representa o campo visual do oculus em um usuário), e visualizar todo um ambiente em volta, utilizando os sensores da bicicleta e o Oculus Rift será possível controlar a bicicleta e movimentar a cabeça para aprecisar o ambiente virtual.
 
 \subsection{Criação de Scripts}
 \label{sub:criacao_de_scripts}
+       A linguagem de programação utilizada nos scripts da SDK é o C\#, esta linguagem tem as caracteristicas de ser: orientada a objetos, dirigida a enventos, possui gerenciador de memória em tempo runtime( igual ao mente ao java o Garbage Collector é utilizado para liberar áreas de memória não utilizadas depois que uma classe é instanciada utilizando o operador new), e suporte a código legado.
+       Esta linguagem possui tipos de dados como tipo de valor ou tipo de referência. Tipo de valor contém dados deste tipo e tipo de referência contém um inteiro apontando para uma area especifica da memória que irá conter os dados. Os tipos de valores normalmente representam dados simples como int e bool,  os tipos de referências são mais utilizados em strings e objetos. Os desenvolvedores podem contruir 3 tipos de dados de referências: classes , interfaces e delegados( tem a representação de um ponteiro de função em C, no entanto com a palavra chave delegados).As variaveis nesta linguagem podem ser do tipo Static(valor declarado fica disponivel para todos os objetos da classe que foi declarada), Instance(variável criada na memoria a cada vez que um  objeto é instanciado ) e Array (grupo de elementos do mesmo tipo de dados).
+      Em C\# a unidade de programação é a Classe.Os objetos são instâncias(criações) destas classes , e suas funções são encapsuladas dentro dos limites  das classes e dos métodos.Em C\# as classes possui herança única , no entanto podem ser realizadas implementações de multiplas interfaces.Esta linguagem possui também um suporte a struct(Estrutura formada utilizando um conjunto de funções e variáveis), vinda do da linguagem C.O que é mais interessante nesta linguagem é a utilização de delegates ,que são referencias de métodos encapsulados com assinatura e tipo de retorno definido, e é utilizada basicamente para invocar métodos indiretamente.
 
+\begin{lstlisting}[language=C_sharp,caption={leitura de um arquivo},label=trecho_item_C_sharp ]
+using System.IO
 
+\end{lstlisting}
 
 
 
