@@ -39,11 +39,40 @@
 \label{sub:criacao_de_scripts}
        A linguagem de programação utilizada nos scripts da SDK é o C\#, esta linguagem tem as caracteristicas de ser: orientada a objetos, dirigida a enventos, possui gerenciador de memória em tempo runtime( igual ao mente ao java o Garbage Collector é utilizado para liberar áreas de memória não utilizadas depois que uma classe é instanciada utilizando o operador new), e suporte a código legado.
        Esta linguagem possui tipos de dados como tipo de valor ou tipo de referência. Tipo de valor contém dados deste tipo e tipo de referência contém um inteiro apontando para uma area especifica da memória que irá conter os dados. Os tipos de valores normalmente representam dados simples como int e bool,  os tipos de referências são mais utilizados em strings e objetos. Os desenvolvedores podem contruir 3 tipos de dados de referências: classes , interfaces e delegados( tem a representação de um ponteiro de função em C, no entanto com a palavra chave delegados).As variaveis nesta linguagem podem ser do tipo Static(valor declarado fica disponivel para todos os objetos da classe que foi declarada), Instance(variável criada na memoria a cada vez que um  objeto é instanciado ) e Array (grupo de elementos do mesmo tipo de dados).
-      Em C\# a unidade de programação é a Classe.Os objetos são instâncias(criações) destas classes , e suas funções são encapsuladas dentro dos limites  das classes e dos métodos.Em C\# as classes possui herança única , no entanto podem ser realizadas implementações de multiplas interfaces.Esta linguagem possui também um suporte a struct(Estrutura formada utilizando um conjunto de funções e variáveis), vinda do da linguagem C.O que é mais interessante nesta linguagem é a utilização de delegates ,que são referencias de métodos encapsulados com assinatura e tipo de retorno definido, e é utilizada basicamente para invocar métodos indiretamente.
+      Em C\# a unidade de programação é a Classe.Os objetos são instâncias(criações) destas classes , e suas funções são encapsuladas dentro dos limites  das classes e dos métodos.Em C\# as classes possui herança única , no entanto podem ser realizadas implementações de multiplas interfaces.Esta linguagem possui também um suporte a struct(Estrutura formada utilizando um conjunto de funções e variáveis), vinda do da linguagem C.O que é mais interessante nesta linguagem é a utilização de delegates ,que são referencias de métodos encapsulados com assinatura e tipo de retorno definido,onde é utilizada basicamente para invocar métodos indiretamente.
+      Abaixo é ilustrado um exemplo de codigo em C\#, para a alteração do vetor direção da bicicleta:
+ 
+\begin{lstlisting}
+float current_position = 0;
+public virtual void UpdatePlayerForwardDirTransform(){
+	if ((DirXform != null) && (CameraController != null)) {
+				//capturar botao D e rotacionar para a Direita
+				if (Input.GetKey(KeyCode.D)) {
+						current_position += 3f;
+				}
 
-\begin{lstlisting}[language=C_sharp,caption={leitura de um arquivo},label=trecho_item_C_sharp ]
-using System.IO
+				// capturar o botao A e rotacionar para a Esquerda
+				if (Input.GetKey (KeyCode.A)) {
+						current_position -= 3f;
+				}
 
+				//vetor identidade
+				Quaternion i = Quaternion.identity;
+
+				// rotataciona a bicicleta
+				Quaternion d = Quaternion.Euler (new Vector3 (90, current_position, 0));
+				Bicycle.rotation = i * d;
+
+				//rotaciona o vetor direçao
+				d = Quaternion.Euler (new Vector3 (0, current_position + 2f, 0));
+				DirXform.rotation = i * d ;
+
+				///escreve arquivos 
+				write_position();
+				write_rotation();
+				write_altitude();
+		}
+}
 \end{lstlisting}
 
 
