@@ -27,7 +27,7 @@ Abaixo, na figura \ref{partes-alternador}, são mostradas essas partes que comp�
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1]		{figuras/partes_alternador.png}
+	\includegraphics[scale= 0.8]		{figuras/partes_alternador.png}
 	\caption{Partes que compõem um alternador}
 	\label{partes-alternador}
 \end{figure}
@@ -40,7 +40,7 @@ Abaixo, na figura \ref{rotor-alternador}, pode ser visto o rotor do alternador u
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1]		{figuras/rotor_alternador.png}
+	\includegraphics[scale=0.8] {figuras/rotor_alternador.png}
 	\caption{Rotor do alternador}
 	\label{rotor-alternador}
 \end{figure}
@@ -71,7 +71,7 @@ O gerador síncrono utilizado neste projeto trata-se de um alternador do automó
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1]		{figuras/alternador.png}
+	\includegraphics[scale=0.8]		{figuras/alternador.png}
 	\caption{Alternador Utilizado}
 	\label{alternador}
 \end{figure}
@@ -81,7 +81,6 @@ O gerador síncrono utilizado neste projeto trata-se de um alternador do automó
 A corrente de projeto necessária ao atendimento das cargas a ser alimentadas pelo circuito de distribuição da energia elétrica gerada deve ser determinada conforme a equação abaixo:
 
 \begin{equation}
-	\label{Função para geração de números aleatórios.}
 	\mathcal{I}_{proj} = \frac{{P}_{ativa}}{V \times FP}
 \end{equation}
 
@@ -137,13 +136,16 @@ Desse modo, em posse do valor de Iproj, bem como das características de constit
 Para o caso concreto,\textit{segundo as disposições da NBR}, quanto ao tipo de condutor empregado, ter-se-á condutor isolado (condutor metálico e isolação), sendo o material PVC (cloreto de polivinila). Isso é devido às características de trabalho listadas na Tabela \ref{nbr}, com informações extraídas da NBR.
 
 \begin{table}[h]
-\begin{tabular}{llll}
-tipo de isolação                & temperatura máxima para serviço contínuo(condutor) & temperatura limite de sobrecarga(condutor) & temperatura limite de curto-circuito(condutor) \\
-Cloreto de polivinila(PVC)      & 70                                                 & 100                                        & 160                                            \\
-Borracha etileno-propileno(EPR) & 90                                                 & 130                                        & 250                                            \\
+\begin{tabular}{| c | p{3cm} | p{3cm} | p{3cm} |}
+\hline
+Tipo de isolação                & Temperatura máxima para serviço contínuo (condutor) & Temperatura limite de sobrecarga (condutor) & Temperatura limite de curto-circuito (condutor) \\ \hline
+Cloreto de polivinila(PVC)      & 70                                                 & 100                                        & 160                                            \\ \hline
+Borracha etileno-propileno(EPR) & 90                                                 & 130                                        & 250                                            \\ \hline
 Polietileno-reticulado(XLPE)    & 90                                                 & 130                                        & 250                                           
+\\ \hline
 \end{tabular}
 \label{nbr}
+\caption{Características de condutores. Retirado do}
 \end{table}
 
 Cumpre informar que o motivo da escolha dos condutores com tipo de isolação PVC foi feita devido esse condutor suportar as condições de nosso projeto.
@@ -152,7 +154,7 @@ No que tange ao método de instalação a ser utilizado, levou-se em consideraç
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[scale=1]		{figuras/nbr.png}
+	\includegraphics[scale=0.8]		{figuras/nbr.png}
 	\caption{NBR - Definição do método}
 	\label{alternador}
 \end{figure}
@@ -164,14 +166,16 @@ Uma vez que as condições de projeto do circuito em discussão não necessitam 
 	O próximo passo foi determinar o esquema dos condutores, conforme opções listadas na Tabela \ref{metodo-definicao}. Optou-se pelo esquema monofásico a dois condutores.
 	
 \begin{table}[h]
-\begin{tabular}{ll}
-Esquema de condutores vivos do circuito & Número de condutores carregados a ser adotado \\
-Monofásico a dois condutores            & 2                                             \\
-Monofásico a três condutores            & 2                                             \\
-Duas fases sem neutro                   & 2                                             \\
-Duas fases com neutro                   & 3                                             \\
-Trifásico sem neutro                    & 3                                             \\
-Trifásico com neutro                    & 3 ou 4                                       
+\begin{tabular}{| l | l |}
+\hline
+Esquema de condutores vivos do circuito & Número de condutores carregados a ser adotado \\ \hline
+Monofásico a dois condutores            & 2                                             \\ \hline
+Monofásico a três condutores            & 2                                             \\ \hline
+Duas fases sem neutro                   & 2                                             \\ \hline
+Duas fases com neutro                   & 3                                             \\ \hline
+Trifásico sem neutro                    & 3                                             \\ \hline
+Trifásico com neutro                    & 3 ou 4
+\\ \hline
 \end{tabular}
 \label{metodo-definicao}
 \end{table}
@@ -190,30 +194,48 @@ Por isso, baseando-se nesse critério, e com auxílio das características dos c
 	\item Cálculo da Queda de Tensão
 	%pegar as equaçoes
 	
-	Com esse resultado, visitou-se a Tabela xxx da fabricante Pirelli e constatou-se que para as condições do nosso projeto, a seção do condutor deve ser 6 mm2.
+	Com esse resultado, visitou-se a Tabela xxx da fabricante Pirelli e constatou-se que para as condições do nosso projeto, a seção do condutor deve ser 6 mm\textsuperscript{2}.
 (Lembrar que deve ser atentado ao cálculo da queda de tensão por trecho)
-	
+
+\begin{equation}
+	\Delta V = \Delta V_{\frac{V}{A \times km}} \times I_{proj} \times L
+\end{equation}
+\begin{equation}
+	\Delta V_{\frac{V}{A \times km}} = \frac{\Delta V} {I_{proj} \times L}
+\end{equation}
+\begin{equation}
+	\Delta V_{\frac{V}{A \times km}} = \frac{0,04 \times 14}{35 \times 0,002}
+\end{equation}
+\begin{equation}
+	\Delta V_{\frac{V}{A \times km}} = 8 \times \frac{V}{A \times km}
+\end{equation}
+
 \end{description}
 
 \subsubsection{Seção Mínima}
 
-As seções mínimas admitidas em qualquer instalação de baixa instalação estão indicadas na Tabela xx, item xx da referida Norma. Nesse quesito, traduz-se a tabela, abaixo:
+As seções mínimas admitidas em qualquer instalação de baixa instalação estão indicadas na Tabela \ref{secoes-minimas}, item xx da referida Norma. Nesse quesito, traduz-se a tabela, abaixo:
 
 \begin{table}[h]
-\begin{tabular}{lll}
-Instalação                          & Número de condutores carregados a ser adotado           & Seção Mínima para condutores de cobre (mm\textsuperscript{2}) \\
-\multirow{3}{*}{Fixas em geral}     & Circuitos de Iluminação                                 & 1,5                                        \\
-                                    & Circuitos de Força                                      & 2,5                                        \\
-                                    & Circuitos de sinalização e controle                     & 0,5                                        \\
-\multirow{3}{*}{Ligações flexíveis} & Para um equipamento específico                          & Como especificado na norma do equipamento  \\
-                                    & Para qualquer outra aplicação                           & 0,75                                       \\
+\begin{tabular}{ |l | p{7cm} | p{5cm} |}
+\hline
+Instalação                          & Número de condutores carregados a ser adotado           & Seção Mínima para condutores de cobre (mm\textsuperscript{2}) \\ \hline
+\multirow{3}{*}{Fixas em geral}     & Circuitos de Iluminação                                 & 1,5                                        \\ \cline{2-3}
+                                    & Circuitos de Força                                      & 2,5                                        \\ \cline{2-3}
+                                    & Circuitos de sinalização e controle                     & 0,5                                        \\ \hline
+\multirow{3}{*}{Ligações flexíveis} & Para um equipamento específico                          & Como especificado na norma do equipamento  \\ \cline{2-3}
+                                    & Para qualquer outra aplicação                           & 0,75                                       \\ \cline{2-3} 
                                     & Circuitos a extrabaixa tensão para aplicaçòes especiais &                                           
+\\ \hline
+
 \end{tabular}
+\label{secoes-minimas}
+\caption{Seções Mínimas}
 \end{table}
 
 Assim, dentro desse quesito, adotou-se que as ligações de nosso circuito serão do tipo flexíveis, sendo a utilização consistente com circuitos de extra-baixa tensão para aplicações especiais. 
 
-Por isso, levando-se em consideração a Tabela acima, a seção indicada é 0,75 mm2 para os condutores de cobre.
+Por isso, levando-se em consideração a Tabela acima, a seção indicada é 0,75 mm\textsuperscript{2} para os condutores de cobre.
 
 \subsubsection{Outros}
 
