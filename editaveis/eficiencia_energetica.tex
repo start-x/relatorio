@@ -178,7 +178,7 @@ Trifásico sem neutro                    & 3                                    
 Trifásico com neutro                    & 3 ou 4
 \\ \hline
 \end{tabular}
-\caption{Opções de esquema dos condutores}
+\caption{Condutores}
 \label{metodo-definicao}
 \end{table}
 
@@ -229,7 +229,6 @@ Instalação                          & Número de condutores carregados a ser a
                                     & Para qualquer outra aplicação                           & 0,75                                       \\ \cline{2-3} 
                                     & Circuitos a extrabaixa tensão para aplicaçòes especiais &                                           
 \\ \hline
-
 \end{tabular}
 \caption{Seções Mínimas}
 \label{secoes-minimas}
@@ -252,3 +251,118 @@ A proteção é uma ação automática provocada por dispositivos sensíveis a d
 A escolha, aplicação e a coordenação seletiva adequadas ao conjunto de componentes que constituem a proteção de um sistema é um dos aspectos mais importantes da instalação elétrica industrial. A função da proteção justamente minimizar os danos ao sistema e seus componentes, sempre que ocorrer uma falha no equipamento, no sistema elétrico ou falha humana.
 
 Os dispositivos de proteção contra correntes de curto-circuito, como: disjuntores e fusíveis. E os dispositivos de proteção contra correntes de sobrecarga, como os relés bimetálicos.
+
+\subsection{Projeto Elétrico: Circuito}
+
+\subsubsection{Dimensionamento de eletroduto}
+
+Também conhecido como conduíte, o eletroduto é o elemento que protege os condutores elétricos contra influências externas, como choques mecânicos e agentes químicos. Têm, ainda, a função de controle de chamas em caso de incêndio provocado por curto-circuito. 
+A figura a seguir mostra os tipos de eletrodutos.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]		{figuras/eletrodutos.png}
+	\caption{Tipos de Eletrodutos}
+	\label{alternador}
+\end{figure}
+
+
+\subsubsection{Especificação}
+
+Entre as características que precisam de atenção está a verificação da curvatura. Ou seja, após ser submetido a uma determinada sequência de dobramentos, o produto tem que permitir a passagem da fiação sem problemas ou obstruções. A resistência à compressão e a impactos também deve ser observada.
+
+Os eletrodutos são fabricados para resistirem ao calor e ao fogo. Nos ensaios realizados em laboratórios, têm que suportar 60\celsius durante 24 horas sem apresentar qualquer deformidade. Seu desempenho elétrico também é testado, sendo que não devem permitir a passagem de corrente com valores superiores a 100mA e a resistência elétrica deve ser inferior a 100M$\Omega$.
+
+A versão corrugada amarela é específica para aplicações leves e, normalmente, instalada embutida em parede. Já a laranja, também corrugada, é para aplicação em lajes, onde a exigência por resistência aos esforços mecânicos é maior. Os rígidos, produzidos na cor preta, são ainda mais resistentes aos esforços mecânicos que podem ocorrer durante a concretagem da laje. A principal diferença entre eles está na resistência diametral.
+
+\subsubsection{Aplicação}
+
+O uso do eletroduto é definido de acordo com sua resistência mecânica (leve, médio ou pesado), e com a classificação quanto à propagação de chama. A instalação dos produtos deve seguir a ABNT NBR 5410:2004 – Instalações Elétricas de Baixa Tensão –, que especifica as condições a que devem satisfazer as instalações elétricas de baixa tensão de edificações.
+
+\subsubsection{Vantagens}
+
+O gerente executivo comenta que o custo-benefício está diretamente ligado à escolha do produto certo para cada aplicação, além do respeito às normas técnicas, para garantir um desempenho satisfatório.  Os conduítes são materiais facilmente encontrados no mercado, visto que qualquer revenda especializada em elétrica deve dispor, no mínimo, das três versões mais comuns do material.
+
+\subsubsection{Dimensionamento}
+
+Dimensionar um eletroduto é determinar o tamanho nominal do eletroduto para cada trecho da instalação.
+
+O tamanho nominal do eletroduto é o diâmetro externo do eletroduto, este tamanho é expresso em milímetros(mm) é e padronizado pela norma NBR 5410:2004.
+
+Segundo a norma NBR 5410:2004 o tamanho dos eletrodutos deve ser de um diâmetro tal que os condutores possam ser facilmente instalados ou retirados. Por isso a norma estabelece que o eletrodutos tenha um diâmetro 60\% maior que os condutores, ou seja, é obrigatório que os condutores não ocupem mais que 40\% da área útil dos eletrodutos. A tabela abaixo mostra como isso pode mensurado de maneira simples.[2]
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\rowcolor[HTML]{3531FF} 
+\cellcolor[HTML]{3531FF}{\color[HTML]{FFFFFF} }                                     & \multicolumn{9}{c|}{\cellcolor[HTML]{3531FF}{\color[HTML]{FFFFFF} Número de condutores no eletroduto}}                                                                                                                                                                    \\ \cline{2-10} 
+\rowcolor[HTML]{3531FF} 
+\cellcolor[HTML]{3531FF}{\color[HTML]{FFFFFF} }                                     & {\color[HTML]{FFFFFF} 2} & {\color[HTML]{FFFFFF} 3} & {\color[HTML]{FFFFFF} 4} & {\color[HTML]{FFFFFF} 5} & \cellcolor[HTML]{329A9D}{\color[HTML]{FFFFFF} 6} & {\color[HTML]{FFFFFF} 7} & {\color[HTML]{FFFFFF} 8} & {\color[HTML]{FFFFFF} 9} & {\color[HTML]{FFFFFF} 10} \\ \cline{2-10} 
+\rowcolor[HTML]{3531FF} 
+\multirow{-3}{*}{\cellcolor[HTML]{3531FF}{\color[HTML]{FFFFFF} Seção Nominal (mm)}} & \multicolumn{9}{c|}{\cellcolor[HTML]{3531FF}{\color[HTML]{FFFFFF} Tamanho nominal do eltroduto (mm)}}                                                                                                                                                                     \\ \hline
+1,5                                                                                 & 16                       & 16                       & 16                       & 16                       & 16                                               & 16                       & 20                       & 20                       & 20                        \\ \hline
+2,5                                                                                 & 16                       & 16                       & 16                       & 20                       & 20                                               & 20                       & 20                       & 25                       & 25                        \\ \hline
+\cellcolor[HTML]{329A9D}4                                                           & 16                       & 16                       & 20                       & 20                       & \cellcolor[HTML]{329A9D}20                       & 25                       & 25                       & 25                       & 25                        \\ \hline
+6                                                                                   & 16                       & 20                       & 20                       & 25                       & 25                                               & 25                       & 25                       & 32                       & 32                        \\ \hline
+10                                                                                  & 20                       & 20                       & 25                       & 25                       & 32                                               & 32                       & 32                       & 40                       & 40                        \\ \hline
+16                                                                                  & 20                       & 25                       & 25                       & 32                       & 32                                               & 40                       & 40                       & 40                       & 40                        \\ \hline
+25                                                                                  & 25                       & 32                       & 32                       & 40                       & 40                                               & 40                       & 50                       & 50                       & 50                        \\ \hline
+35                                                                                  & 25                       & 32                       & 40                       & 40                       & 50                                               & 50                       & 50                       & 50                       & 60                        \\ \hline
+50                                                                                  & 32                       & 40                       & 40                       & 50                       & 50                                               & 60                       & 60                       & 60                       & 75                        \\ \hline
+70                                                                                  & 40                       & 40                       & 50                       & 60                       & 60                                               & 60                       & 75                       & 75                       & 75                        \\ \hline
+95                                                                                  & 40                       & 50                       & 60                       & 60                       & 75                                               & 75                       & 75                       & 85                       & 85                        \\ \hline
+120                                                                                 & 50                       & 50                       & 60                       & 75                       & 75                                               & 75                       & 85                       & 85                       & -                         \\ \hline
+150                                                                                 & 50                       & 60                       & 75                       & 75                       & 85                                               & 85                       & -                        & -                        & -                         \\ \hline
+185                                                                                 & 50                       & 75                       & 75                       & 85                       & 85                                               & -                        & -                        & -                        & -                         \\ \hline
+240                                                                                 & 60                       & 75                       & 85                       & -                        & -                                                & -                        & -                        & -                        & -                         \\ \hline
+\end{tabular}
+\end{table}
+
+Para melhor explicação a norma afirma que uma das formas de dimensionamento dos eletrodutos segue o seguinte roteiro:
+
+\begin{description}
+	\item Determinar a seção dos condutores que irão passar no interior do eletroduto
+	\item Determinar a area total de cada condutor, lembrando de considerar a camada de isolação de cada um.
+	\item Efetuar a somatoria das seçoes totais dos condutores a serem utilizados.
+	\item Em uma instalação eletrica o eletroduto deve ter um diamentro minimo de 20mm estes eletrodutos não são cotados na planta, este caso se refere a instalações prediais.
+\end{description}
+
+[3] A norma mostra que outra forma de dimensionar o eletroduto é em função da quantidade de condutores e a seção nominal do maior condutor no eletroduto. 
+
+A ABNT NBR 5410:2004 admite, em 6.2.10.2, que os condutos fechados em geral e os eletrodutos em particular contenham condutores de mais de um circuito se as seções nominais dos condutores de fase estiverem contidas dentro de um intervalo de três valores normalizados sucessivos, tais como 1,5, 2,5 e 4 mm\textsuperscript{2}, 6, 10 e 16 mm\textsuperscript{2} ou 35, 50 e 70 mm\textsuperscript{2}, e assim por diante. Dessa forma, por exemplo, pode-se colocar dentro de um eletroduto cabos com seções de 1,5, 2,5 e 4 mm\textsuperscript{2}, mas não se podem colocar juntos num eletroduto cabos com seções de 1,5, 6 e 10 mm\textsuperscript{2}.
+
+Em 6.2.11.1.6, determina-se a quantidade máxima de condutores dentro de um eletroduto, de modo a se deixar uma boa área livre no interior do eletroduto para facilitar a dissipação do calor gerado pelos condutores e facilitar a enfiação e retirada dos cabos. Para tanto, é necessário que os condutores ou cabos não ocupem uma porcentagem da área útil do eletroduto superior a 53\% para um condutor, 31\% para dois condutores e 40\% para três ou mais condutores.
+
+Com base nessa prescrição, a maneira de calcular a quantidade máxima de condutores é resumida em comparar a área interna de um eletroduto com a área total de condutores. Da geometria, a área útil de um eletroduto (AE) é dada por:
+
+\begin{equation}
+	\mathcal{A}_e = \frac{{\pi}}{4} \times (de - 2e)^2
+\end{equation}
+
+Em que: de é o diâmetro externo do eletroduto e e a espessura da parede do eletroduto. Tais valores podem ser obtidos no catálogo do fabricante.
+
+A área total de um cabo isolado (Ac) deve ser calculada por:
+
+\begin{equation}
+	\mathcal{A}_c = \frac{{\pi \times d^2}}{4}
+\end{equation}
+
+Sendo: d o diâmetro externo do cabo isolado, valor que é obtido no catálogo do fabricante.
+
+Dessa forma, o número máximo (N) de cabos isolados, de mesma seção, que pode ser instalado em um eletroduto, é dado por:
+
+\begin{equation}
+	\mathcal{N} = \frac{{toc \times A_e}}{A_c}
+\end{equation}
+
+Em que: toc = 0,53 para um condutor, 0,31 para dois condutores e 0,40 para três ou mais condutores a serem instalados no interior do eletroduto.
+
+Para o trabalho em questão o grupo optou por utilizar o eletroduto flexível o eletroduto escolhido pelo grupo, segundo os cálculos foi o de 16 mm de diâmetro da marca TIGRE corrugando flexível como pode ser observado na figura \ref{eltroduto-tigre}:
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{figuras/tigre.png}
+	\caption{Eletroduto Tigre}
+	\label{eltroduto-tigre}
+\end{figure}
