@@ -27,7 +27,7 @@ Em comparação com outras plataformas, como o Arduino, a MSP430 Launchpad apres
 \subsection{MSPGCC} % (fold)
 \label{sub:mspgcc}
 
-Is a port of the GNU C Compiler (GCC) and GNU Binutils (as, ld) for the embedded processor MSP430. Tools for debugging and download are provided (GDB, JTAG and BSL)
+É um porte do \textit{GNU C Compiler} (\textbf{GCC}) e do \textit{GNU Binutils} (\textbf{as}, \textbf{ld}) para o microcontrolador \textit{MSP430}. São providenciadas ferramentas para depuração e \textit{download} de binário (\textbf{GDB, JTAG} e \textbf{BSL}).
 
 % Item sobre a visão sistemica da eletronica embarcada
 
@@ -79,6 +79,13 @@ Para o controle do servomotor, implementou-se um algoritmo de PWM (pulse witdh m
 \subsection{Tacômetro} % (fold)
 \label{sub:tac_metro}
 
+\begin{figure}[h]
+  \centering
+	\includegraphics[width=0.8\textwidth]{figuras/tacometro}
+  \caption{Circuito do Tacômetro}
+  \label{fig:figuras_tacometro}
+\end{figure}
+
 % \begin{figure}[h]
 % 	\centering
 % 	\begin{circuitikz}[american,scale=0.7]
@@ -114,15 +121,16 @@ Para o controle do servomotor, implementou-se um algoritmo de PWM (pulse witdh m
 \subsection{Atuador do freio} % (fold)
 \label{sub:atuador}
 
-Será usado um servo motor para o controle do atuador do freio. Este servo motor é controlado por meio de uma onda PWM (Pulse Width Modulation). Ondas PWM são usadas para controlar circuitos analógicos de forma digital, o que reduz o custo de produção e consumo do sistema. Por meio do uso de contadores de alta resolução, o duty cicle de uma onda quadrada pode ser modulado para codificar certo valor de um sinal analógico. A tensão de controle é obtida com a constante mudança de pulsos que hora está na tensão máxima (ligado), hora está em 0 V (desligado). O tempo que este sinal fica na tensão máxima é chamado de duty cicle de um sinal PWM (figura 1). Com uma repetida série de pulsos, a uma frequência satisfatória, é possível obter qualquer valor de tensão entre o máximo e mínimo valor do sinal digital.
-Se um sinal PWM possui, por exemplo, 40\% de duty cicle significa que o sinal digital está em seu valor máximo durante 40\% do seu período e está desligado durante 60\% do seu período. Caso a tensão de alimentação seja 9 V, a tensão que será medida na carga é de 40\% de 9 V, ou seja, 3,6 V.
+Será usado um servo motor para o controle do atuador do freio. Este servo motor é controlado por meio de uma onda PWM (\textit{Pulse Width Modulation}). Ondas PWM são usadas para controlar circuitos analógicos de forma digital, o que reduz o custo de produção e consumo do sistema. Por meio do uso de contadores de alta resolução, o \textit{duty cicle} de uma onda quadrada pode ser modulado para codificar certo valor de um sinal analógico. A tensão de controle é obtida com a constante mudança de pulsos que hora está na tensão máxima (ligado), hora está em 0 V (desligado). O tempo que este sinal fica na tensão máxima é chamado de \textit{duty cicle} de um sinal PWM (Figura \ref{fig:pwmcircuito}). Com uma repetida série de pulsos, a uma frequência satisfatória, é possível obter qualquer valor de tensão entre o máximo e mínimo valor do sinal digital.
+Se um sinal PWM possui, por exemplo, 40\% de \textit{duty cicle} significa que o sinal digital está em seu valor máximo durante 40\% do seu período e está desligado durante 60\% do seu período. Caso a tensão de alimentação seja 9 V, a tensão que será medida na carga é de 40\% de 9 V, ou seja, 3,6 V.
 %Atualizar figura
-%\begin{figure}
-%\centering
-%\includegraphics{figure.eps}
-%\caption{Figura 1: Exemplo de sinal PWM com diferentes duty cicles.}
-%\label{fig1}
-%\end{figure}
+\begin{figure}[h]
+  \centering
+	% \includegraphics[width=0.8\textwidth]{pwmCircuito}
+  \caption{Exemplo de sinal PWM com diferentes duty cicles.}
+  \label{fig:pwmcircuito}
+\end{figure}
+
 
 Como dito anteriormente, o sinal PWM deve possuir uma frequência de variação entre os pulsos de forma que a carga “veja” uma tensão analógica constante. Suponha que um sinal PWM está em seu valor máximo durante 100 ms e depois muda para 0 V e fica neste estado por outros 100 ms. Se este ciclo se repetir 60 vezes por segundo, a tensão medida na saída será de 50\% da tensão máxima com frequência de 60 Hz. A esta frequência é dado o nome de frequência de modulação e depende do tipo sistema que será controlado.
 Este método foi escolhido devido a sua grande imunidade a ruído, fácil controle da tensão de saída e redução do consumo total do sistema.
@@ -130,5 +138,22 @@ Este método foi escolhido devido a sua grande imunidade a ruído, fácil contro
 \subsection{Sensor Infravermelho} % (fold)
 \label{sub:sensor_infra}
 
-Sensores Infravermelhos são detectores que possuem uma fotocélula capazer de reagir à emissão de luz infravermelha. São muito utilizado em controles remotos, teclados, mouses sem fio, bem como, no isolamento de circuitos elétricos e sensores de posição. Todos os aparelhos de TV e DVD player possuem estes sensores para comandar alguma ação nestes aparelhos. O sinal é enviado por um LED emissor de luz infravermelha, é captado por um fototransistor e, por fim, os dados são processados. 
-A aplicação destes sensores, juntos, é chamada de par ótico. Estes par ótico pode ser fabricado em diversos formatos, geralmente customisados para aplicações específicas. É possível encontrar o LED emissor e o fototransistor montados em um único encapsulamento para sensores de posição, com um sulco entre eles (Figura 2 (a)), ou de forma separada funcionando como chaves óticas (Figura 2 (b)), por exemplo.
+Sensores Infravermelhos são detectores que possuem uma fotocélula capaz de reagir à emissão de luz infravermelha. São muito utilizado em controles remotos, teclados, mouses sem fio, bem como, no isolamento de circuitos elétricos e sensores de posição. Todos os aparelhos de TV e DVD player possuem estes sensores para comandar alguma ação nestes aparelhos. O sinal é enviado por um LED emissor de luz infravermelha, é captado por um fototransistor e, por fim, os dados são processados. 
+A aplicação destes sensores, juntos, é chamada de par ótico. Estes par ótico pode ser fabricado em diversos formatos, geralmente customizados para aplicações específicas. É possível encontrar o LED emissor e o fototransistor montados em um único encapsulamento para sensores de posição, com um sulco entre eles (Figura \ref{fig:fotoUni}), ou de forma separada funcionando como chaves óticas (Figura \ref{fig:fotoLED}), por exemplo.
+
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+                % \includegraphics[width=0.8\textwidth]{pwmCircuito}
+                \caption{LED e Fototransistor montados em um único encapsulamento}
+                \label{fig:fotoUni}
+        \end{subfigure}%
+        ~
+        \begin{subfigure}[b]{0.4\textwidth}
+                % \includegraphics[width=0.8\textwidth]{pwmCircuito}
+                \caption{Fototransistor separado do LED}
+                \label{fig:fotoLED}
+        \end{subfigure}
+        \caption{Conjuntos de LED emissor e o fototransistor}
+        \label{fig:LED}
+\end{figure}
