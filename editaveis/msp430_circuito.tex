@@ -1,12 +1,27 @@
 \chapter{Eletrônica}
 \label{eletronica}
 
-\section{MSP430} % (fold)
+\section{Microcontrolador} % (fold)
 \label{sec:msp430}
 
-É um microcontrolador RISC de 16 bits criado pela Texas Instrumets para aplicações de baixo consumo de energia.
+% É um microcontrolador RISC de 16 bits criado pela Texas Instrumets para aplicações de baixo consumo de energia.
+O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrolador possui uma arquitetura RISC com registradores de 16 bits e 27 instruções, 512 Bytes de RAM e pode operar com um clock de até 16MHz. As aplicações foram trabalhadas a partir da plataforma MSP430 Launchpad. Esta plataforma foi desenvoldida pela Texas Instruments (TI) como um kit de avaliação para microcontroladores da linha MSP430G. Este microcontrolador apresenta algumas características importantes para a realização deste trabalho. São elas:
+\begin {itemize}
+	\item 2 Times (TA0 e TA1) com 16 bits e 4 modos de contagem;
+	\item 8 canais de entrada para um Conversor A/D de 10bits ( ADC10 tipo SAR);
+	\item Serviços de interrupção por Hardware;
+	\item Hardware de comunicação serial com suporte para UART.
+\end {itemize}
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\textwidth]
+      {figuras/Launchpad.jpg}
+  \caption{Pataforma para desenvolvimento MSP430 Launchpad.}
+  \label{Launchpad}
+\end{figure}
 % Colocar aqui sobre o que é o MSP430, sua função no projeto como foi utilizado
+Em comparação com outras plataformas, como o Arduino, a MSP430 Launchpad apresenta um menor custo. A plataforma Arduino apresenta mais facilidade para a implementação de protótipos através de sua linguagem de programação na Arduino IDE, porém, a plataforma Launchpad também possuí uma plataforma similar disponível chamada de Energia. Neste projeto, entretanto, optou-se por utilizar a ferramenta msp430-gcc e mspdebug para desenvolver as aplicações de software embarcado e programar o dispositivo respectivamente. Elas foram escolhidas por possibilitar mais liberdade de desenvolvimento no microcontrolador e possibilidade de seguir em nível mais próximo do hardware, apesar da maior complexidade na elaboração das aplicações.
 
 
 \subsection{MSPGCC} % (fold)
@@ -14,6 +29,49 @@
 
 Is a port of the GNU C Compiler (GCC) and GNU Binutils (as, ld) for the embedded processor MSP430. Tools for debugging and download are provided (GDB, JTAG and BSL)
 
+% Item sobre a visão sistemica da eletronica embarcada
+
+\section{Visão Sistêmica da Eletronica Embarcada} % (fold)
+\label{sec:visao_sistemica}
+
+No ponto de vista da eletrônica embarcada, enxergam-se dois pontos principais: O PC com o ambiente virtual e os sensores e atuadores instalados na bicicleta. O primeiro destes realizará o processamento do ambiente virtual a partir dos dados obtidos pelos sensores e atualizando a posição do ciclista no ambiente. Em seguida, devolverá como sinal de retorno à bicicleta no controle do freio para transmitir uma sensação de peso ao ciclista. Para tornar isso possível, trabalhou-se com 2 sensores e um atuador, listados a seguir.
+
+
+\begin {itemize}
+	\item Posição do guidão;
+	\item Velocidade da roda.
+	\item Servo motor.
+\end  {itemize}
+
+Neste contexto, o sistema de software embarcado foi projetado baseando-se no diagrama de blocos apresentado na Figura \ref{blocos}. O sensor de posição do guidão se trata de um potenciômetro comum com variação de ângulo de 0 a 270 graus e 0 a 10 kOhms de variação de resistência proporcional ao ângulo. O sensor de velocidade se trata de um conta giros através de interferência entre um par transmissor-receptor de infravermelho que permitirá verificar o movimento da roda traseira. O atuador constante em um servomotor cuja posição será controlada de forma a controlar o freio da bicicleta, aumentando o atrito com a roda traseira e fornecendo uma sensação de peso ao usuário.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]
+      {figuras/diag_blocos_elet1.png}
+  \caption{Diagrama de blocos do sistema no ponto de vista do hardware embarcado.}
+  \label{blocos}
+\end{figure}
+
+% Item sobre o projeto de software embarcado
+\section{Projeto do Software Embarcado} % (fold)
+\label{sec:soft_emb}
+Visando facilitar o desenvolvimento do software a ser embarcado no microcontrolador, implementou-se uma biblioteca contendo funções para o uso especifico no kit Launchpad, com botões, LEDs e portas de comunicação pré definidas. Essa biblioteca contem funções básicas para entradas e saídas digitais, timer e comunicação. Outras duas bibliotecas são utilizadas neste projeto, sendo uma para amostrar um sinal a partir do conversor A/D e outra contendo as definições do ambiente virtual.
+A principio, o projeto de software foi direcionado a leitura dos sensores do guidão, velocidade, atuador e comunicação. A seguir, serão descritas as implementações destas etapas neste projeto.
+
+\subsection{Leitura de posição do guidão} % (fold)
+\label{sub:read_guid_sens}
+O sensor que verificará a posição do guidão se trata de um potenciômetro. Este dispositivo retornará um valor analógico de tensão que é proporcional a posição do guidão. Neste caso, a leitura do sinal é feita configurando-se uma entrada do microcontrolador como analógica. O valor lido tem resolução de 10 bits e deverá estar entre 0 e 3V. A leitura deste sensor não será constante, mas sim, solicitada pelo ambiente virtual.
+
+\subsection{Leitura de velocidade} % (fold)
+\label{sub:read_vel_sens}
+
+Para estimar a velocidade da roda traseira da bicicleta, um par transmissor-receptor de infravermelho será utilizado para calcular o período de interferência entre ambos. O sinal lido será um nível lógico (alto ou baixo)  e será obtido por uma entrada digital. Neste caso, um serviço de interrupção foi configurado para iniciar uma contagem e encerrar a mesma. O período obtido dividirá uma constante de forma a obter uma velocidade com resolução de 8 bits. A contagem será realizada por um timer do microcontrolador.
+
+\subsection{Atuador no freio} % (fold)
+\label{sub:read_freio_sens}
+
+Para o controle do servomotor, implementou-se um algoritmo de PWM (pulse witdh modulation) a partir do timer. A modulação do pulso será controlada por um valor de 1 byte vindo do ambiente virtual. O sinal de controle gerado é transmitido por uma saída digital. O mesmo timer será utilizado para todas as aplicações que requererem contagens. Cada contagem deverá ser de no mínimo 100us. Com o mesmo timer foi possível emular 10 timers via software. Dessa forma, foi possível controlar a posição do servomotor e realizar a contagem do período do sensor de velocidade.
 
 \section{Circuitos} % (fold)
 \label{sec:circuito}
