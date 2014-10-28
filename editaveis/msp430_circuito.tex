@@ -5,23 +5,23 @@
 \label{sec:msp430}
 
 % É um microcontrolador RISC de 16 bits criado pela Texas Instrumets para aplicações de baixo consumo de energia.
-O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrolador possui uma arquitetura RISC com registradores de 16 bits e 27 instruções, 512 Bytes de RAM e pode operar com um clock de até 16MHz. As aplicações foram trabalhadas a partir da plataforma MSP430 Launchpad. Esta plataforma foi desenvolvida pela Texas Instruments (TI) como um kit de avaliação para microcontroladores da linha MSP430G. Este microcontrolador apresenta algumas características importantes para a realização deste trabalho. São elas:
+O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrolador possui uma arquitetura RISC com registradores de 16 \textit{bits} e 27 instruções, 512 \textit{Bytes} de RAM e pode operar com um \textit{clock} de até 16MHz. As aplicações foram trabalhadas a partir da plataforma MSP430 \textit{Launchpad}. Esta plataforma foi desenvolvida pela \textit{Texas Instruments} (TI) como um \textit{kit} de avaliação para microcontroladores da linha MSP430G. Este microcontrolador apresenta algumas características importantes para a realização deste trabalho. São elas:
 \begin {itemize}
-	\item 2 Times (TA0 e TA1) com 16 bits e 4 modos de contagem;
-	\item 8 canais de entrada para um Conversor A/D de 10bits ( ADC10 tipo SAR);
-	\item Serviços de interrupção por Hardware;
-	\item Hardware de comunicação serial com suporte para UART.
+	\item 2 \textit{Timers} (TA0 e TA1) com 16 \textit{bits} e 4 modos de contagem;
+	\item 8 canais de entrada para um Conversor A/D de 10\textit{bits} ( ADC10 tipo SAR);
+	\item Serviços de interrupção por \textit{Hardware};
+	\item \textit{Hardware} de comunicação serial com suporte para UART.
 \end {itemize}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.6\textwidth]
       {figuras/Launchpad.jpg}
-  \caption{Pataforma para desenvolvimento MSP430 Launchpad.}
+  \caption{Pataforma para desenvolvimento MSP430 \textit{Launchpad}.}
   \label{Launchpad}
 \end{figure}
 % Colocar aqui sobre o que é o MSP430, sua função no projeto como foi utilizado
-Em comparação com outras plataformas, como o Arduino, a MSP430 Launchpad apresenta um menor custo. A plataforma Arduino apresenta mais facilidade para a implementação de protótipos através de sua linguagem de programação na Arduino IDE, porém, a plataforma Launchpad também possuí uma plataforma similar disponível chamada de Energia. Neste projeto, entretanto, optou-se por utilizar a ferramenta msp430-gcc e mspdebug para desenvolver as aplicações de software embarcado e programar o dispositivo respectivamente. Elas foram escolhidas por possibilitar mais liberdade de desenvolvimento no microcontrolador e possibilidade de seguir em nível mais próximo do hardware, apesar da maior complexidade na elaboração das aplicações.
+Em comparação com outras plataformas, como o Arduino, a MSP430 \textit{Launchpad} apresenta um menor custo. A plataforma Arduino apresenta mais facilidade para a implementação de protótipos através de sua linguagem de programação na Arduino IDE, porém, a plataforma \textit{Launchpad} também possuí uma plataforma similar disponível chamada de \textit{Energia}. Neste projeto, entretanto, optou-se por utilizar a ferramenta msp430-gcc e mspdebug para desenvolver as aplicações de software embarcado e programar o dispositivo respectivamente. Elas foram escolhidas por possibilitar mais liberdade de desenvolvimento no microcontrolador e possibilidade de seguir em nível mais próximo do \textit{hardware}, apesar da maior complexidade na elaboração das aplicações.
 
 
 %\subsection{MSPGCC} % (fold)
@@ -43,35 +43,35 @@ No ponto de vista da eletrônica embarcada, enxergam-se dois pontos principais: 
 	\item Servo motor.
 \end  {itemize}
 
-Neste contexto, o sistema de software embarcado foi projetado baseando-se no diagrama de blocos apresentado na Figura \ref{blocos}. O sensor de posição do guidão se trata de um potenciômetro comum com variação de ângulo de 0 a 270 graus e 0 a 10 kOhms de variação de resistência proporcional ao ângulo. O sensor de velocidade se trata de um conta giros através de interferência entre um par transmissor-receptor de infravermelho que permitirá verificar o movimento da roda traseira. O atuador constante em um servomotor cuja posição será controlada de forma a controlar o freio da bicicleta, aumentando o atrito com a roda traseira e fornecendo uma sensação de peso ao usuário.
+Neste contexto, o sistema de software embarcado foi projetado baseando-se no diagrama de blocos apresentado na Figura \ref{blocos}. O sensor de posição do guidão se trata de um potenciômetro comum com variação de ângulo de 0 a 270 graus e 0 a 10 k$\Omega$ de variação de resistência proporcional ao ângulo. O sensor de velocidade se trata de um conta giros através de interferência entre um par transmissor-receptor de infravermelho que permitirá verificar o movimento da roda traseira. O atuador constante em um servomotor cuja posição será controlada de forma a controlar o freio da bicicleta, aumentando o atrito com a roda traseira e fornecendo uma sensação de peso ao usuário.
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]
       {figuras/diag_blocos_elet1.png}
-  \caption{Diagrama de blocos do sistema no ponto de vista do hardware embarcado.}
+  \caption{Diagrama de blocos do sistema no ponto de vista do \textit{hardware} embarcado.}
   \label{blocos}
 \end{figure}
 
 % Item sobre o projeto de software embarcado
-\section{Projeto do Software Embarcado} % (fold)
+\section{Projeto do \textit{Software} Embarcado} % (fold)
 \label{sec:soft_emb}
-Visando facilitar o desenvolvimento do software a ser embarcado no microcontrolador, implementou-se uma biblioteca contendo funções para o uso especifico no kit Launchpad, com botões, LEDs e portas de comunicação pré definidas. Essa biblioteca contem funções básicas para entradas e saídas digitais, timer e comunicação. Outras duas bibliotecas são utilizadas neste projeto, sendo uma para amostrar um sinal a partir do conversor A/D e outra contendo as definições do ambiente virtual.
-A principio, o projeto de software foi direcionado a leitura dos sensores do guidão, velocidade, atuador e comunicação. A seguir, serão descritas as implementações destas etapas neste projeto.
+Visando facilitar o desenvolvimento do \textit{software} a ser embarcado no microcontrolador, implementou-se uma biblioteca contendo funções para o uso especifico no \textit{kit} \textit{Launchpad}, com botões, LEDs e portas de comunicação pré definidas. Essa biblioteca contem funções básicas para entradas e saídas digitais, \textit{timer} e comunicação. Outras duas bibliotecas são utilizadas neste projeto, sendo uma para amostrar um sinal a partir do conversor A/D e outra contendo as definições do ambiente virtual.
+A principio, o projeto de \textit{software} foi direcionado a leitura dos sensores do guidão, velocidade, atuador e comunicação. A seguir, serão descritas as implementações destas etapas neste projeto.
 
 \subsection{Leitura de posição do guidão} % (fold)
 \label{sub:read_guid_sens}
-O sensor que verificará a posição do guidão se trata de um potenciômetro. Este dispositivo retornará um valor analógico de tensão que é proporcional a posição do guidão. Neste caso, a leitura do sinal é feita configurando-se uma entrada do microcontrolador como analógica. O valor lido tem resolução de 10 bits e deverá estar entre 0 e 3V. A leitura deste sensor não será constante, mas sim, solicitada pelo ambiente virtual.
+O sensor que verificará a posição do guidão se trata de um potenciômetro. Este dispositivo retornará um valor analógico de tensão que é proporcional a posição do guidão. Neste caso, a leitura do sinal é feita configurando-se uma entrada do microcontrolador como analógica. O valor lido tem resolução de 10 \textit{bits} e deverá estar entre 0 e 3V. A leitura deste sensor não será constante, mas sim, solicitada pelo ambiente virtual.
 
 \subsection{Leitura de velocidade} % (fold)
 \label{sub:read_vel_sens}
 
-Para estimar a velocidade da roda traseira da bicicleta, um par transmissor-receptor de infravermelho será utilizado para calcular o período de interferência entre ambos. O sinal lido será um nível lógico (alto ou baixo)  e será obtido por uma entrada digital. Neste caso, um serviço de interrupção foi configurado para iniciar uma contagem e encerrar a mesma. O período obtido dividirá uma constante de forma a obter uma velocidade com resolução de 8 bits. A contagem será realizada por um timer do microcontrolador.
+Para estimar a velocidade da roda traseira da bicicleta, um par transmissor-receptor de infravermelho será utilizado para calcular o período de interferência entre ambos. O sinal lido será um nível lógico (alto ou baixo)  e será obtido por uma entrada digital. Neste caso, um serviço de interrupção foi configurado para iniciar uma contagem e encerrar a mesma. O período obtido dividirá uma constante de forma a obter uma velocidade com resolução de 8 \textit{bits}. A contagem será realizada por um \textit{timer} do microcontrolador.
 
 \subsection{Atuador no freio} % (fold)
 \label{sub:read_freio_sens}
 
-Para o controle do servomotor, implementou-se um algoritmo de PWM (pulse witdh modulation) a partir do timer. A modulação do pulso será controlada por um valor de 1 byte vindo do ambiente virtual. O sinal de controle gerado é transmitido por uma saída digital. O mesmo timer será utilizado para todas as aplicações que requererem contagens. Cada contagem deverá ser de no mínimo 100us. Com o mesmo timer foi possível emular 10 timers via software. Dessa forma, foi possível controlar a posição do servomotor e realizar a contagem do período do sensor de velocidade.
+Para o controle do servomotor, implementou-se um algoritmo de PWM (\textit{pulse witdh modulation}) a partir do timer. A modulação do pulso será controlada por um valor de 1 \textit{byte} vindo do ambiente virtual. O sinal de controle gerado é transmitido por uma saída digital. O mesmo \textit{timer} será utilizado para todas as aplicações que requererem contagens. Cada contagem deverá ser de no mínimo 100us. Com o mesmo \textit{timer} foi possível emular 10 \textit{timers} via \textit{software}. Dessa forma, foi possível controlar a posição do servomotor e realizar a contagem do período do sensor de velocidade.
 
 \section{Circuitos} % (fold)
 \label{sec:circuito}
@@ -79,7 +79,7 @@ Para o controle do servomotor, implementou-se um algoritmo de PWM (pulse witdh m
 \subsection{Sensor de Posição do Guidão} % (fold)
 \label{sub:poteciometro_guidao}
 
-Para verificar o ângulo do guidão da bicicleta, o sensor que será utilizado se trata de um potenciômetro. Este dispositivo tem a capacidade de variar sua resistência em função do posicionamento de seu eixo. Este eixo será fixado no guidão da bicicleta e permitirá uma rotação de 270 graus. O potenciômetro escolhido possui uma resistência de 10kOhm e funcionará como divisor resistivo de uma tensão de 5V. O pino central fornecerá a tensão resultante deste divisor que deverá ser um valor analógico e estar entre 0 e 5V. Este sinal é condicionado por um amplificador operacional na configuração de seguidor de tensão. Por fim, a saída deste circuito é acoplada a um divisor resistivo que deverá condicionar o sinal a uma tensão entre 0 e 3V, que estão dentro da excursão de entrada do canal de entrada analógica do microcontrolador. A Figura \ref{fig:circ_pot} mostra o circuito deste sensor.
+Para verificar o ângulo do guidão da bicicleta, o sensor que será utilizado se trata de um potenciômetro. Este dispositivo tem a capacidade de variar sua resistência em função do posicionamento de seu eixo. Este eixo será fixado no guidão da bicicleta e permitirá uma rotação de 270 graus. O potenciômetro escolhido possui uma resistência de 10k$\Omega$ e funcionará como divisor resistivo de uma tensão de 5V. O pino central fornecerá a tensão resultante deste divisor que deverá ser um valor analógico e estar entre 0 e 5V. Este sinal é condicionado por um amplificador operacional na configuração de seguidor de tensão. Por fim, a saída deste circuito é acoplada a um divisor resistivo que deverá condicionar o sinal a uma tensão entre 0 e 3V, que estão dentro da excursão de entrada do canal de entrada analógica do microcontrolador. A Figura \ref{fig:circ_pot} mostra o circuito deste sensor.
 
 \begin{figure}[h]
   \centering
@@ -89,7 +89,7 @@ Para verificar o ângulo do guidão da bicicleta, o sensor que será utilizado s
   \label{fig:circ_pot}
 \end{figure}
 
-\subsection{Tacômetro} % (fold)
+\subsection{Tacômetro de Pulso} % (fold)
 \label{sub:tac_metro}
 
 O método empregado para obter a velocidade da roda foi o tacômetro de pulso. O projeto escolhido consiste em um circuito transmissor-receptor de Infravermelho, de onde será realizada uma contagem do período de não interferência entre o emissor e o receptor. Quando a interferência terminar, o microcontrolador iniciará a contagem. Esta contagem termina quando ocorre uma nova interferência. O período obtido é utilizado para obter a velocidade de transição entre os raios da roda traseira da bicicleta.
@@ -152,7 +152,7 @@ Se um sinal PWM possui, por exemplo, 40\% de \textit{duty cicle} significa que o
 \begin{figure}[h]
   \centering
 	\includegraphics[width=0.8\textwidth]{figuras/pwmExample.png}
-  \caption{Exemplo de sinal PWM com diferentes duty cicles.}
+  \caption{Exemplo de sinal PWM com diferentes \textit{duty cicles}.}
   \label{fig:pwmcircuito}
 \end{figure}
 
@@ -160,7 +160,7 @@ Se um sinal PWM possui, por exemplo, 40\% de \textit{duty cicle} significa que o
 Como dito anteriormente, o sinal PWM deve possuir uma frequência de variação entre os pulsos de forma que a carga "veja" uma tensão analógica constante. Suponha que um sinal PWM está em seu valor máximo durante 100 ms e depois muda para 0 V e fica neste estado por outros 100 ms. Se este ciclo se repetir 60 vezes por segundo, a tensão medida na saída será de 50\% da tensão máxima com frequência de 60 Hz. A esta frequência é dado o nome de frequência de modulação e depende do tipo sistema que será controlado.
 Este método foi escolhido devido a sua grande imunidade a ruído, fácil controle da tensão de saída e redução do consumo total do sistema.
 
-O Sinal PWM será gerado pelo microcontrolador. Porém, seu sinal de saída precisa ser condicionado pois os níveis de tensão do microcontrolador são de 0 a 3V e o servomotor será alimentado com uma tensão de 5V. Assim, o circuito apresentado na Figura \ref{fig:circ_serv} altera os níveis lógicos de tensão para 0 a 5V. Este circuito consiste em um amplificador operacional em modo de comparação, tendo seu valor de saída sempre saturados. O servomotor será posicionado no quadro da bicicleta de forma a tracionar o cabo de aço do freio que passa pelo varão, tal como na Figura \ref{fig:foto_servo}.
+O microcontrolador irá gerar o sinal PWM. Porém, seu sinal de saída precisa ser condicionado pois os níveis de tensão do microcontrolador são de 0 a 3V e o servo motor será alimentado com uma tensão de 5V. Assim, o circuito apresentado na Figura \ref{fig:circ_serv} altera os níveis lógicos de tensão para 0 a 5V. Este circuito consiste em um amplificador operacional em modo de comparação, tendo seu valor de saída sempre saturados. O servo motor será posicionado no quadro da bicicleta de forma a tracionar o cabo de aço do freio que passa pelo varão, tal como na Figura \ref{fig:foto_servo}.
 
 \begin{figure}[h]
   \centering
@@ -179,7 +179,7 @@ O Sinal PWM será gerado pelo microcontrolador. Porém, seu sinal de saída prec
 \subsection{Sensor Infravermelho} % (fold)
 \label{sub:sensor_infra}
 
-Sensores Infravermelhos são detectores que possuem uma fotocélula capaz de reagir à emissão de luz infravermelha. São muito utilizado em controles remotos, teclados, mouses sem fio, bem como, no isolamento de circuitos elétricos e sensores de posição. Todos os aparelhos de TV e DVD player possuem estes sensores para comandar alguma ação nestes aparelhos. O sinal é enviado por um LED emissor de luz infravermelha, é captado por um fototransistor e, por fim, os dados são processados. 
+Sensores Infravermelhos são detectores que possuem uma fotocélula capaz de reagir à emissão de luz infravermelha. São muito utilizado em controles remotos, teclados, mouses sem fio, bem como, no isolamento de circuitos elétricos e sensores de posição. Todos os aparelhos de TV e DVD \textit{player} possuem estes sensores para comandar alguma ação nestes aparelhos. O sinal é enviado por um LED (\textit{Light Emissor Diode}) emissor de luz infravermelha, é captado por um fototransistor e, por fim, os dados são processados. 
 A aplicação destes sensores, juntos, é chamada de par ótico. Estes par ótico pode ser fabricado em diversos formatos, geralmente customizados para aplicações específicas. É possível encontrar o LED emissor e o fototransistor montados em um único encapsulamento para sensores de posição, com um sulco entre eles (Figura \ref{fig:fotoUni}), ou de forma separada funcionando como chaves óticas (Figura \ref{fig:fotoLED}), por exemplo.
 
 \begin{figure}
