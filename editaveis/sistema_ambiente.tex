@@ -15,7 +15,7 @@ Este capítulo descreve partes do sistema como um todo, abrangendo ferramentas d
 			\item Interface de aquisição e disponibilização dos dados (microcontrolador)
 		\end{itemize}
 	\end{itemize}
-	\item \nameref{automotiva}
+	\item \nameref{cha:automotiva_desenvolvimento}
 	\begin{itemize}
 		\item Estrutura do produto e seus esforços
 	\end{itemize}
@@ -33,7 +33,7 @@ Este capítulo descreve partes do sistema como um todo, abrangendo ferramentas d
 \section{Puppet} % (fold)
 \label{sec:puppet}
 
-Para agilizar e evitar os problema com compatibilidades e erros de versões de bibliotecas e outros ativos, foi utilizado a ferramenta \href{http://puppetlabs.com}{Puppet} para auxiliar com este processo administrativo de desenvolvimento do sistema. O Puppet está sendo usado como ferramanta para gerenciamento de configuração do ambiente de desenvolvimento do projeto Bike-X.
+Para agilizar e evitar os problema com compatibilidades e erros de versões de bibliotecas e outros ativos, foi utilizado a ferramenta \href{http://puppetlabs.com}{Puppet} para auxiliar com este processo administrativo de desenvolvimento do sistema. O Puppet está sendo usado como ferramenta para gerenciamento de configuração do ambiente de desenvolvimento do projeto Bike-X.
 
 \subsection{O que é o Puppet} % (fold)
 \label{sub:o_que_o_puppet}
@@ -46,7 +46,7 @@ O Puppet possui uma sintaxe própria, o mesmo utiliza uma linguagem declarativa,
 \subsection{Integrando o Puppet ao projeto} % (fold)
 \label{sub:integrando_o_puppet_ao_projeto}
 
-Para a utilização do Puppet dentro do projeto foi desenvolvido um módulo puppet específico, chamado \href{https://github.com/start-x/startx-src/tree/master/puppet}{bike-x}. Nesse módulo é definido nome e versão de pacotes a serem instalados, é definido links simbólicos, criação de arquivos de configuração para o \gls{rift}. O módulo em questão foi testado e homologado para algumas distribuições do sistema operacional Linux:
+Para a utilização do Puppet dentro do projeto foi desenvolvido um módulo \textit{puppet} específico, chamado \href{https://github.com/start-x/startx-src/tree/master/puppet}{bike-x}. Nesse módulo é definido nome e versão de pacotes a serem instalados, é definido links simbólicos, criação de arquivos de configuração para o \gls{rift}. O módulo em questão foi testado e homologado para algumas distribuições do sistema operacional Linux:
 
 \begin{itemize}
 \item Ubuntu 13.10

@@ -5,7 +5,7 @@
 \label{sec:msp430}
 
 % É um microcontrolador RISC de 16 bits criado pela Texas Instrumets para aplicações de baixo consumo de energia.
-O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrolador possui uma arquitetura RISC com registradores de 16 bits e 27 instruções, 512 Bytes de RAM e pode operar com um clock de até 16MHz. As aplicações foram trabalhadas a partir da plataforma MSP430 Launchpad. Esta plataforma foi desenvoldida pela Texas Instruments (TI) como um kit de avaliação para microcontroladores da linha MSP430G. Este microcontrolador apresenta algumas características importantes para a realização deste trabalho. São elas:
+O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrolador possui uma arquitetura RISC com registradores de 16 bits e 27 instruções, 512 Bytes de RAM e pode operar com um clock de até 16MHz. As aplicações foram trabalhadas a partir da plataforma MSP430 Launchpad. Esta plataforma foi desenvolvida pela Texas Instruments (TI) como um kit de avaliação para microcontroladores da linha MSP430G. Este microcontrolador apresenta algumas características importantes para a realização deste trabalho. São elas:
 \begin {itemize}
 	\item 2 Times (TA0 e TA1) com 16 bits e 4 modos de contagem;
 	\item 8 canais de entrada para um Conversor A/D de 10bits ( ADC10 tipo SAR);
@@ -92,7 +92,7 @@ Para verificar o ângulo do guidão da bicicleta, o sensor que será utilizado s
 \subsection{Tacômetro} % (fold)
 \label{sub:tac_metro}
 
-O método empregado para obter a velocidade da roda foi o tacômetro de pulso. O projeto escolhido consiste em um circuito transmissor-receptor de Infravermelho, de onde será realizada uma contagem do período de não interferência entre o emissor e o receptor. Quando a interferência terminar, o microcontrolador iniciará a contagem. Esta contagem termina quando ocorre uma nova interferência. O periodo obtido é utilizado para obter a velocidade de transição entre os raios da roda traseira da bicicleta.
+O método empregado para obter a velocidade da roda foi o tacômetro de pulso. O projeto escolhido consiste em um circuito transmissor-receptor de Infravermelho, de onde será realizada uma contagem do período de não interferência entre o emissor e o receptor. Quando a interferência terminar, o microcontrolador iniciará a contagem. Esta contagem termina quando ocorre uma nova interferência. O período obtido é utilizado para obter a velocidade de transição entre os raios da roda traseira da bicicleta.
 
 O emissor e o receptor serão instalados em suportes acoplados ao quadro da bicicleta alinhados um com o outro em lados opostos da roda. O período obtido na contagem corresponde a transição de um raio para outro, cuja distancia é de 4 cm. A Figura \ref{fig:sens_tac} mostra como será a disposição do suporte do par emissor e receptor no quadro da bicicleta. A Figura \ref{fig:figuras_tacometro} mostra o esquemático do circuito utilizado.
 
@@ -100,7 +100,7 @@ O emissor e o receptor serão instalados em suportes acoplados ao quadro da bici
   \centering
   \includegraphics[width=0.8\textwidth]
       {figuras/sup_tac.jpg}
-  \caption{Suporte do par transmissor-receptor de infravermelho para o tacometro de pulso.}
+  \caption{Suporte do par transmissor-receptor de infravermelho para o tacômetro de pulso.}
   \label{fig:sens_tac}
 \end{figure}
 
@@ -157,10 +157,10 @@ Se um sinal PWM possui, por exemplo, 40\% de \textit{duty cicle} significa que o
 \end{figure}
 
 
-Como dito anteriormente, o sinal PWM deve possuir uma frequência de variação entre os pulsos de forma que a carga “veja” uma tensão analógica constante. Suponha que um sinal PWM está em seu valor máximo durante 100 ms e depois muda para 0 V e fica neste estado por outros 100 ms. Se este ciclo se repetir 60 vezes por segundo, a tensão medida na saída será de 50\% da tensão máxima com frequência de 60 Hz. A esta frequência é dado o nome de frequência de modulação e depende do tipo sistema que será controlado.
+Como dito anteriormente, o sinal PWM deve possuir uma frequência de variação entre os pulsos de forma que a carga "veja" uma tensão analógica constante. Suponha que um sinal PWM está em seu valor máximo durante 100 ms e depois muda para 0 V e fica neste estado por outros 100 ms. Se este ciclo se repetir 60 vezes por segundo, a tensão medida na saída será de 50\% da tensão máxima com frequência de 60 Hz. A esta frequência é dado o nome de frequência de modulação e depende do tipo sistema que será controlado.
 Este método foi escolhido devido a sua grande imunidade a ruído, fácil controle da tensão de saída e redução do consumo total do sistema.
 
-O Sinal PWM será gerado pelo microcontrolador. Porém, seu sinal de saida precisa ser condicionado pois os níveis de tensão do microcontrolador são de 0 a 3V e o servomotor será alimentado com uma tensão de 5V. Assim, o circuito apresentado na Figura \ref{fig:circ_serv} altera os níveis lógicos de tensão para 0 a 5V. Este circuito consiste em um amplificador operacional em modo de comparação, tendo seu valor de saída sempre saturados. O servomotor será posicionado no quadro da bicicleta de forma a tracionar o cabo de aço do freio que passa pelo varão, tal como na Figura \ref{fig:foto_servo}.
+O Sinal PWM será gerado pelo microcontrolador. Porém, seu sinal de saída precisa ser condicionado pois os níveis de tensão do microcontrolador são de 0 a 3V e o servomotor será alimentado com uma tensão de 5V. Assim, o circuito apresentado na Figura \ref{fig:circ_serv} altera os níveis lógicos de tensão para 0 a 5V. Este circuito consiste em um amplificador operacional em modo de comparação, tendo seu valor de saída sempre saturados. O servomotor será posicionado no quadro da bicicleta de forma a tracionar o cabo de aço do freio que passa pelo varão, tal como na Figura \ref{fig:foto_servo}.
 
 \begin{figure}[h]
   \centering
