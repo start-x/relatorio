@@ -24,10 +24,10 @@ O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrola
 Em comparação com outras plataformas, como o Arduino, a MSP430 Launchpad apresenta um menor custo. A plataforma Arduino apresenta mais facilidade para a implementação de protótipos através de sua linguagem de programação na Arduino IDE, porém, a plataforma Launchpad também possuí uma plataforma similar disponível chamada de Energia. Neste projeto, entretanto, optou-se por utilizar a ferramenta msp430-gcc e mspdebug para desenvolver as aplicações de software embarcado e programar o dispositivo respectivamente. Elas foram escolhidas por possibilitar mais liberdade de desenvolvimento no microcontrolador e possibilidade de seguir em nível mais próximo do hardware, apesar da maior complexidade na elaboração das aplicações.
 
 
-\subsection{MSPGCC} % (fold)
-\label{sub:mspgcc}
+%\subsection{MSPGCC} % (fold)
+%\label{sub:mspgcc}
 
-É um porte do \textit{GNU C Compiler} (\textbf{GCC}) e do \textit{GNU Binutils} (\textbf{as}, \textbf{ld}) para o microcontrolador \textit{MSP430}. São providenciadas ferramentas para depuração e \textit{download} de binário (\textbf{GDB, JTAG} e \textbf{BSL}).
+%É um porte do \textit{GNU C Compiler} (\textbf{GCC}) e do \textit{GNU Binutils} (\textbf{as}, \textbf{ld}) para o microcontrolador \textit{MSP430}. São providenciadas ferramentas para depuração e \textit{download} de binário (\textbf{GDB, JTAG} e \textbf{BSL}).
 
 % Item sobre a visão sistemica da eletronica embarcada
 
@@ -76,8 +76,33 @@ Para o controle do servomotor, implementou-se um algoritmo de PWM (pulse witdh m
 \section{Circuitos} % (fold)
 \label{sec:circuito}
 
+\subsection{Sensor de Posição do Guidão} % (fold)
+\label{sub:poteciometro_guidao}
+
+Para verificar o ângulo do guidão da bicicleta, o sensor que será utilizado se trata de um potenciômetro. Este dispositivo tem a capacidade de variar sua resistência em função do posicionamento de seu eixo. Este eixo será fixado no guidão da bicicleta e permitirá uma rotação de 270 graus. O potenciômetro escolhido possui uma resistência de 10kOhm e funcionará como divisor resistivo de uma tensão de 5V. O pino central fornecerá a tensão resultante deste divisor que deverá ser um valor analógico e estar entre 0 e 5V. Este sinal é condicionado por um amplificador operacional na configuração de seguidor de tensão. Por fim, a saída deste circuito é acoplada a um divisor resistivo que deverá condicionar o sinal a uma tensão entre 0 e 3V, que estão dentro da excursão de entrada do canal de entrada analógica do microcontrolador. A Figura \ref{fig:circ_pot} mostra o circuito deste sensor.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]
+      {figuras/potenciometro.png}
+  \caption{Esquemático do circuito do potenciômetro.}
+  \label{fig:circ_pot}
+\end{figure}
+
 \subsection{Tacômetro} % (fold)
 \label{sub:tac_metro}
+
+O método empregado para obter a velocidade da roda foi o tacômetro de pulso. O projeto escolhido consiste em um circuito transmissor-receptor de Infravermelho, de onde será realizada uma contagem do período de não interferência entre o emissor e o receptor. Quando a interferência terminar, o microcontrolador iniciará a contagem. Esta contagem termina quando ocorre uma nova interferência. O periodo obtido é utilizado para obter a velocidade de transição entre os raios da roda traseira da bicicleta.
+
+O emissor e o receptor serão instalados em suportes acoplados ao quadro da bicicleta alinhados um com o outro em lados opostos da roda. O período obtido na contagem corresponde a transição de um raio para outro, cuja distancia é de 4 cm. A Figura \ref{fig:sens_tac} mostra como será a disposição do suporte do par emissor e receptor no quadro da bicicleta. A Figura \ref{fig:figuras_tacometro} mostra o esquemático do circuito utilizado.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]
+      {figuras/sup_tac.jpg}
+  \caption{Suporte do par transmissor-receptor de infravermelho para o tacometro de pulso.}
+  \label{fig:sens_tac}
+\end{figure}
 
 \begin{figure}[h]
   \centering
@@ -126,7 +151,7 @@ Se um sinal PWM possui, por exemplo, 40\% de \textit{duty cicle} significa que o
 %Atualizar figura
 \begin{figure}[h]
   \centering
-	% \includegraphics[width=0.8\textwidth]{pwmCircuito}
+	\includegraphics[width=0.8\textwidth]{figuras/pwmExample.png}
   \caption{Exemplo de sinal PWM com diferentes duty cicles.}
   \label{fig:pwmcircuito}
 \end{figure}
@@ -134,6 +159,22 @@ Se um sinal PWM possui, por exemplo, 40\% de \textit{duty cicle} significa que o
 
 Como dito anteriormente, o sinal PWM deve possuir uma frequência de variação entre os pulsos de forma que a carga “veja” uma tensão analógica constante. Suponha que um sinal PWM está em seu valor máximo durante 100 ms e depois muda para 0 V e fica neste estado por outros 100 ms. Se este ciclo se repetir 60 vezes por segundo, a tensão medida na saída será de 50\% da tensão máxima com frequência de 60 Hz. A esta frequência é dado o nome de frequência de modulação e depende do tipo sistema que será controlado.
 Este método foi escolhido devido a sua grande imunidade a ruído, fácil controle da tensão de saída e redução do consumo total do sistema.
+
+O Sinal PWM será gerado pelo microcontrolador. Porém, seu sinal de saida precisa ser condicionado pois os níveis de tensão do microcontrolador são de 0 a 3V e o servomotor será alimentado com uma tensão de 5V. Assim, o circuito apresentado na Figura \ref{fig:circ_serv} altera os níveis lógicos de tensão para 0 a 5V. Este circuito consiste em um amplificador operacional em modo de comparação, tendo seu valor de saída sempre saturados. O servomotor será posicionado no quadro da bicicleta de forma a tracionar o cabo de aço do freio que passa pelo varão, tal como na Figura \ref{fig:foto_servo}.
+
+\begin{figure}[h]
+  \centering
+	\includegraphics[width=0.8\textwidth]{figuras/circuitoPWM.png}
+  \caption{Circuito utilizado para condicionar o sinal de PWM do microcontrolador para o servo motor.}
+  \label{fig:circ_serv}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+	\includegraphics[width=0.8\textwidth]{figuras/servoQuadro.jpg}
+  \caption{Detalhe do servo motor instalado no quadro da bicicleta.}
+  \label{fig:foto_servo}
+\end{figure}
 
 \subsection{Sensor Infravermelho} % (fold)
 \label{sub:sensor_infra}
@@ -144,16 +185,33 @@ A aplicação destes sensores, juntos, é chamada de par ótico. Estes par ótic
 \begin{figure}
         \centering
         \begin{subfigure}[b]{0.4\textwidth}
-                % \includegraphics[width=0.8\textwidth]{pwmCircuito}
+                \includegraphics[width=0.7\textwidth]{figuras/optoac.jpg}
                 \caption{LED e Fototransistor montados em um único encapsulamento}
                 \label{fig:fotoUni}
         \end{subfigure}%
         ~
         \begin{subfigure}[b]{0.4\textwidth}
-                % \includegraphics[width=0.8\textwidth]{pwmCircuito}
+                \includegraphics[width=0.7\textwidth]{figuras/opto_u.jpg}
                 \caption{Fototransistor separado do LED}
                 \label{fig:fotoLED}
         \end{subfigure}
         \caption{Conjuntos de LED emissor e o fototransistor}
         \label{fig:LED}
 \end{figure}
+
+
+\subsection{Circuito de verificação de nível de bateria} % (fold)
+\label{sub:nivelBateria}
+
+Este circuito realiza a medição do nível da bateria acoplada a bicicleta que será recarregada com a energia gerada pela pedalada do usuário. O circuito se trata de um amplificador operacional configurado como circuito diferenciador. Um dos sinais de entrada é a própria fonte de alimentação do circuito, que neste caso é inicialmente de 12V. A segunda entrada recebe o sinal de um regulador de tensão de 5V, que alimentará os outros circuitos.
+Enquanto a tensão da bateria for maior que a tensão do regulador, a saída do amplificador será maior que 0. A medida em que a bateria é descarregada, sua tensão entre os polos positivo e negativo também cairá, diminuindo a diferença entre a tensão da bateria e do regulador. O status da bateria será transmitido ao usuário no ambiente virtual. A Figura \ref{fig:circ_bat} mostra o esquemático do circuito de verificação do nível da bateria.
+
+\begin{figure}[h]
+  \centering
+	\includegraphics[width=0.8\textwidth]{figuras/circuitoBateria.png}
+  \caption{Circuito utilizado para medir o nível da bateria.}
+  \label{fig:circ_bat}
+\end{figure}
+
+
+
