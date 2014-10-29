@@ -2,10 +2,10 @@
 
 @import url(../css_support/font/cabinsketch.ttf);
 @import url(../css_support/font/Dadhand.ttf);
-/*@import url(https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch.css);
-@import url('http://www.fontsaddict.com/fontface/dadhand.ttf');*/
+@import url(https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch.css);
+@import url('http://www.fontsaddict.com/fontface/dadhand.ttf');
 
-/*@font-face {
+@font-face {
   font-family: 'Dadhand';
   src: url(../css_support/font/Dadhand.ttf);
   src: url('http://www.fontsaddict.com/fontface/dadhand.ttf');
@@ -14,7 +14,7 @@
   font-family: 'Cabin Sketch';
   src: url(../css_support/font/cabinsketch.ttf);
   src: url('https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch.ttf');
-}*/
+}
 body {
   color: #000;
   /*Base font color*/
