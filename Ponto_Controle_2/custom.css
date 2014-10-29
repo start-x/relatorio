@@ -57,11 +57,15 @@ sup {
   color: #559;
   /*background:#52a2df;*/
 
-  font-size: 20%;
+  font-size: 40%;
   font-family: 'Purisa', 'Dadhand', monospace;
   position: absolute;
   bottom: 0;
   width: 644px;
   height: 20px;
   margin: 0 auto;
+}
+
+ul li{
+    font-size: 75%;
 }
