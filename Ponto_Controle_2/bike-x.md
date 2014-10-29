@@ -1,72 +1,108 @@
 # **Bike-X**
 
-## Start-X 
+## Start-X
+
+<br><br>
 
 ###### UnB, Outubro de 2014
 
 
 <sup id="fn1">Slides disponíveis [aqui](http://start-x.github.io/relatorio) </sup>
 
-.notes: Pressing 2 will display these fascinating notes
-
-.fx: titleslide
-
-# presenter notes
-Some notes go here including this list:
-
-* one
-* two
-* three
-
-And this final line.
 
 ---
- 
+
 
 # Agenda
 
-  - Custo
+
+- Proposta
+- Desenvolvimento
+    - Ferramentas de auxilio
+    - Desenho do sistema
+    - Ambientalização
+    - Microcontrolador
+    - Sensores
+    - Construção da base
+    - Estudo do alternador
+    - Eficiência energética
 
 ----------
 
-# Custos
+# Proposta
+
+# presenter notes
+Apresentar proposta do projeto de forma  rapida e objetiva!
+
+-----
+
+# Desenvolvimento
+
+-----
+
+## Ferramentas de auxilio
+
+- Redmine
+- Git
+- Puppet
+
+----
+
+## Desenho do sistema
 
 
-<style type="text/css">
-.tg .tg-031e{text-align:center}
-.tg .tg-e3zv{font-weight:bold}
-.tg .tg-e3zv{text-align:center}
-</style>
-<center>
-<table border="2" class="tg">
-  <tr>
-    <th class="tg-031e">Engenharia</th>
-    <th class="tg-031e">Custo</th>
-  </tr>
-  <tr>
-    <td class="tg-031e">Automotiva</td>
-    <td class="tg-031e">R$ 418,00</td>
-  </tr>
-  <tr>
-    <td class="tg-031e">Eletrônica</td>
-    <td class="tg-031e">R$ 367,00</td>
-  </tr>
-  <tr>
-    <td class="tg-031e">Energia<br></td>
-    <td class="tg-031e">R$ 564,00</td>
-  </tr>
-  <tr>
-    <td class="tg-031e">Software<br></td>
-    <td class="tg-031e">R$ 1500,00</td>
-  </tr>
-  <tr>
-    <td class="tg-e3zv">Total</td>
-    <td class="tg-e3zv">R$ 2849,00</td>
-  </tr>
-</table>
-</center>
+# presenter notes
+Apresentar diagrama do sistema
+
+ Comentar divisão dos módulos e evolução
+
+-----
+
+## Ambientalização
+
+# presenter notes
+ Comentar o uso do Unity e a integração com o Oculus Rift
+
+----
+
+## Microcontrolar
+
+# presenter notes
+ Comentar a escolha do micro, como a equipe trabalhou na produção das
+bibliotecas, a integração com a equipe de software para dominio da ferramenta Git
+
+----
+
+## Sensores
+
+# presenter notes
+Descrever evolução da criação do circuito, rapido comentario sobre as dificuldades
+e foco nos resultados obtidos
+
+-----
+
+
+## Base de suporte
+
+# presenter notes
+Apresentar escolha do motivo de escolha do formato da base, seus benificios e
+possíveis problemas
+
+----
+
+## Acoplamento do Alternador
+
+# presenter notes
+Modelo adotado, seus beneficios, as dificuldades encontradas
+
+----
+
+## Eficiência Energética
+
+# presenter notes
+Com a escolha do material adotado, apresentar os resultados obtidos e comparar
+com os esperados
+
 ---------
 
-# Dúvidas?
-
-
+# Obrigado!
