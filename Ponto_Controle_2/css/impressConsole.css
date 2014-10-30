@@ -3,7 +3,7 @@ html#impressconsole {
 }
 
 #impressconsole body {
-    padding: 0;
+    padding: 50px;
     margin: 20px;
     font-family: verdana, arial, sans-serif;
     font-size: 26px;
