@@ -10,7 +10,7 @@ Como já explicitado anteriormente, de acordo com as necessidade de projeto, o p
 	\caption{Especificações do perfil em T}
 \end{figure}
 
-A resistência à flexão e da rigidez de flexão têm de ser calculado sobre um dos eixos, aquele que resultar no menor valor. Rigidez de flexão é proporcional ao produto EI e a resistência à flexão é dada pelo valor de é $\frac{S_{y}}{C}$ ( para o aço 1010 os valores são: $S_{y} = 325MPA$, E = 200MPA$)
+A resistência à flexão e da rigidez de flexão têm de ser calculado sobre um dos eixos, aquele que resultar no menor valor. Rigidez de flexão é proporcional ao produto EI e a resistência à flexão é dada pelo valor de é $\frac{S_{y}}{C}$ ( para o aço 1010 os valores são: $S_{y} = 370MPA$, E = 200...)
 
 \begin{description}
 	\item E Módulo de elasticidade;
@@ -205,8 +205,7 @@ Estimativas obtidas de dados de uma série de fontes podem apresentar uma grande
 
 \subsection{Simulação Numérica}
 
-Nesse seção serão apresentados os resultados da análise pelo método dos elementos (MEF) da estrutura, construido para erguer a bicicleta, o qual será submetido a caregamentos pontuais.
-Uma vez construída a base em treliça, fez-se necessário a aplicações de esforços os quais a mesma será solicita, assim que o usuário se sentar na bicicleta. Porém, para início de dados gerados, foi feita uma análise sobre as distribuições de esforços sobre a bicicleta em 3D, em quem os apoios se encontram na parte traseira do quadro, e na parte dianteira, sob o guidão, como pode ser visto na figura \ref{pontos-esforcos}:
+Uma vez construída a base em treliça, fez-se necessário a aplicações de esforços os quais a mesma será solicita, assim que o usuário se sentar na bicicleta. Porém, para início de dados gerados, foi feita uma análise sobre as distribuições de esforços sobre a bicicleta, uma vez que mesma estiva apoiada, apenas através do 'garfo' que serve para ligar o quadro, a roda, como pode ser visto na figura \ref{pontos-esforcos}:
 
 \begin{figure}[h]
 \centering
@@ -215,7 +214,7 @@ Uma vez construída a base em treliça, fez-se necessário a aplicações de esf
 \label{pontos-esforcos}
 \end{figure}
 
-Onde, na seta em vermelho foi aplicada a carga gerada pelo ciclista, um valor igual a no máximo 1.000N. Os pontos 1, 5 e 6 foram usados para fixar a bicicleta, e analisar as reações nos mesmos, pois, o suporte será fixado nos pontos 5 e 6.
+Onde, na sete em vermelho foi aplicada a carga gerada pelo ciclista, um valor igual a no máximo 1.000N. Os pontos 1, 5 e 6 foram usados para fixar a bicicleta, e analisar as reações nos mesmos, pois, o suporte será fixo nos pontos 1, 5 6.
 
 Utilizando-se o software \textit{ansys}, foi feita uma simulação, adotando as característica da uma bicicleta que será utilizada pelo usuário, do tipo aro 26, feita em alumínio, com um perfil circular vazado de diâmetro externo igual a 25mm com 2mm de espessura.
 
@@ -225,21 +224,18 @@ Utilizando-se o software \textit{ansys}, foi feita uma simulação, adotando as 
 \caption{Simulação}
 \end{figure}
 
-Onde, em 1 temos uma carga igual a 393,94N e em 5 e 6, uma carga igual a 303,03N. Usando estes valores encontrados no Ansys, através da simulação em 3D da bicicleta, foi feita uma simulação usando o CATIA VR19, no suporte já desenhado para verificar se o suporte projetado consegue suportar as solicitações impostas. Como temos na figura \ref{resultado-simulacao} e \ref{analise-deslocamento}.
+Onde, em 1 temos uma carga igual a 393,94N e em 5 e 6, uma carga igual a 303,03N. Usando estes valores encontrados no Ansys, através da simulação em 3D da bicicleta, foi feita uma simulação usando o CATIA VR19,no suporte já desenhado, para verificar se o suporte projetado, consegue suportar as solicitações impostas. Como temos na figura \ref{resultado-simulacao} e \ref{analise-deslocamento}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{figuras/vonmisses.png}
-\caption{Análise de Von Misses}
+\caption{O resultado para a análise de Von Misses}
 \label{resultado-simulacao}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.4]{figuras/deslocamento.png}
-\caption{Análise de deslocamento.}
+\caption{O resultado para a análise de deslocamento.}
 \label{analise-deslocamento}
 \end{figure}
-
-O presente trabalho se baseiou principalmente no método de Von Misses, por ser de fácil e mais simples verificação. Na figura \ref{resultado-simulacao} podemos verificar, que a tensão gerada, ficou muito abaixo da tensão de escoamento do material:
-Tensão máxima solicitada = 2,14MPA$ em o fator de segurança pode ser obtido divindo a tensão escoamento, pelo valor da tensão máxima gerada. O mesmo é maior que um, comprovando que o suporte projetado irá suportar as cargas impostas.
