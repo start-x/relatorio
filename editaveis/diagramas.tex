@@ -1,4 +1,4 @@
-\subsection{Diagrama de Sequencia} % (fold)
+\subsection{Diagrama de Sequência} % (fold)
 \label{sec:diagrama_de_sequencia}
 
 Para melhor compreensão do funcionamento da aplicação e interação entre os módulos e os integrantes da equipe quanto a proposta 
@@ -21,7 +21,7 @@ Ao iniciar a aplicação, é  instanciado o \textit{Bikex}, que por sua vez leva
 
 \begin{figure}[h]
   \centering
-	\includegraphics[width=0.6\textwidth]{figuras/processes}
+	\includegraphics[width=0.5\textwidth]{figuras/processes}
   \caption{Diagrama de Processo}
   \label{fig:diagrama-processo}
 \end{figure}
@@ -30,7 +30,7 @@ Durante a leitura dos valores dos sensores, é enviado um sinal assíncrono \tex
 
 \begin{figure}[h]
   \centering
-	\includegraphics[width=0.7\textwidth]{figuras/readDevices}
+	\includegraphics[width=0.5\textwidth]{figuras/readDevices}
   \caption{Diagrama de Sequência para leitura dos sensores passivos}
   \label{fig:diagrama-sequencia-read-devices}
 \end{figure}
@@ -39,7 +39,7 @@ Feita a leitura dos dados contidos no arquivo, inicia-se a fase de cálculos bas
 
 \begin{figure}[h]
   \centering
-	\includegraphics[width=0.7\textwidth]{figuras/calculate}
+	\includegraphics[width=0.5\textwidth]{figuras/calculate}
   \caption{Diagrama de Sequência para processamento de dados e renderização das informações}
   \label{fig:diagrama-sequencia-calculate}
 \end{figure}
@@ -48,26 +48,41 @@ Para a atualização do estados dos sensores ativos, o Bikex executa o método \
 
 \begin{figure}[h]
   \centering
-	\includegraphics[width=0.7\textwidth]{figuras/writeDevices}
+	\includegraphics[width=0.5\textwidth]{figuras/writeDevices}
   \caption{Diagrama de Sequência para atualizar valores nos sensores ativos}
   \label{fig:diagrama-sequencia-write-devices}
 \end{figure}
 
 %\newpage
 
-\subsection{Diagrama de Classe} % (fold)
+\subsection{Diagrama de Classes} % (fold)
 \label{sec:diagrama_de_classe}
 
-Para maior compreensão das atividades e responsabilidades de cada classe da aplicação, foi desenhado %o glorioso
-diagrama de classes, apresentado na figura \ref{fig:diagrama-classe}.
+Para maior compreensão das atividades e responsabilidades de cada classe da aplicação, foram desenhados %o glorioso
+diagramas de classes dos módulos que haviam necessidade, apresentados nas figuras \ref{fig:diagrama-classe-bikex} e \ref{fig:diagrama-classe-comunication}.
+
+O módulo Bike-X é o módulo central onde ocorre a integração dos outros módulos e o processamento de todos os dados vindos dos sensores, gerando informações para serem repassadas para o usuário. O \textit{design} desse módulo foi pensado para que seja possível a fácil adição de quaisquer novos sensores.
 
 \begin{figure}[h]
   \centering
-	\includegraphics[width=0.8\textwidth]{figuras/class_diagram}
-  \caption{Diagrama de Classe}
-  \label{fig:diagrama-classe}
+	\includegraphics[width=0.7\textwidth]{figuras/Bikex}
+  \caption{Diagrama de Classe do módulo Bike-X}
+  \label{fig:diagrama-classe-bikex}
 \end{figure}
 
-Como o foco do projeto do sistema era a modularidade como um todo, em especial da presença dos sensores, o sistema foi desenhado de forma que seja fácil a adição e remoção de novos sensores, atraves da abstração da interface de comunicação entre os modulo \textit{Bikex} e o \textit{MSP430}.
+O módulo \textit{Comunication} é responsável por ler e atualizar informações dos sensores, sendo sensores passivos para leitura e ativos para atualização. Possui interação direta com o módulo Bike-X, logo, também foi pensado para aceitar novos sensores facilmente.
+
+\begin{figure}[h]
+  \centering
+	\includegraphics[width=0.7\textwidth]{figuras/Comunication}
+	\caption{Diagrama de Classe do módulo \textit{Comunication}}
+  \label{fig:diagrama-classe-comunication}
+\end{figure}
+
+Como o foco do projeto do sistema era a modularidade como um todo, em especial da presença dos sensores, o sistema foi desenhado de forma que seja fácil a adição e remoção de novos sensores, atraves da abstração da interface de comunicação entre os módulo \textit{Bikex} e o \textit{Comunication}.
+
+A descrição de cada módulo será apresentada na seção \ref{sec:modulos}, sendo assim, desnecessária a descrição detalhada de cada um deles nesta seção.
+
+Não foi pensado em diagrama de classes para os outros módulos devido os mesmo não possuírem classes, serem constituídos apenas de \textit{scripts} e código estruturado.
 
 %\newpage
