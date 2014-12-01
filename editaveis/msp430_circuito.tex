@@ -5,7 +5,7 @@
 \label{sec:msp430}
 
 % É um microcontrolador RISC de 16 bits criado pela Texas Instrumets para aplicações de baixo consumo de energia.
-O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrolador possui uma arquitetura RISC com registradores de 16 \textit{bits} e 27 instruções, 512 \textit{Bytes} de RAM e pode operar com um \textit{clock} de até 16MHz. As aplicações foram trabalhadas a partir da plataforma MSP430 \textit{Launchpad}. Esta plataforma foi desenvolvida pela \textit{Texas Instruments} (TI) como um \textit{kit} de avaliação para microcontroladores da linha MSP430G. Este microcontrolador apresenta algumas características importantes para a realização deste trabalho. São elas:
+Tinha como interesse neste projeto utilizar o microcontrolador MSP430G2553. Este microcontrolador possui uma arquitetura RISC com registradores de 16 \textit{bits} e 27 instruções, 512 \textit{Bytes} de RAM e pode operar com um \textit{clock} de até 16MHz. As aplicações foram trabalhadas a partir da plataforma MSP430 \textit{Launchpad}. Esta plataforma foi desenvolvida pela \textit{Texas Instruments} (TI) como um \textit{kit} de avaliação para microcontroladores da linha MSP430G. Este microcontrolador apresenta algumas características importantes para a realização deste trabalho. São elas:
 \begin {itemize}
 	\item 2 \textit{Timers} (TA0 e TA1) com 16 \textit{bits} e 4 modos de contagem;
 	\item 8 canais de entrada para um Conversor A/D de 10\textit{bits} ( ADC10 tipo SAR);
@@ -21,7 +21,20 @@ O microcontrolador utilizado neste projeto foi o MSP430G2553. Este microcontrola
   \label{Launchpad}
 \end{figure}
 % Colocar aqui sobre o que é o MSP430, sua função no projeto como foi utilizado
-Em comparação com outras plataformas, como o Arduino, a MSP430 \textit{Launchpad} apresenta um menor custo. A plataforma Arduino apresenta mais facilidade para a implementação de protótipos através de sua linguagem de programação na Arduino IDE, porém, a plataforma \textit{Launchpad} também possuí uma plataforma similar disponível chamada de \textit{Energia}. Neste projeto, entretanto, optou-se por utilizar a ferramenta msp430-gcc e mspdebug para desenvolver as aplicações de software embarcado e programar o dispositivo respectivamente. Elas foram escolhidas por possibilitar mais liberdade de desenvolvimento no microcontrolador e possibilidade de seguir em nível mais próximo do \textit{hardware}, apesar da maior complexidade na elaboração das aplicações.
+
+Todavia, imprevistos na penúltima semana de desenvolvimento resultaram no comprometimento do uso do MSP430 para o trabalho, deixando o grupo com as seguintes opções:
+
+\begin{itemize}
+  \item Realizar a obtenção de uma nova Launchpad e custear o frete para rápida entrega a fim de que fosse entrega a tempo para a conclusão dos testes e calibração dos dados.
+  \item Portar o código para o MSP430 modelo \textit{eZ430-RF2500}, necessitando a reimplementação das bibliotecas para portas digitais, PWM, interrupções, Timers e ADC.
+  \item Utilizar outra plataforma de desenvolvimento que permita rápido desenvolvimento e que seja de conhecimento do grupo.
+\end{itemize}
+
+Assim, a equipe decidiu pelo uso do Arduino como uma plataforma que permitia o rápido desenvolvimento. 
+%
+Em comparação com outras plataformas, como o Arduino, a MSP430 \textit{Launchpad} apresentava um menor custo financeiro e energetico. A plataforma Arduino apresenta mais facilidade para a implementação de protótipos através da linguagem de programação $C++$ na Arduino IDE , porém, a plataforma \textit{Launchpad} também possuí uma plataforma similar disponível chamada de \textit{Energia}. Neste projeto, entretanto, havia opto por utilizar as ferramentas {\code msp430-gcc} e {\code mspdebug} para desenvolver as aplicações de software embarcado e programar o dispositivo respectivamente. Elas haviam sido escolhidas por possibilitar mais liberdade de desenvolvimento no microcontrolador e possibilidade de seguir em nível mais próximo do \textit{hardware}, apesar da maior complexidade na elaboração das aplicações.
+
+A mudança para a plataforma Arduino fez com que fosse adotada a Arduino IDE por praticidade em gerar um protótipo. Devido a lógica já estar definida e o Arduino oferecer bibliotecas já implementadas para interfacear com servo motores, leituras analógicas, entradas digitais e comunicação serial, foi necessário apenas evoluir como seria tratado a leitura da velocidade da bicicleta para alcançar o estado anterior do projeto, quando ainda se fazia uso do MSP430. Foi estimado a necessidade e 4 horas para o desenvolvimento desta solução com base na equipe envolvida, \textit{knowhow} adquirido com o projeto ate então e a disponibilidade dos circuitos ate então.
 
 
 %\subsection{MSPGCC} % (fold)
