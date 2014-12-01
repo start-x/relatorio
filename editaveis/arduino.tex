@@ -1,0 +1,9 @@
+\subsection{Arduindo}
+\label{sec:arduino}
+
+O Arduino é plataforma \textit{open-source} criada de forma a facilitar o uso da integração de \textit{software} e \textit{hardware}. Foi utilizado o microcontrolador Arduino Mega que é baseado no Atmega 1280. Tem-se um total de 54 pinos digitais de entrada e saída no qual 14 deles tem a possibilidade de serem usados como um sinal PWM (\textit{Pulse Width Modulation}), 16 pinos para entrada de sinais analógicos, 4 portas para comunicação UART (\textit{Universal asynchronous receiver/transmitter}), um oscilador de cristal de 16 MHz, uma conexão USB, uma entrada de alimentação e um botão de \textit{reset}.
+
+O ATmega1280 possui algumas características que foram importantes para a sua escolha como substituição do \textit{MSP430 Launchpad} 128 KB de memória \textit{flash} para armazenamento de código (dos quais 4KB são usados pelo \textit{bootloader}), 8 KB de SRAM e 4 KB de EEPROM (que poder ser lidos e escritos com a biblioteca EEPROM). Outras características importantes são a quantidade de portas de entrada e saída disponíveis, o que permitiu uma maior liberdade ao receber os sinais dos sensores; 
+
+A programação foi realizada utilizando o ambiente de desenvolvimento (IDE) da plataforma Arduino que permite a programação em C/C++. Isto permite controlar e criar operações de entrada e saída dos sensores e do atuador.
+
