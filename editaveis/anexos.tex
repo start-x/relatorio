@@ -2,16 +2,122 @@
 
 \partanexos
 
-% \chapter{Códigos Fontes}
+\chapter{ Comandos utilizados para simulação no Ansys}
 
-%Este endereço pode vir a mudar dependendo de cada computador. Não sei como resolver ainda sem
-%Ter que colocar o código aqui no repositorio/arquivo
-% \section{main.py}
-% \lstinputlisting[language=Python,caption={main.py},label={main_py}]{../../src/startx-src/device/scripts/main.py}
-% \section{device.py}
-% \lstinputlisting[language=Python,caption={device.py},label={device_py}]{../../src/startx-src/device/scripts/device.py}
-% \section{msp430.py}
-% \lstinputlisting[language=Python,caption={msp430.py},label={msp430_py}]{../../src/startx-src/device/scripts/msp430.py}
+Abaixo os comandos que foram utilizados para a simulação da Bike 3D no Ansys.
+
+!Comandos para título da simulação - Bike 3D Start-X
+
+/title,Bike Start-X
+
+/prep7 ! Iniciando pre-processor
+
+! Definindo alguns parametros
+
+x1 = 500 ! Parametros desnecessarios, usados a seguir para facilicar os comandos.		
+
+x2 = 825 
+
+y1 = 325 
+
+y2 = 400 
+
+z1 = 50 
+
+! Definindo os Keypoints 
+
+K,1, 0,y1, 0 ! k,numero do key-point,coordenada-x,coordenada-y,coordenada-z
+
+K,2, 0,y2, 0 
+
+K,3,x1,y2, 0 
+
+K,4,x1, 0, 0 
+
+K,5,x2, 0, z1 
+
+K,6,x2, 0,-z1 
+
+! Definindo as Linhas, ligando os Keypoints 
+
+L,1,2 ! l,keypoint1,keypoint2 
+
+L,2,3 
+
+L,3,4 
+
+L,4,1 
+
+L,4,6 
+
+L,4,5 
+
+L,3,5 ! Estas duas ultimas linhas, são para o suporte traseiro da bicicleta
+
+L,3,6 
+
+! Definindo o tipo de elemento 
+
+ET,1,pipe16 
+
+KEYOPT,1,6,1 
+
+! Definindo as constantes reais (Caracteristicas geometricas do perfil da bicicleta)
+
+R,1,25,2 ! r,numero real,diametro externo,espessura da parede
+
+R,2,12,1 ! segundo conjunto de constantes reais, para o suporte traseiro
+
+! Definindo as propriedades do material
+
+MP,EX,1,70000 ! mp,modulo de Yong,numero do material,valor
+
+MP,PRXY,1,0.33 ! mp,coeficiente de Poisson's,numero do material,valor (Aluminio)
+
+! Difinindo o número de elementos de cada linha, para a mesma ser dividida
+
+LESIZE,ALL,20 ! (lesize)Numero de linhas(todas as linhas),o tamanho do elemento
+
+! Line Meshing 
+
+REAL,1 ! ativando as propriedades reais (1) 
+
+LMESH,1,6,1 ! malhar as linhas, que possuem tais propriedades
+
+! malhar linhas de 1 a 6, passo igual a 1
+
+REAL,2 ! ativando as propriedades reais (2) 
+
+LMESH,7,8 ! malhar suporte traseiro
+
+FINISH ! finalizando o processo
+
+/SOLU  
+
+ANTYPE,0 ! Tipo de analise,estatica 
+
+! Definindo restriçoes aplicadas nos keypoint
+
+DK,1,UX,0,,,UY,UZ ! dk,keypoint,direção,dislocamento,,,direção,direção
+
+DK,5,UY,0,,,UZ 
+
+DK,6,UY,0,,,UZ 
+
+! Definindo forças aplicadas no Keypoints 
+
+FK,3,FY,-1000 !fk,keypoint,direção,força 
+
+SOLVE ! Resolver o problema
+
+FINISH ! Finalizando a solução
+
+SAVE ! Salvando o solução
+
+/post1
+
+PRRSOL,	! lista reações de apoios 
+
 
 %\chapter{Segundo Anexo}
 
