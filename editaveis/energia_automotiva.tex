@@ -133,7 +133,105 @@ Como continuidade do presente projeto no futuro, sugere-se o aperfeiçoamento do
 Para demonstrar a eficiência energética ao usuário, serão coletados os dados das potências através de sensores futuramente instalados no pedal da bicicleta, para a potência mecânica, e os dados provenientes da medição através do multímetro, para a potência elétrica. Como mostrado anteriormente, a eficiência é dada pela divisão entre as duas potências obtidas. Pretende-se mostrar para o usuário a eficiência energética em cada uma das vezes que completar um circuito pedalado. Espera-se que essa eficiência varie de acordo com o tipo físico do usuário, o tipo do circuito, a velocidade e principalmente a frequência de pedalagem, que influencia diretamente o valor da potência mecânica.
 
 \subsection{Dados do usuário}
-
+\label{dados-usuario}
 O estudo ergonômico analisa principalmente as condições de trabalho em que as pessoas estão submetidas ao realizar uma atividade. Por exemplo, quando um motorista está ao volante, executa atividades corporais tão intensas quanto à de um operário em seu posto de trabalho. O corpo do motorista está submetido a esforços da posição de pilotagem e das forças transmitidas ao veículo. 
 
 Para o desenvolvimento de projetos de produtos ergonômicos faz-se necessária a aplicação correta das dimensões humanas. Hoje a evolução das formas de análise de dados estatísticos aperfeiçoa as informações levantadas em uma pesquisa de dados antropométricos. Analises realizada ultimamente indicam que se um produto for dimensionado utilizando o manequim de 95\%  masculino e um manequim 5\% feminino este será capaz de acomodar 90\% da população escolhida. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figuras/media}
+  \caption{Representação gráfica de 90\% da população. (Fonte: Ergonomics Data \& Mouting Heights)}
+\end{figure}
+
+Fazendo-se uma pesquisa de mercado, para definição do usuário, temos que o mesmo possui um perfil jovem, e que seu percentil varia entre 5\% para o feminino e 95\% para o masculino. Observando tal variação do percentil, de acordo com a necessidade do usuário, foi feita a compra de uma bicicleta aro 26 que atende esses requisitos de projeto.
+
+De acordo com estudos realizados pela Universidade Federal de São Carlos em parceria com o Instituto Nacional de Tecnologia, foram feitas pesquisas para uma melhor aproximação da variação antropométrica da população brasileira. 
+
+\begin{itemize}
+
+  \item População masculina: utilizando apenas os dados da população masculina coletados em empresas, e as medidas de manequins de outras nacionalidades, foi feita uma regressão múltipla  das variáveis em estudo. Após diversas tentativas, foram estimados os valores, utilizando o modelo que melhor estimou as medidas observadas:
+  Brasileiro = 1,030426 + 0,441852*Francês + 0,551620*Koreano
+Modelo que estima as medidas antropométricas do manequim brasileiro masculino.
+
+  \item População feminina: a população feminina foi estimada seguindo os mesmos passos da população masculina:
+    Brasileira = 0,345534 + 0,990981*Francesa
+\end{itemize}
+
+As medidas do manequim brasileiro, feminino e masculino foram estimadas utilizando tais aproximações. Em que para analise do produto gerado pelo Grupo-X apenas duas variáveis serão de grande importância para definição do usuário, a altura e o peso.
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|p{3cm}|c|c|}
+    \hline
+    Percentis                                                  & Peso  & Altura \\ \hline
+  Feminino(5\%) & 70 Kg & 1,60cm \\ \hline
+  Masculino (95\%) & 58 Kg & 1,72cm \\ \hline
+  \end{tabular}
+  \caption{Tabela de variávies, para os percentis. (Fonte: autor)}
+\end{table}
+
+Em que a altura irá limitar a melhor acomodação do usuário na bicicleta, e o peso será uma variável de entrada para análise da estrutura montada para transformar a bicicleta norma, comprada, em bicicleta ergométrica.
+
+\subsection{Transmissão (Dimensionamento da Correia)}
+
+Além de proporcional uma agradável e divertida pedalada através do ambiente virtual, o nosso produto irá transformar a energia mecânica, gerada durante a pedalada, em energia elétrica. Tal transmissão será feita por correia/polia.
+
+Esse tipo de transmissão possui diversas vantagens, se comparada a transmissão por corrente:
+
+\begin{itemize}
+  \item Podem transmitir grande quantidade de energia;
+  \item Uma das formas mais utilizadas em sistemas de transmissão de potência;
+  \item Possuem custos relativamente baixos, se compara a correntes, por exemplo (manutenção);
+  \item Tendem a proteger a unidade motora;
+  \item Possuem rendimento entre 0.96 a 0.98, pois podem apresentar escorregamentos, dependendo da aderência da correia sobre a polia;
+\end{itemize}
+
+Para ser acoplada ao alternador, a correia escolhida foi a do tipo trapezoidal, uma vez que a polia, onde esta correia será acoplada, possui essa especificação para melhor aderência durante a transmissão. A seguir, o tipo de correia usada,  pode ser verificado:
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{figuras/correia}
+  \caption{Tipos de correias. (Fonte: http://www.correias.com.br/)}
+\end{figure}
+
+Sabendo-se que o diâmetro maior (roda) possui 520 mm e que o diâmetro menor (polia do alternador) possui 78 mm foi feita o calculo do comprimento da correia necessária.
+Em que a distância entre centros C é dada por:
+
+\begin{equation}
+  C = \frac{3d+D}{2}
+\end{equation}
+
+\begin{equation}
+ C = \frac{3*78+520}{2}
+\end{equation}
+
+C = 377mm
+
+
+Com os diâmetros e a distância entre centros encontramos o comprimento da correia, dado por:
+
+
+\begin{equation}
+  L = 2C + 1,57(D + d) + \frac{\left ( D - d \right )^{2}}{4C}
+\end{equation}
+
+
+Assim temos:
+
+
+\begin{equation}
+  L = 2*377 + 1,57(520 + 78) +\frac{\left ( 520 - 78 \right )^{2}}{4\ast 377}
+\end{equation}
+
+L = 1930cm ou L = 1,93cm
+
+Sabendo-se o tipo de correia necessário e o seu comprimento, pode ser feita a escolha para compra, como pode ser observada na figura a seguir:
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.6\textwidth]{figuras/teste}
+  \caption{Correia trapezoidal. (Fonte: Site lesterborrachas)}
+\end{figure}
+
+A correia escolhida estipulada foi a A-89 com perfil A 22.
