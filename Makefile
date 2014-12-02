@@ -21,7 +21,7 @@ EDITAVEIS_SOURCES = abreviaturas.tex anexos.tex  consideracoes.tex divisoes.tex 
 					epigrafe.tex  impactos.tex introducao.tex metas.tex proposta.tex \
 					simbolos.tex agradecimentos.tex dedicatoria.tex \
 					elementosdopostexto.tex errata.tex informacoes.tex logistica.tex \
-					problema.tex conclusao.tex textoepostexto.tex figura.tex requisitos.tex contracapa.tex \
+					problema.tex conclusoes.tex textoepostexto.tex figura.tex requisitos.tex contracapa.tex \
 					rift.tex msp430_circuito.tex unity.tex automotiva_planejamento.tex energia_planejamento.tex \
 					oculusvr.tex ambiente_virtual.tex automotiva_desenvolvimento.tex \
 					acoplamento_alternador.tex eficiencia_energetica.tex \
