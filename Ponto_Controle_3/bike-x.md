@@ -141,9 +141,11 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 -------
 
 # Tecnologias utilizadas
+
 -------
 
-# Dificuldades ténicas
+# Dificuldades técnicas
+
 -------
 
 # Conclusão
