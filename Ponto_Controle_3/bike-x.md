@@ -147,6 +147,8 @@
 -------
 
 # Tecnologias utilizadas
+
+<div style="margin-top: -10px">
   <img src="./figuras/alternador.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/ansys.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/arduino.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
@@ -166,7 +168,8 @@
   <img src="./figuras/github.png" style="width: 250px; height: 140px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/puppet.png" style="width: 250px; height: 140px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/git.png" style="width: 200px; height: 140px; float: left; margin: 5px 5px 0px 5px"/>
-
+  <img src="./figuras/redmine_logo_v1.png" style="width: 200px; height: 140px; float: left; margin: 5px 5px 0px 5px"/>
+</div>
 -------
 
 # Dificuldades técnicas
