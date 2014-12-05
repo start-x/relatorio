@@ -37,7 +37,8 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 -----
 
 # Pra quem?
-  <img src="./figuras/rotinaAcademia.jpg" style="width: 250px; float: left"/>
+  <img src="./figuras/rotinaAcademia.jpg" style="width: 300px; height:
+  300px; float: left"/>
   <img src="./figuras/bikeCabide.jpg" style="width: 250px"/>
 -----
 
