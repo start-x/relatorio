@@ -6,7 +6,7 @@
 
 ###### UnB, 5 de Dezembro de 2014
 
-<sup id="fn1">Slides disponíveis [aqui](http://start-x.github.io/relatorio) </sup>
+<sup id="fn1">Slides disponíveis em [http://start-x.github.io/relatorio](http://start-x.github.io/relatorio) </sup>
 
 -------
 
