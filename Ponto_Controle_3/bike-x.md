@@ -84,7 +84,9 @@
   </tr>
 </table>
 
+
 <table border="2" class="tg" style="width:70% position: relative; float: right; margin-top: 0px; margin-left: 20px; font-size: 18px">
+
   <!-- <caption>Custo com equipamentos e Materiais</caption> -->
   <tr>
     <th class="tg-031e">Horas trabalhadas por pessoa</th>
@@ -150,14 +152,14 @@
   <img src="./figuras/arduino.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/bash.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/bike.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
-  <img src="./figuras/bateria.jpg" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/bateria.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/c++.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/csharp.png" style="width: 115px; height:115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/debian.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/potenciometro.gif" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/pyserial.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/python.png" style="width: 200px; height: 150px; float: left; margin: 5px 5px 0px 5px"/>
-  <img src="./figuras/sensTacometro.jpg" style="width: 115px; height:  115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/sensTacometro.png" style="width: 115px; height:  115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/travis.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/ubuntu.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
   <img src="./figuras/unity.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
