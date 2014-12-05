@@ -4,7 +4,7 @@
 
 <br><br>
 
-###### UnB, 31 de Outubro de 2014
+###### UnB, 5 de Dezembro de 2014
 
 <sup id="fn1">Slides disponíveis [aqui](http://start-x.github.io/relatorio) </sup>
 
@@ -16,10 +16,8 @@
 - Pra quem?
 - Marketing
 - Quanto custa pra desenvolver?
-- Nós \o/
 - Concorrentes? Obstáculos?
 - Desenvolvimento
-- Próximos passos
 - Conclusão
 ----------
 
@@ -40,16 +38,10 @@
 # Quanto custa pra desenvolver?
 -----
 
-# Nós \o/
------
-
 # Concorrentes? Obstáculos?
 -------
 
 # Desenvolvimento
--------
-
-# Próximos passos
 -------
 
 # Conclusão
