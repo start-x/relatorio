@@ -1,12 +1,12 @@
 # **Bike-X**
 
-## Start-X
+<h2 style = "font-size: 40px"> Start-X</h2>
 
 <br><br>
 
-###### UnB, 5 de Dezembro de 2014
+<h6 style = "font-size: 25px"> UnB, 5 de Dezembro de 2014 </h6>
 
-<sup id="fn1">Slides disponíveis em [http://start-x.github.io/relatorio](http://start-x.github.io/relatorio) </sup>
+<sup id="fn1" style "font-size: 20px">Slides disponíveis em [http://start-x.github.io/relatorio](http://start-x.github.io/relatorio) </sup>
 
 -------
 
