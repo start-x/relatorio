@@ -122,6 +122,9 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 -----
 
 # Concorrentes? Obstáculos?
+  <img src="./figuras/bike.jpg" style="width: 250px; float: left; margin-top: 350px"/>
+  <img src="./figuras/bike_ergometrica.jpg" style="width: 250px; position: relative; float: left; height: 300px; margin-top: 130px; margin-left: 10px" />
+  <img src="./figuras/money.jpg" style="width: 200px"/>
 -------
 
 # Desenvolvimento
