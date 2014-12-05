@@ -84,7 +84,7 @@
   </tr>
 </table>
 
-<table border="2" class="tg" style="width:70% position: relative; float: right; margin-top: 250px; margin-left: 20px; font-size: 18px">
+<table border="2" class="tg" style="width:70% position: relative; float: right; margin-top: 0px; margin-left: 20px; font-size: 18px">
   <!-- <caption>Custo com equipamentos e Materiais</caption> -->
   <tr>
     <th class="tg-031e">Horas trabalhadas por pessoa</th>
@@ -196,4 +196,18 @@
 ------
 
 # Dúvidas?!
+
+-----
+
+
+<embed  type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2"   width="60%"        height="95%" id="vlc" loop="yes" autoplay="yes" target="rtp://@192.168.1.151:5004"  style="float: right"></embed>
+
+
+
+
+
+
+
+
+
 
