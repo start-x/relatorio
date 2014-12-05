@@ -146,6 +146,10 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 
 # Dificuldades técnicas
 
+  - Scripts do Unity 3D
+  - MSP430
+  - Alternador
+
 -------
 
 # Conclusão

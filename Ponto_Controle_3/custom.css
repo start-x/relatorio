@@ -2,8 +2,8 @@
 
 @import url(../css_support/font/cabinsketch.ttf);
 @import url(../css_support/font/Dadhand.ttf);
-@import url(https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch.css);
-@import url('http://www.fontsaddict.com/fontface/dadhand.ttf');
+/*@import url(https://s3.amazonaws.com/static.slid.es/fonts/cabinsketch/cabinsketch.css);*/
+/*@import url('http://www.fontsaddict.com/fontface/dadhand.ttf');*/
 
 @font-face {
   font-family: 'Dadhand';
