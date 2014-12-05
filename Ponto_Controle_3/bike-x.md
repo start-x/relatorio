@@ -134,7 +134,10 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 -------
 
 # Fluxo de trabalho
-<img src='figuras/trabalho_equipe.jpeg'></img>
+  <img src="./figuras/trabalho_equipe.jpeg" style="width: 350px; height:
+  300px; float: left"/>
+  <img src="./figuras/planejamento_trabalho.jpg" style="width: 400px;
+  height: 350px"/>
 -------
 
 # Tecnologias utilizadas
