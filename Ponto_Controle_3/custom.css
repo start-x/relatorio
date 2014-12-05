@@ -23,13 +23,14 @@ body {
   /* Colour outside of slide */
 
   font-family: 'Dadhand', 'Purisa', monospace;
-  height:100%;
-  width:100%;
+  font-size: 75%;
+  /*height:100%;
+  width:100%;*/
 }
 div.presentation,
 div.slide {
   background-color: #eef;
-
+  font-weight: 100;
 }
 div.slide h1,
 div.slide h2,
@@ -37,7 +38,6 @@ div.slide h3,
 div.slide h4,
 div.slide h5 {
   color: #111;
-  font-weight: normal;
   font-family: 'Cabin Sketch', 'Dadhand', sans-serif;
 }
 div.slide h1,
@@ -68,4 +68,8 @@ sup {
 
 ul li{
     font-size: 75%;
+}
+
+table{
+    font-size: 45%;
 }
