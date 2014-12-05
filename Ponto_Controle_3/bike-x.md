@@ -11,21 +11,23 @@
 -------
 
 # Agenda
-- O que é o Bike-X? 
-- O que queremos resolver?
-- Pra quem?
-- Marketing
-- Quanto custa pra desenvolver?
-- Concorrentes? Obstáculos?
-- Desenvolvimento
-- Conclusão
+<ul> 
+<li style = "font-size: 30px"> O que é o Bike-X? </li>
+<li style = "font-size: 30px"> O que queremos resolver?</li>
+<li style = "font-size: 30px"> Pra quem?</li>
+<li style = "font-size: 30px"> Marketing</li>
+<li style = "font-size: 30px"> Quanto custa pra desenvolver?</li>
+<li style = "font-size: 30px">  Concorrentes? Obstáculos?</li>
+<li style = "font-size: 30px">  Desenvolvimento</li>
+<li style = "font-size: 30px"> Conclusão</li>
+</ul>
 ----------
 
 # O que é o Bike-X?
 
-Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de estar?
+<p style = "font-size: 30px; margin-top: 50px">Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de estar?</p>
 
-<img src="figuras/thinkinBike.png" style="width: 60% ;height: 60%;" />
+<img src="figuras/thinkinBike.png" style="width: 60% ;height: 60%; margin-top: 150px" />
 
 ----------
 
@@ -38,8 +40,8 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 
 # Pra quem?
   <img src="./figuras/rotinaAcademia.jpg" style="width: 300px; height:
-  300px; float: left"/>
-  <img src="./figuras/bikeCabide.jpg" style="width: 250px"/>
+  300px; float: left; margin-top: 50px"/>
+  <img src="./figuras/bikeCabide.jpg" style="width: 250px; margin-top: 150px"/>
 -----
 
 # Marketing
@@ -54,7 +56,7 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 </style>
 
 
-<table border="2" class="tg" style="width:70% float: left; margin-top: 50px">
+<table border="2" class="tg" style="width:40%; float: left; margin-top: 50px; font-size: 20px; margin-left: 50px">
   <caption>Custo com equipamentos e Materiais</caption>
   <tr>
     <th class="tg-031e">Engenharia</th>
@@ -82,7 +84,7 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
   </tr>
 </table>
 
-<table border="2" class="tg" style="width:70% position: relative; float: right; margin-top: 5px; margin-left: 20px">
+<table border="2" class="tg" style="width:70% position: relative; float: right; margin-top: 250px; margin-left: 20px; font-size: 18px">
   <!-- <caption>Custo com equipamentos e Materiais</caption> -->
   <tr>
     <th class="tg-031e">Horas trabalhadas por pessoa</th>
@@ -98,7 +100,7 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
   </tr>
 </table>
 
-<table border="2" class="tg" style="width:70% relative; float: center right; margin-top: 150px;">
+<table border="2" class="tg" style="width:60%; float: center right; margin-top: 400px;font-size: 20px">
   <!-- <caption>Custo com equipamentos e Materiais</caption> -->
   <tr>
     <th class="tg-031e">Tipo do Custo</th>
@@ -128,9 +130,11 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 -------
 
 # Desenvolvimento
-- Fluxo de trabalho
-- Tecnologias utilizadas
-- Dificuldades técnicas
+<ul>
+  <li style = "font-size: 30px;"> Fluxo de trabalho </li>
+  <li style = "font-size: 30px;"> Tecnologias utilizadas </li>
+  <li style = "font-size: 30px;"> Dificuldades técnicas </li>
+</ul>
 -------
 
 # Fluxo de trabalho
@@ -141,31 +145,54 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 -------
 
 # Tecnologias utilizadas
+  <img src="./figuras/alternador.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/ansys.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/arduino.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/bash.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/bike.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/bateria.jpg" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/c++.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/csharp.png" style="width: 115px; height:115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/debian.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/potenciometro.gif" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/pyserial.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/python.png" style="width: 200px; height: 150px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/sensTacometro.jpg" style="width: 115px; height:  115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/travis.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/ubuntu.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/unity.png" style="width: 115px; height: 115px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/github.png" style="width: 250px; height: 140px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/puppet.png" style="width: 250px; height: 140px; float: left; margin: 5px 5px 0px 5px"/>
+  <img src="./figuras/git.png" style="width: 200px; height: 140px; float: left; margin: 5px 5px 0px 5px"/>
 
 -------
 
 # Dificuldades técnicas
-
-  - Scripts do Unity 3D
-  - MSP430
-  - Alternador
-
+<ul>
+  <li style = "font-size: 30px"> Scripts do Unity 3D </li>
+  <li style = "font-size: 30px"> MSP430 </li>
+  <li style = "font-size: 30px"> Alternador </li>
+</ul>
 -------
 
 # Conclusão
-- Melhora significativa da experiência do usuário na prática de atividade física
-- Reprodutibilidade do projeto
-- Boa interação entre todas as áreas
-- Bom nível técnico da equipe
-- Protótipo finalizado com sucesso \o/
+<ul>
+  <li style = "font-size: 30px;"> Melhora significativa da experiência do usuário na prática de atividade física
+  <li style = "font-size: 30px"> Reprodutibilidade do projeto </li> 
+  <li style = "font-size: 30px"> Boa interação entre todas as áreas </li>
+  <li style = "font-size: 30px"> Bom nível técnico da equipe </li>
+  <li style = "font-size: 30px">  Protótipo finalizado com sucesso \o/ </li>
+</ul>
 ------
 
 # Próximos Passos
-- Aumentar modularização
-- Adicionar mais sensores
-- Melhorar design do produto
-- Adicionar novos ambientes virtuais
-- Modificar base para ser móvel
+<ul>
+  <li style = "font-size:30px"> Aumentar modularização </li>
+  <li style = "font-size:30px"> Adicionar mais sensores </li>
+  <li style = "font-size:30px"> Melhorar design do produto </li>
+  <li style = "font-size:30px"> Adicionar novos ambientes virtuais </li>
+  <li style = "font-size:30px"> Modificar base para ser móvel </li>
+</ul>
 ------
 
 # Dúvidas?!
