@@ -197,17 +197,3 @@
 
 # Dúvidas?!
 
------
-
-
-<embed  type="application/x-vlc-plugin" pluginspage="http://www.videolan.org" version="VideoLAN.VLCPlugin.2"   width="60%"        height="95%" id="vlc" loop="yes" autoplay="yes" target="rtp://@192.168.1.151:5004"  style="float: right"></embed>
-
-
-
-
-
-
-
-
-
-
