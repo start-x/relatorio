@@ -122,9 +122,9 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 -----
 
 # Concorrentes? Obstáculos?
-  <img src="./figuras/bike.jpg" style="width: 250px; float: left; margin-top: 350px"/>
-  <img src="./figuras/bike_ergometrica.jpg" style="width: 250px; position: relative; float: left; height: 300px; margin-top: 130px; margin-left: 10px" />
-  <img src="./figuras/money.jpg" style="width: 200px"/>
+  <img src="./figuras/bike.png" style="width: 250px; float: left; margin-top: 350px"/>
+  <img src="./figuras/bike_ergometrica.png" style="width: 250px; position: relative; float: left; height: 300px; margin-top: 130px; margin-left: 10px" />
+  <img src="./figuras/money.png" style="width: 200px"/>
 -------
 
 # Desenvolvimento
@@ -136,7 +136,7 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 # Fluxo de trabalho
   <img src="./figuras/trabalho_equipe.jpeg" style="width: 350px; height:
   300px; float: left"/>
-  <img src="./figuras/planejamento_trabalho.jpg" style="width: 400px;
+  <img src="./figuras/planejamento_trabalho.png" style="width: 400px;
   height: 350px"/>
 -------
 
