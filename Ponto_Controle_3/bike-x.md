@@ -56,7 +56,7 @@
 </style>
 
 
-<table border="2" class="tg" style="width:40%; float: left; margin-top: 50px; font-size: 20px; margin-left: 50px">
+<table border="2" class="tg" style="width:40%; font-size: 20px; margin-left: 50px">
   <caption>Custo com equipamentos e Materiais</caption>
   <tr>
     <th class="tg-031e">Engenharia</th>
@@ -102,7 +102,7 @@
   </tr>
 </table>
 
-<table border="2" class="tg" style="width:60%; float: center right; margin-top: 400px;font-size: 20px">
+<table border="2" class="tg" style="width:60%; float: center right; margin-top: 0px;font-size: 20px">
   <!-- <caption>Custo com equipamentos e Materiais</caption> -->
   <tr>
     <th class="tg-031e">Tipo do Custo</th>
@@ -197,5 +197,5 @@
 </ul>
 ------
 
-# Dúvidas?!
+# Obrigado !
 
