@@ -30,8 +30,8 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 ----------
 
 # O que queremos resolver?
-  <img src="./figuras/tombo.jpg" style="width: 300px; float: left; margin-top: 350px"/>
-  <img src="./figuras/monotonia.png" style="width: 250px; position: relative; float: left; height: 350px; margin-top: 130px; margin-left: 10px" />
+  <img src="./figuras/tombo.jpg" style="width: 300px; float: left; margin-top: 250px"/>
+  <img src="./figuras/monotonia.png" style="width: 250px; position: relative; float: left; height: 350px; margin-top: 30px; margin-left: 10px" />
   <img src="./figuras/old-bike.jpg" style="width: 250px"/>
 
 -----
@@ -54,7 +54,7 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
 </style>
 
 
-<table border="2" class="tg" style="width:70% float: left; margin-top: 350px">
+<table border="2" class="tg" style="width:70% float: left; margin-top: 50px">
   <caption>Custo com equipamentos e Materiais</caption>
   <tr>
     <th class="tg-031e">Engenharia</th>
@@ -82,7 +82,7 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
   </tr>
 </table>
 
-<table border="2" class="tg" style="width:70% position: relative; float: right; margin-top: 130px; margin-left: 10px">
+<table border="2" class="tg" style="width:70% position: relative; float: right; margin-top: 5px; margin-left: 20px">
   <!-- <caption>Custo com equipamentos e Materiais</caption> -->
   <tr>
     <th class="tg-031e">Horas trabalhadas por pessoa</th>
@@ -98,7 +98,7 @@ Já imaginou poder andar de bicicleta em qualquer lugar sem sair de sua sala de 
   </tr>
 </table>
 
-<table border="2" class="tg" style="width:70%">
+<table border="2" class="tg" style="width:70% relative; float: center right; margin-top: 150px;">
   <!-- <caption>Custo com equipamentos e Materiais</caption> -->
   <tr>
     <th class="tg-031e">Tipo do Custo</th>
